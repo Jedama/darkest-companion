@@ -1,0 +1,90 @@
+{
+  "identifier": "kheir",
+  "title": "Heir",
+  "name": "Percival Dantill",
+  "level": 0,
+  "money": 0,
+  "summary": "The Heir to the estate is a brilliant scholar and capable manager who is desperately trying to cope in this world of horrors far beyond his comfort. Despite being a man of cowardice and meek nature, Percival's keen intellect and organizational skills prove invaluable in coordinating the chaotic efforts to reclaim his ancestral home.",
+  "history": "Raised in academic circles far from the estate's dark legacy, Percival was reluctantly drawn into the family's quest by his sister. Despite his initial hesitation, he's found ways to apply his scholarly knowledge and managerial expertise to the daunting task at hand.",
+  "race": "Human",
+  "gender": "Male",
+  "religion": "None",
+  "traits": [
+    "Organized",
+    "Cowardly",
+    "Scholarly",
+    "Anxious",
+    "Resourceful",
+    "Possessive"
+  ],
+  "status": {
+    "physical": 100,
+    "mental": 100,
+    "affliction": "",
+    "description": "In good health and high spitits",
+    "wounds": [],
+    "diseases": []
+  },
+  "stats": {
+    "strength": 2,
+    "agility": 2,
+    "intelligence": 9,
+    "authority": 7,
+    "sociability": 8
+  },
+  "equipment": [
+    "Letter opener",
+    "Wine bottle"
+  ],
+  "trinkets": [
+  ],
+  "appearance": {
+    "height": "Short",
+    "build": "Chubby",
+    "skinTone": "Fair",
+    "hairColor": "Blond",
+    "hairStyle": "Curled and styled",
+    "features": "Large nose and round face"
+  },
+  "clothing": {
+    "head": "None",
+    "body": "Well-tailored jacket and waistcoat",
+    "legs": "Mustard yellow breeches",
+    "other": "Bowtie"
+  },
+  "combat": {
+    "role": "Support Tactician",
+    "strengths": [
+      "Strategic planning",
+      "Resource management",
+      "Knowledge application"
+    ],
+    "weaknesses": [
+      "Close combat",
+      "Endurance",
+      "Falls apart under stress"
+    ]
+  },
+  "magic": "None",
+  "notes": [
+    "Hates waste and is very possesive of his belongings",
+    "Has a penchant for fine wines to calm his nerves"
+  ],
+  "relationships": {
+    "Heiress": {
+      "affinity": 8,
+      "dynamic": "Familial",
+      "description": "Percival admires, and is deeply jealous of, his sister's strength and ability to take initiave. Despite their fierce bickering, The Heir loves his sister."
+    },   
+    "Crusader": {
+      "affinity": 4,
+      "dynamic": "Cautious respect",
+      "description": "Though he recognizes his potential, The Heir is dubious over the trustworthiness of his new guard, the Crusader."
+    },    
+    "Highwayman": {
+      "affinity": 2,
+      "dynamic": "Distrustful",
+      "description": "The Heir is distrusting towards the Highwayman, scared that the rugged man will betray them and steal his possessions."
+    } 
+  }
+}

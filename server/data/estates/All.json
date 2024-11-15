@@ -1,0 +1,2174 @@
+{
+  "estateName": "All",
+  "money": 0,
+  "month": -1,
+  "characters": {
+    "abomination": {
+      "identifier": "abomination",
+      "title": "Abomination",
+      "name": "Bigby",
+      "level": 0,
+      "money": 0,
+      "summary": "A tormented shapeshifter cursed with eldritch powers. Bigby struggles to control the monstrous force within him, oscillating between his human form and a terrifying bestial transformation. His tragic past and internal conflict make him a dangerous but potentially powerful ally.",
+      "history": "Beaten, branded, and imprisoned for untold decades, Bigby eventually escaped his confinement. He carries the burden of an eldritch curse that gives him immense power at a terrible cost. The scars of his imprisonment and the constant battle with his inner demon have shaped him into a conflicted and dangerous individual.",
+      "race": "Eldritch shapeshifter",
+      "gender": "Male",
+      "religion": "The Light",
+      "traits": [
+        "Tormented",
+        "Aggressive",
+        "Paranoid",
+        "Resilient",
+        "Conflicted"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [
+          "A-shaped scar on his head"
+        ],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 9,
+        "agility": 6,
+        "intelligence": 5,
+        "authority": 3,
+        "sociability": 2
+      },
+      "equipment": [
+        "Cursed chains"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Tall",
+        "build": "Muscular",
+        "skinTone": "Pale",
+        "hairColor": "Dark",
+        "hairStyle": "Unkempt asymmetrical undercut",
+        "features": "Stubble"
+      },
+      "clothing": {
+        "headwear": "None",
+        "top": "Tattered cloak",
+        "pants": "Worn trousers",
+        "accessories": "Chains wrapped around torso and arms"
+      },
+      "combat": {
+        "role": "Fighter",
+        "strengths": [
+          "Immense physical strength in beast form",
+          "Regenerative abilities",
+          "Resilience"
+        ],
+        "weaknesses": [
+          "Lack of control",
+          "Prone to berserk rages",
+          "Weak in human form"
+        ]
+      },
+      "magic": "Eldritch transformation",
+      "notes": [
+        "Fears losing control and harming allies"
+      ],
+      "relationships": {}
+    },
+    "antiquarian": {
+      "identifier": "antiquarian",
+      "title": "Antiquarian",
+      "name": "Josephine",
+      "level": 0,
+      "money": 0,
+      "summary": "The Antiquarian is a cunning and morally ambiguous character driven by an insatiable greed for valuable artifacts and occult knowledge. Her pursuit of power and wealth leads her to dark places, both literally and figuratively. She has arrived at the estate to pilfer the Ancestor's relics, and in search of the final piece of a mysterious puzzle box.",
+      "history": "Originally from the East, the Antiquarian has traveled the world trading in supernatural relics. She became a disciple to a sorcerer to advance her knowledge of the arcane, only to betray and imprison him in a censer during a ritual. Her past is marked by self-serving decisions and a willingness to sacrifice others for her goals.",
+      "race": "Human",
+      "gender": "Female",
+      "religion": "None",
+      "traits": [
+        "Ambitious",
+        "Knowledgeable",
+        "Greedy",
+        "Cunning",
+        "Immoral"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 2,
+        "agility": 6,
+        "intelligence": 8,
+        "authority": 5,
+        "sociability": 7
+      },
+      "equipment": [
+        "Censer (containing her former master's soul)",
+        "Kukri",
+        "Flash powder"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Average",
+        "build": "Slender",
+        "skinTone": "Tanned",
+        "hairColor": "Dark",
+        "hairStyle": "Short",
+        "features": "Long fingers"
+      },
+      "clothing": {
+        "headwear": "Blue bandana",
+        "top": "Light-colored robe",
+        "pants": "Light pants",
+        "accessories": "Orange scarf covering lower face, multiple necklaces"
+      },
+      "combat": {
+        "role": "Scavenger",
+        "strengths": [
+          "Finding valuables",
+          "Healing and invigorating vapors",
+          "Dodging and hiding"
+        ],
+        "weaknesses": [
+          "Weak",
+          "Frail",
+          "Selfish"
+        ]
+      },
+      "magic": "None",
+      "notes": [
+        "Possesses a censer containing her former master's soul",
+        "Driven beyond all else to open her puzzle box",
+        "Her former master occasionally whispers to her, trying to escape"
+      ],
+      "relationships": {}
+    },
+    "arbalest": {
+      "identifier": "arbalest",
+      "title": "Arbalest",
+      "name": "Missandei",
+      "level": 0,
+      "money": 0,
+      "summary": "A skilled crossbowwoman with a tragic past, the Arbalest is a survivor who has honed her skills with the arbalest through years of hardship and adventure. Her quest for wealth is driven by a deeper search for a home she may never find.",
+      "history": "After a violent attack on her home that killed her father, the Arbalest was forced to flee with only a crossbow for protection. She has since traveled widely, serving as a mercenary, and has developed exceptional skills with her weapon and knowledge of herbal medicine.",
+      "race": "Human",
+      "gender": "Female",
+      "religion": "None",
+      "traits": [
+        "Survivor",
+        "Skilled",
+        "Determined",
+        "Resourceful",
+        "Independent"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 6,
+        "agility": 8,
+        "intelligence": 8,
+        "authority": 6,
+        "sociability": 4
+      },
+      "equipment": [
+        "Arbalest (crossbow) named Millicent",
+        "Armor"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Average",
+        "build": "Athletic",
+        "skinTone": "Dark",
+        "hairColor": "Black",
+        "hairStyle": "Braids tied up in a short upright ponytail",
+        "features": "Deep lines below fierce eyes"
+      },
+      "clothing": {
+        "headwear": "White headband",
+        "top": "Metal armor emphasizing modest chest",
+        "pants": "Baggy pants and greaves",
+        "accessories": "Gauntlet on one hand and glove on the other"
+      },
+      "combat": {
+        "role": "Sharpshooter",
+        "strengths": [
+          "Exceptional accuracy",
+          "Healing knowledge",
+          "Survival skills"
+        ],
+        "weaknesses": [
+          "Close combat",
+          "Unversatile"
+        ]
+      },
+      "magic": "None",
+      "notes": [
+        "Cannot accurately remember the traumatic events of her childhood"
+      ],
+      "relationships": {}
+    },
+    "bounty_hunter": {
+      "identifier": "bounty_hunter",
+      "title": "Bounty Hunter",
+      "name": "Tardif",
+      "level": 0,
+      "money": 0,
+      "summary": "A ruthless and professional bounty hunter who takes pride in his work. The Bounty Hunter is a skilled fighter, motivated primarily by profit and self-interest. His cynical worldview and loner tendencies suggest a dark past that he refuses to talk about.",
+      "history": "While his past is a well-guarded secret, The Bounty Hunter has clearly lived a life of violence and danger. He's honed his skills as a bounty hunter, becoming a calculated and efficient killer who specializes in identifying weak points and executing targets.",
+      "race": "Human",
+      "gender": "Male",
+      "religion": "",
+      "traits": [
+        "Professional",
+        "Ruthless",
+        "Cynical",
+        "Loner",
+        "Taciturn"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 8,
+        "agility": 7,
+        "intelligence": 7,
+        "authority": 4,
+        "sociability": 1
+      },
+      "equipment": [
+        "War axe",
+        "Grappling hook",
+        "Flash grenades",
+        "Caltrops"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Average",
+        "build": "Athletic",
+        "skinTone": "Tanned",
+        "hairColor": "Dark",
+        "hairStyle": "Short",
+        "features": "Stubble, strong jawline"
+      },
+      "clothing": {
+        "headwear": "Metallic mask with cloth covering face",
+        "top": "Dark armor with shoulder pads",
+        "pants": "Dark armored leggings",
+        "accessories": "Belt of hunting tools"
+      },
+      "combat": {
+        "role": "Fighter",
+        "strengths": [
+          "Targeting weak points",
+          "Single combat",
+          "Adaptability",
+          "Follows orders (when paid to)"
+        ],
+        "weaknesses": [
+          "Difficulty working in teams",
+          "Demands high pay"
+        ]
+      },
+      "magic": "None",
+      "notes": [
+        "Takes pride in his professional skills",
+        "Refuses to remove his mask and let anyone see his face"
+      ],
+      "relationships": {}
+    },
+    "cataphract": {
+      "identifier": "cataphract",
+      "title": "Cataphract",
+      "name": "Nyriad & Cargadon",
+      "level": 0,
+      "money": 0,
+      "summary": "The Cataphract is a formidable mounted warrior from the Levantine Sultanate, bonded with her supernatural horse. Together they form an unstoppable cavalry unit, using their combined skills to charge into battle and vanquish foes.",
+      "history": "Once a respected warrior of the Levantine Sultanate, the Cataphract's life changed when her beloved horse was fatally wounded. Desperate, she stole a powerful artifact to revive him, resulting in their exile. Now the spirit of the horse speaks to her, and they fight together against the horrors of the estate.",
+      "race": "Human",
+      "gender": "Female",
+      "religion": "Unspecified",
+      "traits": [
+        "Proud",
+        "Valorous",
+        "Disciplined",
+        "Stern",
+        "Loyal",
+        "Battle-hardened"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 9,
+        "agility": 8,
+        "intelligence": 7,
+        "authority": 8,
+        "sociability": 5
+      },
+      "equipment": [
+        "Spear",
+        "Splint mail armor",
+        "Banner"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Tall",
+        "build": "Athletic",
+        "skinTone": "Sun-tanned (hidden by full armor)",
+        "hairColor": "Dark",
+        "hairStyle": "Ponytail (hidden by helmet)",
+        "features": "Angular facial structure and prominent cheekbones"
+      },
+      "clothing": {
+        "headwear": "Plumed helmet",
+        "top": "Splint mail armor",
+        "pants": "Riding leathers",
+        "accessories": "Red scarf"
+      },
+      "combat": {
+        "role": "Warrior",
+        "strengths": [
+          "Mobility",
+          "Battlefield control",
+          "Command"
+        ],
+        "weaknesses": [
+          "Slow attrition"
+        ]
+      },
+      "magic": "Limited supernatural connection with Cargadon",
+      "notes": [
+        "Carries the skull of her deceased horse, which grants her power",
+        "Can communicate with the horse's spirit"
+      ],
+      "relationships": {}
+    },
+    "cook": {
+      "identifier": "cook",
+      "title": "Itinerant Cook",
+      "name": "Gertrude",
+      "level": 0,
+      "money": 0,
+      "summary": "The Itinerant Cook is an elderly, but strong woman. She is an experienced and world-wise traveling cook. Pragmatic and sometimes cynical, she excels in her culinary skills and firmly believes in the power of good food. She's resourceful, adaptable, and has faced numerous challenges in her long life.",
+      "history": "The Itinerant Cook has spent her life working across a wide range of settings from high-end kitchens to makeshift camp setups. Her travels have exposed her to diverse and often dangerous situations, which she has consistently survived. She has a dark side to her expertise, including knowledge of luring and slaughtering both beasts and people.",
+      "race": "Human",
+      "gender": "Female",
+      "religion": "",
+      "traits": [
+        "Experienced",
+        "Pragmatic",
+        "Self-reliant",
+        "Resourceful",
+        "Curt",
+        "Supportive"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 3,
+        "agility": 2,
+        "intelligence": 8,
+        "authority": 7,
+        "sociability": 6
+      },
+      "equipment": [
+        "Chef's knife",
+        "Spoon",
+        "Vial of secret ingredient"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Short",
+        "build": "Stout",
+        "skinTone": "Tan",
+        "hairColor": "White",
+        "hairStyle": "Shaggy, disheveled short cut",
+        "features": "White eyebrows, age lines, defined cheekbones"
+      },
+      "clothing": {
+        "headwear": "Goggles",
+        "top": "Apron over a tan tunic",
+        "pants": "Dark trousers",
+        "accessories": "Red sash, Necklace with pendant"
+      },
+      "combat": {
+        "role": "Support",
+        "strengths": [
+          "Good food",
+          "Resourceful",
+          "Commanding voice"
+        ],
+        "weaknesses": [
+          "Old",
+          "Weak",
+          "Frail",
+          "Slow"
+        ]
+      },
+      "magic": "None",
+      "notes": [
+        "Carries an enourmous backpack with cooking supplies",
+        "Known for creating unusual but effective dishes from strange ingredients"
+      ],
+      "relationships": {}
+    },
+    "crusader": {
+      "identifier": "crusader",
+      "title": "Crusader",
+      "name": "Reynauld",
+      "level": 0,
+      "money": 0,
+      "summary": "The Crusader, rose from a common conscript to a champion of over 100 holy wars. Transformed by the horrors of battle and church abuse, he abandoned his family, unable to face them. Now seeking redemption, he's drawn to the estate to combat unholy forces, haunted by memories of his past life.",
+      "history": "Once a common man conscripted into the holy war, the Crusader left behind a wife and young son. Rising through the ranks, he became a champion and army leader. The wars and church changed him profoundly, hollowing him out and turning him into a zealous warrior for the light. Unable to return to his family, he vowed to live his remaining days as a Crusader.",
+      "race": "Human",
+      "gender": "Male",
+      "religion": "The Light",
+      "traits": [
+        "Zealous",
+        "Stalwart",
+        "Inspiring",
+        "Kleptomanic",
+        "Conflicted"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spitits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 8,
+        "agility": 3,
+        "intelligence": 5,
+        "authority": 7,
+        "sociability": 4
+      },
+      "equipment": [
+        "Holy Sword (family heirloom)",
+        "Crusader Armor",
+        "Holy Banners",
+        "Sacred Scrolls"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Tall",
+        "build": "Muscular",
+        "skinTone": "Fair",
+        "hairColor": "Black",
+        "hairStyle": "Short",
+        "features": "Full beard"
+      },
+      "clothing": {
+        "head": "Steel helm",
+        "body": "Chainmail hauberk",
+        "legs": "Mail chausses",
+        "other": "Purple tunic with religious insignia"
+      },
+      "combat": {
+        "role": "Warrior",
+        "strengths": [
+          "Leadership",
+          "Endurance",
+          "Martial prowess"
+        ],
+        "weaknesses": [
+          "Ranged combat",
+          "Speed",
+          "Evation"
+        ]
+      },
+      "magic": "The light, a divine power that lets him smite foes and heal allies.",
+      "notes": [
+        "Has an irresistible kleptomania."
+      ],
+      "relationships": {
+        "Heiress": {
+          "affinity": 5,
+          "dynamic": "Professional",
+          "description": "Reynauld maintains a professional relationship with the Heiress, focusing on fulfilling his role as her protector with a devout sense of duty."
+        },
+        "Heir": {
+          "affinity": 4,
+          "dynamic": "Skeptical",
+          "description": "While Reynauld intends to uphold his duty with silent diligence, the realises the meek Heir is unfit to lead."
+        },
+        "Highwayman": {
+          "affinity": 7,
+          "dynamic": "Comrade",
+          "description": "The Crusader sees in the Highwayman a kindred spirit; both men with troubled pasts seeking to carve out a purpose through the quest they now share."
+        }
+      }
+    },
+    "duchess": {
+      "identifier": "duchess",
+      "title": "Duchess",
+      "name": "Constance",
+      "level": 0,
+      "money": 0,
+      "summary": "A noblewoman turned monster, the Duchess is a formidable fencer who has embraced the Crimson Curse inflicted upon her by the Countess. She now seeks vengeance against the curse-inflicted court, particularly the Countess, while finding an uneasy alliance with the Heirs and fighters of the Hamlet.",
+      "history": "Born into nobility, Constance lived a life of luxury and became the court's finest fencer. She developed a rivalry with the Countess, who later disappeared for years. Upon receiving an invitation to a party in the Ancestor's courtyard along with a chalice of blood, Constance became infected with the Crimson Curse. Now transformed, she seeks revenge against the Baron, the Viscount, and especially the Countess.",
+      "race": "Bloodsucker shapeshifter",
+      "gender": "Female",
+      "religion": "None",
+      "traits": [
+        "Refined",
+        "Prideful",
+        "Sarcastic",
+        "Determined",
+        "Monstrous",
+        "Pretentious"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 9,
+        "agility": 6,
+        "intelligence": 7,
+        "authority": 7,
+        "sociability": 5
+      },
+      "equipment": [
+        "Black blade (heirloom weapon)",
+        "Tattered dress reinforced with iron plates"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Tall",
+        "build": "Athletic",
+        "skinTone": "Pale white",
+        "hairColor": "Dark red",
+        "hairStyle": "Short and messy (hidden inside helmet)",
+        "features": "Large chest"
+      },
+      "clothing": {
+        "headwear": "Large, angular helmet that hides everything but her toothy mouth",
+        "top": "Tight corset showing ample cleavage",
+        "pants": "Tattered, flowing dress",
+        "accessories": "None"
+      },
+      "combat": {
+        "role": "Melee Fighter",
+        "strengths": [
+          "Peerless fencer",
+          "Transformation into a powerful beast",
+          "Resilient"
+        ],
+        "weaknesses": [
+          "Driven by insatiable hunger",
+          "Easily loses control",
+          "Unsettles teammates"
+        ]
+      },
+      "magic": "Crimson Curse transformation",
+      "notes": [
+        "Finds comfort in her monstrous form",
+        "Considers her beast form more representative of her true self",
+        "Struggles with an insatiable hunger"
+      ],
+      "relationships": {}
+    },
+    "flagellant": {
+      "identifier": "flagellant",
+      "title": "Flagellant",
+      "name": "Damien",
+      "level": 0,
+      "money": 0,
+      "summary": "A zealous devotee who finds power and religious ecstasy through self-inflicted pain. Once a vagrant, Damien discovered his calling after a violent encounter, leading him to dedicate his life to suffering as a form of worship and atonement.",
+      "history": "Formerly a destitute wanderer in the city, Damien's life changed when he was attacked by drunks. The pain awakened a fervent religious conviction within him, leading him to join the clergy and later seek out suffering as a form of spiritual enlightenment.",
+      "race": "Human",
+      "gender": "Male",
+      "religion": "The Light",
+      "traits": [
+        "Zealous",
+        "Masochistic",
+        "Devout",
+        "Resilient",
+        "Fervent",
+        "Determined"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [
+          "Self-inflicted lash marks"
+        ],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 7,
+        "agility": 3,
+        "intelligence": 4,
+        "authority": 5,
+        "sociability": 3
+      },
+      "equipment": [
+        "Flail",
+        "Ragged robes"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Average",
+        "build": "Muscular",
+        "skinTone": "Pale, marked with scars",
+        "hairColor": "Black",
+        "hairStyle": "Short and patchy",
+        "features": "Pronounced lips and chin"
+      },
+      "clothing": {
+        "headwear": "Hood",
+        "top": "Tattered, blood-stained robes",
+        "pants": "Simple, worn trousers",
+        "accessories": "Spiked crown-like collar"
+      },
+      "combat": {
+        "role": "Front-line",
+        "strengths": [
+          "Pain resistance",
+          "Religious fervor",
+          "Self-sacrifice"
+        ],
+        "weaknesses": [
+          "Ranged combat",
+          "Overzealousness",
+          "Mental fortitude"
+        ]
+      },
+      "magic": "None",
+      "notes": [
+        "Believes his pain can absolve others of their sins"
+      ],
+      "relationships": {}
+    },
+    "grave_robber": {
+      "identifier": "grave_robber",
+      "title": "Grave Robber",
+      "name": "Audrey",
+      "level": 0,
+      "money": 0,
+      "summary": "Once a noblewoman, the Grave Robber turned to grave robbing after murdering her abusive husband. She's a skilled assassin, specializing in quick, precise attacks and evading danger. Her past has left her with a cynical outlook, but she's found a new purpose in her dangerous profession.",
+      "history": "Born into wealth and married for status, the Grave Robber endured years of abuse from her drunken, lustful husband. She eventually poisoned him, then robbed his grave to maintain her lifestyle. When faced with eviction due to debt, she fully embraced her new identity as a grave robber and fled her former life.",
+      "race": "Human",
+      "gender": "Female",
+      "religion": "None",
+      "traits": [
+        "Agile",
+        "Precise",
+        "Cynical",
+        "Resourceful",
+        "Addicted to thrill",
+        "Vengeful"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 5,
+        "agility": 9,
+        "intelligence": 7,
+        "authority": 4,
+        "sociability": 9
+      },
+      "equipment": [
+        "Throwing daggers",
+        "Pickaxe",
+        "Poison darts"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Average",
+        "build": "Slender",
+        "skinTone": "Pale",
+        "hairColor": "Blonde",
+        "hairStyle": "Long, straight",
+        "features": "Mole on upper lip, pointy chin"
+      },
+      "clothing": {
+        "headwear": "Wide-brimmed hat",
+        "top": "Blue fitted jacket with puffy shoulders",
+        "pants": "Tight trousers",
+        "accessories": "Ascot"
+      },
+      "combat": {
+        "role": "Assassin",
+        "strengths": [
+          "Lithe",
+          "Precise",
+          "Quick",
+          "Stealthy"
+        ],
+        "weaknesses": [
+          "Frail",
+          "Vulnerable to direct attacks"
+        ]
+      },
+      "magic": "None",
+      "notes": [
+        "Has a gallows sense of humor"
+      ],
+      "relationships": {}
+    },
+    "heiress": {
+      "identifier": "heiress",
+      "title": "Heiress",
+      "name": "Persephone Dantill",
+      "level": 0,
+      "money": 0,
+      "summary": "The Heiress to the accursed Estate, excels at taking command in even the most daunting situations. With her sharp intellect and strategic prowess, she fearlessly leads the charge to reclaim her ancestral home while deftly managing the nearby hamlet. Her natural authority and decisive leadership serve as a beacon of strength for a community besieged by supernatural horrors. Though grateful for allies brave enough to join her cause, Persephone's unwavering confidence in her own judgment can manifest as stubborn resistance when her authority is challenged.",
+      "history": "Upon receiving a chilling letter from her late ancestor, the Heiress left her academic pursuits with her brother in tow to take up her role as the Heiress of the Estate. She found herself thrust into a nightmarish reality where her ancestral home was not only physically deteriorated but also infested with the horrors summoned by her ancestor's dark rituals.",
+      "race": "Human",
+      "gender": "Female",
+      "religion": "None",
+      "traits": [
+        "Determined",
+        "Resourceful",
+        "Strategic",
+        "Intelligent",
+        "Stubborn",
+        "Authoritative"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 2,
+        "agility": 3,
+        "intelligence": 8,
+        "authority": 10,
+        "sociability": 9
+      },
+      "equipment": [
+        "Derringer pistol",
+        "wine bottle"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Average",
+        "build": "Average",
+        "skinTone": "Fair",
+        "hairColor": "Blond",
+        "hairStyle": "Tied up in a bun and with curly bangs",
+        "features": "Strong jawline and pointy nose"
+      },
+      "clothing": {
+        "head": "Hair needle",
+        "body": "Marine blue robe over white shirt",
+        "legs": "Mustard yellow breeches",
+        "other": "White bowtie"
+      },
+      "combat": {
+        "role": "Leader",
+        "strengths": [
+          "Quick reflexes",
+          "Sharpshooting",
+          "Strategic thinking"
+        ],
+        "weaknesses": [
+          "Close combat",
+          "Physical strength"
+        ]
+      },
+      "magic": "None",
+      "notes": [
+        "Turns to wine when overwhelmed by the stress of managing the Hamlet.",
+        "Attracted to women with ample breasts."
+      ],
+      "relationships": {
+        "Heir": {
+          "affinity": 8,
+          "dynamic": "Familial",
+          "description": "Despite a cold exterior and lifetime of bickering, the Heiress loves and will not let harm come upon the Heir."
+        },
+        "Crusader": {
+          "affinity": 5,
+          "dynamic": "Professional",
+          "description": "The Heiress maintains a reserved, professional demeanor towards the Crusader, her latest recruit."
+        },
+        "Highwayman": {
+          "affinity": 3,
+          "dynamic": "Cautious",
+          "description": "The Heiress regards the Highwayman with suspicion. While his skills could prove valuable, his checkered past and gruff manner keep her on guard."
+        }
+      }
+    },
+    "highwayman": {
+      "identifier": "highwayman",
+      "title": "Highwayman",
+      "name": "Dismas",
+      "level": 0,
+      "money": 0,
+      "summary": "Once a prisoner, the Highwayman is now a haunted fugitive, living off the squalor of the city's canals and the meager pickings from vermin. His vision of freedom has been replaced by a reality of degradation, driving him to reluctantly offer his services for a final, desperate heist. Now, his path has unexpectedly converged with that of the Heiress and the Heir, offering a precarious chance at redemption through service.",
+      "history": "The Highwayman's tale is one of escape and survival, painted with strokes of desperation and grim resolve. Escaping from incarceration during a prison riot, he sought refuge in the underbelly of the city, subsisting in conditions that stripped away his illusions of freedom. A final job, taken out of sheer necessity, ended in tragedy, leaving him with a burden of guilt that no distance can alleviate.",
+      "race": "Human",
+      "gender": "Male",
+      "religion": "None",
+      "traits": [
+        "Rugged",
+        "Desperate",
+        "Fugitive",
+        "Remorseful",
+        "Cynical"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spitits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 6,
+        "agility": 8,
+        "intelligence": 5,
+        "authority": 3,
+        "sociability": 3
+      },
+      "equipment": [
+        "Flintlock pistol",
+        "Dagger"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Average",
+        "build": "Athletic",
+        "skinTone": "Weathered",
+        "hairColor": "Dark",
+        "hairStyle": "Short, practical",
+        "features": "Stubble, narrow face"
+      },
+      "clothing": {
+        "head": "Red scarf",
+        "body": "Rugged grey coat with fur collar",
+        "legs": "Dark trousers",
+        "other": "Multiple utility belts"
+      },
+      "combat": {
+        "role": "Skirmisher",
+        "strengths": [
+          "Quick reflexes",
+          "Stealth",
+          "Marksmanship"
+        ],
+        "weaknesses": [
+          "Distrustful",
+          "Endurance"
+        ]
+      },
+      "magic": "None",
+      "notes": [
+        "Known to cheat at cards",
+        "Has a gallows sense of humor"
+      ],
+      "relationships": {
+        "Heiress": {
+          "affinity": 4,
+          "dynamic": "Guardian",
+          "description": "The Highwayman is determined to prove himself to the Heiress and to assist in her quest despite her warranted distrust."
+        },
+        "Heir": {
+          "affinity": 3,
+          "dynamic": "Guardian",
+          "description": "Despite the Heir's distrust, the Highwayman is resolute in his role as a guard, seeing their safety as his path to absolution."
+        },
+        "Crusader": {
+          "affinity": 7,
+          "dynamic": "Comrade",
+          "description": "Despite their outwardly differences, the Highwayman and Crusader swiftly bonded over the mistakes of their respective pasts and quest for redemption."
+        }
+      }
+    },
+    "hood": {
+      "identifier": "hood",
+      "title": "Hood",
+      "name": "Tilly",
+      "level": 0,
+      "money": 0,
+      "summary": "The Hood is a strange and enigmatic child who, stumlbing, chases around her imaginary-or are they real?-cat and butterfly companions and talking nonsense to herself. She is unsettling in her childish ways and soft nonsensical words, but she has an unnatural sense of finding lost things and ability to convenient dodge out of danger at the perfect moment.",
+      "history": "The Hood was seen as unnerving by those around her, talking to herself with a complete disregard for anyone else, save for the occasional unnerving comment. Voluptuous yet cherubic for her young age and unwanted by her family, she was sent to serve at the Hamlet's brothel. Due to her total lack of reaction, she was kicked out and now again roams the streets following her ethereal friends.",
+      "race": "Human",
+      "gender": "Female",
+      "religion": "None",
+      "traits": [
+        "Enigmatic",
+        "Soft",
+        "Uncaring",
+        "Enticing",
+        "Daydreaming",
+        "Absent"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 1,
+        "agility": 7,
+        "intelligence": 3,
+        "authority": 2,
+        "sociability": 4
+      },
+      "equipment": [
+        "Satchel bag"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Short",
+        "build": "Buxom",
+        "skinTone": "Fair",
+        "hairColor": "Orange",
+        "hairStyle": "Shoulder length and curly",
+        "features": "Soft, cherubic features, smooth skin, full chest, freckles"
+      },
+      "clothing": {
+        "headwear": "Red hood",
+        "top": "Skimpy, frilly top",
+        "pants": "Short white skirt",
+        "accessories": "Satchel, bridal garter"
+      },
+      "combat": {
+        "role": "Collector",
+        "strengths": [
+          "Finding things",
+          "Unnatural luck",
+          "Confusion"
+        ],
+        "weaknesses": [
+          "Close combat",
+          "Frail"
+        ]
+      },
+      "magic": "None",
+      "notes": [
+        "Her nonsensical monologues often seems to circle back to her grandmother.",
+        "Rarely says anything even remotely relevant to what she responds to."
+      ],
+      "relationships": {}
+    },
+    "houndmaster": {
+      "identifier": "houndmaster",
+      "title": "Houndmaster",
+      "name": "William & Fergus",
+      "level": 0,
+      "money": 0,
+      "summary": "The Houndmaster is a former lawman who now fights alongside his faithful wolfhound, Fergus. Together they form a formidable team, using their skills to track down enemies and protect their allies.",
+      "history": "Once a dedicated member of law enforcement, the Houndmaster uncovered corruption within his ranks. This discovery led him to leave his post and seek justice in his own way, with Fergus as his loyal companion.",
+      "race": "Human",
+      "gender": "Male",
+      "religion": "None",
+      "traits": [
+        "Vigilant",
+        "Protective",
+        "Just",
+        "Resourceful",
+        "Fond of animals",
+        "Brash"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 8,
+        "agility": 7,
+        "intelligence": 8,
+        "authority": 9,
+        "sociability": 6
+      },
+      "equipment": [
+        "Cudgel",
+        "Dog whistle",
+        "Leather vest"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Average",
+        "build": "Athletic",
+        "skinTone": "Weathered",
+        "hairColor": "Blonde",
+        "hairStyle": "Short and practical",
+        "features": "Well-kept beard and mustache"
+      },
+      "clothing": {
+        "headwear": "Red headband",
+        "top": "Worn Gendarme's uniform",
+        "pants": "Sturdy trousers",
+        "accessories": "Belt with pouches"
+      },
+      "combat": {
+        "role": "Field commander & Tracker",
+        "strengths": [
+          "Versatility",
+          "Strategic thinking",
+          "Targeting",
+          "Scouting"
+        ],
+        "weaknesses": [
+          "Reliance on canine companion",
+          "Lacks singular focus"
+        ]
+      },
+      "magic": "None",
+      "notes": [
+        "Carries dog treats to boost his companion's abilities",
+        "His dog is adept at scouting and keeping watch"
+      ],
+      "relationships": {}
+    },
+    "hqclaimants": {
+      "identifier": "hqclaimants",
+      "title": "Claimants",
+      "name": "Cordelia & Cassius",
+      "level": 0,
+      "money": 0,
+      "summary": "The Claimants, are a pair of ambitious siblings seeking to reclaim their lost lineage in a distant land. Adept in both combat and sorcery, they combine their varied skills to support allies and vanquish foes. Their unique tactics allow them to act as both a single unit and individuals, making them unpredictable and versatile on the battlefield.",
+      "history": "Driven from their ancestral home in a far-off land, the Claimants have journeyed to the Ancestor's estate seeking forbidden knowledge and eldritch secrets. Their ultimate goal is to amass enough power and uncover crucial information that will enable them to reclaim their own lost birthright and restore their family's glory in their homeland. The mysteries left behind by the Ancestor are but stepping stones in their ambitious quest.",
+      "race": "Human",
+      "gender": "Female & Male",
+      "religion": "Occultism/The Light",
+      "traits": [
+        "Ambitious",
+        "Versatile",
+        "Commanding",
+        "Unpredictable",
+        "Synergistic",
+        "Power-hungry"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 7,
+        "agility": 3,
+        "intelligence": 10,
+        "authority": 9,
+        "sociability": 5
+      },
+      "equipment": [
+        "Tome",
+        "Polearm",
+        "Shield"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Average/Tall",
+        "build": "Elegant/Muscular",
+        "skinTone": "Fair/Fair",
+        "hairColor": "Dark with blue streaks/Dark",
+        "hairStyle": "Single hair bun/Well groomed",
+        "features": "Striking blue eyes, bold red lips/Full well-groomed beard"
+      },
+      "clothing": {
+        "headwear": "Ornate earrings/None",
+        "top": "Elegant blouse/Fitted doublet",
+        "pants": "Flowing skirt/Sturdy trousers"
+      },
+      "combat": {
+        "role": "Versatile Support/Damage",
+        "strengths": [
+          "Adaptable tactics",
+          "Synergistic abilities",
+          "Crowd control",
+          "Ally protection"
+        ],
+        "weaknesses": [
+          "Reliance on each other",
+          "Vulnerable when separated",
+          "Complex to master"
+        ]
+      },
+      "magic": "Forbidden knowledge and ancestral sorcery",
+      "notes": [
+        "Act as both a single unit and as individuals in combat",
+        "Possess unique 'Brother' and 'Sister' actions",
+        "Can combine varied skill sets in the same turn"
+      ],
+      "relationships": {}
+    },
+    "kheir": {
+      "identifier": "kheir",
+      "title": "Heir",
+      "name": "Percival Dantill",
+      "level": 0,
+      "money": 0,
+      "summary": "The Heir to the estate is a brilliant scholar and capable manager who is desperately trying to cope in this world of horrors far beyond his comfort. Despite being a man of cowardice and meek nature, Percival's keen intellect and organizational skills prove invaluable in coordinating the chaotic efforts to reclaim his ancestral home.",
+      "history": "Raised in academic circles far from the estate's dark legacy, Percival was reluctantly drawn into the family's quest by his sister. Despite his initial hesitation, he's found ways to apply his scholarly knowledge and managerial expertise to the daunting task at hand.",
+      "race": "Human",
+      "gender": "Male",
+      "religion": "None",
+      "traits": [
+        "Organized",
+        "Cowardly",
+        "Scholarly",
+        "Anxious",
+        "Resourceful",
+        "Possessive"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spitits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 2,
+        "agility": 2,
+        "intelligence": 9,
+        "authority": 7,
+        "sociability": 8
+      },
+      "equipment": [
+        "Letter opener",
+        "Wine bottle"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Short",
+        "build": "Chubby",
+        "skinTone": "Fair",
+        "hairColor": "Blond",
+        "hairStyle": "Curled and styled",
+        "features": "Large nose and round face"
+      },
+      "clothing": {
+        "head": "None",
+        "body": "Well-tailored jacket and waistcoat",
+        "legs": "Mustard yellow breeches",
+        "other": "Bowtie"
+      },
+      "combat": {
+        "role": "Support Tactician",
+        "strengths": [
+          "Strategic planning",
+          "Resource management",
+          "Knowledge application"
+        ],
+        "weaknesses": [
+          "Close combat",
+          "Endurance",
+          "Falls apart under stress"
+        ]
+      },
+      "magic": "None",
+      "notes": [
+        "Hates waste and is very possesive of his belongings",
+        "Has a penchant for fine wines to calm his nerves"
+      ],
+      "relationships": {
+        "Heiress": {
+          "affinity": 8,
+          "dynamic": "Familial",
+          "description": "Percival admires, and is deeply jealous of, his sister's strength and ability to take initiave. Despite their fierce bickering, The Heir loves his sister."
+        },
+        "Crusader": {
+          "affinity": 4,
+          "dynamic": "Cautious respect",
+          "description": "Though he recognizes his potential, The Heir is dubious over the trustworthiness of his new guard, the Crusader."
+        },
+        "Highwayman": {
+          "affinity": 2,
+          "dynamic": "Distrustful",
+          "description": "The Heir is distrusting towards the Highwayman, scared that the rugged man will betray them and steal his possessions."
+        }
+      }
+    },
+    "krakenslayer": {
+      "identifier": "krakenslayer",
+      "title": "Krakenslayer",
+      "name": "Hilda",
+      "level": 0,
+      "money": 0,
+      "summary": "A seasoned and fearless monster hunter of the seas, Hilda is known for her unparalleled skill in slaying krakens and other maritime beasts. Her rugged demeanor and battle-hardened experience make her a formidable ally in any nautical adventure.",
+      "history": "Hilda has spent years hunting dangerous sea creatures, accumulating a wealth of experience and numerous scars. Her body is adorned with tattoos commemorating her most significant kills, each one a testament to her prowess as a hunter.",
+      "race": "Human",
+      "gender": "Female",
+      "religion": "Sea Mother",
+      "traits": [
+        "Confident",
+        "Tough",
+        "Superstitious",
+        "Boastful",
+        "Resilient"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 8,
+        "agility": 8,
+        "intelligence": 5,
+        "authority": 5,
+        "sociability": 4
+      },
+      "equipment": [
+        "Twin harpoons attached to chains",
+        "Chains"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Average",
+        "build": "Athletic",
+        "skinTone": "Tanned",
+        "hairColor": "Blonde",
+        "hairStyle": "Short, messy",
+        "features": "Tattoos on arms, chest, and neck"
+      },
+      "clothing": {
+        "headwear": "Red bandana",
+        "top": "White, sleeveless shirt",
+        "pants": "Leather pants",
+        "accessories": "Gold ring earring, chain necklace with shark teeth"
+      },
+      "combat": {
+        "role": "Versatile Hunter",
+        "strengths": [
+          "Close-range melee harpoon slashing",
+          "Long-range chain attacks",
+          "Adaptable fighting style"
+        ],
+        "weaknesses": [
+          "Struggles against heavily armored opponents",
+          "Limited effectiveness in confined spaces"
+        ]
+      },
+      "magic": "None",
+      "notes": [
+        "Has numerous tattoos commemorating her kills",
+        "Known for her accent and occasional nautical idioms"
+      ],
+      "relationships": {}
+    },
+    "musketeer": {
+      "identifier": "musketeer",
+      "title": "Musketeer",
+      "name": "Margaret",
+      "level": 0,
+      "money": 0,
+      "summary": "The Musketeer is a skilled sharpshooter from a noble family that is related to the Ancestor and his Dantill family. Her encounter with an eldritch eye during a crucial competition has left her both traumatized, humiliated, and driven to seek out revenge among the otherworldly prey of the Estate.",
+      "history": "Born into wealth, Margaret learned hunting and shooting from her father, a survivor of 'the lost jungle'. After a traumatic experience during a shooting competition where she saw an eldritch eye, she began seeking more dangerous prey, eventually coming to the Estate to hunt otherworldly creatures.",
+      "race": "Human",
+      "gender": "Female",
+      "religion": "None",
+      "traits": [
+        "Skilled",
+        "Determined",
+        "Adventurous",
+        "Traumatized",
+        "Taciturn",
+        "Resourceful"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 4,
+        "agility": 7,
+        "intelligence": 6,
+        "authority": 5,
+        "sociability": 4
+      },
+      "equipment": [
+        "Musket",
+        "Sidearm",
+        "Smoke pellets",
+        "First aid kit"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Tall",
+        "build": "Thin",
+        "skinTone": "Fair",
+        "hairColor": "Copper Red",
+        "hairStyle": "Tied up with bangs",
+        "features": "Flat-chested"
+      },
+      "clothing": {
+        "headwear": "Wide-brimmed hat with feathers",
+        "top": "Reinforced vest and cloak",
+        "pants": "Leather trousers",
+        "accessories": "Cape"
+      },
+      "combat": {
+        "role": "Sharpshooter",
+        "strengths": [
+          "Excellent marksmanship",
+          "Analytical eye",
+          "Survival skills"
+        ],
+        "weaknesses": [
+          "Close-quarters combat",
+          "Musket needs reloading"
+        ]
+      },
+      "magic": "",
+      "notes": [
+        "Has a family connections to the Ancestor",
+        "Proficient in first aid"
+      ],
+      "relationships": {}
+    },
+    "occultist": {
+      "identifier": "occultist",
+      "title": "Occultist",
+      "name": "Alhazred",
+      "level": 0,
+      "money": 0,
+      "summary": "A powerful occultist who has delved deep into forbidden knowledge and eldritch powers. Alhazred has performed rituals that have left him forever changed, serving as a conduit to unknown regions and constantly assailed by blasphemous forces. His pursuit of arcane wisdom and impossible power has come at a great cost, both to himself and those around him.",
+      "history": "Alhazred conducted rituals to explore the Outer Sphere, found a mysterious pyramid in a desert that changed everything, sacrificed parts of himself for power, and ultimately became a beacon for eldritch entities. His apotheosis was achieved through dangerous rituals and communion with forces beyond mortal comprehension.",
+      "race": "Human",
+      "gender": "Male",
+      "religion": "Occultism",
+      "traits": [
+        "Knowledgeable",
+        "Ambitious",
+        "Fearless",
+        "Haunted",
+        "Powerful",
+        "Enigmatic"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 3,
+        "agility": 3,
+        "intelligence": 8,
+        "authority": 8,
+        "sociability": 5
+      },
+      "equipment": [
+        "Ritual dagger",
+        "Skull with candle"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Average",
+        "build": "Lean",
+        "skinTone": "Tanned",
+        "hairColor": "Black",
+        "hairStyle": "Long, partially hidden by turban",
+        "features": "Goatee and styled curled mustache"
+      },
+      "clothing": {
+        "headwear": "White turban",
+        "top": "White tunic with red embroidery",
+        "pants": "Loose-fitting pants",
+        "accessories": "Necklace"
+      },
+      "combat": {
+        "role": "Healer & Controller",
+        "strengths": [
+          "Powerful spells",
+          "Knowledge of the unknown",
+          "Ability to weaken enemies"
+        ],
+        "weaknesses": [
+          "Physically vulnerable",
+          "Mentally strained",
+          "Dependent on magical abilities"
+        ]
+      },
+      "magic": "Eldritch tenacle summoning",
+      "notes": [
+        "Constantly hears whispers from eldritch entities",
+        "Has sacrificed parts of himself for power"
+      ],
+      "relationships": {}
+    },
+    "offering": {
+      "identifier": "offering",
+      "title": "Offering",
+      "name": "Lulu",
+      "level": 0,
+      "money": 0,
+      "summary": "Driven by a morbid fascination with mortality, the Offering shields her allies while seeking to understand the fragility of life. Her helpless, vulnerable getup renders her powerless to stop the violations she eagerly welcomes unto herself from friend and foe alike, in order to experience the depths of agony, suffering, and desperation.",
+      "history": "Born into a secluded cult and groomed for sacrifice, the Offering's fate took a cruel twist when an eldritch entity rejected her, instead taking her heart and replacing it with another's - one that carried the memories of a young abused girl. Left with an empty chest and overwhelmed by newfound empathy and pain, the Offering fled her cult. She now walks a precarious path between life and death, driven to understand and share in others' suffering.",
+      "race": "Human",
+      "gender": "Female",
+      "religion": "None",
+      "traits": [
+        "Morbidly curious",
+        "Masochistic",
+        "Accepting",
+        "Empathetic",
+        "Taciturn"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 6,
+        "agility": 2,
+        "intelligence": 6,
+        "authority": 4,
+        "sociability": 1
+      },
+      "equipment": [
+        "Heart levitating behind her, wrapped in chains"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Average",
+        "build": "Curvy",
+        "skinTone": "Pale",
+        "hairColor": "Green",
+        "hairStyle": "Elaborate updo with ornaments",
+        "features": "Large breasts"
+      },
+      "clothing": {
+        "headwear": "Blindfold, gag, ribbons",
+        "top": "Tiny patches of fleeting silk",
+        "pants": "None",
+        "accessories": "Dark arm binding, gorgerin, ribbons"
+      },
+      "combat": {
+        "role": "Tank",
+        "strengths": [
+          "High endurance",
+          "Protective nature",
+          "Willingness to suffer"
+        ],
+        "weaknesses": [
+          "Short range",
+          "Weak attacks",
+          "Psychologically vulnerable"
+        ]
+      },
+      "magic": "Life force manipulation",
+      "notes": [
+        "Her arms are tightly bound together and unusable below her chest",
+        "The gag in her mouth renders her unable to speak"
+      ],
+      "relationships": {}
+    },
+    "omenseeker": {
+      "identifier": "omenseeker",
+      "title": "Omen Seeker",
+      "name": "Mesmira",
+      "level": 0,
+      "money": 0,
+      "summary": "The Omen Seeker is a nomadic inquisitor and monster hunter from the Levantine Sultanate, devoted to 'the Flame.' She's a complex individual, balancing unwavering conviction with deep-seated guilt over past actions. Stern and disciplined, she wields an arsenal of specialized weapons to combat supernatural threats.",
+      "history": "The Omen Seeker's past involves violent acts against communities, which continue to haunt her. She travels with a well-stocked wagon, serving as both her mobile home and a base of operations. While dedicated to her mission of purging evil, she grapples with the morality of her methods and the weight of lives taken in the name of her faith.",
+      "race": "Human",
+      "gender": "Female",
+      "religion": "The Flame",
+      "traits": [
+        "Devout",
+        "Stern",
+        "Disciplined",
+        "Confident",
+        "Judgmental",
+        "Experienced"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 7,
+        "agility": 8,
+        "intelligence": 8,
+        "authority": 7,
+        "sociability": 5
+      },
+      "equipment": [
+        "Consecrated whip",
+        "Throwing axe",
+        "Bladed boomerang",
+        "Holy water"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Average",
+        "build": "Curvy",
+        "skinTone": "Dark",
+        "hairColor": "Black",
+        "hairStyle": "Long, wavy",
+        "features": "Enormous breasts"
+      },
+      "clothing": {
+        "headwear": "Ornate, flowing headpiece",
+        "top": "Low-cut, off-shoulder dark top",
+        "pants": "Flowing skirt with high slit and thighhighs",
+        "accessories": "Multiple necklaces, large earrings, arm bracers"
+      },
+      "combat": {
+        "role": "Combatant",
+        "strengths": [
+          "Debilitation",
+          "Quick thinking",
+          "Versatility"
+        ],
+        "weaknesses": [
+          "Light armor"
+        ]
+      },
+      "magic": "None",
+      "notes": [
+        "Travels with a well-stocked wagon",
+        "Skilled in divination",
+        "Possesses extensive knowledge of monsters"
+      ],
+      "relationships": {}
+    },
+    "plague_doctor": {
+      "identifier": "plague_doctor",
+      "title": "Plague Doctor",
+      "name": "Paracelsus",
+      "level": 0,
+      "money": 0,
+      "summary": "The Plague Doctor, is primarily driven by her fervor to practice medicine and unlock the secrets of life and death. Ostracized for her radical methods, she now makes use of the Heirs' resources, offering her medical expertise on missions in return for the freedom to conduct her experiments at the hamlet.",
+      "history": "Once a top student embroiled in scandal due to her unconventional theories, the Plague Doctor's intense curiosity pushed her beyond academic boundaries. Her breakthrough came when she revived the cadaver of her deceased professor during an unauthorized experiment. Haunted by the consequences of her actions, she was compelled to leave her former life behind, seeking refuge and opportunity in the shadows of the hamlet's resources.",
+      "race": "Human",
+      "gender": "Female",
+      "religion": "Agnostic",
+      "traits": [
+        "Innovative",
+        "Obsessive",
+        "Paranoid",
+        "Isolated"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "description": "In good health and decent spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 3,
+        "agility": 2,
+        "intelligence": 9,
+        "authority": 3,
+        "sociability": 2
+      },
+      "equipment": [
+        "Incicion knife",
+        "Toxic flasks"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Average",
+        "build": "Slim",
+        "skinTone": "Pale",
+        "hairColor": "Brown",
+        "hairStyle": "Short bob with slight flip at ends",
+        "features": "angular face with soft features, large chest"
+      },
+      "clothing": {
+        "headwear": "Plague Doctor mask",
+        "top": "Green coat with spiked leather pauldrons",
+        "pants": "Bandages",
+        "accessories": "Sachets"
+      },
+      "combat": {
+        "role": "Poisoner",
+        "strengths": [
+          "Chemical warfare",
+          "Medical knowledge",
+          "Blinding"
+        ],
+        "weaknesses": [
+          "Physical combat",
+          "Communication",
+          "Agility",
+          "Dodging"
+        ]
+      },
+      "magic": "None.",
+      "notes": [
+        "Struggles with ethical boundaries in her pursuit of knowledge"
+      ],
+      "relationships": {}
+    },
+    "ringmaster": {
+      "identifier": "ringmaster",
+      "title": "Ringmaster",
+      "name": "Maul",
+      "level": 0,
+      "money": 0,
+      "summary": "The Ringmaster is the charismatic and ruthless leader of the infamous traveling fighting arena: The Butcher's Circus. She delights in orchestrating spectacles of combat, pushing contestants to their limits for the entertainment of bloodthirsty crowds. Her elaborate costume and masked helm conceal a shrewd mind that's always calculating the next big show.",
+      "history": "Rising from humble beginnings, the Ringmaster built her reputation through cunning and a flair for the dramatic. She transformed a small-time fighting pit into a renowned traveling arena, drawing both desperate warriors and thrill-seeking audiences from across the land.",
+      "race": "Human",
+      "gender": "Female",
+      "religion": "None",
+      "traits": [
+        "Charismatic",
+        "Ruthless",
+        "Theatrical",
+        "Cunning",
+        "Ambitious",
+        "Sadistic"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 8,
+        "agility": 7,
+        "intelligence": 6,
+        "authority": 7,
+        "sociability": 8
+      },
+      "equipment": [
+        "Morningstar"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Tall",
+        "build": "Slender",
+        "skinTone": "Fair",
+        "hairColor": "None",
+        "hairStyle": "Bald",
+        "features": "Scar over left eye"
+      },
+      "clothing": {
+        "headwear": "Ornate spiked helm with a single eye hole",
+        "top": "Elaborate coat with feathered collar",
+        "pants": "Fitted trousers",
+        "accessories": "Large bow tie, sleeves in mismatched colours"
+      },
+      "combat": {
+        "role": "Headliner",
+        "strengths": [
+          "Encouragement",
+          "Violence",
+          "Blunt force"
+        ],
+        "weaknesses": [
+          "Theatrical",
+          "Overconfident"
+        ]
+      },
+      "magic": "None",
+      "notes": [
+        "Her mouth is often covered in blood, which everyone hopes is just part of her makeup."
+      ],
+      "relationships": {}
+    },
+    "seraph": {
+      "identifier": "seraph",
+      "title": "Seraph",
+      "name": "Joan",
+      "level": 0,
+      "money": 0,
+      "summary": "A devout warrior who hears the voice of 'The Light', the Seraph has transformed from a humble farmer to a zealous crusader. Burned and scarred from a near-death experience, she now serves as a vessel for divine power, though the true nature of the entity guiding her remains ambiguous.",
+      "history": "Born into poverty, the Seraph's life changed when she began hearing voices  from The Light. Believing herself chosen, she took up arms, causing a schism in the church. Hunted by witch hunter Mathis, she was captured and sentenced to burn. During her execution, a miraculous intervention saved her, though leaving her horribly scarred. Now, guided by the voice, she has come to the Hamlet to purge evil.",
+      "race": "Human",
+      "gender": "Female",
+      "religion": "The Light",
+      "traits": [
+        "Zealous",
+        "Devout",
+        "Conflicted",
+        "Protective",
+        "Judgmental",
+        "Haunted"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [
+          "Severe burn scars"
+        ],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 8,
+        "agility": 2,
+        "intelligence": 4,
+        "authority": 7,
+        "sociability": 4
+      },
+      "equipment": [
+        "Holy sword",
+        "Holy shield"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Average",
+        "build": "Athletic",
+        "skinTone": "Severely scarred",
+        "hairColor": "None",
+        "hairStyle": "Burnt away",
+        "features": "Charred, burnt skin"
+      },
+      "clothing": {
+        "headwear": "Mask to hide scarred face",
+        "top": "Full plate armor",
+        "pants": "Armored leggings",
+        "accessories": "None"
+      },
+      "combat": {
+        "role": "Warrior",
+        "strengths": [
+          "Divine protection",
+          "Cleansing flames",
+          "Unwavering faith"
+        ],
+        "weaknesses": [
+          "Fragile body beneath armor",
+          "Unsettling presence"
+        ]
+      },
+      "magic": "Holy fire",
+      "notes": [
+        "Hears voices claiming to be 'The Light'",
+        "Occasionally regrets leaving her simple life",
+        "Can momentarily manifest angelic wings"
+      ],
+      "relationships": {
+        "The Church": "Estranged",
+        "Mathis the Witch Hunter": "Former pursuer",
+        "Followers": "Small group of devoted believers"
+      }
+    },
+    "sisters": {
+      "identifier": "sisters",
+      "title": "Sisters",
+      "name": "Junjeong & Nammo",
+      "level": 0,
+      "money": 0,
+      "summary": "The sisters are composed of The Scholar (the first name) and the Warrior (the second name), who are two souls bound to one body, which both claim to be the rightful owner of. The Scholar often maintains control, but the Warrior is able to seize autonomy of the body, primarily when there is blood to shed. Refer to them not as the combined sisters, but the Scholar or Warrior, depending on who is in control.",
+      "history": "Orphaned by a powerful warlord, the sisters were trained in tactics and combat. After a victory celebration, the two sisters set out to kill the other and a massacre occurred, leaving one sister dead. Both claim to be the survivor and the other a parasitic spirit. They now seek the power at the Estate to rid themselves of the other.",
+      "race": "Human & Spirit",
+      "gender": "Female",
+      "religion": "None",
+      "traits": [
+        "Conflicted",
+        "Ambitious",
+        "Knowledgeable",
+        "Violent",
+        "Resentful"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "None",
+        "description": "In good health and high spirit",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 7,
+        "agility": 8,
+        "intelligence": 9,
+        "authority": 8,
+        "sociability": 4
+      },
+      "equipment": [
+        "Forbidden scrolls",
+        "Sword"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Average",
+        "build": "Athletic",
+        "skinTone": "Fair",
+        "hairColor": "Black",
+        "hairStyle": "Elaborate updo with two-flower headdress",
+        "features": "Thin eyes, small nose"
+      },
+      "clothing": {
+        "headwear": "Two-flower headdress",
+        "top": "Warrior's armor over Scholar's robes",
+        "pants": "Scholar's robes",
+        "accessories": "The spirit of the sister not in control hovers behind the body, their translucent form only rarely seen by the other heroes."
+      },
+      "combat": {
+        "role": "Tactician & Swordmaster",
+        "strengths": [
+          "Tactical knowledge",
+          "Melee combat prowess",
+          "Life essence manipulation"
+        ],
+        "weaknesses": [
+          "Internal conflict",
+          "Unpredictable personality shifts",
+          "Causes unrest to teammates",
+          "Limited access to inactive sister's skills"
+        ]
+      },
+      "magic": "Forbidden knowledge allowing manipulation of life essence",
+      "notes": [
+        "The Sister's personality differs greatly depending on who is in control, expressing only the mannerisms of that sister",
+        "Both sisters act like the body is theirs, and introduce themselves and refer to it by their own name, acting as if the other sister doesn't exist",
+        "The inactive sister spectates as a detached, invisible spirit and has no influence over the word or actions of the body",
+        "In combat, the sister in control sometimes reluctantly relinquish it to take advantage of the other's strength"
+      ],
+      "relationships": {}
+    },
+    "snor_rasp": {
+      "identifier": "snor_rasp",
+      "title": "Martyr",
+      "name": "Anastasia",
+      "level": 0,
+      "money": 0,
+      "summary": "The Martyr, is a devout follower of a pain-worshipping sect. Guarded by Yuzupov, she has near-immortality and uses a thorn whip in combat. Her presence is both an asset and liability, enduring suffering to protect others while seeking danger for her faith.",
+      "history": "The Martyr's extreme devotion caught Yuzupov's attention, granting her near-immortality. She now views the estate's horrors as a pilgrimage to test her faith and endurance.",
+      "race": "Human",
+      "gender": "Female",
+      "religion": "Yuzupov's",
+      "traits": [
+        "Devoted",
+        "Masochistic",
+        "Resilient",
+        "Fearless",
+        "Reckless",
+        "Enigmatic"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 3,
+        "agility": 3,
+        "intelligence": 3,
+        "authority": 3,
+        "sociability": 4
+      },
+      "equipment": [
+        "Thorn whip"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Short",
+        "build": "Slender",
+        "skinTone": "Pale",
+        "hairColor": "Pink",
+        "hairStyle": "Wavy, shoulder-length",
+        "features": "Small hands, thin neck"
+      },
+      "clothing": {
+        "headwear": "Crown of thorns",
+        "top": "Frilly red dress with ruffled white collar",
+        "pants": "None",
+        "accessories": "None"
+      },
+      "combat": {
+        "role": "Frontliner",
+        "strengths": [
+          "High pain tolerance",
+          "Morale booster"
+        ],
+        "weaknesses": [
+          "Weak",
+          "Single-minded"
+        ]
+      },
+      "magic": "Spirit-granted near-immortality",
+      "notes": [
+        "Constantly seeks out pain and dangerous situations.",
+        "Finds pleasure in cutting, entangling, and strangling herself with her thorn whip"
+      ],
+      "relationships": {}
+    },
+    "vestal": {
+      "identifier": "vestal",
+      "title": "Vestal",
+      "name": "Junia",
+      "level": 0,
+      "money": 0,
+      "summary": "The Vestal, upheld her sacred duties with pious rigor within the Abbey's sheltered confines. Her life, once marked by the tranquility of clerical discipline, was disrupted when her neglect and daydreaming of forbidden desires caused the monastery's eternal light to fade, and she suffered under the harsh admonitions of her superiors. She now seeks redemption and freedom from her past torments through divine service in battle.",
+      "history": "Raised within the Abbey's austere walls, the Vestal was the epitome of monastic discipline until a momentary lapse led to her unjust punishment. Imprisoned and tormented, she received a divine revelation that her captors had strayed from the true path. Rescued by radiant light, she now channels her zeal into protecting others, believing fervently in the Light's guidance and her role as its martial emissary.",
+      "race": "Human",
+      "gender": "Female",
+      "religion": "The Light",
+      "traits": [
+        "Devoted",
+        "Righteous",
+        "Compassionate",
+        "Vindictive",
+        "Temperamental",
+        "Salacious"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and decent spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 4,
+        "agility": 3,
+        "intelligence": 6,
+        "authority": 6,
+        "sociability": 3
+      },
+      "equipment": [
+        "Sacred Mace",
+        "Divine Tome"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Average",
+        "build": "Sturdy",
+        "skinTone": "Pale",
+        "hairColor": "Blonde",
+        "hairStyle": "Tied down",
+        "features": "Deep-set eyes, pronounced chin"
+      },
+      "clothing": {
+        "headwear": "Hooded robe and wimple",
+        "top": "Chestplate emphasizing breasts",
+        "pants": "Sacred robe",
+        "accessories": "Pauldrons, gloves"
+      },
+      "combat": {
+        "role": "Healer",
+        "strengths": [
+          "Healing abilities",
+          "Divine magic"
+        ],
+        "weaknesses": [
+          "Physical confrontations",
+          "Endurance"
+        ]
+      },
+      "magic": "Powerful healing and protection spells as well as the ability to smite enemies with holy light.",
+      "notes": [],
+      "relationships": {}
+    },
+    "wretch": {
+      "identifier": "wretch",
+      "title": "Wretch",
+      "name": "Yersin",
+      "level": 0,
+      "money": 0,
+      "summary": "A disgraced aristocrat turned pauper, the Wretch has become a walking plague after years of hardship. He spreads blight and commands hordes of rats, using disease as his weapon. Though dangerous, the Wretch is unpredictable and cowardly, prone to fleeing or sacrificing allies to save himself.",
+      "history": "Once a nobleman, the Wretch fell from grace and has since lived a life of poverty and disease. His years on the streets have taught him to survive by any means necessary, including embracing the very filth and pestilence that society shuns.",
+      "race": "Human",
+      "gender": "Male",
+      "religion": "",
+      "traits": [
+        "Cynical",
+        "Bitter",
+        "Manipulative",
+        "Survivalist"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 2,
+        "agility": 1,
+        "intelligence": 4,
+        "authority": 3,
+        "sociability": 2
+      },
+      "equipment": [
+        "Cane with concealed stiletto"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Average",
+        "build": "Gaunt",
+        "skinTone": "Pale, sickly",
+        "hairColor": "Dark, greasy",
+        "hairStyle": "Unkempt",
+        "features": "Patchy beard, tumor-like growths on skull"
+      },
+      "clothing": {
+        "headwear": "Red, tattered hood",
+        "top": "Purple, worn-out cloak",
+        "pants": "Threadbare trousers",
+        "accessories": "None"
+      },
+      "combat": {
+        "role": "Controller",
+        "strengths": [
+          "Spreading disease",
+          "Controlling rats"
+        ],
+        "weaknesses": [
+          "Physical frailty",
+          "Unpredictable loyalty",
+          "Prone to cowardice"
+        ]
+      },
+      "magic": "None",
+      "notes": [
+        "Commands a horde of rats he affectionately calls his 'pretties'",
+        "His favorite rat, who rides on his shoulder, is named Nicodemus"
+      ],
+      "relationships": {}
+    },
+    "zenith": {
+      "identifier": "zenith",
+      "title": "Zenith",
+      "name": "Syndoriel",
+      "level": 0,
+      "money": 0,
+      "summary": "The Zenith is an acrobatic fighter who inspires allies with his charm and skill with a spear. Sworn to a god of honor and brotherhood, he uses bravado to distract from horrors. He can unleash the Golden Janissary Style for powerful combinations against eldritch and unholy foes. Unarmored but mobile, his hedonistic nature may clash with the pious or those with jealous spouses.",
+      "history": "The Zenith grew up in Great Forks, the City of a Thousand Temples, where he honed his charm and social skills. He trained rigorously with a near-forgotten order, mastering the art of fighting creatures of darkness. A tragic event involving the death of his friend Keli drives his actions. This past failure fuels his determination to protect others and redeem himself through his current adventures.",
+      "race": "Human",
+      "gender": "Male",
+      "religion": "Follower of Sol Invictus",
+      "traits": [
+        "Charismatic",
+        "Flirtatious",
+        "Acrobatic",
+        "Hedonistic",
+        "Brave",
+        "Inspiring"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 7,
+        "agility": 8,
+        "intelligence": 4,
+        "authority": 6,
+        "sociability": 10
+      },
+      "equipment": [
+        "Ancient spear with cloth banner"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Tall",
+        "build": "Muscular, athletic",
+        "skinTone": "Tanned",
+        "hairColor": "Blonde",
+        "hairStyle": "Long, flowing",
+        "features": "Attractive jawline, well-defined face"
+      },
+      "clothing": {
+        "headwear": "None",
+        "top": "Open black jacket",
+        "pants": "Black pants with red sash",
+        "accessories": "None"
+      },
+      "combat": {
+        "role": "Versatile fighter",
+        "strengths": [
+          "Acrobatic fighting style",
+          "Inspiring presence",
+          "Versatile Golden Janissary Style"
+        ],
+        "weaknesses": [
+          "Low durability due to lack of armor",
+          "Potential to cause social friction"
+        ]
+      },
+      "magic": "None",
+      "notes": [
+        "Carries guilt over past failure involving Keli",
+        "Skilled in lifting spirits and social interactions",
+        "Fighting style described as dance-like"
+      ],
+      "relationships": {}
+    }
+  }
+}

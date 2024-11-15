@@ -1,0 +1,88 @@
+{
+  "identifier": "heiress",
+  "title": "Heiress",
+  "name": "Persephone Dantill",
+  "level": 0,
+  "money": 0,
+  "summary": "The Heiress to the accursed Estate, excels at taking command in even the most daunting situations. With her sharp intellect and strategic prowess, she fearlessly leads the charge to reclaim her ancestral home while deftly managing the nearby hamlet. Her natural authority and decisive leadership serve as a beacon of strength for a community besieged by supernatural horrors. Though grateful for allies brave enough to join her cause, Persephone's unwavering confidence in her own judgment can manifest as stubborn resistance when her authority is challenged.",
+  "history": "Upon receiving a chilling letter from her late ancestor, the Heiress left her academic pursuits with her brother in tow to take up her role as the Heiress of the Estate. She found herself thrust into a nightmarish reality where her ancestral home was not only physically deteriorated but also infested with the horrors summoned by her ancestor's dark rituals.",
+  "race": "Human",
+  "gender": "Female",
+  "religion": "None",
+  "traits": [
+    "Determined",
+    "Resourceful",
+    "Strategic",
+    "Intelligent",
+    "Stubborn",
+    "Authoritative"
+  ],
+  "status": {
+    "physical": 100,
+    "mental": 100,
+    "affliction": "",
+    "description": "In good health and high spirits",
+    "wounds": [],
+    "diseases": []
+  },
+  "stats": {
+    "strength": 2,
+    "agility": 3,
+    "intelligence": 8,
+    "authority": 10,
+    "sociability": 9
+  },
+  "equipment": [
+    "Derringer pistol",
+    "wine bottle"
+  ],
+  "trinkets": [],
+  "appearance": {
+    "height": "Average",
+    "build": "Average",
+    "skinTone": "Fair",
+    "hairColor": "Blond",
+    "hairStyle": "Tied up in a bun and with curly bangs",
+    "features": "Strong jawline and pointy nose"
+  },
+  "clothing": {
+    "head": "Hair needle",
+    "body": "Marine blue robe over white shirt",
+    "legs": "Mustard yellow breeches",
+    "other": "White bowtie"
+  },
+  "combat": {
+    "role": "Leader",
+    "strengths": [
+      "Quick reflexes",
+      "Sharpshooting",
+      "Strategic thinking"
+    ],
+    "weaknesses": [
+      "Close combat",
+      "Physical strength"
+    ]
+  },
+  "magic": "None",
+  "notes": [
+    "Turns to wine when overwhelmed by the stress of managing the Hamlet.",
+    "Attracted to women with ample breasts."
+  ],
+  "relationships": {
+    "Heir": {
+      "affinity": 8,
+      "dynamic": "Familial",
+      "description": "Despite a cold exterior and lifetime of bickering, the Heiress loves and will not let harm come upon the Heir."
+    },
+    "Crusader": {
+      "affinity": 5,
+      "dynamic": "Professional",
+      "description": "The Heiress maintains a reserved, professional demeanor towards the Crusader, her latest recruit."
+    },    
+    "Highwayman": {
+      "affinity": 3,
+      "dynamic": "Cautious",
+      "description": "The Heiress regards the Highwayman with suspicion. While his skills could prove valuable, his checkered past and gruff manner keep her on guard."
+    }    
+  }
+}

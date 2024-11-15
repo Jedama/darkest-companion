@@ -1,0 +1,90 @@
+{
+  "identifier": "crusader",
+  "title": "Crusader",
+  "name": "Reynauld",
+  "level": 0,
+  "money": 0,
+  "summary": "The Crusader, rose from a common conscript to a champion of over 100 holy wars. Transformed by the horrors of battle and church abuse, he abandoned his family, unable to face them. Now seeking redemption, he's drawn to the estate to combat unholy forces, haunted by memories of his past life.",
+  "history": "Once a common man conscripted into the holy war, the Crusader left behind a wife and young son. Rising through the ranks, he became a champion and army leader. The wars and church changed him profoundly, hollowing him out and turning him into a zealous warrior for the light. Unable to return to his family, he vowed to live his remaining days as a Crusader.",
+  "race": "Human",
+  "gender": "Male",
+  "religion": "The Light",
+  "traits": [
+    "Zealous",
+    "Stalwart",
+    "Inspiring",
+    "Kleptomanic",
+    "Conflicted"
+  ],
+  "status": {
+    "physical": 100,
+    "mental": 100,
+    "affliction": "",
+    "description": "In good health and high spitits",
+    "wounds": [],
+    "diseases": []
+  },
+  "stats": {
+    "strength": 8,
+    "agility": 3,
+    "intelligence": 5,
+    "authority": 7,
+    "sociability": 4
+  },
+  "equipment": [
+    "Holy Sword (family heirloom)",
+    "Crusader Armor",
+    "Holy Banners",
+    "Sacred Scrolls"
+  ],
+  "trinkets": [
+  ],
+  "appearance": {
+    "height": "Tall",
+    "build": "Muscular",
+    "skinTone": "Fair",
+    "hairColor": "Black",
+    "hairStyle": "Short",
+    "features": "Full beard"
+  },
+  "clothing": {
+    "head": "Steel helm",
+    "body": "Chainmail hauberk",
+    "legs": "Mail chausses",
+    "other": "Purple tunic with religious insignia"
+  },
+  "combat": {
+    "role": "Warrior",
+    "strengths": [
+      "Leadership",
+      "Endurance",
+      "Martial prowess"
+    ],
+    "weaknesses": [
+      "Ranged combat",
+      "Speed",
+      "Evation"
+    ]
+  },
+  "magic": "The light, a divine power that lets him smite foes and heal allies.",
+  "notes": [
+    "Has an irresistible kleptomania."
+  ],
+  "relationships": {
+    "Heiress": {
+      "affinity": 5,
+      "dynamic": "Professional",
+      "description": "Reynauld maintains a professional relationship with the Heiress, focusing on fulfilling his role as her protector with a devout sense of duty."
+    },
+    "Heir": {
+      "affinity": 4,
+      "dynamic": "Skeptical",
+      "description": "While Reynauld intends to uphold his duty with silent diligence, the realises the meek Heir is unfit to lead."
+    },
+    "Highwayman": {
+      "affinity": 7,
+      "dynamic": "Comrade",
+      "description": "The Crusader sees in the Highwayman a kindred spirit; both men with troubled pasts seeking to carve out a purpose through the quest they now share."
+    }      
+  }
+}

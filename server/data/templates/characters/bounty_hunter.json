@@ -1,0 +1,75 @@
+{
+    "identifier": "bounty_hunter",
+    "title": "Bounty Hunter",
+    "name": "Tardif",
+    "level": 0,
+    "money": 0,
+    "summary": "A ruthless and professional bounty hunter who takes pride in his work. The Bounty Hunter is a skilled fighter, motivated primarily by profit and self-interest. His cynical worldview and loner tendencies suggest a dark past that he refuses to talk about.",
+    "history": "While his past is a well-guarded secret, The Bounty Hunter has clearly lived a life of violence and danger. He's honed his skills as a bounty hunter, becoming a calculated and efficient killer who specializes in identifying weak points and executing targets.",
+    "race": "Human",
+    "gender": "Male",
+    "religion": "",
+    "traits": [
+        "Professional",
+        "Ruthless",
+        "Cynical",
+        "Loner",
+        "Taciturn"
+    ],
+    "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+    },
+    "stats": {
+        "strength": 8,
+        "agility": 7,
+        "intelligence": 7,
+        "authority": 4,
+        "sociability": 1
+    },
+    "equipment": [
+        "War axe",
+        "Grappling hook",
+        "Flash grenades",
+        "Caltrops"
+    ],
+    "trinkets": [],
+    "appearance": {
+        "height": "Average",
+        "build": "Athletic",
+        "skinTone": "Tanned",
+        "hairColor": "Dark",
+        "hairStyle": "Short",
+        "features": "Stubble, strong jawline"
+    },
+    "clothing": {
+        "headwear": "Metallic mask with cloth covering face",
+        "top": "Dark armor with shoulder pads",
+        "pants": "Dark armored leggings",
+        "accessories": "Belt of hunting tools"
+    },
+    "combat": {
+        "role": "Fighter",
+        "strengths": [
+            "Targeting weak points",
+            "Single combat",
+            "Adaptability",
+            "Follows orders (when paid to)"
+        ],
+        "weaknesses": [
+            "Difficulty working in teams",
+            "Demands high pay"
+        ]
+    },
+    "magic": "None",
+    "notes": [
+        "Takes pride in his professional skills",
+        "Refuses to remove his mask and let anyone see his face"
+    ],
+    "relationships": {
+    }
+}

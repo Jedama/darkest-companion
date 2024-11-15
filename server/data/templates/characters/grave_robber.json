@@ -1,0 +1,75 @@
+{
+    "identifier": "grave_robber",
+    "title": "Grave Robber",
+    "name": "Audrey",
+    "level": 0,
+    "money": 0,
+    "summary": "Once a noblewoman, the Grave Robber turned to grave robbing after murdering her abusive husband. She's a skilled assassin, specializing in quick, precise attacks and evading danger. Her past has left her with a cynical outlook, but she's found a new purpose in her dangerous profession.",
+    "history": "Born into wealth and married for status, the Grave Robber endured years of abuse from her drunken, lustful husband. She eventually poisoned him, then robbed his grave to maintain her lifestyle. When faced with eviction due to debt, she fully embraced her new identity as a grave robber and fled her former life.",
+    "race": "Human",
+    "gender": "Female",
+    "religion": "None",
+    "traits": [
+        "Agile",
+        "Precise",
+        "Cynical",
+        "Resourceful",
+        "Addicted to thrill",
+        "Vengeful"
+    ],
+    "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+    },
+    "stats": {
+        "strength": 5,
+        "agility": 9,
+        "intelligence": 7,
+        "authority": 4,
+        "sociability": 9
+    },
+    "equipment": [
+        "Throwing daggers",
+        "Pickaxe",
+        "Poison darts"
+    ],
+    "trinkets": [
+    ],
+    "appearance": {
+        "height": "Average",
+        "build": "Slender",
+        "skinTone": "Pale",
+        "hairColor": "Blonde",
+        "hairStyle": "Long, straight",
+        "features": "Mole on upper lip, pointy chin"
+    },
+    "clothing": {
+        "headwear": "Wide-brimmed hat",
+        "top": "Blue fitted jacket with puffy shoulders",
+        "pants": "Tight trousers",
+        "accessories": "Ascot"
+    },
+    "combat": {
+    "role": "Assassin",
+    "strengths": [
+    "Lithe",
+    "Precise",
+    "Quick",
+    "Stealthy"
+    ],
+    "weaknesses": [
+    "Frail",
+    "Vulnerable to direct attacks"
+    ]
+    },
+    "magic": "None",
+    "notes": [
+        "Has a gallows sense of humor"
+    ],
+    "relationships": {
+    }
+    }

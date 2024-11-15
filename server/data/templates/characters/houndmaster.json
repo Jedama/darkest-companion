@@ -1,0 +1,75 @@
+{
+    "identifier": "houndmaster",
+    "title": "Houndmaster",
+    "name": "William & Fergus",
+    "level": 0,
+    "money": 0,
+    "summary": "The Houndmaster is a former lawman who now fights alongside his faithful wolfhound, Fergus. Together they form a formidable team, using their skills to track down enemies and protect their allies.",
+    "history": "Once a dedicated member of law enforcement, the Houndmaster uncovered corruption within his ranks. This discovery led him to leave his post and seek justice in his own way, with Fergus as his loyal companion.",
+    "race": "Human",
+    "gender": "Male",
+    "religion": "None",
+    "traits": [
+      "Vigilant",
+      "Protective",
+      "Just",
+      "Resourceful",
+      "Fond of animals",
+      "Brash"
+    ],
+    "status": {
+      "physical": 100,
+      "mental": 100,
+      "affliction": "",
+      "description": "In good health and high spirits",
+      "wounds": [],
+      "diseases": []
+    },
+    "stats": {
+        "strength": 8,
+        "agility": 7,
+        "intelligence": 8,
+        "authority": 9,
+        "sociability": 6
+    },
+    "equipment": [
+      "Cudgel",
+      "Dog whistle",
+      "Leather vest"
+    ],
+    "trinkets": [],
+    "appearance": {
+      "height": "Average",
+      "build": "Athletic",
+      "skinTone": "Weathered",
+      "hairColor": "Blonde",
+      "hairStyle": "Short and practical",
+      "features": "Well-kept beard and mustache"
+    },
+    "clothing": {
+      "headwear": "Red headband",
+      "top": "Worn Gendarme's uniform",
+      "pants": "Sturdy trousers",
+      "accessories": "Belt with pouches"
+    },
+    "combat": {
+      "role": "Field commander & Tracker",
+      "strengths": [
+        "Versatility",
+        "Strategic thinking",
+        "Targeting",
+        "Scouting"
+      ],
+      "weaknesses": [
+        "Reliance on canine companion",
+        "Lacks singular focus"
+      ]
+    },
+    "magic": "None",
+    "notes": [
+      "Carries dog treats to boost his companion's abilities",
+      "His dog is adept at scouting and keeping watch"
+    ],
+    "relationships": {
+    }
+  }

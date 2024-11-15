@@ -1,0 +1,72 @@
+{
+    "identifier": "snor_rasp",
+    "title": "Martyr",
+    "name": "Anastasia",
+    "level": 0,
+    "money": 0,
+    "summary": "The Martyr, is a devout follower of a pain-worshipping sect. Guarded by Yuzupov, she has near-immortality and uses a thorn whip in combat. Her presence is both an asset and liability, enduring suffering to protect others while seeking danger for her faith.",
+    "history": "The Martyr's extreme devotion caught Yuzupov's attention, granting her near-immortality. She now views the estate's horrors as a pilgrimage to test her faith and endurance.",
+    "race": "Human",
+    "gender": "Female",
+    "religion": "Yuzupov's",
+    "traits": [
+      "Devoted",
+      "Masochistic",
+      "Resilient",
+      "Fearless",
+      "Reckless",
+      "Enigmatic"
+    ],
+    "status": {
+      "physical": 100,
+      "mental": 100,
+      "affliction": "",
+      "description": "In good health and high spirits",
+      "wounds": [],
+      "diseases": []
+    },
+    "stats": {
+      "strength": 3,
+      "agility": 3,
+      "intelligence": 3,
+      "authority": 3,
+      "sociability": 4
+    },
+    "equipment": [
+      "Thorn whip"
+    ],
+    "trinkets": [],
+    "appearance": {
+      "height": "Short",
+      "build": "Slender",
+      "skinTone": "Pale",
+      "hairColor": "Pink",
+      "hairStyle": "Wavy, shoulder-length",
+      "features": "Small hands, thin neck"
+    },
+    "clothing": {
+      "headwear": "Crown of thorns",
+      "top": "Frilly red dress with ruffled white collar",
+      "pants": "None",
+      "accessories": "None"
+    },
+    "combat": {
+      "role": "Frontliner",
+      "strengths": [
+        "High pain tolerance",
+        "Morale booster"
+      ],
+      "weaknesses": [
+        "Weak",
+        "Single-minded"
+      ]
+    },
+    "magic": "Spirit-granted near-immortality",
+    "notes": [
+      "Constantly seeks out pain and dangerous situations.",
+      "Finds pleasure in cutting, entangling, and strangling herself with her thorn whip"
+    ],
+    "relationships": {
+        
+    }
+  }

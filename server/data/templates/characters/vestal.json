@@ -1,0 +1,69 @@
+{
+  "identifier": "vestal",
+  "title": "Vestal",
+  "name": "Junia",
+  "level": 0,
+  "money": 0,
+  "summary": "The Vestal, upheld her sacred duties with pious rigor within the Abbey's sheltered confines. Her life, once marked by the tranquility of clerical discipline, was disrupted when her neglect and daydreaming of forbidden desires caused the monastery's eternal light to fade, and she suffered under the harsh admonitions of her superiors. She now seeks redemption and freedom from her past torments through divine service in battle.",
+  "history": "Raised within the Abbey's austere walls, the Vestal was the epitome of monastic discipline until a momentary lapse led to her unjust punishment. Imprisoned and tormented, she received a divine revelation that her captors had strayed from the true path. Rescued by radiant light, she now channels her zeal into protecting others, believing fervently in the Light's guidance and her role as its martial emissary.",
+  "race": "Human",
+  "gender": "Female",
+  "religion": "The Light",
+  "traits": [
+      "Devoted",
+      "Righteous",
+      "Compassionate",
+      "Vindictive",
+      "Temperamental",
+      "Salacious"
+  ],
+  "status": {
+      "physical": 100,
+      "mental": 100,
+      "affliction": "",
+      "description": "In good health and decent spirits",
+      "wounds": [],
+      "diseases": []
+  },
+  "stats": {
+      "strength": 4,
+      "agility": 3,
+      "intelligence": 6,
+      "authority": 6,
+      "sociability": 3
+  },
+  "equipment": [
+      "Sacred Mace",
+      "Divine Tome"
+  ],
+  "trinkets": [],
+  "appearance": {
+      "height": "Average",
+      "build": "Sturdy",
+      "skinTone": "Pale",
+      "hairColor": "Blonde",
+      "hairStyle": "Tied down",
+      "features": "Deep-set eyes, pronounced chin"
+  },
+  "clothing": {
+    "headwear": "Hooded robe and wimple",
+    "top": "Chestplate emphasizing breasts",
+    "pants": "Sacred robe",
+    "accessories": "Pauldrons, gloves"
+  },
+  "combat": {
+      "role": "Healer",
+      "strengths": [
+          "Healing abilities",
+          "Divine magic"
+      ],
+      "weaknesses": [
+          "Physical confrontations",
+          "Endurance"
+      ]
+  },
+  "magic": "Powerful healing and protection spells as well as the ability to smite enemies with holy light.",
+  "notes": [
+  ],
+  "relationships": {}
+}

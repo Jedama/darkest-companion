@@ -1,0 +1,73 @@
+{
+    "identifier": "flagellant",
+    "title": "Flagellant",
+    "name": "Damien",
+    "level": 0,
+    "money": 0,
+    "summary": "A zealous devotee who finds power and religious ecstasy through self-inflicted pain. Once a vagrant, Damien discovered his calling after a violent encounter, leading him to dedicate his life to suffering as a form of worship and atonement.",
+    "history": "Formerly a destitute wanderer in the city, Damien's life changed when he was attacked by drunks. The pain awakened a fervent religious conviction within him, leading him to join the clergy and later seek out suffering as a form of spiritual enlightenment.",
+    "race": "Human",
+    "gender": "Male",
+    "religion": "The Light",
+    "traits": [
+      "Zealous",
+      "Masochistic",
+      "Devout",
+      "Resilient",
+      "Fervent",
+      "Determined"
+    ],
+    "status": {
+      "physical": 100,
+      "mental": 100,
+      "affliction": "",
+      "description": "In good health and high spirits",
+      "wounds": ["Self-inflicted lash marks"],
+      "diseases": []
+    },
+    "stats": {
+      "strength": 7,
+      "agility": 3,
+      "intelligence": 4,
+      "authority": 5,
+      "sociability": 3
+    },
+    "equipment": [
+      "Flail",
+      "Ragged robes"
+    ],
+    "trinkets": [
+    ],
+    "appearance": {
+      "height": "Average",
+      "build": "Muscular",
+      "skinTone": "Pale, marked with scars",
+      "hairColor": "Black",
+      "hairStyle": "Short and patchy",
+      "features": "Pronounced lips and chin"
+    },
+    "clothing": {
+      "headwear": "Hood",
+      "top": "Tattered, blood-stained robes",
+      "pants": "Simple, worn trousers",
+      "accessories": "Spiked crown-like collar"
+    },
+    "combat": {
+      "role": "Front-line",
+      "strengths": [
+        "Pain resistance",
+        "Religious fervor",
+        "Self-sacrifice"
+      ],
+      "weaknesses": [
+        "Ranged combat",
+        "Overzealousness",
+        "Mental fortitude"
+      ]
+    },
+    "magic": "None",
+    "notes": [
+      "Believes his pain can absolve others of their sins"
+    ],
+    "relationships": {}
+  }

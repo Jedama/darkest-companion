@@ -1,0 +1,70 @@
+{
+    "identifier": "arbalest",
+    "title": "Arbalest",
+    "name": "Missandei",
+    "level": 0,
+    "money": 0,
+    "summary": "A skilled crossbowwoman with a tragic past, the Arbalest is a survivor who has honed her skills with the arbalest through years of hardship and adventure. Her quest for wealth is driven by a deeper search for a home she may never find.",
+    "history": "After a violent attack on her home that killed her father, the Arbalest was forced to flee with only a crossbow for protection. She has since traveled widely, serving as a mercenary, and has developed exceptional skills with her weapon and knowledge of herbal medicine.",
+    "race": "Human",
+    "gender": "Female",
+    "religion": "None",
+    "traits": [
+      "Survivor",
+      "Skilled",
+      "Determined",
+      "Resourceful",
+      "Independent"
+    ],
+    "status": {
+      "physical": 100,
+      "mental": 100,
+      "affliction": "",
+      "description": "In good health and high spirits",
+      "wounds": [],
+      "diseases": []
+    },
+    "stats": {
+      "strength": 6,
+      "agility": 8,
+      "intelligence": 8,
+      "authority": 6,
+      "sociability": 4
+    },
+    "equipment": [
+      "Arbalest (crossbow) named Millicent",
+      "Armor"
+    ],
+    "trinkets": [],
+    "appearance": {
+      "height": "Average",
+      "build": "Athletic",
+      "skinTone": "Dark",
+      "hairColor": "Black",
+      "hairStyle": "Braids tied up in a short upright ponytail",
+      "features": "Deep lines below fierce eyes"
+    },
+    "clothing": {
+      "headwear": "White headband",
+      "top": "Metal armor emphasizing modest chest",
+      "pants": "Baggy pants and greaves",
+      "accessories": "Gauntlet on one hand and glove on the other"
+    },
+    "combat": {
+      "role": "Sharpshooter",
+      "strengths": [
+        "Exceptional accuracy",
+        "Healing knowledge",
+        "Survival skills"
+      ],
+      "weaknesses": [
+        "Close combat",
+        "Unversatile"
+      ]
+    },
+    "magic": "None",
+    "notes": [
+      "Cannot accurately remember the traumatic events of her childhood"
+    ],
+    "relationships": {}
+  }

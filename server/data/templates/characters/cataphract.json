@@ -1,0 +1,72 @@
+{
+    "identifier": "cataphract",
+    "title": "Cataphract",
+    "name": "Nyriad & Cargadon",
+    "level": 0,
+    "money": 0,
+    "summary": "The Cataphract is a formidable mounted warrior from the Levantine Sultanate, bonded with her supernatural horse. Together they form an unstoppable cavalry unit, using their combined skills to charge into battle and vanquish foes.",
+    "history": "Once a respected warrior of the Levantine Sultanate, the Cataphract's life changed when her beloved horse was fatally wounded. Desperate, she stole a powerful artifact to revive him, resulting in their exile. Now the spirit of the horse speaks to her, and they fight together against the horrors of the estate.",
+    "race": "Human",
+    "gender": "Female",
+    "religion": "Unspecified",
+    "traits": [
+      "Proud",
+      "Valorous",
+      "Disciplined",
+      "Stern",
+      "Loyal",
+      "Battle-hardened"
+    ],
+    "status": {
+      "physical": 100,
+      "mental": 100,
+      "affliction": "",
+      "description": "In good health and high spirits",
+      "wounds": [],
+      "diseases": []
+    },
+    "stats": {
+        "strength": 9,
+        "agility": 8,
+        "intelligence": 7,
+        "authority": 8,
+        "sociability": 5
+    },
+    "equipment": [
+      "Spear",
+      "Splint mail armor",
+      "Banner"
+    ],
+    "trinkets": [],
+    "appearance": {
+      "height": "Tall",
+      "build": "Athletic",
+      "skinTone": "Sun-tanned (hidden by full armor)",
+      "hairColor": "Dark",
+      "hairStyle": "Ponytail (hidden by helmet)",
+      "features": "Angular facial structure and prominent cheekbones"
+    },
+    "clothing": {
+      "headwear": "Plumed helmet",
+      "top": "Splint mail armor",
+      "pants": "Riding leathers",
+      "accessories": "Red scarf"
+    },
+    "combat": {
+      "role": "Warrior",
+      "strengths": [
+        "Mobility",
+        "Battlefield control",
+        "Command"
+      ],
+      "weaknesses": [
+        "Slow attrition"
+      ]
+    },
+    "magic": "Limited supernatural connection with Cargadon",
+    "notes": [
+      "Carries the skull of her deceased horse, which grants her power",
+      "Can communicate with the horse's spirit"
+    ],
+    "relationships": {}
+}

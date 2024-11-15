@@ -1,0 +1,360 @@
+{
+  "estateName": "4",
+  "money": 0,
+  "month": -1,
+  "characters": {
+    "crusader": {
+      "identifier": "crusader",
+      "title": "Crusader",
+      "name": "Reynauld",
+      "level": 0,
+      "money": 0,
+      "summary": "The Crusader, rose from a common conscript to a champion of over 100 holy wars. Transformed by the horrors of battle and church abuse, he abandoned his family, unable to face them. Now seeking redemption, he's drawn to the estate to combat unholy forces, haunted by memories of his past life.",
+      "history": "Once a common man conscripted into the holy war, the Crusader left behind a wife and young son. Rising through the ranks, he became a champion and army leader. The wars and church changed him profoundly, hollowing him out and turning him into a zealous warrior for the light. Unable to return to his family, he vowed to live his remaining days as a Crusader.",
+      "race": "Human",
+      "gender": "Male",
+      "religion": "The Light",
+      "traits": [
+        "Zealous",
+        "Stalwart",
+        "Inspiring",
+        "Kleptomanic",
+        "Conflicted"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spitits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 8,
+        "agility": 3,
+        "intelligence": 5,
+        "authority": 7,
+        "sociability": 4
+      },
+      "equipment": [
+        "Holy Sword (family heirloom)",
+        "Crusader Armor",
+        "Holy Banners",
+        "Sacred Scrolls"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Tall",
+        "build": "Muscular",
+        "skinTone": "Fair",
+        "hairColor": "Black",
+        "hairStyle": "Short",
+        "features": "Full beard"
+      },
+      "clothing": {
+        "head": "Steel helm",
+        "body": "Chainmail hauberk",
+        "legs": "Mail chausses",
+        "other": "Purple tunic with religious insignia"
+      },
+      "combat": {
+        "role": "Warrior",
+        "strengths": [
+          "Leadership",
+          "Endurance",
+          "Martial prowess"
+        ],
+        "weaknesses": [
+          "Ranged combat",
+          "Speed",
+          "Evation"
+        ]
+      },
+      "magic": "The light, a divine power that lets him smite foes and heal allies.",
+      "notes": [
+        "Has an irresistible kleptomania."
+      ],
+      "relationships": {
+        "Heiress": {
+          "affinity": 5,
+          "dynamic": "Professional",
+          "description": "Reynauld maintains a professional relationship with the Heiress, focusing on fulfilling his role as her protector with a devout sense of duty."
+        },
+        "Heir": {
+          "affinity": 4,
+          "dynamic": "Skeptical",
+          "description": "While Reynauld intends to uphold his duty with silent diligence, the realises the meek Heir is unfit to lead."
+        },
+        "Highwayman": {
+          "affinity": 7,
+          "dynamic": "Comrade",
+          "description": "The Crusader sees in the Highwayman a kindred spirit; both men with troubled pasts seeking to carve out a purpose through the quest they now share."
+        }
+      }
+    },
+    "highwayman": {
+      "identifier": "highwayman",
+      "title": "Highwayman",
+      "name": "Dismas",
+      "level": 0,
+      "money": 0,
+      "summary": "Once a prisoner, the Highwayman is now a haunted fugitive, living off the squalor of the city's canals and the meager pickings from vermin. His vision of freedom has been replaced by a reality of degradation, driving him to reluctantly offer his services for a final, desperate heist. Now, his path has unexpectedly converged with that of the Heiress and the Heir, offering a precarious chance at redemption through service.",
+      "history": "The Highwayman's tale is one of escape and survival, painted with strokes of desperation and grim resolve. Escaping from incarceration during a prison riot, he sought refuge in the underbelly of the city, subsisting in conditions that stripped away his illusions of freedom. A final job, taken out of sheer necessity, ended in tragedy, leaving him with a burden of guilt that no distance can alleviate.",
+      "race": "Human",
+      "gender": "Male",
+      "religion": "None",
+      "traits": [
+        "Rugged",
+        "Desperate",
+        "Fugitive",
+        "Remorseful",
+        "Cynical"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spitits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 6,
+        "agility": 8,
+        "intelligence": 5,
+        "authority": 3,
+        "sociability": 3
+      },
+      "equipment": [
+        "Flintlock pistol",
+        "Dagger"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Average",
+        "build": "Athletic",
+        "skinTone": "Weathered",
+        "hairColor": "Dark",
+        "hairStyle": "Short, practical",
+        "features": "Stubble, narrow face"
+      },
+      "clothing": {
+        "head": "Red scarf",
+        "body": "Rugged grey coat with fur collar",
+        "legs": "Dark trousers",
+        "other": "Multiple utility belts"
+      },
+      "combat": {
+        "role": "Skirmisher",
+        "strengths": [
+          "Quick reflexes",
+          "Stealth",
+          "Marksmanship"
+        ],
+        "weaknesses": [
+          "Distrustful",
+          "Endurance"
+        ]
+      },
+      "magic": "None",
+      "notes": [
+        "Known to cheat at cards",
+        "Has a gallows sense of humor"
+      ],
+      "relationships": {
+        "Heiress": {
+          "affinity": 4,
+          "dynamic": "Guardian",
+          "description": "The Highwayman is determined to prove himself to the Heiress and to assist in her quest despite her warranted distrust."
+        },
+        "Heir": {
+          "affinity": 3,
+          "dynamic": "Guardian",
+          "description": "Despite the Heir's distrust, the Highwayman is resolute in his role as a guard, seeing their safety as his path to absolution."
+        },
+        "Crusader": {
+          "affinity": 7,
+          "dynamic": "Comrade",
+          "description": "Despite their outwardly differences, the Highwayman and Crusader swiftly bonded over the mistakes of their respective pasts and quest for redemption."
+        }
+      }
+    },
+    "heiress": {
+      "identifier": "heiress",
+      "title": "Heiress",
+      "name": "Persephone Dantill",
+      "level": 0,
+      "money": 0,
+      "summary": "The Heiress to the accursed Estate, excels at taking command in even the most daunting situations. With her sharp intellect and strategic prowess, she fearlessly leads the charge to reclaim her ancestral home while deftly managing the nearby hamlet. Her natural authority and decisive leadership serve as a beacon of strength for a community besieged by supernatural horrors. Though grateful for allies brave enough to join her cause, Persephone's unwavering confidence in her own judgment can manifest as stubborn resistance when her authority is challenged.",
+      "history": "Upon receiving a chilling letter from her late ancestor, the Heiress left her academic pursuits with her brother in tow to take up her role as the Heiress of the Estate. She found herself thrust into a nightmarish reality where her ancestral home was not only physically deteriorated but also infested with the horrors summoned by her ancestor's dark rituals.",
+      "race": "Human",
+      "gender": "Female",
+      "religion": "None",
+      "traits": [
+        "Determined",
+        "Resourceful",
+        "Strategic",
+        "Intelligent",
+        "Stubborn",
+        "Authoritative"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 2,
+        "agility": 3,
+        "intelligence": 8,
+        "authority": 10,
+        "sociability": 9
+      },
+      "equipment": [
+        "Derringer pistol",
+        "wine bottle"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Average",
+        "build": "Average",
+        "skinTone": "Fair",
+        "hairColor": "Blond",
+        "hairStyle": "Tied up in a bun and with curly bangs",
+        "features": "Strong jawline and pointy nose"
+      },
+      "clothing": {
+        "head": "Hair needle",
+        "body": "Marine blue robe over white shirt",
+        "legs": "Mustard yellow breeches",
+        "other": "White bowtie"
+      },
+      "combat": {
+        "role": "Leader",
+        "strengths": [
+          "Quick reflexes",
+          "Sharpshooting",
+          "Strategic thinking"
+        ],
+        "weaknesses": [
+          "Close combat",
+          "Physical strength"
+        ]
+      },
+      "magic": "None",
+      "notes": [
+        "Turns to wine when overwhelmed by the stress of managing the Hamlet.",
+        "Attracted to women with ample breasts."
+      ],
+      "relationships": {
+        "Heir": {
+          "affinity": 8,
+          "dynamic": "Familial",
+          "description": "Despite a cold exterior and lifetime of bickering, the Heiress loves and will not let harm come upon the Heir."
+        },
+        "Crusader": {
+          "affinity": 5,
+          "dynamic": "Professional",
+          "description": "The Heiress maintains a reserved, professional demeanor towards the Crusader, her latest recruit."
+        },
+        "Highwayman": {
+          "affinity": 3,
+          "dynamic": "Cautious",
+          "description": "The Heiress regards the Highwayman with suspicion. While his skills could prove valuable, his checkered past and gruff manner keep her on guard."
+        }
+      }
+    },
+    "kheir": {
+      "identifier": "kheir",
+      "title": "Heir",
+      "name": "Percival Dantill",
+      "level": 0,
+      "money": 0,
+      "summary": "The Heir to the estate is a brilliant scholar and capable manager who is desperately trying to cope in this world of horrors far beyond his comfort. Despite being a man of cowardice and meek nature, Percival's keen intellect and organizational skills prove invaluable in coordinating the chaotic efforts to reclaim his ancestral home.",
+      "history": "Raised in academic circles far from the estate's dark legacy, Percival was reluctantly drawn into the family's quest by his sister. Despite his initial hesitation, he's found ways to apply his scholarly knowledge and managerial expertise to the daunting task at hand.",
+      "race": "Human",
+      "gender": "Male",
+      "religion": "None",
+      "traits": [
+        "Organized",
+        "Cowardly",
+        "Scholarly",
+        "Anxious",
+        "Resourceful",
+        "Possessive"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spitits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 2,
+        "agility": 2,
+        "intelligence": 9,
+        "authority": 7,
+        "sociability": 8
+      },
+      "equipment": [
+        "Letter opener",
+        "Wine bottle"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Short",
+        "build": "Chubby",
+        "skinTone": "Fair",
+        "hairColor": "Blond",
+        "hairStyle": "Curled and styled",
+        "features": "Large nose and round face"
+      },
+      "clothing": {
+        "head": "None",
+        "body": "Well-tailored jacket and waistcoat",
+        "legs": "Mustard yellow breeches",
+        "other": "Bowtie"
+      },
+      "combat": {
+        "role": "Support Tactician",
+        "strengths": [
+          "Strategic planning",
+          "Resource management",
+          "Knowledge application"
+        ],
+        "weaknesses": [
+          "Close combat",
+          "Endurance",
+          "Falls apart under stress"
+        ]
+      },
+      "magic": "None",
+      "notes": [
+        "Hates waste and is very possesive of his belongings",
+        "Has a penchant for fine wines to calm his nerves"
+      ],
+      "relationships": {
+        "Heiress": {
+          "affinity": 8,
+          "dynamic": "Familial",
+          "description": "Percival admires, and is deeply jealous of, his sister's strength and ability to take initiave. Despite their fierce bickering, The Heir loves his sister."
+        },
+        "Crusader": {
+          "affinity": 4,
+          "dynamic": "Cautious respect",
+          "description": "Though he recognizes his potential, The Heir is dubious over the trustworthiness of his new guard, the Crusader."
+        },
+        "Highwayman": {
+          "affinity": 2,
+          "dynamic": "Distrustful",
+          "description": "The Heir is distrusting towards the Highwayman, scared that the rugged man will betray them and steal his possessions."
+        }
+      }
+    }
+  }
+}

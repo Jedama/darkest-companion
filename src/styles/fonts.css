@@ -1,0 +1,60 @@
+/* Font Declarations */
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../assets/fonts/UbuntuRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DwarvenAxe';
+    src: url('../assets/fonts/DwarvenAxe.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mythshire';
+    src: url('../assets/fonts/MythshireRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Moria';
+    src: url('../assets/fonts/Moria_DF.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Italique';
+    src: url('../assets/fonts/Italique.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'CaslonAntique';
+    src: url('../assets/fonts/CaslonAntique.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CaslonAntique';
+    src: url('../assets/fonts/CaslonAntique-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'CaslonAntique';
+    src: url('../assets/fonts/CaslonAntique-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CaslonAntique';
+    src: url('../assets/fonts/CaslonAntique-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}

@@ -1,0 +1,87 @@
+{
+  "identifier": "highwayman",
+  "title": "Highwayman",
+  "name": "Dismas",
+  "level": 0,
+  "money": 0,
+  "summary": "Once a prisoner, the Highwayman is now a haunted fugitive, living off the squalor of the city's canals and the meager pickings from vermin. His vision of freedom has been replaced by a reality of degradation, driving him to reluctantly offer his services for a final, desperate heist. Now, his path has unexpectedly converged with that of the Heiress and the Heir, offering a precarious chance at redemption through service.",
+  "history": "The Highwayman's tale is one of escape and survival, painted with strokes of desperation and grim resolve. Escaping from incarceration during a prison riot, he sought refuge in the underbelly of the city, subsisting in conditions that stripped away his illusions of freedom. A final job, taken out of sheer necessity, ended in tragedy, leaving him with a burden of guilt that no distance can alleviate.",
+  "race": "Human",
+  "gender": "Male",
+  "religion": "None",
+  "traits": [
+    "Rugged",
+    "Desperate",
+    "Fugitive",
+    "Remorseful",
+    "Cynical"
+  ],
+  "status": {
+    "physical": 100,
+    "mental": 100,
+    "affliction": "",
+    "description": "In good health and high spitits",
+    "wounds": [],
+    "diseases": []
+  },
+  "stats": {
+    "strength": 6,
+    "agility": 8,
+    "intelligence": 5,
+    "authority": 3,
+    "sociability": 3
+  },
+  "equipment": [
+    "Flintlock pistol",
+    "Dagger"
+  ],
+  "trinkets": [],
+  "appearance": {
+    "height": "Average",
+    "build": "Athletic",
+    "skinTone": "Weathered",
+    "hairColor": "Dark",
+    "hairStyle": "Short, practical",
+    "features": "Stubble, narrow face"
+  },
+  "clothing": {
+    "head": "Red scarf",
+    "body": "Rugged grey coat with fur collar",
+    "legs": "Dark trousers",
+    "other": "Multiple utility belts"
+  },
+  "combat": {
+    "role": "Skirmisher",
+    "strengths": [
+      "Quick reflexes",
+      "Stealth",
+      "Marksmanship"
+    ],
+    "weaknesses": [
+      "Distrustful",
+      "Endurance"
+    ]
+  },
+  "magic": "None",
+  "notes": [
+    "Known to cheat at cards",
+    "Has a gallows sense of humor"
+  ],
+  "relationships": {
+    "Heiress": {
+      "affinity": 4,
+      "dynamic": "Guardian",
+      "description": "The Highwayman is determined to prove himself to the Heiress and to assist in her quest despite her warranted distrust."
+    },
+    "Heir": {
+      "affinity": 3,
+      "dynamic": "Guardian",
+      "description": "Despite the Heir's distrust, the Highwayman is resolute in his role as a guard, seeing their safety as his path to absolution."
+    },
+    "Crusader": {
+      "affinity": 7,
+      "dynamic": "Comrade",
+      "description": "Despite their outwardly differences, the Highwayman and Crusader swiftly bonded over the mistakes of their respective pasts and quest for redemption."
+    }
+  }
+}

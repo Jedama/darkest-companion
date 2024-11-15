@@ -1,0 +1,72 @@
+{
+    "identifier": "zenith",
+    "title": "Zenith",
+    "name": "Syndoriel",
+    "level": 0,
+    "money": 0,
+    "summary": "The Zenith is an acrobatic fighter who inspires allies with his charm and skill with a spear. Sworn to a god of honor and brotherhood, he uses bravado to distract from horrors. He can unleash the Golden Janissary Style for powerful combinations against eldritch and unholy foes. Unarmored but mobile, his hedonistic nature may clash with the pious or those with jealous spouses.",
+    "history": "The Zenith grew up in Great Forks, the City of a Thousand Temples, where he honed his charm and social skills. He trained rigorously with a near-forgotten order, mastering the art of fighting creatures of darkness. A tragic event involving the death of his friend Keli drives his actions. This past failure fuels his determination to protect others and redeem himself through his current adventures.",
+    "race": "Human",
+    "gender": "Male",
+    "religion": "Follower of Sol Invictus",
+    "traits": [
+        "Charismatic",
+        "Flirtatious",
+        "Acrobatic",
+        "Hedonistic",
+        "Brave",
+        "Inspiring"
+    ],
+    "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+    },
+    "stats": {
+        "strength": 7,
+        "agility": 8,
+        "intelligence": 4,
+        "authority": 6,
+        "sociability": 10
+    },
+    "equipment": [
+        "Ancient spear with cloth banner"
+    ],
+    "trinkets": [],
+    "appearance": {
+        "height": "Tall",
+        "build": "Muscular, athletic",
+        "skinTone": "Tanned",
+        "hairColor": "Blonde",
+        "hairStyle": "Long, flowing",
+        "features": "Attractive jawline, well-defined face"
+    },
+    "clothing": {
+        "headwear": "None",
+        "top": "Open black jacket",
+        "pants": "Black pants with red sash",
+        "accessories": "None"
+    },
+    "combat": {
+        "role": "Versatile fighter",
+        "strengths": [
+            "Acrobatic fighting style",
+            "Inspiring presence",
+            "Versatile Golden Janissary Style"
+        ],
+        "weaknesses": [
+            "Low durability due to lack of armor",
+            "Potential to cause social friction"
+        ]
+    },
+    "magic": "None",
+    "notes": [
+        "Carries guilt over past failure involving Keli",
+        "Skilled in lifting spirits and social interactions",
+        "Fighting style described as dance-like"
+    ],
+    "relationships": {}
+}

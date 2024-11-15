@@ -1,0 +1,68 @@
+/* src/components/views/ManorView.css */
+.manor-view {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.portrait-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  grid-auto-columns: 150px;
+  padding-left: 40%;  /* This reserves space for the character panel */
+  row-gap: 175px; 
+  width: max-content;
+  height: 100%;
+  padding-bottom: 30%;
+  overflow-x: visible;
+  overflow-y: hidden;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  
+  /* Hide scrollbar */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.portrait-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.portrait-container {
+  aspect-ratio: 442 / 565;
+  width: 100%;
+  transition: transform 0.2s ease-in-out;
+  margin: 0 auto;
+}
+
+.portrait-container:hover {
+  transform: scale(1.05);
+  z-index: 1;
+}
+
+.portrait-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.frame-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.character-portrait {
+  position: absolute;
+  width: calc(190 / 442 * 100%);
+  height: calc(278 / 565 * 100%);
+  object-fit: contain;
+}

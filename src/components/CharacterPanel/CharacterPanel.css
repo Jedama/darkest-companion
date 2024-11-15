@@ -1,0 +1,158 @@
+/* Character Info Styles */
+.character-info {
+    position: relative;
+    height: 100%;
+    overflow: visible;
+    background-image: url('../../assets/ui/panels/characterpanel/background.png');
+    background-size: 100% 100%;
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding: 49px 80px 35px 20px; /* 49 perfectly places the bookmarks */
+}
+
+/* New inner container for content */
+.panel-content {
+    position: relative;
+    height: 100%;
+}
+
+.character-picture {
+    width: 40%;
+    height: auto;
+    position: absolute;
+    top: 85px;
+    left: 40px;
+    transform: rotate(-3deg);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+.character-picture:hover {
+    transform: rotate(-1deg) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+#character-name {
+    font-family: 'DwarvenAxe';
+    font-size: 40px;
+    letter-spacing: 1px;
+    margin: 0 0 10px;
+    color: black;
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    right: 20px;
+    z-index: 3;
+}
+
+#character-title {
+    font-family: 'Mythshire', sans-serif;
+    font-size: 30px;
+    letter-spacing: 1px;
+    margin: 0;
+    color: #202020;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    right: 20px;
+    z-index: 3;
+}
+
+.trait-list {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    width: 40%;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 3;
+}
+
+#character-traits {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+#character-traits li {
+    font-family: 'Italique', sans-serif;
+    font-size: 32px;
+    line-height: 0.9;
+    color: #333;
+}
+
+.health-bookmark {
+    width: 40px;
+    height: 400px;
+    background-image: url('/graphics/default/assets/stat/health10.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: -10px;
+    top: calc(5vh - 49px);
+    z-index: 4; 
+    transform-origin: top center;
+}
+
+.mental-bookmark {
+    width: 20px;
+    height: 400px;
+    background-image: url('/graphics/default/assets/stat/mental10.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 4px; 
+    top: calc(5vh - 52px);
+    z-index: 5;
+    transform-origin: top center;
+}
+
+.stats-container {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 3;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gem {
+    width: 80px;
+    height: auto;
+    object-fit: contain;
+}
+
+.gem-level-0 { transform: scale(0.65); filter: grayscale(100%) drop-shadow(0 0 2px rgba(0, 0, 0, 0.5)); }
+.gem-level-1 { transform: scale(0.72); filter: grayscale(83.33%) drop-shadow(0 0 2px rgba(0, 0, 0, 0.5)); }
+.gem-level-2 { transform: scale(0.79); filter: grayscale(66.67%) drop-shadow(0 0 2px rgba(0, 0, 0, 0.5)); }
+.gem-level-3 { transform: scale(0.86); filter: grayscale(50%) drop-shadow(0 0 2px rgba(0, 0, 0, 0.5)); }
+.gem-level-4 { transform: scale(0.93); filter: grayscale(33.33%) drop-shadow(0 0 2px rgba(0, 0, 0, 0.5)); }
+.gem-level-5 { transform: scale(0.95); filter: grayscale(16.67%) drop-shadow(0 0 2px rgba(0, 0, 0, 0.5)); }
+.gem-level-6 { transform: scale(1); filter: grayscale(0%) drop-shadow(0 0 2px rgba(0, 0, 0, 0.5)); }
+.gem-level-7 { transform: scale(1.07); filter: grayscale(0%) drop-shadow(0 0 3px currentColor); }
+.gem-level-8 { transform: scale(1.14); filter: grayscale(0%) drop-shadow(0 0 5px currentColor); }
+.gem-level-9 { transform: scale(1.21); filter: grayscale(0%) drop-shadow(0 0 8px currentColor); }
+.gem-level-10 { transform: scale(1.28); filter: grayscale(0%) drop-shadow(0 0 12px currentColor); }
+
+/* Gem colors for glow effect */
+.stat-item[data-stat="strength"] .gem-wrapper { color: #ff4136; }
+.stat-item[data-stat="agility"] .gem-wrapper { color: #2ecc40; }
+.stat-item[data-stat="intelligence"] .gem-wrapper { color: #0074d9; }
+.stat-item[data-stat="authority"] .gem-wrapper { color: #b10dc9; }
+.stat-item[data-stat="sociability"] .gem-wrapper { color: #ffdc00; }
+
+.stat-number {
+    font-family: 'Moria', serif;
+    font-size: 24px;
+    color: #000000;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+

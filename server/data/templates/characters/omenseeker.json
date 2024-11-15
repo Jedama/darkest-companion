@@ -1,0 +1,74 @@
+{
+    "identifier": "omenseeker",
+    "title": "Omen Seeker",
+    "name": "Mesmira",
+    "level": 0,
+    "money": 0,
+    "summary": "The Omen Seeker is a nomadic inquisitor and monster hunter from the Levantine Sultanate, devoted to 'the Flame.' She's a complex individual, balancing unwavering conviction with deep-seated guilt over past actions. Stern and disciplined, she wields an arsenal of specialized weapons to combat supernatural threats.",
+    "history": "The Omen Seeker's past involves violent acts against communities, which continue to haunt her. She travels with a well-stocked wagon, serving as both her mobile home and a base of operations. While dedicated to her mission of purging evil, she grapples with the morality of her methods and the weight of lives taken in the name of her faith.",
+    "race": "Human",
+    "gender": "Female",
+    "religion": "The Flame",
+    "traits": [
+      "Devout",
+      "Stern",
+      "Disciplined",
+      "Confident",
+      "Judgmental",
+      "Experienced"
+    ],
+    "status": {
+      "physical": 100,
+      "mental": 100,
+      "affliction": "",
+      "description": "In good health and high spirits",
+      "wounds": [],
+      "diseases": []
+    },
+    "stats": {
+        "strength": 7,
+        "agility": 8,
+        "intelligence": 8,
+        "authority": 7,
+        "sociability": 5
+    },
+    "equipment": [
+      "Consecrated whip",
+      "Throwing axe",
+      "Bladed boomerang",
+      "Holy water"
+    ],
+    "trinkets": [],
+    "appearance": {
+      "height": "Average",
+      "build": "Curvy",
+      "skinTone": "Dark",
+      "hairColor": "Black",
+      "hairStyle": "Long, wavy",
+      "features": "Enormous breasts"
+    },
+    "clothing": {
+      "headwear": "Ornate, flowing headpiece",
+      "top": "Low-cut, off-shoulder dark top",
+      "pants": "Flowing skirt with high slit and thighhighs",
+      "accessories": "Multiple necklaces, large earrings, arm bracers"
+    },
+    "combat": {
+      "role": "Combatant",
+      "strengths": [
+        "Debilitation",
+        "Quick thinking",
+        "Versatility"
+      ],
+      "weaknesses": [
+        "Light armor"
+      ]
+    },
+    "magic": "None",
+    "notes": [
+      "Travels with a well-stocked wagon",
+      "Skilled in divination",
+      "Possesses extensive knowledge of monsters"
+    ],
+    "relationships": {}
+}

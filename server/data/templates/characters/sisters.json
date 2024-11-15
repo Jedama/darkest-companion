@@ -1,0 +1,77 @@
+{
+    "identifier": "sisters",
+    "title": "Sisters",
+    "name": "Junjeong & Nammo",
+    "level": 0,
+    "money": 0,
+    "summary": "The sisters are composed of The Scholar (the first name) and the Warrior (the second name), who are two souls bound to one body, which both claim to be the rightful owner of. The Scholar often maintains control, but the Warrior is able to seize autonomy of the body, primarily when there is blood to shed. Refer to them not as the combined sisters, but the Scholar or Warrior, depending on who is in control.",
+    "history": "Orphaned by a powerful warlord, the sisters were trained in tactics and combat. After a victory celebration, the two sisters set out to kill the other and a massacre occurred, leaving one sister dead. Both claim to be the survivor and the other a parasitic spirit. They now seek the power at the Estate to rid themselves of the other.",
+    "race": "Human & Spirit",
+    "gender": "Female",
+    "religion": "None",
+    "traits": [
+      "Conflicted",
+      "Ambitious",
+      "Knowledgeable",
+      "Violent",
+      "Resentful"
+    ],
+    "status": {
+      "physical": 100,
+      "mental": 100,
+      "affliction": "None",
+      "description": "In good health and high spirit",
+      "wounds": [],
+      "diseases": []
+    },
+    "stats": {
+      "strength": 7,
+      "agility": 8,
+      "intelligence": 9,
+      "authority": 8,
+      "sociability": 4
+    },
+    "equipment": [
+      "Forbidden scrolls",
+      "Sword"
+    ],
+    "trinkets": [
+    ],
+    "appearance": {
+      "height": "Average",
+      "build": "Athletic",
+      "skinTone": "Fair",
+      "hairColor": "Black",
+      "hairStyle": "Elaborate updo with two-flower headdress",
+      "features": "Thin eyes, small nose"
+    },
+    "clothing": {
+      "headwear": "Two-flower headdress",
+      "top": "Warrior's armor over Scholar's robes",
+      "pants": "Scholar's robes",
+      "accessories": "The spirit of the sister not in control hovers behind the body, their translucent form only rarely seen by the other heroes."
+    },
+    "combat": {
+      "role": "Tactician & Swordmaster",
+      "strengths": [
+        "Tactical knowledge",
+        "Melee combat prowess",
+        "Life essence manipulation"
+      ],
+      "weaknesses": [
+        "Internal conflict",
+        "Unpredictable personality shifts",
+        "Causes unrest to teammates",
+        "Limited access to inactive sister's skills"
+      ]
+    },
+    "magic": "Forbidden knowledge allowing manipulation of life essence",
+    "notes": [
+      "The Sister's personality differs greatly depending on who is in control, expressing only the mannerisms of that sister",
+      "Both sisters act like the body is theirs, and introduce themselves and refer to it by their own name, acting as if the other sister doesn't exist",
+      "The inactive sister spectates as a detached, invisible spirit and has no influence over the word or actions of the body",
+      "In combat, the sister in control sometimes reluctantly relinquish it to take advantage of the other's strength"
+    ],
+    "relationships": {
+    }
+  }

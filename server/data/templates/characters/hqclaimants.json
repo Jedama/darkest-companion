@@ -1,0 +1,75 @@
+{
+    "identifier": "hqclaimants",
+    "title": "Claimants",
+    "name": "Cordelia & Cassius",
+    "level": 0,
+    "money": 0,
+    "summary": "The Claimants, are a pair of ambitious siblings seeking to reclaim their lost lineage in a distant land. Adept in both combat and sorcery, they combine their varied skills to support allies and vanquish foes. Their unique tactics allow them to act as both a single unit and individuals, making them unpredictable and versatile on the battlefield.",
+    "history": "Driven from their ancestral home in a far-off land, the Claimants have journeyed to the Ancestor's estate seeking forbidden knowledge and eldritch secrets. Their ultimate goal is to amass enough power and uncover crucial information that will enable them to reclaim their own lost birthright and restore their family's glory in their homeland. The mysteries left behind by the Ancestor are but stepping stones in their ambitious quest.",
+    "race": "Human",
+    "gender": "Female & Male",
+    "religion": "Occultism/The Light",
+    "traits": [
+      "Ambitious",
+      "Versatile",
+      "Commanding",
+      "Unpredictable",
+      "Synergistic",
+      "Power-hungry"
+    ],
+    "status": {
+      "physical": 100,
+      "mental": 100,
+      "affliction": "",
+      "description": "In good health and high spirits",
+      "wounds": [],
+      "diseases": []
+    },
+    "stats": {
+      "strength": 7,
+      "agility": 3,
+      "intelligence": 10,
+      "authority": 9,
+      "sociability": 5
+    },
+    "equipment": [
+      "Tome",
+      "Polearm",
+      "Shield"
+    ],
+    "trinkets": [],
+    "appearance": {
+        "height": "Average/Tall",
+        "build": "Elegant/Muscular",
+        "skinTone": "Fair/Fair",
+        "hairColor": "Dark with blue streaks/Dark",
+        "hairStyle": "Single hair bun/Well groomed",
+        "features": "Striking blue eyes, bold red lips/Full well-groomed beard"
+    },
+    "clothing": {
+        "headwear": "Ornate earrings/None",
+        "top": "Elegant blouse/Fitted doublet",
+        "pants": "Flowing skirt/Sturdy trousers"
+    },
+    "combat": {
+      "role": "Versatile Support/Damage",
+      "strengths": [
+        "Adaptable tactics",
+        "Synergistic abilities",
+        "Crowd control",
+        "Ally protection"
+      ],
+      "weaknesses": [
+        "Reliance on each other",
+        "Vulnerable when separated",
+        "Complex to master"
+      ]
+    },
+    "magic": "Forbidden knowledge and ancestral sorcery",
+    "notes": [
+      "Act as both a single unit and as individuals in combat",
+      "Possess unique 'Brother' and 'Sister' actions",
+      "Can combine varied skill sets in the same turn"
+    ],
+    "relationships": {}
+  }
