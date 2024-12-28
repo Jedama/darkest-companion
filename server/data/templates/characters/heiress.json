@@ -68,21 +68,6 @@
     "Turns to wine when overwhelmed by the stress of managing the Hamlet.",
     "Attracted to women with ample breasts."
   ],
-  "relationships": {
-    "Heir": {
-      "affinity": 8,
-      "dynamic": "Familial",
-      "description": "Despite a cold exterior and lifetime of bickering, the Heiress loves and will not let harm come upon the Heir."
-    },
-    "Crusader": {
-      "affinity": 5,
-      "dynamic": "Professional",
-      "description": "The Heiress maintains a reserved, professional demeanor towards the Crusader, her latest recruit."
-    },    
-    "Highwayman": {
-      "affinity": 3,
-      "dynamic": "Cautious",
-      "description": "The Heiress regards the Highwayman with suspicion. While his skills could prove valuable, his checkered past and gruff manner keep her on guard."
-    }    
+  "relationships": {  
   }
 }

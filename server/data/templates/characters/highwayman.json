@@ -68,20 +68,5 @@
     "Has a gallows sense of humor"
   ],
   "relationships": {
-    "Heiress": {
-      "affinity": 4,
-      "dynamic": "Guardian",
-      "description": "The Highwayman is determined to prove himself to the Heiress and to assist in her quest despite her warranted distrust."
-    },
-    "Heir": {
-      "affinity": 3,
-      "dynamic": "Guardian",
-      "description": "Despite the Heir's distrust, the Highwayman is resolute in his role as a guard, seeing their safety as his path to absolution."
-    },
-    "Crusader": {
-      "affinity": 7,
-      "dynamic": "Comrade",
-      "description": "Despite their outwardly differences, the Highwayman and Crusader swiftly bonded over the mistakes of their respective pasts and quest for redemption."
-    }
   }
 }

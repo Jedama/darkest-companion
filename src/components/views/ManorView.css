@@ -14,7 +14,7 @@
   grid-template-rows: repeat(3, minmax(0, 1fr));
   grid-auto-columns: 150px;
   padding-left: 40%;  /* This reserves space for the character panel */
-  row-gap: 175px; 
+  row-gap: 150px; 
   width: max-content;
   height: 100%;
   padding-bottom: 30%;
@@ -65,4 +65,27 @@
   width: calc(190 / 442 * 100%);
   height: calc(278 / 565 * 100%);
   object-fit: contain;
+}
+
+.manor-button {
+  position: absolute;
+  bottom: 15px; /* Adjust to your liking */
+  left: 50%;
+  transform: translateX(-50%);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 10; /* Sit above other elements */
+}
+
+.manor-button-image {
+  width: 400px;  /* Or whatever size you need */
+  height: 400px; /* Same aspect ratio as actual file */
+  transition: filter 0.3s ease-in-out;
+}
+
+/* A hover effect that intensifies the glow */
+.manor-button:hover .manor-button-image {
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.9));
 }

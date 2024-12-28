@@ -1,7 +1,11 @@
 // src/components/views/ManorView.tsx
+
 import { useState, useEffect, useRef } from 'react';
 import type { Character } from '../../../shared/types/types.ts';
-import './ManorView.css'; 
+import './ManorView.css';
+
+// Example: import your placeholder button image
+import placeholderButton from '../../assets/ui/views/manor/books.png';
 
 interface ManorViewProps {
   characters: Character[];
@@ -14,14 +18,14 @@ export function ManorView({ characters, onCharacterSelect, selectedCharacterId }
   const [portraits, setPortraits] = useState<{ [key: string]: string }>({});
   const gridRef = useRef<HTMLDivElement>(null);
 
-  // Load frame images
   useEffect(() => {
+    // Load frame images
     const loadFrameImages = async () => {
       const frames: { [key: number]: string } = {};
       for (let i = 0; i <= 6; i++) {
         try {
           const framePath = new URL(
-            `../../assets/ui/views/manor/frame_${i}.png`, 
+            `../../assets/ui/views/manor/frame_${i}.png`,
             import.meta.url
           ).href;
           frames[i] = framePath;
@@ -31,12 +35,11 @@ export function ManorView({ characters, onCharacterSelect, selectedCharacterId }
       }
       setFrameImages(frames);
     };
-    
     loadFrameImages();
   }, []);
 
-  // Load character portraits
   useEffect(() => {
+    // Load character portraits
     const loadPortraits = async () => {
       const loadedPortraits: { [key: string]: string } = {};
       for (const character of characters) {
@@ -47,7 +50,7 @@ export function ManorView({ characters, onCharacterSelect, selectedCharacterId }
           ).href;
           loadedPortraits[character.identifier] = portraitPath;
         } catch (error) {
-          // Use default portrait if character portrait is missing
+          // Fallback portrait
           const defaultPath = new URL(
             '../../assets/ui/default_portrait.png',
             import.meta.url
@@ -57,12 +60,11 @@ export function ManorView({ characters, onCharacterSelect, selectedCharacterId }
       }
       setPortraits(loadedPortraits);
     };
-
     loadPortraits();
   }, [characters]);
 
-  // Handle mouse wheel scrolling
   useEffect(() => {
+    // Handle mouse wheel horizontal scrolling
     const grid = gridRef.current;
     if (!grid) return;
 
@@ -80,7 +82,7 @@ export function ManorView({ characters, onCharacterSelect, selectedCharacterId }
   return (
     <div className="manor-view">
       <div className="portrait-grid" ref={gridRef}>
-        {characters.map(character => (
+        {characters.map((character) => (
           <div
             key={character.identifier}
             className="portrait-container"
@@ -101,6 +103,15 @@ export function ManorView({ characters, onCharacterSelect, selectedCharacterId }
           </div>
         ))}
       </div>
+
+      {/* New button placeholder */}
+      <button className="manor-button" onClick={() => console.log('Clicked!')}>
+        <img
+          src={placeholderButton}
+          alt="Manor button"
+          className="manor-button-image"
+        />
+      </button>
     </div>
   );
 }

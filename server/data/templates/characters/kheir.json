@@ -71,20 +71,5 @@
     "Has a penchant for fine wines to calm his nerves"
   ],
   "relationships": {
-    "Heiress": {
-      "affinity": 8,
-      "dynamic": "Familial",
-      "description": "Percival admires, and is deeply jealous of, his sister's strength and ability to take initiave. Despite their fierce bickering, The Heir loves his sister."
-    },   
-    "Crusader": {
-      "affinity": 4,
-      "dynamic": "Cautious respect",
-      "description": "Though he recognizes his potential, The Heir is dubious over the trustworthiness of his new guard, the Crusader."
-    },    
-    "Highwayman": {
-      "affinity": 2,
-      "dynamic": "Distrustful",
-      "description": "The Heir is distrusting towards the Highwayman, scared that the rugged man will betray them and steal his possessions."
-    } 
   }
 }

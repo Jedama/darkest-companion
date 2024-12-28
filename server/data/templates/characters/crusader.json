@@ -70,21 +70,6 @@
   "notes": [
     "Has an irresistible kleptomania."
   ],
-  "relationships": {
-    "Heiress": {
-      "affinity": 5,
-      "dynamic": "Professional",
-      "description": "Reynauld maintains a professional relationship with the Heiress, focusing on fulfilling his role as her protector with a devout sense of duty."
-    },
-    "Heir": {
-      "affinity": 4,
-      "dynamic": "Skeptical",
-      "description": "While Reynauld intends to uphold his duty with silent diligence, the realises the meek Heir is unfit to lead."
-    },
-    "Highwayman": {
-      "affinity": 7,
-      "dynamic": "Comrade",
-      "description": "The Crusader sees in the Highwayman a kindred spirit; both men with troubled pasts seeking to carve out a purpose through the quest they now share."
-    }      
+  "relationships": {   
   }
 }

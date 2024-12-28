@@ -5,6 +5,8 @@ import { loadEstate, saveEstate, listEstates, deleteEstate } from './fileOps.js'
 import { createNewEstate } from '../shared/types/types.js';
 import { loadCharacterTemplates } from './templateLoader.js';
 import type { Estate } from '../shared/types/types.js';
+import logRoutes from './logs/logRoutes.js';
+import setupEventRoute from './routes/setupEventRoute.js';
 
 const DEFAULT_CHARACTER_IDS = ['crusader', 'highwayman', 'heiress', 'kheir'];
 
@@ -13,6 +15,9 @@ const port = 3000;
 
 app.use(cors());
 app.use(express.json());
+
+app.use(logRoutes);
+app.use(setupEventRoute);
 
 // Type for request params
 interface EstateParams {
