@@ -1,19 +1,13 @@
 // src/modals/LoadEstateModal/LoadEstateModal.tsx
 import { useState, useEffect } from 'react';
-import type { Estate } from '../../../shared/types/types.ts';
-import { fetchEstates, loadEstate, createEstate as createEstateApi, deleteEstate as deleteEstateApi } from '../../utils/api.ts';
+import { fetchEstates } from '../../utils/api';
+import { useEstateContext } from '../../contexts/EstateContext';
+import './LoadEstateModal.css'; // if you have a CSS file
 
-interface LoadEstateModalProps {
-  onLoadEstate: (estate: Estate) => void;
-  onCreateEstate: (estateName: string) => void;
-  onDeleteEstate: (estateName: string) => void;
-}
+export function LoadEstateModal() {
+  const { handleCreateEstate, handleLoadEstate, handleDeleteEstate } = useEstateContext();
 
-export function LoadEstateModal({ 
-  onLoadEstate, 
-  onCreateEstate,
-  onDeleteEstate 
-}: LoadEstateModalProps) {
+  // Local state for the list and loading
   const [newEstateName, setNewEstateName] = useState('');
   const [existingEstates, setExistingEstates] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
@@ -25,6 +19,7 @@ export function LoadEstateModal({
 
   async function loadEstatesList() {
     try {
+      setLoading(true);
       const estates = await fetchEstates();
       setExistingEstates(estates);
       setError(null);
@@ -36,35 +31,33 @@ export function LoadEstateModal({
     }
   }
 
-  const handleCreateEstate = async () => {
-    if (newEstateName.trim()) {
-      try {
-        const estate = await createEstateApi(newEstateName.trim());
-        onCreateEstate(newEstateName.trim());
-        setNewEstateName('');
-        loadEstatesList(); // Refresh the list
-      } catch (err) {
-        setError('Failed to create estate');
-        console.error(err);
-      }
+  const onCreateEstateClick = async () => {
+    if (!newEstateName.trim()) return;
+    try {
+      await handleCreateEstate(newEstateName);
+      // Clear input
+      setNewEstateName('');
+      // Reload list to see the newly created estate in the list
+      await loadEstatesList();
+    } catch (err) {
+      setError('Failed to create estate');
+      console.error(err);
     }
   };
 
-  const handleLoadEstate = async (estateName: string) => {
+  const onLoadEstateClick = async (estateName: string) => {
     try {
-      const estate = await loadEstate(estateName);
-      onLoadEstate(estate);
+      await handleLoadEstate(estateName);
     } catch (err) {
       setError('Failed to load estate');
       console.error(err);
     }
   };
 
-  const handleDeleteEstate = async (estateName: string) => {
+  const onDeleteEstateClick = async (estateName: string) => {
     try {
-      await deleteEstateApi(estateName);
-      onDeleteEstate(estateName);
-      loadEstatesList(); // Refresh the list
+      await handleDeleteEstate(estateName);
+      await loadEstatesList();
     } catch (err) {
       setError('Failed to delete estate');
       console.error(err);
@@ -86,7 +79,7 @@ export function LoadEstateModal({
             placeholder="Enter estate name"
           />
           <button 
-            onClick={handleCreateEstate}
+            onClick={onCreateEstateClick}
             disabled={!newEstateName.trim()}
           >
             Create New Estate
@@ -101,15 +94,15 @@ export function LoadEstateModal({
             <p>No estates found</p>
           ) : (
             <ul className="estate-list">
-              {existingEstates.map(estateName => (
+              {existingEstates.map((estateName) => (
                 <li key={estateName} className="estate-item">
                   <span>{estateName}</span>
                   <div className="estate-actions">
-                    <button onClick={() => handleLoadEstate(estateName)}>
+                    <button onClick={() => onLoadEstateClick(estateName)}>
                       Load
                     </button>
-                    <button 
-                      onClick={() => handleDeleteEstate(estateName)}
+                    <button
+                      onClick={() => onDeleteEstateClick(estateName)}
                       className="delete-button"
                     >
                       Delete

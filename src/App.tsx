@@ -1,28 +1,22 @@
 // src/App.tsx
 import { useState } from 'react';
-import { MainLayout } from './components/layout/MainLayout.tsx';
-import { LoadEstateModal } from './modals/LoadEstateModal/LoadEstateModal.tsx';
-import type { Estate, Character } from '../shared/types/types.ts';
+import { useEstateContext } from './contexts/EstateContext';
+import { MainLayout } from './components/layout/MainLayout';
+import { LoadEstateModal } from './modals/LoadEstateModal/LoadEstateModal';
+import type { Character } from '../shared/types/types';
 import type { ViewType } from './types/viewTypes';
 
 function App() {
-  const [currentEstate, setCurrentEstate] = useState<Estate | null>(null);
+  // We'll still track selectedCharacter and currentView in here.
   const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
   const [currentView, setCurrentView] = useState<ViewType>('manor');
-  
-  const handleLoadEstate = (estate: Estate) => {
-    setCurrentEstate(estate);
-    setSelectedCharacter(null); // Reset selection when loading new estate
-  };
 
+  // Grab the current estate from context
+  const { currentEstate } = useEstateContext();
+
+  // If no estate loaded, show the modal
   if (!currentEstate) {
-    return (
-      <LoadEstateModal
-        onLoadEstate={handleLoadEstate}
-        onCreateEstate={(name) => console.log('Create estate:', name)}
-        onDeleteEstate={(name) => console.log('Delete estate:', name)}
-      />
-    );
+    return <LoadEstateModal />;
   }
 
   return (

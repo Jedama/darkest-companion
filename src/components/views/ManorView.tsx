@@ -1,11 +1,11 @@
 // src/components/views/ManorView.tsx
 
 import { useState, useEffect, useRef } from 'react';
+import { useEstateContext } from '../../contexts/EstateContext';
 import type { Character } from '../../../shared/types/types.ts';
+import { ImageButton } from '../ui/buttons/ImageButton.tsx';
+import townEventButton from '../../assets/ui/views/manor/button_event.png';
 import './ManorView.css';
-
-// Example: import your placeholder button image
-import placeholderButton from '../../assets/ui/views/manor/books.png';
 
 interface ManorViewProps {
   characters: Character[];
@@ -13,7 +13,14 @@ interface ManorViewProps {
   selectedCharacterId?: string;
 }
 
-export function ManorView({ characters, onCharacterSelect, selectedCharacterId }: ManorViewProps) {
+export function ManorView({
+  characters,
+  onCharacterSelect,
+  selectedCharacterId
+}: ManorViewProps) {
+  const { currentEstate } = useEstateContext();
+  const estateName = currentEstate?.estateName || 'no-estate-selected';
+  
   const [frameImages, setFrameImages] = useState<{ [key: number]: string }>({});
   const [portraits, setPortraits] = useState<{ [key: string]: string }>({});
   const gridRef = useRef<HTMLDivElement>(null);
@@ -79,6 +86,34 @@ export function ManorView({ characters, onCharacterSelect, selectedCharacterId }
     };
   }, []);
 
+  /**
+   * Calls our "setup random event" route.
+   */
+  async function handleTownEventClick() {
+    try {
+      // Example: POST /estates/:estateName/events/setup-random
+      // We assume you have an estateName prop or some global store
+      const response = await fetch(
+        `http://localhost:3000/estates/${estateName}/events/setup-random`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' }
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`Failed to setup random event. Status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log('Random Event Response:', data);
+
+      // Then proceed to the "story" route or just show them in your UI
+    } catch (error) {
+      console.error('Error setting up random event:', error);
+    }
+  }
+
   return (
     <div className="manor-view">
       <div className="portrait-grid" ref={gridRef}>
@@ -104,14 +139,14 @@ export function ManorView({ characters, onCharacterSelect, selectedCharacterId }
         ))}
       </div>
 
-      {/* New button placeholder */}
-      <button className="manor-button" onClick={() => console.log('Clicked!')}>
-        <img
-          src={placeholderButton}
-          alt="Manor button"
-          className="manor-button-image"
+      <div className="manor-button-container">
+        <ImageButton
+          textureUrl={townEventButton}
+          width={400}
+          height={400}
+          onClick={handleTownEventClick}  // <-- Hook up the function here
         />
-      </button>
+      </div>
     </div>
   );
 }

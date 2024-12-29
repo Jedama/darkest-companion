@@ -1,7 +1,7 @@
 // src/components/layout/MainLayout.tsx
 import { useState } from 'react';
 import { ViewPanel } from '../ViewPanel.tsx';
-import { CharacterPanel } from '../CharacterPanel/CharacterPanel.tsx';
+import { CharacterPanel } from '../characterpanel/CharacterPanel.tsx';
 import type { ViewType } from '../../types/viewTypes.ts';
 import type { Character } from '../../../shared/types/types.ts';
 import './MainLayout.css';

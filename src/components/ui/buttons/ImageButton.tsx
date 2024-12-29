@@ -1,0 +1,171 @@
+// src/components/ui/ImageButton/ImageButton.tsx
+import React, {
+    FC,
+    useEffect,
+    useRef,
+    useState,
+    MouseEvent,
+    CSSProperties,
+  } from 'react';
+  
+  interface ImageButtonProps {
+    /** URL of your PNG with transparency */
+    textureUrl: string;
+    /** Display width in CSS px */
+    width?: number;
+    /** Display height in CSS px */
+    height?: number;
+    /** Called if user clicks on a non-transparent pixel */
+    onClick?: () => void;
+    /** Optional: hovered/clicked visuals */
+    hoverClassName?: string;
+    /** Optional inline styles */
+    style?: CSSProperties;
+  }
+  
+  /**
+   * A pixel-perfect clickable image button:
+   * - Ignores clicks on fully-transparent pixels
+   * - Only triggers "hover" for nontransparent areas
+   */
+  export const ImageButton: FC<ImageButtonProps> = ({
+    textureUrl,
+    width = 100,
+    height = 100,
+    onClick,
+    hoverClassName,
+    style,
+  }) => {
+    const [isHovered, setIsHovered] = useState(false);
+  
+    // We'll display the image in a normal <img> so it can easily scale, animate, etc.
+    const imgRef = useRef<HTMLImageElement>(null);
+  
+    // We'll use an *offscreen* <canvas> to hold pixel data for the alpha check
+    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const [imgLoaded, setImgLoaded] = useState(false);
+  
+    useEffect(() => {
+      const img = imgRef.current;
+      const canvas = canvasRef.current;
+      if (!img || !canvas) return;
+  
+      // Whenever the image loads, draw it to the offscreen canvas
+      const handleLoad = () => {
+        const ctx = canvas.getContext('2d');
+        if (!ctx || !img) return;
+  
+        // Make sure canvas matches the NATURAL image width/height!
+        // not the CSS display width/height
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+  
+        // Draw the image onto the canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0);
+  
+        setImgLoaded(true);
+      };
+  
+      // If it's already loaded (cached?), call handleLoad immediately
+      if (img.complete && img.naturalWidth > 0) {
+        handleLoad();
+      } else {
+        img.addEventListener('load', handleLoad);
+        // Cleanup
+        return () => {
+          img.removeEventListener('load', handleLoad);
+        };
+      }
+    }, [textureUrl]);
+  
+    /**
+     * We do the alpha check in the image’s natural coordinates.
+     * Then we map the mouse's local (x, y) to those coordinates.
+     */
+    const handleMouseEvent = (evt: MouseEvent<HTMLDivElement>) => {
+      if (!imgLoaded) {
+        // If the image isn’t loaded, can’t do alpha checks
+        setIsHovered(false);
+        return;
+      }
+      const canvas = canvasRef.current;
+      const img = imgRef.current;
+      if (!canvas || !img) return;
+  
+      const rect = evt.currentTarget.getBoundingClientRect();
+      // Mouse position relative to the top-left corner of the *rendered* container
+      const mouseX = evt.clientX - rect.left;
+      const mouseY = evt.clientY - rect.top;
+  
+      // Convert that to the image's NATURAL coords
+      // For instance, if you’re scaling the image from its natural size to the displayed size:
+      const scaleX = canvas.width / (width || canvas.width);
+      const scaleY = canvas.height / (height || canvas.height);
+  
+      const realX = Math.floor(mouseX * scaleX);
+      const realY = Math.floor(mouseY * scaleY);
+  
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+  
+      // Get pixel data from the offscreen canvas
+      const pixel = ctx.getImageData(realX, realY, 1, 1).data; 
+      // pixel: [r, g, b, a]
+  
+      const alpha = pixel[3];
+      const isOpaque = alpha > 0;
+  
+      // Update hover state if needed
+      setIsHovered(isOpaque);
+  
+      // If it's a click event, call onClick only if pixel is opaque
+      if (evt.type === 'click' && isOpaque && onClick) {
+        onClick();
+      }
+    };
+  
+    return (
+      <div
+        style={{
+          position: 'relative',
+          width,
+          height,
+          display: 'inline-block',
+          // Make sure we actually receive mouse events
+          // (Sometimes for absolutely positioned children, pointer events might be none)
+          ...style,
+        }}
+        onMouseMove={handleMouseEvent}
+        onMouseLeave={() => setIsHovered(false)}
+        onClick={handleMouseEvent}
+      >
+        {/* 
+          The actual displayed image: 
+          - We set pointerEvents="none" so we let the parent <div> handle the mouse.
+        */}
+        <img
+          ref={imgRef}
+          src={textureUrl}
+          alt=""
+          style={{
+            width: '100%',
+            height: '100%',
+            pointerEvents: 'none',
+            transition: 'transform 0.2s ease, filter 0.2s ease',
+            // Example "grow/glow" if hovered
+            transform: isHovered ? 'scale(1.05)' : undefined,
+            filter: isHovered ? 'drop-shadow(0 0 6px white)' : undefined,
+          }}
+          draggable={false}
+        />
+  
+        {/* 
+          Offscreen canvas just for pixel-level detection.
+          We can set display: none, or we can keep it hidden in some other way.
+        */}
+        <canvas ref={canvasRef} style={{ display: 'none' }} />
+      </div>
+    );
+  };
+  

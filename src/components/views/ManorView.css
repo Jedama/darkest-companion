@@ -6,6 +6,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  position: relative;
 }
 
 .portrait-grid {
@@ -67,25 +68,12 @@
   object-fit: contain;
 }
 
-.manor-button {
+.manor-button-container {
   position: absolute;
-  bottom: 15px; /* Adjust to your liking */
+  bottom: 0px; 
   left: 50%;
   transform: translateX(-50%);
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  z-index: 10; /* Sit above other elements */
-}
-
-.manor-button-image {
-  width: 400px;  /* Or whatever size you need */
-  height: 400px; /* Same aspect ratio as actual file */
-  transition: filter 0.3s ease-in-out;
-}
-
-/* A hover effect that intensifies the glow */
-.manor-button:hover .manor-button-image {
-  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.9));
+  display: flex;
+  gap: 16px; /* space between multiple buttons */
+  z-index: 10;
 }

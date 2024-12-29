@@ -1,4 +1,4 @@
-// src/components/CharacterPanel/CharacterPanel.tsx
+// src/components/characterpanel/CharacterPanel.tsx
 import React from 'react';
 import { useMemo } from 'react';
 import type { Character } from '../../../shared/types/types.ts';
