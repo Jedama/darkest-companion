@@ -3,7 +3,7 @@ import express, { Request, Response } from 'express';
 import cors from 'cors';
 import { loadEstate, saveEstate, listEstates, deleteEstate } from './fileOps.js';
 import { createNewEstate } from '../shared/types/types.js';
-import { loadCharacterTemplates } from './templateLoader.js';
+import { loadCharacterTemplates, loadDefaultRelationships } from './templateLoader.js';
 import type { Estate } from '../shared/types/types.js';
 import logRoutes from './logs/logRoutes.js';
 import setupEventRoute from './routes/setupEventRoute.js';
@@ -88,12 +88,21 @@ app.post('/estates', async (req: Request<{}, {}, CreateEstateBody>, res: Respons
 
     // Load character templates
     const characterTemplates = await loadCharacterTemplates();
+
+    // Load default relationships
+    const defaultRelationships = await loadDefaultRelationships();
     
     // Filter only the initial characters from templates
     const defaultCharacters = Object.fromEntries(
       DEFAULT_CHARACTER_IDS
-        .map(id => [id, characterTemplates[id]])
-        .filter(([_, char]) => char !== undefined) // Make sure character exists
+        .map((id) => [
+          id,
+          {
+            ...characterTemplates[id],
+            relationships: defaultRelationships[id] || {}, // Attach relationships
+          },
+        ])
+        .filter(([_, char]) => char !== undefined) // Ensure character exists
     );
 
     // Create new estate with initial characters

@@ -14,11 +14,15 @@ import type {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const TEMPLATES_DIR = path.join(__dirname, 'data', 'templates', 'characters');
+const TEMPLATES_DIR = path.join(__dirname, 'data', 'templates');
+const CHARACTER_DIR = path.join(__dirname, 'data', 'templates', 'characters');
 const DEFAULT_RELATIONSHIPS_FILE = path.join(TEMPLATES_DIR, 'defaultRelationships.json');
 
 // Where your events live
 const EVENTS_DIR = path.join(__dirname, 'data', 'events');
+
+// Keywords file
+const TOWN_KEYWORDS_FILE = path.join(__dirname, 'data', 'keywords', 'default.json');
 
 // Required character templates (e.g., initial party)
 const REQUIRED_CHARACTER_TEMPLATES = ['crusader', 'highwayman', 'heiress', 'kheir'];
@@ -29,13 +33,13 @@ const REQUIRED_CHARACTER_TEMPLATES = ['crusader', 'highwayman', 'heiress', 'khei
 
 export async function loadCharacterTemplates(): Promise<CharacterRecord> {
   try {
-    const files = await readdir(TEMPLATES_DIR);
+    const files = await readdir(CHARACTER_DIR);
     const templates: CharacterRecord = {};
 
     // Load all template files
     for (const file of files) {
       if (file.endsWith('.json')) {
-        const content = await readFile(path.join(TEMPLATES_DIR, file), 'utf-8');
+        const content = await readFile(path.join(CHARACTER_DIR, file), 'utf-8');
         const character: Character = JSON.parse(content);
         templates[character.identifier] = character;
       }
@@ -149,5 +153,20 @@ export async function loadEventTemplatesForCategory(category: string): Promise<E
   } catch (error) {
     console.error(`Error loading event templates for category "${category}":`, error);
     throw error;
+  }
+}
+
+/* -------------------------------------------------------------------
+ *  Town Keywords
+ * ------------------------------------------------------------------- */
+
+export async function loadTownKeywords(): Promise<string[]> {
+  try {
+    const content = await readFile(TOWN_KEYWORDS_FILE, 'utf-8');
+    const keywords: string[] = JSON.parse(content);
+    return keywords;
+  } catch (err) {
+    console.error('Error loading town keywords:', err);
+    throw err;
   }
 }

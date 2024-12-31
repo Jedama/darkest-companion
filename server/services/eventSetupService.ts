@@ -1,7 +1,7 @@
 // server/services/eventSetupService.ts
 
 import { loadEstate, saveEstate } from '../fileOps.js';
-import { loadEventTemplatesForCategory } from '../templateLoader.js';
+import { loadEventTemplatesForCategory, loadTownKeywords } from '../templateLoader.js';
 import { Estate, EventData, EventRecord } from '../../shared/types/types.js';
 
 /**
@@ -41,6 +41,41 @@ function pickRandomCharacters(estate: Estate, howMany: number): string[] {
 }
 
 /**
+ * Combines event and town keywords, removes duplicates, shuffles, and selects a subset.
+*/
+export function pickKeywords(
+  eventKeywords: string[],
+  townKeywords: string[]
+): string[] {
+  // 1. Combine + remove duplicates
+  const combined = Array.from(new Set([...eventKeywords, ...townKeywords]));
+  
+  // 2. Shuffle
+  for (let i = combined.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [combined[i], combined[j]] = [combined[j], combined[i]];
+  }
+  
+  // 3. Choose 3 keywords
+  let chosen = combined.slice(0, 3);
+  
+  // 4. Ensure at least one original event keyword is in the final set
+  //    but only if the event had any original keywords.
+  const eventKeywordsSet = new Set(eventKeywords);
+  if (eventKeywords.length > 0) {
+    const hasEventKeyword = chosen.some((kw) => eventKeywordsSet.has(kw));
+    if (!hasEventKeyword) {
+      // replace the last chosen with a random event keyword
+      const randomEventKeyword =
+      eventKeywords[Math.floor(Math.random() * eventKeywords.length)];
+      chosen[chosen.length - 1] = randomEventKeyword;
+    }
+  }
+  
+  return chosen;
+}
+
+/**
  * Main function that:
  * 1) Loads the estate,
  * 2) Picks a random event,
@@ -60,10 +95,17 @@ export async function setupRandomEvent(estateName: string): Promise<{
   // 2. Pick a random event
   const event = await pickRandomEvent();
 
-  // 3. Pick random characters
+  // 3. Load town keywords & pick final set
+  const townKeywords = await loadTownKeywords();
+  const finalKeywords = pickKeywords(event.keywords || [], townKeywords);
+  event.keywords = finalKeywords; // Overwrite or add a new property
+
+  console.log('Final Keywords for event:', finalKeywords);
+
+  // 4. Pick random characters
   const chosenCharacterIds = pickRandomCharacters(estate, event.nrChars);
 
-  // 4. (Optional) Store the selection in the estate for later use:
+  // (Optional) Store the selection in the estate for later use:
   /*
   estate.currentEvent = {
     eventIdentifier: event.identifier,

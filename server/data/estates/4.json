@@ -70,25 +70,25 @@
           "Evation"
         ]
       },
-      "magic": "The light, a divine power that lets him smite foes and heal allies.",
+      "magic": "The light, a divine power that lets him smite foes and heal allies",
       "notes": [
-        "Has an irresistible kleptomania."
+        "Has an irresistible kleptomania"
       ],
       "relationships": {
-        "Heiress": {
+        "heiress": {
           "affinity": 5,
           "dynamic": "Professional",
-          "description": "Reynauld maintains a professional relationship with the Heiress, focusing on fulfilling his role as her protector with a devout sense of duty."
+          "description": "The crusader maintains a professional relationship with the heiress, focusing on fulfilling his role as her protector with a devout sense of duty."
         },
-        "Heir": {
+        "kheir": {
           "affinity": 4,
           "dynamic": "Skeptical",
-          "description": "While Reynauld intends to uphold his duty with silent diligence, the realises the meek Heir is unfit to lead."
+          "description": "While the crusader intends to uphold his duty with silent diligence, he realizes the meek kheir is unfit to lead."
         },
-        "Highwayman": {
+        "highwayman": {
           "affinity": 7,
           "dynamic": "Comrade",
-          "description": "The Crusader sees in the Highwayman a kindred spirit; both men with troubled pasts seeking to carve out a purpose through the quest they now share."
+          "description": "The crusader sees in the highwayman a kindred spirit; both men with troubled pasts seeking to carve out a purpose through the quest they now share."
         }
       }
     },
@@ -162,20 +162,20 @@
         "Has a gallows sense of humor"
       ],
       "relationships": {
-        "Heiress": {
+        "heiress": {
           "affinity": 4,
           "dynamic": "Guardian",
-          "description": "The Highwayman is determined to prove himself to the Heiress and to assist in her quest despite her warranted distrust."
+          "description": "The highwayman is determined to prove himself to the heiress and to assist in her quest despite her warranted distrust."
         },
-        "Heir": {
+        "kheir": {
           "affinity": 3,
           "dynamic": "Guardian",
-          "description": "Despite the Heir's distrust, the Highwayman is resolute in his role as a guard, seeing their safety as his path to absolution."
+          "description": "Despite the kheir's distrust, the highwayman is resolute in his role as a guard, seeing their safety as his path to absolution."
         },
-        "Crusader": {
+        "crusader": {
           "affinity": 7,
           "dynamic": "Comrade",
-          "description": "Despite their outwardly differences, the Highwayman and Crusader swiftly bonded over the mistakes of their respective pasts and quest for redemption."
+          "description": "Despite their differences, the highwayman and the crusader swiftly bonded over the mistakes of their respective pasts and their shared quest for redemption."
         }
       }
     },
@@ -246,24 +246,34 @@
       },
       "magic": "None",
       "notes": [
-        "Turns to wine when overwhelmed by the stress of managing the Hamlet.",
-        "Attracted to women with ample breasts."
+        "Turns to wine when overwhelmed by the stress of managing the Hamlet",
+        "Attracted to women with ample breasts"
       ],
       "relationships": {
-        "Heir": {
+        "kheir": {
           "affinity": 8,
           "dynamic": "Familial",
-          "description": "Despite a cold exterior and lifetime of bickering, the Heiress loves and will not let harm come upon the Heir."
+          "description": "Despite a cold exterior and a lifetime of bickering, the heiress loves and will not let harm come upon the kheir."
         },
-        "Crusader": {
+        "crusader": {
           "affinity": 5,
           "dynamic": "Professional",
-          "description": "The Heiress maintains a reserved, professional demeanor towards the Crusader, her latest recruit."
+          "description": "The heiress maintains a reserved, professional demeanor towards the crusader, her latest recruit."
         },
-        "Highwayman": {
+        "highwayman": {
           "affinity": 3,
           "dynamic": "Cautious",
-          "description": "The Heiress regards the Highwayman with suspicion. While his skills could prove valuable, his checkered past and gruff manner keep her on guard."
+          "description": "The heiress regards the highwayman with suspicion. While his skills could prove valuable, his checkered past and gruff manner keep her on guard."
+        },
+        "hqclaimants": {
+          "affinity": 2,
+          "dynamic": "Contemptuous Competitors",
+          "description": "Persephone saw the Luthvains as vain and insufferable during their fleeting courtly encounters. Their thinly veiled insults ensured no love was lost between them."
+        },
+        "duchess": {
+          "affinity": 3,
+          "dynamic": "Cautious Disdain",
+          "description": "Persephone remembers Constance as aloof and self-absorbed during the few balls they attended together. Though she barely knew her, Constance’s pride left a sour impression."
         }
       }
     },
@@ -339,20 +349,30 @@
         "Has a penchant for fine wines to calm his nerves"
       ],
       "relationships": {
-        "Heiress": {
+        "heiress": {
           "affinity": 8,
           "dynamic": "Familial",
-          "description": "Percival admires, and is deeply jealous of, his sister's strength and ability to take initiave. Despite their fierce bickering, The Heir loves his sister."
+          "description": "Percival admires, and is deeply jealous of, his sister's strength and ability to take initiative. Despite their fierce bickering, the kheir loves his sister."
         },
-        "Crusader": {
+        "crusader": {
           "affinity": 4,
           "dynamic": "Cautious respect",
-          "description": "Though he recognizes his potential, The Heir is dubious over the trustworthiness of his new guard, the Crusader."
+          "description": "Though he recognizes the crusader's potential, the kheir is dubious over the trustworthiness of this new guard."
         },
-        "Highwayman": {
+        "highwayman": {
           "affinity": 2,
           "dynamic": "Distrustful",
-          "description": "The Heir is distrusting towards the Highwayman, scared that the rugged man will betray them and steal his possessions."
+          "description": "The kheir is distrusting towards the highwayman, fearing that the rugged man will betray them and steal his possessions."
+        },
+        "hqclaimants": {
+          "affinity": 2,
+          "dynamic": "Aristocratic Rivalry",
+          "description": "Cassius’s constant disdain and Cordelia’s biting remarks left a lasting impression on Percival during the balls and duels of their youth. He remains embittered but grudgingly acknowledges Cassius’s skill with a spear."
+        },
+        "duchess": {
+          "affinity": 5,
+          "dynamic": "Infatuation",
+          "description": "As a young man, Percival was captivated by Constance’s elegance and fencing prowess. Though their interactions were brief and unreciprocated, her image lingered in his mind for years."
         }
       }
     }

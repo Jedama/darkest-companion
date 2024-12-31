@@ -1,10 +1,9 @@
 {
-    "identifier": "game_of_cards",
-    "title": "Game of Cards",
-    "type": "town",
-    "summary": "After a grueling day, [Character 1], [Character 2], [Character 3], and [Character 4] settle down for a game of cards. The stakes are light, but the competition is fierce.",
-    "nrChars": 4,
-    "keywords": ["town", "gambling", "tavern"],
-    "location": ["gambling_hall", "tavern"]
-  }
-  
+  "identifier": "game_of_cards_0",
+  "title": "Game of Cards",
+  "type": "town",
+  "summary": "[Character 1], [Character 2], [Character 3], and [Character 4] settle down for a game of cards.",
+  "nrChars": 4,
+  "keywords": ["Brawl", "All-in Loss", "All-in Win", "High Stakes", "Low Stakes", "Unlikely Allies", "Altered Ruleset", "Clothes on the Line", "Unexpected Card", "Unexpected Winner", "2v2"],
+  "location": ["gambling_hall", "tavern"]
+}
