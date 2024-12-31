@@ -1,10 +1,11 @@
 import { setupRandomEvent } from './server/services/eventSetupService.js';
 import { compileStoryPrompt } from './server/services/storyEventService.js';
+import { callClaude } from './server/services/llmService.js';
 import { loadEstate } from './server/fileOps.js'; // Adjust the path based on your project structure
 import type { Estate } from './shared/types/types.js';
 
 /**
- * A simple debug script to test both setupRandomEvent and compileStoryPrompt.
+ * A debug script to test setupRandomEvent, compileStoryPrompt, and send the prompt to Claude.
  * Make sure you have a valid estate file (e.g., "MyEstate.json").
  */
 
@@ -27,7 +28,14 @@ import type { Estate } from './shared/types/types.js';
     console.log('Generated Story Prompt:');
     console.log(prompt);
 
-    // If you'd like to send the prompt to the LLM or test it with a mock response, you could add that here.
+    // Step 4: Send prompt to Claude
+    console.log('Sending prompt to Claude...');
+    const llmResponse = await callClaude({
+      prompt,
+    });
+
+    console.log('LLM Response:');
+    console.log(llmResponse);
   } catch (error) {
     console.error('Error during debug script:', error);
   }

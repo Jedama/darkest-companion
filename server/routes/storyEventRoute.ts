@@ -2,6 +2,7 @@
 import { Router, Request, Response } from 'express';
 import { compileStoryPrompt } from '../services/storyEventService';
 import { loadEstate } from '../fileOps';
+import { callClaude } from '../services/llmService.js';
 import type { Estate, EventData } from '../../shared/types/types.ts';
 
 const router = Router();
@@ -22,17 +23,22 @@ router.post('/estates/:estateName/events/story', async (req: Request, res: Respo
       return res.status(404).json({ error: `Estate '${estateName}' not found` });
     }
 
-    // 2. For now, we assume `event` includes the necessary data 
-    //    (title, summary, keywords, nrChars, etc.) as returned by setup-random.
-    //    If you stored an eventIdentifier in the estate, you’d look it up here.
-
-    // 3. Build the prompt
+    // 2. Build the prompt using your storyEventService
     const prompt = compileStoryPrompt(estate, event, chosenCharacterIds);
 
-    // 4. Return the prompt (later you might call LLM here)
+    // 3. Call Claude with the prompt
+    //    (You can pass a custom model name if you like.)
+    const claudeResponse = await callClaude({
+      prompt,
+      model: 'claude-3-5-sonnet-20241022',    // or "claude-2.0", etc.
+      maxTokens: 1024
+    });
+
+    // 4. Return both the prompt and the LLM's response
     return res.json({
       success: true,
-      prompt
+      prompt,
+      llmResponse: claudeResponse
     });
   } catch (error: any) {
     console.error('Error compiling story prompt:', error);

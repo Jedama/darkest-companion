@@ -5,7 +5,7 @@
   "level": 0,
   "money": 0,
   "summary": "The Crusader, rose from a common conscript to a champion of over 100 holy wars. Transformed by the horrors of battle and church abuse, he abandoned his family, unable to face them. Now seeking redemption, he's drawn to the estate to combat unholy forces, haunted by memories of his past life.",
-  "history": "Once a common man conscripted into the holy war, the Crusader left behind a wife and young son. Rising through the ranks, he became a champion and army leader. The wars and church changed him profoundly, hollowing him out and turning him into a zealous warrior for the light. Unable to return to his family, he vowed to live his remaining days as a Crusader.",
+  "history": "Once a common man conscripted into the holy war, the Crusader left behind a wife and young son. Rising through the ranks, he became a champion and army leader. The wars and church changed him profoundly, hollowing him out and turning him into a warrior for the light. Unable to return to his family, he vowed to live his remaining days as a Crusader.",
   "race": "Human",
   "gender": "Male",
   "religion": "The Light",
@@ -51,7 +51,7 @@
     "head": "Steel helm",
     "body": "Chainmail hauberk",
     "legs": "Mail chausses",
-    "other": "Purple tunic with religious insignia"
+    "other": "Purple tunic with a white cross"
   },
   "combat": {
     "role": "Warrior",
@@ -68,7 +68,8 @@
   },
   "magic": "The light, a divine power that lets him smite foes and heal allies",
   "notes": [
-    "Has an irresistible kleptomania"
+    "Has kleptomanic tendencies that he tries to hide",
+    "Whistles when pleased"
   ],
   "relationships": {   
   }

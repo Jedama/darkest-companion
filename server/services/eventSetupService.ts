@@ -56,8 +56,8 @@ export function pickKeywords(
     [combined[i], combined[j]] = [combined[j], combined[i]];
   }
   
-  // 3. Choose 3 keywords
-  let chosen = combined.slice(0, 3);
+  // 3. Choose keywords
+  let chosen = combined.slice(0, 4);
   
   // 4. Ensure at least one original event keyword is in the final set
   //    but only if the event had any original keywords.
@@ -99,8 +99,6 @@ export async function setupRandomEvent(estateName: string): Promise<{
   const townKeywords = await loadTownKeywords();
   const finalKeywords = pickKeywords(event.keywords || [], townKeywords);
   event.keywords = finalKeywords; // Overwrite or add a new property
-
-  console.log('Final Keywords for event:', finalKeywords);
 
   // 4. Pick random characters
   const chosenCharacterIds = pickRandomCharacters(estate, event.nrChars);
