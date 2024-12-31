@@ -1,5 +1,3 @@
-// server/services/eventSetupService.ts
-
 import { loadEstate, saveEstate } from '../fileOps.js';
 import { loadEventTemplatesForCategory, loadTownKeywords } from '../templateLoader.js';
 import { Estate, EventData, EventRecord } from '../../shared/types/types.js';
@@ -21,14 +19,21 @@ async function pickRandomEvent(): Promise<EventData> {
 
 /**
  * Picks a random subset of character IDs from the estate.
- * Ensures we have enough characters to match event.nrChars.
+ * Ensures we have enough characters to match a randomly selected number within the event's nrChars range.
  */
-function pickRandomCharacters(estate: Estate, howMany: number): string[] {
+function pickRandomCharacters(estate: Estate, nrCharsRange: [number, number]): string[] {
   const allCharIds = Object.keys(estate.characters);
 
-  if (allCharIds.length < howMany) {
-    throw new Error(`Not enough characters in the estate to pick ${howMany}. Have only ${allCharIds.length}.`);
+  if (allCharIds.length < nrCharsRange[0]) {
+    throw new Error(
+      `Not enough characters in the estate to pick ${nrCharsRange[0]}. Have only ${allCharIds.length}.`
+    );
   }
+
+  // Determine how many characters to pick within the range
+  const howMany = Math.floor(
+    Math.random() * (nrCharsRange[1] - nrCharsRange[0] + 1)
+  ) + nrCharsRange[0];
 
   // Shuffle the array using Fisher-Yates
   for (let i = allCharIds.length - 1; i > 0; i--) {
@@ -36,7 +41,7 @@ function pickRandomCharacters(estate: Estate, howMany: number): string[] {
     [allCharIds[i], allCharIds[j]] = [allCharIds[j], allCharIds[i]];
   }
 
-  // Return first `howMany`
+  // Return the first `howMany`
   return allCharIds.slice(0, howMany);
 }
 
@@ -100,8 +105,16 @@ export async function setupRandomEvent(estateName: string): Promise<{
   const finalKeywords = pickKeywords(event.keywords || [], townKeywords);
   event.keywords = finalKeywords; // Overwrite or add a new property
 
-  // 4. Pick random characters
-  const chosenCharacterIds = pickRandomCharacters(estate, event.nrChars);
+  // 4. Determine the range for nrChars
+  if (!Array.isArray(event.nrChars) || event.nrChars.length !== 2) {
+    throw new Error(`Invalid nrChars format for event '${event.identifier}'. Expected a range [min, max].`);
+  }
+
+  // Cast nrChars to [number, number] for type safety
+  const nrCharsRange: [number, number] = [event.nrChars[0], event.nrChars[1]];
+
+  // 5. Pick random characters
+  const chosenCharacterIds = pickRandomCharacters(estate, nrCharsRange);
 
   // (Optional) Store the selection in the estate for later use:
   /*

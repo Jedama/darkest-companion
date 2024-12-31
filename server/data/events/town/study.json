@@ -1,0 +1,9 @@
+{
+    "identifier": "study_0",
+    "title": "Study",
+    "type": "town",
+    "summary": "[Characters] spend time reading, experimenting, or simply passing the time.",
+    "nrChars": [2, 4],
+    "keywords": ["Clashing opinions", "Humorous", "Carelessness", "Tampering with documents", "Intimate", "Bullying"],
+    "location": ["dower_study", "library"]
+}

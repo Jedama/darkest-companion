@@ -13,13 +13,28 @@ export function compileStoryPrompt(
   chosenCharacterIds: string[]
 ): string {
 
-  // Function to replace placeholders like [Character ?] with corresponding names
+  // Function to replace placeholders like [Character ?] or [Characters] with corresponding names
   function replaceCharacterPlaceholders(summary: string, characters: Character[]): string {
     let updatedSummary = summary;
+
+    // Replace specific [Character ?] placeholders
     characters.forEach((char, index) => {
       const placeholder = `[Character ${index + 1}]`;
       updatedSummary = updatedSummary.replaceAll(placeholder, char.name);
     });
+
+    // Replace [Characters] placeholder with a properly formatted list of character names
+    if (updatedSummary.includes('[Characters]')) {
+      const characterNames = characters
+        .map((char) => char.name)
+        .reduce((acc, name, idx, arr) => {
+          if (idx === 0) return name; // First name, no formatting needed
+          if (idx === arr.length - 1) return `${acc}, and ${name}`; // Last name with ", and"
+          return `${acc}, ${name}`; // Middle names with ","
+        }, '');
+      updatedSummary = updatedSummary.replaceAll('[Characters]', characterNames);
+    }
+
     return updatedSummary;
   }
 
