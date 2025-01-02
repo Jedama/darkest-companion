@@ -1,0 +1,19 @@
+/* src/components/storymodal/StoryModal.css */
+
+.story-modal-content {
+    /* If you want it centered in the backdrop */
+    background: rgba(0,0,0,0.3);
+    padding: 1rem;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    border-radius: 8px;
+    color: #fff;
+  }
+  
+  /* If you want to preserve newlines in the same <p> tag,
+     you'd do white-space: pre-line; but here we split into <p> anyway. */
+  .story-text p {
+    margin: 0.5rem 0;
+  }
+  

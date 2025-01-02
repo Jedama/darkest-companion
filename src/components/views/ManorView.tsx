@@ -3,6 +3,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { useEstateContext } from '../../contexts/EstateContext';
 import type { Character } from '../../../shared/types/types.ts';
+import { useModalContext } from '../../modals/ModalProvider';
+import { StoryModal } from '../../modals/StoryModal/StoryModal';
 import { ImageButton } from '../ui/buttons/ImageButton.tsx';
 import townEventButton from '../../assets/ui/views/manor/button_event.png';
 import './ManorView.css';
@@ -20,6 +22,9 @@ export function ManorView({
 }: ManorViewProps) {
   const { currentEstate } = useEstateContext();
   const estateName = currentEstate?.estateName || 'no-estate-selected';
+
+  // 1) Access the modal context
+  const { show, hide } = useModalContext();
   
   const [frameImages, setFrameImages] = useState<{ [key: number]: string }>({});
   const [portraits, setPortraits] = useState<{ [key: string]: string }>({});
@@ -71,7 +76,6 @@ export function ManorView({
   }, [characters]);
 
   useEffect(() => {
-    // Handle mouse wheel horizontal scrolling
     const grid = gridRef.current;
     if (!grid) return;
 
@@ -86,32 +90,14 @@ export function ManorView({
     };
   }, []);
 
-  /**
-   * Calls our "setup random event" route.
-   */
-  async function handleTownEventClick() {
-    try {
-      // Example: POST /estates/:estateName/events/setup-random
-      // We assume you have an estateName prop or some global store
-      const response = await fetch(
-        `http://localhost:3000/estates/${estateName}/events/setup-random`,
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' }
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error(`Failed to setup random event. Status: ${response.status}`);
-      }
-
-      const data = await response.json();
-      console.log('Random Event Response:', data);
-
-      // Then proceed to the "story" route or just show them in your UI
-    } catch (error) {
-      console.error('Error setting up random event:', error);
-    }
+  function handleTownEventClick() {
+    show(
+      <StoryModal
+        // the StoryModal can close itself via onClose => hide()
+        onClose={hide}
+        estateName={estateName}
+      />
+    );
   }
 
   return (

@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { useEstateContext } from './contexts/EstateContext';
 import { MainLayout } from './components/layout/MainLayout';
+import { ModalProvider } from './modals/ModalProvider';
 import { LoadEstateModal } from './modals/LoadEstateModal/LoadEstateModal';
 import type { Character } from '../shared/types/types';
 import type { ViewType } from './types/viewTypes';
@@ -16,16 +17,22 @@ function App() {
 
   // If no estate loaded, show the modal
   if (!currentEstate) {
-    return <LoadEstateModal />;
+    return (
+      <ModalProvider>
+        <LoadEstateModal />
+      </ModalProvider>
+    );
   }
 
   return (
-    <MainLayout
-      characters={Object.values(currentEstate.characters)}
-      selectedCharacter={selectedCharacter}
-      onCharacterSelect={setSelectedCharacter}
-      currentView={currentView}
-    />
+    <ModalProvider>
+      <MainLayout
+        characters={Object.values(currentEstate.characters)}
+        selectedCharacter={selectedCharacter}
+        onCharacterSelect={setSelectedCharacter}
+        currentView={currentView}
+      />
+    </ModalProvider>
   );
 }
 

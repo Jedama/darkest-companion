@@ -42,7 +42,7 @@ export function MainLayout({
           <CharacterPanel character={selectedCharacter} />
         ) : (
           <div className="no-character-selected">
-            Select a character
+            
           </div>
         )}
       </div>

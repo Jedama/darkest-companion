@@ -7,6 +7,7 @@ import { loadCharacterTemplates, loadDefaultRelationships } from './templateLoad
 import type { Estate } from '../shared/types/types.js';
 import logRoutes from './logs/logRoutes.js';
 import setupEventRoute from './routes/setupEventRoute.js';
+import storyEventRoute from './routes/storyEventRoute.js';
 
 const DEFAULT_CHARACTER_IDS = ['crusader', 'highwayman', 'heiress', 'kheir'];
 
@@ -18,6 +19,7 @@ app.use(express.json());
 
 app.use(logRoutes);
 app.use(setupEventRoute);
+app.use(storyEventRoute);
 
 // Type for request params
 interface EstateParams {
