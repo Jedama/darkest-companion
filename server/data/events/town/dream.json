@@ -1,0 +1,20 @@
+[
+  {
+    "identifier": "dream0",
+    "title": "Dream",
+    "type": "town",
+    "summary": "[Character 1] wakes in the middle of the night.",
+    "nrChars": [1, 1],
+    "keywords": ["Cold sweat", "Wistful longing", "Soothing", "Confusing"],
+    "location": ["Residence"]
+  },
+  {
+    "identifier": "dream1",
+    "title": "Dream",
+    "type": "town",
+    "summary": "[Character 1] wakes in the middle of the night, having dreamt of a positive or negative memory with [Character 2].",
+    "nrChars": [2, 2],
+    "keywords": [],
+    "location": ["Residence"]
+  }
+]

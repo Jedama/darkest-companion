@@ -55,6 +55,8 @@ Avoid:
 Reintroducing the characters in every scene. Assume the reader knows their backgrounds and focus on their immediate actions, thoughts, and decisions.
 Mentioning yourself or your observations. Let the story unfold as if the reader is directly witnessing it.
 Overly harmonious resolutions. Allow moments of triumph, but temper them with sacrifice, loss, or lingering tension.
+Cliffhangers or leaving the vignette unresolved. They must provide a satisfying conclusion while hinting at future conflicts.
+
 Begin with a title in brackets, e.g., [].
 `;
 
@@ -128,4 +130,28 @@ Summary: ${eventSummaryWithReplacements}
     keywordsSection;
 
   return fullPrompt;
+}
+
+/**
+ * Extracts the title from a story response
+ * @param storyText - The full story text returned by the LLM
+ * @returns Object containing the extracted title and the story body
+ */
+export function separateStoryTitle(storyText: string): { title: string; body: string } {
+  // Match text within first set of square brackets
+  const titleMatch = storyText.match(/^\[(.*?)\]/);
+  
+  if (!titleMatch) {
+    // If no title found, return empty string as title and full text as body
+    return {
+      title: '',
+      body: storyText.trim()
+    };
+  }
+
+  // Return both title (without brackets) and remaining text
+  return {
+    title: titleMatch[1].trim(),
+    body: storyText.substring(titleMatch[0].length).trim()
+  };
 }

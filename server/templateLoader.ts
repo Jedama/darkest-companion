@@ -141,13 +141,31 @@ export async function loadEventTemplatesForCategory(category: string): Promise<E
 
     for (const file of files) {
       const content = await readFile(file, 'utf-8');
-      const eventData: EventData = JSON.parse(content);
-      if (!eventData.identifier) {
-        console.warn(`Event file ${file} missing 'identifier' field. Skipping...`);
+      let eventDataArray: EventData[];
+      
+      try {
+        const parsed = JSON.parse(content);
+        // Handle both single objects and arrays
+        eventDataArray = Array.isArray(parsed) ? parsed : [parsed];
+      } catch (parseError) {
+        console.error(`Error parsing JSON file ${file}:`, parseError);
         continue;
       }
 
-      events[eventData.identifier] = eventData;
+      // Process each event in the array
+      for (const eventData of eventDataArray) {
+        if (!eventData.identifier) {
+          console.warn(`Event in file ${file} missing 'identifier' field. Skipping...`);
+          continue;
+        }
+
+        // Check for duplicate identifiers
+        if (events[eventData.identifier]) {
+          console.warn(`Duplicate event identifier "${eventData.identifier}" found in ${file}. Later definition will override earlier one.`);
+        }
+
+        events[eventData.identifier] = eventData;
+      }
     }
     return events;
   } catch (error) {

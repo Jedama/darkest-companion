@@ -9,13 +9,13 @@
       "name": "Reynauld",
       "level": 0,
       "money": 0,
-      "summary": "The Crusader, rose from a common conscript to a champion of over 100 holy wars. Transformed by the horrors of battle and church abuse, he abandoned his family, unable to face them. Now seeking redemption, he's drawn to the estate to combat unholy forces, haunted by memories of his past life.",
-      "history": "Once a common man conscripted into the holy war, the Crusader left behind a wife and young son. Rising through the ranks, he became a champion and army leader. The wars and church changed him profoundly, hollowing him out and turning him into a zealous warrior for the light. Unable to return to his family, he vowed to live his remaining days as a Crusader.",
+      "summary": "Once a simple farmer who joined the war to save his family from famine, Reynauld rose unexpectedly through martial prowess to become a legendary commander. The horrors he witnessed and his own transformation into a hardened warrior left him unable to return to his former life. His peculiar habit of collecting trinkets from fallen enemies and his distinctive whistling became well-known among his men. Now drawn to the Estate, he seeks not holy war but a deeper purpose in combating forces that threaten the very fabric of humanity.",
+      "history": "Born to till the soil, Reynauld lived a peaceful life with his wife and young son until famine threatened their survival. He joined the army as a conscript, leaving behind promises of return. His natural leadership and battlefield courage saw him rise from farmer to feared commander. In a pivotal moment, he spared The Warlord, recognizing the futility of endless conflict. This act, coupled with his growing disillusionment, led him to abandon both the war and thoughts of returning home, knowing he could no longer fit into that simple life.",
       "race": "Human",
       "gender": "Male",
       "religion": "The Light",
       "traits": [
-        "Zealous",
+        "Devoted",
         "Stalwart",
         "Inspiring",
         "Kleptomanic",
@@ -55,7 +55,7 @@
         "head": "Steel helm",
         "body": "Chainmail hauberk",
         "legs": "Mail chausses",
-        "other": "Purple tunic with religious insignia"
+        "other": "Purple tunic with a white cross"
       },
       "combat": {
         "role": "Warrior",
@@ -72,7 +72,10 @@
       },
       "magic": "The light, a divine power that lets him smite foes and heal allies",
       "notes": [
-        "Has an irresistible kleptomania"
+        "Has kleptomanic tendencies that he tries to hide",
+        "Does a characteristic whistle when he's pleased",
+        "Sometimes writes letters to his family that he never sends",
+        "Wears simple farmer's clothes when out of his armor"
       ],
       "relationships": {
         "heiress": {

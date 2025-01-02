@@ -129,7 +129,7 @@ export function ManorView({
         <ImageButton
           textureUrl={townEventButton}
           width={400}
-          height={400}
+          height={250}
           onClick={handleTownEventClick}  // <-- Hook up the function here
         />
       </div>

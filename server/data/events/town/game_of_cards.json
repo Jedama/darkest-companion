@@ -4,6 +4,6 @@
   "type": "town",
   "summary": "[Characters] settle down for a game of cards.",
   "nrChars": [2, 4],
-  "keywords": ["Brawl", "All-in Loss", "All-in Win", "High Stakes", "Low Stakes", "Unlikely Allies", "Altered Ruleset", "Betting clothes", "Unexpected Card", "Unexpected Winner", "2v2"],
+  "keywords": ["Brawl", "All-in Loss", "All-in Win", "High Stakes", "Low Stakes", "Unlikely Allies", "Altered Ruleset", "Betting clothes", "Unexpected Card", "Unexpected Winner"],
   "location": ["gambling_hall", "tavern"]
 }

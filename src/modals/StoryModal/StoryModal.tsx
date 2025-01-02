@@ -1,6 +1,7 @@
 // src/components/storymodal/StoryModal.tsx
 import { Console } from 'console';
 import React, { useState, useEffect } from 'react';
+import './StoryModal.css';
 
 interface StoryModalProps {
   estateName: string;
@@ -16,12 +17,16 @@ interface SetupResponse {
 interface StoryResponse {
   success: boolean;
   prompt: string;
-  llmResponse: string;
+  story: {
+    title: string;
+    body: string;
+  };
 }
 
 export function StoryModal({ estateName, onClose }: StoryModalProps) {
   const [loading, setLoading] = useState(true);
-  const [storyText, setStoryText] = useState<string>('');
+  const [storyTitle, setStoryTitle] = useState<string>('');
+  const [storyBody, setStoryBody] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -60,7 +65,8 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
 
         if (!aborted) {
           // 3) Save the LLM’s text and mark loading as false
-          setStoryText(storyData.llmResponse);
+          setStoryTitle(storyData.story.title);
+          setStoryBody(storyData.story.body);
           setLoading(false);
         }
       } catch (err: any) {
@@ -74,9 +80,7 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
     fetchStoryFlow();
 
     // Cleanup if the component unmounts quickly
-    return () => {
-      aborted = true;
-    };
+    return () => { aborted = true; };
   }, [estateName]);
 
   if (loading) {
@@ -101,8 +105,11 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
   // Display the story text, respecting newlines
   return (
     <div className="story-modal-content">
+      {storyTitle && (
+        <h1 className="story-title">{storyTitle}</h1>
+      )}
       <div className="story-text">
-        {storyText.split('\n').map((line, idx) => (
+        {storyBody.split('\n').map((line, idx) => (
           <p key={idx}>{line}</p>
         ))}
       </div>

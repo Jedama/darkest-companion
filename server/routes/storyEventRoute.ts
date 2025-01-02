@@ -1,9 +1,10 @@
 // server/routes/storyEventRoute.ts
 import { Router, Request, Response } from 'express';
-import { compileStoryPrompt } from '../services/storyEventService';
+import { compileStoryPrompt, separateStoryTitle } from '../services/storyEventService';
 import { loadEstate } from '../fileOps';
 import { callClaude } from '../services/llmService.js';
 import type { Estate, EventData } from '../../shared/types/types.ts';
+import { Console } from 'console';
 
 const router = Router();
 
@@ -34,11 +35,17 @@ router.post('/estates/:estateName/events/story', async (req: Request, res: Respo
       maxTokens: 1024
     });
 
-    // 4. Return both the prompt and the LLM's response
+    // 4. Extract title from response
+    const { title, body } = separateStoryTitle(claudeResponse);
+
+    // 5. Return both the prompt and the LLM's response
     return res.json({
       success: true,
       prompt,
-      llmResponse: claudeResponse
+      story: {
+        title,
+        body
+      }
     });
   } catch (error: any) {
     console.error('Error compiling story prompt:', error);

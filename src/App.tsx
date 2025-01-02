@@ -6,6 +6,7 @@ import { ModalProvider } from './modals/ModalProvider';
 import { LoadEstateModal } from './modals/LoadEstateModal/LoadEstateModal';
 import type { Character } from '../shared/types/types';
 import type { ViewType } from './types/viewTypes';
+import './styles/fonts.css';
 
 function App() {
   // We'll still track selectedCharacter and currentView in here.
