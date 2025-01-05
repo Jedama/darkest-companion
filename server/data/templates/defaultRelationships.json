@@ -79,7 +79,7 @@
     "hqclaimants": {
       "affinity": 2,
       "dynamic": "Aristocratic Rivalry",
-      "description": "Cassius\u2019s constant disdain and Cordelia\u2019s biting remarks left a lasting impression on Percival during the balls and duels of their youth. He remains embittered but grudgingly acknowledges Cassius\u2019s skill with a spear."
+      "description": "Claude's constant disdain and Genevive's biting remarks left a lasting impression on Percival during the balls and duels of their youth. He remains embittered but grudgingly acknowledges Claude\u2019s skill with a spear."
     },
     "duchess": {
       "affinity": 5,
@@ -110,7 +110,7 @@
     "heiress": {
       "affinity": 3,
       "dynamic": "Arrogant Derision",
-      "description": "Cassius and Cordelia found Persephone\u2019s sharp wit grating and her ambitions laughable. To them, she was little more than a pretender to aristocratic sophistication."
+      "description": "Claude and Genevive found Persephone\u2019s sharp wit grating and her ambitions laughable. To them, she was little more than a pretender to aristocratic sophistication."
     },
     "duchess": {
       "affinity": 3,
@@ -120,7 +120,7 @@
     "wretch": {
       "affinity": 3,
       "dynamic": "Smug Indifference",
-      "description": "The Wretch is a relic of a forgotten triumph, a living reminder of the Luthvains\u2019 ruthless success. Cordelia feels a cold satisfaction in his fall, while Cassius\u2019s disdain is tempered by fleeting amusement at the absurdity of his new life."
+      "description": "The Wretch is a relic of a forgotten triumph, a living reminder of the Luthvains\u2019 ruthless success. Genevive feels a cold satisfaction in his fall, while Claude\u2019s disdain is tempered by fleeting amusement at the absurdity of his new life."
     }
   },
   "duchess": {

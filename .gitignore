@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Asset processing
+src/assets/characters/card/processing/*/

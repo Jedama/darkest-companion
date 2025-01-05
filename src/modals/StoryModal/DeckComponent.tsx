@@ -29,8 +29,8 @@ export function DeckComponent({ onShuffleComplete }: DeckComponentProps) {
         const rotationAmount = index === 0 ? 0 : (Math.random() * 2) * rotationDirection; // ±2 degrees
 
         // Add random delay to each card's animation
-        const animationDelay = 1 + Math.random() * 0.2; // 0-0.5s delay
-        const animationDuration = 0.3 + (Math.random() * 0.2); // Very quick animation (0.3-0.5s)
+        const animationDelay = 1 + Math.random() * 0.1; // 1-1.1s delay
+        const animationDuration = 0.3 + (Math.random() * 0.1); // Very quick animation (0.3-0.4s)
 
         return (
           <div
