@@ -1,11 +1,11 @@
 // src/components/storymodal/StoryModal.tsx
-import { Console } from 'console';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { DeckComponent } from './DeckComponent';
 import './StoryModal.css';
 
 interface StoryModalProps {
   estateName: string;
-  onClose: () => void;    // We'll call this when we want to close the modal
+  onClose: () => void; // from the modal provider or a parent
 }
 
 interface SetupResponse {
@@ -24,91 +24,105 @@ interface StoryResponse {
 }
 
 export function StoryModal({ estateName, onClose }: StoryModalProps) {
-  const [loading, setLoading] = useState(true);
-  const [storyTitle, setStoryTitle] = useState<string>('');
-  const [storyBody, setStoryBody] = useState<string>('');
+  const [phase, setPhase] = useState<'loading' | 'deck' | 'text'>('loading');
   const [error, setError] = useState<string | null>(null);
 
+  const [storyTitle, setStoryTitle] = useState('');
+  const [storyBody, setStoryBody] = useState('');
+
   useEffect(() => {
-    let aborted = false;
+    const controller = new AbortController();
+    const signal = controller.signal;
+  
     async function fetchStoryFlow() {
       try {
         // 1) Setup random event
-        const setupRes = await fetch(`http://localhost:3000/estates/${estateName}/events/setup-random`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-        });
+        const setupRes = await fetch(
+          `http://localhost:3000/estates/${estateName}/events/setup-random`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            signal, // Attach the abort signal
+          }
+        );
         if (!setupRes.ok) {
-          throw new Error(`Setup route failed with status ${setupRes.status}`);
+          throw new Error(`Setup route failed: ${setupRes.status}`);
         }
-        const setupData = (await setupRes.json()) as SetupResponse;
+        const setupData: SetupResponse = await setupRes.json();
         if (!setupData.success) {
           throw new Error('Setup returned success=false');
         }
-
-        // 2) Now call the story route
-        const storyRes = await fetch(`http://localhost:3000/estates/${estateName}/events/story`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            event: setupData.event,
-            chosenCharacterIds: setupData.chosenCharacterIds,
-          }),
-        });
+  
+        setPhase('deck');
+        console.log('setupData:', setupData);
+  
+        // 2) Story route
+        const storyRes = await fetch(
+          `http://localhost:3000/estates/${estateName}/events/story`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              event: setupData.event,
+              chosenCharacterIds: setupData.chosenCharacterIds,
+            }),
+            signal, // Attach the abort signal
+          }
+        );
+  
         if (!storyRes.ok) {
-          throw new Error(`Story route failed with status ${storyRes.status}`);
+          throw new Error(`Story route failed: ${storyRes.status}`);
         }
-        const storyData = (await storyRes.json()) as StoryResponse;
+        const storyData: StoryResponse = await storyRes.json();
         if (!storyData.success) {
           throw new Error('Story route returned success=false');
         }
-
-        if (!aborted) {
-          // 3) Save the LLM’s text and mark loading as false
-          setStoryTitle(storyData.story.title);
-          setStoryBody(storyData.story.body);
-          setLoading(false);
-        }
+  
+        console.log('storyRes:', storyData);
+  
+        // Set the story data
+        setStoryTitle(storyData.story.title);
+        setStoryBody(storyData.story.body);
+        setPhase('text');
       } catch (err: any) {
-        if (!aborted) {
-          setError(err.message);
-          setLoading(false);
+        if (signal.aborted) {
+          // Prevent duplicate calls by blocking subsequent calls during React's Strict Mode behavior
+          return;
         }
+        console.error('Error in fetchStoryFlow:', err);
+        setError(err.message);
       }
     }
-
+  
     fetchStoryFlow();
-
-    // Cleanup if the component unmounts quickly
-    return () => { aborted = true; };
+  
+    return () => {
+      // Abort the fetch if the component unmounts
+      controller.abort();
+    };
   }, [estateName]);
-
-  if (loading) {
-    return (
-      <div className="story-modal-content">
-        <div>Loading story...</div>
-        {/* Maybe a spinner or something */}
-      </div>
-    );
-  }
 
   if (error) {
     return (
       <div className="story-modal-content">
-        <div className="error-message">Error: {error}</div>
-        {/* You can add a retry button or a close button here */}
+        <p className="error">{error}</p>
         <button onClick={onClose}>Close</button>
       </div>
     );
   }
 
-  // Display the story text, respecting newlines
+  if (phase === 'deck') {
+    return (
+      <div className="story-modal-content">
+        <DeckComponent onShuffleComplete={() => setPhase('text')} />
+      </div>
+    );
+  }
+
   return (
-    <div className="story-modal-content">
-      {storyTitle && (
-        <h1 className="story-title">{storyTitle}</h1>
-      )}
-      <div className="story-text">
+    <div className="story-modal-content fade-in">
+      <h1 className="story-title">{storyTitle}</h1>
+      <div className="story-body">
         {storyBody.split('\n').map((line, idx) => (
           <p key={idx}>{line}</p>
         ))}

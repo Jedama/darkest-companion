@@ -1,16 +1,27 @@
 /* src/components/storymodal/StoryModal.css */
 
 .story-modal-content {
-    /* If you want it centered in the backdrop */
-    padding: 1rem;
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Center children vertically */
+    align-items: center; /* Center children horizontally */
+    padding: 2rem 1rem;
     font-family: 'CaslonAntique', serif;
     font-size: 1.5rem;
     width: 66.666%;
     max-width: 1200px;
-    max-height: 95vh;
+    max-height: 100vh;
     overflow-y: auto;
     color: #fff;
     scrollbar-width: none;
+    margin: 0 auto;
+    z-index: 0;
+  }
+
+  .story-modal-content::-webkit-scrollbar {
+    display: none;
   }
   
   .story-text {
@@ -31,4 +42,3 @@
     margin-bottom: 1.5rem;
     text-align: center;
 }
-  

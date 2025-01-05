@@ -1,0 +1,76 @@
+{
+    "identifier": "man-at-arms",
+    "title": "Man-at-Arms",
+    "name": "Barristan",
+    "level": 0,
+    "money": 0,
+    "summary": "A seasoned veteran whose expertise in warfare stems from countless campaigns. Though his raw strength has diminished with age, his tactical acumen and defensive prowess make him an invaluable protector. His past is marked by both military achievements and a devastating failure of command that haunts him still. He excels at protecting allies and training others in combat techniques.",
+    "history": "Once an ambitious officer who rose through the ranks through political maneuvering rather than battlefield merit, Barristan's pride led to a catastrophic military failure that resulted in the deaths of many under his command. Haunted by the ghosts of his fallen soldiers, he tore his eye out during one of his traumatic episodes. He now seeks atonement through continued military service, having accepted that he will likely meet his end alone on some forgotten battlefield.",
+    "race": "Human",
+    "gender": "Male",
+    "religion": "None",
+    "traits": [
+      "Protective",
+      "Experienced",
+      "Haunted",
+      "Disciplined",
+      "Commanding",
+      "Remorseful"
+    ],
+    "status": {
+      "physical": 100,
+      "mental": 100,
+      "affliction": "",
+      "description": "In good health and high spirits",
+      "wounds": [],
+      "diseases": []
+    },
+    "stats": {
+      "strength": 7,
+      "agility": 4,
+      "intelligence": 8,
+      "authority": 10,
+      "sociability": 6
+    },
+    "equipment": [
+      "Heavy mace",
+      "Tower shield",
+      "Plate armor"
+    ],
+    "trinkets": [
+    ],
+    "appearance": {
+      "height": "Tall",
+      "build": "Sturdy",
+      "skinTone": "Weathered",
+      "hairColor": "Grey",
+      "hairStyle": "Short military cut with full beard",
+      "features": "Eye patch over right eye"
+    },
+    "clothing": {
+      "head": "None",
+      "body": "Heavy plate armor with red sash",
+      "legs": "Plated greaves",
+      "other": "Military medals"
+    },
+    "combat": {
+      "role": "Defender",
+      "strengths": [
+        "Defensive tactics",
+        "Command presence",
+        "Battle experience"
+      ],
+      "weaknesses": [
+        "Aging body",
+        "Limited vision"
+      ]
+    },
+    "magic": "None",
+    "notes": [
+      "Haunted by ghosts of fallen soldiers",
+      "Seeks death in battle as atonement",
+      "Excellent military instructor"
+    ],
+    "relationships": {
+    }
+  }

@@ -32,7 +32,7 @@
       "sociability": 4
     },
     "equipment": [
-      "Arbalest (crossbow) named Millicent",
+      "Crossbow",
       "Armor"
     ],
     "trinkets": [],
@@ -64,7 +64,9 @@
     },
     "magic": "None",
     "notes": [
-      "Cannot accurately remember the traumatic events of her childhood"
+      "Cannot accurately remember the traumatic events of her childhood",
+      "Carries her 'Childhood tresure', an old stuffed bunny",
+      "Her Crossbow's name is 'Millicent'"
     ],
     "relationships": {}
   }

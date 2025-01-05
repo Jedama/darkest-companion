@@ -50,12 +50,14 @@ Centers on a pivotal event: Describe a decisive moment where characters face con
 Drives meaningful consequences: Show how this moment shapes the relationships, fortunes, or fates of the characters, leaving a lasting impact on the narrative.
 Fuels tension and stakes: Highlight the characters’ flaws, fears, and desires as they clash with each other and the horrors of the estate. Emphasize their inner struggles as much as external threats.
 Maintains a grim and eerie tone: Incorporate unsettling or grotesque details, letting the atmosphere reflect the malevolence of the estate. Do not shy away from discomfort or tragedy.
+Remember that not every characters knows the backgrounds and secrets of the other characters. Many have just met one another.
 
 Avoid:
 Reintroducing the characters in every scene. Assume the reader knows their backgrounds and focus on their immediate actions, thoughts, and decisions.
 Mentioning yourself or your observations. Let the story unfold as if the reader is directly witnessing it.
 Overly harmonious resolutions. Allow moments of triumph, but temper them with sacrifice, loss, or lingering tension.
 Cliffhangers or leaving the vignette unresolved. They must provide a satisfying conclusion while hinting at future conflicts.
+Introducing new supernatural abilities, talk of rituals, trinkets, blood sacrifices, or other mystical elements not previously established.
 
 Begin with a title in brackets, e.g., [].
 `;
