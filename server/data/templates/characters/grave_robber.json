@@ -9,6 +9,7 @@
     "race": "Human",
     "gender": "Female",
     "religion": "None",
+    "zodiac": "Scorpio",
     "traits": [
         "Agile",
         "Precise",
@@ -55,14 +56,14 @@
     "combat": {
     "role": "Assassin",
     "strengths": [
-    "Lithe",
-    "Precise",
-    "Quick",
-    "Stealthy"
-    ],
+        "Lithe",
+        "Precise",
+        "Quick",
+        "Stealthy"
+        ],
     "weaknesses": [
-    "Frail",
-    "Vulnerable to direct attacks"
+        "Frail",
+        "Vulnerable to direct attacks"
     ]
     },
     "magic": "None",
@@ -71,4 +72,4 @@
     ],
     "relationships": {
     }
-    }
+}

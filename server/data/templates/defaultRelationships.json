@@ -41,6 +41,11 @@
       "affinity": 7,
       "dynamic": "Comrade",
       "description": "The crusader sees in the highwayman a kindred spirit; both men with troubled pasts seeking to carve out a purpose through the quest they now share."
+    },
+    "seraph": {
+      "affinity": 4,
+      "dynamic": "Devoted Lieutenant",
+      "description": "Reynauld served under Joan after her miraculous transformation, awed by her divine presence and inspired by her holy purpose. Her burned visage and manifest powers were proof of the Light's grace, making his role in her crusade feel truly righteous."
     }
   },
   "highwayman": {
@@ -145,6 +150,13 @@
       "affinity": 2,
       "dynamic": "Faded Bitterness",
       "description": "Yersin has long since resigned himself to the ruin of the Vyrmholt family, finding solace among his rats. Though the bitterness lingers faintly, he sees the Luthvains as remnants of a life he left behind\u2014distant, self-congratulatory specters of his disgrace."
+    }
+  },
+  "seraph": {
+    "crusader": {
+      "affinity": 4,
+      "dynamic": "Fallen Servant",
+      "description": "Joan found in Reynauld a capable commander whose tactical brilliance served the Light's purpose well. His reverence was genuine, his devotion unquestioned, which made his mercy toward the Warlord all the more galling. Though he was among her most trusted generals, his departure from the crusade marked him as another soul too weak to uphold the Light's righteous judgment."
     }
   }
 }

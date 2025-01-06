@@ -1,5 +1,5 @@
 {
-    "identifier": "man-at-arms",
+    "identifier": "man_at_arms",
     "title": "Man-at-Arms",
     "name": "Barristan",
     "level": 0,
@@ -9,6 +9,7 @@
     "race": "Human",
     "gender": "Male",
     "religion": "None",
+    "zodiac": "Capricorn",
     "traits": [
       "Protective",
       "Experienced",

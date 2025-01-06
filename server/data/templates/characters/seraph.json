@@ -5,10 +5,11 @@
     "level": 0,
     "money": 0,
     "summary": "A devout warrior who hears the voice of 'The Light', the Seraph has transformed from a humble farmer to a zealous crusader. Burned and scarred from a near-death experience, she now serves as a vessel for divine power, though the true nature of the entity guiding her remains ambiguous.",
-    "history": "Born into poverty, the Seraph's life changed when she began hearing voices  from The Light. Believing herself chosen, she took up arms, causing a schism in the church. Hunted by witch hunter Mathis, she was captured and sentenced to burn. During her execution, a miraculous intervention saved her, though leaving her horribly scarred. Now, guided by the voice, she has come to the Hamlet to purge evil.",
+    "history": "Born into poverty, the Seraph's life changed when she began hearing voices  from The Light. Believing herself chosen, she took up arms, causing a schism in the church. Hunted by witch hunter Mathis, she was captured and sentenced to burn. During her execution, a miraculous intervention saved her, and though leaving her horribly scarred it elevated her to a figure of deity, and she went on to lead many holy crusades. Now, guided by the voice, she has come to the Hamlet to purge evil.",
     "race": "Human",
     "gender": "Female",
     "religion": "The Light",
+    "zodiac": "Aries",
     "traits": [
         "Zealous",
         "Devout",
@@ -60,7 +61,7 @@
             "Unwavering faith"
         ],
         "weaknesses": [
-            "Fragile body beneath armor",
+            "Very fragile body beneath armor",
             "Unsettling presence"
         ]
     },

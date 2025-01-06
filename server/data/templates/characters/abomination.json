@@ -9,6 +9,7 @@
     "race": "Eldritch shapeshifter",
     "gender": "Male",
     "religion": "The Light",
+    "zodiac": "Scorpio",
     "traits": [
         "Tormented",
         "Aggressive",
@@ -64,7 +65,8 @@
     },
     "magic": "Eldritch transformation",
     "notes": [
-        "Fears losing control and harming allies"
+        "Fears losing control and harming allies",
+        "Has a soft voice and doesn't curse"
     ],
     "relationships": {
     }
