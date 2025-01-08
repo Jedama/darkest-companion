@@ -1,5 +1,5 @@
 :root {
-    --card-width: 150px;
+    --card-width: 250px;
     --card-aspect-ratio: 606 / 939; /* Adjust to your card image's aspect ratio */
   }
   
@@ -13,8 +13,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: calc(var(--card-width) + 50px); /* Add some padding for the offset cards */
-    height: calc(var(--card-width) * var(--card-aspect-ratio) + 50px);
+    width: calc(var(--card-width));
+    aspect-ratio: var(--card-aspect-ratio);
   }
   
   /* Individual cards in the deck */

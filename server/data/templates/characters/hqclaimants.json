@@ -1,7 +1,7 @@
 {
     "identifier": "hqclaimants",
     "title": "Claimants",
-    "name": "Genevive & Claude Luthvain",
+    "name": "Genevive & Claude",
     "level": 0,
     "money": 0,
     "summary": "The Claimants, are a pair of ambitious siblings seeking to reclaim their lost lineage in a distant land. Adept in both combat and sorcery, they combine their varied skills to support allies and vanquish foes. Their unique tactics allow them to act as both a single unit and individuals, making them unpredictable and versatile on the battlefield.",
@@ -69,8 +69,7 @@
     "magic": "Forbidden knowledge and ancestral sorcery",
     "notes": [
       "Act as both a single unit and as individuals in combat",
-      "Possess unique 'Brother' and 'Sister' actions",
-      "Can combine varied skill sets in the same turn"
+      "Heads of the esteemed Luthvain family"
     ],
     "relationships": {}
   }

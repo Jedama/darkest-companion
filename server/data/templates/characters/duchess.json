@@ -34,8 +34,7 @@
         "sociability": 5
     },
     "equipment": [
-        "Black blade (heirloom weapon)",
-        "Tattered dress reinforced with iron plates"
+        "Enormous black sword"
     ],
     "trinkets": [
     ],
@@ -50,7 +49,7 @@
     "clothing": {
         "headwear": "Large, angular helmet that hides everything but her toothy mouth",
         "top": "Tight corset showing ample cleavage",
-        "pants": "Tattered, flowing dress",
+        "pants": "Tattered dress reinforced with metal plates",
         "accessories": "None"
     },
     "combat": {

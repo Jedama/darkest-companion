@@ -1,0 +1,80 @@
+:root {
+    --card-width: 250px;
+    --card-aspect-ratio: 606 / 939;
+  }
+  
+  .card-wrapper {
+    position: absolute;
+    width: var(--card-width);
+    aspect-ratio: var(--card-aspect-ratio);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-style: preserve-3d;
+    will-change: transform;
+    z-index: auto;
+  }
+  
+  .card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .card-back {
+    background-image: url('src/assets/ui/modals/storymodal/card_back.png');
+  }
+  
+  .card-front {
+    transform: rotateY(180deg);
+  }
+  
+  .deal-animation {
+    animation: deal-card 1s ease forwards;
+  }
+  
+  /* Simplified animation for flip + glide */
+  @keyframes deal-card {
+    0% {
+      transform: translate(-50%, -50%) rotateY(0deg) rotateZ(0deg); /* Flip starts */
+    }
+    50% {
+      transform: translate(-50%, -50%) rotateY(180deg) rotateZ(0deg); /* Flip ends */
+    }
+    100% {
+      /* Move to designated corner */
+      transform: translate(var(--corner-x), var(--corner-y)) 
+               rotateY(180deg) 
+               rotateZ(var(--final-rotation));
+    }
+  }
+  
+  /* Assign corners dynamically using data-corner */
+  .card-wrapper[data-corner="0"] {
+    --corner-x: calc(-50vw + 10%);
+    --corner-y: calc(-50vh + 10%);
+    --final-rotation: 5deg; /* Slight left tilt */
+  }
+  
+  .card-wrapper[data-corner="1"] {
+    --corner-x: calc(50vw - 110%);
+    --corner-y: calc(-50vh + 10%);
+    --final-rotation: -5deg; /* Slight right tilt */
+  }
+  
+  .card-wrapper[data-corner="2"] {
+    --corner-x: calc(-50vw + 10%);
+    --corner-y: calc(50vh - 110%);
+    --final-rotation: 10deg; /* More left tilt */
+  }
+  
+  .card-wrapper[data-corner="3"] {
+    --corner-x: calc(50vw - 110%);
+    --corner-y: calc(50vh - 110%);
+    --final-rotation: -10deg; /* More right tilt */
+  }
+  
+  

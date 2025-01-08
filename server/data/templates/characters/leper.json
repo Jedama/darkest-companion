@@ -1,0 +1,72 @@
+{
+    "identifier": "leper",
+    "title": "Leper",
+    "name": "Baldwin",
+    "level": 0,
+    "money": 0,
+    "summary": "A ruined man, warrior, and poet, the Leper is a former king who abandoned his throne after succumbing to a wasting disease. He wields a massive blade with raw power but lacking precision, channeling his life of trauma into devastating attacks or protective strength. Though his body is ravaged, he endures with unshakable resolve and a sense of quiet purpose.",
+    "history": "The Leper was a compassionate king known for his humility and kindness, often visiting the sick and dying against the protests of his advisors. It was during these visits that he contracted leprosy, sealing his fate as a cursed and broken man. When symptoms began to show, his advisors sought to exploit his vulnerability, plotting to usurp his throne and strip his kingdom of its wealth. Despite his declining health, Baldwin uncovered their treachery and took up his ceremonial, gold-plated sword—a symbol of his authority that had never been used in battle. Driven by fury and betrayal, he slaughtered the scheming advisors in a single night of bloody vengeance, before abdicating the throne and exiling himself. He now wanders the land as a warrior-poet, his body ravaged but his spirit unbroken, seeking redemption and solace in the beauty of the world.",
+    "race": "Human",
+    "gender": "Male",
+    "religion": "The Light",
+    "zodiac": "Capricorn",
+    "traits": [
+      "Resolute",
+      "Stoic",
+      "Compassionate",
+      "Unbreakable"
+    ],
+    "status": {
+      "physical": 100,
+      "mental": 100,
+      "affliction": "",
+      "description": "In good health and high spirits",
+      "wounds": [],
+      "diseases": []
+    },
+    "stats": {
+      "strength": 7,
+      "agility": 2,
+      "intelligence": 6,
+      "authority": 6,
+      "sociability": 3
+    },
+    "equipment": [
+      "Greatsword"
+    ],
+    "trinkets": [],
+    "appearance": {
+      "height": "Tall",
+      "build": "Broad and muscular, before wasting",
+      "skinTone": "Dark",
+      "hairColor": "Black",
+      "hairStyle": "Lost to disease",
+      "features": "Scarred and disfigured skin, always concealed by a bronze mask."
+    },
+    "clothing": {
+      "head": "Bronze mask with narrow eye slits and a tattered hood",
+      "body": "Heavy robes and a golden breastplate, torn and weathered",
+      "legs": "Simple pants and boots",
+      "other": "Gloves and bandaged arms"
+    },
+    "combat": {
+      "role": "Frontliner",
+      "strengths": [
+        "High damage output",
+        "Armored",
+        "Calm under pressure"
+      ],
+      "weaknesses": [
+        "Inaccurate",
+        "Slow",
+        "Long-range alternatives"
+      ]
+    },
+    "magic": "None",
+    "notes": [
+      "Always wears his mask, rarely revealing his disfigurement",
+      "Speaks in poetic, cryptic phrases",
+      "Despite his condition, he carries himself with quiet dignity and compassion for others"
+    ],
+    "relationships": {}
+}

@@ -9,21 +9,29 @@
     align-items: center; /* Center children horizontally */
     padding: 2rem 1rem;
     font-family: 'CaslonAntique', serif;
-    font-size: 1.5rem;
-    width: 66.666%;
-    max-width: 1200px;
+    font-size: 2rem;
+    width: 100vw;
     max-height: 100vh;
-    overflow-y: auto;
     color: #fff;
-    scrollbar-width: none;
     margin: 0 auto;
     z-index: 0;
   }
 
-  .story-modal-content::-webkit-scrollbar {
-    display: none;
+  /* Container for the story text */
+  .story-text-container {
+    position: relative;
+    z-index: 5;             
+    width: 60vw;              /* 2/3 of the viewport width */
+    margin: 2rem auto 0 auto; /* center horizontally, give some top margin */
+    pointer-events: auto;     /* so user can select or scroll text if needed */
+    overflow-y: auto;
+    scrollbar-width: none;
   }
   
+  .story-text-container::-webkit-scrollbar {
+    display: none;
+  }
+
   .story-text {
     /* If you want extra spacing between paragraphs, do it here */
     line-height: 1.6;
@@ -37,7 +45,7 @@
 
   .story-title {
     font-family: 'CaslonAntique', serif;
-    font-size: 2rem;  /* Bigger than the 1.5rem body text */
+    font-size: 2.5rem;  /* Bigger than the 1.5rem body text */
     font-weight: bold;
     margin-bottom: 1.5rem;
     text-align: center;
