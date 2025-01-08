@@ -2,10 +2,11 @@ import React, { useEffect } from 'react';
 import './DeckComponent.css';
 
 interface DeckComponentProps {
+  phase: string;
   onShuffleComplete: () => void; // Callback to notify parent when shuffle is done
 }
 
-export function DeckComponent({ onShuffleComplete }: DeckComponentProps) {
+export function DeckComponent({ phase, onShuffleComplete }: DeckComponentProps) {
   useEffect(() => {
     // Notify parent after the shuffle animation is complete
     const timer = setTimeout(() => {
@@ -19,7 +20,7 @@ export function DeckComponent({ onShuffleComplete }: DeckComponentProps) {
   const offset = 3; // Offset between each card
 
   return (
-    <div className="deck-container">
+    <div className={`deck-container ${phase === 'text' ? 'deck-fade-out' : ''}`}>
       {[...Array(deckSize)].map((_, index) => {
         const randomX = index === 0 ? 0 : Math.random() * 4 - 2; // Slight random offset (-2px to +2px)
         const randomY = index === 0 ? 0 : Math.random() * 4 - 2;
@@ -29,8 +30,8 @@ export function DeckComponent({ onShuffleComplete }: DeckComponentProps) {
         const rotationAmount = index === 0 ? 0 : (Math.random() * 2) * rotationDirection; // ±2 degrees
 
         // Add random delay to each card's animation
-        const animationDelay = 0.5 + Math.random() * 0.1; // 0.5-0.6s delay
-        const animationDuration = 0.15 + Math.random() * 0.05; // 0.15-0.2s
+        const animationDelay = 0.75 + Math.random() * 0.1; // 1-0.6s delay
+        const animationDuration = 0.2 + Math.random() * 0.05; // 0.15-0.2s
 
         return (
           <div
@@ -38,14 +39,12 @@ export function DeckComponent({ onShuffleComplete }: DeckComponentProps) {
             className="deck-card"
             style={{
               zIndex: deckSize - index,
-              transform: `translate(${index * offset + randomX}px, ${
-                index * offset + randomY
-              }px) rotate(${rotationAmount}deg)`,
-              animation: `${index % 2 === 0 ? 'shuffle-clockwise' : 'shuffle-counterclockwise'} 
-                         ${animationDuration}s 
-                         ${animationDelay}s 
-                         ease-in-out`,
-              animationIterationCount: '3'
+              transform: `translate(${index * offset + randomX}px, ${index * offset + randomY}px) rotate(${rotationAmount}deg)`,
+              animationName: `${index % 2 === 0 ? 'shuffle-clockwise' : 'shuffle-counterclockwise'}`,
+              animationDuration: `${animationDuration}s`,
+              animationDelay: `${animationDelay}s`,
+              animationTimingFunction: 'ease-in-out',
+              animationIterationCount: 3, // Set explicitly here
             }}
           ></div>
         );

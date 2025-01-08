@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { DeckComponent } from './DeckComponent';
-import { CardComponent } from './CardComponent';  // Our new card flipping component
+import { CardComponent } from './CardComponent';  
+import { ImageButton } from '../../components/ui/buttons/ImageButton.tsx';
 import './StoryModal.css';
 
 interface StoryModalProps {
@@ -119,7 +120,6 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
   if (phase === 'loading') {
     return (
       <div className="story-modal-content">
-        <p>Loading event...</p>
       </div>
     );
   }
@@ -135,7 +135,10 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
            Show the deck if phase >= 'deck'. 
            Let it remain there through dealing & text if you want.
       */}
-      <DeckComponent onShuffleComplete={handleShuffleComplete} />
+      <DeckComponent
+        phase={phase} 
+        onShuffleComplete={handleShuffleComplete}
+      />
 
       {/* 
         2) The CARDS: 
@@ -169,13 +172,28 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
            Shown if phase === 'text' (or you could do >= 'text' if 
            you want it visible once dealing starts, etc.)
       */}
-      {phase === 'text' && (
+      {phase === 'text' && storyTitle && storyBody && (
         <div className="fade-in story-text-container">
           <h1 className="story-title">{storyTitle}</h1>
           <div className="story-body">
             {storyBody.split('\n').map((line, idx) => (
               <p key={idx}>{line}</p>
             ))}
+          </div>
+
+          {/* Buttons are inside the same container */}
+          <div className="story-buttons">
+            <ImageButton
+              textureUrl="src/assets/ui/modals/storymodal/return.png"
+              width={192}
+              height={192}
+              onClick={onClose} 
+            />
+            <ImageButton
+              textureUrl="src/assets/ui/modals/storymodal/continue.png"
+              width={192}
+              height={192}
+            />
           </div>
         </div>
       )}
