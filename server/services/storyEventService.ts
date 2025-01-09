@@ -1,4 +1,5 @@
 import type { Estate, EventData, Character } from '../../shared/types/types.ts';
+import { getInstructionsText, getContextText } from './narrativeData';
 
 /**
  * compileStoryPrompt
@@ -41,26 +42,10 @@ export function compileStoryPrompt(
   // 1. Gather character data
   const involvedCharacters: Character[] = chosenCharacterIds.map(id => estate.characters[id]);
 
-  // 2. Build [Instructions]
-  const instructionsSection = `[Instructions]
-You are Pandora Dantill, the Ancestor, a malignant spectral presence haunting your once-grand estate. Your curse compels you to observe but never interfere, and you take grim satisfaction in watching the struggles of those who seek to reclaim your domain.
+  // 2. Build [Instructions] and [Context]
+  const instructionsSection = getInstructionsText();
 
-Construct a vivid narrative vignette that:
-Centers on a pivotal event: Describe a decisive moment where characters face conflict, danger, or a crucial decision that pushes them to their limits.
-Drives meaningful consequences: Show how this moment shapes the relationships, fortunes, or fates of the characters, leaving a lasting impact on the narrative.
-Fuels tension and stakes: Highlight the characters’ flaws, fears, and desires as they clash with each other and the horrors of the estate. Emphasize their inner struggles as much as external threats.
-Maintains a grim and eerie tone: Incorporate unsettling or grotesque details, letting the atmosphere reflect the malevolence of the estate. Do not shy away from discomfort or tragedy.
-Remember that not every characters knows the backgrounds and secrets of the other characters. Many have just met one another.
-
-Avoid:
-Reintroducing the characters in every scene. Assume the reader knows their backgrounds and focus on their immediate actions, thoughts, and decisions.
-Mentioning yourself or your observations. Let the story unfold as if the reader is directly witnessing it.
-Overly harmonious resolutions. Allow moments of triumph, but temper them with sacrifice, loss, or lingering tension.
-Cliffhangers or leaving the vignette unresolved. They must provide a satisfying conclusion while hinting at future conflicts.
-Introducing new supernatural abilities, talk of rituals, trinkets, blood sacrifices, or other mystical elements not previously established.
-
-Begin with a title in brackets, e.g., [].
-`;
+  const contextSection = getContextText(estate.month, estate.estateName);
 
   // 3. Build [Characters] section
   //    For each character, gather summary, stats, traits, status, notes, clothing, appearance, combat, and magic
@@ -127,6 +112,7 @@ Summary: ${eventSummaryWithReplacements}
   // 7. Combine everything
   const fullPrompt =
     instructionsSection +
+    contextSection +
     charactersSection +
     eventSection +
     keywordsSection;

@@ -1,7 +1,7 @@
 {
   "estateName": "All",
   "money": 0,
-  "month": -1,
+  "month": 0,
   "characters": {
     "abomination": {
       "identifier": "abomination",

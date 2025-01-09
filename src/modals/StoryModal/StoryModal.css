@@ -63,7 +63,7 @@
 .story-buttons {
   display: flex;
   justify-content: center;
-  gap: 15rem;       /* Space between the two buttons */
+  gap: 25rem;       /* Space between the two buttons */
   margin-top: 2rem; /* Spacing above the button row */
 }
 

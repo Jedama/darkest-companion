@@ -80,7 +80,7 @@ export function ManorView({
     if (!grid) return;
 
     const handleWheel = (e: WheelEvent) => {
-      e.preventDefault();
+      //e.preventDefault();
       grid.scrollLeft += e.deltaY;
     };
 

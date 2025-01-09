@@ -23,6 +23,7 @@
   overflow-y: hidden;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
   
   /* Hide scrollbar */
   -ms-overflow-style: none; /* IE and Edge */
