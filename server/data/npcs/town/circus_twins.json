@@ -1,0 +1,33 @@
+{
+    "identifier": "circus_twins",
+    "title": "The Circus Twins",
+    "name": "Jack and Jacques",
+    "summary": "Born to the blood-soaked sawdust of the Butcher's Circus, these masked jesters serve as the Ringmasters' loyal guardians and gatekeepers. Their mirrored movements and synchronized speech unsettle even hardened fighters, while their wickedly sharp steel masks hide faces that have never known life beyond the ring.",
+    "history": "Abandoned as infants at the circus entrance, the twins were raised among carnage and spectacle. Maul recognized their peculiar bond and cultivated it, shaping them into both performers and sentinels. They've never known another life, nor do they desire one - the circus is their whole world, its Ringmaster their only family.",
+    "traits": [
+      "Synchronized",
+      "Loyal",
+      "Theatrical",
+      "Unsettling"
+    ],
+    "appearance": {
+      "height": "Tall",
+      "build": "Lithe",
+      "skinTone": "Unknown beneath costumes",
+      "hairColor": "Concealed",
+      "hairStyle": "Hidden by masks",
+      "facial_features": "Always masked"
+    },
+    "clothing": {
+      "headwear": "Spiked metal masks embossed with unchanging emotion, Jack's grinning and Jacques' frowning",
+      "top": "Mirrored jester outfits, Jack with yellow/black patterned sleeves, and Jasques with red/black",
+      "pants": "Patterned leggings",
+      "accessories": "Spiked ball-like gauntlets that double as circus props"
+    },
+    "notes": [
+      "Finish each other's sentences with unsettling precision",
+      "Never seen apart or unmasked",
+      "Perform acrobatic displays between matches",
+      "Share an uncanny ability to predict each other's movements"
+    ]
+  }

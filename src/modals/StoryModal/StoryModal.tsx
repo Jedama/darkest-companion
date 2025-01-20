@@ -15,6 +15,10 @@ interface SetupResponse {
   success: boolean;
   event: any;
   chosenCharacterIds: string[];
+  location?: {
+    title: string;
+    description: string;
+  };
 }
 
 interface StoryResponse {
@@ -75,6 +79,7 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
             body: JSON.stringify({
               event: setupData.event,
               chosenCharacterIds: setupData.chosenCharacterIds,
+              location: setupData.location,
             }),
             signal,
           }

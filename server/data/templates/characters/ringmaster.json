@@ -36,8 +36,6 @@
     "equipment": [
       "Morningstar"
     ],
-    "trinkets": [
-    ],
     "appearance": {
       "height": "Tall",
       "build": "Slender",
@@ -66,7 +64,8 @@
     },
     "magic": "None",
     "notes": [
-      "Her mouth is often covered in blood, which everyone hopes is just part of her makeup"
+      "Her mouth is often covered in blood, which everyone hopes is just part of her makeup",
+      "Often accompanied by the Circus Twins, Jack and Jacques, who serve as her guardians and performers, even on quests"
     ],
     "relationships": {}
   }

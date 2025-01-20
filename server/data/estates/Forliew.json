@@ -1,5 +1,5 @@
 {
-  "estateName": "4",
+  "estateName": "Forliew",
   "money": 0,
   "month": 0,
   "characters": {
@@ -14,6 +14,7 @@
       "race": "Human",
       "gender": "Male",
       "religion": "The Light",
+      "zodiac": "Leo",
       "traits": [
         "Devoted",
         "Stalwart",
@@ -42,7 +43,6 @@
         "Holy Banners",
         "Sacred Scrolls"
       ],
-      "trinkets": [],
       "appearance": {
         "height": "Tall",
         "build": "Muscular",
@@ -73,7 +73,7 @@
       "magic": "The light, a divine power that lets him smite foes and heal allies",
       "notes": [
         "Has kleptomanic tendencies that he tries to hide",
-        "Does a characteristic whistle when he's pleased",
+        "Does a characteristic whistle when he's pleased, especially after nabbing something",
         "Sometimes writes letters to his family that he never sends",
         "Wears simple farmer's clothes when out of his armor"
       ],
@@ -92,7 +92,30 @@
           "affinity": 7,
           "dynamic": "Comrade",
           "description": "The crusader sees in the highwayman a kindred spirit; both men with troubled pasts seeking to carve out a purpose through the quest they now share."
+        },
+        "seraph": {
+          "affinity": 4,
+          "dynamic": "Devoted Lieutenant",
+          "description": "The Crusader served under the Seraph after her miraculous transformation, awed by her divine presence and inspired by her holy purpose. Her burned visage and manifest powers were proof of the Light's grace, making his role in her crusade feel truly righteous."
         }
+      },
+      "locations": {
+        "residence": [
+          "dower_house__barracks_room_east"
+        ],
+        "workplaces": [
+          "guild_hall",
+          "training_ring",
+          "abbey_grounds",
+          "palisade_wall"
+        ],
+        "frequents": [
+          "abbey",
+          "farmlands",
+          "town_square",
+          "dower_house__garden",
+          "tavern"
+        ]
       }
     },
     "highwayman": {
@@ -106,6 +129,7 @@
       "race": "Human",
       "gender": "Male",
       "religion": "None",
+      "zodiac": "Sagittarius",
       "traits": [
         "Rugged",
         "Desperate",
@@ -132,7 +156,6 @@
         "Flintlock pistol",
         "Dagger"
       ],
-      "trinkets": [],
       "appearance": {
         "height": "Average",
         "build": "Athletic",
@@ -180,12 +203,29 @@
           "dynamic": "Comrade",
           "description": "Despite their differences, the highwayman and the crusader swiftly bonded over the mistakes of their respective pasts and their shared quest for redemption."
         }
+      },
+      "locations": {
+        "residence": [
+          "dower_house__barracks_room_east"
+        ],
+        "workplaces": [
+          "guild_hall",
+          "training_ring",
+          "palisade_wall"
+        ],
+        "frequents": [
+          "tavern",
+          "house_of_yellow_hand",
+          "inn",
+          "town_square",
+          "brothel_alley"
+        ]
       }
     },
     "heiress": {
       "identifier": "heiress",
       "title": "Heiress",
-      "name": "Persephone Dantill",
+      "name": "Persephone",
       "level": 0,
       "money": 0,
       "summary": "The Heiress to the accursed Estate, excels at taking command in even the most daunting situations. With her sharp intellect and strategic prowess, she fearlessly leads the charge to reclaim her ancestral home while deftly managing the nearby hamlet. Her natural authority and decisive leadership serve as a beacon of strength for a community besieged by supernatural horrors. Though grateful for allies brave enough to join her cause, Persephone's unwavering confidence in her own judgment can manifest as stubborn resistance when her authority is challenged.",
@@ -193,6 +233,7 @@
       "race": "Human",
       "gender": "Female",
       "religion": "None",
+      "zodiac": "Leo",
       "traits": [
         "Determined",
         "Resourceful",
@@ -220,7 +261,6 @@
         "Derringer pistol",
         "wine bottle"
       ],
-      "trinkets": [],
       "appearance": {
         "height": "Average",
         "build": "Average",
@@ -271,19 +311,37 @@
         "hqclaimants": {
           "affinity": 2,
           "dynamic": "Contemptuous Competitors",
-          "description": "Persephone saw the Luthvains as vain and insufferable during their fleeting courtly encounters. Their thinly veiled insults ensured no love was lost between them."
+          "description": "The Heiress saw the Claimants as vain and insufferable during their fleeting courtly encounters. Their thinly veiled insults ensured no love was lost between them."
         },
         "duchess": {
           "affinity": 3,
           "dynamic": "Cautious Disdain",
-          "description": "Persephone remembers Constance as aloof and self-absorbed during the few balls they attended together. Though she barely knew her, Constance’s pride left a sour impression."
+          "description": "The Heiress remembers the Duchess as aloof and self-absorbed during the few balls they attended together. Though she barely knew her, the Duchess's pride left a sour impression."
         }
+      },
+      "locations": {
+        "residence": [
+          "dower_house__master_bedroom"
+        ],
+        "workplaces": [
+          "town_hall__strategy_room",
+          "town_hall__meeting_hall",
+          "town_hall__council_chamber",
+          "dower_house__study"
+        ],
+        "frequents": [
+          "tavern",
+          "dower_house__wine_cellar",
+          "dower_house__dining_hall",
+          "dower_house__garden",
+          "town_square"
+        ]
       }
     },
     "kheir": {
       "identifier": "kheir",
       "title": "Heir",
-      "name": "Percival Dantill",
+      "name": "Percival",
       "level": 0,
       "money": 0,
       "summary": "The Heir to the estate is a brilliant scholar and capable manager who is desperately trying to cope in this world of horrors far beyond his comfort. Despite being a man of cowardice and meek nature, Percival's keen intellect and organizational skills prove invaluable in coordinating the chaotic efforts to reclaim his ancestral home.",
@@ -291,6 +349,7 @@
       "race": "Human",
       "gender": "Male",
       "religion": "None",
+      "zodiac": "Virgo",
       "traits": [
         "Organized",
         "Cowardly",
@@ -318,7 +377,6 @@
         "Letter opener",
         "Wine bottle"
       ],
-      "trinkets": [],
       "appearance": {
         "height": "Short",
         "build": "Chubby",
@@ -355,7 +413,7 @@
         "heiress": {
           "affinity": 8,
           "dynamic": "Familial",
-          "description": "Percival admires, and is deeply jealous of, his sister's strength and ability to take initiative. Despite their fierce bickering, the kheir loves his sister."
+          "description": "The Heir admires, and is deeply jealous of, his sister's strength and ability to take initiative. Despite their fierce bickering, the kheir loves his sister."
         },
         "crusader": {
           "affinity": 4,
@@ -370,13 +428,33 @@
         "hqclaimants": {
           "affinity": 2,
           "dynamic": "Aristocratic Rivalry",
-          "description": "Claude’s constant disdain and Genevive’s biting remarks left a lasting impression on Percival during the balls and duels of their youth. He remains embittered but grudgingly acknowledges Claude’s skill with a spear."
+          "description": "The Claimants' constant disdain and biting remarks left a lasting impression on the Heir during the balls and duels of their youth. He remains embittered but grudgingly acknowledges The Claimant brother's skill with a spear."
         },
         "duchess": {
           "affinity": 5,
           "dynamic": "Infatuation",
-          "description": "As a young man, Percival was captivated by Constance’s elegance and fencing prowess. Though their interactions were brief and unreciprocated, her image lingered in his mind for years."
+          "description": "As a young man, the Heir was captivated by the Duchess' elegance and fencing prowess. Though their interactions were brief and unreciprocated, her image lingered in his mind for years."
         }
+      },
+      "locations": {
+        "residence": [
+          "dower_house__master_bedroom"
+        ],
+        "workplaces": [
+          "library__map_room",
+          "library__archive",
+          "town_hall__record_archives",
+          "town_hall__strong_room",
+          "harbor__warehouse",
+          "provision_house__office"
+        ],
+        "frequents": [
+          "tavern",
+          "dower_house__wine_cellar",
+          "library__main_hall",
+          "dower_house__astronomy_room",
+          "dower_house__garden"
+        ]
       }
     }
   }

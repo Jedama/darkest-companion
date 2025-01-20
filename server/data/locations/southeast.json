@@ -1,0 +1,97 @@
+[
+  {
+    "identifier": "southeast_district",
+    "title": "Southeast District",
+    "description": "A district of sturdy utility, where the clash of steel from the blacksmith's forge mingles with sounds of combat training. Though the Apothecary's death left his shop empty, and the training ring lies in ruins, the district maintains its vital role in the hamlet's defense.",
+    "parent": "hamlet",
+    "children": ["blacksmith", "guild_hall", "apothecary", "inlet"]
+  },
+  {
+    "identifier": "blacksmith",
+    "title": "Blacksmith",
+    "description": "A stone and timber workshop built around its massive forge, smoke perpetually rising from the chimney. The workshop's walls bear racks of half-finished tools and weapons, while the smith's careful notes cover the workbench. A cozy living space occupies the thatched upper level, warmed by the forge's heat from below.",
+    "parent": "southeast_district",
+    "children": []
+  },
+  {
+    "identifier": "guild_hall",
+    "title": "Guild Hall",
+    "description": "A tall building of grey stone and dark timber, rising above its neighbors like a stern sentinel. The ground floor houses meeting spaces and equipment storage, while maps and tactical diagrams cover the walls, many marked with notes comparing the hamlet's defenses to former brigand positions.",
+    "parent": "southeast_district",
+    "children": ["guild_hall__master_quarters", "guild_hall__instructors", "training_ring", "training_yard"]
+  },
+  {
+    "identifier": "guild_hall__master_quarters",
+    "title": "Guild Master's Quarters",
+    "description": "Thorne and Freya's shared chamber doubles as a planning office, its walls covered in tactical maps. A heavy desk bears both old brigade documents and current training rosters, while weapon racks display an impressive array of combat styles.",
+    "parent": "guild_hall",
+    "children": []
+  },
+  {
+    "identifier": "guild_hall__instructors",
+    "title": "Instructors' Chamber",
+    "description": "A long room beneath the Guild Hall's peaked roof, fitted with sturdy beds and weapon racks. Though currently scattered with training manuals and personal effects, several cots remain available for new arrivals.",
+    "parent": "guild_hall",
+    "capacity": 4,
+    "children": []
+  },
+  {
+    "identifier": "training_ring",
+    "title": "Training Ring",
+    "description": "A proper practice arena reduced to debris and splintered timber. The collapsed viewing stands and broken practice dummies speak to the intensity of use rather than poor construction. Iron fixtures and solid foundation stones wait amid the wreckage, ready for restoration.",
+    "restored": "A proper training arena rebuilt to withstand even Freya's most demanding drills. Tiered wooden stands encircle a packed-earth ring, while reinforced practice dummies stand ready for abuse. Brass hooks hold torches for evening practice, though few remain after dark despite the ring's robust reconstruction.",
+    "parent": "guild_hall",
+    "children": []
+  },
+  {
+    "identifier": "training_yard",
+    "title": "Training Yard",
+    "description": "A cleared space behind the Guild Hall where Freya now drills recruits. Wooden posts serve for weapons practice, while straw targets line the far wall. Though functional, it serves as a constant reminder of the ruined Training Ring's absence.",
+    "parent": "guild_hall",
+    "children": []
+  },
+  {
+    "identifier": "inlet",
+    "title": "The Inlet",
+    "description": "A sheltered cove nestled between weathered rocks, reached by worn steps cut into the cliff face. Unlike the harbor's murky expanse, these waters remain clear enough to see the sandy bottom. Ancient mooring rings suggest it once served fisher-folk, though now it offers only quiet solitude.",
+    "parent": "southeast_district",
+    "children": []
+  },
+  {
+    "identifier": "apothecary",
+    "title": "Apothecary",
+    "description": "A narrow three-story building of dark timber and clouded windows, its faded sign still bearing traces of painted herbs. The ground floor shop remains as the Apothecary left it when he went to defend the hamlet - shelves of labeled jars and bundles of dried plants arranged with careful precision. ",
+    "parent": "southeast_district",
+    "children": ["apothecary__shop", "apothecary__garden", "apothecary__second_floor", "apothecary__third_floor"]
+  },
+  {
+    "identifier": "apothecary__shop",
+    "title": "Shop Floor",
+    "description": "Tall shelves line the walls, still stocked with the Apothecary's carefully labeled remedies and tinctures. A broad counter bears the marks of decades of herb preparation, while beneath it, ledgers record generations of transactions in different hands. A circular depression in the floorboards marks where his sister's cauldron once sat, decades before she took her experiments into the Weald. The scent of dried herbs still clings to the air, mingling with newer notes of dust and decay.",
+    "parent": "apothecary",
+    "children": []
+  },
+  {
+    "identifier": "apothecary__second_floor",
+    "title": "Parents' Chamber",
+    "description": "The second floor holds the master bedroom and a modest parlor, preserved as if awaiting the return of the family's elder generation. Dried flowers fill a vase on the bedside table, maintained until the end by their son's careful hand. A writing desk faces the street, its drawer still holding recipes written in their mother's precise hand.",
+    "parent": "apothecary",
+    "capacity": 2,
+    "children": []
+  },
+  {
+    "identifier": "apothecary__third_floor",
+    "title": "Children's Rooms",
+    "description": "Two small bedrooms tucked beneath the eaves tell contrasting stories of the siblings who once lived here. The Apothecary's room remains neat, his herbalist tools still arranged on a small workbench. His sister's chamber holds darker hints of her later obsessions - strange marks beneath the wallpaper and a shelf of curious fungi specimens she never took with her to the Weald.",
+    "parent": "apothecary",
+    "capacity": 2,
+    "children": []
+  },
+  {
+    "identifier": "apothecary__garden",
+    "title": "Herb Garden",
+    "description": "A walled garden where the family cultivated medicinal herbs for generations, its neat beds now overgrown in neglect. Stone tables still hold mortars and drying racks, while copper watering cans rust quietly beside the old well. In one shadowy corner, a small bed of mushrooms persists despite the Apothecary's attempts to remove them, perhaps the last remnant of his sister's influence.",
+    "parent": "apothecary",
+    "children": []
+  }
+]

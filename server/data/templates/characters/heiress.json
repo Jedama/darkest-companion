@@ -1,7 +1,7 @@
 {
   "identifier": "heiress",
   "title": "Heiress",
-  "name": "Persephone Dantill",
+  "name": "Persephone",
   "level": 0,
   "money": 0,
   "summary": "The Heiress to the accursed Estate, excels at taking command in even the most daunting situations. With her sharp intellect and strategic prowess, she fearlessly leads the charge to reclaim her ancestral home while deftly managing the nearby hamlet. Her natural authority and decisive leadership serve as a beacon of strength for a community besieged by supernatural horrors. Though grateful for allies brave enough to join her cause, Persephone's unwavering confidence in her own judgment can manifest as stubborn resistance when her authority is challenged.",
@@ -37,7 +37,6 @@
     "Derringer pistol",
     "wine bottle"
   ],
-  "trinkets": [],
   "appearance": {
     "height": "Average",
     "build": "Average",

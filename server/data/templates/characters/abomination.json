@@ -22,7 +22,7 @@
         "mental": 100,
         "affliction": "",
         "description": "In good health and high spirits",
-        "wounds": ["A-shaped scar on his head"],
+        "wounds": ["Has an A-shaped scar on his head"],
         "diseases": []
     },
     "stats": {
@@ -35,7 +35,6 @@
     "equipment": [
         "Cursed chains"
     ],
-    "trinkets": [],
     "appearance": {
         "height": "Tall",
         "build": "Muscular",

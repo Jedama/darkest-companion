@@ -1,6 +1,7 @@
 // src/components/views/ManorView.tsx
 
 import { useState, useEffect, useRef } from 'react';
+
 import { useEstateContext } from '../../contexts/EstateContext';
 import type { Character } from '../../../shared/types/types.ts';
 import { useModalContext } from '../../modals/ModalProvider';
@@ -14,6 +15,73 @@ interface ManorViewProps {
   onCharacterSelect: (character: Character) => void;
   selectedCharacterId?: string;
 }
+
+/**
+ * Adds inertia-based scrolling to a container that would normally scroll with wheel events.
+ */
+export function useInertiaScroll(
+  containerRef: React.RefObject<HTMLDivElement>,
+  {
+    friction = 0.99,
+    velocityThreshold = 0.1,
+  }: {
+    friction?: number;
+    velocityThreshold?: number;
+  } = {}
+) {
+  // Current velocity
+  const velocityRef = useRef(0);
+  const rafIdRef = useRef<number | null>(null);
+
+  // The function that does the inertia step each frame
+  function animateInertia() {
+    const el = containerRef.current;
+    if (!el) return;
+
+    el.scrollLeft += velocityRef.current;
+
+    // apply friction
+    velocityRef.current *= friction;
+
+    // if velocity is large enough, keep going
+    if (Math.abs(velocityRef.current) > velocityThreshold) {
+      rafIdRef.current = requestAnimationFrame(animateInertia);
+    } else {
+      // stop
+      velocityRef.current = 0;
+      rafIdRef.current = null;
+    }
+  }
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    function onWheel(e: WheelEvent) {
+      e.preventDefault();
+    
+      const delta = e.deltaY;
+    
+      // Amplify the delta based on its magnitude
+      const amplifiedDelta = Math.sign(delta) * Math.pow(Math.abs(delta), 1.2); // Exponential boost
+      velocityRef.current += amplifiedDelta;
+    
+      if (rafIdRef.current === null) {
+        rafIdRef.current = requestAnimationFrame(animateInertia);
+      }
+    }
+
+    el.addEventListener('wheel', onWheel, { passive: false });
+
+    return () => {
+      el.removeEventListener('wheel', onWheel);
+      if (rafIdRef.current !== null) {
+        cancelAnimationFrame(rafIdRef.current);
+      }
+    };
+  }, [containerRef, friction, velocityThreshold]);
+}
+
 
 export function ManorView({
   characters,
@@ -29,6 +97,8 @@ export function ManorView({
   const [frameImages, setFrameImages] = useState<{ [key: number]: string }>({});
   const [portraits, setPortraits] = useState<{ [key: string]: string }>({});
   const gridRef = useRef<HTMLDivElement>(null);
+
+  useInertiaScroll(gridRef);
 
   useEffect(() => {
     // Load frame images
@@ -74,21 +144,6 @@ export function ManorView({
     };
     loadPortraits();
   }, [characters]);
-
-  useEffect(() => {
-    const grid = gridRef.current;
-    if (!grid) return;
-
-    const handleWheel = (e: WheelEvent) => {
-      //e.preventDefault();
-      grid.scrollLeft += e.deltaY;
-    };
-
-    grid.addEventListener('wheel', handleWheel);
-    return () => {
-      grid.removeEventListener('wheel', handleWheel);
-    };
-  }, []);
 
   function handleTownEventClick() {
     show(

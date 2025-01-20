@@ -7,13 +7,14 @@
       "identifier": "abomination",
       "title": "Abomination",
       "name": "Bigby",
-      "level": 4,
+      "level": 0,
       "money": 0,
       "summary": "A tormented shapeshifter cursed with eldritch powers. Bigby struggles to control the monstrous force within him, oscillating between his human form and a terrifying bestial transformation. His tragic past and internal conflict make him a dangerous but potentially powerful ally.",
       "history": "Beaten, branded, and imprisoned for untold decades, Bigby eventually escaped his confinement. He carries the burden of an eldritch curse that gives him immense power at a terrible cost. The scars of his imprisonment and the constant battle with his inner demon have shaped him into a conflicted and dangerous individual.",
       "race": "Eldritch shapeshifter",
       "gender": "Male",
       "religion": "The Light",
+      "zodiac": "Scorpio",
       "traits": [
         "Tormented",
         "Aggressive",
@@ -27,7 +28,7 @@
         "affliction": "",
         "description": "In good health and high spirits",
         "wounds": [
-          "A-shaped scar on his head"
+          "Has an A-shaped scar on his head"
         ],
         "diseases": []
       },
@@ -71,7 +72,8 @@
       },
       "magic": "Eldritch transformation",
       "notes": [
-        "Fears losing control and harming allies"
+        "Fears losing control and harming allies",
+        "Has a soft voice and doesn't curse"
       ],
       "relationships": {}
     },
@@ -79,13 +81,14 @@
       "identifier": "antiquarian",
       "title": "Antiquarian",
       "name": "Josephine",
-      "level": 3,
+      "level": 0,
       "money": 0,
       "summary": "The Antiquarian is a cunning and morally ambiguous character driven by an insatiable greed for valuable artifacts and occult knowledge. Her pursuit of power and wealth leads her to dark places, both literally and figuratively. She has arrived at the estate to pilfer the Ancestor's relics, and in search of the final piece of a mysterious puzzle box.",
       "history": "Originally from the East, the Antiquarian has traveled the world trading in supernatural relics. She became a disciple to a sorcerer to advance her knowledge of the arcane, only to betray and imprison him in a censer during a ritual. Her past is marked by self-serving decisions and a willingness to sacrifice others for her goals.",
       "race": "Human",
       "gender": "Female",
       "religion": "None",
+      "zodiac": "Gemini",
       "traits": [
         "Ambitious",
         "Knowledgeable",
@@ -145,7 +148,8 @@
       "notes": [
         "Possesses a censer containing her former master's soul",
         "Driven beyond all else to open her puzzle box",
-        "Her former master occasionally whispers to her, trying to escape"
+        "Her former master occasionally whispers to her, trying to escape",
+        "Speaks multiple languages, including Levantine and languages of the Eastern isles"
       ],
       "relationships": {}
     },
@@ -153,13 +157,14 @@
       "identifier": "arbalest",
       "title": "Arbalest",
       "name": "Missandei",
-      "level": 1,
+      "level": 0,
       "money": 0,
       "summary": "A skilled crossbowwoman with a tragic past, the Arbalest is a survivor who has honed her skills with the arbalest through years of hardship and adventure. Her quest for wealth is driven by a deeper search for a home she may never find.",
       "history": "After a violent attack on her home that killed her father, the Arbalest was forced to flee with only a crossbow for protection. She has since traveled widely, serving as a mercenary, and has developed exceptional skills with her weapon and knowledge of herbal medicine.",
       "race": "Human",
       "gender": "Female",
       "religion": "None",
+      "zodiac": "Cancer",
       "traits": [
         "Survivor",
         "Skilled",
@@ -183,7 +188,7 @@
         "sociability": 4
       },
       "equipment": [
-        "Arbalest (crossbow) named Millicent",
+        "Crossbow",
         "Armor"
       ],
       "trinkets": [],
@@ -215,7 +220,9 @@
       },
       "magic": "None",
       "notes": [
-        "Cannot accurately remember the traumatic events of her childhood"
+        "Cannot accurately remember the traumatic events of her childhood",
+        "Carries her 'Childhood tresure', an old stuffed bunny",
+        "Her Crossbow's name is 'Millicent'"
       ],
       "relationships": {}
     },
@@ -223,13 +230,14 @@
       "identifier": "bounty_hunter",
       "title": "Bounty Hunter",
       "name": "Tardif",
-      "level": 6,
+      "level": 0,
       "money": 0,
       "summary": "A ruthless and professional bounty hunter who takes pride in his work. The Bounty Hunter is a skilled fighter, motivated primarily by profit and self-interest. His cynical worldview and loner tendencies suggest a dark past that he refuses to talk about.",
       "history": "While his past is a well-guarded secret, The Bounty Hunter has clearly lived a life of violence and danger. He's honed his skills as a bounty hunter, becoming a calculated and efficient killer who specializes in identifying weak points and executing targets.",
       "race": "Human",
       "gender": "Male",
       "religion": "",
+      "zodiac": "Capricorn",
       "traits": [
         "Professional",
         "Ruthless",
@@ -289,7 +297,8 @@
       "magic": "None",
       "notes": [
         "Takes pride in his professional skills",
-        "Refuses to remove his mask and let anyone see his face"
+        "Refuses to remove his mask and let anyone see his face",
+        "Often responds only by snorting"
       ],
       "relationships": {}
     },
@@ -297,13 +306,14 @@
       "identifier": "cataphract",
       "title": "Cataphract",
       "name": "Nyriad & Cargadon",
-      "level": 1,
+      "level": 0,
       "money": 0,
       "summary": "The Cataphract is a formidable mounted warrior from the Levantine Sultanate, bonded with her supernatural horse. Together they form an unstoppable cavalry unit, using their combined skills to charge into battle and vanquish foes.",
       "history": "Once a respected warrior of the Levantine Sultanate, the Cataphract's life changed when her beloved horse was fatally wounded. Desperate, she stole a powerful artifact to revive him, resulting in their exile. Now the spirit of the horse speaks to her, and they fight together against the horrors of the estate.",
       "race": "Human",
       "gender": "Female",
-      "religion": "Unspecified",
+      "religion": "",
+      "zodiac": "Capricorn",
       "traits": [
         "Proud",
         "Valorous",
@@ -361,7 +371,8 @@
       "magic": "Limited supernatural connection with Cargadon",
       "notes": [
         "Carries the skull of her deceased horse, which grants her power",
-        "Can communicate with the horse's spirit"
+        "Can communicate with the horse's spirit",
+        "Speaks with a mild Levantine accent"
       ],
       "relationships": {}
     },
@@ -369,13 +380,14 @@
       "identifier": "cook",
       "title": "Itinerant Cook",
       "name": "Gertrude",
-      "level": 1,
+      "level": 0,
       "money": 0,
       "summary": "The Itinerant Cook is an elderly, but strong woman. She is an experienced and world-wise traveling cook. Pragmatic and sometimes cynical, she excels in her culinary skills and firmly believes in the power of good food. She's resourceful, adaptable, and has faced numerous challenges in her long life.",
       "history": "The Itinerant Cook has spent her life working across a wide range of settings from high-end kitchens to makeshift camp setups. Her travels have exposed her to diverse and often dangerous situations, which she has consistently survived. She has a dark side to her expertise, including knowledge of luring and slaughtering both beasts and people.",
       "race": "Human",
       "gender": "Female",
       "religion": "",
+      "zodiac": "Virgo",
       "traits": [
         "Experienced",
         "Pragmatic",
@@ -444,15 +456,16 @@
       "identifier": "crusader",
       "title": "Crusader",
       "name": "Reynauld",
-      "level": 6,
+      "level": 0,
       "money": 0,
-      "summary": "The Crusader, rose from a common conscript to a champion of over 100 holy wars. Transformed by the horrors of battle and church abuse, he abandoned his family, unable to face them. Now seeking redemption, he's drawn to the estate to combat unholy forces, haunted by memories of his past life.",
-      "history": "Once a common man conscripted into the holy war, the Crusader left behind a wife and young son. Rising through the ranks, he became a champion and army leader. The wars and church changed him profoundly, hollowing him out and turning him into a zealous warrior for the light. Unable to return to his family, he vowed to live his remaining days as a Crusader.",
+      "summary": "Once a simple farmer who joined the war to save his family from famine, Reynauld rose unexpectedly through martial prowess to become a legendary commander. The horrors he witnessed and his own transformation into a hardened warrior left him unable to return to his former life. His peculiar habit of collecting trinkets from fallen enemies and his distinctive whistling became well-known among his men. Now drawn to the Estate, he seeks not holy war but a deeper purpose in combating forces that threaten the very fabric of humanity.",
+      "history": "Born to till the soil, Reynauld lived a peaceful life with his wife and young son until famine threatened their survival. He joined the army as a conscript, leaving behind promises of return. His natural leadership and battlefield courage saw him rise from farmer to feared commander. In a pivotal moment, he spared The Warlord, recognizing the futility of endless conflict. This act, coupled with his growing disillusionment, led him to abandon both the war and thoughts of returning home, knowing he could no longer fit into that simple life.",
       "race": "Human",
       "gender": "Male",
       "religion": "The Light",
+      "zodiac": "Leo",
       "traits": [
-        "Zealous",
+        "Devoted",
         "Stalwart",
         "Inspiring",
         "Kleptomanic",
@@ -492,7 +505,7 @@
         "head": "Steel helm",
         "body": "Chainmail hauberk",
         "legs": "Mail chausses",
-        "other": "Purple tunic with religious insignia"
+        "other": "Purple tunic with a white cross"
       },
       "combat": {
         "role": "Warrior",
@@ -507,25 +520,33 @@
           "Evation"
         ]
       },
-      "magic": "The light, a divine power that lets him smite foes and heal allies.",
+      "magic": "The light, a divine power that lets him smite foes and heal allies",
       "notes": [
-        "Has an irresistible kleptomania."
+        "Has kleptomanic tendencies that he tries to hide",
+        "Does a characteristic whistle when he's pleased, especially after nabbing something",
+        "Sometimes writes letters to his family that he never sends",
+        "Wears simple farmer's clothes when out of his armor"
       ],
       "relationships": {
-        "Heiress": {
+        "heiress": {
           "affinity": 5,
           "dynamic": "Professional",
-          "description": "Reynauld maintains a professional relationship with the Heiress, focusing on fulfilling his role as her protector with a devout sense of duty."
+          "description": "The crusader maintains a professional relationship with the heiress, focusing on fulfilling his role as her protector with a devout sense of duty."
         },
-        "Heir": {
+        "kheir": {
           "affinity": 4,
           "dynamic": "Skeptical",
-          "description": "While Reynauld intends to uphold his duty with silent diligence, the realises the meek Heir is unfit to lead."
+          "description": "While the crusader intends to uphold his duty with silent diligence, he realizes the meek kheir is unfit to lead."
         },
-        "Highwayman": {
+        "highwayman": {
           "affinity": 7,
           "dynamic": "Comrade",
-          "description": "The Crusader sees in the Highwayman a kindred spirit; both men with troubled pasts seeking to carve out a purpose through the quest they now share."
+          "description": "The crusader sees in the highwayman a kindred spirit; both men with troubled pasts seeking to carve out a purpose through the quest they now share."
+        },
+        "seraph": {
+          "affinity": 4,
+          "dynamic": "Devoted Lieutenant",
+          "description": "Reynauld served under Joan after her miraculous transformation, awed by her divine presence and inspired by her holy purpose. Her burned visage and manifest powers were proof of the Light's grace, making his role in her crusade feel truly righteous."
         }
       }
     },
@@ -533,13 +554,14 @@
       "identifier": "duchess",
       "title": "Duchess",
       "name": "Constance",
-      "level": 1,
+      "level": 0,
       "money": 0,
       "summary": "A noblewoman turned monster, the Duchess is a formidable fencer who has embraced the Crimson Curse inflicted upon her by the Countess. She now seeks vengeance against the curse-inflicted court, particularly the Countess, while finding an uneasy alliance with the Heirs and fighters of the Hamlet.",
       "history": "Born into nobility, Constance lived a life of luxury and became the court's finest fencer. She developed a rivalry with the Countess, who later disappeared for years. Upon receiving an invitation to a party in the Ancestor's courtyard along with a chalice of blood, Constance became infected with the Crimson Curse. Now transformed, she seeks revenge against the Baron, the Viscount, and especially the Countess.",
       "race": "Bloodsucker shapeshifter",
       "gender": "Female",
       "religion": "None",
+      "zodiac": "Libra",
       "traits": [
         "Refined",
         "Prideful",
@@ -564,8 +586,7 @@
         "sociability": 5
       },
       "equipment": [
-        "Black blade (heirloom weapon)",
-        "Tattered dress reinforced with iron plates"
+        "Enormous black sword"
       ],
       "trinkets": [],
       "appearance": {
@@ -579,7 +600,7 @@
       "clothing": {
         "headwear": "Large, angular helmet that hides everything but her toothy mouth",
         "top": "Tight corset showing ample cleavage",
-        "pants": "Tattered, flowing dress",
+        "pants": "Tattered dress reinforced with metal plates",
         "accessories": "None"
       },
       "combat": {
@@ -601,19 +622,36 @@
         "Considers her beast form more representative of her true self",
         "Struggles with an insatiable hunger"
       ],
-      "relationships": {}
+      "relationships": {
+        "kheir": {
+          "affinity": 4,
+          "dynamic": "Amused Indifference",
+          "description": "In her brief early encounters with Percival, Constance found his adoration amusing but ultimately inconsequential. His fumbling attempts to court her were quickly forgotten."
+        },
+        "heiress": {
+          "affinity": 3,
+          "dynamic": "Distant Contempt",
+          "description": "Constance barely remembers Persephone, save for the latter’s penchant for lurking at the edges of courtly gatherings. To Constance, the young Heiress was an unremarkable presence."
+        },
+        "hqclaimants": {
+          "affinity": 3,
+          "dynamic": "Rivalrous Disdain",
+          "description": "The fading influence of the scheming Luthvains served only as a backdrop to Constance’s greater rivalry with the Countess."
+        }
+      }
     },
     "flagellant": {
       "identifier": "flagellant",
       "title": "Flagellant",
       "name": "Damien",
-      "level": 2,
+      "level": 0,
       "money": 0,
       "summary": "A zealous devotee who finds power and religious ecstasy through self-inflicted pain. Once a vagrant, Damien discovered his calling after a violent encounter, leading him to dedicate his life to suffering as a form of worship and atonement.",
       "history": "Formerly a destitute wanderer in the city, Damien's life changed when he was attacked by drunks. The pain awakened a fervent religious conviction within him, leading him to join the clergy and later seek out suffering as a form of spiritual enlightenment.",
       "race": "Human",
       "gender": "Male",
       "religion": "The Light",
+      "zodiac": "Pisces",
       "traits": [
         "Zealous",
         "Masochistic",
@@ -675,25 +713,31 @@
       "notes": [
         "Believes his pain can absolve others of their sins"
       ],
-      "relationships": {}
+      "relationships": {
+        "vestal": {
+          "affinity": 2,
+          "dynamic": "Disdainful Reverence",
+          "description": "The Flagellant sees the Vestal as someone who fled her divine retribution, rejecting the sacred suffering he holds dear. Her strength intrigues him, but her defiance fills him with scorn and pity."
+        }
+      }
     },
     "grave_robber": {
       "identifier": "grave_robber",
       "title": "Grave Robber",
       "name": "Audrey",
-      "level": 5,
+      "level": 0,
       "money": 0,
       "summary": "Once a noblewoman, the Grave Robber turned to grave robbing after murdering her abusive husband. She's a skilled assassin, specializing in quick, precise attacks and evading danger. Her past has left her with a cynical outlook, but she's found a new purpose in her dangerous profession.",
       "history": "Born into wealth and married for status, the Grave Robber endured years of abuse from her drunken, lustful husband. She eventually poisoned him, then robbed his grave to maintain her lifestyle. When faced with eviction due to debt, she fully embraced her new identity as a grave robber and fled her former life.",
       "race": "Human",
       "gender": "Female",
       "religion": "None",
+      "zodiac": "Scorpio",
       "traits": [
         "Agile",
         "Precise",
         "Cynical",
         "Resourceful",
-        "Addicted to thrill",
         "Vengeful"
       ],
       "status": {
@@ -754,13 +798,14 @@
       "identifier": "heiress",
       "title": "Heiress",
       "name": "Persephone Dantill",
-      "level": 4,
+      "level": 0,
       "money": 0,
       "summary": "The Heiress to the accursed Estate, excels at taking command in even the most daunting situations. With her sharp intellect and strategic prowess, she fearlessly leads the charge to reclaim her ancestral home while deftly managing the nearby hamlet. Her natural authority and decisive leadership serve as a beacon of strength for a community besieged by supernatural horrors. Though grateful for allies brave enough to join her cause, Persephone's unwavering confidence in her own judgment can manifest as stubborn resistance when her authority is challenged.",
       "history": "Upon receiving a chilling letter from her late ancestor, the Heiress left her academic pursuits with her brother in tow to take up her role as the Heiress of the Estate. She found herself thrust into a nightmarish reality where her ancestral home was not only physically deteriorated but also infested with the horrors summoned by her ancestor's dark rituals.",
       "race": "Human",
       "gender": "Female",
       "religion": "None",
+      "zodiac": "Leo",
       "traits": [
         "Determined",
         "Resourceful",
@@ -817,24 +862,34 @@
       },
       "magic": "None",
       "notes": [
-        "Turns to wine when overwhelmed by the stress of managing the Hamlet.",
-        "Attracted to women with ample breasts."
+        "Turns to wine when overwhelmed by the stress of managing the Hamlet",
+        "Attracted to women with ample breasts"
       ],
       "relationships": {
-        "Heir": {
+        "kheir": {
           "affinity": 8,
           "dynamic": "Familial",
-          "description": "Despite a cold exterior and lifetime of bickering, the Heiress loves and will not let harm come upon the Heir."
+          "description": "Despite a cold exterior and a lifetime of bickering, the heiress loves and will not let harm come upon the kheir."
         },
-        "Crusader": {
+        "crusader": {
           "affinity": 5,
           "dynamic": "Professional",
-          "description": "The Heiress maintains a reserved, professional demeanor towards the Crusader, her latest recruit."
+          "description": "The heiress maintains a reserved, professional demeanor towards the crusader, her latest recruit."
         },
-        "Highwayman": {
+        "highwayman": {
           "affinity": 3,
           "dynamic": "Cautious",
-          "description": "The Heiress regards the Highwayman with suspicion. While his skills could prove valuable, his checkered past and gruff manner keep her on guard."
+          "description": "The heiress regards the highwayman with suspicion. While his skills could prove valuable, his checkered past and gruff manner keep her on guard."
+        },
+        "hqclaimants": {
+          "affinity": 2,
+          "dynamic": "Contemptuous Competitors",
+          "description": "Persephone saw the Luthvains as vain and insufferable during their fleeting courtly encounters. Their thinly veiled insults ensured no love was lost between them."
+        },
+        "duchess": {
+          "affinity": 3,
+          "dynamic": "Cautious Disdain",
+          "description": "Persephone remembers Constance as aloof and self-absorbed during the few balls they attended together. Though she barely knew her, Constance’s pride left a sour impression."
         }
       }
     },
@@ -849,6 +904,7 @@
       "race": "Human",
       "gender": "Male",
       "religion": "None",
+      "zodiac": "Sagittarius",
       "traits": [
         "Rugged",
         "Desperate",
@@ -908,20 +964,20 @@
         "Has a gallows sense of humor"
       ],
       "relationships": {
-        "Heiress": {
+        "heiress": {
           "affinity": 4,
           "dynamic": "Guardian",
-          "description": "The Highwayman is determined to prove himself to the Heiress and to assist in her quest despite her warranted distrust."
+          "description": "The highwayman is determined to prove himself to the heiress and to assist in her quest despite her warranted distrust."
         },
-        "Heir": {
+        "kheir": {
           "affinity": 3,
           "dynamic": "Guardian",
-          "description": "Despite the Heir's distrust, the Highwayman is resolute in his role as a guard, seeing their safety as his path to absolution."
+          "description": "Despite the kheir's distrust, the highwayman is resolute in his role as a guard, seeing their safety as his path to absolution."
         },
-        "Crusader": {
+        "crusader": {
           "affinity": 7,
           "dynamic": "Comrade",
-          "description": "Despite their outwardly differences, the Highwayman and Crusader swiftly bonded over the mistakes of their respective pasts and quest for redemption."
+          "description": "Despite their differences, the highwayman and the crusader swiftly bonded over the mistakes of their respective pasts and their shared quest for redemption."
         }
       }
     },
@@ -936,6 +992,7 @@
       "race": "Human",
       "gender": "Female",
       "religion": "None",
+      "zodiac": "Pisces",
       "traits": [
         "Enigmatic",
         "Soft",
@@ -991,8 +1048,8 @@
       },
       "magic": "None",
       "notes": [
-        "Her nonsensical monologues often seems to circle back to her grandmother.",
-        "Rarely says anything even remotely relevant to what she responds to."
+        "Her nonsensical monologues often seems to circle back to her grandmother",
+        "Rarely says anything even remotely relevant to what she responds to"
       ],
       "relationships": {}
     },
@@ -1000,13 +1057,14 @@
       "identifier": "houndmaster",
       "title": "Houndmaster",
       "name": "William & Fergus",
-      "level": 4,
+      "level": 0,
       "money": 0,
       "summary": "The Houndmaster is a former lawman who now fights alongside his faithful wolfhound, Fergus. Together they form a formidable team, using their skills to track down enemies and protect their allies.",
       "history": "Once a dedicated member of law enforcement, the Houndmaster uncovered corruption within his ranks. This discovery led him to leave his post and seek justice in his own way, with Fergus as his loyal companion.",
       "race": "Human",
       "gender": "Male",
       "religion": "None",
+      "zodiac": "Aries",
       "traits": [
         "Vigilant",
         "Protective",
@@ -1081,11 +1139,12 @@
       "race": "Human",
       "gender": "Female & Male",
       "religion": "Occultism/The Light",
+      "zodiac": "Gemini",
       "traits": [
         "Ambitious",
         "Versatile",
         "Commanding",
-        "Unpredictable",
+        "Scornful",
         "Synergistic",
         "Power-hungry"
       ],
@@ -1140,8 +1199,102 @@
       "magic": "Forbidden knowledge and ancestral sorcery",
       "notes": [
         "Act as both a single unit and as individuals in combat",
-        "Possess unique 'Brother' and 'Sister' actions",
-        "Can combine varied skill sets in the same turn"
+        "Heads of the esteemed Luthvain family"
+      ],
+      "relationships": {
+        "kheir": {
+          "affinity": 1,
+          "dynamic": "Dismissive Scorn",
+          "description": "The Luthvains regarded the young Heir as a naive, overeager boy who aspired to noble grandeur but lacked the maturity or intellect to achieve it."
+        },
+        "heiress": {
+          "affinity": 3,
+          "dynamic": "Arrogant Derision",
+          "description": "Claude and Genevive found Persephone’s sharp wit grating and her ambitions laughable. To them, she was little more than a pretender to aristocratic sophistication."
+        },
+        "duchess": {
+          "affinity": 3,
+          "dynamic": "Lingering Resentment",
+          "description": "The fading influence of the scheming Luthvains served only as a backdrop to Constance’s greater rivalry with the Countess."
+        },
+        "wretch": {
+          "affinity": 3,
+          "dynamic": "Smug Indifference",
+          "description": "The Wretch is a relic of a forgotten triumph, a living reminder of the Luthvains’ ruthless success. Genevive feels a cold satisfaction in his fall, while Claude’s disdain is tempered by fleeting amusement at the absurdity of his new life."
+        }
+      }
+    },
+    "jester": {
+      "identifier": "jester",
+      "title": "Jester",
+      "name": "Sarmenti",
+      "level": 0,
+      "money": 0,
+      "summary": "Once a wandering street musician who fell prey to an otherworldly melody, the Jester now combines deadly precision with musical talent. Though appearing as a mere entertainer, he harbors dark experiences from his past that fuel both his performances and his combat prowess. His versatile skills allow him to support allies with inspiring tunes or inflict bleeding wounds with his sickle, all while maintaining an unsettling air of manic glee.",
+      "history": "Originally a directionless street performer, Sarmenti discovered a mysterious melody in a cemetery that awakened his ambition. His newfound talent led him to perform at the royal court, where he faced cruel mockery and humiliation. In revenge, he performed the demonic melody, resulting in death and dismemberment of the whole court, after which he severed his own finger to rid himself of the cursed talent. He now wanders, haunted by fragments of that forgotten tune.",
+      "race": "Human",
+      "gender": "Male",
+      "religion": "None",
+      "zodiac": "Pisces",
+      "traits": [
+        "Maniacal",
+        "Versatile",
+        "Theatrical",
+        "Quipster"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 4,
+        "agility": 7,
+        "intelligence": 5,
+        "authority": 3,
+        "sociability": 10
+      },
+      "equipment": [
+        "Sickle",
+        "Lute",
+        "Bells",
+        "Dagger"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Tall",
+        "build": "Lean",
+        "skinTone": "Pale",
+        "hairColor": "Black",
+        "hairStyle": "Long and unkempt",
+        "features": "Gaunt face, prominent cheekbones, dark circles under eyes"
+      },
+      "clothing": {
+        "head": "White theatrical mask",
+        "body": "Red and black jester's attire with bells",
+        "legs": "Dark fitted pants",
+        "other": "Shoes with bells"
+      },
+      "combat": {
+        "role": "Support",
+        "strengths": [
+          "Musical inspiration",
+          "Precision",
+          "Keeps morale up"
+        ],
+        "weaknesses": [
+          "Weak",
+          "Frail"
+        ]
+      },
+      "magic": "None",
+      "notes": [
+        "Never removes his mask",
+        "Often talks in jokes and rhymes",
+        "Carries and plays his lute around the hamlet"
       ],
       "relationships": {}
     },
@@ -1149,13 +1302,14 @@
       "identifier": "kheir",
       "title": "Heir",
       "name": "Percival Dantill",
-      "level": 5,
+      "level": 0,
       "money": 0,
       "summary": "The Heir to the estate is a brilliant scholar and capable manager who is desperately trying to cope in this world of horrors far beyond his comfort. Despite being a man of cowardice and meek nature, Percival's keen intellect and organizational skills prove invaluable in coordinating the chaotic efforts to reclaim his ancestral home.",
       "history": "Raised in academic circles far from the estate's dark legacy, Percival was reluctantly drawn into the family's quest by his sister. Despite his initial hesitation, he's found ways to apply his scholarly knowledge and managerial expertise to the daunting task at hand.",
       "race": "Human",
       "gender": "Male",
       "religion": "None",
+      "zodiac": "Virgo",
       "traits": [
         "Organized",
         "Cowardly",
@@ -1217,20 +1371,30 @@
         "Has a penchant for fine wines to calm his nerves"
       ],
       "relationships": {
-        "Heiress": {
+        "heiress": {
           "affinity": 8,
           "dynamic": "Familial",
-          "description": "Percival admires, and is deeply jealous of, his sister's strength and ability to take initiave. Despite their fierce bickering, The Heir loves his sister."
+          "description": "Percival admires, and is deeply jealous of, his sister's strength and ability to take initiative. Despite their fierce bickering, the kheir loves his sister."
         },
-        "Crusader": {
+        "crusader": {
           "affinity": 4,
           "dynamic": "Cautious respect",
-          "description": "Though he recognizes his potential, The Heir is dubious over the trustworthiness of his new guard, the Crusader."
+          "description": "Though he recognizes the crusader's potential, the kheir is dubious over the trustworthiness of this new guard."
         },
-        "Highwayman": {
+        "highwayman": {
           "affinity": 2,
           "dynamic": "Distrustful",
-          "description": "The Heir is distrusting towards the Highwayman, scared that the rugged man will betray them and steal his possessions."
+          "description": "The kheir is distrusting towards the highwayman, fearing that the rugged man will betray them and steal his possessions."
+        },
+        "hqclaimants": {
+          "affinity": 2,
+          "dynamic": "Aristocratic Rivalry",
+          "description": "Claude's constant disdain and Genevive's biting remarks left a lasting impression on Percival during the balls and duels of their youth. He remains embittered but grudgingly acknowledges Claude’s skill with a spear."
+        },
+        "duchess": {
+          "affinity": 5,
+          "dynamic": "Infatuation",
+          "description": "As a young man, Percival was captivated by Constance’s elegance and fencing prowess. Though their interactions were brief and unreciprocated, her image lingered in his mind for years."
         }
       }
     },
@@ -1238,13 +1402,14 @@
       "identifier": "krakenslayer",
       "title": "Krakenslayer",
       "name": "Hilda",
-      "level": 5,
+      "level": 0,
       "money": 0,
       "summary": "A seasoned and fearless monster hunter of the seas, Hilda is known for her unparalleled skill in slaying krakens and other maritime beasts. Her rugged demeanor and battle-hardened experience make her a formidable ally in any nautical adventure.",
       "history": "Hilda has spent years hunting dangerous sea creatures, accumulating a wealth of experience and numerous scars. Her body is adorned with tattoos commemorating her most significant kills, each one a testament to her prowess as a hunter.",
       "race": "Human",
       "gender": "Female",
       "religion": "Sea Mother",
+      "zodiac": "Pisces",
       "traits": [
         "Confident",
         "Tough",
@@ -1305,17 +1470,165 @@
       ],
       "relationships": {}
     },
+    "leper": {
+      "identifier": "leper",
+      "title": "Leper",
+      "name": "Baldwin",
+      "level": 0,
+      "money": 0,
+      "summary": "A ruined man, warrior, and poet, the Leper is a former king who abandoned his throne after succumbing to a wasting disease. He wields a massive blade with raw power but lacking precision, channeling his life of trauma into devastating attacks or protective strength. Though his body is ravaged, he endures with unshakable resolve and a sense of quiet purpose.",
+      "history": "The Leper was a compassionate king known for his humility and kindness, often visiting the sick and dying against the protests of his advisors. It was during these visits that he contracted leprosy, sealing his fate as a cursed and broken man. When symptoms began to show, his advisors sought to exploit his vulnerability, plotting to usurp his throne and strip his kingdom of its wealth. Despite his declining health, Baldwin uncovered their treachery and took up his ceremonial, gold-plated sword—a symbol of his authority that had never been used in battle. Driven by fury and betrayal, he slaughtered the scheming advisors in a single night of bloody vengeance, before abdicating the throne and exiling himself. He now wanders the land as a warrior-poet, his body ravaged but his spirit unbroken, seeking redemption and solace in the beauty of the world.",
+      "race": "Human",
+      "gender": "Male",
+      "religion": "The Light",
+      "zodiac": "Capricorn",
+      "traits": [
+        "Resolute",
+        "Stoic",
+        "Compassionate",
+        "Unbreakable"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 7,
+        "agility": 2,
+        "intelligence": 6,
+        "authority": 6,
+        "sociability": 3
+      },
+      "equipment": [
+        "Greatsword"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Tall",
+        "build": "Broad and muscular, before wasting",
+        "skinTone": "Dark",
+        "hairColor": "Black",
+        "hairStyle": "Lost to disease",
+        "features": "Scarred and disfigured skin, always concealed by a bronze mask."
+      },
+      "clothing": {
+        "head": "Bronze mask with narrow eye slits and a tattered hood",
+        "body": "Heavy robes and a golden breastplate, torn and weathered",
+        "legs": "Simple pants and boots",
+        "other": "Gloves and bandaged arms"
+      },
+      "combat": {
+        "role": "Frontliner",
+        "strengths": [
+          "High damage output",
+          "Armored",
+          "Calm under pressure"
+        ],
+        "weaknesses": [
+          "Inaccurate",
+          "Slow",
+          "Long-range alternatives"
+        ]
+      },
+      "magic": "None",
+      "notes": [
+        "Always wears his mask, rarely revealing his disfigurement",
+        "Speaks in poetic, cryptic phrases",
+        "Despite his condition, he carries himself with quiet dignity and compassion for others"
+      ],
+      "relationships": {}
+    },
+    "man_at_arms": {
+      "identifier": "man_at_arms",
+      "title": "Man-at-Arms",
+      "name": "Barristan",
+      "level": 0,
+      "money": 0,
+      "summary": "A seasoned veteran whose expertise in warfare stems from countless campaigns. Though his raw strength has diminished with age, his tactical acumen and defensive prowess make him an invaluable protector. His past is marked by both military achievements and a devastating failure of command that haunts him still. He excels at protecting allies and training others in combat techniques.",
+      "history": "Once an ambitious officer who rose through the ranks through political maneuvering rather than battlefield merit, the Man-at-Arms's pride led to a catastrophic military failure that resulted in the deaths of many under his command. Haunted by the ghosts of his fallen soldiers, he tore his eye out during one of his traumatic episodes. He now seeks atonement through continued military service, having accepted that he will likely meet his end alone on some forgotten battlefield.",
+      "race": "Human",
+      "gender": "Male",
+      "religion": "None",
+      "zodiac": "Capricorn",
+      "traits": [
+        "Protective",
+        "Experienced",
+        "Haunted",
+        "Disciplined",
+        "Commanding",
+        "Remorseful"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 7,
+        "agility": 4,
+        "intelligence": 8,
+        "authority": 10,
+        "sociability": 6
+      },
+      "equipment": [
+        "Heavy mace",
+        "Tower shield",
+        "Plate armor"
+      ],
+      "trinkets": [],
+      "appearance": {
+        "height": "Tall",
+        "build": "Sturdy",
+        "skinTone": "Weathered",
+        "hairColor": "Grey",
+        "hairStyle": "Short military cut with full beard",
+        "features": "Eye patch over right eye"
+      },
+      "clothing": {
+        "head": "None",
+        "body": "Heavy plate armor with red sash",
+        "legs": "Plated greaves",
+        "other": "Military medals"
+      },
+      "combat": {
+        "role": "Defender",
+        "strengths": [
+          "Defensive tactics",
+          "Command presence",
+          "Battle experience"
+        ],
+        "weaknesses": [
+          "Aging body",
+          "Limited vision"
+        ]
+      },
+      "magic": "None",
+      "notes": [
+        "Haunted by ghosts of fallen soldiers",
+        "Seeks death in battle as atonement",
+        "Excellent military instructor"
+      ],
+      "relationships": {}
+    },
     "musketeer": {
       "identifier": "musketeer",
       "title": "Musketeer",
       "name": "Margaret",
-      "level": 2,
+      "level": 0,
       "money": 0,
       "summary": "The Musketeer is a skilled sharpshooter from a noble family that is related to the Ancestor and his Dantill family. Her encounter with an eldritch eye during a crucial competition has left her both traumatized, humiliated, and driven to seek out revenge among the otherworldly prey of the Estate.",
       "history": "Born into wealth, Margaret learned hunting and shooting from her father, a survivor of 'the lost jungle'. After a traumatic experience during a shooting competition where she saw an eldritch eye, she began seeking more dangerous prey, eventually coming to the Estate to hunt otherworldly creatures.",
       "race": "Human",
       "gender": "Female",
       "religion": "None",
+      "zodiac": "Sagittarius",
       "traits": [
         "Skilled",
         "Determined",
@@ -1383,13 +1696,14 @@
       "identifier": "occultist",
       "title": "Occultist",
       "name": "Alhazred",
-      "level": 2,
+      "level": 0,
       "money": 0,
       "summary": "A powerful occultist who has delved deep into forbidden knowledge and eldritch powers. Alhazred has performed rituals that have left him forever changed, serving as a conduit to unknown regions and constantly assailed by blasphemous forces. His pursuit of arcane wisdom and impossible power has come at a great cost, both to himself and those around him.",
       "history": "Alhazred conducted rituals to explore the Outer Sphere, found a mysterious pyramid in a desert that changed everything, sacrificed parts of himself for power, and ultimately became a beacon for eldritch entities. His apotheosis was achieved through dangerous rituals and communion with forces beyond mortal comprehension.",
       "race": "Human",
       "gender": "Male",
       "religion": "Occultism",
+      "zodiac": "Scorpio",
       "traits": [
         "Knowledgeable",
         "Ambitious",
@@ -1456,13 +1770,14 @@
       "identifier": "offering",
       "title": "Offering",
       "name": "Lulu",
-      "level": 6,
+      "level": 0,
       "money": 0,
       "summary": "Driven by a morbid fascination with mortality, the Offering shields her allies while seeking to understand the fragility of life. Her helpless, vulnerable getup renders her powerless to stop the violations she eagerly welcomes unto herself from friend and foe alike, in order to experience the depths of agony, suffering, and desperation.",
       "history": "Born into a secluded cult and groomed for sacrifice, the Offering's fate took a cruel twist when an eldritch entity rejected her, instead taking her heart and replacing it with another's - one that carried the memories of a young abused girl. Left with an empty chest and overwhelmed by newfound empathy and pain, the Offering fled her cult. She now walks a precarious path between life and death, driven to understand and share in others' suffering.",
       "race": "Human",
       "gender": "Female",
       "religion": "None",
+      "zodiac": "Pisces",
       "traits": [
         "Morbidly curious",
         "Masochistic",
@@ -1534,6 +1849,7 @@
       "race": "Human",
       "gender": "Female",
       "religion": "The Flame",
+      "zodiac": "Sagittarius",
       "traits": [
         "Devout",
         "Stern",
@@ -1593,7 +1909,8 @@
       "notes": [
         "Travels with a well-stocked wagon",
         "Skilled in divination",
-        "Possesses extensive knowledge of monsters"
+        "Possesses extensive knowledge of monsters",
+        "Speaks the with thick Levantine accent and flair"
       ],
       "relationships": {}
     },
@@ -1601,13 +1918,14 @@
       "identifier": "plague_doctor",
       "title": "Plague Doctor",
       "name": "Paracelsus",
-      "level": 2,
+      "level": 0,
       "money": 0,
       "summary": "The Plague Doctor, is primarily driven by her fervor to practice medicine and unlock the secrets of life and death. Ostracized for her radical methods, she now makes use of the Heirs' resources, offering her medical expertise on missions in return for the freedom to conduct her experiments at the hamlet.",
       "history": "Once a top student embroiled in scandal due to her unconventional theories, the Plague Doctor's intense curiosity pushed her beyond academic boundaries. Her breakthrough came when she revived the cadaver of her deceased professor during an unauthorized experiment. Haunted by the consequences of her actions, she was compelled to leave her former life behind, seeking refuge and opportunity in the shadows of the hamlet's resources.",
       "race": "Human",
       "gender": "Female",
       "religion": "Agnostic",
+      "zodiac": "Aquarius",
       "traits": [
         "Innovative",
         "Obsessive",
@@ -1671,13 +1989,14 @@
       "identifier": "ringmaster",
       "title": "Ringmaster",
       "name": "Maul",
-      "level": 6,
+      "level": 0,
       "money": 0,
       "summary": "The Ringmaster is the charismatic and ruthless leader of the infamous traveling fighting arena: The Butcher's Circus. She delights in orchestrating spectacles of combat, pushing contestants to their limits for the entertainment of bloodthirsty crowds. Her elaborate costume and masked helm conceal a shrewd mind that's always calculating the next big show.",
       "history": "Rising from humble beginnings, the Ringmaster built her reputation through cunning and a flair for the dramatic. She transformed a small-time fighting pit into a renowned traveling arena, drawing both desperate warriors and thrill-seeking audiences from across the land.",
       "race": "Human",
       "gender": "Female",
       "religion": "None",
+      "zodiac": "Leo",
       "traits": [
         "Charismatic",
         "Ruthless",
@@ -1733,7 +2052,7 @@
       },
       "magic": "None",
       "notes": [
-        "Her mouth is often covered in blood, which everyone hopes is just part of her makeup."
+        "Her mouth is often covered in blood, which everyone hopes is just part of her makeup"
       ],
       "relationships": {}
     },
@@ -1741,13 +2060,14 @@
       "identifier": "seraph",
       "title": "Seraph",
       "name": "Joan",
-      "level": 3,
+      "level": 0,
       "money": 0,
       "summary": "A devout warrior who hears the voice of 'The Light', the Seraph has transformed from a humble farmer to a zealous crusader. Burned and scarred from a near-death experience, she now serves as a vessel for divine power, though the true nature of the entity guiding her remains ambiguous.",
-      "history": "Born into poverty, the Seraph's life changed when she began hearing voices  from The Light. Believing herself chosen, she took up arms, causing a schism in the church. Hunted by witch hunter Mathis, she was captured and sentenced to burn. During her execution, a miraculous intervention saved her, though leaving her horribly scarred. Now, guided by the voice, she has come to the Hamlet to purge evil.",
+      "history": "Born into poverty, the Seraph's life changed when she began hearing voices  from The Light. Believing herself chosen, she took up arms, causing a schism in the church. Hunted by witch hunter Mathis, she was captured and sentenced to burn. During her execution, a miraculous intervention saved her, and though leaving her horribly scarred it elevated her to a figure of deity, and she went on to lead many holy crusades. Now, guided by the voice, she has come to the Hamlet to purge evil.",
       "race": "Human",
       "gender": "Female",
       "religion": "The Light",
+      "zodiac": "Aries",
       "traits": [
         "Zealous",
         "Devout",
@@ -1800,7 +2120,7 @@
           "Unwavering faith"
         ],
         "weaknesses": [
-          "Fragile body beneath armor",
+          "Very fragile body beneath armor",
           "Unsettling presence"
         ]
       },
@@ -1811,22 +2131,25 @@
         "Can momentarily manifest angelic wings"
       ],
       "relationships": {
-        "The Church": "Estranged",
-        "Mathis the Witch Hunter": "Former pursuer",
-        "Followers": "Small group of devoted believers"
+        "crusader": {
+          "affinity": 4,
+          "dynamic": "Fallen Servant",
+          "description": "Joan found in Reynauld a capable commander whose tactical brilliance served the Light's purpose well. His reverence was genuine, his devotion unquestioned, which made his mercy toward the Warlord all the more galling. Though he was among her most trusted generals, his departure from the crusade marked him as another soul too weak to uphold the Light's righteous judgment."
+        }
       }
     },
     "sisters": {
       "identifier": "sisters",
       "title": "Sisters",
       "name": "Junjeong & Nammo",
-      "level": 4,
+      "level": 0,
       "money": 0,
       "summary": "The sisters are composed of The Scholar (the first name) and the Warrior (the second name), who are two souls bound to one body, which both claim to be the rightful owner of. The Scholar often maintains control, but the Warrior is able to seize autonomy of the body, primarily when there is blood to shed. Refer to them not as the combined sisters, but the Scholar or Warrior, depending on who is in control.",
       "history": "Orphaned by a powerful warlord, the sisters were trained in tactics and combat. After a victory celebration, the two sisters set out to kill the other and a massacre occurred, leaving one sister dead. Both claim to be the survivor and the other a parasitic spirit. They now seek the power at the Estate to rid themselves of the other.",
       "race": "Human & Spirit",
       "gender": "Female",
       "religion": "None",
+      "zodiac": "Gemini",
       "traits": [
         "Conflicted",
         "Ambitious",
@@ -1895,13 +2218,14 @@
       "identifier": "snor_rasp",
       "title": "Martyr",
       "name": "Anastasia",
-      "level": 1,
+      "level": 0,
       "money": 0,
       "summary": "The Martyr, is a devout follower of a pain-worshipping sect. Guarded by Yuzupov, she has near-immortality and uses a thorn whip in combat. Her presence is both an asset and liability, enduring suffering to protect others while seeking danger for her faith.",
       "history": "The Martyr's extreme devotion caught Yuzupov's attention, granting her near-immortality. She now views the estate's horrors as a pilgrimage to test her faith and endurance.",
       "race": "Human",
       "gender": "Female",
       "religion": "Yuzupov's",
+      "zodiac": "Pisces",
       "traits": [
         "Devoted",
         "Masochistic",
@@ -1956,7 +2280,7 @@
       },
       "magic": "Spirit-granted near-immortality",
       "notes": [
-        "Constantly seeks out pain and dangerous situations.",
+        "Constantly seeks out pain and dangerous situations",
         "Finds pleasure in cutting, entangling, and strangling herself with her thorn whip"
       ],
       "relationships": {}
@@ -1965,13 +2289,14 @@
       "identifier": "vestal",
       "title": "Vestal",
       "name": "Junia",
-      "level": 1,
+      "level": 0,
       "money": 0,
       "summary": "The Vestal, upheld her sacred duties with pious rigor within the Abbey's sheltered confines. Her life, once marked by the tranquility of clerical discipline, was disrupted when her neglect and daydreaming of forbidden desires caused the monastery's eternal light to fade, and she suffered under the harsh admonitions of her superiors. She now seeks redemption and freedom from her past torments through divine service in battle.",
       "history": "Raised within the Abbey's austere walls, the Vestal was the epitome of monastic discipline until a momentary lapse led to her unjust punishment. Imprisoned and tormented, she received a divine revelation that her captors had strayed from the true path. Rescued by radiant light, she now channels her zeal into protecting others, believing fervently in the Light's guidance and her role as its martial emissary.",
       "race": "Human",
       "gender": "Female",
       "religion": "The Light",
+      "zodiac": "Libra",
       "traits": [
         "Devoted",
         "Righteous",
@@ -2025,21 +2350,28 @@
           "Endurance"
         ]
       },
-      "magic": "Powerful healing and protection spells as well as the ability to smite enemies with holy light.",
+      "magic": "Powerful healing and protection spells as well as the ability to smite enemies with holy light",
       "notes": [],
-      "relationships": {}
+      "relationships": {
+        "flagellant": {
+          "affinity": 2,
+          "dynamic": "Righteous Fury",
+          "description": "The Vestal cannot forget the tortures inflicted by the Flagellant in the name of faith. To her, he represents the cruelty of blind devotion—a symbol of what she has overcome and now stands against."
+        }
+      }
     },
     "wretch": {
       "identifier": "wretch",
       "title": "Wretch",
       "name": "Yersin",
-      "level": 5,
+      "level": 0,
       "money": 0,
       "summary": "A disgraced aristocrat turned pauper, the Wretch has become a walking plague after years of hardship. He spreads blight and commands hordes of rats, using disease as his weapon. Though dangerous, the Wretch is unpredictable and cowardly, prone to fleeing or sacrificing allies to save himself.",
       "history": "Once a nobleman, the Wretch fell from grace and has since lived a life of poverty and disease. His years on the streets have taught him to survive by any means necessary, including embracing the very filth and pestilence that society shuns.",
       "race": "Human",
       "gender": "Male",
       "religion": "",
+      "zodiac": "Cancer",
       "traits": [
         "Cynical",
         "Bitter",
@@ -2096,19 +2428,26 @@
         "Commands a horde of rats he affectionately calls his 'pretties'",
         "His favorite rat, who rides on his shoulder, is named Nicodemus"
       ],
-      "relationships": {}
+      "relationships": {
+        "hqclaimants": {
+          "affinity": 2,
+          "dynamic": "Faded Bitterness",
+          "description": "Yersin has long since resigned himself to the ruin of the Vyrmholt family, finding solace among his rats. Though the bitterness lingers faintly, he sees the Luthvains as remnants of a life he left behind—distant, self-congratulatory specters of his disgrace."
+        }
+      }
     },
     "zenith": {
       "identifier": "zenith",
       "title": "Zenith",
       "name": "Syndoriel",
-      "level": 3,
+      "level": 0,
       "money": 0,
       "summary": "The Zenith is an acrobatic fighter who inspires allies with his charm and skill with a spear. Sworn to a god of honor and brotherhood, he uses bravado to distract from horrors. He can unleash the Golden Janissary Style for powerful combinations against eldritch and unholy foes. Unarmored but mobile, his hedonistic nature may clash with the pious or those with jealous spouses.",
       "history": "The Zenith grew up in Great Forks, the City of a Thousand Temples, where he honed his charm and social skills. He trained rigorously with a near-forgotten order, mastering the art of fighting creatures of darkness. A tragic event involving the death of his friend Keli drives his actions. This past failure fuels his determination to protect others and redeem himself through his current adventures.",
       "race": "Human",
       "gender": "Male",
       "religion": "Follower of Sol Invictus",
+      "zodiac": "Leo",
       "traits": [
         "Charismatic",
         "Flirtatious",

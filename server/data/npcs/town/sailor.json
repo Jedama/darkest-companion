@@ -1,0 +1,32 @@
+{
+  "identifier": "sailor",
+  "title": "Sailor",
+  "name": "Marston",
+  "summary": "A retired seaman who maintains The Stumbling Corpse with the same stern discipline he once commanded on deck. Though his sailing days ended when a strange illness left him with a persistent limp, he keeps watch over his establishment with quiet vigilance, marking each night's unusual occurrences in his logbook with the precision of a ship's captain.",
+  "history": "Spent thirty years at sea before the strange waters near the Estate's coast claimed his ship and most of his crew. While recovering from the illness that followed his rescue, he took over the then-abandoned boarding house, converting it into a haven for those who still brave the harbor's dangers.",
+  "traits": [
+    "Watchful",
+    "Taciturn",
+    "Disciplined",
+    "Superstitious"
+  ],
+  "appearance": {
+    "height": "Tall but stooped",
+    "build": "Weathered",
+    "skinTone": "Leathery",
+    "hairColor": "Grey-streaked red",
+    "hairStyle": "Close-cropped",
+    "facial_features": "Thick beard, anchor tattoo on forearm, pronounced limp"
+  },
+  "clothing": {
+    "headwear": "Knit cap",
+    "top": "Heavy wool coat",
+    "pants": "Dark trousers",
+    "accessories": "Pipe, ring of keys"
+  },
+  "notes": [
+    "Uses a gnarled cane to walk",
+    "Maintains a collection of objects recovered from the shore",
+    "Spends many evenings smoking with Gus at the Blacksmith"
+  ]
+}

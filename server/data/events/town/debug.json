@@ -1,0 +1,45 @@
+[
+  {
+    "identifier": "debug_0",
+    "title": "Chat",
+    "type": "town",
+    "summary": "[Characters] share a quick chat.",
+    "nrChars": [2, 2],
+    "keywords": ["Anecdote", "Gossip", "Joke", "Rumor"],
+    "location": {
+        "default": ["manor_staircase"],
+        "residence": [],
+        "workplaces": [],
+        "frequents": []
+    }
+  },
+  {
+    "identifier": "debug_1",
+    "title": "Sexual activity",
+    "type": "town",
+    "summary": "[Characters] engage in sexual activity.",
+    "nrChars": [2, 2],
+    "keywords": ["Unwilling"],
+    "location": {
+        "default": [],
+        "residence": [1, 2],
+        "workplaces": [],
+        "frequents": []
+    }
+  },
+  {
+    "identifier": "debug_2",
+    "title": "Exploration",
+    "type": "town",
+    "summary": "[Characters] explore an area and its history.",
+    "nrChars": [2, 3],
+    "keywords": ["Unwilling"],
+    "location": {
+        "default": [],
+        "residence": [],
+        "workplaces": [],
+        "frequents": [1, 2, 3],
+        "allowAll": true
+    }
+  }
+]

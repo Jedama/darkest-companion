@@ -1,68 +1,87 @@
+// Helper function to format time since event
+export function getInstructionsText(): string {
+  return instructions;
+}
+
+function formatTimeSinceEvent(months: number): string {
+  const years = Math.floor(months / 12);
+  const remainingMonths = months % 12;
+  
+  if (years === 0) {
+    return `${remainingMonths} months`;
+  } else if (remainingMonths === 0) {
+    return `${years} years`;
+  } else {
+    return `${years} years and ${remainingMonths} months`;
+  }
+}
+
+
 // -------------------------------------------
 // 1. Zodiac Seasons
 // -------------------------------------------
 // We place them in the order starting from Pisces (index 0)
 // so that when you do `month % 12`, 0 = Pisces, 1 = Aries, etc.
 const zodiacSeasons = [
-    {
-      name: "Pisces",
-      text: `It is the season of Pisces, Y years and M months since the quest began, and the last frost clears from the cobblestones of the Hamlet’s streets. Warmer winds stir from the Eastern Isles, carrying the faint scent of salt over the thawing hills.`,
-    },
-    {
-      name: "Aries",
-      text: `It is the season of Aries, Y years and M months since the quest began, and wildflowers bloom along the Old Road, their colors a fragile promise of spring. The Weald’s brambly branches have disguised themselves in leaves, their thorns softened by new growth.`,
-    },
-    {
-      name: "Taurus",
-      text: `It is the season of Taurus, Y years and M months since the quest began, and the scarce fields untouched by the Farmstead’s corruption sprout with vibrant growth, stubborn against the shadow of decay.`,
-    },
-    {
-      name: "Gemini",
-      text: `It is the season of Gemini, Y years and M months since the quest began, and birdsong echoes from the Dower House’s crumbling window sills. The breeze carries the scent of fresh rain, and the sky hums with darting swallows.`,
-    },
-    {
-      name: "Cancer",
-      text: `It is the season of Cancer, Y years and M months since the quest began, and the waters of the Weald run thick with algae beneath the midsummer heat. Dragonflies hover above the murky ponds, their wings glinting in the dappled sunlight.`,
-    },
-    {
-      name: "Leo",
-      text: `It is the season of Leo, Y years and M months since the quest began, and the summer air is heavy with the scent of dry grass and wild blooms. In the Hamlet, shadows pool beneath eaves and awnings, offering brief respite from the sun’s relentless gaze.`,
-    },
-    {
-      name: "Virgo",
-      text: `It is the season of Virgo, Y years and M months since the quest began, and vines creep steadily up the Abbey’s weathered walls, their tendrils wrapping around the cracked stone. The air carries the faint smell of earth and ripened fruit from the nearby groves.`,
-    },
-    {
-      name: "Libra",
-      text: `It is the season of Libra, Y years and M months since the quest began, and the first leaves fall from the Gallows Tree, spiraling down with the brisk autumn wind. Shadows lengthen over the Hamlet as daylight fades earlier with each passing evening.`,
-    },
-    {
-      name: "Scorpio",
-      text: `It is the season of Scorpio, Y years and M months since the quest began, and dead leaves collect in the corners of the Hamlet’s streets, rustling with every gust of wind. The air is cool and dry, promising harsher weather yet to come.`,
-    },
-    {
-      name: "Sagittarius",
-      text: `It is the season of Sagittarius, Y years and M months since the quest began, and snow covers the Hamlet's streets in a thin, uneven blanket. Icicles hang from the Ancestor statue’s crossed arms, glinting faintly in the pale winter light.`,
-    },
-    {
-      name: "Capricorn",
-      text: `It is the season of Capricorn, Y years and M months since the quest began, and the sea beyond the Hamlet lies frozen solid, its surface silent and unbroken. The days grow short, with only a faint gray light lingering before the long, icy nights.`,
-    },
-    {
-      name: "Aquarius",
-      text: `It is the season of Aquarius, Y years and M months since the quest began, and biting winds howl across the Sunward’s cracked stone, sweeping snow into drifting mounds. The roads remain treacherous with ice and slush, though wagons still creak toward the Hamlet, their progress slow and unsteady.`,
-    },
-  ];
+  {
+    name: "Pisces",
+    text: "The last frost reluctantly retreats from the hamlet's cobblestones, leaving dark stains that seep into the stone. Warmer winds stir from across the harbor, carrying the first salt-tanged breaths of spring over the thawing hills."
+  },
+  {
+    name: "Aries",
+    text: "Wild violets push through cracks in the hamlet's walls, while the Old Road's edges blur with new growth. The Weald's stark branches have cloaked themselves in tender leaves, their thorns hidden behind spring's deceptive softness."
+  },
+  {
+    name: "Taurus",
+    text: "Morning mists cling to the hamlet's lower streets until noon, while beyond the walls, the few untainted fields burst with meager but defiant vitality. Each dawn brings more green to chase away winter's lingering browns."
+  },
+  {
+    name: "Gemini",
+    text: "Birdsong echoes from crumbling window sills and broken eaves, the air sweet with spring rain. Light and shadow dance through scudding clouds, and swallows circle the abbey's bell tower."
+  },
+  {
+    name: "Cancer",
+    text: "Midsummer heat bakes the hamlet's stones, releasing strange vapors from the earth below. In stagnant corners, moisture beads like sweat on walls, while the noon sun burns away all shadows save the deepest black."
+  },
+  {
+    name: "Leo",
+    text: "The summer air hangs heavy over the hamlet, stone and timber alike radiating heat long into evening. Shadows pool beneath eaves and awnings while the sun's relentless gaze bears down on empty streets."
+  },
+  {
+    name: "Virgo",
+    text: "Late summer winds carry the scent of ripening fruit and freshly turned earth through the hamlet's narrow lanes. Vines climb ever higher on weathered walls, their flowers opening only in twilight's uncertain hour."
+  },
+  {
+    name: "Libra",
+    text: "The first autumn leaves spiral down from darkening branches, gathering in corners and doorways. Shadows stretch longer with each passing day, while evening mists rise early from the cooling earth."
+  },
+  {
+    name: "Scorpio",
+    text: "Dead leaves skitter through empty streets, stirred by winds that bite with winter's approaching teeth. The air grows thin and sharp, each breath carrying the promise of frost."
+  },
+  {
+    name: "Sagittarius",
+    text: "A thin, uneven blanket of snow masks the hamlet's streets, its pristine surface broken only by the wind's artistry. Icicles hang from the Ancestor's statue, catching the pale winter light like crystalline prisms."
+  },
+  {
+    name: "Capricorn",
+    text: "The harbor's waters lie frozen in unnatural patterns, the ice's surface unmarred and mirror-black. Through the long nights, even the stars seem dimmer, as if retreating from the deep winter's grip."
+  },
+  {
+    name: "Aquarius",
+    text: "Winter winds howl through the hamlet's empty spaces, driving needles of ice before them. The streets gleam treacherous with black ice, while snow piles in steep drifts against every wall and doorway."
+  }
+];
   
   // -------------------------------------------
   // 2. Instructions
   // -------------------------------------------
   // These are the general rules for constructing the narrative.
   const instructions = `[Instructions]
-  Construct a vivid narrative vignette that:
-  - Centers on a pivotal event: Describe a decisive moment where characters face conflict, danger, or a crucial decision that pushes them to their limits.
-  - Drives meaningful consequences: Show how this moment shapes the relationships, fortunes, or fates of the characters, leaving a lasting impact on the narrative.
-  - Fuels tension and stakes: Highlight the characters’ flaws, fears, and desires as they clash with each other and the horrors of the estate. Emphasize their inner struggles as much as external threats.
+  Construct a vivid 300-word narrative vignette that:
+  - Centers on a pivotal event: This could be a shared moment of respite, a moment of learning, an instance of bonding or humor, a heated conflict, or a quiet reflection on the past.
+  - Drives meaningful consequences: Show how this moment shapes the emotional dynamics or understanding between the characters, leaving a lasting impact on their connection or perception of each other.
+  - Fuels tension and stakes: Highlight the characters’ flaws, fears, and desires as they clash with each other, distraught from the horrors of the estate.
   - Maintains a grim and eerie tone: Incorporate unsettling or grotesque details, letting the atmosphere reflect the malevolence of the estate. Do not shy away from discomfort or tragedy.
   - Remember that not every character knows the backgrounds and secrets of the others. Many have just met one another.
   
@@ -71,53 +90,40 @@ const zodiacSeasons = [
   - Mentioning yourself or your observations. Let the story unfold as if the reader is directly witnessing it.
   - Overly harmonious resolutions. Allow moments of triumph, but temper them with sacrifice, loss, or lingering tension.
   - Cliffhangers or leaving the vignette unresolved. Provide a satisfying conclusion while hinting at future conflicts.
-  - Introducing new supernatural abilities, talk of rituals, trinkets, blood sacrifices, or other mystical elements not previously established.
+  - Introducing new supernatural abilities, monsters or creatures, talk of rituals or symbols, trinkets, blood sacrifices, or other mystical elements not previously established.
   
   Start each story with a title in [Square Brackets]
+
   `;
   
   // -------------------------------------------
-  // 3. Context
-  // -------------------------------------------
-  // Use the zodiac text, then add setting flavor and the Ancestor perspective.
-  // Replace "Pandora Dantill" with "Pandora ${estate.estateName}" as requested.
-  const contextIntro = `[Context]
-  You are Pandora \${estate.estateName}, the Ancestor—a malignant spectral presence haunting your once-grand estate. 
-  You observe, but never interfere, taking grim satisfaction in watching the struggles of the Descendants who have taken residence in the Dower House of the nearby Hamlet, poised to cleanse the corruption your brought upon this land.
-  The Estate contains the Hamlet, the Farmstead and the corrupted fields that surround it, the Weald and the Old road passing through it, the rat-filled sewers beneath the streets, the labyrinthine pigmen-infested tunnels of the Warrens, the waterlogged Cove and its brine-soaked tidal horrors, the crumbling Ruins whose desecrated halls echo your family's lost eminence, and the Manor itself—a decaying stronghold now claimed by cultists, their blasphemous rituals illuminating the shadows of the Darkest Dungeon.
-  The Descendants and their hired mercenaries, selfish and deeply distrustful of their employers and equals, set out for monthly forays into these lands, seeking to purge the unholy creatures that infest them, in the faint hopes of finding some meaning in their miserable lives.
-  `;
-  
-  // -------------------------------------------
-  // 4. Helper to compile the final context text
+  // 3. Helper to compile the final context text
   // -------------------------------------------
   // You might use this helper function to generate a [Context] section. 
   // Provide `month`, `years`, and `monthsElapsed` from your own logic, then
   // we do `zodiacSeasons[month % 12]` to get the correct passage.
-  export function getContextText(month: number, estateName: string): string {
-    // Safeguard index within the array
-    const seasonIndex = month % 12;
-    const zodiac = zodiacSeasons[seasonIndex];
-
-    // Calculate the elapsed years and months
-    const years = Math.floor(month / 12);
-    const months = month % 12;
-    
-    // Insert your Y years / M months into the zodiac text:
-    const replacedZodiacText = zodiac.text
-      .replace("Y years", `${years} years`)
-      .replace("M months", `${months} months`);
+  // Then modify the getContextText function to handle game stages
+export function getContextText(month: number, estateName: string): string {
+  const seasonIndex = month % 12;
+  const zodiac = zodiacSeasons[seasonIndex];
+  const timePeriod = formatTimeSinceEvent(month);
   
-    // Then build the final context block, e.g.:
-    return `
-  [Context]
-  ${replacedZodiacText}
+  // Early game context (first year)
+  const baseContext = `It is the month of ${zodiac.name}, ${timePeriod} since the Ancestor unearthed the portal to antediluvian evil, unleashed its horrors unto the hamlet and its surrounding lands, sent the letter to his descendants to reclaim the estate, and shot himself.
 
-  ${contextIntro}
-  `;
-  }
+${zodiac.text}
 
-  export function getInstructionsText(): string {
-    return instructions;
-  }
+The Descendants have just arrived, claimed residence in the once-empty Dower House, and begun hiring a growing band of mercenaries, zealots, and lost souls to their cause. These disparate individuals, each bearing their own secrets and scars, form uneasy alliances as they venture into the corrupted lands. You act as the malignant ghost of Pandora ${estateName}, bemusedly narrating their hopeless quest to cleanse the Estate's horrors.
+
+The Estate sprawls across treacherous terrain - from the Hamlet nestled beneath the manor's looming hill, to the Farmstead where cosmic corruption creeps outward from a fallen comet. The Weald's twisted trees encircle the settlement, while beneath the streets, rat-folk scurry through ancient sewers. The labyrinthine Warren's echo with pigmen's squeals, the decrepit Cove harbors brine-soaked horrors, and the crumbling Ruins whisper tales of lost nobility. Above it all, the Manor broods atop its hill like a dying monarch, where cultists now perform their blasphemous rites in the shadows of former greatness.`
+
+;
+
+  // TODO: Add mid and late game variations based on month
+  // if (month > 12) { ... }
+  
+  return baseContext;
+}
+
+
   

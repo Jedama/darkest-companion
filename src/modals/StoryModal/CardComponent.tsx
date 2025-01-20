@@ -22,13 +22,11 @@ export function CardComponent({
 
     // Delay the addition of the animation class
     const timer = setTimeout(() => {
-      console.log(`[Card ${characterId}] flipping and moving to corner ${cornerIndex}`);
       el.classList.add('deal-animation');
     }, dealDelay);
 
     // Listen for animation end to notify parent
     const handleAnimationEnd = () => {
-      console.log(`[Card ${characterId}] animation complete`);
       onDealComplete?.();
     };
 

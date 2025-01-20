@@ -8,7 +8,8 @@ import type {
   CharacterRecord,
   Relationship,
   EventData,
-  EventRecord
+  EventRecord,
+  LocationData
 } from '../shared/types/types.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -93,6 +94,24 @@ export async function loadDefaultRelationships(): Promise<DefaultRelationshipsMa
     return parsed;
   } catch (error) {
     console.error('Error loading default relationships:', error);
+    throw error;
+  }
+}
+
+/* -------------------------------------------------------------------
+ *  Default Character Locations
+ * ------------------------------------------------------------------- */
+
+export async function loadDefaultCharacterLocations(): Promise<Record<string, {
+  residence: string[],
+  workplaces: string[],
+  frequents: string[]
+}>> {
+  try {
+    const content = await readFile(path.join(TEMPLATES_DIR, 'defaultCharacterLocations.json'), 'utf-8');
+    return JSON.parse(content);
+  } catch (error) {
+    console.error('Error loading default character locations:', error);
     throw error;
   }
 }
@@ -187,4 +206,43 @@ export async function loadTownKeywords(): Promise<string[]> {
     console.error('Error loading town keywords:', err);
     throw err;
   }
+}
+
+/* -------------------------------------------------------------------
+ *  Locations
+ * ------------------------------------------------------------------- */
+
+const LOCATIONS_DIR = path.join(__dirname, 'data', 'locations');
+
+export async function loadAllLocations(): Promise<LocationData[]> {
+    try {
+        // Read all location JSON files
+        const files = await readdir(LOCATIONS_DIR);
+        const locationFiles = files.filter(file => file.endsWith('.json'));
+        
+        let allLocations: LocationData[] = [];
+        
+        for (const file of locationFiles) {
+            const content = await readFile(path.join(LOCATIONS_DIR, file), 'utf-8');
+            const locations = JSON.parse(content);
+            
+            // Each file contains an array of locations
+            allLocations = allLocations.concat(locations);
+        }
+        
+        return allLocations;
+    } catch (error) {
+        console.error('Error loading locations:', error);
+        throw error;
+    }
+}
+
+export async function loadLocation(locationId: string): Promise<LocationData | null> {
+    try {
+        const allLocations = await loadAllLocations();
+        return allLocations.find(loc => loc.identifier === locationId) || null;
+    } catch (error) {
+        console.error(`Error loading location ${locationId}:`, error);
+        throw error;
+    }
 }

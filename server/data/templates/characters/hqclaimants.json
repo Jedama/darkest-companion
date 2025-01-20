@@ -38,7 +38,6 @@
       "Polearm",
       "Shield"
     ],
-    "trinkets": [],
     "appearance": {
         "height": "Average/Tall",
         "build": "Elegant/Muscular",
@@ -68,8 +67,7 @@
     },
     "magic": "Forbidden knowledge and ancestral sorcery",
     "notes": [
-      "Act as both a single unit and as individuals in combat",
-      "Heads of the esteemed Luthvain family"
+      "Act as both a single unit and as individuals in combat"
     ],
     "relationships": {}
   }

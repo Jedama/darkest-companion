@@ -45,6 +45,12 @@ export interface Relationship {
   description: string;
 }
 
+export interface CharacterLocations {
+  residence: string[];
+  workplaces: string[];
+  frequents: string[];
+}
+
 // ========== Character ==========
 
 export interface Character {
@@ -61,8 +67,7 @@ export interface Character {
   traits: string[];
   status: Status;
   stats: Stats;
-  equipment: string[];
-  trinkets: string[];
+  locations: CharacterLocations;
   appearance: Appearance;
   clothing: Clothing;
   combat: Combat;
@@ -94,17 +99,31 @@ export interface EventData {
   summary: string;
   nrChars: number;     // number of characters typically involved
   keywords: string[];  // e.g., ["combat", "gambling", "nighttime"]
+  location: EventLocationRequirements;  // location requirements for characters
   // You can add fields like "specialConsequences", "outcomes", etc., if needed
 }
 
+
+export interface EventLocationRequirements {
+  default: string[];
+  residence: number[];  // Character indices (1-based)
+  workplaces: number[];  // Character indices (1-based)
+  frequents: number[];  // Character indices (1-based)
+  allowParentLocations?: boolean; // Controls whether parent locations are considered
+  allowAll?: boolean;  // Allows any location to be used
+}
+
+
 // ========== Locations ==========
-// Minimal structure for a location; add fields as needed
 export interface LocationData {
   identifier: string;
   title: string;
-  npcs: string[];      // array of NPC names or identifiers
-  keywords: string[];  // e.g., ["urban", "gambling", "crowded"]
-  // Could also have a longer description field, hazards, etc.
+  description: string;
+  restored?: string;    // description when location is restored
+  capacity?: number;    // max number of characters that can reside here
+  npcs?: string[];      // array of NPC identifiers connected to this location
+  parent: string;       // parent location identifier
+  children: string[];   // child location identifiers
 }
 
 // ========== Estate ==========
@@ -113,6 +132,7 @@ export interface Estate {
   money: number;
   month: number;
   characters: CharacterRecord;
+  restoredLocations?: string[];  // list of location identifiers that have been restored
 
   // Optional logs per entity type
   characterLogs?: { [charIdentifier: string]: LogEntry[] };

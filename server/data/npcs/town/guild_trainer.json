@@ -1,0 +1,31 @@
+{
+  "identifier": "guild_trainer",
+  "title": "Guild Trainer",
+  "name": "Freya",
+  "summary": "Raised amid the Brigands Brigade by Thorne himself, Freya combines her mentor's strategic mind with a fierce independence. Now the guild's master trainer, she transforms recruits into survivors using lessons learned from both sides of the hamlet's violent history.",
+  "history": "Orphaned during the Brigade's campaign against the hamlet, Freya found an unlikely guardian in Thorne, who trained her in combat from an early age. When he chose to break from Vvulf's leadership, she followed without hesitation, her loyalty to her mentor exceeding any ties to the Brigade. Her unique perspective - having grown from victim to aggressor to defender - shapes her unorthodox but effective training methods.",
+  "traits": [
+    "Fierce",
+    "Adaptable",
+    "Loyal",
+    "Sharp-witted"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Athletic, wiry",
+    "skinTone": "Tanned",
+    "hairColor": "Pale blonde",
+    "hairStyle": "Wild, swept back",
+    "features": "Cross-shaped scar on right cheek"
+  },
+  "clothing": {
+    "headwear": "Green headband",
+    "top": "Light brigandine with turquoise accents",
+    "pants": "Leather and mail greaves",
+    "accessories": "Multiple weapon sheaths, training whistle"
+  },
+  "notes": [
+    "Wields every weapon with proficiency, but favors the axe",
+    "Her harsh training methods betray her brigand upbringing"
+  ]
+}

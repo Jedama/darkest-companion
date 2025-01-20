@@ -1,0 +1,30 @@
+{
+  "identifier": "miller_wife",
+  "title": "Miller's Wife",
+  "name": "Mildred",
+  "summary": "A husk of stone and light blue crystals who retained her mind through sheer force of will. Where others were fully corrupted, she maintains enough lucidity to aid those who would end her husband's torment.",
+  "history": "The proud miller's wife watched her husband's deal with the Ancestor drain their lives and land. When the comet struck, she alone partially resisted its corruption, sustained by memories of brighter days and determination to free her husband from his eternal agony.",
+  "traits": [
+    "Determined",
+    "Wistful",
+    "Mute",
+    "Purposeful"
+  ],
+  "appearance": {
+    "height": "Tall, shifting",
+    "build": "Crystalline husk",
+    "skinTone": "Grey-blue, corrupted",
+    "hairColor": "Crystalline growths",
+    "hairStyle": "Sharp crystalline spires",
+    "features": "Glowing eyes"
+  },
+  "clothing": {
+    "headwear": "Stone hood",
+    "top": "Tattered robes",
+    "pants": "Tattered skirts",
+    "accessories": "Wedding locket"
+  },
+  "notes": [
+    "Stalks around the farmlands, faintly glownig against the distant treeline"
+  ]
+}

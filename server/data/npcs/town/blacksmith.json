@@ -1,0 +1,33 @@
+{
+  "identifier": "blacksmith",
+  "title": "Blacksmith",
+  "name": "Gus",
+  "summary": "The Blacksmith is a remarkably cheerful soul whose booming laugh and glowing forge remain constant comforts in the hamlet's darkening days. Known as much for his masterful metalwork as his ability to lift spirits, Gus treats both mundane horseshoes and demon-slaying weapons with equal enthusiasm and care.",
+  "history": "A fixture of the hamlet long before its troubles, Gus learned the trade from his father and has practiced it through prosperity and catastrophe alike. When others fled the estate's emerging horrors, he simply added weaponsmithing to his repertoire, maintaining his jolly demeanor even while crafting implements of nightmare-slaying. His forge has become something of a sanctuary, where the warmth and rhythmic hammering provide a sense of normalcy amidst chaos.",
+  "traits": [
+    "Perpetually Cheerful",
+    "Steadfast",
+    "Masterful",
+    "Grounding"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Barrel-chested and powerful",
+    "skinTone": "Ruddy and glowing",
+    "hairColor": "Snow white",
+    "hairStyle": "Wild and singed at the edges",
+    "features": "Magnificent white beard, often with spark-burns"
+  },
+  "clothing": {
+    "headwear": "Well-loved red leather headband",
+    "top": "Scorched sleeveless shirt under a heavily patched leather apron",
+    "pants": "Sturdy canvas trousers with countless tiny burn marks",
+    "accessories": "Ever-present pipe, somehow always lit"
+  },
+  "notes": [
+    "Keeps his father's ancient anvil polished to a mirror shine",
+    "Names all his hammers after old drinking songs",
+    "Tells the same jokes he's told for decades, still laughing heartily at each one",
+    "Welcomes heroes and villagers alike to warm themselves by his forge"
+  ]
+}

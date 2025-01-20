@@ -1,7 +1,7 @@
 {
   "identifier": "kheir",
   "title": "Heir",
-  "name": "Percival Dantill",
+  "name": "Percival",
   "level": 0,
   "money": 0,
   "summary": "The Heir to the estate is a brilliant scholar and capable manager who is desperately trying to cope in this world of horrors far beyond his comfort. Despite being a man of cowardice and meek nature, Percival's keen intellect and organizational skills prove invaluable in coordinating the chaotic efforts to reclaim his ancestral home.",
@@ -36,8 +36,6 @@
   "equipment": [
     "Letter opener",
     "Wine bottle"
-  ],
-  "trinkets": [
   ],
   "appearance": {
     "height": "Short",

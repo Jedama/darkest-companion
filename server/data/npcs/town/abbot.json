@@ -1,0 +1,31 @@
+{
+  "identifier": "abbot",  
+  "title": "Abbot",
+  "name": "Tobias",
+  "summary": "The Abbot is a solemn figure, his weathered face a testament to personal loss and unwavering faith. Having lost his wife, he now devotes himself entirely to his religious duties, finding solace in the rituals and responsibilities of his position.",
+  "history": "Once a happily married man, the Abbot lost his wife to illness years ago. Grief-stricken, he turned to the church for solace, eventually rising to the position of Abbot. His personal tragedy has deeply influenced his approach to faith and his interactions with his flock.",
+  "traits": [
+    "Solemn",
+    "Devoted",
+    "Melancholic"
+  ],
+  "appearance": {
+    "height": "Tall and slightly stooped",
+    "build": "Thin, almost gaunt",
+    "skinTone": "Pale and drawn",
+    "hairColor": "Graying blonde",
+    "hairStyle": "Thinning with bald top",
+    "features": "Short, graying beard"
+  },
+  "clothing": {
+    "headwear": "None",
+    "top": "Dark, heavy robes",
+    "pants": "Concealed by robes",
+    "accessories": "Wooden rosary beads"
+  },
+  "notes": [
+    "Finds comfort in the flickering light of candles, which remind him of his late wife",
+    "Speaks in a soft, measured tone, as if each word carries great weight",
+    "Rarely smiles, but shows deep compassion for those in pain"
+  ]
+}

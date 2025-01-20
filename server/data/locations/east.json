@@ -1,0 +1,135 @@
+[
+  {
+    "identifier": "east_district",
+    "title": "East District",
+    "description": "A maze of salt-worn buildings and creaking boardwalks stretching along the hamlet's waterfront. The harbor's docks extend like broken fingers into the unnaturally dark waters, while abandoned warehouses stand sentinel behind them.",
+    "parent": "hamlet",
+    "children": ["harbor", "warehouse_district", "tritonis_house", "house_of_yellow_hand"]
+  },
+  {
+    "identifier": "harbor",
+    "title": "Harbor",
+    "description": "A stretch of weathered docks extending into waters that seem to swallow light rather than reflect it. Splintered pilings rise like ribs from the dark depths, while rusted chains and frayed ropes mark where ships once moored. The air hangs heavy with salt and decay, disturbed only by the irregular splashing of unseen things beneath the surface.",
+    "parent": "east_district",
+    "children": ["harbor__pier"]
+  },
+  {
+    "identifier": "harbor__pier",
+    "title": "Harbor's Pier",
+    "description": "The longest dock reaches deep into the murky waters, its weathered planks perpetually encrusted with barnacles that seem to grow back overnight. At its far end, where chains once held something precious, starfish cluster in unnatural abundance, their forms visible even through the dark waters. Local sailors whisper of a mournful song that rises from the depths during certain moons, and how the last of House Tritonis, mad with grief, walked these boards into the freezing waters in search of their daughter's voice.",
+    "parent": "harbor",
+    "children": []
+  },
+  {
+    "identifier": "warehouse_district",
+    "title": "Warehouse District",
+    "description": "A row of looming structures backing the harbor, their salt-stained walls still bearing faded merchant signs and cargo markings. Most stand empty now, their massive doors sealed by rust and disuse, though some serve as impromptu shelters when the nights grow long. Iron tracks embedded in the cobblestones trace paths from the docks to sealed doorways, speaking of busier days.",
+    "parent": "east_district",
+    "children": []
+  },
+  {
+    "identifier": "tritonis_house",
+    "title": "Tritonis House",
+    "description": "A dignified manor perched half over the waters on thick timber supports, its weathered facade still bearing traces of seafoam green paint. Wide windows face the harbor's expanse, while delicate carvings of shells and sea-life adorn the eaves. The house stands empty now, the fate of its last inhabitants whispered by fishwives who hurry past its darkened windows.",
+    "parent": "east_district",
+    "children": ["tritonis_house__daughter_chamber", "tritonis_house__master_bedroom", "tritonis_house__maid_quarter", "tritonis_house__dining_hall", "tritonis_house__porch"]
+  },
+  {
+    "identifier": "tritonis_house__daughter_chamber",
+    "title": "Daughter's Chamber",
+    "description": "A room frozen in time, its furniture draped in sailcloth that billows in the sea breeze. A small vanity still holds hairbrushes and ribbons, while the family portrait above shows a young woman with a starfish woven into her dark hair, her smile holding secrets beneath the canvas's grime.",
+    "parent": "tritonis_house",
+    "capacity": 1,
+    "children": []
+  },
+  {
+    "identifier": "tritonis_house__master_bedroom",
+    "title": "Master Bedroom",
+    "description": "Heavy curtains hang motionless over windows facing the pier where their daughter was last seen. The bed remains made, as if its owners might return any moment from their final desperate walk into the harbor's depths.",
+    "parent": "tritonis_house",
+    "capacity": 2,
+    "children": []
+  },
+  {
+    "identifier": "tritonis_house__maid_quarter",
+    "title": "Maid's Quarter",
+    "description": "A small but neat room tucked beneath the eaves, its narrow window offering a clear view of the pier below. Dried flowers fill a vase on the simple dresser, maintained by someone's unseen hand.",
+    "parent": "tritonis_house",
+    "capacity": 1,
+    "children": []
+  },
+  {
+    "identifier": "tritonis_house__dining_hall",
+    "title": "Dining Hall",
+    "description": "Salt-stained paintings of ships line the walls above wainscoting carved with waves. The long table still bears places set for three, their silver tarnished black by years of sea air.",
+    "parent": "tritonis_house",
+    "children": []
+  },
+  {
+    "identifier": "tritonis_house__porch",
+    "title": "Harbor Porch",
+    "description": "A wraparound veranda suspended over the lapping waters, its railings decorated with intricate nautical knotwork. Weathered chairs face the harbor's expanse, positioned as if their occupants might still watch for returning ships.",
+    "parent": "tritonis_house",
+    "children": []
+  },
+  {
+    "identifier": "house_of_yellow_hand",
+    "title": "House of the Yellow Hand",
+    "description": "A crumbling tavern whose partial collapse seems suspiciously contained to its public spaces. The front door hangs askew beneath a weathered sign bearing a golden handprint, while the private rooms above remain surprisingly well-maintained. Though no patrons have been served here since the invasion, light sometimes flickers behind shuttered windows, and muffled conversations drift from rooms that should be empty.",
+    "restored": "A three-story establishment of dark timber and wrought iron, its windows glowing amber in the harbor's gloom. The carved sign of a golden hand marks the heavy oak door, while iron-bound stairs lead to private rooms above. Though ostensibly a simple tavern, the regular traffic through its back entrance tells a different story.",
+    "parent": "east_district",
+    "children": []
+  },
+  {
+    "identifier": "yellowfinger_house",
+    "title": "Yellowfinger Residence",
+    "description": "A well-maintained townhouse tucked away in a quiet corner of the harbor district, its windows overlooking both the docks and their ruined tavern. The facade prides itself on its decorative stonework and iron-bound doors. Their black cat Sovereign keeps watch from various windowsills. The cellar entrance, visible only from the back alley, sees frequent midnight traffic.",
+    "parent": "east_district",
+    "children": []
+  },
+  {
+    "identifier": "kraken_society",
+    "title": "The Kraken Society",
+    "description": "A shattered building whose jagged silhouette mars the otherwise intact street, its destruction speaking more of calculated malice than mere decay. Rubble resembling thick stone walls, once covered in careful records of the Estate's eldritch monuments, now bear only scorch marks and the occasional fragment of runic script. Inside, broken instruments and burned texts suggest the Ancestor's determination to claim their centuries of research for himself. A partially collapsed staircase spirals down to flooded chambers where the society's most precious archives once resided, though the rising tide has claimed whatever secrets the flames missed.",
+    "restored": "A peculiar structure of rough-hewn timber and salvaged stone rises at sharp angles against the harbor sky, betraying its hasty reconstruction. Three asymmetric levels stack precariously, their peaked roofs bristling with makeshift observatories and curious instruments. While the exterior suggests improvised functionality, the interior houses carefully organized archives - newly gathered texts and specimens documenting the Estate's otherworldly elements. The reinstated scholars, like their predecessors, focus particularly on the Red Hook's significance.",
+    "parent": "east_district",
+    "children": []
+  },
+  {
+    "identifier": "stumbling_corpse",
+    "title": "The Stumbling Corpse",
+    "description": "A weathered boarding house marked by a creaking sign depicting a lurching figure in sailors' garb. Its stone foundation shows signs of recent reinforcement, while the wooden upper floors lean precariously toward the harbor. The proprietor, an aging sailor whose anchor tattoos have faded to a cloudy blue, maintains the establishment with gruff efficiency despite its perpetually listing appearance.",
+    "parent": "east_district",
+    "children": ["stumbling_corpse__common_room", "stumbling_corpse__captains_berth", "stumbling_corpse__crew_quarters", "stumbling_corpse__keepers_nook"]
+  },
+  {
+    "identifier": "stumbling_corpse__common_room",
+    "title": "Common Room",
+    "description": "A low-ceilinged chamber dominated by a pot-bellied stove and heavy wooden tables bolted to the floor. Nautical charts paper the walls, their edges curling in the damp air, while the proprietor keeps quiet watch from behind a scarred counter, pipe smoke mingling with the ever-present salt air.",
+    "parent": "stumbling_corpse",
+    "children": []
+  },
+  {
+    "identifier": "stumbling_corpse__captains_berth",
+    "title": "Captain's Berth",
+    "description": "The largest room, reserved for those who can afford privacy. A brass-framed bed occupies one corner, while a writing desk faces the harbor window. The previous occupant's sextant still rests on the windowsill, undisturbed since they failed to return from their last voyage.",
+    "parent": "stumbling_corpse",
+    "capacity": 2,
+    "children": []
+  },
+  {
+    "identifier": "stumbling_corpse__crew_quarters",
+    "title": "Crew Quarters",
+    "description": "A long room filled with narrow bunks stacked three high, each with its own sea chest bolted beneath. Rope hammocks hang in the empty spaces, swaying slightly despite the lack of breeze. The wooden walls bear countless carved initials and crude drawings of distant ports.",
+    "parent": "stumbling_corpse",
+    "capacity": 6,
+    "children": []
+  },
+  {
+    "identifier": "stumbling_corpse__keepers_nook",
+    "title": "Keeper's Nook",
+    "description": "The proprietor's private quarters, barely large enough for a bed and standing closet. A collection of pipes lines one wall, while a logbook on the simple desk records decades of tenants, some pages marked with small red crosses.",
+    "parent": "stumbling_corpse",
+    "children": []
+  }
+]

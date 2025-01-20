@@ -1,5 +1,6 @@
 // server/services/llmService.ts
 import { Anthropic, ContentBlock } from '@anthropic-ai/sdk';
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 /**
  * Configuration for the LLM request.
@@ -54,11 +55,32 @@ export async function callClaude({
   return textContent;
 }
 
-// Example usage:
-// const result = await callClaude({
-//   prompt: "What is the capital of France?",
-//   model: "claude-3-sonnet-20241022",
-//   maxTokens: 1024,
-//   temperature: 0.7,
-//   system: "You are a helpful AI assistant."
-// });
+/**
+ * A function to call Gemini via Google's Generative AI SDK.
+ * The idea is to keep it generic so you can swap to different providers later.
+ */
+export async function callGemini({ 
+  prompt, 
+  model, 
+  maxTokens, 
+  temperature
+}: LLMRequest): Promise<string> {
+  // Create a Google Generative AI client using your API key
+  const genAI = new GoogleGenerativeAI(process.env.GOOGLE_CLOUD_API_KEY || 'my_fallback_api_key');
+
+  // Retrieve the specified model or default to "gemini-1.5-flash"
+  const generativeModel = genAI.getGenerativeModel({
+    model: model || "gemini-exp-1206"
+  });
+
+  // Format the prompt as a content array
+  const parts = [
+    {text: prompt}
+  ];
+
+  // Build and send the request using the generateContent method
+  const response = await generativeModel.generateContent(parts);
+
+  // Extract and return the response text
+  return response.response.text();
+}

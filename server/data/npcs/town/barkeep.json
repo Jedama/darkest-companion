@@ -1,0 +1,32 @@
+{
+  "identifier": "barkeep",
+  "title": "Barkeep",
+  "name": "Bram",
+  "summary": "The Barkeep, the stalwart guardian of spirits both liquid and ethereal, keeps the tavern's hearth warm and the ale flowing. His boisterous laugh and tall tales are as much a comfort to the troubled souls of the hamlet as his strong brews. From behind his curved counter, he watches over both casual drinkers and desperate gamblers with equal attention.",
+  "history": "Having traded battlefields for bar tops, Bram now finds more satisfaction in settling gambling disputes with a stern look than he ever did swinging steel. Despite valiantly leading the front lines, defending the hamlet against the invading undead horrors, the only creature to leave him a scar was the bear whose head now adorns the wall in the room upstairs, a tale he embellishes with each telling. However, his memories of the Apple Yard tragedy weigh heavily on his heart. He knew of the Conscript's affair with his Barmaid but chose not to intervene. When all five members of the Apple Yard tragedy vanished into the miasma, he realized too late the consequences of his silence.", 
+  "traits": [
+    "Hearty",
+    "Observant",
+    "Diplomatic"
+  ],
+  "appearance": {
+    "height": "Burly",
+    "build": "Muscular",
+    "skinTone": "Rugged tan",
+    "hairColor": "Salt and pepper",
+    "hairStyle": "Short, braided",
+    "features": "Bushy mustache and distinctive claw scars running down right arm"
+  },
+  "clothing": {
+    "headwear": "None",
+    "top": "Leather vest over a white linen shirt",
+    "pants": "Sturdy brown trousers",
+    "accessories": "Golden earrings in both ears"
+  },
+  "notes": [
+    "Has a deep, rumbling laugh that echoes through the tavern",
+    "Keeps the gambling corner in check without ever leaving his post at the bar",
+    "Still sets out a measure of the good whiskey each night, though his cook died defending the hamlet alongside him",
+    "The distant echoes of the Apple Yard Banshee trouble his dreams, though he has yet to speak of them."
+  ]
+}

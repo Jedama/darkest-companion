@@ -1,0 +1,32 @@
+{
+  "identifier": "town_crier",
+  "title": "Town Crier",
+  "name": "Bartholomew",
+  "summary": "The Town Crier staggers through his duties with theatrical flourish, his announcements ranging from official proclamations to embellished gossip. Though his talent for performance is evident beneath his vices, years of disappointment have left him seeking solace in bottles and brothels - particularly in unrequited visits to the Rose Keeper, whose practiced affection he mistakes for genuine connection.",
+  "history": "Once a promising actor in a traveling troupe, Bartholomew's career ended when stage fright drove him to drink before a crucial performance for the Ancestor himself. The resulting disaster left him stranded in the hamlet, where the position of Town Crier offered a cruel echo of his former ambitions. The invasion brought an ironic redemption - his voice proving vital in coordinating the hamlet's defense, though few remember this brief moment of genuine heroism.",
+  "traits": [
+    "Theatrical",
+    "Melancholic",
+    "Unreliable",
+    "Romantically deluded"
+  ],
+  "appearance": {
+    "height": "Slightly below average",
+    "build": "Soft and paunchy",
+    "skinTone": "Ruddy",
+    "hairColor": "Thinning gray",
+    "hairStyle": "Balding",
+    "features": "Patchy mutton chops"
+  },
+  "clothing": {
+    "headwear": "None",
+    "top": "Coat with tarnished brass buttons",
+    "pants": "Wrinkled breeches",
+    "accessories": "Frayed cravat"
+  },
+  "notes": [
+    "Voice carries surprising power when sober, especially during dawn announcements",
+    "Can be bribed to include personal messages, which he delivers with inappropriate emotion",
+    "Sometimes practices soliloquies in the graveyard after dark"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "identifier": "survivalist",
+  "title": "Survivalist",
+  "name": "Raven",
+  "summary": "Dwelling in a makeshift camp at the Weald's edge, the Survivalist offers her hard-won knowledge to those who would venture beyond the hamlet's walls. Her understanding of both wilderness survival and the Estate's particular dangers makes her teachings invaluable, though her methods often seem as harsh as the land itself.",
+  "history": "When the horrors first emerged from the manor, Raven did not flee but instead watched, learned, and adapted. She discovered which plants remained safe to eat when others turned poisonous, how to read the new patterns of corrupted wildlife, and where the land itself had become treacherous. Years of observing the Estate's transformation have left her with unique insights into its dangers - knowledge she now shares, albeit reluctantly, with others who must traverse these twisted lands.",
+  "traits": [
+    "Observant",
+    "Hardened",
+    "Territorial",
+    "Pragmatic",
+    "Reclusive"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Wiry, tough",
+    "skinTone": "Weathered dark",
+    "hairColor": "Deep auburn with grey",
+    "hairStyle": "Practical dreadlocks",
+    "features": "Alert, watchful eyes"
+  },
+  "clothing": {
+    "headwear": "Tattered hood",
+    "top": "Layered leathers",
+    "pants": "Reinforced traveling clothes",
+    "accessories": "Trophy necklace of monster teeth"
+  },
+  "notes": [
+    "Maintains careful maps of safe paths through the Weald",
+    "Often shadows expedition parties, observing their fates"
+  ]
+}

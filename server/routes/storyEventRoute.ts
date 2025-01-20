@@ -2,7 +2,7 @@
 import { Router, Request, Response } from 'express';
 import { compileStoryPrompt, separateStoryTitle } from '../services/storyEventService';
 import { loadEstate } from '../fileOps';
-import { callClaude } from '../services/llmService.js';
+import { callClaude, callGemini } from '../services/llmService.js';
 import type { Estate, EventData } from '../../shared/types/types.ts';
 import { Console } from 'console';
 
@@ -16,7 +16,7 @@ const router = Router();
 router.post('/estates/:estateName/events/story', async (req: Request, res: Response) => {
   try {
     const { estateName } = req.params;
-    const { event, chosenCharacterIds } = req.body;
+    const { event, chosenCharacterIds, location } = req.body;
 
     // 1. Load the estate so we can fetch character data
     const estate: Estate | undefined = await loadEstate(estateName);
@@ -25,18 +25,24 @@ router.post('/estates/:estateName/events/story', async (req: Request, res: Respo
     }
 
     // 2. Build the prompt using your storyEventService
-    const prompt = compileStoryPrompt(estate, event, chosenCharacterIds);
+    const prompt = compileStoryPrompt(estate, event, chosenCharacterIds, location);
 
     // 3. Call Claude with the prompt
     //    (You can pass a custom model name if you like.)
-    const claudeResponse = await callClaude({
+    /*const response = await callClaude({
       prompt,
       model: 'claude-3-5-sonnet-20241022',    // or "claude-2.0", etc.
+      maxTokens: 1024
+    });*/
+
+    const response = await callGemini({
+      prompt,
+      model: 'gemini-exp-1206',    // or "gemini-1.5-flash", etc.
       maxTokens: 1024
     });
 
     // 4. Extract title from response
-    const { title, body } = separateStoryTitle(claudeResponse);
+    const { title, body } = separateStoryTitle(response);
 
     // 5. Return both the prompt and the LLM's response
     return res.json({

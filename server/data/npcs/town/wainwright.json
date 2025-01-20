@@ -1,0 +1,31 @@
+{
+  "identifier": "wainwright",
+  "title": "Wainwright",
+  "name": "Marcus",
+  "summary": "A skilled wheelwright and wagon-builder whose expertise helped many escape during the hamlet's darkest days. Though he maintains the stagecoach with professional pride, his true reputation stems from the exodus, when he worked tirelessly to prepare wagons for fleeing townspeople while refusing to leave himself. His increasingly vocal disputes with the Caretaker over the crash reflect his practical nature - good wheels don't just break without reason.",
+  "history": "Originally one of many craftsmen who supplied the Ancestor's endless need for transport during the mining operations, Marcus found his skills vital when the horrors began. While others fled, he remained at his forge, ensuring every wagon that left carried its passengers safely beyond the Estate's borders. When the Descendants' stagecoach crashed on the Old Road, his inspection found no mechanical fault - a fact he's never hesitated to state.",
+  "traits": [
+    "Direct",
+    "Reliable",
+    "Stubborn",
+    "Principled"
+  ],
+  "appearance": {
+    "height": "Tall",
+    "build": "Muscular but weathered",
+    "skinTone": "Dark",
+    "hairColor": "Black",
+    "hairStyle": "Short, spiky",
+    "features": "Stern expression, scarred eyebrow, angular jaw"
+  },
+  "clothing": {
+    "headwear": "None",
+    "top": "Leather work vest over long-sleeved shirt",
+    "pants": "Heavy canvas trousers",
+    "accessories": "Tool-laden belt, orange neckerchief, geometric tattoos on arms"
+  },
+  "notes": [
+    "A respected individual who strikes a perfect blend between confrontational and patient",
+    "Demonstrates unexpected patience when teaching apprentices his craft"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "identifier": "caretaker",
+  "title": "Caretaker",
+  "name": "Grayson",
+  "summary": "The Caretaker is an unsettling constant in the hamlet's daily life, his duties expanding far beyond his original role. Between maintaining provisions for expeditions, teaching at the schoolhouse, and tending to the hamlet's endless repairs, he drifts through his tasks in a state of perpetual distraction, muttering about portents and prophecies.",
+  "history": "Once the estate's head groundskeeper, Grayson witnessed the Ancestor's descent into madness firsthand, though he speaks of these memories only in cryptic fragments. When the horrors emerged and others fled, he remained, perhaps anchored by duty, madness, or some mixture of both. Now he serves as the hamlet's odd-job man, shopkeeper, and reluctant educator, his fractured mind somehow maintaining just enough coherence to keep the settlement functioning.",
+  "traits": [
+    "Obsessive",
+    "Cryptic",
+    "Dutiful",
+    "Unhinged"
+  ],
+  "appearance": {
+    "height": "Tall and stooped",
+    "build": "Gaunt but surprisingly strong",
+    "skinTone": "Sallow and weathered",
+    "hairColor": "Steel grey",
+    "hairStyle": "Wispy and unkempt",
+    "features": "Patchy beard"
+  },
+  "clothing": {
+    "headwear": "None, though often seen carrying a lantern even in daylight",
+    "top": "Many-pocketed overcoat, its original color lost to stains and patches",
+    "pants": "Worn trousers tucked into mud-caked boots",
+    "accessories": "Ring of countless keys, cracked spectacles held together with twine"
+  },
+  "notes": [
+    "Keeps his provision shop in barely controlled chaos, yet somehow knows where everything is",
+    "Habitually collects discarded items, claiming they 'might be useful when it happens again'",
+    "Can be found at all hours conducting seemingly purposeless maintenance tasks",
+    "Sometimes seen leaving food at the sewer entrance, muttering about 'the clever ones below'"
+  ]
+}

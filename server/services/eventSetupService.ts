@@ -1,6 +1,7 @@
-import { loadEstate, saveEstate } from '../fileOps.js';
-import { loadEventTemplatesForCategory, loadTownKeywords } from '../templateLoader.js';
-import { Estate, EventData, EventRecord } from '../../shared/types/types.js';
+import { loadEstate, saveEstate } from '../fileOps';
+import { loadEventTemplatesForCategory, loadTownKeywords, loadAllLocations, loadLocation } from '../templateLoader';
+import { Estate, EventData, EventRecord } from '../../shared/types/types';
+import { pickEventLocation } from './locationService';
 
 /**
  * Loads all event templates, picks one at random.
@@ -13,7 +14,9 @@ async function pickRandomEvent(): Promise<EventData> {
     throw new Error('No event templates found in data/events.');
   }
 
-  const randomId = eventIds[Math.floor(Math.random() * eventIds.length)];
+  // const randomId = eventIds[Math.floor(Math.random() * eventIds.length)];
+  // Debug: Set a specific event ID for testing
+  const randomId = 'debug_2';
   return allEvents[randomId];
 }
 
@@ -90,6 +93,10 @@ export function pickKeywords(
 export async function setupRandomEvent(estateName: string): Promise<{
   event: EventData;
   chosenCharacterIds: string[];
+  location?: {
+    title: string;
+    description: string;
+  };
 }> {
   // 1. Load the estate
   const estate = await loadEstate(estateName);
@@ -116,15 +123,16 @@ export async function setupRandomEvent(estateName: string): Promise<{
   // 5. Pick random characters
   const chosenCharacterIds = pickRandomCharacters(estate, nrCharsRange);
 
-  // (Optional) Store the selection in the estate for later use:
-  /*
-  estate.currentEvent = {
-    eventIdentifier: event.identifier,
-    chosenCharacterIds
-  };
-  await saveEstate(estate);
-  */
+  // 6. Load location information
+  let location;
+  if (event.location) {
+    const locationId = await pickEventLocation(event, 
+      chosenCharacterIds.map(id => estate.characters[id]),
+      await loadAllLocations() // Need to add this to templateLoader
+    );
+    location = await loadLocation(locationId);
+  }
 
   // Return the data for the route handler (or the next step)
-  return { event, chosenCharacterIds };
+  return { event, chosenCharacterIds, location: location || undefined };
 }

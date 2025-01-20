@@ -1,0 +1,9 @@
+[
+    {
+        "identifier": "world",
+        "title": "Known World",
+        "description": "A realm of ancient powers and lurking horrors, where civilization's torch burns ever dimmer against encroaching darkness.",
+        "parent": null,
+        "children": ["estate", "sunward_isles", "levantine_empire", "city_of_thousand_temples", "ostvengr"]
+    }
+]

@@ -1,0 +1,32 @@
+{
+  "identifier": "guild_master",
+  "title": "Guild Master",
+  "name": "Thorne",
+  "summary": "Once second-in-command of the notorious Brigands Brigade, Thorne now leads the hamlet's guild with the same tactical precision he once used against it. His decision to break from Vvulf's increasingly brutal methods brought both redemption and purpose, though the weight of past actions shows in his stern bearing.",
+  "history": "During his years as Vvulf's lieutenant, Thorne's strategic mind proved invaluable in coordinating the Brigade's artillery strikes. Yet he found himself taking in a young orphan - Freya - amid the chaos, an act of conscience that marked the beginning of his doubts. When horrors began emerging from the manor and Vvulf turned to ruthless banditry, Thorne watched the hamlet's desperate preparations from afar. Having personally broken the Constabulary years before, he understood that their remaining forces could never withstand what was coming. Unable to bear the thought of another massacre, he chose to return with Freya, offering his military expertise to a community that had every reason to reject him. His knowledge of both Vvulf's tactics and the hamlet's vulnerabilities has since proved instrumental in its survival.",
+  "traits": [
+    "Strategic",
+    "Redemptive",
+    "Protective",
+    "World-weary"
+  ],
+  "appearance": {
+    "height": "Tall",
+    "build": "Broad-shouldered",
+    "skinTone": "Dark, weathered",
+    "hairColor": "Black and grey",
+    "hairStyle": "Close-cropped",
+    "features": "Stubble and prominent scars"
+  },
+  "clothing": {
+    "headwear": "None",
+    "top": "Heavy leather brigandine over red gambeson",
+    "pants": "Reinforced leather greaves",
+    "accessories": "Commander's sword worn at hip, artillery officer's whistle"
+  },
+  "notes": [
+    "Still maintains detailed maps of the Brigade's old artillery positions",
+    "Shows particular care for young recruits",
+    "His knowledge of Vvulf's tactics proves invaluable in defending the hamlet"
+  ]
+}

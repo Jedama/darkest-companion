@@ -1,0 +1,31 @@
+{
+  "identifier": "brothel_keeper",
+  "title": "Madam",
+  "name": "Agnes",
+  "summary": "The proprietor of the Vestal's Secret, known also as the Rose Keeper, hides behind her desk and veil, accepting coin with trembling hands for sins she once endured herself. Each night she sends her employees to face the humiliation she finally escaped, her shame deepening with every transaction she enables. Though she maintains a semblance of dignity in her grey dress and rose-crowned veil, the barbs biting into her arm betray deeper self-loathing.",
+  "history": "Once a young nun at a distant abbey, Agnes fled her order only to find herself trapped in the hamlet's brothel. Years of abuse left her numb enough to accept the previous owner's offer to manage the books - a desperate grasp at any distance from the customers. When that owner disappeared, Agnes found herself unable to leave, too broken to imagine another life.",
+  "traits": [
+    "Fearful",
+    "Ashamed",
+    "Trapped",
+    "Complicit"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Slight",
+    "skinTone": "Fair",
+    "hairColor": "Grey-streaked brown",
+    "hairStyle": "Long and cared for",
+    "features": "Face perpetually veiled"
+  },
+  "clothing": {
+    "headwear": "Grey veil crowned with blood-red roses",
+    "top": "Sleeveless grey dress",
+    "pants": "Practical dark pants",
+    "accessories": "Red rope belt, barbed wire digging into left arm"
+  },
+  "notes": [
+    "Avoids eye contact, even through the veil",
+    "Speaks in whispers, as if always expecting harsh replies"
+  ]
+}

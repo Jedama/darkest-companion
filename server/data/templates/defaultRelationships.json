@@ -18,12 +18,12 @@
     "hqclaimants": {
       "affinity": 2,
       "dynamic": "Contemptuous Competitors",
-      "description": "Persephone saw the Luthvains as vain and insufferable during their fleeting courtly encounters. Their thinly veiled insults ensured no love was lost between them."
+      "description": "The Heiress saw the Claimants as vain and insufferable during their fleeting courtly encounters. Their thinly veiled insults ensured no love was lost between them."
     },
     "duchess": {
       "affinity": 3,
       "dynamic": "Cautious Disdain",
-      "description": "Persephone remembers Constance as aloof and self-absorbed during the few balls they attended together. Though she barely knew her, Constance\u2019s pride left a sour impression."
+      "description": "The Heiress remembers the Duchess as aloof and self-absorbed during the few balls they attended together. Though she barely knew her, the Duchess's pride left a sour impression."
     }
   },
   "crusader": {
@@ -45,7 +45,7 @@
     "seraph": {
       "affinity": 4,
       "dynamic": "Devoted Lieutenant",
-      "description": "Reynauld served under Joan after her miraculous transformation, awed by her divine presence and inspired by her holy purpose. Her burned visage and manifest powers were proof of the Light's grace, making his role in her crusade feel truly righteous."
+      "description": "The Crusader served under the Seraph after her miraculous transformation, awed by her divine presence and inspired by her holy purpose. Her burned visage and manifest powers were proof of the Light's grace, making his role in her crusade feel truly righteous."
     }
   },
   "highwayman": {
@@ -69,7 +69,7 @@
     "heiress": {
       "affinity": 8,
       "dynamic": "Familial",
-      "description": "Percival admires, and is deeply jealous of, his sister's strength and ability to take initiative. Despite their fierce bickering, the kheir loves his sister."
+      "description": "The Heir admires, and is deeply jealous of, his sister's strength and ability to take initiative. Despite their fierce bickering, the kheir loves his sister."
     },
     "crusader": {
       "affinity": 4,
@@ -84,12 +84,12 @@
     "hqclaimants": {
       "affinity": 2,
       "dynamic": "Aristocratic Rivalry",
-      "description": "Claude's constant disdain and Genevive's biting remarks left a lasting impression on Percival during the balls and duels of their youth. He remains embittered but grudgingly acknowledges Claude\u2019s skill with a spear."
+      "description": "The Claimants' constant disdain and biting remarks left a lasting impression on the Heir during the balls and duels of their youth. He remains embittered but grudgingly acknowledges The Claimant brother's skill with a spear."
     },
     "duchess": {
       "affinity": 5,
       "dynamic": "Infatuation",
-      "description": "As a young man, Percival was captivated by Constance\u2019s elegance and fencing prowess. Though their interactions were brief and unreciprocated, her image lingered in his mind for years."
+      "description": "As a young man, the Heir was captivated by the Duchess' elegance and fencing prowess. Though their interactions were brief and unreciprocated, her image lingered in his mind for years."
     }
   },
   "vestal": {
@@ -110,53 +110,53 @@
     "kheir": {
       "affinity": 1,
       "dynamic": "Dismissive Scorn",
-      "description": "The Luthvains regarded the young Heir as a naive, overeager boy who aspired to noble grandeur but lacked the maturity or intellect to achieve it."
+      "description": "The Claimants regarded the young Heir as a naive, overeager boy who aspired to noble grandeur but lacked the maturity or intellect to achieve it."
     },
     "heiress": {
       "affinity": 3,
       "dynamic": "Arrogant Derision",
-      "description": "Claude and Genevive found Persephone\u2019s sharp wit grating and her ambitions laughable. To them, she was little more than a pretender to aristocratic sophistication."
+      "description": "The Claimants found the Heiress' sharp wit grating and her ambitions laughable. To them, she was little more than a pretender to aristocratic sophistication."
     },
     "duchess": {
       "affinity": 3,
       "dynamic": "Lingering Resentment",
-      "description": "The fading influence of the scheming Luthvains served only as a backdrop to Constance\u2019s greater rivalry with the Countess."
+      "description": "The fading influence of the scheming Claimants served only as a backdrop to the Duchess' greater rivalry with the Countess."
     },
     "wretch": {
       "affinity": 3,
       "dynamic": "Smug Indifference",
-      "description": "The Wretch is a relic of a forgotten triumph, a living reminder of the Luthvains\u2019 ruthless success. Genevive feels a cold satisfaction in his fall, while Claude\u2019s disdain is tempered by fleeting amusement at the absurdity of his new life."
+      "description": "The Wretch is a relic of a forgotten triumph, a living reminder of the The Claimants' ruthless success. They feel a cold satisfaction in his fall, tempered by fleeting amusement at the absurdity of his new life."
     }
   },
   "duchess": {
     "kheir": {
       "affinity": 4,
       "dynamic": "Amused Indifference",
-      "description": "In her brief early encounters with Percival, Constance found his adoration amusing but ultimately inconsequential. His fumbling attempts to court her were quickly forgotten."
+      "description": "In her brief early encounters with the Heir, the Duchess found his adoration amusing but ultimately inconsequential. His fumbling attempts to court her were quickly forgotten."
     },
     "heiress": {
       "affinity": 3,
       "dynamic": "Distant Contempt",
-      "description": "Constance barely remembers Persephone, save for the latter\u2019s penchant for lurking at the edges of courtly gatherings. To Constance, the young Heiress was an unremarkable presence."
+      "description": "The Duchess barely remembers the Heiress, save for the latter's penchant for lurking at the edges of courtly gatherings. To the Duchess, the young Heiress was an unremarkable presence."
     },
     "hqclaimants": {
       "affinity": 3,
       "dynamic": "Rivalrous Disdain",
-      "description": "The fading influence of the scheming Luthvains served only as a backdrop to Constance\u2019s greater rivalry with the Countess."
+      "description": "The fading influence of the scheming the Claimants served only as a backdrop to the Duchess' greater rivalry with the Countess."
     }
   },
   "wretch": {
     "hqclaimants": {
       "affinity": 2,
       "dynamic": "Faded Bitterness",
-      "description": "Yersin has long since resigned himself to the ruin of the Vyrmholt family, finding solace among his rats. Though the bitterness lingers faintly, he sees the Luthvains as remnants of a life he left behind\u2014distant, self-congratulatory specters of his disgrace."
+      "description": "The Wretch has long since resigned himself to the ruin of the Vyrmholt family, finding solace among his rats. Though the bitterness lingers faintly, he sees the Claimants as remnants of a life he left behind\u2014distant, self-congratulatory specters of his disgrace."
     }
   },
   "seraph": {
     "crusader": {
       "affinity": 4,
       "dynamic": "Fallen Servant",
-      "description": "Joan found in Reynauld a capable commander whose tactical brilliance served the Light's purpose well. His reverence was genuine, his devotion unquestioned, which made his mercy toward the Warlord all the more galling. Though he was among her most trusted generals, his departure from the crusade marked him as another soul too weak to uphold the Light's righteous judgment."
+      "description": "The Seraph found in the Crusader a capable commander whose tactical brilliance served the Light's purpose well. His reverence was genuine, his devotion unquestioned, which made his mercy toward the Warlord all the more galling. Though he was among her most trusted generals, his departure from the crusade marked him as another soul too weak to uphold the Light's righteous judgment."
     }
   }
 }

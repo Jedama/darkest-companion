@@ -1,0 +1,31 @@
+{
+  "identifier": "archivist",
+  "title": "Archivist",
+  "name": "Edwin",
+  "summary": "A meticulous keeper of records who survived the initial chaos following the Ancestor's suicide. Though outwardly dedicated to preserving knowledge, his careful movements and quiet intensity suggest deeper preoccupations. Burn scars peek from beneath his high collar - a reminder of narrowly escaping the initial horrors, though some notice how his fingers often trace these marks when he thinks no one is watching.",
+  "history": "Originally served as assistant to the previous Librarian, maintaining the Estate's vast archives. When his mentor perished in the post-Ancestor chaos, Edwin assumed all duties of the institution. The burns he sustained while saving precious texts awakened something in him - a fascination first with pain, then with purification.",
+  "traits": [
+    "Methodical",
+    "Withdrawn",
+    "Obsessive"
+  ],
+  "appearance": {
+    "height": "Average, though he often seems to shrink into himself",
+    "build": "Plump",
+    "skinTone": "Pale",
+    "hairColor": "Dark brown",
+    "hairStyle": "Neatly combed back from high forehead",
+    "features": "Visible burn scars on neck and hands"
+  },
+  "clothing": {
+    "headwear": "None",
+    "top": "Brown tunic with singed cuffs",
+    "pants": "Dark wool trousers",
+    "accessories": "Wide belt"
+  },
+  "notes": [
+    "Frequently loses himself in thought while holding pages close to candle flames",
+    "Often caught staring at the abbey's distant bell tower"
+  ]
+}
+  

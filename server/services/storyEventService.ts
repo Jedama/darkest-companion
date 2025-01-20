@@ -11,7 +11,13 @@ import { getInstructionsText, getContextText } from './narrativeData';
 export function compileStoryPrompt(
   estate: Estate, 
   event: EventData, 
-  chosenCharacterIds: string[]
+  chosenCharacterIds: string[],
+  location?: {  
+    identifier: string;
+    title: string;
+    description: string;
+    restored: string;
+  }
 ): string {
 
   // Function to replace placeholders like [Character ?] or [Characters] with corresponding names
@@ -30,7 +36,7 @@ export function compileStoryPrompt(
         .map((char) => char.name)
         .reduce((acc, name, idx, arr) => {
           if (idx === 0) return name; // First name, no formatting needed
-          if (idx === arr.length - 1) return `${acc}, and ${name}`; // Last name with ", and"
+          if (idx === arr.length - 1) return `${acc} and ${name}`; // Last name with " and"
           return `${acc}, ${name}`; // Middle names with ","
         }, '');
       updatedSummary = updatedSummary.replaceAll('[Characters]', characterNames);
@@ -95,7 +101,20 @@ export function compileStoryPrompt(
     charactersSection += relationshipLines;
   }
 
-  // 5. Build [Event] section and replace placeholders
+  // 5. Build [Location] section (if any)
+  let locationSection = '';
+  if (location) {
+    const isRestored = location.restored && estate.restoredLocations?.includes(location.identifier);
+    const description = isRestored ? location.restored : location.description;
+    
+    locationSection = `[Location]
+Title: ${location.title}
+Description: ${description}
+
+`;
+  }
+
+  // 6. Build [Event] section and replace placeholders
   const eventSummaryWithReplacements = replaceCharacterPlaceholders(event.summary, involvedCharacters);
   const eventSection = `[Event]
 Title: "${event.title}"
@@ -103,19 +122,22 @@ Summary: ${eventSummaryWithReplacements}
 
 `;
 
-  // 6. Build [Modifiers] section (if any)
+  // 7. Build [Modifiers] section (if any)
   let keywordsSection = '';
   if (event.keywords && event.keywords.length > 0) {
     keywordsSection = `[Modifiers]\n${event.keywords.join(', ')}\n\n`;
   }
 
-  // 7. Combine everything
+  // 8. Combine everything
   const fullPrompt =
     instructionsSection +
     contextSection +
     charactersSection +
+    locationSection +
     eventSection +
     keywordsSection;
+
+  console.log(fullPrompt);
 
   return fullPrompt;
 }

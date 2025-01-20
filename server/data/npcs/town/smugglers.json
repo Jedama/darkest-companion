@@ -1,0 +1,31 @@
+{
+  "identifier": "smugglers",
+  "title": "The Yellowfingers",
+  "name": "Augustus & Helena Yellowfinger",
+  "summary": "Former tavernkeepers whose establishment fell to suspicious ruin following the Ancestor's death. Though they bemoan their misfortune publicly, their fine clothes and well-fed appearance tell a different story. Their black cat, Sovereign, keeps watch from various perches throughout the harbor district, its golden collar catching lamplight at odd hours.",
+  "history": "The Yellowfingers arrived at the hamlet shortly after the mysterious disappearance of the Ancestor's previous smuggling crew, establishing their tavern with suspicious speed and efficiency. When chaos erupted after the Ancestor's death, they orchestrated their establishment's partial collapse - a clever cover for expanded operations. Now they maintain a facade of reduced circumstances while their true business flourishes in the shadows.",
+  "traits": [
+    "Calculating",
+    "Perceptive",
+    "Charming",
+    "Ruthless"
+  ],
+  "appearance": {
+    "height": "Average/Tall",
+    "build": "Elegant/Broad-shouldered",
+    "skinTone": "Fair/Weather-worn",
+    "hairColor": "Silver/Graying black",
+    "hairStyle": "Elaborate updo/Neatly trimmed",
+    "facial_features": "Knowing smile, sharp eyes/Scarred left eyebrow, calculating gaze"
+  },
+  "clothing": {
+    "headwear": "None/None",
+    "top": "Dark velvet dress with high collar/Black coat with silver buttons",
+    "pants": "None/Tailored trousers",
+    "accessories": "Golden medallion necklace/Concealed dagger, silver rings"
+  },
+  "notes": [
+    "Their cat Sovereign appears in unlikely places throughout the district",
+    "Despite their tavern's ruin, their private quarters remain immaculate"
+  ]
+}
