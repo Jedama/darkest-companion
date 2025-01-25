@@ -11,7 +11,8 @@
     "title": "Blacksmith",
     "description": "A stone and timber workshop built around its massive forge, smoke perpetually rising from the chimney. The workshop's walls bear racks of half-finished tools and weapons, while the smith's careful notes cover the workbench. A cozy living space occupies the thatched upper level, warmed by the forge's heat from below.",
     "parent": "southeast_district",
-    "children": []
+    "children": [],
+    "npcs": ["blacksmith"]
   },
   {
     "identifier": "guild_hall",
@@ -25,7 +26,8 @@
     "title": "Guild Master's Quarters",
     "description": "Thorne and Freya's shared chamber doubles as a planning office, its walls covered in tactical maps. A heavy desk bears both old brigade documents and current training rosters, while weapon racks display an impressive array of combat styles.",
     "parent": "guild_hall",
-    "children": []
+    "children": [],
+    "npcs": ["guild_master"]
   },
   {
     "identifier": "guild_hall__instructors",
@@ -41,14 +43,16 @@
     "description": "A proper practice arena reduced to debris and splintered timber. The collapsed viewing stands and broken practice dummies speak to the intensity of use rather than poor construction. Iron fixtures and solid foundation stones wait amid the wreckage, ready for restoration.",
     "restored": "A proper training arena rebuilt to withstand even Freya's most demanding drills. Tiered wooden stands encircle a packed-earth ring, while reinforced practice dummies stand ready for abuse. Brass hooks hold torches for evening practice, though few remain after dark despite the ring's robust reconstruction.",
     "parent": "guild_hall",
-    "children": []
+    "children": [],
+    "npcs": ["guild_trainer"]
   },
   {
     "identifier": "training_yard",
     "title": "Training Yard",
     "description": "A cleared space behind the Guild Hall where Freya now drills recruits. Wooden posts serve for weapons practice, while straw targets line the far wall. Though functional, it serves as a constant reminder of the ruined Training Ring's absence.",
     "parent": "guild_hall",
-    "children": []
+    "children": [],
+    "npcs": ["guild_trainer"]
   },
   {
     "identifier": "inlet",

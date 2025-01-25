@@ -226,7 +226,8 @@
     "title": "Library",
     "description": "A stern stone building with arched windows, housing the Estate's centuries of accumulated knowledge. Though dust gathers in the quieter corners since budget constraints left the librarian to serve as both curator and steward, the institution maintains its essential functions with stubborn dignity.",
     "parent": "north_west_district",
-    "children": ["library__main", "library__special_collections", "library__map_room", "library__archive", "library__lecture_hall", "library__steward_room", "library__scholars_wing", "library__librarians_quarters"]
+    "children": ["library__main", "library__special_collections", "library__map_room", "library__archive", "library__lecture_hall", "library__steward_room", "library__scholars_wing", "library__librarians_quarters"],
+    "npcs": ["archivist"]
   },
   {
     "identifier": "library__main",

@@ -73,19 +73,21 @@
     "children": []
   },
   {
-    "identifier": "house_of_yellow_hand",
+    "identifier": "yellow_hand",
     "title": "House of the Yellow Hand",
-    "description": "A crumbling tavern whose partial collapse seems suspiciously contained to its public spaces. The front door hangs askew beneath a weathered sign bearing a golden handprint, while the private rooms above remain surprisingly well-maintained. Though no patrons have been served here since the invasion, light sometimes flickers behind shuttered windows, and muffled conversations drift from rooms that should be empty.",
+    "description": "A devastated tavern, most of its structure reduced to rubble and rotting timber. Among the debris, a fallen sign bearing a faded golden handprint lies half-buried. Though the building appears thoroughly abandoned, keen observers might notice fresh footprints in the dust leading through a partially cleared path in the wreckage, and occasional whispers seem to emerge from beneath the ruins.",
     "restored": "A three-story establishment of dark timber and wrought iron, its windows glowing amber in the harbor's gloom. The carved sign of a golden hand marks the heavy oak door, while iron-bound stairs lead to private rooms above. Though ostensibly a simple tavern, the regular traffic through its back entrance tells a different story.",
     "parent": "east_district",
-    "children": []
+    "children": [],
+    "npcs": ["smugglers"]
   },
   {
     "identifier": "yellowfinger_house",
     "title": "Yellowfinger Residence",
     "description": "A well-maintained townhouse tucked away in a quiet corner of the harbor district, its windows overlooking both the docks and their ruined tavern. The facade prides itself on its decorative stonework and iron-bound doors. Their black cat Sovereign keeps watch from various windowsills. The cellar entrance, visible only from the back alley, sees frequent midnight traffic.",
     "parent": "east_district",
-    "children": []
+    "children": [],
+    "npcs": ["smugglers"]
   },
   {
     "identifier": "kraken_society",
@@ -100,7 +102,8 @@
     "title": "The Stumbling Corpse",
     "description": "A weathered boarding house marked by a creaking sign depicting a lurching figure in sailors' garb. Its stone foundation shows signs of recent reinforcement, while the wooden upper floors lean precariously toward the harbor. The proprietor, an aging sailor whose anchor tattoos have faded to a cloudy blue, maintains the establishment with gruff efficiency despite its perpetually listing appearance.",
     "parent": "east_district",
-    "children": ["stumbling_corpse__common_room", "stumbling_corpse__captains_berth", "stumbling_corpse__crew_quarters", "stumbling_corpse__keepers_nook"]
+    "children": ["stumbling_corpse__common_room", "stumbling_corpse__captains_berth", "stumbling_corpse__crew_quarters", "stumbling_corpse__keepers_nook"],
+    "npcs": ["sailor"]
   },
   {
     "identifier": "stumbling_corpse__common_room",

@@ -4,7 +4,8 @@
     "title": "Town Square",
     "description": "The hamlet's heart, enclosed by weathered buildings that lean inward like spectators at a grim performance. Centuries-old cobblestones spiral toward the Ancestor's stern figure, while market stalls huddle beneath sagging wooden awnings. A few mounted oil lamps mark the square's corners, though most townsfolk hurry to complete their business before dusk claims the streets.",
     "parent": "center_district",
-    "children": ["ancestor_statue", "constabulary", "market_wagons", "puppet_theater"]
+    "children": ["ancestor_statue", "constabulary", "market_wagons", "puppet_theater"],
+    "npcs": ["town_crier"]
   },
   {
     "identifier": "ancestor_statue",
@@ -54,14 +55,16 @@
     "title": "Nomad's Wagon",
     "description": "A dark-wood caravan decorated with brass fittings and hanging charms, positioned where afternoon light best displays its exotic wares. The merchant conducts business through a sliding panel beneath a striped awning, her collection of trinkets and talismans hanging from neat rows of hooks. A small brazier burns perpetually beside her counter, though its smoke seems to sink rather than rise.",
     "parent": "market_wagons",
-    "children": []
+    "children": [],
+    "npcs": ["nomad"]
   },
   {
     "identifier": "market_wagons__jeweler",
     "title": "Jeweler's Cart",
     "description": "A sturdy wagon converted into a makeshift workshop, its reinforced shutters bristling with locks. Crystals and precious stones catch the light from a hinged display case, though the most valuable pieces remain hidden in iron-bound boxes beneath the counter. An array of delicate tools hangs from the awning's support beam.",
     "parent": "market_wagons",
-    "children": []
+    "children": [],
+    "npcs": ["jeweler"]
   },
   {
     "identifier": "market_wagons__pet_store",
@@ -73,8 +76,8 @@
   {
     "identifier": "puppet_theater",
     "title": "Puppet Theater",
-    "description": "A derelict wooden structure whose peaked roof sags between decorative finials. The once-cheerful facade has rotted to reveal skeletal timbers, while fallen shutters lie half-buried in years of debris. Through broken windows, rows of empty benches face a stage where tattered curtains hang like forgotten funeral shrouds.",
-    "restored": "A charming oddity amid the hamlet's grimmer edifices, its peaked roof crowned with freshly painted finials. The restored facade displays whimsical carvings, while warm lamplight spills through diamond-paned windows. Inside, tiered benches face a proper stage where new velvet curtains frame performances that offer brief respite from the estate's horrors.",
+    "description": "A weathered wooden puppet booth, its window frame gaping darkly against rotting panels. Broken shutters lie among tangled puppet strings and discarded props below, while cobwebs drape the corners where once curtains hung.",
+    "restored": "A quaint puppet booth stands ready for performance, its window frame neatly bordered to create a proper stage for the puppeteer's art. Fresh paint brightens the panels, while new shutters and warm lamplight promise simple entertainments to come.",
     "parent": "town_square",
     "children": []
   }

@@ -11,7 +11,8 @@
     "title": "Graveyard",
     "description": "The Estate's historic burial ground sprawls across the southern hillside, climbing from the hamlet toward the abbey above. Ancient family plots and well-tended graves give way to newer, hastily dug resting places, their occupants claimed by recent horrors. Stone paths wind between monuments, while iron gates mark entrances to more specialized grounds.",
     "parent": "north_district",
-    "children": ["graveyard__cursed_grounds", "graveyard__memorial_grounds", "graveyard__keepers_cottage", "graveyard__ossuary", "graveyard__charnel_house"]
+    "children": ["graveyard__cursed_grounds", "graveyard__memorial_grounds", "graveyard__keepers_cottage", "graveyard__ossuary", "graveyard__charnel_house"],
+    "npcs": ["abbot"]
   },
   {
     "identifier": "graveyard__cursed_grounds",
@@ -57,7 +58,8 @@
     "title": "Abbey",
     "description": "A stern Gothic edifice that crowns the northern hill, its bell tower rising above the hamlet's other buildings. Stone steps lead up from the graveyard to its heavy oak doors, while stained glass windows cast colored light across all who enter.",
     "parent": "north_district",
-    "children": ["abbey__transept", "abbey__vestry", "abbey__cloister", "abbey__dorter", "abbey__scriptorium", "abbey__private_cells", "abbey__abbot_quarters", "abbey__bell_tower", "abbey__penance_chamber"]
+    "children": ["abbey__transept", "abbey__vestry", "abbey__cloister", "abbey__dorter", "abbey__scriptorium", "abbey__private_cells", "abbey__abbot_quarters", "abbey__bell_tower", "abbey__penance_chamber"],
+    "npcs": ["abbot"]
   },
   {
     "identifier": "abbey__transept",

@@ -7,7 +7,7 @@
     "nrChars": [2, 2],
     "keywords": ["Anecdote", "Gossip", "Joke", "Rumor"],
     "location": {
-        "default": ["manor_staircase"],
+        "default": ["yellow_hand"],
         "residence": [],
         "workplaces": [],
         "frequents": []
@@ -31,11 +31,11 @@
     "identifier": "debug_2",
     "title": "Exploration",
     "type": "town",
-    "summary": "[Characters] explore an area and its history.",
+    "summary": "[Characters] investigate the Location and its history, interrogating any present npcs.",
     "nrChars": [2, 3],
-    "keywords": ["Unwilling"],
+    "keywords": ["Searching"],
     "location": {
-        "default": [],
+        "default": ["yellow_hand", "abbey", "inn", "brothel"],
         "residence": [],
         "workplaces": [],
         "frequents": [1, 2, 3],

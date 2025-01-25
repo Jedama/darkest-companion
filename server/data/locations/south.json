@@ -27,7 +27,8 @@
     "title": "Mill Grounds",
     "description": "A stretch of farmland rescued from deeper corruption when the townspeople moved the Ancestor's ward stones inward, dragging the carved slabs through frozen wheat on creaking carts. Though crystalline growths still pierce the soil and the Miller's towering form stalks these grounds with hostile intent, his presence can be avoided by careful travelers. The new ward line holds just as strong as the original, preventing further corruption from spreading outward from the comet's impact site.",
     "parent": "south_district",
-    "children": ["mill", "tainted_well", "miasmal_orchard"]
+    "children": ["mill", "tainted_well", "miasmal_orchard"],
+    "npcs": ["miller_wife"]
   },
   {
     "identifier": "mill",

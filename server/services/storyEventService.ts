@@ -1,5 +1,6 @@
-import type { Estate, EventData, Character } from '../../shared/types/types.ts';
+import type { Estate, EventData, Character, NPC, LocationData } from '../../shared/types/types.ts';
 import { getInstructionsText, getContextText } from './narrativeData';
+import { loadNPCsByIds } from '../templateLoader';
 
 /**
  * compileStoryPrompt
@@ -8,17 +9,13 @@ import { getInstructionsText, getContextText } from './narrativeData';
  * For this first version, we’ll just handle [Instructions], [Characters], [Event], and [Keywords].
  * We’ll also inject minimal relationship data. You can expand it later with location, NPCs, enemies, etc.
  */
-export function compileStoryPrompt(
+export async function compileStoryPrompt(
   estate: Estate, 
   event: EventData, 
   chosenCharacterIds: string[],
-  location?: {  
-    identifier: string;
-    title: string;
-    description: string;
-    restored: string;
-  }
-): string {
+  locations: LocationData[],
+  npcIds: string[]
+): Promise<string> {
 
   // Function to replace placeholders like [Character ?] or [Characters] with corresponding names
   function replaceCharacterPlaceholders(summary: string, characters: Character[]): string {
@@ -45,8 +42,9 @@ export function compileStoryPrompt(
     return updatedSummary;
   }
 
-  // 1. Gather character data
+  // 1. Gather character and data
   const involvedCharacters: Character[] = chosenCharacterIds.map(id => estate.characters[id]);
+  const npcs: NPC[] = await loadNPCsByIds(npcIds);
 
   // 2. Build [Instructions] and [Context]
   const instructionsSection = getInstructionsText();
@@ -68,7 +66,7 @@ export function compileStoryPrompt(
     charactersSection += `  - Appearance: A ${char.appearance.height}, ${char.appearance.build} individual with ${char.appearance.skinTone} skin. ${char.appearance.hairStyle} ${char.appearance.hairColor} hair frames their ${char.appearance.features}.\n`;
 
     // Add clothing details
-    charactersSection += `  - Clothing: Wears a ${char.clothing.body}, paired with ${char.clothing.legs}. On their head, they wear ${char.clothing.head}. Additional details include ${char.clothing.other}.\n`;
+    charactersSection += `  - Clothing: Wears a ${char.clothing.top}, paired with ${char.clothing.pants}. On their head, they wear ${char.clothing.headwear}. Additional details include ${char.clothing.accessories}.\n`;
 
     // Add combat details
     charactersSection += `  - Combat: Fulfills the role of a ${char.combat.role}, excelling in ${char.combat.strengths.join(', ')}, but struggles with ${char.combat.weaknesses.join(', ')}.\n`;
@@ -103,18 +101,72 @@ export function compileStoryPrompt(
 
   // 5. Build [Location] section (if any)
   let locationSection = '';
-  if (location) {
-    const isRestored = location.restored && estate.restoredLocations?.includes(location.identifier);
-    const description = isRestored ? location.restored : location.description;
-    
-    locationSection = `[Location]
-Title: ${location.title}
+  if (locations && locations.length > 0) {
+    // Extract the primary location (first in the list)
+    const primaryLocation = locations[0];
+    const isRestored = primaryLocation.restored && estate.restoredLocations?.includes(primaryLocation.identifier);
+    const description = isRestored ? primaryLocation.restored : primaryLocation.description;
+
+    // Build the primary location section
+    locationSection += `[Location]
+Title: ${primaryLocation.title}
 Description: ${description}
 
 `;
+
+    // Add surrounding locations if there are more
+    if (locations.length > 1) {
+      locationSection += `Surrounding Locations:\n`;
+      for (let i = 1; i < locations.length; i++) {
+        const surroundingLocation = locations[i];
+        const isRestored = surroundingLocation.restored && estate.restoredLocations?.includes(surroundingLocation.identifier);
+        const surroundingDescription = isRestored ? surroundingLocation.restored : surroundingLocation.description;
+
+        locationSection += `- ${surroundingLocation.title}: ${surroundingDescription}\n`;
+      }
+    }
   }
 
-  // 6. Build [Event] section and replace placeholders
+  // 6. Load NPCs by ID
+  let npcSection = '';
+  if (npcs.length > 0) {
+    npcSection = `[NPCs]\n`;
+    for (const npc of npcs) {
+      // Main header with name and title
+      npcSection += `- ${npc.title} ${npc.name}\n`;
+      
+      // Indented summary
+      npcSection += `  ${npc.summary}\n`;
+      
+      // Compact appearance and traits section
+      const appearanceDetails = [
+        npc.appearance.height,
+        npc.appearance.build,
+        npc.appearance.features
+      ].filter(Boolean).join(', ');
+      
+      npcSection += `  Appearance: ${appearanceDetails}\n`;
+      
+      // Clothing as a single line
+      const attire = [
+        npc.clothing.headwear,
+        npc.clothing.top,
+        npc.clothing.pants,
+        npc.clothing.accessories
+      ].filter(Boolean).join(', ');
+      npcSection += `  Attire: ${attire}\n`;
+      
+      // Traits as a single line
+      if (npc.traits.length > 0) {
+        npcSection += `  Notable Traits: ${npc.traits.join(', ')}\n`;
+      }
+      
+      // Add spacing between NPCs
+      npcSection += '\n';
+    }
+  }
+
+  // 7. Build [Event] section and replace placeholders
   const eventSummaryWithReplacements = replaceCharacterPlaceholders(event.summary, involvedCharacters);
   const eventSection = `[Event]
 Title: "${event.title}"
@@ -122,19 +174,20 @@ Summary: ${eventSummaryWithReplacements}
 
 `;
 
-  // 7. Build [Modifiers] section (if any)
+  // 8. Build [Modifiers] section (if any)
   let keywordsSection = '';
   if (event.keywords && event.keywords.length > 0) {
     keywordsSection = `[Modifiers]\n${event.keywords.join(', ')}\n\n`;
   }
 
-  // 8. Combine everything
+  // 9. Combine everything
   const fullPrompt =
     instructionsSection +
     contextSection +
     charactersSection +
     locationSection +
     eventSection +
+    npcSection +
     keywordsSection;
 
   console.log(fullPrompt);

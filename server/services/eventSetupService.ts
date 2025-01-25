@@ -1,6 +1,6 @@
 import { loadEstate, saveEstate } from '../fileOps';
 import { loadEventTemplatesForCategory, loadTownKeywords, loadAllLocations, loadLocation } from '../templateLoader';
-import { Estate, EventData, EventRecord } from '../../shared/types/types';
+import { Estate, EventData, EventRecord, LocationData } from '../../shared/types/types';
 import { pickEventLocation } from './locationService';
 
 /**
@@ -93,10 +93,8 @@ export function pickKeywords(
 export async function setupRandomEvent(estateName: string): Promise<{
   event: EventData;
   chosenCharacterIds: string[];
-  location?: {
-    title: string;
-    description: string;
-  };
+  locations: LocationData[];
+  npcs: string[];
 }> {
   // 1. Load the estate
   const estate = await loadEstate(estateName);
@@ -123,16 +121,19 @@ export async function setupRandomEvent(estateName: string): Promise<{
   // 5. Pick random characters
   const chosenCharacterIds = pickRandomCharacters(estate, nrCharsRange);
 
-  // 6. Load location information
-  let location;
+  // 6. Load location information and NPCs
+  let locations: LocationData[] = [];
+  let npcs: string[] = [];
   if (event.location) {
-    const locationId = await pickEventLocation(event, 
-      chosenCharacterIds.map(id => estate.characters[id]),
-      await loadAllLocations() // Need to add this to templateLoader
+    const result = await pickEventLocation(
+      event,
+      chosenCharacterIds.map((id) => estate.characters[id]),
+      await loadAllLocations()
     );
-    location = await loadLocation(locationId);
+    locations = result.locations;
+    npcs = result.npcs;
   }
 
   // Return the data for the route handler (or the next step)
-  return { event, chosenCharacterIds, location: location || undefined };
+  return { event, chosenCharacterIds, locations, npcs };
 }

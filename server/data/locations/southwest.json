@@ -11,7 +11,8 @@
     "title": "Stagecoach",
     "description": "A black, dignified conveyance bears the Estate's crest upon its door, brass fittings gleaming dully in the lantern light. A simpler wagon draped in weathered cloth stands tucked behind it, ready for when the Caretaker's maddened driving leaves the sturdier one collapsed in some distant ditch. Fresh horses stamp nervously in their traces, sensing what their predecessors learned too late about the Estate's paths.",
     "parent": "southwest_district",
-    "children": []
+    "children": [],
+    "npcs": ["caretaker"]
   },
   {
     "identifier": "omen_seeker_wagon",
@@ -33,7 +34,8 @@
     "title": "Wainwright's Workshop",
     "description": "A long building of weathered stone whose walls bear the scars of countless wheel-iron fittings. Through tall doors, the grinding of lathe and rasp mingles with the rhythmic striking of Marcus's hammer against iron rims. The yard holds neat stacks of seasoned wood for spokes and axles, while inside, wheels of all sizes hang from chains like strange trophies, awaiting their turn on the repair rack.",
     "parent": "southwest_district",
-    "children": []
+    "children": [],
+    "npcs": ["wainwright"]
   },
   {
     "identifier": "alley",
@@ -47,7 +49,8 @@
     "title": "Inn",
     "description": "A peculiar structure of two asymmetric towers bridged across the Old Road's entrance to the hamlet. The northern tower stands broader but lower, its massive chimney perpetually smoking, while the southern tower rises higher with multiple gables and dormers crowned with wrought-iron finials. A narrow covered bridge spans between their first floors, its shadows falling across the weathered cobblestones below.",
     "parent": "southwest_district",
-    "children": ["inn__north", "inn__south", "inn__bridge"]
+    "children": ["inn__north", "inn__south", "inn__bridge"],
+    "npcs": ["innkeeper"]
   },
   {
     "identifier": "inn__north",
@@ -190,7 +193,8 @@
     "title": "The Brothel",
     "description": "A tall, narrow building whose respectable facade belies its nature, marked only by a simple sign bearing an inverted cross and its name The Vestal's Secret. Glazed windows catch lamplight without revealing the activities within. The upper floors lean slightly over the alley, their weathered shutters perpetually closed against prying eyes.",
     "parent": "southwest_district",
-    "children": ["brothel__reception", "brothel__dukes_chamber", "brothel__earls_chamber", "brothel__viscounts_chamber", "brothel__counts_chamber", "brothel__barons_chamber", "brothel__dormitory", "brothel__powder_room", "brothel__madams_quarters"]
+    "children": ["brothel__reception", "brothel__dukes_chamber", "brothel__earls_chamber", "brothel__viscounts_chamber", "brothel__counts_chamber", "brothel__barons_chamber", "brothel__dormitory", "brothel__powder_room", "brothel__madams_quarters"],
+    "npcs": ["brothel_keeper"]
   },
   {
     "identifier": "brothel__reception", 
@@ -261,7 +265,8 @@
     "title": "Tavern",
     "description": "A timber-framed establishment whose weathered sign still bears the faded name \"The Keening Well.\" The ground floor's tall windows cast long shadows across drink-stained tables, while a modest stage occupies one corner beneath a narrow balcony. The bar stretches along the back wall and curves into the gambling section, its brass fittings dulled by years of polishing, while creaking stairs lead to both the upper rooms and the cellar below.",
     "parent": "southwest_district",
-    "children": ["tavern__main", "tavern__kitchen", "tavern__bear_room", "tavern__stag_room", "tavern__wolf_room", "tavern__barkeep_chamber", "tavern__cook_quarter"]
+    "children": ["tavern__main", "tavern__kitchen", "tavern__bear_room", "tavern__stag_room", "tavern__wolf_room", "tavern__barkeep_chamber", "tavern__cook_quarter"],
+    "npcs": ["barkeep"]
   },
   {
     "identifier": "tavern__main",
@@ -296,7 +301,7 @@
   {
     "identifier": "tavern__wolf_room",
     "title": "Wolf Room",
-    "description": "The smallest but most defensible of the rooms, tucked into the building's corner. Its narrow window and reinforced door suggest priorities beyond comfort, though the bed remains well-maintained.",
+    "description": "The smallest but sturdiest of the Inn's rooms, tucked into the building's corner. Its narrow window and reinforced door suggest privacy or paranoia, and are hired out to the most reclusive guests visiting the Hamlet. The bed is narrow and tall enough to require steps, while the room's only decoration is a small painting of a wolf in a forest, under moonlight.",
     "parent": "tavern",
     "children": [],
     "capacity": 1
@@ -322,7 +327,8 @@
     "title": "Butcher's Circus",
     "description": "A blood-sport arena that sprawls across the hamlet's southwestern edge, its crimson and black pavilion tents rising like dark sails against the sky. Iron chains link the various structures, strung with flags bearing the marks of fallen champions. The metallic scent of blood mingles with sawdust and torch smoke, while the Ringmaster's laughter carries across the grounds.",
     "parent": "southwest_district",
-    "children": ["butchers_circus__arena", "butchers_circus__twins_post", "butchers_circus__banner_workshop", "butchers_circus__ringmaster_wagon", "butchers_circus__performers_quarter"]
+    "children": ["butchers_circus__arena", "butchers_circus__twins_post", "butchers_circus__banner_workshop", "butchers_circus__ringmaster_wagon", "butchers_circus__performers_quarter"],
+    "npcs": ["circus_twins"]
   },
   {
     "identifier": "butchers_circus__arena",

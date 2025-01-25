@@ -16,7 +16,7 @@
     "skinTone": "Leathery",
     "hairColor": "Grey-streaked red",
     "hairStyle": "Close-cropped",
-    "facial_features": "Thick beard, anchor tattoo on forearm, pronounced limp"
+    "features": "Thick beard, anchor tattoo on forearm, pronounced limp"
   },
   "clothing": {
     "headwear": "Knit cap",
@@ -25,7 +25,7 @@
     "accessories": "Pipe, ring of keys"
   },
   "notes": [
-    "Uses a gnarled cane to walk",
+    "Rests both hands on his gnarled walking cane",
     "Maintains a collection of objects recovered from the shore",
     "Spends many evenings smoking with Gus at the Blacksmith"
   ]

@@ -1,7 +1,7 @@
 {
   "estateName": "Forliew",
   "money": 0,
-  "month": 0,
+  "month": 1,
   "characters": {
     "crusader": {
       "identifier": "crusader",

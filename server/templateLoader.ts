@@ -7,6 +7,7 @@ import type {
   Character,
   CharacterRecord,
   Relationship,
+  NPC,
   EventData,
   EventRecord,
   LocationData
@@ -17,6 +18,7 @@ const __dirname = dirname(__filename);
 
 const TEMPLATES_DIR = path.join(__dirname, 'data', 'templates');
 const CHARACTER_DIR = path.join(__dirname, 'data', 'templates', 'characters');
+const NPCS_DIR = path.join(__dirname, 'data', 'npcs', 'town');
 const DEFAULT_RELATIONSHIPS_FILE = path.join(TEMPLATES_DIR, 'defaultRelationships.json');
 
 // Where your events live
@@ -238,11 +240,50 @@ export async function loadAllLocations(): Promise<LocationData[]> {
 }
 
 export async function loadLocation(locationId: string): Promise<LocationData | null> {
-    try {
-        const allLocations = await loadAllLocations();
-        return allLocations.find(loc => loc.identifier === locationId) || null;
-    } catch (error) {
-        console.error(`Error loading location ${locationId}:`, error);
-        throw error;
+  try {
+      const allLocations = await loadAllLocations();
+      return allLocations.find(loc => loc.identifier === locationId) || null;
+  } catch (error) {
+      console.error(`Error loading location ${locationId}:`, error);
+      throw error;
+  }
+}
+
+/* -------------------------------------------------------------------
+ *  NPCs
+ * ------------------------------------------------------------------- */
+
+/**
+ * Loads all NPC data files into a record indexed by their identifier.
+ */
+export async function loadAllNPCs(): Promise<Record<string, NPC>> {
+  try {
+    const files = await readdir(NPCS_DIR);
+    const npcFiles = files.filter(file => file.endsWith('.json'));
+
+    const allNPCs: Record<string, NPC> = {};
+
+    for (const file of npcFiles) {
+      const content = await readFile(path.join(NPCS_DIR, file), 'utf-8');
+      const npcData: NPC = JSON.parse(content);
+
+      allNPCs[npcData.identifier] = npcData;
     }
+
+    return allNPCs;
+  } catch (error) {
+    console.error('Error loading NPCs:', error);
+    throw error;
+  }
+}
+
+/**
+ * Loads specific NPCs by their identifiers.
+ */
+export async function loadNPCsByIds(npcIds: string[]): Promise<NPC[]> {
+  const allNPCs = await loadAllNPCs();
+
+  return npcIds
+    .map(id => allNPCs[id])
+    .filter((npc): npc is NPC => !!npc); // Filter out undefined entries
 }

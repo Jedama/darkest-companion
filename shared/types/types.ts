@@ -27,10 +27,10 @@ export interface Appearance {
 }
 
 export interface Clothing {
-  head: string;
-  body: string;
-  legs: string;
-  other: string;
+  headwear: string;
+  top: string;
+  pants: string;
+  accessories: string;
 }
 
 export interface Combat {
@@ -74,6 +74,18 @@ export interface Character {
   magic: string;
   notes: string[];
   relationships: Record<string, Relationship>;
+}
+
+export interface NPC {
+  identifier: string;
+  title: string;
+  name: string;
+  summary: string;
+  history: string;
+  traits: string[];
+  appearance: Appearance;
+  clothing: Clothing;
+  notes: string[];
 }
 
 // Utility type for storing multiple characters by their identifier
