@@ -75,7 +75,7 @@
     "children": []
   },
   {
-    "identifier": "ravens_row__merchant_house",
+    "identifier": "ravens_row__merchant",
     "title": "Merchant's Row House",
     "description": "The grandest of Raven's Row's surviving townhouses, built to display its original owner's prosperity. Three stories of faded elegance rise above a small courtyard, its distinctive bay windows offering views down to the harbor. Though time has dulled its decorative flourishes, the spacious rooms and practical storage spaces remain appealing to those of mercantile inclination.",
     "parent": "ravens_row",
@@ -83,7 +83,7 @@
     "children": []
   },
   {
-    "identifier": "ravens_row__cryptographer_house",
+    "identifier": "ravens_row__cryptographer",
     "title": "Cryptographer's Residence",
     "description": "A peculiar narrow house whose previous owner's paranoia proved surprisingly practical. Multiple locks secure every door, hidden compartments riddle the walls, and curious mechanical features suggest secrets yet undiscovered. Despite its oddities - or perhaps because of them - the house remains surprisingly well-preserved.",
     "parent": "ravens_row",
@@ -91,7 +91,7 @@
     "children": []
   },
   {
-    "identifier": "ravens_row__professor_villa",
+    "identifier": "ravens_row__professor",
     "title": "Professor's Villa",
     "description": "The last grand house before the ruins begin. Its northern wing lies collapsed where the horrors first struck, but the surviving rooms retain their dignified character - wood-paneled studies and book-lined walls speaking to quieter days. The original occupant, like many of the district's prestigious inhabitants, now rests beneath a wooden cross on the abbey's northern slope.",
     "parent": "ravens_row",
@@ -103,7 +103,8 @@
     "title": "Schoolhouse",
     "description": "Set apart from the main street in its own small courtyard, the hamlet's schoolhouse endures despite all odds. The Caretaker maintains a semblance of education here between his other duties, his rambling lectures occasionally straying from arithmetic to apocalyptic prophecy. Despite the stains on the ceiling and the occasional inexplicable scratching from within the walls, the neat rows of desks and determinedly organized shelves of primers suggest an institution refusing to succumb to the surrounding chaos.",
     "parent": "north_east_district",
-    "children": []
+    "children": [],
+    "npcs": ["caretaker"]
   },
   {
     "identifier": "manor_staircase",

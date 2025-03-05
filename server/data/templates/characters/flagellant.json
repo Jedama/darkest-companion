@@ -23,7 +23,7 @@
       "mental": 100,
       "affliction": "",
       "description": "In good health and high spirits",
-      "wounds": ["Self-inflicted lash marks"],
+      "wounds": [],
       "diseases": []
     },
     "stats": {
@@ -43,12 +43,12 @@
       "skinTone": "Pale, marked with scars",
       "hairColor": "Black",
       "hairStyle": "Short and patchy",
-      "features": "Pronounced lips and chin"
+      "features": "Pronounced lips and chin, scars on his back"
     },
     "clothing": {
-      "headwear": "Hood",
-      "top": "Tattered, blood-stained robes",
-      "pants": "Simple, worn trousers",
+      "head": "Hood",
+      "body": "Tattered, blood-stained robes",
+      "legs": "Simple, worn trousers",
       "accessories": "Spiked crown-like collar"
     },
     "combat": {

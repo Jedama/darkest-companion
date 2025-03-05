@@ -43,9 +43,9 @@
     "features": "angular face with soft features, large chest"
   },
   "clothing": {
-    "headwear": "Plague Doctor mask",
-    "top": "Green coat with spiked leather pauldrons",
-    "pants": "Bandages",
+    "head": "Plague Doctor mask",
+    "body": "Green coat with spiked leather pauldrons",
+    "legs": "Bandages",
     "accessories": "Sachets"
   },
   "combat": {

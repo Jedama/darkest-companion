@@ -45,9 +45,9 @@
         "features": "Attractive jawline, well-defined face"
     },
     "clothing": {
-        "headwear": "None",
-        "top": "Open black jacket",
-        "pants": "Black pants with red sash",
+        "head": "None",
+        "body": "Open black jacket",
+        "legs": "Black pants with red sash",
         "accessories": "None"
     },
     "combat": {

@@ -18,9 +18,9 @@
     "features": "Bushy mustache and distinctive claw scars running down right arm"
   },
   "clothing": {
-    "headwear": "None",
-    "top": "Leather vest over a white linen shirt",
-    "pants": "Sturdy brown trousers",
+    "head": "None",
+    "body": "Leather vest over a white linen shirt",
+    "legs": "Sturdy brown trousers",
     "accessories": "Golden earrings in both ears"
   },
   "notes": [

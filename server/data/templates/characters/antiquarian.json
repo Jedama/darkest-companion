@@ -5,7 +5,7 @@
     "level": 0,
     "money": 0,
     "summary": "The Antiquarian is a cunning and morally ambiguous character driven by an insatiable greed for valuable artifacts and occult knowledge. Her pursuit of power and wealth leads her to dark places, both literally and figuratively. She has arrived at the estate to pilfer the Ancestor's relics, and in search of the final piece of a mysterious puzzle box.",
-    "history": "Originally from the East, the Antiquarian has traveled the world trading in supernatural relics. She became a disciple to a sorcerer to advance her knowledge of the arcane, only to betray and imprison him in a censer during a ritual. Her past is marked by self-serving decisions and a willingness to sacrifice others for her goals.",
+    "history": "Originally from the deserts around the Levantine Sultanate, the Antiquarian has traveled the world trading in supernatural relics. She became a disciple to a sorcerer to advance her knowledge of the arcane, only to betray and imprison him in a censer during a ritual. Her past is marked by self-serving decisions and a willingness to sacrifice others for her goals.",
     "race": "Human",
     "gender": "Female",
     "religion": "None",
@@ -46,9 +46,9 @@
         "features": "Long fingers"
     },
     "clothing": {
-        "headwear": "Blue bandana",
-        "top": "Light-colored robe",
-        "pants": "Light pants",
+        "head": "Blue bandana",
+        "body": "Light-colored robe",
+        "legs": "Light pants",
         "accessories": "Orange scarf covering lower face, multiple necklaces"
     },
     "combat": {

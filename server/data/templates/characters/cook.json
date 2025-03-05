@@ -47,9 +47,9 @@
         "features": "White eyebrows, age lines, defined cheekbones"
     },
     "clothing": {
-        "headwear": "Goggles",
-        "top": "Apron over a tan tunic",
-        "pants": "Dark trousers",
+        "head": "Goggles",
+        "body": "Apron over a tan tunic",
+        "legs": "Dark trousers",
         "accessories": "Red sash, Necklace with pendant"
     },
     "combat": {

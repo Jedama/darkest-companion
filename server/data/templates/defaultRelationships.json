@@ -3,7 +3,7 @@
     "kheir": {
       "affinity": 8,
       "dynamic": "Familial",
-      "description": "Despite a cold exterior and a lifetime of bickering, the heiress loves and will not let harm come upon the kheir."
+      "description": "Despite a cold exterior and a lifetime of bickering, the heiress loves and will not let harm come upon the Heir."
     },
     "crusader": {
       "affinity": 5,
@@ -35,7 +35,7 @@
     "kheir": {
       "affinity": 4,
       "dynamic": "Skeptical",
-      "description": "While the crusader intends to uphold his duty with silent diligence, he realizes the meek kheir is unfit to lead."
+      "description": "While the crusader intends to uphold his duty with silent diligence, he realizes the meek Heir is unfit to lead."
     },
     "highwayman": {
       "affinity": 7,
@@ -57,7 +57,7 @@
     "kheir": {
       "affinity": 3,
       "dynamic": "Guardian",
-      "description": "Despite the kheir's distrust, the highwayman is resolute in his role as a guard, seeing their safety as his path to absolution."
+      "description": "Despite the Heir's distrust, the highwayman is resolute in his role as a guard, seeing their safety as his path to absolution."
     },
     "crusader": {
       "affinity": 7,
@@ -69,17 +69,17 @@
     "heiress": {
       "affinity": 8,
       "dynamic": "Familial",
-      "description": "The Heir admires, and is deeply jealous of, his sister's strength and ability to take initiative. Despite their fierce bickering, the kheir loves his sister."
+      "description": "The Heir admires, and is deeply jealous of, his sister's strength and ability to take initiative. Despite their fierce bickering, the Heir loves his sister."
     },
     "crusader": {
       "affinity": 4,
       "dynamic": "Cautious respect",
-      "description": "Though he recognizes the crusader's potential, the kheir is dubious over the trustworthiness of this new guard."
+      "description": "Though he recognizes the crusader's potential, the Heir is dubious over the trustworthiness of this new guard."
     },
     "highwayman": {
       "affinity": 2,
       "dynamic": "Distrustful",
-      "description": "The kheir is distrusting towards the highwayman, fearing that the rugged man will betray them and steal his possessions."
+      "description": "The Heir is distrusting towards the highwayman, fearing that the rugged man will betray them and steal his possessions."
     },
     "hqclaimants": {
       "affinity": 2,

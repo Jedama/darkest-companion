@@ -19,9 +19,9 @@
     "features": "Patchy mutton chops"
   },
   "clothing": {
-    "headwear": "None",
-    "top": "Coat with tarnished brass buttons",
-    "pants": "Wrinkled breeches",
+    "head": "None",
+    "body": "Coat with tarnished brass buttons",
+    "legs": "Wrinkled breeches",
     "accessories": "Frayed cravat"
   },
   "notes": [

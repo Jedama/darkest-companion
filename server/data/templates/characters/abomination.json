@@ -1,72 +1,72 @@
 {
-    "identifier": "abomination",
-    "title": "Abomination",
-    "name": "Bigby",
-    "level": 0,
-    "money": 0,
-    "summary": "A tormented shapeshifter cursed with eldritch powers. Bigby struggles to control the monstrous force within him, oscillating between his human form and a terrifying bestial transformation. His tragic past and internal conflict make him a dangerous but potentially powerful ally.",
-    "history": "Beaten, branded, and imprisoned for untold decades, Bigby eventually escaped his confinement. He carries the burden of an eldritch curse that gives him immense power at a terrible cost. The scars of his imprisonment and the constant battle with his inner demon have shaped him into a conflicted and dangerous individual.",
-    "race": "Eldritch shapeshifter",
-    "gender": "Male",
-    "religion": "The Light",
-    "zodiac": "Scorpio",
-    "traits": [
-        "Tormented",
-        "Aggressive",
-        "Paranoid",
-        "Resilient",
-        "Conflicted"
+  "identifier": "abomination",
+  "title": "Abomination",
+  "name": "Bigby",
+  "level": 0,
+  "money": 0,
+  "summary": "A tormented shapeshifter cursed with eldritch powers. Bigby struggles to control the monstrous force within him, oscillating between his human form and a terrifying bestial transformation. His tragic past and internal conflict make him a dangerous but potentially powerful ally.",
+  "history": "Beaten, branded, and imprisoned for untold decades, Bigby eventually escaped his confinement. He carries the burden of an eldritch curse that gives him immense power at a terrible cost. The scars of his imprisonment and the constant battle with his inner demon have shaped him into a conflicted and dangerous individual.",
+  "race": "Eldritch shapeshifter",
+  "gender": "Male",
+  "religion": "The Light",
+  "zodiac": "Scorpio",
+  "traits": [
+    "Tormented",
+    "Aggressive",
+    "Paranoid",
+    "Resilient",
+    "Conflicted"
+  ],
+  "status": {
+    "physical": 100,
+    "mental": 100,
+    "affliction": "",
+    "description": "In good health and high spirits",
+    "wounds": [],
+    "diseases": []
+  },
+  "stats": {
+    "strength": 9,
+    "agility": 6,
+    "intelligence": 5,
+    "authority": 3,
+    "sociability": 2
+  },
+  "equipment": [
+    "Cursed chains"
+  ],
+  "appearance": {
+    "height": "Tall",
+    "build": "Muscular",
+    "skinTone": "Pale",
+    "hairColor": "Dark",
+    "hairStyle": "Unkempt asymmetrical undercut",
+    "features": "A-shaped scar on his head"
+  },
+  "clothing": {
+    "head": "None",
+    "body": "Tattered cloak",
+    "legs": "Worn trousers",
+    "accessories": "Chains wrapped around torso and arms"
+  },
+  "combat": {
+    "role": "Fighter",
+    "strengths": [
+      "Immense physical strength in beast form",
+      "Regenerative abilities",
+      "Resilience"
     ],
-    "status": {
-        "physical": 100,
-        "mental": 100,
-        "affliction": "",
-        "description": "In good health and high spirits",
-        "wounds": ["Has an A-shaped scar on his head"],
-        "diseases": []
-    },
-    "stats": {
-        "strength": 9,
-        "agility": 6,
-        "intelligence": 5,
-        "authority": 3,
-        "sociability": 2
-    },
-    "equipment": [
-        "Cursed chains"
-    ],
-    "appearance": {
-        "height": "Tall",
-        "build": "Muscular",
-        "skinTone": "Pale",
-        "hairColor": "Dark",
-        "hairStyle": "Unkempt asymmetrical undercut",
-        "features": "Stubble"
-    },
-    "clothing": {
-        "headwear": "None",
-        "top": "Tattered cloak",
-        "pants": "Worn trousers",
-        "accessories": "Chains wrapped around torso and arms"
-    },
-    "combat": {
-        "role": "Fighter",
-        "strengths": [
-            "Immense physical strength in beast form",
-            "Regenerative abilities",
-            "Resilience"
-        ],
-        "weaknesses": [
-            "Lack of control",
-            "Prone to berserk rages",
-            "Weak in human form"
-        ]
-    },
-    "magic": "Eldritch transformation",
-    "notes": [
-        "Fears losing control and harming allies",
-        "Has a soft voice and doesn't curse"
-    ],
+    "weaknesses": [
+      "Lack of control",
+      "Prone to berserk rages",
+      "Weak in human form"
+    ]
+  },
+  "magic": "Eldritch transformation",
+  "notes": [
+    "Keeps his arms locked up, with little room for movement",
+    "Has a soft voice and doesn't curse"
+  ],
     "relationships": {
-    }
+  }
 }

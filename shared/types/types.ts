@@ -27,9 +27,9 @@ export interface Appearance {
 }
 
 export interface Clothing {
-  headwear: string;
-  top: string;
-  pants: string;
+  head: string;
+  body: string;
+  legs: string;
   accessories: string;
 }
 

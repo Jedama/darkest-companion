@@ -19,9 +19,9 @@
     "features": "Thick beard, anchor tattoo on forearm, pronounced limp"
   },
   "clothing": {
-    "headwear": "Knit cap",
-    "top": "Heavy wool coat",
-    "pants": "Dark trousers",
+    "head": "Knit cap",
+    "body": "Heavy wool coat",
+    "legs": "Dark trousers",
     "accessories": "Pipe, ring of keys"
   },
   "notes": [

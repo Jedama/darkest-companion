@@ -46,9 +46,9 @@
       "features": "Deep-set eyes, pronounced chin"
   },
   "clothing": {
-    "headwear": "Hooded robe and wimple",
-    "top": "Chestplate emphasizing breasts",
-    "pants": "Sacred robe",
+    "head": "Hooded robe and wimple",
+    "body": "Chestplate emphasizing breasts",
+    "legs": "Sacred robe",
     "accessories": "Pauldrons, gloves"
   },
   "combat": {

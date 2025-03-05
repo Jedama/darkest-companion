@@ -19,9 +19,9 @@
     "features": "Cross-shaped scar on right cheek"
   },
   "clothing": {
-    "headwear": "Green headband",
-    "top": "Light brigandine with turquoise accents",
-    "pants": "Leather and mail greaves",
+    "head": "Green headband",
+    "body": "Light brigandine with turquoise accents",
+    "legs": "Leather and mail greaves",
     "accessories": "Multiple weapon sheaths, training whistle"
   },
   "notes": [

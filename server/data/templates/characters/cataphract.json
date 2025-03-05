@@ -4,7 +4,7 @@
     "name": "Nyriad & Cargadon",
     "level": 0,
     "money": 0,
-    "summary": "The Cataphract is a formidable mounted warrior from the Levantine Sultanate, bonded with her supernatural horse. Together they form an unstoppable cavalry unit, using their combined skills to charge into battle and vanquish foes.",
+    "summary": "The Cataphract is a formidable mounted warrior from the Levantine Sultanate, bonded with the spirit of her horse whose skull she always carries around. In battle, it transforms into a spectral steed of blue flames to assist the Cataphract in battle. Together they form an unstoppable cavalry unit, using their combined skills to charge into battle and vanquish foes.",
     "history": "Once a respected warrior of the Levantine Sultanate, the Cataphract's life changed when her beloved horse was fatally wounded. Desperate, she stole a powerful artifact to revive him, resulting in their exile. Now the spirit of the horse speaks to her, and they fight together against the horrors of the estate.",
     "race": "Human",
     "gender": "Female",
@@ -35,7 +35,7 @@
     },
     "equipment": [
       "Spear",
-      "Splint mail armor",
+      "Longbow",
       "Banner"
     ],
     "appearance": {
@@ -47,9 +47,9 @@
       "features": "Angular facial structure and prominent cheekbones"
     },
     "clothing": {
-      "headwear": "Plumed helmet",
-      "top": "Splint mail armor",
-      "pants": "Riding leathers",
+      "head": "Plumed helmet",
+      "body": "Splint mail armor",
+      "legs": "Riding leathers",
       "accessories": "Red scarf"
     },
     "combat": {

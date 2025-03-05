@@ -1,4 +1,4 @@
-import { Character, EventData, LocationData } from '../../shared/types/types';
+import { Character, EventData, LocationData } from '../../../shared/types/types';
 
 interface ProcessedLocation {
   baseScore: number;
@@ -141,17 +141,12 @@ export function scoreLocations(
   }
 
   // 1) Initialize default locations with base scores
-  console.log('\nProcessing default locations:');
   for (const loc of defaultLocations) {
-    console.log(`\nDefault location: ${loc.identifier}`);
     processedLocations.set(loc, { baseScore: DEFAULT_SCORE, sharedCount: 0 });
-    console.log(`Set base score: ${DEFAULT_SCORE}`);
   }
 
   // 2) Process each character's known/potential locations
-  console.log('\nProcessing character locations:');
   characters.forEach((char, charIndex) => {
-    console.log(`\nProcessing character: ${char.name}`);
     const charLocations = getCharacterLocations(char, charIndex, event, locationMap);
     const processedForChar = new Set<LocationData>();
 
@@ -164,17 +159,8 @@ export function scoreLocations(
         if (existing) {
           existing.baseScore += BASE_SCORE;
           existing.sharedCount++;
-          console.log(
-            `Location ${loc.identifier}: ` +
-            `Added base score (new total: ${existing.baseScore}), ` +
-            `incremented shared count to ${existing.sharedCount}`
-          );
         } else {
           processedLocations.set(loc, { baseScore: BASE_SCORE, sharedCount: 1 });
-          console.log(
-            `Location ${loc.identifier}: ` +
-            `Set initial base score ${BASE_SCORE}, shared count 1`
-          );
         }
 
         // Process parents only if allowed
@@ -190,20 +176,11 @@ export function scoreLocations(
               if (existingParent) {
                 existingParent.baseScore += parentScore;
                 existingParent.sharedCount++;
-                console.log(
-                  `Parent ${parentLoc.identifier}: ` +
-                  `Added score ${parentScore} (total: ${existingParent.baseScore}), ` +
-                  `incremented shared count to ${existingParent.sharedCount}`
-                );
               } else {
                 processedLocations.set(parentLoc, {
                   baseScore: parentScore,
                   sharedCount: 1
                 });
-                console.log(
-                  `Parent ${parentLoc.identifier}: ` +
-                  `Set initial score ${parentScore}, shared count 1`
-                );
               }
 
               processedForChar.add(parentLoc);
@@ -219,7 +196,6 @@ export function scoreLocations(
   });
 
   // 3) Calculate final numeric scores from our processed data
-  console.log('\nCalculating final scores:');
   const finalScores = new Map<LocationData, number>();
 
   for (const [loc, data] of processedLocations) {
@@ -229,12 +205,6 @@ export function scoreLocations(
       : 1;
     const finalScore = data.baseScore * multiplier;
     finalScores.set(loc, finalScore);
-
-    console.log(`${loc.identifier}:`);
-    console.log(`  Base Score: ${data.baseScore}`);
-    console.log(`  Shared Count: ${data.sharedCount}`);
-    console.log(`  Multiplier: ${multiplier}`);
-    console.log(`  Final Score: ${finalScore}`);
   }
 
   return finalScores;
@@ -245,20 +215,15 @@ export function scoreLocations(
  * weighted by its score.
  */
 export function pickWeightedLocation(scores: Map<LocationData, number>): LocationData {
-  console.log('\n=== Picking Weighted Location ===');
 
   // Convert the Map into arrays for iteration
   const entries = Array.from(scores.entries());
   const totalScore = entries.reduce((sum, [, score]) => sum + score, 0);
-  console.log(`Total score across all locations: ${totalScore}`);
 
   let random = Math.random() * totalScore;
-  console.log(`Random value: ${random}`);
 
   for (const [location, score] of entries) {
-    console.log(`${location.identifier}: score ${score}`);
     random -= score;
-    console.log(`Remaining random value: ${random}`);
     if (random <= 0) {
       console.log(`Selected location: ${location.identifier}`);
       return location;

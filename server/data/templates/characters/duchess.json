@@ -45,9 +45,9 @@
         "features": "Large chest"
     },
     "clothing": {
-        "headwear": "Large, angular helmet that hides everything but her toothy mouth",
-        "top": "Tight corset showing ample cleavage",
-        "pants": "Tattered dress reinforced with metal plates",
+        "head": "Large, angular helmet that hides everything but her toothy mouth",
+        "body": "Tight corset showing ample cleavage",
+        "legs": "Tattered dress reinforced with metal plates",
         "accessories": "None"
     },
     "combat": {

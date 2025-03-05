@@ -18,9 +18,9 @@
     "features": "Visible burn scars on neck and hands"
   },
   "clothing": {
-    "headwear": "None",
-    "top": "Brown tunic with singed cuffs",
-    "pants": "Dark wool trousers",
+    "head": "None",
+    "body": "Brown tunic with singed cuffs",
+    "legs": "Dark wool trousers",
     "accessories": "Wide belt"
   },
   "notes": [

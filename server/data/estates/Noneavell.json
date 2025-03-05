@@ -1,0 +1,1078 @@
+{
+  "estateName": "Noneavell",
+  "money": 0,
+  "month": 3,
+  "characters": {
+    "crusader": {
+      "identifier": "crusader",
+      "title": "Crusader",
+      "name": "Reynauld",
+      "level": 0,
+      "money": 0,
+      "summary": "Once a simple farmer who joined the war to save his family from famine, Reynauld rose unexpectedly through martial prowess to become a legendary commander. The horrors he witnessed and his own transformation into a hardened warrior left him unable to return to his former life. His peculiar habit of collecting trinkets from fallen enemies and his distinctive whistling became well-known among his men. Now drawn to the Estate, he seeks not holy war but a deeper purpose in combating forces that threaten the very fabric of humanity.",
+      "history": "Born to till the soil, Reynauld lived a peaceful life with his wife and young son until famine threatened their survival. He joined the army as a conscript, leaving behind promises of return. His natural leadership and battlefield courage saw him rise from farmer to feared commander. In a pivotal moment, he spared The Warlord, recognizing the futility of endless conflict. This act, coupled with his growing disillusionment, led him to abandon both the war and thoughts of returning home, knowing he could no longer fit into that simple life.",
+      "race": "Human",
+      "gender": "Male",
+      "religion": "The Light",
+      "zodiac": "Leo",
+      "traits": [
+        "Devoted",
+        "Stalwart",
+        "Inspiring",
+        "Kleptomanic",
+        "Conflicted"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spitits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 8,
+        "agility": 3,
+        "intelligence": 5,
+        "authority": 7,
+        "sociability": 4
+      },
+      "equipment": [
+        "Holy Sword (family heirloom)",
+        "Crusader Armor",
+        "Holy Banners",
+        "Sacred Scrolls"
+      ],
+      "appearance": {
+        "height": "Tall",
+        "build": "Muscular",
+        "skinTone": "Fair",
+        "hairColor": "Black",
+        "hairStyle": "Short",
+        "features": "Full beard"
+      },
+      "clothing": {
+        "head": "Steel helm",
+        "body": "Chainmail hauberk",
+        "legs": "Mail chausses",
+        "other": "Purple tunic with a white cross"
+      },
+      "combat": {
+        "role": "Warrior",
+        "strengths": [
+          "Leadership",
+          "Endurance",
+          "Martial prowess"
+        ],
+        "weaknesses": [
+          "Ranged combat",
+          "Speed",
+          "Evation"
+        ]
+      },
+      "magic": "The light, a divine power that lets him smite foes and heal allies",
+      "notes": [
+        "Has kleptomanic tendencies that he tries to hide",
+        "Does a characteristic whistle after nabbing something, or when otherwise pleased with himself",
+        "Sometimes writes letters to his family that he never sends",
+        "Wears simple farmer's clothes when out of his armor"
+      ],
+      "relationships": {
+        "heiress": {
+          "affinity": 5,
+          "dynamic": "Professional",
+          "description": "The crusader maintains a professional relationship with the heiress, focusing on fulfilling his role as her protector with a devout sense of duty."
+        },
+        "kheir": {
+          "affinity": 4,
+          "dynamic": "Skeptical",
+          "description": "While the crusader intends to uphold his duty with silent diligence, he realizes the meek kheir is unfit to lead."
+        },
+        "highwayman": {
+          "affinity": 7,
+          "dynamic": "Comrade",
+          "description": "The crusader sees in the highwayman a kindred spirit; both men with troubled pasts seeking to carve out a purpose through the quest they now share."
+        },
+        "seraph": {
+          "affinity": 4,
+          "dynamic": "Devoted Lieutenant",
+          "description": "The Crusader served under the Seraph after her miraculous transformation, awed by her divine presence and inspired by her holy purpose. Her burned visage and manifest powers were proof of the Light's grace, making his role in her crusade feel truly righteous."
+        }
+      },
+      "locations": {
+        "residence": [
+          "dower_house__barracks_room_east"
+        ],
+        "workplaces": [
+          "guild_hall",
+          "training_ring",
+          "abbey__grounds",
+          "palisade_wall"
+        ],
+        "frequents": [
+          "abbey",
+          "mill_grounds",
+          "town_square",
+          "dower_house__garden",
+          "tavern"
+        ]
+      }
+    },
+    "highwayman": {
+      "identifier": "highwayman",
+      "title": "Highwayman",
+      "name": "Dismas",
+      "level": 0,
+      "money": 0,
+      "summary": "Once a prisoner, the Highwayman is now a haunted fugitive, living off the squalor of the city's canals and the meager pickings from vermin. His vision of freedom has been replaced by a reality of degradation, driving him to reluctantly offer his services for a final, desperate heist. Now, his path has unexpectedly converged with that of the Heiress and the Heir, offering a precarious chance at redemption through service.",
+      "history": "The Highwayman's tale is one of escape and survival, painted with strokes of desperation and grim resolve. Escaping from incarceration during a prison riot, he sought refuge in the underbelly of the city, subsisting in conditions that stripped away his illusions of freedom. A final job, taken out of sheer necessity, ended in tragedy, leaving him with a burden of guilt that no distance can alleviate.",
+      "race": "Human",
+      "gender": "Male",
+      "religion": "None",
+      "zodiac": "Sagittarius",
+      "traits": [
+        "Rugged",
+        "Desperate",
+        "Fugitive",
+        "Remorseful",
+        "Cynical"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spitits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 6,
+        "agility": 8,
+        "intelligence": 5,
+        "authority": 3,
+        "sociability": 3
+      },
+      "equipment": [
+        "Flintlock pistol",
+        "Dagger"
+      ],
+      "appearance": {
+        "height": "Average",
+        "build": "Athletic",
+        "skinTone": "Weathered",
+        "hairColor": "Dark",
+        "hairStyle": "Short, practical",
+        "features": "Stubble, narrow face"
+      },
+      "clothing": {
+        "head": "Red scarf",
+        "body": "Rugged grey coat with fur collar",
+        "legs": "Dark trousers",
+        "other": "Multiple utility belts"
+      },
+      "combat": {
+        "role": "Skirmisher",
+        "strengths": [
+          "Quick reflexes",
+          "Stealth",
+          "Marksmanship"
+        ],
+        "weaknesses": [
+          "Distrustful",
+          "Endurance"
+        ]
+      },
+      "magic": "None",
+      "notes": [
+        "Known to cheat at cards",
+        "Has a gallows sense of humor"
+      ],
+      "relationships": {
+        "heiress": {
+          "affinity": 4,
+          "dynamic": "Guardian",
+          "description": "The highwayman is determined to prove himself to the heiress and to assist in her quest despite her warranted distrust."
+        },
+        "kheir": {
+          "affinity": 3,
+          "dynamic": "Guardian",
+          "description": "Despite the kheir's distrust, the highwayman is resolute in his role as a guard, seeing their safety as his path to absolution."
+        },
+        "crusader": {
+          "affinity": 7,
+          "dynamic": "Comrade",
+          "description": "Despite their differences, the highwayman and the crusader swiftly bonded over the mistakes of their respective pasts and their shared quest for redemption."
+        }
+      },
+      "locations": {
+        "residence": [
+          "dower_house__barracks_room_east"
+        ],
+        "workplaces": [
+          "guild_hall",
+          "training_ring",
+          "palisade_wall"
+        ],
+        "frequents": [
+          "tavern",
+          "yellow_hand",
+          "inn",
+          "town_square",
+          "alley"
+        ]
+      }
+    },
+    "heiress": {
+      "identifier": "heiress",
+      "title": "Heiress",
+      "name": "Persephone",
+      "level": 0,
+      "money": 0,
+      "summary": "The Heiress to the accursed Estate, excels at taking command in even the most daunting situations. With her sharp intellect and strategic prowess, she fearlessly leads the charge to reclaim her ancestral home while deftly managing the nearby hamlet. Her natural authority and decisive leadership serve as a beacon of strength for a community besieged by supernatural horrors. Though grateful for allies brave enough to join her cause, Persephone's unwavering confidence in her own judgment can manifest as stubborn resistance when her authority is challenged.",
+      "history": "Upon receiving a chilling letter from her late ancestor, the Heiress left her academic pursuits with her brother in tow to take up her role as the Heiress of the Estate. She found herself thrust into a nightmarish reality where her ancestral home was not only physically deteriorated but also infested with the horrors summoned by her ancestor's dark rituals.",
+      "race": "Human",
+      "gender": "Female",
+      "religion": "None",
+      "zodiac": "Leo",
+      "traits": [
+        "Determined",
+        "Resourceful",
+        "Strategic",
+        "Intelligent",
+        "Stubborn",
+        "Authoritative"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 2,
+        "agility": 3,
+        "intelligence": 8,
+        "authority": 10,
+        "sociability": 9
+      },
+      "equipment": [
+        "Derringer pistol",
+        "wine bottle"
+      ],
+      "appearance": {
+        "height": "Average",
+        "build": "Average",
+        "skinTone": "Fair",
+        "hairColor": "Blond",
+        "hairStyle": "Tied up in a bun and with curly bangs",
+        "features": "Strong jawline and pointy nose"
+      },
+      "clothing": {
+        "head": "Hair needle",
+        "body": "Marine blue robe over white shirt",
+        "legs": "Mustard yellow breeches",
+        "other": "White bowtie"
+      },
+      "combat": {
+        "role": "Leader",
+        "strengths": [
+          "Quick reflexes",
+          "Sharpshooting",
+          "Strategic thinking"
+        ],
+        "weaknesses": [
+          "Close combat",
+          "Physical strength"
+        ]
+      },
+      "magic": "None",
+      "notes": [
+        "Turns to wine when overwhelmed by the stress of managing the Hamlet",
+        "Attracted to women with ample breasts"
+      ],
+      "relationships": {
+        "kheir": {
+          "affinity": 8,
+          "dynamic": "Familial",
+          "description": "Despite a cold exterior and a lifetime of bickering, the heiress loves and will not let harm come upon the kheir."
+        },
+        "crusader": {
+          "affinity": 5,
+          "dynamic": "Professional",
+          "description": "The heiress maintains a reserved, professional demeanor towards the crusader, her latest recruit."
+        },
+        "highwayman": {
+          "affinity": 3,
+          "dynamic": "Cautious",
+          "description": "The heiress regards the highwayman with suspicion. While his skills could prove valuable, his checkered past and gruff manner keep her on guard."
+        },
+        "hqclaimants": {
+          "affinity": 2,
+          "dynamic": "Contemptuous Competitors",
+          "description": "The Heiress saw the Claimants as vain and insufferable during their fleeting courtly encounters. Their thinly veiled insults ensured no love was lost between them."
+        },
+        "duchess": {
+          "affinity": 3,
+          "dynamic": "Cautious Disdain",
+          "description": "The Heiress remembers the Duchess as aloof and self-absorbed during the few balls they attended together. Though she barely knew her, the Duchess's pride left a sour impression."
+        }
+      },
+      "locations": {
+        "residence": [
+          "dower_house__master_bedroom"
+        ],
+        "workplaces": [
+          "town_hall__strategy_room",
+          "town_hall__meeting_hall",
+          "town_hall__council_chamber",
+          "dower_house__study"
+        ],
+        "frequents": [
+          "tavern",
+          "dower_house__wine_cellar",
+          "dower_house__dining_hall",
+          "dower_house__garden",
+          "dower_house__red_hook",
+          "town_square"
+        ]
+      }
+    },
+    "kheir": {
+      "identifier": "kheir",
+      "title": "Heir",
+      "name": "Percival",
+      "level": 0,
+      "money": 0,
+      "summary": "The Heir to the estate is a brilliant scholar and capable manager who is desperately trying to cope in this world of horrors far beyond his comfort. Despite being a man of cowardice and meek nature, Percival's keen intellect and organizational skills prove invaluable in coordinating the chaotic efforts to reclaim his ancestral home.",
+      "history": "Raised in academic circles far from the estate's dark legacy, Percival was reluctantly drawn into the family's quest by his sister. Despite his initial hesitation, he's found ways to apply his scholarly knowledge and managerial expertise to the daunting task at hand.",
+      "race": "Human",
+      "gender": "Male",
+      "religion": "None",
+      "zodiac": "Virgo",
+      "traits": [
+        "Organized",
+        "Cowardly",
+        "Scholarly",
+        "Anxious",
+        "Resourceful",
+        "Possessive"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spitits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 2,
+        "agility": 2,
+        "intelligence": 9,
+        "authority": 7,
+        "sociability": 8
+      },
+      "equipment": [
+        "Letter opener",
+        "Wine bottle"
+      ],
+      "appearance": {
+        "height": "Short",
+        "build": "Chubby",
+        "skinTone": "Fair",
+        "hairColor": "Blond",
+        "hairStyle": "Curled and styled",
+        "features": "Large nose and round face"
+      },
+      "clothing": {
+        "head": "None",
+        "body": "Well-tailored jacket and waistcoat",
+        "legs": "Mustard yellow breeches",
+        "other": "Bowtie"
+      },
+      "combat": {
+        "role": "Support Tactician",
+        "strengths": [
+          "Strategic planning",
+          "Resource management",
+          "Knowledge application"
+        ],
+        "weaknesses": [
+          "Close combat",
+          "Endurance",
+          "Falls apart under stress"
+        ]
+      },
+      "magic": "None",
+      "notes": [
+        "Hates waste and is very possesive of his belongings",
+        "Has a penchant for fine wines to calm his nerves"
+      ],
+      "relationships": {
+        "heiress": {
+          "affinity": 8,
+          "dynamic": "Familial",
+          "description": "The Heir admires, and is deeply jealous of, his sister's strength and ability to take initiative. Despite their fierce bickering, the kheir loves his sister."
+        },
+        "crusader": {
+          "affinity": 4,
+          "dynamic": "Cautious respect",
+          "description": "Though he recognizes the crusader's potential, the kheir is dubious over the trustworthiness of this new guard."
+        },
+        "highwayman": {
+          "affinity": 2,
+          "dynamic": "Distrustful",
+          "description": "The kheir is distrusting towards the highwayman, fearing that the rugged man will betray them and steal his possessions."
+        },
+        "hqclaimants": {
+          "affinity": 2,
+          "dynamic": "Aristocratic Rivalry",
+          "description": "The Claimants' constant disdain and biting remarks left a lasting impression on the Heir during the balls and duels of their youth. He remains embittered but grudgingly acknowledges The Claimant brother's skill with a spear."
+        },
+        "duchess": {
+          "affinity": 5,
+          "dynamic": "Infatuation",
+          "description": "As a young man, the Heir was captivated by the Duchess' elegance and fencing prowess. Though their interactions were brief and unreciprocated, her image lingered in his mind for years."
+        }
+      },
+      "locations": {
+        "residence": [
+          "dower_house__master_bedroom"
+        ],
+        "workplaces": [
+          "library__map_room",
+          "library__archive",
+          "town_hall__record_archives",
+          "town_hall__strong_room",
+          "warehouse_district",
+          "provisioner"
+        ],
+        "frequents": [
+          "tavern",
+          "dower_house__wine_cellar",
+          "library__main",
+          "dower_house__astronomy_room",
+          "dower_house__garden"
+        ]
+      }
+    },
+    "arbalest": {
+      "identifier": "arbalest",
+      "title": "Arbalest",
+      "name": "Missandei",
+      "level": 0,
+      "money": 0,
+      "summary": "A skilled crossbowwoman with a tragic past, the Arbalest is a survivor who has honed her skills with the arbalest through years of hardship and adventure. Her quest for wealth is driven by a deeper search for a home she may never find.",
+      "history": "After a violent attack on her home that killed her father, the Arbalest was forced to flee with only a crossbow for protection. She has since traveled widely, serving as a mercenary, and has developed exceptional skills with her weapon and knowledge of herbal medicine.",
+      "race": "Human",
+      "gender": "Female",
+      "religion": "None",
+      "zodiac": "Cancer",
+      "traits": [
+        "Survivor",
+        "Skilled",
+        "Determined",
+        "Resourceful",
+        "Independent"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 6,
+        "agility": 8,
+        "intelligence": 8,
+        "authority": 6,
+        "sociability": 4
+      },
+      "equipment": [
+        "Crossbow",
+        "Armor"
+      ],
+      "appearance": {
+        "height": "Average",
+        "build": "Athletic",
+        "skinTone": "Dark",
+        "hairColor": "Black",
+        "hairStyle": "Braids tied up in a short upright ponytail",
+        "features": "Deep lines below fierce eyes"
+      },
+      "clothing": {
+        "head": "White headband",
+        "body": "Metal armor emphasizing modest chest",
+        "legs": "Baggy pants and greaves",
+        "accessories": "Gauntlet on one hand and glove on the other"
+      },
+      "combat": {
+        "role": "Sharpshooter",
+        "strengths": [
+          "Exceptional accuracy",
+          "Healing knowledge",
+          "Survival skills"
+        ],
+        "weaknesses": [
+          "Close combat",
+          "Unversatile"
+        ]
+      },
+      "magic": "None",
+      "notes": [
+        "Has a signature confident smirk",
+        "Carries her 'Childhood tresure', an old stuffed bunny",
+        "Her Crossbow's name is 'Millicent'"
+      ],
+      "relationships": {},
+      "locations": {
+        "residence": [
+          "inn__crypt_room"
+        ],
+        "workplaces": [
+          "guild_hall__training_ring",
+          "guild_hall__training_yard",
+          "palisade_wall",
+          "butchers_circus__arena",
+          "warehouse_district",
+          "sanitarium__medical_ward"
+        ],
+        "frequents": [
+          "guild_hall__training_ring",
+          "guild_hall__training_yard",
+          "abbey__grounds",
+          "palisade_wall",
+          "butchers_circus__arena",
+          "sanitarium__courtyard",
+          "tavern",
+          "inn__common_room",
+          "market_wagons",
+          "market_wagons__nomad_wagon",
+          "puppet_theater",
+          "dower_house__garden",
+          "shore_path",
+          "abbey__transept",
+          "abbey__bell_tower",
+          "dower_house__study"
+        ]
+      }
+    },
+    "antiquarian": {
+      "identifier": "antiquarian",
+      "title": "Antiquarian",
+      "name": "Josephine",
+      "level": 0,
+      "money": 0,
+      "summary": "The Antiquarian is a cunning and morally ambiguous character driven by an insatiable greed for valuable artifacts and occult knowledge. Her pursuit of power and wealth leads her to dark places, both literally and figuratively. She has arrived at the estate to pilfer the Ancestor's relics, and in search of the final piece of a mysterious puzzle box.",
+      "history": "Originally from the East, the Antiquarian has traveled the world trading in supernatural relics. She became a disciple to a sorcerer to advance her knowledge of the arcane, only to betray and imprison him in a censer during a ritual. Her past is marked by self-serving decisions and a willingness to sacrifice others for her goals.",
+      "race": "Human",
+      "gender": "Female",
+      "religion": "None",
+      "zodiac": "Gemini",
+      "traits": [
+        "Ambitious",
+        "Knowledgeable",
+        "Greedy",
+        "Cunning",
+        "Immoral"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 2,
+        "agility": 6,
+        "intelligence": 8,
+        "authority": 5,
+        "sociability": 7
+      },
+      "equipment": [
+        "Censer (containing her former master's soul)",
+        "Kukri",
+        "Flash powder"
+      ],
+      "appearance": {
+        "height": "Average",
+        "build": "Slender",
+        "skinTone": "Tanned",
+        "hairColor": "Dark",
+        "hairStyle": "Short",
+        "features": "Long fingers"
+      },
+      "clothing": {
+        "head": "Blue bandana",
+        "body": "Light-colored robe",
+        "legs": "Light pants",
+        "accessories": "Orange scarf covering lower face, multiple necklaces"
+      },
+      "combat": {
+        "role": "Scavenger",
+        "strengths": [
+          "Finding valuables",
+          "Healing and invigorating vapors",
+          "Dodging and hiding"
+        ],
+        "weaknesses": [
+          "Weak",
+          "Frail",
+          "Selfish"
+        ]
+      },
+      "magic": "None",
+      "notes": [
+        "Possesses a censer containing her former master's soul",
+        "Driven beyond all else to open her puzzle box",
+        "Her former master occasionally whispers to her, trying to escape",
+        "Speaks multiple languages, including Levantine and languages of the Eastern isles"
+      ],
+      "relationships": {},
+      "locations": {
+        "residence": [
+          "dower_house__rosewood_chamber"
+        ],
+        "workplaces:": [
+          "library__main",
+          "library__archive",
+          "library__special_collections",
+          "athenaeum",
+          "geological_study_hall",
+          "town_hall__record_archives",
+          "kraken_society",
+          "market_wagons"
+        ],
+        "frequents": [
+          "library__main",
+          "library__map_room",
+          "library__archive",
+          "athenaeum",
+          "geological_study_hall",
+          "town_hall__record_archives",
+          "kraken_society",
+          "yellow_hand",
+          "market_wagons",
+          "market_wagons__nomad_wagon",
+          "market_wagons__jeweler",
+          "puppet_theater",
+          "tavern",
+          "abbey__transept",
+          "abbey__bell_tower",
+          "dower_house__study",
+          "dower_house__garden",
+          "shore_path",
+          "sanitarium__courtyard"
+        ]
+      }
+    },
+    "abomination": {
+      "identifier": "abomination",
+      "title": "Abomination",
+      "name": "Bigby",
+      "level": 0,
+      "money": 0,
+      "summary": "A tormented shapeshifter cursed with eldritch powers. Bigby struggles to control the monstrous force within him, oscillating between his human form and a terrifying bestial transformation. His tragic past and internal conflict make him a dangerous but potentially powerful ally.",
+      "history": "Beaten, branded, and imprisoned for untold decades, Bigby eventually escaped his confinement. He carries the burden of an eldritch curse that gives him immense power at a terrible cost. The scars of his imprisonment and the constant battle with his inner demon have shaped him into a conflicted and dangerous individual.",
+      "race": "Eldritch shapeshifter",
+      "gender": "Male",
+      "religion": "The Light",
+      "zodiac": "Scorpio",
+      "traits": [
+        "Tormented",
+        "Aggressive",
+        "Paranoid",
+        "Resilient",
+        "Conflicted"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 9,
+        "agility": 6,
+        "intelligence": 5,
+        "authority": 3,
+        "sociability": 2
+      },
+      "equipment": [
+        "Cursed chains"
+      ],
+      "appearance": {
+        "height": "Tall",
+        "build": "Muscular",
+        "skinTone": "Pale",
+        "hairColor": "Dark",
+        "hairStyle": "Unkempt asymmetrical undercut",
+        "features": "A-shaped scar on his head"
+      },
+      "clothing": {
+        "head": "None",
+        "body": "Tattered cloak",
+        "legs": "Worn trousers",
+        "accessories": "Chains wrapped around torso and arms"
+      },
+      "combat": {
+        "role": "Fighter",
+        "strengths": [
+          "Immense physical strength in beast form",
+          "Regenerative abilities",
+          "Resilience"
+        ],
+        "weaknesses": [
+          "Lack of control",
+          "Prone to berserk rages",
+          "Weak in human form"
+        ]
+      },
+      "magic": "Eldritch transformation",
+      "notes": [
+        "Fears losing control and harming allies",
+        "Has a soft voice and doesn't curse"
+      ],
+      "relationships": {},
+      "locations": {
+        "residence": [
+          "sanitarium__cells"
+        ],
+        "workplaces": [
+          "sanitarium__laboratory",
+          "abbey__penance_chamber",
+          "abbey__transept",
+          "butchers_circus__arena",
+          "warehouse_district"
+        ],
+        "frequents": [
+          "sanitarium__laboratory",
+          "abbey__penance_chamber",
+          "abbey__transept",
+          "butchers_circus__arena",
+          "tavern",
+          "abbey",
+          "abbey__grounds",
+          "abbey__cloister",
+          "abbey__altar",
+          "abbey__bell_tower",
+          "dower_house__garden",
+          "shore_path",
+          "sanitarium__courtyard",
+          "puppet_theather",
+          "bonfire",
+          "yellow_hand"
+        ]
+      }
+    },
+    "bounty_hunter": {
+      "identifier": "bounty_hunter",
+      "title": "Bounty Hunter",
+      "name": "Tardif",
+      "level": 0,
+      "money": 0,
+      "summary": "A ruthless and professional bounty hunter who takes pride in his work. The Bounty Hunter is a skilled fighter, motivated primarily by profit and self-interest. His cynical worldview and loner tendencies suggest a dark past that he refuses to talk about.",
+      "history": "While his past is a well-guarded secret, The Bounty Hunter has clearly lived a life of violence and danger. He's honed his skills as a bounty hunter, becoming a calculated and efficient killer who specializes in identifying weak points and executing targets.",
+      "race": "Human",
+      "gender": "Male",
+      "religion": "",
+      "zodiac": "Capricorn",
+      "traits": [
+        "Professional",
+        "Ruthless",
+        "Cynical",
+        "Loner",
+        "Taciturn"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 8,
+        "agility": 7,
+        "intelligence": 7,
+        "authority": 4,
+        "sociability": 1
+      },
+      "equipment": [
+        "War axe",
+        "Grappling hook",
+        "Flash grenades",
+        "Caltrops"
+      ],
+      "appearance": {
+        "height": "Average",
+        "build": "Athletic",
+        "skinTone": "Tanned",
+        "hairColor": "Dark",
+        "hairStyle": "Short",
+        "features": "Stubble, strong jawline"
+      },
+      "clothing": {
+        "head": "Metallic mask with cloth covering face",
+        "body": "Dark armor with shoulder pads",
+        "legs": "Dark armored leggings",
+        "accessories": "Belt of hunting tools"
+      },
+      "combat": {
+        "role": "Fighter",
+        "strengths": [
+          "Targeting weak points",
+          "Single combat",
+          "Adaptability",
+          "Follows orders (when paid to)"
+        ],
+        "weaknesses": [
+          "Difficulty working in teams",
+          "Demands high pay"
+        ]
+      },
+      "magic": "None",
+      "notes": [
+        "Takes pride in his professional skills",
+        "Refuses to remove his mask and let anyone see his face",
+        "Often responds with just a snort"
+      ],
+      "relationships": {},
+      "locations": {
+        "residence": [
+          "inn__rookery_room"
+        ],
+        "workplaces": [
+          "guild_hall__training_ring",
+          "guild_hall__training_yard",
+          "palisade_wall",
+          "town_hall__strategy_room",
+          "town_hall__council_chamber"
+        ],
+        "frequents": [
+          "guild_hall__training_ring",
+          "guild_hall__training_yard",
+          "butchers_circus__arena",
+          "library__map_room",
+          "town_hall__strategy_room",
+          "town_hall__council_chamber",
+          "tavern",
+          "inn__common_room",
+          "market_wagons__nomad_wagon",
+          "market_wagons__jeweler",
+          "dower_house__garden",
+          "shore_path",
+          "abbey__transept",
+          "abbey__bell_tower",
+          "dower_house__study",
+          "yellow_hand",
+          "alley"
+        ]
+      }
+    },
+    "cataphract": {
+      "identifier": "cataphract",
+      "title": "Cataphract",
+      "name": "Nyriad & Cargadon",
+      "level": 0,
+      "money": 0,
+      "summary": "The Cataphract is a formidable mounted warrior from the Levantine Sultanate, bonded with her supernatural horse. Together they form an unstoppable cavalry unit, using their combined skills to charge into battle and vanquish foes.",
+      "history": "Once a respected warrior of the Levantine Sultanate, the Cataphract's life changed when her beloved horse was fatally wounded. Desperate, she stole a powerful artifact to revive him, resulting in their exile. Now the spirit of the horse speaks to her, and they fight together against the horrors of the estate.",
+      "race": "Human",
+      "gender": "Female",
+      "religion": "",
+      "zodiac": "Capricorn",
+      "traits": [
+        "Proud",
+        "Valorous",
+        "Disciplined",
+        "Stern",
+        "Loyal",
+        "Battle-hardened"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 9,
+        "agility": 8,
+        "intelligence": 7,
+        "authority": 8,
+        "sociability": 5
+      },
+      "equipment": [
+        "Spear",
+        "Splint mail armor",
+        "Banner"
+      ],
+      "appearance": {
+        "height": "Tall",
+        "build": "Athletic",
+        "skinTone": "Sun-tanned (hidden by full armor)",
+        "hairColor": "Dark",
+        "hairStyle": "Ponytail (hidden by helmet)",
+        "features": "Angular facial structure and prominent cheekbones"
+      },
+      "clothing": {
+        "head": "Plumed helmet",
+        "body": "Splint mail armor",
+        "legs": "Riding leathers",
+        "accessories": "Red scarf"
+      },
+      "combat": {
+        "role": "Warrior",
+        "strengths": [
+          "Mobility",
+          "Battlefield control",
+          "Command"
+        ],
+        "weaknesses": [
+          "Slow attrition"
+        ]
+      },
+      "magic": "Limited supernatural connection with Cargadon",
+      "notes": [
+        "Carries the skull of her deceased horse, which grants her power",
+        "Can communicate with the horse's spirit",
+        "Speaks with a mild Levantine accent"
+      ],
+      "relationships": {},
+      "locations": {
+        "residence": [
+          "dower_house__barracks_room_west"
+        ],
+        "workplaces": [
+          "guild_hall__training_ring",
+          "guild_hall__training_yard",
+          "palisade_wall",
+          "town_hall__strategy_room",
+          "town_hall__council_chamber",
+          "inn__stables",
+          "atheneaum",
+          "kraken_society"
+        ],
+        "frequents": [
+          "guild_hall__training_ring",
+          "guild_hall__training_yard",
+          "butchers_circus__arena",
+          "palisade_wall",
+          "town_hall__strategy_room",
+          "town_hall__council_chamber",
+          "weald_edge",
+          "tavern",
+          "inn__common_room",
+          "inn__raven_room",
+          "market_wagons",
+          "market_wagons__nomad_wagon",
+          "market_wagons__jeweler",
+          "puppet_theater",
+          "dower_house__garden",
+          "shore_path",
+          "outsiders_bonfire",
+          "abbey__transept",
+          "abbey__bell_tower",
+          "dower_house__study",
+          "yellow_hand",
+          "alley"
+        ]
+      }
+    },
+    "snor_rasp":{
+      "identifier": "snor_rasp",
+      "title": "Martyr",
+      "name": "Anastasia",
+      "level": 0,
+      "money": 0,
+      "summary": "The Martyr, is a devout follower of a pain-worshipping sect. Guarded by Yuzupov, she has near-immortality and uses a thorn whip in combat. Her presence is both an asset and liability, enduring suffering to protect others while seeking danger for her faith.",
+      "history": "The Martyr's extreme devotion caught Yuzupov's attention, granting her near-immortality. She now views the estate's horrors as a pilgrimage to test her faith and endurance.",
+      "race": "Human",
+      "gender": "Female",
+      "religion": "Yuzupov's",
+      "zodiac": "Pisces",
+      "traits": [
+        "Devoted",
+        "Masochistic",
+        "Resilient",
+        "Fearless",
+        "Reckless",
+        "Enigmatic"
+      ],
+      "status": {
+        "physical": 100,
+        "mental": 100,
+        "affliction": "",
+        "description": "In good health and high spirits",
+        "wounds": [],
+        "diseases": []
+      },
+      "stats": {
+        "strength": 3,
+        "agility": 3,
+        "intelligence": 3,
+        "authority": 3,
+        "sociability": 4
+      },
+      "equipment": [
+        "Thorn whip"
+      ],
+      "appearance": {
+        "height": "Short",
+        "build": "Slender",
+        "skinTone": "Pale",
+        "hairColor": "Pink",
+        "hairStyle": "Wavy, shoulder-length",
+        "features": "Small hands, thin neck"
+      },
+      "clothing": {
+        "head": "Crown of thorns",
+        "body": "Frilly red dress with ruffled white collar",
+        "legs": "None",
+        "accessories": "None"
+      },
+      "combat": {
+        "role": "Frontliner",
+        "strengths": [
+          "High pain tolerance",
+          "Morale booster"
+        ],
+        "weaknesses": [
+          "Weak",
+          "Single-minded"
+        ]
+      },
+      "magic": "Spirit-granted near-immortality",
+      "notes": [
+        "Constantly seeks out pain and dangerous situations",
+        "Finds pleasure in cutting, entangling, and strangling herself with her thorn whip"
+      ],
+      "relationships": {
+      },
+      "locations": {
+        "residence": [
+          "abbey__dorter"
+        ],
+        "workplaces": [
+          "abbey__penance_chamber",
+          "abbey__transept"
+        ],
+        "frequents": [
+          "alley"
+        ]
+      }
+    }
+  }
+}

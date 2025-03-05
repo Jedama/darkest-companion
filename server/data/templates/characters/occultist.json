@@ -46,9 +46,9 @@
         "features": "Goatee and styled curled mustache"        
     },
     "clothing": {
-        "headwear": "White turban",
-        "top": "White tunic with red embroidery",
-        "pants": "Loose-fitting pants",
+        "head": "White turban",
+        "body": "White tunic with red embroidery",
+        "legs": "Loose-fitting pants",
         "accessories": "Necklace"
     },
     "combat": {

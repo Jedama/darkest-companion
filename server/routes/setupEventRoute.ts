@@ -1,6 +1,6 @@
 // server/routes/setupEventRoute.ts
 import { Router, Request, Response } from 'express';
-import { setupRandomEvent } from '../services/eventSetupService.js';
+import { setupRandomEvent } from '../services/setupEventService.js';
 
 const router = Router();
 

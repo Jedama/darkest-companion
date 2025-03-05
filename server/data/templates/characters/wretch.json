@@ -43,9 +43,9 @@
         "features": "Patchy beard, tumor-like growths on skull"
     },
     "clothing": {
-        "headwear": "Red, tattered hood",
-        "top": "Purple, worn-out cloak",
-        "pants": "Threadbare trousers",
+        "head": "Red, tattered hood",
+        "body": "Purple, worn-out cloak",
+        "legs": "Threadbare trousers",
         "accessories": "None"
     },
     "combat": {

@@ -46,9 +46,9 @@
         "features": "Mole on upper lip, pointy chin"
     },
     "clothing": {
-        "headwear": "Wide-brimmed hat",
-        "top": "Blue fitted jacket with puffy shoulders",
-        "pants": "Tight trousers",
+        "head": "Wide-brimmed hat",
+        "body": "Blue fitted jacket with puffy shoulders",
+        "legs": "Tight trousers",
         "accessories": "Ascot"
     },
     "combat": {

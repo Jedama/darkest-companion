@@ -19,9 +19,9 @@
     "features": "Stubble and prominent scars"
   },
   "clothing": {
-    "headwear": "None",
-    "top": "Heavy leather brigandine over red gambeson",
-    "pants": "Reinforced leather greaves",
+    "head": "None",
+    "body": "Heavy leather brigandine over red gambeson",
+    "legs": "Reinforced leather greaves",
     "accessories": "Commander's sword worn at hip, artillery officer's whistle"
   },
   "notes": [

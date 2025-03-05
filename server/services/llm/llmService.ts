@@ -1,5 +1,6 @@
 // server/services/llmService.ts
-import { Anthropic, ContentBlock } from '@anthropic-ai/sdk';
+import { Anthropic } from '@anthropic-ai/sdk';
+import type { ContentBlock } from '@anthropic-ai/sdk';
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 /**

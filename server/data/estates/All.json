@@ -52,9 +52,9 @@
         "features": "Stubble"
       },
       "clothing": {
-        "headwear": "None",
-        "top": "Tattered cloak",
-        "pants": "Worn trousers",
+        "head": "None",
+        "body": "Tattered cloak",
+        "legs": "Worn trousers",
         "accessories": "Chains wrapped around torso and arms"
       },
       "combat": {
@@ -126,9 +126,9 @@
         "features": "Long fingers"
       },
       "clothing": {
-        "headwear": "Blue bandana",
-        "top": "Light-colored robe",
-        "pants": "Light pants",
+        "head": "Blue bandana",
+        "body": "Light-colored robe",
+        "legs": "Light pants",
         "accessories": "Orange scarf covering lower face, multiple necklaces"
       },
       "combat": {
@@ -201,9 +201,9 @@
         "features": "Deep lines below fierce eyes"
       },
       "clothing": {
-        "headwear": "White headband",
-        "top": "Metal armor emphasizing modest chest",
-        "pants": "Baggy pants and greaves",
+        "head": "White headband",
+        "body": "Metal armor emphasizing modest chest",
+        "legs": "Baggy pants and greaves",
         "accessories": "Gauntlet on one hand and glove on the other"
       },
       "combat": {
@@ -276,9 +276,9 @@
         "features": "Stubble, strong jawline"
       },
       "clothing": {
-        "headwear": "Metallic mask with cloth covering face",
-        "top": "Dark armor with shoulder pads",
-        "pants": "Dark armored leggings",
+        "head": "Metallic mask with cloth covering face",
+        "body": "Dark armor with shoulder pads",
+        "legs": "Dark armored leggings",
         "accessories": "Belt of hunting tools"
       },
       "combat": {
@@ -352,9 +352,9 @@
         "features": "Angular facial structure and prominent cheekbones"
       },
       "clothing": {
-        "headwear": "Plumed helmet",
-        "top": "Splint mail armor",
-        "pants": "Riding leathers",
+        "head": "Plumed helmet",
+        "body": "Splint mail armor",
+        "legs": "Riding leathers",
         "accessories": "Red scarf"
       },
       "combat": {
@@ -426,9 +426,9 @@
         "features": "White eyebrows, age lines, defined cheekbones"
       },
       "clothing": {
-        "headwear": "Goggles",
-        "top": "Apron over a tan tunic",
-        "pants": "Dark trousers",
+        "head": "Goggles",
+        "body": "Apron over a tan tunic",
+        "legs": "Dark trousers",
         "accessories": "Red sash, Necklace with pendant"
       },
       "combat": {
@@ -598,9 +598,9 @@
         "features": "Large chest"
       },
       "clothing": {
-        "headwear": "Large, angular helmet that hides everything but her toothy mouth",
-        "top": "Tight corset showing ample cleavage",
-        "pants": "Tattered dress reinforced with metal plates",
+        "head": "Large, angular helmet that hides everything but her toothy mouth",
+        "body": "Tight corset showing ample cleavage",
+        "legs": "Tattered dress reinforced with metal plates",
         "accessories": "None"
       },
       "combat": {
@@ -691,9 +691,9 @@
         "features": "Pronounced lips and chin"
       },
       "clothing": {
-        "headwear": "Hood",
-        "top": "Tattered, blood-stained robes",
-        "pants": "Simple, worn trousers",
+        "head": "Hood",
+        "body": "Tattered, blood-stained robes",
+        "legs": "Simple, worn trousers",
         "accessories": "Spiked crown-like collar"
       },
       "combat": {
@@ -770,9 +770,9 @@
         "features": "Mole on upper lip, pointy chin"
       },
       "clothing": {
-        "headwear": "Wide-brimmed hat",
-        "top": "Blue fitted jacket with puffy shoulders",
-        "pants": "Tight trousers",
+        "head": "Wide-brimmed hat",
+        "body": "Blue fitted jacket with puffy shoulders",
+        "legs": "Tight trousers",
         "accessories": "Ascot"
       },
       "combat": {
@@ -1029,9 +1029,9 @@
         "features": "Soft, cherubic features, smooth skin, full chest, freckles"
       },
       "clothing": {
-        "headwear": "Red hood",
-        "top": "Skimpy, frilly top",
-        "pants": "Short white skirt",
+        "head": "Red hood",
+        "body": "Skimpy, frilly top",
+        "legs": "Short white skirt",
         "accessories": "Satchel, bridal garter"
       },
       "combat": {
@@ -1103,9 +1103,9 @@
         "features": "Well-kept beard and mustache"
       },
       "clothing": {
-        "headwear": "Red headband",
-        "top": "Worn Gendarme's uniform",
-        "pants": "Sturdy trousers",
+        "head": "Red headband",
+        "body": "Worn Gendarme's uniform",
+        "legs": "Sturdy trousers",
         "accessories": "Belt with pouches"
       },
       "combat": {
@@ -1178,9 +1178,9 @@
         "features": "Striking blue eyes, bold red lips/Full well-groomed beard"
       },
       "clothing": {
-        "headwear": "Ornate earrings/None",
-        "top": "Elegant blouse/Fitted doublet",
-        "pants": "Flowing skirt/Sturdy trousers"
+        "head": "Ornate earrings/None",
+        "body": "Elegant blouse/Fitted doublet",
+        "legs": "Flowing skirt/Sturdy trousers"
       },
       "combat": {
         "role": "Versatile Support/Damage",
@@ -1446,9 +1446,9 @@
         "features": "Tattoos on arms, chest, and neck"
       },
       "clothing": {
-        "headwear": "Red bandana",
-        "top": "White, sleeveless shirt",
-        "pants": "Leather pants",
+        "head": "Red bandana",
+        "body": "White, sleeveless shirt",
+        "legs": "Leather pants",
         "accessories": "Gold ring earring, chain necklace with shark teeth"
       },
       "combat": {
@@ -1668,9 +1668,9 @@
         "features": "Flat-chested"
       },
       "clothing": {
-        "headwear": "Wide-brimmed hat with feathers",
-        "top": "Reinforced vest and cloak",
-        "pants": "Leather trousers",
+        "head": "Wide-brimmed hat with feathers",
+        "body": "Reinforced vest and cloak",
+        "legs": "Leather trousers",
         "accessories": "Cape"
       },
       "combat": {
@@ -1741,9 +1741,9 @@
         "features": "Goatee and styled curled mustache"
       },
       "clothing": {
-        "headwear": "White turban",
-        "top": "White tunic with red embroidery",
-        "pants": "Loose-fitting pants",
+        "head": "White turban",
+        "body": "White tunic with red embroidery",
+        "legs": "Loose-fitting pants",
         "accessories": "Necklace"
       },
       "combat": {
@@ -1813,9 +1813,9 @@
         "features": "Large breasts"
       },
       "clothing": {
-        "headwear": "Blindfold, gag, ribbons",
-        "top": "Tiny patches of fleeting silk",
-        "pants": "None",
+        "head": "Blindfold, gag, ribbons",
+        "body": "Tiny patches of fleeting silk",
+        "legs": "None",
         "accessories": "Dark arm binding, gorgerin, ribbons"
       },
       "combat": {
@@ -1889,9 +1889,9 @@
         "features": "Enormous breasts"
       },
       "clothing": {
-        "headwear": "Ornate, flowing headpiece",
-        "top": "Low-cut, off-shoulder dark top",
-        "pants": "Flowing skirt with high slit and thighhighs",
+        "head": "Ornate, flowing headpiece",
+        "body": "Low-cut, off-shoulder dark top",
+        "legs": "Flowing skirt with high slit and thighhighs",
         "accessories": "Multiple necklaces, large earrings, arm bracers"
       },
       "combat": {
@@ -1960,9 +1960,9 @@
         "features": "angular face with soft features, large chest"
       },
       "clothing": {
-        "headwear": "Plague Doctor mask",
-        "top": "Green coat with spiked leather pauldrons",
-        "pants": "Bandages",
+        "head": "Plague Doctor mask",
+        "body": "Green coat with spiked leather pauldrons",
+        "legs": "Bandages",
         "accessories": "Sachets"
       },
       "combat": {
@@ -2033,9 +2033,9 @@
         "features": "Scar over left eye"
       },
       "clothing": {
-        "headwear": "Ornate spiked helm with a single eye hole",
-        "top": "Elaborate coat with feathered collar",
-        "pants": "Fitted trousers",
+        "head": "Ornate spiked helm with a single eye hole",
+        "body": "Elaborate coat with feathered collar",
+        "legs": "Fitted trousers",
         "accessories": "Large bow tie, sleeves in mismatched colours"
       },
       "combat": {
@@ -2107,9 +2107,9 @@
         "features": "Charred, burnt skin"
       },
       "clothing": {
-        "headwear": "Mask to hide scarred face",
-        "top": "Full plate armor",
-        "pants": "Armored leggings",
+        "head": "Mask to hide scarred face",
+        "body": "Full plate armor",
+        "legs": "Armored leggings",
         "accessories": "None"
       },
       "combat": {
@@ -2186,9 +2186,9 @@
         "features": "Thin eyes, small nose"
       },
       "clothing": {
-        "headwear": "Two-flower headdress",
-        "top": "Warrior's armor over Scholar's robes",
-        "pants": "Scholar's robes",
+        "head": "Two-flower headdress",
+        "body": "Warrior's armor over Scholar's robes",
+        "legs": "Scholar's robes",
         "accessories": "The spirit of the sister not in control hovers behind the body, their translucent form only rarely seen by the other heroes."
       },
       "combat": {
@@ -2262,9 +2262,9 @@
         "features": "Small hands, thin neck"
       },
       "clothing": {
-        "headwear": "Crown of thorns",
-        "top": "Frilly red dress with ruffled white collar",
-        "pants": "None",
+        "head": "Crown of thorns",
+        "body": "Frilly red dress with ruffled white collar",
+        "legs": "None",
         "accessories": "None"
       },
       "combat": {
@@ -2334,9 +2334,9 @@
         "features": "Deep-set eyes, pronounced chin"
       },
       "clothing": {
-        "headwear": "Hooded robe and wimple",
-        "top": "Chestplate emphasizing breasts",
-        "pants": "Sacred robe",
+        "head": "Hooded robe and wimple",
+        "body": "Chestplate emphasizing breasts",
+        "legs": "Sacred robe",
         "accessories": "Pauldrons, gloves"
       },
       "combat": {
@@ -2406,9 +2406,9 @@
         "features": "Patchy beard, tumor-like growths on skull"
       },
       "clothing": {
-        "headwear": "Red, tattered hood",
-        "top": "Purple, worn-out cloak",
-        "pants": "Threadbare trousers",
+        "head": "Red, tattered hood",
+        "body": "Purple, worn-out cloak",
+        "legs": "Threadbare trousers",
         "accessories": "None"
       },
       "combat": {
@@ -2484,9 +2484,9 @@
         "features": "Attractive jawline, well-defined face"
       },
       "clothing": {
-        "headwear": "None",
-        "top": "Open black jacket",
-        "pants": "Black pants with red sash",
+        "head": "None",
+        "body": "Open black jacket",
+        "legs": "Black pants with red sash",
         "accessories": "None"
       },
       "combat": {

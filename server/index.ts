@@ -8,8 +8,9 @@ import type { Estate } from '../shared/types/types.js';
 import logRoutes from './logs/logRoutes.js';
 import setupEventRoute from './routes/setupEventRoute.js';
 import storyEventRoute from './routes/storyEventRoute.js';
+import consequencesEventRoute from './routes/consequencesEventRoute.js';
 
-const DEFAULT_CHARACTER_IDS = ['crusader', 'highwayman', 'heiress', 'kheir'];
+const DEFAULT_CHARACTER_IDS = ['crusader', 'highwayman', 'heiress', 'kheir', 'arbalest', 'antiquarian', 'abomination', 'bounty_hunter', 'cataphract'];
 
 const app = express();
 const port = 3000;
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use(logRoutes);
 app.use(setupEventRoute);
 app.use(storyEventRoute);
+app.use(consequencesEventRoute);
 
 // Type for request params
 interface EstateParams {

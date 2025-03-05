@@ -19,9 +19,9 @@
     "features": "Perpetually tired eyes, well-trimmed beard"
   },
   "clothing": {
-    "headwear": "None",
-    "top": "Dark coat over faded waistcoat",
-    "pants": "Well-worn trousers",
+    "head": "None",
+    "body": "Dark coat over faded waistcoat",
+    "legs": "Well-worn trousers",
     "accessories": "Green cravat, ever-present candleholder"
   },
   "notes": [

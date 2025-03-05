@@ -23,7 +23,7 @@
         "mental": 100,
         "affliction": "",
         "description": "In good health and high spirits",
-        "wounds": ["Severe burn scars"],
+        "wounds": [],
         "diseases": []
     },
     "stats": {
@@ -46,9 +46,9 @@
         "features": "Charred, burnt skin"
     },
     "clothing": {
-        "headwear": "Mask to hide scarred face",
-        "top": "Full plate armor",
-        "pants": "Armored leggings",
+        "head": "Mask to hide scarred face",
+        "body": "Full plate armor",
+        "legs": "Armored leggings",
         "accessories": "None"
     },
     "combat": {

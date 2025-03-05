@@ -19,9 +19,9 @@
     "features": "Glowing eyes"
   },
   "clothing": {
-    "headwear": "Stone hood",
-    "top": "Tattered robes",
-    "pants": "Tattered skirts",
+    "head": "Stone hood",
+    "body": "Tattered robes",
+    "legs": "Tattered skirts",
     "accessories": "Wedding locket"
   },
   "notes": [

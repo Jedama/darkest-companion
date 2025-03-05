@@ -19,9 +19,9 @@
     "features": "Magnificent white beard, often with spark-burns"
   },
   "clothing": {
-    "headwear": "Well-loved red leather headband",
-    "top": "Scorched sleeveless shirt under a heavily patched leather apron",
-    "pants": "Sturdy canvas trousers with countless tiny burn marks",
+    "head": "Well-loved red leather headband",
+    "body": "Scorched sleeveless shirt under a heavily patched leather apron",
+    "legs": "Sturdy canvas trousers with countless tiny burn marks",
     "accessories": "Ever-present pipe, somehow always lit"
   },
   "notes": [

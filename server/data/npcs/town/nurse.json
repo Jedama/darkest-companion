@@ -19,9 +19,9 @@
     "features": "Sharp, focused gaze"
   },
   "clothing": {
-    "headwear": "Medical cone hat",
-    "top": "Dark medical robes",
-    "pants": "Heavy skirts",
+    "head": "Medical cone hat",
+    "body": "Dark medical robes",
+    "legs": "Heavy skirts",
     "accessories": "Medical tools"
   },
   "notes": [

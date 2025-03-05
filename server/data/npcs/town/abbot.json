@@ -18,9 +18,9 @@
     "features": "Short, graying beard"
   },
   "clothing": {
-    "headwear": "None",
-    "top": "Dark, heavy robes",
-    "pants": "Concealed by robes",
+    "head": "None",
+    "body": "Dark, heavy robes",
+    "legs": "Concealed by robes",
     "accessories": "Wooden rosary beads"
   },
   "notes": [

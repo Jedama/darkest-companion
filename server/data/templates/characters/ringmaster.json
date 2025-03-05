@@ -45,9 +45,9 @@
       "features": "Scar over left eye"
     },
     "clothing": {
-      "headwear": "Ornate spiked helm with a single eye hole",
-      "top": "Elaborate coat with feathered collar",
-      "pants": "Fitted trousers",
+      "head": "Ornate spiked helm with a single eye hole",
+      "body": "Elaborate coat with feathered collar",
+      "legs": "Fitted trousers",
       "accessories": "Large bow tie, sleeves in mismatched colours"
     },
     "combat": {

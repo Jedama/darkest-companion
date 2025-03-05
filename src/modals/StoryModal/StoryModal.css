@@ -32,7 +32,6 @@
   position: relative;
   z-index: 5;             
   width: 60vw;              /* 2/3 of the viewport width */
-  margin: 2rem auto 0 auto; /* Center horizontally, give some top margin */
   pointer-events: auto;     /* Allow selection or scrolling */
   overflow-y: auto;         /* Enable scrolling for long content */
   scrollbar-width: none;

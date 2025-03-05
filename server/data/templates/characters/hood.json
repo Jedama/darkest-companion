@@ -45,9 +45,9 @@
       "features": "Soft, cherubic features, smooth skin, full chest, freckles"
     },
     "clothing": {
-      "headwear": "Red hood",
-      "top": "Skimpy, frilly top",
-      "pants": "Short white skirt",
+      "head": "Red hood",
+      "body": "Skimpy, frilly top",
+      "legs": "Short white skirt",
       "accessories": "Satchel, bridal garter"
     },
     "combat": {

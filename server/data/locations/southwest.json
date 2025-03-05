@@ -27,7 +27,8 @@
     "title": "Carpenter's Store",
     "description": "The scent of fresh sawdust and pitch mingles with older, mustier notes from the timber stacked against rain-stained walls. Unfinished chairs and tables crowd the workshop floor, their joints awaiting pegs that the carpenter tests with suspicious care - too many local trees have begun growing wrong. A curtained alcove holds his other works, their box-like shapes needed more frequently since the invasion.",
     "parent": "southwest_district",
-    "children": []
+    "children": [],
+    "npcs": ["builder"]
   },
   {
     "identifier": "wainwright",
@@ -54,71 +55,71 @@
   },
   {
     "identifier": "inn__north",
-    "title": "North Tower",
+    "title": "Inn North Tower",
     "description": "The broader but lower tower, marked by its massive hearth chimney that looms over the Old Road's entrance. Three floors of dark timber and aged stone rise from the stables, centered around the common hall's perpetually lit hearth. Leaded windows of varying sizes pierce the walls in asymmetric patterns, while the steep roof bristles with smaller chimney stacks.",
     "parent": "inn",
     "children": ["inn__stables", "inn__common", "inn__keeper_nook", "inn__raven_room", "inn__bell_room", "inn__spire_room", "inn__rookery_room"]
   },
   {
     "identifier": "inn__south",
-    "title": "South Tower",
+    "title": "Inn South Tower",
     "description": "The taller of the inn's towers, rising unusually high above its original roofline where a truncated kitchen chimney still stains the facade with soot. Its upper floors, clearly later additions, are clad in weathered shingles and crowned with wrought-iron finials. Each level steps slightly back from the one below, creating a tiered silhouette that looms over the Old Road's entrance.",
     "parent": "inn",
     "children": ["inn__kitchen", "inn__reception", "inn__crypt_room", "inn__gargoyle_room", "inn__shadow_room", "inn__moon_room", "inn__twilight_room", "inn__tower_room"]
   },
   {
     "identifier": "inn__bridge",
-    "title": "Bridge Gallery",
+    "title": "Inn Bridge Gallery",
     "description": "A narrow enclosed passage spanning the Old Road, connecting the common hall to the reception area. Leaded windows offer views down the cobbled street as it winds toward the Weald's darkness. The wooden floor creaks underfoot, its boards worn thin by generations of crossing feet.",
     "parent": "inn",
     "children": []
   },
   {
     "identifier": "inn__stables",
-    "title": "Stables",
+    "title": "Inn Stables",
     "description": "A practical space of worn stone and sturdy timber, where stalls line the walls and hay fills the air with its sweet decay. Iron rings for tethering mounts are mounted at regular intervals, while a broad wooden staircase rises along the back wall to the common hall above.",
     "parent": "inn__north",
     "children": []
   },
   {
     "identifier": "inn__common",
-    "title": "Common Hall",
+    "title": "Inn Common Hall",
     "description": "A high-ceilinged chamber dominated by a great stone hearth, where various maps and landscapes hang in dark frames above wine-red chairs. Round wooden tables, scarred by years of use, gather in intimate clusters across the floor, while tall windows admit what light they can through leaded panes. The scent of woodsmoke mingles with tobacco and whispered conversations.",
     "parent": "inn__north",
     "children": []
   },
   {
     "identifier": "inn__kitchen",
-    "title": "Kitchen",
+    "title": "Inn Kitchen",
     "description": "A modest kitchen space of practical efficiency, its stone floor worn smooth by countless steps between hearth and counter. Copper pots hang from iron hooks, while shelves of preserves line the walls. A narrow service stair leads to the reception area above.",
     "parent": "inn__south",
     "children": []
   },
   {
     "identifier": "inn__reception",
-    "title": "Reception",
+    "title": "Inn Reception",
     "description": "The inn's formal entrance opens onto a space of dark wood panels and burgundy wallpaper, where Aldritch keeps watch from behind a broad desk of polished oak. The ancient guest book lies perpetually open, its pages recording arrivals but rarely departures. A brass lamp casts warm light across the registration desk, though it does little to brighten the room's far corners.",
     "parent": "inn__south",
     "children": []
   },
   {
     "identifier": "inn__keeper_nook",
-    "title": "Keeper's Nook",
+    "title": "Inn Keeper's Nook",
     "description": "A cramped space tucked behind the common room, barely large enough for a narrow bed and standing closet. Wooden pegs hold Aldritch's spare coat and the candleholder he uses for nightly roundsd. The idea to take residence in one of his establishment's grander rooms has never occurred to him.",
     "parent": "inn__north",
     "children": []
   },
   {
     "identifier": "inn__raven_room",
-    "title": "Raven Room",
-    "description": "A corner chamber whose tall windows face both the manor and the abbey's spires. Dark wooden beams cross the ceiling in angular patterns, centered on a carved medallion bearing the Estate's Noble Raven. The four-poster bed's headboard displays the same motif, marking this as the inn's most prestigious lodging.",
+    "title": "Inn Raven Room",
+    "description": "A corner chamber whose tall windows face both the half-burnt manor and the abbey's spires. Dark wooden beams cross the ceiling in angular patterns, centered on a carved medallion bearing the Estate's Noble Raven. The four-poster bed's headboard displays the same motif, marking this as the inn's most prestigious lodging.",
     "parent": "inn__north",
     "children": [],
     "capacity": 2
   },
   {
     "identifier": "inn__bell_room",
-    "title": "Bell Room",
+    "title": "Inn Bell Room",
     "description": "Named for its view of the abbey's bell tower, though the gothic window's heavy curtains now remain perpetually drawn. The room centers on an unusual circular bed, its iron frame suggesting it was once able to rotate, while devotional candles left by successive occupants crowd the shelf near the door.",
     "parent": "inn__north",
     "capacity": 2,
@@ -126,15 +127,15 @@
   },
   {
     "identifier": "inn__spire_room",
-    "title": "Spire Room",
-    "description": "A high corner room where a worn telescope stands permanently aimed at the manor through leaded glass. Faded charts cover one wall, their calculations and notes written in a frenzied hand, while an elaborate brass astrolabe gathers dust on the bedside table.",
+    "title": "Inn Spire Room",
+    "description": "A high corner room where a worn telescope stands permanently aimed at the dilapidated manor through leaded glass. Faded charts cover one wall, their calculations and notes written in a frenzied hand, while an elaborate brass astrolabe gathers dust on the bedside table.",
     "parent": "inn__north",
     "children": [],
     "capacity": 2
   },
   {
     "identifier": "inn__rookery_room",
-    "title": "Rookery Room",
+    "title": "Inn Rookery Room",
     "description": "The highest room in the north tower, its peaked ceiling following the roofline's sharp angles. Iron brackets that once held bird cages line the walls, while the window seat offers clear views of the ravens that still circle the manor's distant towers.",
     "parent": "inn__north",
     "children": [],
@@ -142,7 +143,7 @@
   },
   {
     "identifier": "inn__crypt_room",
-    "title": "Crypt Room",
+    "title": "Inn Crypt Room",
     "description": "A ground-floor chamber tucked beside the kitchen, perpetually cool no matter the season. The room features an unusual vaulted ceiling and walls of fitted stone rather than timber, suggesting it predates the inn itself. A massive oakwood wardrobe, far too grand for such a modest chamber, stands awkwardly against scorched stonework.",
     "parent": "inn__south",
     "children": [],
@@ -150,7 +151,7 @@
   },
   {
     "identifier": "inn__gargoyle_room",
-    "title": "Gargoyle Room",
+    "title": "Inn Gargoyle Room",
     "description": "A third-floor chamber marked by a stone grotesque that leers through the dormer window. The carved creature seems to watch the room's occupants through the glass, while its shadow falls across the bed at peculiar angles regardless of the sun's position.",
     "parent": "inn__south",
     "children": [],
@@ -158,15 +159,15 @@
   },
   {
     "identifier": "inn__shadow_room",
-    "title": "Shadow Room",
-    "description": "A corner room whose position catches the manor's silhouette at sunset, casting its distinctive shape across the far wall. Mirrors of various sizes clutter the walls and corners, clearly stored here and forgotten, their frames collecting dust while their surfaces multiply the manor's shadow into a disorienting display.",
+    "title": "Inn Shadow Room",
+    "description": "A corner room whose position catches the manor's half-burnt silhouette at sunset, casting its distinctive shape across the far wall. Mirrors of various sizes clutter the walls and corners, clearly stored here and forgotten, their frames collecting dust while their surfaces multiply the manor's shadow into a disorienting display.",
     "parent": "inn__south",
     "children": [],
     "capacity": 2
   },
   {
     "identifier": "inn__moon_room",
-    "title": "Moon Room",
+    "title": "Inn Moon Room",
     "description": "Distinguished by its unusual circular window, fitted with panes of subtly tinted glass in a lunar pattern. The light it casts transforms the simple chamber throughout the month, painting the walls with pale colors that mirror the moon's phases.",
     "parent": "inn__south",
     "children": [],
@@ -174,7 +175,7 @@
   },
   {
     "identifier": "inn__twilight_room",
-    "title": "Twilight Room",
+    "title": "Inn Twilight Room",
     "description": "The last room to receive sunlight each day, its western window stretching nearly floor to ceiling. Curtains cover all the room's walls but the windowed one, their colourful patterns faded by years of exposure to the setting sun.",
     "parent": "inn__south",
     "children": [],
@@ -182,7 +183,7 @@
   },
   {
     "identifier": "inn__tower_room",
-    "title": "Tower Room",
+    "title": "Inn Tower Room",
     "description": "The highest chamber in the southern tower, accessed by a narrow spiral stair. The octagonal room offers views in all directions through diamond-paned windows, while a brass compass rose is inlaid into the wooden floor, its needle pointing slightly askew from true north.",
     "parent": "inn__south",
     "capacity": 1,

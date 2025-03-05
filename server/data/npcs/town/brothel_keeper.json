@@ -19,9 +19,9 @@
     "features": "Face perpetually veiled"
   },
   "clothing": {
-    "headwear": "Grey veil crowned with blood-red roses",
-    "top": "Sleeveless grey dress",
-    "pants": "Practical dark pants",
+    "head": "Grey veil crowned with blood-red roses",
+    "body": "Sleeveless grey dress",
+    "legs": "Practical dark pants",
     "accessories": "Red rope belt, barbed wire digging into left arm"
   },
   "notes": [

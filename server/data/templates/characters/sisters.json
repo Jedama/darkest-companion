@@ -45,9 +45,9 @@
       "features": "Thin eyes, small nose"
     },
     "clothing": {
-      "headwear": "Two-flower headdress",
-      "top": "Warrior's armor over Scholar's robes",
-      "pants": "Scholar's robes",
+      "head": "Two-flower headdress",
+      "body": "Warrior's armor over Scholar's robes",
+      "legs": "Scholar's robes",
       "accessories": "The spirit of the sister not in control hovers behind the body, their translucent form only rarely seen by the other heroes."
     },
     "combat": {

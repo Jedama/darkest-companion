@@ -16,7 +16,7 @@ async function pickRandomEvent(): Promise<EventData> {
 
   // const randomId = eventIds[Math.floor(Math.random() * eventIds.length)];
   // Debug: Set a specific event ID for testing
-  const randomId = 'debug_2';
+  const randomId = 'dream1';
   return allEvents[randomId];
 }
 

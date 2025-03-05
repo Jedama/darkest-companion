@@ -1,0 +1,112 @@
+[
+  {
+    "identifier": "west_district",
+    "title": "West District",
+    "description": "Centuries past, this was the hamlet's noble quarter, now a hollow echo of former grandeur. The noble house's tower now holds the sanitarium, and with the Weald's miasma it mark this district as a place to avoid. The Caretaker still maintains his provisions, and the Survivalist alone finds comfort beneath the twisted trees.",
+    "parent": "hamlet",
+    "children": ["sanitarium", "provisioner", "survivalist_tent", "weald_edge", "outsider_bonfire", "cartographer_camp"]
+  },
+  {
+    "identifier": "sanitarium",
+    "title": "Sanitarium",
+    "description": "A repurposed manor house whose noble architecture now serves baser needs. Iron bars cover once-elegant windows, while the central tower rises above like a watchful guardian. Within, grand halls have been converted to wards, and the wine cellar holds patients rather than vintages.",
+    "parent": "western_district",
+    "children": ["sanitarium__tower_study", "sanitarium__treatment_ward", "sanitarium__medical_ward", "sanitarium__laboratorium", "sanitarium__cells", "sanitarium__courtyard", "sanitarium__reception", "sanitarium__nurse_quarters"],
+    "npcs": ["nurse"]
+  },
+  {
+    "identifier": "sanitarium__tower_study",
+    "title": "Tower Study",
+    "description": "A circular chamber at the tower's peak where leather-bound medical texts share shelf space with older volumes from the building's nobler days. A broad desk faces the window overlooking the Weald's edge, while brass-bound water tanks occupy the floor above, their pipes descending through the ceiling. The doctor's journals lie open beside a brass microscope, their margins filled with increasingly erratic observations.",
+    "parent": "sanitarium",
+    "children": []
+  },
+  {
+    "identifier": "sanitarium__treatment_ward",
+    "title": "Treatment Ward",
+    "description": "Long rows of narrow beds line the walls of what might once have been a grand ballroom, its high ceiling still bearing traces of gilt beneath years of lamp smoke. Iron brackets now hold privacy screens between patients, while wheeled carts carry implements whose purpose is best left unquestioned. The room's tall windows have been fitted with iron bars, as much to keep things out as in.",
+    "parent": "sanitarium",
+    "children": []
+  },
+  {
+    "identifier": "sanitarium__medical_ward",
+    "title": "Medical Ward",
+    "description": "A more orderly space where standard injuries and illnesses are tended, converted from what appears to be a former dining hall. Glass-fronted cabinets hold clearly labeled medicines and bandages, while examination tables occupy curtained alcoves along one wall. The original chandelier still hangs above, its crystal teardrops gathering dust.",
+    "parent": "sanitarium",
+    "children": []
+  },
+  {
+    "identifier": "sanitarium__nurse_quarters",
+    "title": "Nurse's Quarters",
+    "description": "A modest chamber tucked between the wards, where a narrow bed and washing stand occupy one corner while a small desk holds patient records and work schedules. The room's single window looks out on the well in the courtyard below, its casement painted shut against the night air.",
+    "parent": "sanitarium",
+    "children": []
+  },
+  {
+    "identifier": "sanitarium__laboratorium",
+    "title": "Laboratorium",
+    "description": "A long chamber that once served as the house's kitchen, now converted to chemical pursuits. The great hearth still dominates one wall, though it now heats bubbling retorts and mysterious solutions rather than meals. Wooden tables bear the scars of spilled reagents, while the old dumbwaiter now carries specimens between floors instead of dishes.",
+    "parent": "sanitarium",
+    "children": []
+  },
+  {
+    "identifier": "sanitarium__cells",
+    "title": "Patient Cells",
+    "description": "The wine cellar's stone chambers serve new purpose, their thick walls muffling sounds from within. Iron-bound doors have replaced the original oak, while small barred windows admit thin streams of light. The cool air that once preserved vintage wines now carries whispers between cells.",
+    "parent": "sanitarium",
+    "children": [],
+    "capacity": 4
+  },
+  {
+    "identifier": "sanitarium__courtyard",
+    "title": "Courtyard",
+    "description": "A walled garden where herbs for both medicine and cooking once grew in orderly beds. The old well still offers clean water, its depth reaching aquifers untainted by the Estate's corruption. Stone benches placed in sunnier spots allow recovering patients their prescribed air, though few stray far from the building's shadow.",
+    "parent": "sanitarium",
+    "children": []
+  },
+  {
+    "identifier": "sanitarium__reception",
+    "title": "Reception Hall",
+    "description": "The mansion's former entrance hall maintains a pretense of grandeur, though medical notices now cover faded wallpaper and admission records fill cabinets beneath ancestor portraits. A broad desk faces the doors, allowing staff to monitor both arrivals and the stairway leading to upper wards.",
+    "parent": "sanitarium",
+    "children": []
+  },
+  {
+    "identifier": "provisioner",
+    "title": "Provisioner's Store",
+    "description": "A cluttered establishment whose organization follows its keeper's fractured logic. Shelves climb the walls in uneven patterns, laden with supplies deemed essential by Grayson's inscrutable criteria. Expedition gear shares space with rusted tools and salvaged oddities, while his endless ledgers fill a corner desk, their margins crowded with prophecies and maintenance schedules.",
+    "parent": "western_district",
+    "children": []
+  },
+  {
+    "identifier": "survivalist_tent",
+    "title": "Survivalist's Tent",
+    "description": "A sturdy leather pavilion anchored by precisely placed stakes at the settlement's western edge. Maps secured with monster-bone weights cover a makeshift table, their margins marked with observations in Raven's precise hand. Some smaller tents stand nearby, ready for occupants.",
+    "parent": "western_district",
+    "children": [],
+    "capacity": 3
+  },
+  {
+    "identifier": "weald_edge",
+    "title": "Weald Edge",
+    "description": "The ragged border where the hamlet's influence fails against encroaching wilderness. Here, twisted trees lean over crumbling stone walls, their branches tangled with the remnants of old rope from the Gallows Tree. That ancient execution ground still bears its grim fruit, though none can say whether the swaying corpses move from wind or something else. Above the diseased canopy rises the Tall Tree, its uppermost branches lost in mist where the Shrieker's vast nest blocks out the sky. Fungal growths creep closer with each season, their phosphorescent gleam visible through the undergrowth.",
+    "parent": "western_district",
+    "children": []
+  },
+  {
+    "identifier": "outsider_bonfire",
+    "title": "Outsider's Bonfire",
+    "description": "A scatter of scorched stones and cold ash where the hamlet once celebrated brighter days. Rusted spits and broken benches lie half-buried in weeds, while dark stains mark where revelers spilled their drinks in hasty flight. The old solstice grounds stand empty now, though some say the flames died only after the last celebrant vanished into the Weald's darkness.",
+    "restored": "A welcoming circle of warmth and light at the hamlet's edge. Iron spits turn above carefully maintained flames, while sturdy benches and barrels provide comfort for those seeking respite from the Estate's horrors. Though the Weald's shadows press close, they cannot breach the ring of firelight where townsfolk still gather to share meals and memories of better days.",
+    "parent": "western_district",
+    "children": []
+  },
+  {
+    "identifier": "cartographer_camp",
+    "title": "Cartographer's Camp",
+    "description": "A collapsed tent whose scattered contents speak of hasty abandonment. Moldering maps poke from muddy earth, their careful markings rendered meaningless by the Estate's shifting geography. A broken theodolite still points toward the manor, its brass dulled by years of neglect.",
+    "restored": "A well-ordered pavilion where brass instruments gleam on sturdy tables, dedicated to the endless task of mapping the Estate's fluid boundaries. Fresh charts line the walls, each noting how paths and landmarks drift between surveys. The cartographer works by lamplight into the night, knowing tomorrow's expedition might find everything changed anew.",
+    "parent": "western_district",
+    "children": []
+  }
+]

@@ -72,14 +72,14 @@
   },
   {
     "identifier": "dower_house__barracks",
-    "title": "Barracks",
+    "title": "Dower House Barracks",
     "description": "A narrow wing designed to house guards, mercenaries, or other armed retainers.",
     "parent": "dower_house__first_floor",
     "children": ["dower_house__barracks_room_east", "dower_house__barracks_room_west"]
   },
   {
     "identifier": "dower_house__barracks_room_east",
-    "title": "Barracks Room (East)",
+    "title": "Eastern Barracks Room",
     "description": "A narrow bunkroom with four wooden cots, each with a brass-bound trunk at its foot. An iron brazier sits cold in the center, and a single barred window lets in weak light through clouded glass.",
     "parent": "dower_house__barracks",
     "capacity": 4,
@@ -87,7 +87,7 @@
   },
   {
     "identifier": "dower_house__barracks_room_west",
-    "title": "Barracks Room (West)",
+    "title": "Western Barracks Room",
     "description": "Four cots line the walls beneath a row of narrow windows. A tilted weapons rack holds space for eight weapons, with hooks for shields below. A washbasin stands in the corner, its copper badly oxidized.",
     "parent": "dower_house__barracks",
     "capacity": 4,

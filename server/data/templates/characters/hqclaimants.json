@@ -47,9 +47,9 @@
         "features": "Striking blue eyes, bold red lips/Full well-groomed beard"
     },
     "clothing": {
-        "headwear": "Ornate earrings/None",
-        "top": "Elegant blouse/Fitted doublet",
-        "pants": "Flowing skirt/Sturdy trousers"
+        "head": "Ornate earrings/None",
+        "body": "Elegant blouse/Fitted doublet",
+        "legs": "Flowing skirt/Sturdy trousers"
     },
     "combat": {
       "role": "Versatile Support/Damage",

@@ -19,9 +19,9 @@
       "features": "Always masked"
     },
     "clothing": {
-      "headwear": "Spiked metal masks embossed with unchanging emotion, Jack's grinning and Jacques' frowning",
-      "top": "Mirrored jester outfits, Jack with yellow/black patterned sleeves, and Jasques with red/black",
-      "pants": "Patterned leggings",
+      "head": "Spiked metal masks embossed with unchanging emotion, Jack's grinning and Jacques' frowning",
+      "body": "Mirrored jester outfits, Jack with yellow/black patterned sleeves, and Jasques with red/black",
+      "legs": "Patterned leggings",
       "accessories": "Spiked ball-like gauntlets that double as circus props"
     },
     "notes": [

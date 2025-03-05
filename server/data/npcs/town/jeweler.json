@@ -19,9 +19,9 @@
     "features": "Trimmed beard, fingers that occasionally bend impossibly far back"
   },
   "clothing": {
-    "headwear": "Well-worn blue merchant's cap",
-    "top": "Deliberately shabby purple jacket with suspiciously deep pockets",
-    "pants": "Simple, functional trousers",
+    "head": "Well-worn blue merchant's cap",
+    "body": "Deliberately shabby purple jacket with suspiciously deep pockets",
+    "legs": "Simple, functional trousers",
     "accessories": "Ever-present jeweler's loupe, silk handkerchief for handling specimens"
   },
   "notes": [

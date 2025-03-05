@@ -70,28 +70,28 @@
   },
   {
     "identifier": "apple_yard__master_bedroom",
-    "title": "Master Bedroom",
+    "title": "Apple Yard Master Bedroom",
     "description": "A chamber where violence once reigned, now claimed by creeping rot. The bed's splintered headboard bears deep gouges, while dark stains mar the floorboards beneath years of fungal growth. A shattered mirror still clings to one wall, its fragments reflecting nothing but spreading decay.",
     "parent": "apple_yard",
     "children": []
   },
   {
     "identifier": "apple_yard__mother_room",
-    "title": "Mother's Room",
+    "title": "Apple Yard Mother's Room",
     "description": "A narrow space beneath the eaves where fearful whimpers once echoed. Dried flowers fill cracked vases, their stems black with rot, while a small devotional icon lies face-down in the corner. The wallpaper peels away in long strips, revealing flourishing patches of luminescent growth.",
     "parent": "apple_yard",
     "children": []
   },
   {
     "identifier": "apple_yard__daughters_room",
-    "title": "Daughter's Chamber",
+    "title": "Apple Yard Daughter's Chamber",
     "description": "A small room that once held dreams of escape. A tarnished Conscript's pendant hangs beside a cracked mirror, while love letters moldering in a hidden compartment speak of promises never kept. Fungal blooms now trace the path of old tears down the walls, pulsing brighter whenever their former occupant's wails draw near.",
     "parent": "apple_yard",
     "children": []
   },
   {
     "identifier": "apple_yard__kitchen",
-    "title": "Kitchen",
+    "title": "Apple Yard Kitchen",
     "description": "Broken bottles litter the floor around a heavy table scored by pitchfork tines. The hearth stands cold, though something pulses within the chimney's darkness. Shelves still hold preserving jars, their contents now hosting writhing forms that press against the clouded glass.",
     "parent": "apple_yard",
     "children": []

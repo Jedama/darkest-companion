@@ -92,8 +92,28 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
         }
 
         console.log('storyRes:', storyData);
+
         setStoryTitle(storyData.story.title);
         setStoryBody(storyData.story.body);
+
+        // 3) Consequences route
+        const consequenceRes = await fetch(
+          `http://localhost:3000/estates/${estateName}/events/consequences`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              event: setupData.event,
+              story: storyData.story.body,
+              chosenCharacterIds: setupData.chosenCharacterIds,
+            }),
+            signal,
+          }
+        );
+
+        console.log('consequenceRes:', consequenceRes);
+
+
       } catch (err: any) {
         if (signal.aborted) return;
         console.error('Error in fetchStoryFlow:', err);

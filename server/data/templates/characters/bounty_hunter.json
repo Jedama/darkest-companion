@@ -47,9 +47,9 @@
         "features": "Stubble, strong jawline"
     },
     "clothing": {
-        "headwear": "Metallic mask with cloth covering face",
-        "top": "Dark armor with shoulder pads",
-        "pants": "Dark armored leggings",
+        "head": "Metallic mask with cloth covering face",
+        "body": "Dark armor with shoulder pads",
+        "legs": "Dark armored leggings",
         "accessories": "Belt of hunting tools"
     },
     "combat": {
@@ -69,7 +69,7 @@
     "notes": [
         "Takes pride in his professional skills",
         "Refuses to remove his mask and let anyone see his face",
-        "Often responds only by snorting"
+        "Often responds with just a snort"
     ],
     "relationships": {
     }

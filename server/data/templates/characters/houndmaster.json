@@ -47,9 +47,9 @@
       "features": "Well-kept beard and mustache"
     },
     "clothing": {
-      "headwear": "Red headband",
-      "top": "Worn Gendarme's uniform",
-      "pants": "Sturdy trousers",
+      "head": "Red headband",
+      "body": "Worn Gendarme's uniform",
+      "legs": "Sturdy trousers",
       "accessories": "Belt with pouches"
     },
     "combat": {

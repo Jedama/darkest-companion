@@ -64,20 +64,20 @@
   {
     "identifier": "apothecary",
     "title": "Apothecary",
-    "description": "A narrow three-story building of dark timber and clouded windows, its faded sign still bearing traces of painted herbs. The ground floor shop remains as the Apothecary left it when he went to defend the hamlet - shelves of labeled jars and bundles of dried plants arranged with careful precision. ",
+    "description": "A narrow three-story building of dark timber and clouded windows, its faded sign bearing traces of painted herbs - though closer inspection reveals specimens unlike any natural flora. The ground floor shop stands frozen in time since the Apothecary perished in the invasion, the neat precision of its shelves a stark contrast to the wild growths that once marked his sister's experiments.",
     "parent": "southeast_district",
     "children": ["apothecary__shop", "apothecary__garden", "apothecary__second_floor", "apothecary__third_floor"]
   },
   {
     "identifier": "apothecary__shop",
-    "title": "Shop Floor",
-    "description": "Tall shelves line the walls, still stocked with the Apothecary's carefully labeled remedies and tinctures. A broad counter bears the marks of decades of herb preparation, while beneath it, ledgers record generations of transactions in different hands. A circular depression in the floorboards marks where his sister's cauldron once sat, decades before she took her experiments into the Weald. The scent of dried herbs still clings to the air, mingling with newer notes of dust and decay.",
+    "title": "Apothecary Shop Floor",
+    "description": "Tall shelves line the walls, bearing the Apothecary's labeled remedies alongside empty spaces where his sister's more controversial concoctions once stood. The circular depression in the floorboards marks where the Horticulturist's cauldron once sat, its rim still bearing faint traces of the strange fungi she cultivated before taking her research into the Weald.",
     "parent": "apothecary",
     "children": []
   },
   {
     "identifier": "apothecary__second_floor",
-    "title": "Parents' Chamber",
+    "title": "Apothecary Parents' Chamber",
     "description": "The second floor holds the master bedroom and a modest parlor, preserved as if awaiting the return of the family's elder generation. Dried flowers fill a vase on the bedside table, maintained until the end by their son's careful hand. A writing desk faces the street, its drawer still holding recipes written in their mother's precise hand.",
     "parent": "apothecary",
     "capacity": 2,
@@ -85,16 +85,16 @@
   },
   {
     "identifier": "apothecary__third_floor",
-    "title": "Children's Rooms",
-    "description": "Two small bedrooms tucked beneath the eaves tell contrasting stories of the siblings who once lived here. The Apothecary's room remains neat, his herbalist tools still arranged on a small workbench. His sister's chamber holds darker hints of her later obsessions - strange marks beneath the wallpaper and a shelf of curious fungi specimens she never took with her to the Weald.",
+    "title": "Apothecary Children's Rooms",
+    "description": "Two small bedrooms tucked beneath the eaves tell the story of siblings who chose drastically different paths. The Apothecary's room stands as a monument to restraint, while his sister's chamber remains a testament to ambition unbound - fungi specimens still flourish in forgotten corners, and beneath peeling wallpaper, unsettling formulae speak to her gradual obsession with the Weald's corrupted flora.",
     "parent": "apothecary",
     "capacity": 2,
     "children": []
   },
   {
     "identifier": "apothecary__garden",
-    "title": "Herb Garden",
-    "description": "A walled garden where the family cultivated medicinal herbs for generations, its neat beds now overgrown in neglect. Stone tables still hold mortars and drying racks, while copper watering cans rust quietly beside the old well. In one shadowy corner, a small bed of mushrooms persists despite the Apothecary's attempts to remove them, perhaps the last remnant of his sister's influence.",
+    "title": "Apothecary Herb Garden",
+    "description": "A walled garden where the family cultivated medicinal herbs for generations, now bearing visible signs of the Horticulturist's later experiments. While most beds lie neglected, certain patches flourish with unsettling vigor, particularly where her mushroom specimens have spread beyond their bounds. The old well remains sealed with heavy chains, a precaution dating to the days before she left.",
     "parent": "apothecary",
     "children": []
   }

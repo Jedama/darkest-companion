@@ -48,9 +48,9 @@
         "features": "Flat-chested"
     },
     "clothing": {
-        "headwear": "Wide-brimmed hat with feathers",
-        "top": "Reinforced vest and cloak",
-        "pants": "Leather trousers",
+        "head": "Wide-brimmed hat with feathers",
+        "body": "Reinforced vest and cloak",
+        "legs": "Leather trousers",
         "accessories": "Cape"
     },
     "combat": {

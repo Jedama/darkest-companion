@@ -19,9 +19,9 @@
     "features": "Knowing smile & sharp eyes/Scarred left eyebrow & calculating gaze"
   },
   "clothing": {
-    "headwear": "None/None",
-    "top": "Dark velvet dress with high collar/Black coat with silver buttons",
-    "pants": "None/Tailored trousers",
+    "head": "None/None",
+    "body": "Dark velvet dress with high collar/Black coat with silver buttons",
+    "legs": "None/Tailored trousers",
     "accessories": "Golden medallion necklace/Concealed dagger, silver rings"
   },
   "notes": [

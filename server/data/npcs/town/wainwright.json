@@ -19,9 +19,9 @@
     "features": "Stern expression, scarred eyebrow, angular jaw"
   },
   "clothing": {
-    "headwear": "None",
-    "top": "Leather work vest over long-sleeved shirt",
-    "pants": "Heavy canvas trousers",
+    "head": "None",
+    "body": "Leather work vest over long-sleeved shirt",
+    "legs": "Heavy canvas trousers",
     "accessories": "Tool-laden belt, orange neckerchief, geometric tattoos on arms"
   },
   "notes": [

@@ -7,19 +7,20 @@
     "nrChars": [2, 2],
     "keywords": ["Anecdote", "Gossip", "Joke", "Rumor"],
     "location": {
-        "default": ["yellow_hand"],
+        "default": [],
         "residence": [],
         "workplaces": [],
-        "frequents": []
+        "frequents": [],
+        "allowAll": true
     }
   },
   {
     "identifier": "debug_1",
     "title": "Sexual activity",
     "type": "town",
-    "summary": "[Characters] engage in sexual activity.",
+    "summary": "[Characters] engage in sexual activity, depicted in graphic and erotic detail.",
     "nrChars": [2, 2],
-    "keywords": ["Unwilling"],
+    "keywords": ["Passionate"],
     "location": {
         "default": [],
         "residence": [1, 2],
@@ -35,10 +36,25 @@
     "nrChars": [2, 3],
     "keywords": ["Searching"],
     "location": {
-        "default": ["yellow_hand", "abbey", "inn", "brothel"],
+        "default": ["yellow_hand", "abbey", "inn"],
         "residence": [],
         "workplaces": [],
         "frequents": [1, 2, 3],
+        "allowAll": true
+    }
+  },
+  {
+    "identifier": "debug_3",
+    "title": "Confrontation",
+    "type": "town",
+    "summary": "A long-standing disagreement between [Characters] escalates too far.",
+    "nrChars": [2, 2],
+    "keywords": ["Violence", "Hatred", "Foregiveness", "Apologetic", "Gone too far", "Beatdown"],
+    "location": {
+        "default": ["yellow_hand", "tavern", "inn"],
+        "residence": [],
+        "workplaces": [],
+        "frequents": [1, 2],
         "allowAll": true
     }
   }

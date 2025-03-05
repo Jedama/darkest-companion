@@ -41,13 +41,13 @@
       "build": "Athletic",
       "skinTone": "Dark",
       "hairColor": "Black",
-      "hairStyle": "Braids tied up in a short upright ponytail",
+      "hairStyle": "Dreads tied up in a short upright ponytail",
       "features": "Deep lines below fierce eyes"
     },
     "clothing": {
-      "headwear": "White headband",
-      "top": "Metal armor emphasizing modest chest",
-      "pants": "Baggy pants and greaves",
+      "head": "White headband",
+      "body": "Metal armor emphasizing modest chest",
+      "legs": "Baggy pants and greaves",
       "accessories": "Gauntlet on one hand and glove on the other"
     },
     "combat": {

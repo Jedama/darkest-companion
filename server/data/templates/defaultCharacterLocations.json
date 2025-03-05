@@ -1,68 +1,307 @@
 {
-    "heiress": {
-      "residence": ["dower_house__master_bedroom"],
-      "workplaces": [
-        "town_hall__strategy_room",
-        "town_hall__meeting_hall", 
-        "town_hall__council_chamber",
-        "dower_house__study"
-      ],
-      "frequents": [
-        "tavern",
-        "dower_house__wine_cellar",
-        "dower_house__dining_hall",
-        "dower_house__garden",
-        "dower_house__red_hook",
-        "town_square"
-      ]
-    },
-    "kheir": {
-      "residence": ["dower_house__master_bedroom"],
-      "workplaces": [
-        "library__map_room",
-        "library__archive",
-        "town_hall__record_archives",
-        "town_hall__strong_room",
-        "harbor__warehouse",
-        "provision_house__office"
-      ],
-      "frequents": [
-        "tavern",
-        "dower_house__wine_cellar",
-        "library__main_hall",
-        "dower_house__astronomy_room",
-        "dower_house__garden"
-      ]
-    },
-    "crusader": {
-      "residence": ["dower_house__barracks_room_east"],
-      "workplaces": [
-        "guild_hall",
-        "training_ring",
-        "abbey_grounds",
-        "palisade_wall"
-      ],
-      "frequents": [
-        "abbey",
-        "farmlands",
-        "town_square",
-        "dower_house__garden",
-        "tavern"
-      ]
-    },
-    "highwayman": {
-      "residence": ["dower_house__barracks_room_east"],
-      "workplaces": [
-        "guild_hall",
-        "training_ring",
-        "palisade_wall"
-      ],
-      "frequents": [
-        "tavern",
-        "house_of_yellow_hand",
-        "inn",
-        "town_square",
-        "brothel_alley"
-      ]
-    }
+  "heiress": {
+    "residence": ["dower_house__master_bedroom"],
+    "workplaces": [
+      "town_hall__strategy_room",
+      "town_hall__meeting_hall",
+      "town_hall__council_chamber",
+      "dower_house__study"
+    ],
+    "frequents": [
+      "tavern",
+      "dower_house__wine_cellar",
+      "dower_house__dining_hall",
+      "dower_house__garden",
+      "dower_house__red_hook",
+      "town_square"
+    ]
+  },
+  "kheir": {
+    "residence": ["dower_house__master_bedroom"],
+    "workplaces": [
+      "library__map_room",
+      "library__archive",
+      "town_hall__record_archives",
+      "town_hall__strong_room",
+      "warehouse_district",
+      "provisioner"
+    ],
+    "frequents": [
+      "tavern",
+      "dower_house__wine_cellar",
+      "library__main",
+      "dower_house__astronomy_room",
+      "dower_house__garden"
+    ]
+  },
+  "crusader": {
+    "residence": ["dower_house__barracks_room_east"],
+    "workplaces": [
+      "guild_hall",
+      "training_ring",
+      "abbey__grounds",
+      "palisade_wall"
+    ],
+    "frequents": [
+      "abbey",
+      "mill_grounds",
+      "town_square",
+      "dower_house__garden",
+      "tavern"
+    ]
+  },
+  "highwayman": {
+    "residence": ["dower_house__barracks_room_east"],
+    "workplaces": [
+      "guild_hall",
+      "training_ring",
+      "palisade_wall"
+    ],
+    "frequents": [
+      "tavern",
+      "yellow_hand",
+      "inn",
+      "town_square",
+      "alley"
+    ]
+  },
+  "abomination": {
+    "residence": [
+      "dower_house__barracks_room_east",
+      "dower_house__barracks_room_west",
+      "sanitarium__cells",
+      "shore_path__condemned_shack",
+      "ravens_row__cryptographer",
+      "stumbling_corpse__crew_quarters",
+      "abbey__dorter",
+      "abbey__private_cells"
+    ],
+    "workplaces": [
+      "sanitarium__laboratory",
+      "abbey__penance_chamber",
+      "abbey__transept",
+      "butchers_circus__arena",
+      "warehouse_district"
+    ],
+    "frequents": [
+      "sanitarium__laboratory",
+      "abbey__penance_chamber",
+      "abbey__transept",
+      "butchers_circus__arena",
+      "tavern",
+      "abbey",
+      "abbey__grounds",
+      "abbey__cloister",
+      "abbey__altar",
+      "abbey__bell_tower",
+      "dower_house__garden",
+      "shore_path",
+      "sanitarium__courtyard",
+      "puppet_theather",
+      "bonfire",
+      "yellow_hand"
+    ]
+  },
+  "antiquarian":{
+    "residence": [
+      "dower_house__rosewood_chamber",
+      "dower_house__willow_chamber",
+      "ravens_row__cryptographer",
+      "ravens_row__professor",
+      "yellowfinger_house",
+      "stumbling_corpse__captains_berth",
+      "abbey__private_cells",
+      "shore_path__condemned_shack",
+      "tavern__wolf_room",
+      "tavern__bear_room",
+      "inn__spire_room",
+      "inn__rookery_room",
+      "inn__crypt_room",
+      "inn__moon_room",
+      "inn__tower_room",
+      "library__raven_room",
+      "library__wren_room",
+      "library__sparrow_room"
+    ],
+    "workplaces:": [
+      "library__main",
+      "library__archive",
+      "library__special_collections",
+      "athenaeum",
+      "geological_study_hall",
+      "town_hall__record_archives",
+      "kraken_society",
+      "market_wagons"
+    ],
+    "frequents": [
+      "library__main",
+      "library__map_room",
+      "library__archive",
+      "athenaeum",
+      "geological_study_hall",
+      "town_hall__record_archives",
+      "kraken_society",
+      "yellow_hand",
+      "market_wagons",
+      "market_wagons__nomad_wagon",
+      "market_wagons__jeweler",
+      "puppet_theater",
+      "tavern",
+      "abbey__transept",
+      "abbey__bell_tower",
+      "dower_house__study",
+      "dower_house__garden",
+      "shore_path",
+      "sanitarium__courtyard"
+    ]
+  },
+  "arbalest": {
+    "residence": [
+      "dower_house__barracks_room_east",
+      "dower_house__barracks_room_west",
+      "inn__raven_room",
+      "inn__bell_room",
+      "inn__spire_room",
+      "inn__rookery_room",
+      "inn__crypt_room",
+      "inn__shadow_room",
+      "inn__moon_room",
+      "inn__twilight_room",
+      "inn__tower_room",
+      "stumbling_corpse__captains_berth",
+      "stumbling_corpse__crew_quarters",
+      "survivalist_tent",
+      "abbey__dorter",
+      "shore_path__condemned_shack",
+      "tavern__bear_room",
+      "tavern__wolf_room"
+    ],
+    "workplaces": [
+      "guild_hall__training_ring",
+      "guild_hall__training_yard",
+      "palisade_wall",
+      "butchers_circus__arena",
+      "warehouse_district",
+      "sanitarium__medical_ward"
+    ],
+    "frequents": [
+      "guild_hall__training_ring",
+      "guild_hall__training_yard",
+      "abbey__grounds",
+      "palisade_wall",
+      "butchers_circus__arena",
+      "sanitarium__courtyard",
+      "tavern",
+      "inn__common_room",
+      "market_wagons",
+      "market_wagons__nomad_wagon",
+      "puppet_theater",
+      "dower_house__garden",
+      "shore_path",
+      "abbey__transept",
+      "abbey__bell_tower",
+      "dower_house__study"
+    ]
+  },
+  "bounty_hunter": {
+    "residence": [
+      "dower_house__barracks_room_east",
+      "dower_house__barracks_room_west",
+      "inn__raven_room",
+      "inn__bell_room",
+      "inn__spire_room",
+      "inn__rookery_room",
+      "inn__crypt_room",
+      "inn__shadow_room",
+      "inn__moon_room",
+      "inn__twilight_room",
+      "inn__tower_room",
+      "stumbling_corpse__crew_quarters",
+      "tavern__bear_room",
+      "tavern__stag_room"
+    ],
+    "workplaces": [
+      "guild_hall__training_ring",
+      "guild_hall__training_yard",
+      "palisade_wall",
+      "town_hall__strategy_room",
+      "town_hall__council_chamber"
+    ],
+    "frequents": [
+      "guild_hall__training_ring",
+      "guild_hall__training_yard",
+      "butchers_circus__arena",
+      "library__map_room",
+      "town_hall__strategy_room",
+      "town_hall__council_chamber",
+      "tavern",
+      "inn__common_room",
+      "market_wagons__nomad_wagon",
+      "market_wagons__jeweler",
+      "dower_house__garden",
+      "shore_path",
+      "abbey__transept",
+      "abbey__bell_tower",
+      "dower_house__study",
+      "yellow_hand",
+      "alley"
+    ]
+  },
+  "cataphract": {
+    "residence": [
+      "dower_house__barracks_room_east",
+      "dower_house__barracks_room_west",
+      "inn__raven_room",
+      "inn__bell_room",
+      "inn__spire_room",
+      "inn__rookery_room",
+      "inn__crypt_room",
+      "inn__shadow_room",
+      "inn__moon_room",
+      "inn__twilight_room",
+      "inn__tower_room",
+      "stumbling_corpse__captains_berth",
+      "stumbling_corpse__crew_quarters",
+      "survivalist_tent",
+      "shore_path__condemned_shack",
+      "tavern__bear_room",
+      "tavern__wolf_room",
+      "abbey__private_cells",
+      "abbey__dorter"
+    ],
+    "workplaces": [
+      "guild_hall__training_ring",
+      "guild_hall__training_yard",
+      "palisade_wall",
+      "town_hall__strategy_room",
+      "town_hall__council_chamber",
+      "inn__stables",
+      "atheneaum",
+      "kraken_society"
+    ],
+    "frequents": [
+      "guild_hall__training_ring",
+      "guild_hall__training_yard",
+      "butchers_circus__arena",
+      "palisade_wall",
+      "town_hall__strategy_room",
+      "town_hall__council_chamber",
+      "weald_edge",
+      "tavern",
+      "inn__common_room",
+      "inn__raven_room",
+      "market_wagons",
+      "market_wagons__nomad_wagon",
+      "market_wagons__jeweler",
+      "puppet_theater",
+      "dower_house__garden",
+      "shore_path",
+      "outsiders_bonfire",
+      "abbey__transept",
+      "abbey__bell_tower",
+      "dower_house__study",
+      "yellow_hand",
+      "alley"
+    ]
   }
+}

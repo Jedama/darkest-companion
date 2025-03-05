@@ -30,14 +30,14 @@
   {
     "identifier": "tritonis_house",
     "title": "Tritonis House",
-    "description": "A dignified manor perched half over the waters on thick timber supports, its weathered facade still bearing traces of seafoam green paint. Wide windows face the harbor's expanse, while delicate carvings of shells and sea-life adorn the eaves. The house stands empty now, the fate of its last inhabitants whispered by fishwives who hurry past its darkened windows.",
+    "description": "A dignified manor perched half over the waters on thick timber supports, its weathered facade still bearing traces of seafoam green paint. Wide windows face the harbor's expanse, while delicate carvings of shells and sea-life adorn the eaves. The house stands empty now, its last inhabitants victims of ambition and the dark waters below.",
     "parent": "east_district",
     "children": ["tritonis_house__daughter_chamber", "tritonis_house__master_bedroom", "tritonis_house__maid_quarter", "tritonis_house__dining_hall", "tritonis_house__porch"]
   },
   {
     "identifier": "tritonis_house__daughter_chamber",
     "title": "Daughter's Chamber",
-    "description": "A room frozen in time, its furniture draped in sailcloth that billows in the sea breeze. A small vanity still holds hairbrushes and ribbons, while the family portrait above shows a young woman with a starfish woven into her dark hair, her smile holding secrets beneath the canvas's grime.",
+    "description": "A room frozen in time, its furniture draped in sailcloth that billows in the sea breeze. A vanity holds hairbrushes and ribbons beside a half-written love letter to the Ancestor, its ink long dried. The family portrait above shows a young woman with a starfish woven into her dark hair.",
     "parent": "tritonis_house",
     "capacity": 1,
     "children": []
@@ -45,7 +45,7 @@
   {
     "identifier": "tritonis_house__master_bedroom",
     "title": "Master Bedroom",
-    "description": "Heavy curtains hang motionless over windows facing the pier where their daughter was last seen. The bed remains made, as if its owners might return any moment from their final desperate walk into the harbor's depths.",
+    "description": "Heavy curtains hang motionless over windows facing the pier their daughter loved to dangle her legs from. The bed remains made, as if its owners might return any moment from their final desperate walk into the harbor's depths.",
     "parent": "tritonis_house",
     "capacity": 2,
     "children": []
@@ -84,9 +84,10 @@
   {
     "identifier": "yellowfinger_house",
     "title": "Yellowfinger Residence",
-    "description": "A well-maintained townhouse tucked away in a quiet corner of the harbor district, its windows overlooking both the docks and their ruined tavern. The facade prides itself on its decorative stonework and iron-bound doors. Their black cat Sovereign keeps watch from various windowsills. The cellar entrance, visible only from the back alley, sees frequent midnight traffic.",
+    "description": "A well-maintained townhouse tucked away in a quiet corner of the harbor district, its windows overlooking both the docks and their ruined tavern. The facade prides itself on its decorative stonework and iron-bound doors. Their black cat Sovereign keeps watch from various windowsills. The cellar entrance, visible only from the back alley, sees frequent midnight traffic. The basement holds room for two, if they can gain Sovereign's favor.",
     "parent": "east_district",
     "children": [],
+    "capacity": 2,
     "npcs": ["smugglers"]
   },
   {
@@ -125,7 +126,7 @@
     "title": "Crew Quarters",
     "description": "A long room filled with narrow bunks stacked three high, each with its own sea chest bolted beneath. Rope hammocks hang in the empty spaces, swaying slightly despite the lack of breeze. The wooden walls bear countless carved initials and crude drawings of distant ports.",
     "parent": "stumbling_corpse",
-    "capacity": 6,
+    "capacity": 12,
     "children": []
   },
   {

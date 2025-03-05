@@ -45,9 +45,9 @@
       "features": "Small hands, thin neck"
     },
     "clothing": {
-      "headwear": "Crown of thorns",
-      "top": "Frilly red dress with ruffled white collar",
-      "pants": "None",
+      "head": "Crown of thorns",
+      "body": "Frilly red dress with ruffled white collar",
+      "legs": "None",
       "accessories": "None"
     },
     "combat": {

@@ -1,5 +1,5 @@
 import type { Estate, EventData, Character, NPC, LocationData } from '../../shared/types/types.ts';
-import { getInstructionsText, getContextText } from './narrativeData';
+import { getInstructionsText, getContextText } from './promptData/narrativeData.js';
 import { loadNPCsByIds } from '../templateLoader';
 
 /**
@@ -66,7 +66,7 @@ export async function compileStoryPrompt(
     charactersSection += `  - Appearance: A ${char.appearance.height}, ${char.appearance.build} individual with ${char.appearance.skinTone} skin. ${char.appearance.hairStyle} ${char.appearance.hairColor} hair frames their ${char.appearance.features}.\n`;
 
     // Add clothing details
-    charactersSection += `  - Clothing: Wears a ${char.clothing.top}, paired with ${char.clothing.pants}. On their head, they wear ${char.clothing.headwear}. Additional details include ${char.clothing.accessories}.\n`;
+    charactersSection += `  - Clothing: Wears a ${char.clothing.body}, paired with ${char.clothing.legs}. On their head, they wear ${char.clothing.head}. Additional details include ${char.clothing.accessories}.\n`;
 
     // Add combat details
     charactersSection += `  - Combat: Fulfills the role of a ${char.combat.role}, excelling in ${char.combat.strengths.join(', ')}, but struggles with ${char.combat.weaknesses.join(', ')}.\n`;
@@ -135,8 +135,9 @@ Description: ${description}
       // Main header with name and title
       npcSection += `- ${npc.title} ${npc.name}\n`;
       
-      // Indented summary
+      // Indented summary and history
       npcSection += `  ${npc.summary}\n`;
+      npcSection += `  ${npc.history}\n`;
       
       // Compact appearance and traits section
       const appearanceDetails = [
@@ -149,9 +150,9 @@ Description: ${description}
       
       // Clothing as a single line
       const attire = [
-        npc.clothing.headwear,
-        npc.clothing.top,
-        npc.clothing.pants,
+        npc.clothing.head,
+        npc.clothing.body,
+        npc.clothing.legs,
         npc.clothing.accessories
       ].filter(Boolean).join(', ');
       npcSection += `  Attire: ${attire}\n`;

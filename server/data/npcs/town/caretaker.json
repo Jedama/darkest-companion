@@ -19,9 +19,9 @@
     "features": "Patchy beard"
   },
   "clothing": {
-    "headwear": "None, though often seen carrying a lantern even in daylight",
-    "top": "Many-pocketed overcoat, its original color lost to stains and patches",
-    "pants": "Worn trousers tucked into mud-caked boots",
+    "head": "None, though often seen carrying a lantern even in daylight",
+    "body": "Many-pocketed overcoat, its original color lost to stains and patches",
+    "legs": "Worn trousers tucked into mud-caked boots",
     "accessories": "Ring of countless keys, cracked spectacles held together with twine"
   },
   "notes": [

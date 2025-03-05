@@ -45,9 +45,9 @@
         "features": "Tattoos on arms, chest, and neck"
     },
     "clothing": {
-        "headwear": "Red bandana",
-        "top": "White, sleeveless shirt",
-        "pants": "Leather pants",
+        "head": "Red bandana",
+        "body": "White, sleeveless shirt",
+        "legs": "Leather pants",
         "accessories": "Gold ring earring, chain necklace with shark teeth"
     },
     "combat": {
