@@ -3,14 +3,14 @@ import express, { Request, Response } from 'express';
 import cors from 'cors';
 import { loadEstate, saveEstate, listEstates, deleteEstate } from './fileOps.js';
 import { createNewEstate } from '../shared/types/types.js';
-import { loadCharacterTemplates, loadDefaultRelationships, loadDefaultCharacterLocations } from './templateLoader.js';
 import type { Estate } from '../shared/types/types.js';
 import logRoutes from './logs/logRoutes.js';
 import setupEventRoute from './routes/setupEventRoute.js';
 import storyEventRoute from './routes/storyEventRoute.js';
 import consequencesEventRoute from './routes/consequencesEventRoute.js';
+import StaticGameDataManager from './staticGameDataManager.js';
 
-const DEFAULT_CHARACTER_IDS = ['crusader', 'highwayman', 'heiress', 'kheir', 'arbalest', 'antiquarian', 'abomination', 'bounty_hunter', 'cataphract'];
+const DEFAULT_CHARACTER_IDS = ['crusader', 'highwayman', 'heiress', 'kheir', 'arbalest', 'antiquarian', 'abomination', 'bounty_hunter', 'cataphract', 'cook', 'duchess', 'flagellant', 'grave_robber', 'hood', 'houndmaster', 'hqclaimants'];
 
 const app = express();
 const port = 3000;
@@ -90,26 +90,27 @@ app.post('/estates', async (req: Request<{}, {}, CreateEstateBody>, res: Respons
       return res.status(409).json({ error: 'An estate with this name already exists' });
     }
 
-    // Load character templates
-    const characterTemplates = await loadCharacterTemplates();
-
-    // Load default relationships
-    const defaultRelationships = await loadDefaultRelationships();
-
-    // Load defauilt character locations
-    const defaultCharacterLocations = await loadDefaultCharacterLocations();
+    const gameData = StaticGameDataManager.getInstance();
+    
+    // Get data from the static manager instead of loading it each time
+    const characterTemplates = gameData.getCharacterTemplates();
     
     // Filter only the initial characters from templates
     const defaultCharacters = Object.fromEntries(
       DEFAULT_CHARACTER_IDS
-        .map((id) => [
-          id,
-          {
-            ...characterTemplates[id],
-            relationships: defaultRelationships[id] || {}, // Attach relationships
-            locations: defaultCharacterLocations[id] || { residence: [], workplaces: [], frequents: [] } // Attach default locations
-          },
-        ])
+        .map((id) => {
+          const template = characterTemplates[id];
+          if (!template) return [id, undefined];
+          
+          return [
+            id,
+            {
+              ...template,
+              relationships: gameData.getDefaultRelationshipsForCharacter(id) || {}, 
+              locations: gameData.getRandomizedLocationsForCharacter(id)
+            },
+          ];
+        })
         .filter(([_, char]) => char !== undefined) // Ensure character exists
     );
 
@@ -146,6 +147,21 @@ app.delete('/estates/:name', async (req: Request<EstateParams>, res: Response) =
   }
 });
 
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
-});
+// Initialize the server
+async function startServer() {
+  try {
+    // Initialize static game data first
+    await StaticGameDataManager.getInstance().initialize();
+    
+    // Then start the Express server
+    app.listen(port, () => {
+      console.log(`Server running at http://localhost:${port}`);
+    });
+  } catch (error) {
+    console.error('Failed to start server:', error);
+    process.exit(1);
+  }
+}
+
+// Start the server
+startServer();

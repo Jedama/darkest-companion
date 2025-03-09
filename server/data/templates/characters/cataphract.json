@@ -1,11 +1,11 @@
 {
     "identifier": "cataphract",
     "title": "Cataphract",
-    "name": "Nyriad & Cargadon",
+    "name": "Nyriad",
     "level": 0,
     "money": 0,
-    "summary": "The Cataphract is a formidable mounted warrior from the Levantine Sultanate, bonded with the spirit of her horse whose skull she always carries around. In battle, it transforms into a spectral steed of blue flames to assist the Cataphract in battle. Together they form an unstoppable cavalry unit, using their combined skills to charge into battle and vanquish foes.",
-    "history": "Once a respected warrior of the Levantine Sultanate, the Cataphract's life changed when her beloved horse was fatally wounded. Desperate, she stole a powerful artifact to revive him, resulting in their exile. Now the spirit of the horse speaks to her, and they fight together against the horrors of the estate.",
+    "summary": "The Cataphract is a formidable mounted warrior from the Levantine Sultanate, bonded with the spirit of her horse, Kargadaan, whose skull she always carries around. In battle, it transforms into a spectral steed of blue flames to assist the Cataphract. Together they form an unstoppable cavalry unit, using their combined skills to charge into battle and vanquish foes.",
+    "history": "Once a respected warrior of the Levantine Sultanate, the Cataphract's life changed when her beloved Kargadaan was fatally wounded. Desperate, she stole a powerful artifact to revive him, resulting in their exile. Now the spirit of the horse speaks to her, and they fight together against the horrors of the estate.",
     "race": "Human",
     "gender": "Female",
     "religion": "",
@@ -34,8 +34,8 @@
         "sociability": 5
     },
     "equipment": [
-      "Spear",
-      "Longbow",
+      "Polearm",
+      "Spectral longbow",
       "Banner"
     ],
     "appearance": {
@@ -63,11 +63,13 @@
         "Slow attrition"
       ]
     },
-    "magic": "Limited supernatural connection with Cargadon",
+    "magic": "Supernatural connection to Kargadaan",
     "notes": [
-      "Carries the skull of her deceased horse, which grants her power",
-      "Can communicate with the horse's spirit",
-      "Speaks with a mild Levantine accent"
+      "Regularly converses with Kargadaan's skull, though no one else can hear it",
+      "Speaks with a mild Levantine accent, which becomes more pronounced when excited or angry",
+      "Maintains rigid military discipline, and is disappointed when she finds others' lacking",
+      "Under extreme stress, her identity fractures as she begins speaking and acting as though she were Kargadaan",
+      "Forms immediate judgments of others and stubbornly sticks to them"
     ],
     "relationships": {}
 }

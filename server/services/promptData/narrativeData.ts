@@ -101,15 +101,11 @@ The event type is "Town", which means it takes place in the hamlet or its immedi
   - Maintains a grim and eerie tone: Incorporate unsettling or grotesque details, letting the atmosphere reflect the malevolence of the estate. Do not shy away from discomfort or tragedy.
   - The characters are aware of the setting and their quest, but don't know the backgrounds and secrets of their colleagues. Many have just met one another.
   - This world is one of distrust, selfishness, and despair. Focus on animosity, disagreements, and hopelessness to make the few moments of heroism brighter.
-  - The Location list is structured Room->Establishment->District, then nearby rooms. Introduce the main location early and use the surrounding if relevant, to help the reader visualize the Hamlet.
+  - The Location list is structured Room->Establishment->District, then nearby rooms. Introduce the main location and its establishment or surroundings early, to help the reader visualize the Hamlet.
   - The Modifiers don't need to be literally in the text, but use them to shape the event.
   - You can involve some or all of the NPCs in the event, mention them for flavor, or omit them entirely. The focus should be on the actual characters.
-  - When a character is marked as (referenced only) focus on how their absence, memory, or influence affects the present character(s)
+  - When a character is marked as (referenced only) focus on how their absence, memory, or influence affects the present character(s).
   - Each vignette should show a small but meaningful moment of character development through their interactions with others. These can be subtle - a change in attitude, a moment of understanding, or a reinforcement of existing traits through action.
-  -- A character revealing a flaw through their actions
-  -- Two characters finding common ground despite differences
-  -- A character's beliefs being challenged by others' actions
-  -- A decision that shows their priorities or values
 
   Avoid:
   - Reintroducing the characters in every scene. Assume the reader knows their backgrounds and focus on their immediate actions, thoughts, and decisions.
@@ -117,7 +113,7 @@ The event type is "Town", which means it takes place in the hamlet or its immedi
   - Overly harmonious resolutions. Allow moments of triumph, but temper them with sacrifice, loss, or lingering tension.
   - Cliffhangers or leaving the vignette unresolved.
   - Avoid introducing new mysteries, undocumented past events, unexplained phenomena, or plot hooks that extend beyond the current scene. Focus on the immediate interactions and character dynamics rather than setting up future revelations.
-
+  - Always ending storeis on a positive note. This is a game of managing broken, horrible people and difficulty is the primary selling point.
 
 Start each story with a title in [Square Brackets], no #.
 
@@ -158,7 +154,7 @@ When his fortune began to dwindle, the Ancestor took desperate measures:
 - Hired brigands to massacre protesting townsfolk
 - Raised an army of undead in the ruins of his ancestral castle
 
-Eventually, the excavation reached "the Darkest Dungeon," revealing an eldritch entity known as the Heart of Darkness. After showing this to a Prophet (who went mad and blinded himself), the Ancestor retreated to his study. As townsfolk stormed the Manor, he wrote letters to his heir, then ended his life - not in despair, but as the final step in a ritual to bind himself to the Heart as its Herald.
+Eventually, the excavation reached "the Darkest Dungeon," revealing an eldritch entity. After showing this to a Prophet (who went mad and blinded himself), the Ancestor retreated to his study. As townsfolk stormed the Manor, he wrote letters to his heir, then ended his life - not in despair, but as the final step in a ritual to bind himself to the Heart as its Herald.
 
 AFTERMATH:
 The Ancestor's actions unleashed various horrors across the Estate:
@@ -166,9 +162,9 @@ The Ancestor's actions unleashed various horrors across the Estate:
 - A cosmic comet crashed into the Farmstead
 - Necromancers continued raising the dead in the Ruins
 - Pigmen multiplied in the Warrens
-- The Hag formed a coven in the Weald
-- Sea creatures took over the Cove with the transformed Waif
-- Cultists bearing the Iron Crown symbol spread throughout all regions, worshipping the Heart and acting as its emissaries
+- The Hag formed a coven, corrupting the Weald and its nearby lands with a fungal Miasma (That claimed the apple yard)
+- Sea creatures took over the Cove with the transformed Siren
+- Cultists bearing the Iron Crown symbol spread throughout all regions, worshipping the entity and acting as its emissaries
 
 The hamlet fought for survival as these horrors emerged:
 - The Guard Captain coordinated defense from the watchtower, until his death

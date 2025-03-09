@@ -1,11 +1,12 @@
 // server/routes/consequencesEventRoute.ts
 import { Router, Request, Response } from 'express';
-import { loadEstate } from '../fileOps';
+import { loadEstate, saveEstate } from '../fileOps';
 import { callClaude, callGemini } from '../services/llm/llmService.js';
 import type { Estate } from '../../shared/types/types';
 import { compileConsequencesPrompt } from '../services/consequencesEventService';
 import { validateConsequenceUpdate, formatConsequenceUpdate } from '../services/promptData/consequenceData';
 import type { ConsequencePrompt } from '../services/promptData/consequenceData';
+import { applyConsequences, ConsequencesResult } from '../services/consequenceProcessor';
 
 const router = Router();
 
@@ -58,7 +59,7 @@ router.post('/estates/:estateName/events/consequences', async (req: Request<{est
     const response = await callClaude({
       prompt,
       model: 'claude-3-7-sonnet-20250219',
-      maxTokens: 1024
+      maxTokens: 2048
     });
 
     // 4. Clean and parse the response
@@ -92,11 +93,20 @@ router.post('/estates/:estateName/events/consequences', async (req: Request<{est
       // Format the consequences to ensure consistent structure
       const formattedConsequences = formatConsequenceUpdate(parsedJson);
 
-      // 6. Return the validated and formatted consequences
+      // 6. Apply the consequences to the estate
+      const consequencesForProcessing: ConsequencesResult = formattedConsequences;
+      
+      const updatedEstate = applyConsequences(estate, consequencesForProcessing);
+      
+      // 7. Save the updated estate
+      await saveEstate(updatedEstate);
+
+      // 8. Return the validated and formatted consequences along with updated estate
       return res.json({
         success: true,
         prompt,
-        consequences: formattedConsequences
+        consequences: formattedConsequences,
+        estate: updatedEstate
       });
 
     } catch (err) {

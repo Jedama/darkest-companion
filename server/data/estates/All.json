@@ -505,7 +505,7 @@
         "head": "Steel helm",
         "body": "Chainmail hauberk",
         "legs": "Mail chausses",
-        "other": "Purple tunic with a white cross"
+        "accessories": "Purple tunic with a white cross"
       },
       "combat": {
         "role": "Warrior",
@@ -846,7 +846,7 @@
         "head": "Hair needle",
         "body": "Marine blue robe over white shirt",
         "legs": "Mustard yellow breeches",
-        "other": "White bowtie"
+        "accessories": "White bowtie"
       },
       "combat": {
         "role": "Leader",
@@ -944,7 +944,7 @@
         "head": "Red scarf",
         "body": "Rugged grey coat with fur collar",
         "legs": "Dark trousers",
-        "other": "Multiple utility belts"
+        "accessories": "Multiple utility belts"
       },
       "combat": {
         "role": "Skirmisher",
@@ -1276,7 +1276,7 @@
         "head": "White theatrical mask",
         "body": "Red and black jester's attire with bells",
         "legs": "Dark fitted pants",
-        "other": "Shoes with bells"
+        "accessories": "Shoes with bells"
       },
       "combat": {
         "role": "Support",
@@ -1350,7 +1350,7 @@
         "head": "None",
         "body": "Well-tailored jacket and waistcoat",
         "legs": "Mustard yellow breeches",
-        "other": "Bowtie"
+        "accessories": "Bowtie"
       },
       "combat": {
         "role": "Support Tactician",
@@ -1519,7 +1519,7 @@
         "head": "Bronze mask with narrow eye slits and a tattered hood",
         "body": "Heavy robes and a golden breastplate, torn and weathered",
         "legs": "Simple pants and boots",
-        "other": "Gloves and bandaged arms"
+        "accessories": "Gloves and bandaged arms"
       },
       "combat": {
         "role": "Frontliner",
@@ -1595,7 +1595,7 @@
         "head": "None",
         "body": "Heavy plate armor with red sash",
         "legs": "Plated greaves",
-        "other": "Military medals"
+        "accessories": "Military medals"
       },
       "combat": {
         "role": "Defender",

@@ -1,19 +1,9 @@
-import { Character, EventData, LocationData } from '../../../shared/types/types';
+import { Estate, Character, EventData, LocationData } from '../../shared/types/types';
+import StaticGameDataManager from '../staticGameDataManager.js';
 
 interface ProcessedLocation {
   baseScore: number;
   sharedCount: number;
-}
-
-/**
- * Build a map of { [identifier]: LocationData } for quick lookups
- */
-function buildLocationMap(locations: LocationData[]): Map<string, LocationData> {
-  const map = new Map<string, LocationData>();
-  for (const loc of locations) {
-    map.set(loc.identifier, loc);
-  }
-  return map;
 }
 
 /**
@@ -107,13 +97,13 @@ function getCharacterLocations(
  */
 export function scoreLocations(
   event: EventData,
-  characters: Character[],
-  allLocations: LocationData[]
+  characters: Character[]
 ): Map<LocationData, number> {
   console.log('\n=== Starting Location Scoring ===');
 
-  // Build a quick lookup map for LocationData objects
-  const locationMap = buildLocationMap(allLocations);
+  const gameData = StaticGameDataManager.getInstance();
+  const allLocations = gameData.getAllLocations();
+  const locationMap = gameData.getLocationMap();
 
   // Keep track of intermediate scores & usage counts
   const processedLocations = new Map<LocationData, ProcessedLocation>();
@@ -189,7 +179,7 @@ export function scoreLocations(
             }
           }
         } else {
-          console.log('Skipping parent locations as they are not allowed for this event');
+          // console.log('Skipping parent locations as they are not allowed for this event');
         }
       }
     }
@@ -215,7 +205,6 @@ export function scoreLocations(
  * weighted by its score.
  */
 export function pickWeightedLocation(scores: Map<LocationData, number>): LocationData {
-
   // Convert the Map into arrays for iteration
   const entries = Array.from(scores.entries());
   const totalScore = entries.reduce((sum, [, score]) => sum + score, 0);
@@ -239,12 +228,12 @@ export function pickWeightedLocation(scores: Map<LocationData, number>): Locatio
  * Gather up to `limit` random children for the given location.
  */
 function getRandomChildren(location: LocationData, locationMap: Map<string, LocationData>, limit: number): LocationData[] {
-    if (!location.children || location.children.length === 0) return [];
-    const children = location.children
-      .map(childId => locationMap.get(childId))
-      .filter((child): child is LocationData => !!child);
-    return children.sort(() => Math.random() - 0.5).slice(0, limit);
-  }
+  if (!location.children || location.children.length === 0) return [];
+  const children = location.children
+    .map(childId => locationMap.get(childId))
+    .filter((child): child is LocationData => !!child);
+  return children.sort(() => Math.random() - 0.5).slice(0, limit);
+}
 
 /**
  * Builds a list of surrounding locations and collects NPCs.
@@ -326,22 +315,91 @@ function getSurroundingLocationsAndNPCs(
 
 /**
  * Orchestrates the whole process: Score all locations and pick one.
- * Returns the chosen LocationData object.
+ * Returns the chosen LocationData object and surrounding locations with NPCs.
  */
-export async function pickEventLocation(
+export function pickEventLocation(
   event: EventData,
   characters: Character[],
-  locations: LocationData[]
-): Promise<{ locations: LocationData[]; npcs: string[] }> {
-
-  // 1) Build location map
-  const locationMap = new Map(locations.map(loc => [loc.identifier, loc]));
-  // 2) Score all possible locations
-  const scores = scoreLocations(event, characters, locations);
-  // 3) Pick one with a weighted random approach
+  estate: Estate
+): Promise<{ 
+  locations: LocationData[]; 
+  npcs: string[]; 
+  bystanders: Array<{characterId: string, connectionType: 'residence' | 'workplace' | 'frequent'}>
+}> {
+  // Get the location map from our static data manager
+  const locationMap = StaticGameDataManager.getInstance().getLocationMap();
+  
+  // 1) Score all possible locations
+  const scores = scoreLocations(event, characters);
+  
+  // 2) Pick one location with a weighted random approach
   const pickedLocation = pickWeightedLocation(scores);
-  // 4) Gather surrounding locations
-  const { locations: surroundingLocations, npcs } = getSurroundingLocationsAndNPCs(pickedLocation, locationMap);
+  
+  // 3) Gather surrounding locations and NPCs
+  const { locations: surroundingLocations, npcs } = getSurroundingLocationsAndNPCs(
+    pickedLocation, 
+    locationMap
+  );
 
-  return { locations: surroundingLocations, npcs };
+  // 4) Find characters connected to these locations
+  const charIds = characters.map(c => c.identifier);
+  const bystanders = findCharactersConnectedToLocations(estate, surroundingLocations);
+  
+  // If there are more than 5 bystanders, limit to a random 5
+  let limitedBystanders = bystanders;
+  if (bystanders.length > 5) {
+    // Fisher-Yates shuffle
+    for (let i = bystanders.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [bystanders[i], bystanders[j]] = [bystanders[j], bystanders[i]];
+    }
+    limitedBystanders = bystanders.slice(0, 5);
+  }
+
+  return Promise.resolve({ 
+    locations: surroundingLocations, 
+    npcs, 
+    bystanders: limitedBystanders 
+  });
+}
+
+export function findCharactersConnectedToLocations(
+  estate: Estate,
+  locations: LocationData[]
+): Array<{characterId: string, connectionType: 'residence' | 'workplace' | 'frequent'}> {
+  // Only use the first location in the array
+  const locationId = locations.length > 0 ? locations[0].identifier : null;
+  const connections: Array<{characterId: string, connectionType: 'residence' | 'workplace' | 'frequent'}> = [];
+  
+  // Return empty array if no locations provided
+  if (!locationId) return connections;
+  
+  // Loop through all characters in the estate
+  Object.entries(estate.characters).forEach(([characterId, character]) => {
+    // Check residence connections
+    for (const locId of character.locations.residence) {
+      if (locId === locationId) {
+        connections.push({ characterId, connectionType: 'residence' });
+        break; // Only add once for residence
+      }
+    }
+    
+    // Check workplace connections
+    for (const locId of character.locations.workplaces) {
+      if (locId === locationId) {
+        connections.push({ characterId, connectionType: 'workplace' });
+        break; // Only add once for workplaces
+      }
+    }
+    
+    // Check frequent connections
+    for (const locId of character.locations.frequents) {
+      if (locId === locationId) {
+        connections.push({ characterId, connectionType: 'frequent' });
+        break; // Only add once for frequents
+      }
+    }
+  });
+  
+  return connections;
 }

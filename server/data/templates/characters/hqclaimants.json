@@ -61,13 +61,17 @@
       ],
       "weaknesses": [
         "Reliance on each other",
-        "Vulnerable when separated",
-        "Complex to master"
+        "Vulnerable when separated"
       ]
     },
-    "magic": "Forbidden knowledge and ancestral sorcery",
+    "magic": "Forbidden knowledge and sorcery",
     "notes": [
-      "Act as both a single unit and as individuals in combat"
+      "Instinctively position themselves back-to-back during tense situations",
+      "Very vocal and commanding both each other and the other heroes in combat",
+      "The siblings communicate in verbal volleys, each setting up clauses for the other to complete",
+      "Agree unanimously on important matters but argue endlessly over trivial details, but only in private",
+      "The Brother struggles hopelessly with maps and directions, while the Sister has a natural talent for painting landscapes",
+      "The sister often quotes classical literature and formal poetry and the brother is more militaristic and terse"
     ],
     "relationships": {}
   }

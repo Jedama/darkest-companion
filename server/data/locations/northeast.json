@@ -4,7 +4,7 @@
     "title": "North East District",
     "description": "The estate's most ruined quarter, where the hamlet meets the sea. Buildings list precariously on the eroding cliffs, while the shore path winds treacherously toward the cove. This district bore the brunt of horrors emerging from the manor, its once-proud institutions now standing as hollow shells.",
     "parent": "hamlet",
-    "children": ["athenaeum", "geological_study_hall", "sewer_entrance", "shore_path"]
+    "children": ["ravens_row", "athenaeum", "geological_study_hall", "sewer_entrance", "shore_path"]
   },
   {
     "identifier": "shore_path",

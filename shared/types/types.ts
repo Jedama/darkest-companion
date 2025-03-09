@@ -96,8 +96,9 @@ export type CharacterRecord = {
 // ========== Logs ==========
 // Each log entry records a piece of narrative or event detail at a given month.
 export interface LogEntry {
-  month: number;   // could be in-game month or actual date index
-  entry: string;   // short description of what happened
+  month: number;          // in-game month the log occured during
+  entry: string;          // short description of what happened
+  expiryMonth: number;    // month when this log should expire
 }
 
 // ========== Events ==========

@@ -49,7 +49,7 @@
     "head": "Hair needle",
     "body": "Marine blue robe over white shirt",
     "legs": "Mustard yellow breeches",
-    "other": "White bowtie"
+    "accessories": "White bowtie"
   },
   "combat": {
     "role": "Leader",
@@ -65,8 +65,9 @@
   },
   "magic": "None",
   "notes": [
-    "Turns to wine when overwhelmed by the stress of managing the Hamlet",
-    "Attracted to women with ample breasts"
+    "Turns to wine when overwhelmed by stress",
+    "Attracted to, and can't help staring at, women with ample breasts",
+    "Scared of losing her authority, she meets those challenging it by becoming more commanding and inflexible."
   ],
   "relationships": {  
   }

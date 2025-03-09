@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import './DeckComponent.css';
 
 interface DeckComponentProps {
@@ -30,7 +30,7 @@ export function DeckComponent({ phase, onShuffleComplete }: DeckComponentProps) 
         const rotationAmount = index === 0 ? 0 : (Math.random() * 2) * rotationDirection; // ±2 degrees
 
         // Add random delay to each card's animation
-        const animationDelay = 0.6 + Math.random() * 0.1; // 1-0.6s delay
+        const animationDelay = 0.7 + Math.random() * 0.1; // 1-0.6s delay
         const animationDuration = 0.2 + Math.random() * 0.05; // 0.15-0.2s
 
         return (

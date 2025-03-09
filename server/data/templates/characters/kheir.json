@@ -49,7 +49,7 @@
     "head": "None",
     "body": "Well-tailored jacket and waistcoat",
     "legs": "Mustard yellow breeches",
-    "other": "Bowtie"
+    "accessories": "Bowtie"
   },
   "combat": {
     "role": "Support Tactician",

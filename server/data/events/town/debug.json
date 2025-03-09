@@ -9,8 +9,8 @@
     "location": {
         "default": [],
         "residence": [],
-        "workplaces": [],
-        "frequents": [],
+        "workplaces": [1, 2, 3],
+        "frequents": [1, 2, 3],
         "allowAll": true
     }
   },
@@ -48,13 +48,13 @@
     "title": "Confrontation",
     "type": "town",
     "summary": "A long-standing disagreement between [Characters] escalates too far.",
-    "nrChars": [2, 2],
-    "keywords": ["Violence", "Hatred", "Foregiveness", "Apologetic", "Gone too far", "Beatdown"],
+    "nrChars": [4, 4],
+    "keywords": ["Violence", "Hatred", "Foregiveness", "Gone too far", "Beatdown"],
     "location": {
         "default": ["yellow_hand", "tavern", "inn"],
-        "residence": [],
-        "workplaces": [],
-        "frequents": [1, 2],
+        "residence": [1, 2, 3, 4],
+        "workplaces": [1, 2, 3, 4],
+        "frequents": [1, 2, 3, 4],
         "allowAll": true
     }
   }

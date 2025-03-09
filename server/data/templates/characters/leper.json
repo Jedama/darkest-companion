@@ -46,7 +46,7 @@
       "head": "Bronze mask with narrow eye slits and a tattered hood",
       "body": "Heavy robes and a golden breastplate, torn and weathered",
       "legs": "Simple pants and boots",
-      "other": "Gloves and bandaged arms"
+      "accessories": "Gloves and bandaged arms"
     },
     "combat": {
       "role": "Frontliner",

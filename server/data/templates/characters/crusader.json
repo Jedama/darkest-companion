@@ -50,7 +50,7 @@
     "head": "Steel helm",
     "body": "Chainmail hauberk",
     "legs": "Mail chausses",
-    "other": "Purple tunic with a white cross"
+    "accessories": "Purple tunic with a white cross"
   },
   "combat": {
     "role": "Warrior",
@@ -69,7 +69,7 @@
   "notes": [
     "Has kleptomanic tendencies that he tries to hide",
     "Does a characteristic whistle after nabbing something, or when otherwise pleased with himself",
-    "Sometimes writes letters to his family that he never sends",
+    "Writes letters to his family that he never sends",
     "Wears simple farmer's clothes when out of his armor"
   ],
   "relationships": {   

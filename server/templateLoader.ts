@@ -217,35 +217,35 @@ export async function loadTownKeywords(): Promise<string[]> {
 const LOCATIONS_DIR = path.join(__dirname, 'data', 'locations');
 
 export async function loadAllLocations(): Promise<LocationData[]> {
-    try {
-        // Read all location JSON files
-        const files = await readdir(LOCATIONS_DIR);
-        const locationFiles = files.filter(file => file.endsWith('.json'));
-        
-        let allLocations: LocationData[] = [];
-        
-        for (const file of locationFiles) {
-            const content = await readFile(path.join(LOCATIONS_DIR, file), 'utf-8');
-            const locations = JSON.parse(content);
-            
-            // Each file contains an array of locations
-            allLocations = allLocations.concat(locations);
-        }
-        
-        return allLocations;
-    } catch (error) {
-        console.error('Error loading locations:', error);
-        throw error;
-    }
+  try {
+      // Read all location JSON files
+      const files = await readdir(LOCATIONS_DIR);
+      const locationFiles = files.filter(file => file.endsWith('.json'));
+      
+      let allLocations: LocationData[] = [];
+      
+      for (const file of locationFiles) {
+          const content = await readFile(path.join(LOCATIONS_DIR, file), 'utf-8');
+          const locations = JSON.parse(content);
+          
+          // Each file contains an array of locations
+          allLocations = allLocations.concat(locations);
+      }
+      
+      return allLocations;
+  } catch (error) {
+      console.error('Error loading locations:', error);
+      throw error;
+  }
 }
 
 export async function loadLocation(locationId: string): Promise<LocationData | null> {
   try {
-      const allLocations = await loadAllLocations();
-      return allLocations.find(loc => loc.identifier === locationId) || null;
+    const allLocations = await loadAllLocations();
+    return allLocations.find(loc => loc.identifier === locationId) || null;
   } catch (error) {
-      console.error(`Error loading location ${locationId}:`, error);
-      throw error;
+    console.error(`Error loading location ${locationId}:`, error);
+    throw error;
   }
 }
 

@@ -48,7 +48,7 @@
     },
     "clothing": {
       "head": "Red headband",
-      "body": "Worn Gendarme's uniform",
+      "body": "Gendarme's uniform",
       "legs": "Sturdy trousers",
       "accessories": "Belt with pouches"
     },
@@ -67,8 +67,10 @@
     },
     "magic": "None",
     "notes": [
-      "Carries dog treats to boost his companion's abilities",
-      "His dog is adept at scouting and keeping watch"
+      "Always carries dog treats",
+      "Habitually checks the wind direction",
+      "Signals his hound with subtle hand gestures that others rarely notice",
+      "Hugs his hound for comfort when stressed or hurt"
     ],
     "relationships": {
     }

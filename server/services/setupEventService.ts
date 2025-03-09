@@ -1,13 +1,15 @@
-import { loadEstate, saveEstate } from '../fileOps';
-import { loadEventTemplatesForCategory, loadTownKeywords, loadAllLocations, loadLocation } from '../templateLoader';
-import { Estate, EventData, EventRecord, LocationData } from '../../shared/types/types';
+// setupEventService.ts
+import { loadEstate } from '../fileOps';
+import { Estate, EventData, LocationData } from '../../shared/types/types';
 import { pickEventLocation } from './locationService';
+import StaticGameDataManager from '../staticGameDataManager.js';
 
 /**
  * Loads all event templates, picks one at random.
  */
-async function pickRandomEvent(): Promise<EventData> {
-  const allEvents: EventRecord = await loadEventTemplatesForCategory('town');
+function pickRandomEvent(): EventData {
+  const gameData = StaticGameDataManager.getInstance();
+  const allEvents = gameData.getTownEvents();
   const eventIds = Object.keys(allEvents);
 
   if (eventIds.length === 0) {
@@ -16,7 +18,7 @@ async function pickRandomEvent(): Promise<EventData> {
 
   // const randomId = eventIds[Math.floor(Math.random() * eventIds.length)];
   // Debug: Set a specific event ID for testing
-  const randomId = 'dream1';
+  const randomId = 'debug_3';
   return allEvents[randomId];
 }
 
@@ -95,7 +97,11 @@ export async function setupRandomEvent(estateName: string): Promise<{
   chosenCharacterIds: string[];
   locations: LocationData[];
   npcs: string[];
+  bystanders: Array<{characterId: string, connectionType: 'residence' | 'workplace' | 'frequent'}>;
 }> {
+  // Get the game data manager
+  const gameData = StaticGameDataManager.getInstance();
+
   // 1. Load the estate
   const estate = await loadEstate(estateName);
   if (!estate) {
@@ -103,10 +109,10 @@ export async function setupRandomEvent(estateName: string): Promise<{
   }
 
   // 2. Pick a random event
-  const event = await pickRandomEvent();
+  const event = pickRandomEvent();
 
-  // 3. Load town keywords & pick final set
-  const townKeywords = await loadTownKeywords();
+  // 3. Get town keywords & pick final set
+  const townKeywords = gameData.getTownKeywords();
   const finalKeywords = pickKeywords(event.keywords || [], townKeywords);
   event.keywords = finalKeywords; // Overwrite or add a new property
 
@@ -121,19 +127,22 @@ export async function setupRandomEvent(estateName: string): Promise<{
   // 5. Pick random characters
   const chosenCharacterIds = pickRandomCharacters(estate, nrCharsRange);
 
-  // 6. Load location information and NPCs
+  // 6. Get location information, NPCs, and bystanders
   let locations: LocationData[] = [];
   let npcs: string[] = [];
+  let bystanders: Array<{characterId: string, connectionType: 'residence' | 'workplace' | 'frequent'}> = [];
+  
   if (event.location) {
     const result = await pickEventLocation(
       event,
       chosenCharacterIds.map((id) => estate.characters[id]),
-      await loadAllLocations()
+      estate
     );
     locations = result.locations;
     npcs = result.npcs;
+    bystanders = result.bystanders;
   }
 
   // Return the data for the route handler (or the next step)
-  return { event, chosenCharacterIds, locations, npcs };
+  return { event, chosenCharacterIds, locations, npcs, bystanders };
 }

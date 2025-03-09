@@ -55,7 +55,7 @@
         "head": "Steel helm",
         "body": "Chainmail hauberk",
         "legs": "Mail chausses",
-        "other": "Purple tunic with a white cross"
+        "accessories": "Purple tunic with a white cross"
       },
       "combat": {
         "role": "Warrior",
@@ -78,25 +78,160 @@
         "Wears simple farmer's clothes when out of his armor"
       ],
       "relationships": {
+        "abomination": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "antiquarian": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "arbalest": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "bounty_hunter": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "cataphract": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "cook": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "duchess": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "flagellant": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "grave_robber": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
         "heiress": {
           "affinity": 5,
           "dynamic": "Professional",
           "description": "The crusader maintains a professional relationship with the heiress, focusing on fulfilling his role as her protector with a devout sense of duty."
-        },
-        "kheir": {
-          "affinity": 4,
-          "dynamic": "Skeptical",
-          "description": "While the crusader intends to uphold his duty with silent diligence, he realizes the meek kheir is unfit to lead."
         },
         "highwayman": {
           "affinity": 7,
           "dynamic": "Comrade",
           "description": "The crusader sees in the highwayman a kindred spirit; both men with troubled pasts seeking to carve out a purpose through the quest they now share."
         },
+        "hood": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "houndmaster": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "hqclaimants": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "jester": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "kheir": {
+          "affinity": 4,
+          "dynamic": "Skeptical",
+          "description": "While the crusader intends to uphold his duty with silent diligence, he realizes the meek Heir is unfit to lead."
+        },
+        "krakenslayer": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "leper": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "man_at_arms": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "musketeer": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "occultist": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "offering": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "omenseeker": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "plague_doctor": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "ringmaster": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
         "seraph": {
           "affinity": 4,
           "dynamic": "Devoted Lieutenant",
           "description": "The Crusader served under the Seraph after her miraculous transformation, awed by her divine presence and inspired by her holy purpose. Her burned visage and manifest powers were proof of the Light's grace, making his role in her crusade feel truly righteous."
+        },
+        "sisters": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "snor_rasp": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "vestal": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "wretch": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "zenith": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         }
       },
       "locations": {
@@ -168,7 +303,7 @@
         "head": "Red scarf",
         "body": "Rugged grey coat with fur collar",
         "legs": "Dark trousers",
-        "other": "Multiple utility belts"
+        "accessories": "Multiple utility belts"
       },
       "combat": {
         "role": "Skirmisher",
@@ -188,20 +323,160 @@
         "Has a gallows sense of humor"
       ],
       "relationships": {
-        "heiress": {
-          "affinity": 4,
-          "dynamic": "Guardian",
-          "description": "The highwayman is determined to prove himself to the heiress and to assist in her quest despite her warranted distrust."
-        },
-        "kheir": {
+        "abomination": {
           "affinity": 3,
-          "dynamic": "Guardian",
-          "description": "Despite the kheir's distrust, the highwayman is resolute in his role as a guard, seeing their safety as his path to absolution."
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "antiquarian": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "arbalest": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "bounty_hunter": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "cataphract": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "cook": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         },
         "crusader": {
           "affinity": 7,
           "dynamic": "Comrade",
           "description": "Despite their differences, the highwayman and the crusader swiftly bonded over the mistakes of their respective pasts and their shared quest for redemption."
+        },
+        "duchess": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "flagellant": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "grave_robber": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "heiress": {
+          "affinity": 4,
+          "dynamic": "Guardian",
+          "description": "The highwayman is determined to prove himself to the heiress and to assist in her quest despite her warranted distrust."
+        },
+        "hood": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "houndmaster": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "hqclaimants": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "jester": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "kheir": {
+          "affinity": 3,
+          "dynamic": "Guardian",
+          "description": "Despite the Heir's distrust, the highwayman is resolute in his role as a guard, seeing their safety as his path to absolution."
+        },
+        "krakenslayer": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "leper": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "man_at_arms": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "musketeer": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "occultist": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "offering": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "omenseeker": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "plague_doctor": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "ringmaster": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "seraph": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "sisters": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "snor_rasp": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "vestal": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "wretch": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "zenith": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         }
       },
       "locations": {
@@ -273,7 +548,7 @@
         "head": "Hair needle",
         "body": "Marine blue robe over white shirt",
         "legs": "Mustard yellow breeches",
-        "other": "White bowtie"
+        "accessories": "White bowtie"
       },
       "combat": {
         "role": "Leader",
@@ -293,30 +568,160 @@
         "Attracted to women with ample breasts"
       ],
       "relationships": {
-        "kheir": {
-          "affinity": 8,
-          "dynamic": "Familial",
-          "description": "Despite a cold exterior and a lifetime of bickering, the heiress loves and will not let harm come upon the kheir."
+        "abomination": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "antiquarian": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "arbalest": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "bounty_hunter": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "cataphract": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "cook": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         },
         "crusader": {
           "affinity": 5,
           "dynamic": "Professional",
           "description": "The heiress maintains a reserved, professional demeanor towards the crusader, her latest recruit."
         },
+        "duchess": {
+          "affinity": 3,
+          "dynamic": "Cautious Disdain",
+          "description": "The Heiress remembers the Duchess as aloof and self-absorbed during the few balls they attended together. Though she barely knew her, the Duchess's pride left a sour impression."
+        },
+        "flagellant": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "grave_robber": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
         "highwayman": {
           "affinity": 3,
           "dynamic": "Cautious",
           "description": "The heiress regards the highwayman with suspicion. While his skills could prove valuable, his checkered past and gruff manner keep her on guard."
+        },
+        "hood": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "houndmaster": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         },
         "hqclaimants": {
           "affinity": 2,
           "dynamic": "Contemptuous Competitors",
           "description": "The Heiress saw the Claimants as vain and insufferable during their fleeting courtly encounters. Their thinly veiled insults ensured no love was lost between them."
         },
-        "duchess": {
+        "jester": {
           "affinity": 3,
-          "dynamic": "Cautious Disdain",
-          "description": "The Heiress remembers the Duchess as aloof and self-absorbed during the few balls they attended together. Though she barely knew her, the Duchess's pride left a sour impression."
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "kheir": {
+          "affinity": 8,
+          "dynamic": "Familial",
+          "description": "Despite a cold exterior and a lifetime of bickering, the heiress loves and will not let harm come upon the Heir."
+        },
+        "krakenslayer": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "leper": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "man_at_arms": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "musketeer": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "occultist": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "offering": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "omenseeker": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "plague_doctor": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "ringmaster": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "seraph": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "sisters": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "snor_rasp": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "vestal": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "wretch": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "zenith": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         }
       },
       "locations": {
@@ -390,7 +795,7 @@
         "head": "None",
         "body": "Well-tailored jacket and waistcoat",
         "legs": "Mustard yellow breeches",
-        "other": "Bowtie"
+        "accessories": "Bowtie"
       },
       "combat": {
         "role": "Support Tactician",
@@ -411,30 +816,160 @@
         "Has a penchant for fine wines to calm his nerves"
       ],
       "relationships": {
-        "heiress": {
-          "affinity": 8,
-          "dynamic": "Familial",
-          "description": "The Heir admires, and is deeply jealous of, his sister's strength and ability to take initiative. Despite their fierce bickering, the kheir loves his sister."
+        "abomination": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "antiquarian": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "arbalest": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "bounty_hunter": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "cataphract": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "cook": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         },
         "crusader": {
           "affinity": 4,
           "dynamic": "Cautious respect",
-          "description": "Though he recognizes the crusader's potential, the kheir is dubious over the trustworthiness of this new guard."
+          "description": "Though he recognizes the crusader's potential, the Heir is dubious over the trustworthiness of this new guard."
+        },
+        "duchess": {
+          "affinity": 5,
+          "dynamic": "Infatuation",
+          "description": "As a young man, the Heir was captivated by the Duchess' elegance and fencing prowess. Though their interactions were brief and unreciprocated, her image lingered in his mind for years."
+        },
+        "flagellant": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "grave_robber": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "heiress": {
+          "affinity": 8,
+          "dynamic": "Familial",
+          "description": "The Heir admires, and is deeply jealous of, his sister's strength and ability to take initiative. Despite their fierce bickering, the Heir loves his sister."
         },
         "highwayman": {
           "affinity": 2,
           "dynamic": "Distrustful",
-          "description": "The kheir is distrusting towards the highwayman, fearing that the rugged man will betray them and steal his possessions."
+          "description": "The Heir is distrusting towards the highwayman, fearing that the rugged man will betray them and steal his possessions."
+        },
+        "hood": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "houndmaster": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         },
         "hqclaimants": {
           "affinity": 2,
           "dynamic": "Aristocratic Rivalry",
           "description": "The Claimants' constant disdain and biting remarks left a lasting impression on the Heir during the balls and duels of their youth. He remains embittered but grudgingly acknowledges The Claimant brother's skill with a spear."
         },
-        "duchess": {
-          "affinity": 5,
-          "dynamic": "Infatuation",
-          "description": "As a young man, the Heir was captivated by the Duchess' elegance and fencing prowess. Though their interactions were brief and unreciprocated, her image lingered in his mind for years."
+        "jester": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "krakenslayer": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "leper": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "man_at_arms": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "musketeer": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "occultist": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "offering": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "omenseeker": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "plague_doctor": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "ringmaster": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "seraph": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "sisters": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "snor_rasp": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "vestal": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "wretch": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "zenith": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         }
       },
       "locations": {
@@ -501,7 +1036,7 @@
         "build": "Athletic",
         "skinTone": "Dark",
         "hairColor": "Black",
-        "hairStyle": "Braids tied up in a short upright ponytail",
+        "hairStyle": "Dreads tied up in a short upright ponytail",
         "features": "Deep lines below fierce eyes"
       },
       "clothing": {
@@ -528,28 +1063,184 @@
         "Carries her 'Childhood tresure', an old stuffed bunny",
         "Her Crossbow's name is 'Millicent'"
       ],
-      "relationships": {},
+      "relationships": {
+        "abomination": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "antiquarian": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "bounty_hunter": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "cataphract": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "cook": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "crusader": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "duchess": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "flagellant": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "grave_robber": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "heiress": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "highwayman": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "hood": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "houndmaster": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "hqclaimants": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "jester": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "kheir": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "krakenslayer": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "leper": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "man_at_arms": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "musketeer": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "occultist": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "offering": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "omenseeker": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "plague_doctor": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "ringmaster": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "seraph": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "sisters": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "snor_rasp": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "vestal": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "wretch": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "zenith": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        }
+      },
       "locations": {
         "residence": [
           "inn__crypt_room"
         ],
         "workplaces": [
-          "guild_hall__training_ring",
-          "guild_hall__training_yard",
+          "training_ring",
+          "training_yard",
           "palisade_wall",
           "butchers_circus__arena",
           "warehouse_district",
           "sanitarium__medical_ward"
         ],
         "frequents": [
-          "guild_hall__training_ring",
-          "guild_hall__training_yard",
+          "training_ring",
+          "training_yard",
           "abbey__grounds",
           "palisade_wall",
           "butchers_circus__arena",
           "sanitarium__courtyard",
           "tavern",
-          "inn__common_room",
+          "inn__common",
           "market_wagons",
           "market_wagons__nomad_wagon",
           "puppet_theater",
@@ -568,7 +1259,7 @@
       "level": 0,
       "money": 0,
       "summary": "The Antiquarian is a cunning and morally ambiguous character driven by an insatiable greed for valuable artifacts and occult knowledge. Her pursuit of power and wealth leads her to dark places, both literally and figuratively. She has arrived at the estate to pilfer the Ancestor's relics, and in search of the final piece of a mysterious puzzle box.",
-      "history": "Originally from the East, the Antiquarian has traveled the world trading in supernatural relics. She became a disciple to a sorcerer to advance her knowledge of the arcane, only to betray and imprison him in a censer during a ritual. Her past is marked by self-serving decisions and a willingness to sacrifice others for her goals.",
+      "history": "Originally from the deserts around the Levantine Sultanate, the Antiquarian has traveled the world trading in supernatural relics. She became a disciple to a sorcerer to advance her knowledge of the arcane, only to betray and imprison him in a censer during a ritual. Her past is marked by self-serving decisions and a willingness to sacrifice others for her goals.",
       "race": "Human",
       "gender": "Female",
       "religion": "None",
@@ -634,12 +1325,168 @@
         "Her former master occasionally whispers to her, trying to escape",
         "Speaks multiple languages, including Levantine and languages of the Eastern isles"
       ],
-      "relationships": {},
+      "relationships": {
+        "abomination": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "arbalest": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "bounty_hunter": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "cataphract": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "cook": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "crusader": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "duchess": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "flagellant": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "grave_robber": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "heiress": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "highwayman": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "hood": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "houndmaster": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "hqclaimants": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "jester": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "kheir": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "krakenslayer": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "leper": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "man_at_arms": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "musketeer": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "occultist": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "offering": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "omenseeker": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "plague_doctor": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "ringmaster": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "seraph": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "sisters": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "snor_rasp": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "vestal": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "wretch": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "zenith": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        }
+      },
       "locations": {
         "residence": [
           "dower_house__rosewood_chamber"
         ],
-        "workplaces:": [
+        "workplaces": [
           "library__main",
           "library__archive",
           "library__special_collections",
@@ -738,23 +1585,180 @@
       },
       "magic": "Eldritch transformation",
       "notes": [
-        "Fears losing control and harming allies",
-        "Has a soft voice and doesn't curse"
+        "Keeps his arms locked up, with little room for movement",
+        "Has a soft voice and doesn't curse",
+        "His constant slouching undermines his height"
       ],
-      "relationships": {},
+      "relationships": {
+        "antiquarian": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "arbalest": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "bounty_hunter": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "cataphract": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "cook": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "crusader": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "duchess": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "flagellant": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "grave_robber": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "heiress": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "highwayman": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "hood": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "houndmaster": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "hqclaimants": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "jester": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "kheir": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "krakenslayer": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "leper": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "man_at_arms": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "musketeer": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "occultist": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "offering": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "omenseeker": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "plague_doctor": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "ringmaster": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "seraph": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "sisters": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "snor_rasp": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "vestal": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "wretch": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "zenith": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        }
+      },
       "locations": {
         "residence": [
           "sanitarium__cells"
         ],
         "workplaces": [
-          "sanitarium__laboratory",
+          "sanitarium__laboratorium",
           "abbey__penance_chamber",
           "abbey__transept",
           "butchers_circus__arena",
           "warehouse_district"
         ],
         "frequents": [
-          "sanitarium__laboratory",
+          "sanitarium__laboratorium",
           "abbey__penance_chamber",
           "abbey__transept",
           "butchers_circus__arena",
@@ -767,8 +1771,8 @@
           "dower_house__garden",
           "shore_path",
           "sanitarium__courtyard",
-          "puppet_theather",
-          "bonfire",
+          "puppet_theater",
+          "outsider_bonfire",
           "yellow_hand"
         ]
       }
@@ -846,27 +1850,183 @@
         "Refuses to remove his mask and let anyone see his face",
         "Often responds with just a snort"
       ],
-      "relationships": {},
+      "relationships": {
+        "abomination": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "antiquarian": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "arbalest": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "cataphract": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "cook": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "crusader": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "duchess": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "flagellant": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "grave_robber": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "heiress": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "highwayman": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "hood": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "houndmaster": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "hqclaimants": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "jester": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "kheir": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "krakenslayer": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "leper": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "man_at_arms": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "musketeer": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "occultist": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "offering": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "omenseeker": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "plague_doctor": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "ringmaster": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "seraph": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "sisters": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "snor_rasp": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "vestal": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "wretch": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "zenith": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        }
+      },
       "locations": {
         "residence": [
-          "inn__rookery_room"
+          "inn__tower_room"
         ],
         "workplaces": [
-          "guild_hall__training_ring",
-          "guild_hall__training_yard",
+          "training_ring",
+          "training_yard",
           "palisade_wall",
           "town_hall__strategy_room",
           "town_hall__council_chamber"
         ],
         "frequents": [
-          "guild_hall__training_ring",
-          "guild_hall__training_yard",
+          "training_ring",
+          "training_yard",
           "butchers_circus__arena",
           "library__map_room",
           "town_hall__strategy_room",
           "town_hall__council_chamber",
           "tavern",
-          "inn__common_room",
+          "inn__common",
           "market_wagons__nomad_wagon",
           "market_wagons__jeweler",
           "dower_house__garden",
@@ -885,7 +2045,7 @@
       "name": "Nyriad & Cargadon",
       "level": 0,
       "money": 0,
-      "summary": "The Cataphract is a formidable mounted warrior from the Levantine Sultanate, bonded with her supernatural horse. Together they form an unstoppable cavalry unit, using their combined skills to charge into battle and vanquish foes.",
+      "summary": "The Cataphract is a formidable mounted warrior from the Levantine Sultanate, bonded with the spirit of her horse whose skull she always carries around. In battle, it transforms into a spectral steed of blue flames to assist the Cataphract in battle. Together they form an unstoppable cavalry unit, using their combined skills to charge into battle and vanquish foes.",
       "history": "Once a respected warrior of the Levantine Sultanate, the Cataphract's life changed when her beloved horse was fatally wounded. Desperate, she stole a powerful artifact to revive him, resulting in their exile. Now the spirit of the horse speaks to her, and they fight together against the horrors of the estate.",
       "race": "Human",
       "gender": "Female",
@@ -916,7 +2076,7 @@
       },
       "equipment": [
         "Spear",
-        "Splint mail armor",
+        "Longbow",
         "Banner"
       ],
       "appearance": {
@@ -950,31 +2110,187 @@
         "Can communicate with the horse's spirit",
         "Speaks with a mild Levantine accent"
       ],
-      "relationships": {},
+      "relationships": {
+        "abomination": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "antiquarian": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "arbalest": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "bounty_hunter": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "cook": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "crusader": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "duchess": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "flagellant": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "grave_robber": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "heiress": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "highwayman": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "hood": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "houndmaster": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "hqclaimants": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "jester": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "kheir": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "krakenslayer": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "leper": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "man_at_arms": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "musketeer": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "occultist": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "offering": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "omenseeker": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "plague_doctor": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "ringmaster": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "seraph": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "sisters": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "snor_rasp": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "vestal": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "wretch": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        },
+        "zenith": {
+          "affinity": 3,
+          "dynamic": "Strangers",
+          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+        }
+      },
       "locations": {
         "residence": [
-          "dower_house__barracks_room_west"
+          "tavern__bear_room"
         ],
         "workplaces": [
-          "guild_hall__training_ring",
-          "guild_hall__training_yard",
+          "training_ring",
+          "training_yard",
           "palisade_wall",
           "town_hall__strategy_room",
           "town_hall__council_chamber",
           "inn__stables",
-          "atheneaum",
+          "athenaeum",
           "kraken_society"
         ],
         "frequents": [
-          "guild_hall__training_ring",
-          "guild_hall__training_yard",
+          "training_ring",
+          "training_yard",
           "butchers_circus__arena",
           "palisade_wall",
           "town_hall__strategy_room",
           "town_hall__council_chamber",
           "weald_edge",
           "tavern",
-          "inn__common_room",
+          "inn__common",
           "inn__raven_room",
           "market_wagons",
           "market_wagons__nomad_wagon",
@@ -987,89 +2303,6 @@
           "abbey__bell_tower",
           "dower_house__study",
           "yellow_hand",
-          "alley"
-        ]
-      }
-    },
-    "snor_rasp":{
-      "identifier": "snor_rasp",
-      "title": "Martyr",
-      "name": "Anastasia",
-      "level": 0,
-      "money": 0,
-      "summary": "The Martyr, is a devout follower of a pain-worshipping sect. Guarded by Yuzupov, she has near-immortality and uses a thorn whip in combat. Her presence is both an asset and liability, enduring suffering to protect others while seeking danger for her faith.",
-      "history": "The Martyr's extreme devotion caught Yuzupov's attention, granting her near-immortality. She now views the estate's horrors as a pilgrimage to test her faith and endurance.",
-      "race": "Human",
-      "gender": "Female",
-      "religion": "Yuzupov's",
-      "zodiac": "Pisces",
-      "traits": [
-        "Devoted",
-        "Masochistic",
-        "Resilient",
-        "Fearless",
-        "Reckless",
-        "Enigmatic"
-      ],
-      "status": {
-        "physical": 100,
-        "mental": 100,
-        "affliction": "",
-        "description": "In good health and high spirits",
-        "wounds": [],
-        "diseases": []
-      },
-      "stats": {
-        "strength": 3,
-        "agility": 3,
-        "intelligence": 3,
-        "authority": 3,
-        "sociability": 4
-      },
-      "equipment": [
-        "Thorn whip"
-      ],
-      "appearance": {
-        "height": "Short",
-        "build": "Slender",
-        "skinTone": "Pale",
-        "hairColor": "Pink",
-        "hairStyle": "Wavy, shoulder-length",
-        "features": "Small hands, thin neck"
-      },
-      "clothing": {
-        "head": "Crown of thorns",
-        "body": "Frilly red dress with ruffled white collar",
-        "legs": "None",
-        "accessories": "None"
-      },
-      "combat": {
-        "role": "Frontliner",
-        "strengths": [
-          "High pain tolerance",
-          "Morale booster"
-        ],
-        "weaknesses": [
-          "Weak",
-          "Single-minded"
-        ]
-      },
-      "magic": "Spirit-granted near-immortality",
-      "notes": [
-        "Constantly seeks out pain and dangerous situations",
-        "Finds pleasure in cutting, entangling, and strangling herself with her thorn whip"
-      ],
-      "relationships": {
-      },
-      "locations": {
-        "residence": [
-          "abbey__dorter"
-        ],
-        "workplaces": [
-          "abbey__penance_chamber",
-          "abbey__transept"
-        ],
-        "frequents": [
           "alley"
         ]
       }

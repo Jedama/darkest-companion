@@ -1,74 +1,75 @@
 {
-    "identifier": "duchess",
-    "title": "Duchess",
-    "name": "Constance",
-    "level": 0,
-    "money": 0,
-    "summary": "A noblewoman turned monster, the Duchess is a formidable fencer who has embraced the Crimson Curse inflicted upon her by the Countess. She now seeks vengeance against the curse-inflicted court, particularly the Countess, while finding an uneasy alliance with the Heirs and fighters of the Hamlet.",
-    "history": "Born into nobility, Constance lived a life of luxury and became the court's finest fencer. She developed a rivalry with the Countess, who later disappeared for years. Upon receiving an invitation to a party in the Ancestor's courtyard along with a chalice of blood, Constance became infected with the Crimson Curse. Now transformed, she seeks revenge against the Baron, the Viscount, and especially the Countess.",
-    "race": "Bloodsucker shapeshifter",
-    "gender": "Female",
-    "religion": "None",
-    "zodiac": "Libra",
-    "traits": [
-        "Refined",
-        "Prideful",
-        "Sarcastic",
-        "Determined",
-        "Monstrous",
-        "Pretentious"
+  "identifier": "duchess",
+  "title": "Duchess",
+  "name": "Constance",
+  "level": 0,
+  "money": 0,
+  "summary": "A noblewoman turned monster, the Duchess is a formidable fencer who has embraced the Crimson Curse inflicted upon her by the Countess. She now seeks vengeance against the curse-inflicted court, particularly the Countess, while finding an uneasy alliance with the Heirs and fighters of the Hamlet.",
+  "history": "Born into nobility, Constance lived a life of luxury and became the court's finest fencer. She developed a rivalry with the Countess, who later disappeared for years. Upon receiving an invitation to a party in the Ancestor's courtyard along with a chalice of blood, Constance became infected with the Crimson Curse. Now transformed, she seeks revenge against the Baron, the Viscount, and especially the Countess.",
+  "race": "Bloodsucker shapeshifter",
+  "gender": "Female",
+  "religion": "None",
+  "zodiac": "Libra",
+  "traits": [
+    "Refined",
+    "Prideful",
+    "Sarcastic",
+    "Determined",
+    "Monstrous",
+    "Pretentious"
+  ],
+    "status": {
+    "physical": 100,
+    "mental": 100,
+    "affliction": "",
+    "description": "In good health and high spirits",
+    "wounds": [],
+    "diseases": []
+  },
+  "stats": {
+    "strength": 9,
+    "agility": 6,
+    "intelligence": 7,
+    "authority": 7,
+    "sociability": 5
+  },
+  "equipment": [
+    "Enormous black sword"
+  ],
+  "appearance": {
+    "height": "Tall",
+    "build": "Athletic",
+    "skinTone": "Pale white",
+    "hairColor": "Dark red",
+    "hairStyle": "Short and messy (hidden inside helmet)",
+    "features": "Large chest"
+  },
+  "clothing": {
+    "head": "Large, angular helmet that hides everything but her toothy mouth",
+    "body": "Tight corset showing ample cleavage",
+    "legs": "Tattered dress reinforced with metal plates",
+    "accessories": "None"
+  },
+  "combat": {
+    "role": "Melee Fighter",
+    "strengths": [
+      "Peerless fencer",
+      "Transformation into a powerful beast",
+      "Resilient"
     ],
-        "status": {
-        "physical": 100,
-        "mental": 100,
-        "affliction": "",
-        "description": "In good health and high spirits",
-        "wounds": [],
-        "diseases": []
-    },
-    "stats": {
-        "strength": 9,
-        "agility": 6,
-        "intelligence": 7,
-        "authority": 7,
-        "sociability": 5
-    },
-    "equipment": [
-        "Enormous black sword"
-    ],
-    "appearance": {
-        "height": "Tall",
-        "build": "Athletic",
-        "skinTone": "Pale white",
-        "hairColor": "Dark red",
-        "hairStyle": "Short and messy (hidden inside helmet)",
-        "features": "Large chest"
-    },
-    "clothing": {
-        "head": "Large, angular helmet that hides everything but her toothy mouth",
-        "body": "Tight corset showing ample cleavage",
-        "legs": "Tattered dress reinforced with metal plates",
-        "accessories": "None"
-    },
-    "combat": {
-        "role": "Melee Fighter",
-        "strengths": [
-            "Peerless fencer",
-            "Transformation into a powerful beast",
-            "Resilient"
-        ],
-        "weaknesses": [
-            "Driven by insatiable hunger",
-            "Easily loses control",
-            "Unsettles teammates"
-        ]
-    },
-    "magic": "Crimson Curse transformation",
-    "notes": [
-        "Finds comfort in her monstrous form",
-        "Considers her beast form more representative of her true self",
-        "Struggles with an insatiable hunger"
-    ],
-    "relationships": {
-    }
+    "weaknesses": [
+      "Driven by insatiable hunger",
+      "Easily loses control",
+      "Unsettles teammates"
+    ]
+  },
+  "magic": "Crimson Curse transformation",
+  "notes": [
+    "Maintains an aristocratic air, insisting on comforts befitting her station",
+    "Treats her hunger with dark humor, often joking about eating her allies",
+    "Speaks with with sardonic wit and cutting remarks",
+    "Views her human allies as temporary tools in her vendetta"
+  ],
+  "relationships": {
+  }
 }

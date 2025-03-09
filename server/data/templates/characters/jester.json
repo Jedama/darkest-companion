@@ -49,7 +49,7 @@
       "head": "White theatrical mask",
       "body": "Red and black jester's attire with bells",
       "legs": "Dark fitted pants",
-      "other": "Shoes with bells"
+      "accessories": "Shoes with bells"
     },
     "combat": {
       "role": "Support",

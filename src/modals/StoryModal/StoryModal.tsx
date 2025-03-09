@@ -17,6 +17,10 @@ interface SetupResponse {
   chosenCharacterIds: string[];
   locations: any[];
   npcs: string[];
+  bystanders: Array<{
+    characterId: string;
+    connectionType: 'residence' | 'workplace' | 'frequent';
+  }>;
 }
 
 interface StoryResponse {
@@ -79,6 +83,7 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
               chosenCharacterIds: setupData.chosenCharacterIds,
               locations: setupData.locations,
               npcIds: setupData.npcs,
+              bystanders: setupData.bystanders
             }),
             signal,
           }
@@ -91,7 +96,7 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
           throw new Error('Story route returned success=false');
         }
 
-        console.log('storyRes:', storyData);
+        // console.log('storyRes:', storyData);
 
         setStoryTitle(storyData.story.title);
         setStoryBody(storyData.story.body);

@@ -1,75 +1,77 @@
 {
-    "identifier": "cook",
-    "title": "Itinerant Cook",
-    "name": "Gertrude",
-    "level": 0,
-    "money": 0,
-    "summary": "The Itinerant Cook is an elderly, but strong woman. She is an experienced and world-wise traveling cook. Pragmatic and sometimes cynical, she excels in her culinary skills and firmly believes in the power of good food. She's resourceful, adaptable, and has faced numerous challenges in her long life.",
-    "history": "The Itinerant Cook has spent her life working across a wide range of settings from high-end kitchens to makeshift camp setups. Her travels have exposed her to diverse and often dangerous situations, which she has consistently survived. She has a dark side to her expertise, including knowledge of luring and slaughtering both beasts and people.",
-    "race": "Human",
-    "gender": "Female",
-    "religion": "",
-    "zodiac": "Virgo",
-    "traits": [
-        "Experienced",
-        "Pragmatic",
-        "Self-reliant",
-        "Resourceful",
-        "Curt",
-        "Supportive"
+  "identifier": "cook",
+  "title": "Itinerant Cook",
+  "name": "Gertrude",
+  "level": 0,
+  "money": 0,
+  "summary": "The Itinerant Cook is an elderly, but strong woman. She is an experienced and world-wise traveling cook. Pragmatic and sometimes cynical, she excels in her culinary skills and firmly believes in the power of good food. She's resourceful, adaptable, and has faced numerous challenges in her long life.",
+  "history": "The Itinerant Cook has spent her life working across a wide range of settings from high-end kitchens to makeshift camp setups. Her travels have exposed her to diverse and often dangerous situations, which she has consistently survived. She has a dark side to her expertise, including knowledge of luring and slaughtering both beasts and people.",
+  "race": "Human",
+  "gender": "Female",
+  "religion": "",
+  "zodiac": "Virgo",
+  "traits": [
+    "Experienced",
+    "Pragmatic",
+    "Self-reliant",
+    "Resourceful",
+    "Curt",
+    "Supportive"
+  ],
+  "status": {
+    "physical": 100,
+    "mental": 100,
+    "affliction": "",
+    "description": "In good health and high spirits",
+    "wounds": [],
+    "diseases": []
+  },
+  "stats": {
+    "strength": 3,
+    "agility": 2,
+    "intelligence": 8,
+    "authority": 7,
+    "sociability": 6
+  },
+  "equipment": [
+    "Chef's knife",
+    "Spoon",
+    "Vial of secret ingredient"
+  ],
+  "appearance": {
+    "height": "Short",
+    "build": "Stout",
+    "skinTone": "Tan",
+    "hairColor": "White",
+    "hairStyle": "Shaggy, disheveled short cut",
+    "features": "White eyebrows, age lines, defined cheekbones"
+  },
+  "clothing": {
+    "head": "Goggles",
+    "body": "Apron over a tan tunic",
+    "legs": "Dark trousers",
+    "accessories": "Red sash, Necklace with pendant, Enormous backpack"
+  },
+  "combat": {
+    "role": "Support",
+    "strengths": [
+      "Good food",
+      "Resourceful",
+      "Commanding voice"
     ],
-    "status": {
-        "physical": 100,
-        "mental": 100,
-        "affliction": "",
-        "description": "In good health and high spirits",
-        "wounds": [],
-        "diseases": []
-    },
-    "stats": {
-        "strength": 3,
-        "agility": 2,
-        "intelligence": 8,
-        "authority": 7,
-        "sociability": 6
-    },
-    "equipment": [
-        "Chef's knife",
-        "Spoon",
-        "Vial of secret ingredient"
-    ],
-    "appearance": {
-        "height": "Short",
-        "build": "Stout",
-        "skinTone": "Tan",
-        "hairColor": "White",
-        "hairStyle": "Shaggy, disheveled short cut",
-        "features": "White eyebrows, age lines, defined cheekbones"
-    },
-    "clothing": {
-        "head": "Goggles",
-        "body": "Apron over a tan tunic",
-        "legs": "Dark trousers",
-        "accessories": "Red sash, Necklace with pendant"
-    },
-    "combat": {
-        "role": "Support",
-        "strengths": [
-            "Good food",
-            "Resourceful",
-            "Commanding voice"
-        ],
-        "weaknesses": [
-            "Old",
-            "Weak",
-            "Frail",
-            "Slow"
-        ]
-    },
-    "magic": "None",
-    "notes": [
-        "Carries an enourmous backpack with cooking supplies",
-        "Known for creating unusual but effective dishes from strange ingredients"
-    ],
-    "relationships": {}
+    "weaknesses": [
+      "Old",
+      "Weak",
+      "Slow"
+    ]
+  },
+  "magic": "None",
+  "notes": [
+    "Has developed a disturbing taste, casually consuming raw specimens that make others retch",
+    "Refuses to reveal the contents of her 'secret ingredient' vial",
+    "Insists companions eat more than they want, firmly believing undereating is more dangerous than overeating",
+    "Age has dulled her eyesight, requiring her to work primarily by touch and smell when preparing food",
+    "Always talks of surviving hardships, but quietly harbors a deep fear of dying alone"
+  ],
+  "relationships": {}
 }

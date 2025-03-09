@@ -15,7 +15,8 @@
         "Precise",
         "Cynical",
         "Resourceful",
-        "Vengeful"
+        "Vengeful",
+        "Seductive"
     ],
     "status": {
         "physical": 100,
@@ -66,7 +67,10 @@
     },
     "magic": "None",
     "notes": [
-        "Has a gallows sense of humor"
+        "Maintains an aristocratic air, distinguishing between herself and 'the rabble'",
+        "Frequently critiques the 'cheapness' of items",
+        "Has a gallows sense of humor",
+        "Has a beautiful singing voice but very rarely sings"
     ],
     "relationships": {
     }

@@ -14,7 +14,7 @@ router.post('/estates/:estateName/events/setup-random', async (req: Request, res
     const { estateName } = req.params;
 
     // Call the service to pick random event + characters
-    const { event, chosenCharacterIds, locations, npcs } = await setupRandomEvent(estateName);
+    const { event, chosenCharacterIds, locations, npcs, bystanders } = await setupRandomEvent(estateName);
 
     // Return them to the frontend
     // You might also want to store them in the estate so that the next steps know about them
@@ -24,7 +24,8 @@ router.post('/estates/:estateName/events/setup-random', async (req: Request, res
       event,
       chosenCharacterIds,
       locations,
-      npcs
+      npcs,
+      bystanders
     });
   } catch (error: any) {
     console.error('Error setting up random event:', error);

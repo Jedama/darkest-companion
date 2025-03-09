@@ -40,7 +40,7 @@
     "title": "First Floor",
     "description": "An expansive level showcasing the Dower House's former grandeur, now dulled by time and neglect.",
     "parent": "dower_house",
-    "children": ["dower_house__parlor", "dower_house__grand_hall", "dower_house__dining_hall", "dower_house__kitchen", "dower_house__barracks", "dower_house__butlers_room", "dower_house__servants_quarters"]
+    "children": ["dower_house__parlor", "dower_house__grand_hall", "dower_house__dining_hall", "dower_house__portrait_room", "dower_house__kitchen", "dower_house__barracks", "dower_house__butlers_room", "dower_house__servants_quarters"]
   },
   {
     "identifier": "dower_house__parlor",
@@ -62,6 +62,14 @@
     "description": "A banquet table sized for intimate family dinners centers the room, its surface dulled by years without polish. Tall windows draped in dusty green velvet alternate with modest portraits of previous housekeepers and butlers, while a sturdy sideboard still holds the house's everyday silver service. The dumbwaiter's brass doors wait quietly in the corner, last used when the house still maintained a full staff.",
     "parent": "dower_house__first_floor",
     "children": []
+  },
+  {
+    "identifier": "dower_house__portrait_room",
+    "title": "Portrait Room",
+    "description": "A narrow gallery with faded green wallpaper peeling from the damp corners. Wooden wainscoting runs along the lower half of the walls, damaged in places but still sturdy. What makes this room peculiar is the collection of framed portraits hung in neat vertical rows against the weathered backdrop. Each new arrival to the Estate finds their likeness mysteriously appearing here within days of their recruitment, though no artist claims responsibility for the work. Haphazard stacks of books pile on the floor beneath the frames, their pages warped from humidity. The room seems to expand as needed, accommodating each new face that joins the fight against the encroaching darkness.",
+    "parent": "dower_house__first_floor",
+    "children": [],
+    "npcs": ["caretaker"]
   },
   {
     "identifier": "dower_house__kitchen",
@@ -186,7 +194,7 @@
   {
     "identifier": "dower_house__master_bedroom",
     "title": "Master Bedroom",
-    "description": "A dignified sleeping chamber dominated by a carved oak canopy bed and private fireplace. The circular window in the south wall overlooks the town square, while glass doors open onto a small balcony above the garden. Originally intended for a dowager's peaceful retirement, the room maintains its air of refined solitude with a cushioned window seat, a delicate writing desk, and a full-length mirror that catches the last rays of sunset.",
+    "description": "A dignified sleeping chamber dominated by a carved oak canopy bed, built to be shared by two despite the house's intentions, and private fireplace. The circular window in the south wall overlooks the town square, while glass doors open onto a small balcony above the garden. Originally intended for a dowager's peaceful retirement, the room maintains its air of refined solitude with a cushioned window seat, a delicate writing desk, and a full-length mirror that catches the last rays of sunset.",
     "parent": "dower_house__third_floor",
     "capacity": 2,
     "children": []

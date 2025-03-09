@@ -108,5 +108,12 @@
     "restored": "A well-ordered pavilion where brass instruments gleam on sturdy tables, dedicated to the endless task of mapping the Estate's fluid boundaries. Fresh charts line the walls, each noting how paths and landmarks drift between surveys. The cartographer works by lamplight into the night, knowing tomorrow's expedition might find everything changed anew.",
     "parent": "western_district",
     "children": []
+  },
+  {
+    "identifier": "palisade_wall",
+    "title": "Palisade Wall",
+    "description": "A crude but sturdy barrier of sharpened logs encircling the hamlet's perimeter, erected in haste following the eldritch invasion from the manor. Watchtowers of uneven height punctuate the wall at irregular intervals. Torches flicker in iron brackets, casting shadows across the muddy patrol path. Sections bear the scars of previous assaults—splintered wood hastily reinforced with salvaged furniture, cart wheels, and even tombstones.",
+    "parent": "west_district",
+    "children": []
   }
 ]

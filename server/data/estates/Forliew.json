@@ -20,13 +20,14 @@
         "Stalwart",
         "Inspiring",
         "Kleptomanic",
-        "Conflicted"
+        "Conflicted",
+        "Honest"
       ],
       "status": {
         "physical": 100,
-        "mental": 100,
+        "mental": 75,
         "affliction": "",
-        "description": "In good health and high spitits",
+        "description": "Recovering from betrayed trust while seeking to rebuild bridges",
         "wounds": [],
         "diseases": []
       },
@@ -34,8 +35,8 @@
         "strength": 8,
         "agility": 3,
         "intelligence": 5,
-        "authority": 7,
-        "sociability": 4
+        "authority": 8,
+        "sociability": 5
       },
       "equipment": [
         "Holy Sword (family heirloom)",
@@ -55,7 +56,7 @@
         "head": "Steel helm",
         "body": "Chainmail hauberk",
         "legs": "Mail chausses",
-        "other": "Purple tunic with a white cross"
+        "accessories": "Purple tunic with a white cross"
       },
       "combat": {
         "role": "Warrior",
@@ -75,7 +76,10 @@
         "Has kleptomanic tendencies that he tries to hide",
         "Does a characteristic whistle after nabbing something, or when otherwise pleased with himself",
         "Sometimes writes letters to his family that he never sends",
-        "Wears simple farmer's clothes when out of his armor"
+        "Wears simple farmer's clothes when out of his armor",
+        "Carries small trinkets from his past as physical reminders of his failures and those he couldn't save",
+        "Struggles with nightmares that require medicinal relief",
+        "Carries a pouch of trinkets from his campaigns as physical reminders of his failures"
       ],
       "relationships": {
         "heiress": {
@@ -85,13 +89,13 @@
         },
         "kheir": {
           "affinity": 4,
-          "dynamic": "Skeptical",
-          "description": "While the crusader intends to uphold his duty with silent diligence, he realizes the meek kheir is unfit to lead."
+          "dynamic": "Cautious Forgiver",
+          "description": "Offered forgiveness despite the betrayal, establishing boundaries while allowing for redemption."
         },
         "highwayman": {
-          "affinity": 7,
+          "affinity": 8,
           "dynamic": "Comrade",
-          "description": "The crusader sees in the highwayman a kindred spirit; both men with troubled pasts seeking to carve out a purpose through the quest they now share."
+          "description": "Defended Dismas by revealing his own collection of mementos, deepening their bond through shared understanding of carrying physical reminders of the past."
         },
         "seraph": {
           "affinity": 4,
@@ -135,14 +139,17 @@
         "Desperate",
         "Fugitive",
         "Remorseful",
-        "Cynical"
+        "Cynical",
+        "Isolated"
       ],
       "status": {
-        "physical": 100,
-        "mental": 100,
+        "physical": 90,
+        "mental": 65,
         "affliction": "",
-        "description": "In good health and high spitits",
-        "wounds": [],
+        "description": "Bitter about false accusations and increasingly distrustful",
+        "wounds": [
+          "Bruised jaw and torn shoulder from confrontation with townsfolk"
+        ],
         "diseases": []
       },
       "stats": {
@@ -168,7 +175,7 @@
         "head": "Red scarf",
         "body": "Rugged grey coat with fur collar",
         "legs": "Dark trousers",
-        "other": "Multiple utility belts"
+        "accessories": "Multiple utility belts"
       },
       "combat": {
         "role": "Skirmisher",
@@ -185,23 +192,24 @@
       "magic": "None",
       "notes": [
         "Known to cheat at cards",
-        "Has a gallows sense of humor"
+        "Has a gallows sense of humor",
+        "Subject of rumors and distrust in the hamlet regarding alleged theft of provisions"
       ],
       "relationships": {
         "heiress": {
-          "affinity": 4,
-          "dynamic": "Guardian",
-          "description": "The highwayman is determined to prove himself to the heiress and to assist in her quest despite her warranted distrust."
-        },
-        "kheir": {
           "affinity": 3,
           "dynamic": "Guardian",
-          "description": "Despite the kheir's distrust, the highwayman is resolute in his role as a guard, seeing their safety as his path to absolution."
+          "description": "Feels unfairly judged by Persephone, seeing her as someone who cannot understand the choices made by those less fortunate."
+        },
+        "kheir": {
+          "affinity": 0,
+          "dynamic": "Severed Trust",
+          "description": "Refuses to accept apologies, believing some bridges burn too hot to cross again."
         },
         "crusader": {
-          "affinity": 7,
+          "affinity": 8,
           "dynamic": "Comrade",
-          "description": "Despite their differences, the highwayman and the crusader swiftly bonded over the mistakes of their respective pasts and their shared quest for redemption."
+          "description": "Recognizes their shared struggles with personal demons, strengthening their bond through mutual understanding."
         }
       },
       "locations": {
@@ -273,7 +281,7 @@
         "head": "Hair needle",
         "body": "Marine blue robe over white shirt",
         "legs": "Mustard yellow breeches",
-        "other": "White bowtie"
+        "accessories": "White bowtie"
       },
       "combat": {
         "role": "Leader",
@@ -294,19 +302,19 @@
       ],
       "relationships": {
         "kheir": {
-          "affinity": 8,
-          "dynamic": "Familial",
-          "description": "Despite a cold exterior and a lifetime of bickering, the heiress loves and will not let harm come upon the kheir."
+          "affinity": 6,
+          "dynamic": "Disappointed Guardian",
+          "description": "Maintains familial loyalty while strictly holding her brother accountable for his breach of trust."
         },
         "crusader": {
-          "affinity": 5,
-          "dynamic": "Professional",
-          "description": "The heiress maintains a reserved, professional demeanor towards the crusader, her latest recruit."
+          "affinity": 9,
+          "dynamic": "Fair Commander",
+          "description": "Demonstrated respect for Reynauld's privacy and supported his dignified response to betrayal."
         },
         "highwayman": {
-          "affinity": 3,
+          "affinity": 4,
           "dynamic": "Cautious",
-          "description": "The heiress regards the highwayman with suspicion. While his skills could prove valuable, his checkered past and gruff manner keep her on guard."
+          "description": "Defended Dismas against false accusations, showing that despite her caution, she values truth and fairness."
         },
         "hqclaimants": {
           "affinity": 2,
@@ -356,13 +364,13 @@
         "Scholarly",
         "Anxious",
         "Resourceful",
-        "Possessive"
+        "Remorseful"
       ],
       "status": {
-        "physical": 100,
-        "mental": 100,
+        "physical": 95,
+        "mental": 50,
         "affliction": "",
-        "description": "In good health and high spitits",
+        "description": "Deeply ashamed of his actions and desperate to make amends",
         "wounds": [],
         "diseases": []
       },
@@ -370,8 +378,8 @@
         "strength": 2,
         "agility": 2,
         "intelligence": 9,
-        "authority": 7,
-        "sociability": 8
+        "authority": 6,
+        "sociability": 7
       },
       "equipment": [
         "Letter opener",
@@ -389,7 +397,7 @@
         "head": "None",
         "body": "Well-tailored jacket and waistcoat",
         "legs": "Mustard yellow breeches",
-        "other": "Bowtie"
+        "accessories": "Bowtie"
       },
       "combat": {
         "role": "Support Tactician",
@@ -411,19 +419,19 @@
       ],
       "relationships": {
         "heiress": {
-          "affinity": 8,
+          "affinity": 6,
           "dynamic": "Familial",
-          "description": "The Heir admires, and is deeply jealous of, his sister's strength and ability to take initiative. Despite their fierce bickering, the kheir loves his sister."
+          "description": "Ashamed of disappointing his sister by betraying confidential information and causing unnecessary conflict."
         },
         "crusader": {
-          "affinity": 4,
-          "dynamic": "Cautious respect",
-          "description": "Though he recognizes the crusader's potential, the kheir is dubious over the trustworthiness of this new guard."
+          "affinity": 6,
+          "dynamic": "Penitent Scholar",
+          "description": "Deeply ashamed of betraying Reynauld's confidence, now committed to earning back trust through actions rather than words."
         },
         "highwayman": {
-          "affinity": 2,
-          "dynamic": "Distrustful",
-          "description": "The kheir is distrusting towards the highwayman, fearing that the rugged man will betray them and steal his possessions."
+          "affinity": 0,
+          "dynamic": "Shameful Accuser",
+          "description": "Frustrated by Dismas's refusal to accept apologies, yet understanding of the damage his false accusations caused."
         },
         "hqclaimants": {
           "affinity": 2,
@@ -457,5 +465,35 @@
         ]
       }
     }
+  },
+  "characterLogs": {
+    "crusader": [
+      {
+        "month": 1,
+        "entry": "Confronted the public revelation of his past with quiet dignity, choosing forgiveness over vengeance.",
+        "expiryMonth": 13
+      }
+    ],
+    "highwayman": [
+      {
+        "month": 1,
+        "entry": "Withdrew further after being falsely accused, reinforcing his reluctance to fully integrate with the group.",
+        "expiryMonth": 8
+      }
+    ],
+    "kheir": [
+      {
+        "month": 1,
+        "entry": "Publicly apologized for violating trust and weaponizing private information.",
+        "expiryMonth": 8
+      }
+    ],
+    "heiress": [
+      {
+        "month": 1,
+        "entry": "Demonstrated firm leadership by holding her brother accountable while facilitating reconciliation.",
+        "expiryMonth": 4
+      }
+    ]
   }
 }

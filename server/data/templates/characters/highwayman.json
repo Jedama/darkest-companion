@@ -48,7 +48,7 @@
     "head": "Red scarf",
     "body": "Rugged grey coat with fur collar",
     "legs": "Dark trousers",
-    "other": "Multiple utility belts"
+    "accessories": "Multiple utility belts"
   },
   "combat": {
     "role": "Skirmisher",
@@ -65,7 +65,8 @@
   "magic": "None",
   "notes": [
     "Known to cheat at cards",
-    "Has a gallows sense of humor"
+    "Has a gallows sense of humor",
+    "Carries a tarnished locket taken from a past victim as a reminder of his sins"
   ],
   "relationships": {
   }

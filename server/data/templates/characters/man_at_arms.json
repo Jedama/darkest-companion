@@ -50,7 +50,7 @@
       "head": "None",
       "body": "Heavy plate armor with red sash",
       "legs": "Plated greaves",
-      "other": "Military medals"
+      "accessories": "Military medals"
     },
     "combat": {
       "role": "Defender",

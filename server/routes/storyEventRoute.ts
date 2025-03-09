@@ -16,7 +16,7 @@ const router = Router();
 router.post('/estates/:estateName/events/story', async (req: Request, res: Response) => {
   try {
     const { estateName } = req.params;
-    const { event, chosenCharacterIds, locations, npcIds } = req.body;
+    const { event, chosenCharacterIds, locations, npcIds, bystanders } = req.body;
 
     // 1. Load the estate so we can fetch character data
     const estate: Estate | undefined = await loadEstate(estateName);
@@ -25,7 +25,7 @@ router.post('/estates/:estateName/events/story', async (req: Request, res: Respo
     }
 
     // 2. Build the prompt using your storyEventService
-    const prompt = await compileStoryPrompt(estate, event, chosenCharacterIds, locations, npcIds);
+    const prompt = await compileStoryPrompt(estate, event, chosenCharacterIds, locations, npcIds, bystanders);
 
     // 3. Call Claude with the prompt
     //    (You can pass a custom model name if you like.)
