@@ -6,7 +6,7 @@ import type { Estate } from '../../shared/types/types';
 import { compileConsequencesPrompt } from '../services/consequencesEventService';
 import { validateConsequenceUpdate, formatConsequenceUpdate } from '../services/promptData/consequenceData';
 import type { ConsequencePrompt } from '../services/promptData/consequenceData';
-import { applyConsequences, ConsequencesResult } from '../services/consequenceProcessor';
+import { applyConsequences, ConsequencesResult, prepareConsequenceDisplay } from '../services/consequenceProcessor';
 
 const router = Router();
 
@@ -98,15 +98,16 @@ router.post('/estates/:estateName/events/consequences', async (req: Request<{est
       
       const updatedEstate = applyConsequences(estate, consequencesForProcessing);
       
-      // 7. Save the updated estate
+      // 7. Generate display-friendly data for the frontend
+      const displayData = prepareConsequenceDisplay(consequencesForProcessing);
+
+      // 8. Save the updated estate
       await saveEstate(updatedEstate);
 
-      // 8. Return the validated and formatted consequences along with updated estate
+      // 9. Return the display data and updated estate
       return res.json({
         success: true,
-        prompt,
-        consequences: formattedConsequences,
-        estate: updatedEstate
+        display: displayData
       });
 
     } catch (err) {

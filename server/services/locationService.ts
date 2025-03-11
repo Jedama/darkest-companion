@@ -283,11 +283,6 @@ function getSurroundingLocationsAndNPCs(
     if (!addedIds.has(child.identifier)) {
       result.push(child);
       addedIds.add(child.identifier);
-
-      // Add NPCs from the child location
-      if (child.npcs) {
-        child.npcs.forEach((npc) => npcSet.add(npc));
-      }
     }
   });
 
@@ -300,11 +295,6 @@ function getSurroundingLocationsAndNPCs(
         if (!addedIds.has(child.identifier)) {
           result.push(child);
           addedIds.add(child.identifier);
-
-          // Add NPCs from the parent's children
-          if (child.npcs) {
-            child.npcs.forEach((npc) => npcSet.add(npc));
-          }
         }
       });
     }

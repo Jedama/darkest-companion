@@ -58,6 +58,244 @@ export interface ConsequencesResult {
 }
 
 /**
+ * Interface for the display-friendly consequence data
+ */
+export interface ConsequenceDisplay {
+    characters: {
+      identifier: string;
+      personalChanges: Array<{
+        text: string;
+        color: string;
+      }>;
+      relationshipChanges: {
+        [targetIdentifier: string]: Array<{
+          text: string;
+          color: string;
+          affinity?: number; // For determining glow effect
+        }>;
+      };
+    }[];
+  }
+  
+  /**
+   * Color mapping for different consequence types
+   */
+  const consequenceColorMap: Record<string, string> = {
+    'Strength': 'crimson',
+    'Agility': 'green',
+    'Intelligence': 'dodgerblue',
+    'Authority': 'darkmagenta',
+    'Sociability': 'yellow',
+    'Physical': 'red',
+    'Mental': 'white',
+    'Money': 'gold',
+    'Note': 'burlywood',
+    'Appearance': 'beige',
+    'Clothing': 'violet',
+    'Status': 'lightseagreen',
+    'Wound': 'darkred',
+    'Disease': '#90EE90',
+    'Religion': 'lightyellow',
+    'Trait': 'orange'
+  };
+  
+  /**
+   * Prepares display-friendly consequence data for the frontend
+   * 
+   * @param consequences The raw consequence data from the LLM
+   * @returns Formatted display data for the frontend
+   */
+  export function prepareConsequenceDisplay(consequences: ConsequencesResult): ConsequenceDisplay {
+    return {
+      characters: consequences.characters.map(char => {
+        const display = {
+          identifier: char.identifier,
+          personalChanges: [] as Array<{ text: string; color: string }>,
+          relationshipChanges: {} as Record<string, Array<{ text: string; color: string; affinity?: number }>>
+        };
+  
+        // Process add_log (just for debugging if needed)
+        // if (char.add_log) {
+        //   display.personalChanges.push({
+        //     text: `Log entry added`,
+        //     color: 'white'
+        //   });
+        // }
+  
+        // Process stats
+        if (char.update_stats) {
+          Object.entries(char.update_stats).forEach(([stat, value]) => {
+            if (value !== undefined) {
+              const prefix = value > 0 ? '+' : '';
+              const statName = stat.charAt(0).toUpperCase() + stat.slice(1);
+              display.personalChanges.push({
+                text: `${statName} ${prefix}${value}`,
+                color: consequenceColorMap[statName] || 'white'
+              });
+            }
+          });
+        }
+  
+        // Process status
+        if (char.update_status) {
+          if (char.update_status.physical !== undefined) {
+            const prefix = char.update_status.physical > 0 ? '+' : '';
+            display.personalChanges.push({
+              text: `Physical ${prefix}${char.update_status.physical}`,
+              color: consequenceColorMap['Physical'] || 'red'
+            });
+          }
+          
+          if (char.update_status.mental !== undefined) {
+            const prefix = char.update_status.mental > 0 ? '+' : '';
+            display.personalChanges.push({
+              text: `Mental ${prefix}${char.update_status.mental}`,
+              color: consequenceColorMap['Mental'] || 'white'
+            });
+          }
+          
+          if (char.update_status.description) {
+            display.personalChanges.push({
+              text: `↻ Status description`,
+              color: consequenceColorMap['Status'] || 'lightseagreen'
+            });
+          }
+        }
+  
+        // Process traits
+        if (char.gain_traits && char.gain_traits.length > 0) {
+          char.gain_traits.forEach(trait => {
+            display.personalChanges.push({
+              text: `+ ${trait}`,
+              color: consequenceColorMap['Trait'] || 'orange'
+            });
+          });
+        }
+  
+        if (char.lose_traits && char.lose_traits.length > 0) {
+          char.lose_traits.forEach(trait => {
+            display.personalChanges.push({
+              text: `- ${trait}`,
+              color: consequenceColorMap['Trait'] || 'orange'
+            });
+          });
+        }
+  
+        // Process appearance
+        if (char.update_appearance) {
+          if (Object.values(char.update_appearance).some(v => v !== undefined)) {
+            display.personalChanges.push({
+              text: `↻ Appearance`,
+              color: consequenceColorMap['Appearance'] || 'beige'
+            });
+          }
+        }
+  
+        // Process clothing
+        if (char.update_clothing) {
+          if (Object.values(char.update_clothing).some(v => v !== undefined)) {
+            display.personalChanges.push({
+              text: `↻ Clothing`,
+              color: consequenceColorMap['Clothing'] || 'violet'
+            });
+          }
+        }
+  
+        // Process wounds & diseases
+        if (char.gain_wound) {
+          display.personalChanges.push({
+            text: `+ Wound`,
+            color: consequenceColorMap['Wound'] || 'darkred'
+          });
+        }
+  
+        if (char.lose_wound) {
+          display.personalChanges.push({
+            text: `- Wound`,
+            color: consequenceColorMap['Wound'] || 'darkred'
+          });
+        }
+  
+        if (char.gain_disease) {
+          display.personalChanges.push({
+            text: `+ Disease`,
+            color: consequenceColorMap['Disease'] || '#90EE90'
+          });
+        }
+  
+        if (char.lose_disease) {
+          display.personalChanges.push({
+            text: `- Disease`,
+            color: consequenceColorMap['Disease'] || '#90EE90'
+          });
+        }
+  
+        // Process notes
+        if (char.gain_note) {
+          display.personalChanges.push({
+            text: `+ Note`,
+            color: consequenceColorMap['Note'] || 'burlywood'
+          });
+        }
+  
+        // Process money
+        if (char.update_money !== undefined) {
+          const prefix = char.update_money > 0 ? '+' : '';
+          display.personalChanges.push({
+            text: `Money ${prefix}${char.update_money}`,
+            color: consequenceColorMap['Money'] || 'gold'
+          });
+        }
+  
+        // Process religion
+        if (char.update_religion) {
+          display.personalChanges.push({
+            text: `Religion → ${char.update_religion}`,
+            color: consequenceColorMap['Religion'] || 'lightyellow'
+          });
+        }
+  
+        // Process relationships
+        if (char.update_relationships) {
+          char.update_relationships.forEach(rel => {
+            if (!display.relationshipChanges[rel.target]) {
+              display.relationshipChanges[rel.target] = [];
+            }
+  
+            // Affinity change
+            if (rel.affinity !== undefined) {
+              const prefix = rel.affinity > 0 ? '+' : '';
+              display.relationshipChanges[rel.target].push({
+                text: `Affinity ${prefix}${rel.affinity}`,
+                color: rel.affinity > 0 ? 'white' : 'red',
+                affinity: rel.affinity
+              });
+            }
+  
+            // Dynamic change
+            if (rel.dynamic) {
+              display.relationshipChanges[rel.target].push({
+                text: `↻ Dynamic`,
+                color: 'orange'
+              });
+            }
+  
+            // Description change
+            if (rel.description) {
+              display.relationshipChanges[rel.target].push({
+                text: `↻ Description`,
+                color: 'orange'
+              });
+            }
+          });
+        }
+  
+        return display;
+      })
+    };
+  }
+
+/**
  * Apply consequences to the estate based on the structured LLM response
  * @param estate The current estate object
  * @param consequences The validated consequences from the LLM

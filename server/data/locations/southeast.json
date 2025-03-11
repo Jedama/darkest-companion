@@ -1,7 +1,7 @@
 [
   {
     "identifier": "southeast_district",
-    "title": "Southeast District",
+    "title": "South-eastern District",
     "description": "A district of sturdy utility, where the clash of steel from the blacksmith's forge mingles with sounds of combat training. Though the Apothecary's death left his shop empty, and the training ring lies in ruins, the district maintains its vital role in the hamlet's defense.",
     "parent": "hamlet",
     "children": ["blacksmith", "guild_hall", "apothecary", "inlet"]

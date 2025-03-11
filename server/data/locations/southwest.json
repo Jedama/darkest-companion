@@ -1,7 +1,7 @@
 [
   {
     "identifier": "southwest_district",
-    "title": "Southwest District",
+    "title": "South-western District",
     "description": "A tangle of narrow streets and leaning buildings where travelers first enter the hamlet. The Old Road meets civilized streets near the stagecoach's clearing, while various establishments - from respectable inn to questionable tavern - cater to those seeking rest or distraction. The district grew organically around the original waypoint, its architecture reflecting generations of hasty additions and repairs.",
     "parent": "hamlet",
     "children": ["stagecoach", "omen_seeker_wagon", "carpenter", "wainwright", "alley", "inn", "tavern", "brothel", "butchers_circus"]

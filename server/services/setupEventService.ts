@@ -18,7 +18,7 @@ function pickRandomEvent(): EventData {
 
   // const randomId = eventIds[Math.floor(Math.random() * eventIds.length)];
   // Debug: Set a specific event ID for testing
-  const randomId = 'debug_3';
+  const randomId = 'debug_0';
   return allEvents[randomId];
 }
 

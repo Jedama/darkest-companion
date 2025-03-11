@@ -1,7 +1,7 @@
 [
   {
     "identifier": "north_district",
-    "title": "North District",
+    "title": "Northern District",
     "description": "Dominated by the Abbey's spires and its tolling bells, this district houses both the living and the dead. The graveyard climbs the southern-and recently also the norther-hillside, while the abbey stands watchful above.",
     "parent": "hamlet",
     "children": ["graveyard", "abbey", "pilgrims_shelter"]

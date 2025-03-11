@@ -10,7 +10,7 @@ import storyEventRoute from './routes/storyEventRoute.js';
 import consequencesEventRoute from './routes/consequencesEventRoute.js';
 import StaticGameDataManager from './staticGameDataManager.js';
 
-const DEFAULT_CHARACTER_IDS = ['crusader', 'highwayman', 'heiress', 'kheir', 'arbalest', 'antiquarian', 'abomination', 'bounty_hunter', 'cataphract', 'cook', 'duchess', 'flagellant', 'grave_robber', 'hood', 'houndmaster', 'hqclaimants'];
+const DEFAULT_CHARACTER_IDS = ['crusader', 'highwayman', 'heiress', 'kheir'];
 
 const app = express();
 const port = 3000;

@@ -20,14 +20,13 @@
         "Stalwart",
         "Inspiring",
         "Kleptomanic",
-        "Conflicted",
-        "Honest"
+        "Conflicted"
       ],
       "status": {
         "physical": 100,
-        "mental": 75,
+        "mental": 100,
         "affliction": "",
-        "description": "Recovering from betrayed trust while seeking to rebuild bridges",
+        "description": "In good health and high spitits",
         "wounds": [],
         "diseases": []
       },
@@ -35,8 +34,8 @@
         "strength": 8,
         "agility": 3,
         "intelligence": 5,
-        "authority": 8,
-        "sociability": 5
+        "authority": 7,
+        "sociability": 4
       },
       "equipment": [
         "Holy Sword (family heirloom)",
@@ -75,11 +74,8 @@
       "notes": [
         "Has kleptomanic tendencies that he tries to hide",
         "Does a characteristic whistle after nabbing something, or when otherwise pleased with himself",
-        "Sometimes writes letters to his family that he never sends",
-        "Wears simple farmer's clothes when out of his armor",
-        "Carries small trinkets from his past as physical reminders of his failures and those he couldn't save",
-        "Struggles with nightmares that require medicinal relief",
-        "Carries a pouch of trinkets from his campaigns as physical reminders of his failures"
+        "Writes letters to his family that he never sends",
+        "Wears simple farmer's clothes when out of his armor"
       ],
       "relationships": {
         "heiress": {
@@ -89,13 +85,13 @@
         },
         "kheir": {
           "affinity": 4,
-          "dynamic": "Cautious Forgiver",
-          "description": "Offered forgiveness despite the betrayal, establishing boundaries while allowing for redemption."
+          "dynamic": "Skeptical",
+          "description": "While the crusader intends to uphold his duty with silent diligence, he realizes the meek Heir is unfit to lead."
         },
         "highwayman": {
-          "affinity": 8,
+          "affinity": 7,
           "dynamic": "Comrade",
-          "description": "Defended Dismas by revealing his own collection of mementos, deepening their bond through shared understanding of carrying physical reminders of the past."
+          "description": "The crusader sees in the highwayman a kindred spirit; both men with troubled pasts seeking to carve out a purpose through the quest they now share."
         },
         "seraph": {
           "affinity": 4,
@@ -110,12 +106,12 @@
         "workplaces": [
           "guild_hall",
           "training_ring",
-          "abbey_grounds",
+          "abbey__grounds",
           "palisade_wall"
         ],
         "frequents": [
           "abbey",
-          "farmlands",
+          "mill_grounds",
           "town_square",
           "dower_house__garden",
           "tavern"
@@ -139,17 +135,14 @@
         "Desperate",
         "Fugitive",
         "Remorseful",
-        "Cynical",
-        "Isolated"
+        "Cynical"
       ],
       "status": {
-        "physical": 90,
-        "mental": 65,
+        "physical": 100,
+        "mental": 100,
         "affliction": "",
-        "description": "Bitter about false accusations and increasingly distrustful",
-        "wounds": [
-          "Bruised jaw and torn shoulder from confrontation with townsfolk"
-        ],
+        "description": "In good health and high spitits",
+        "wounds": [],
         "diseases": []
       },
       "stats": {
@@ -193,23 +186,23 @@
       "notes": [
         "Known to cheat at cards",
         "Has a gallows sense of humor",
-        "Subject of rumors and distrust in the hamlet regarding alleged theft of provisions"
+        "Carries a tarnished locket taken from a past victim as a reminder of his sins"
       ],
       "relationships": {
         "heiress": {
-          "affinity": 3,
+          "affinity": 4,
           "dynamic": "Guardian",
-          "description": "Feels unfairly judged by Persephone, seeing her as someone who cannot understand the choices made by those less fortunate."
+          "description": "The highwayman is determined to prove himself to the heiress and to assist in her quest despite her warranted distrust."
         },
         "kheir": {
-          "affinity": 0,
-          "dynamic": "Severed Trust",
-          "description": "Refuses to accept apologies, believing some bridges burn too hot to cross again."
+          "affinity": 3,
+          "dynamic": "Guardian",
+          "description": "Despite the Heir's distrust, the highwayman is resolute in his role as a guard, seeing their safety as his path to absolution."
         },
         "crusader": {
-          "affinity": 8,
+          "affinity": 7,
           "dynamic": "Comrade",
-          "description": "Recognizes their shared struggles with personal demons, strengthening their bond through mutual understanding."
+          "description": "Despite their differences, the highwayman and the crusader swiftly bonded over the mistakes of their respective pasts and their shared quest for redemption."
         }
       },
       "locations": {
@@ -223,10 +216,10 @@
         ],
         "frequents": [
           "tavern",
-          "house_of_yellow_hand",
+          "yellow_hand",
           "inn",
           "town_square",
-          "brothel_alley"
+          "alley"
         ]
       }
     },
@@ -262,7 +255,7 @@
         "strength": 2,
         "agility": 3,
         "intelligence": 8,
-        "authority": 10,
+        "authority": 9,
         "sociability": 9
       },
       "equipment": [
@@ -297,24 +290,26 @@
       },
       "magic": "None",
       "notes": [
-        "Turns to wine when overwhelmed by the stress of managing the Hamlet",
-        "Attracted to women with ample breasts"
+        "Turns to wine when overwhelmed by stress",
+        "Attracted to, and can't help staring at, women with ample breasts",
+        "Scared of losing her authority, she meets those challenging it by becoming more commanding and inflexible.",
+        "Made early compromises for security that are now returning as complications"
       ],
       "relationships": {
         "kheir": {
-          "affinity": 6,
-          "dynamic": "Disappointed Guardian",
-          "description": "Maintains familial loyalty while strictly holding her brother accountable for his breach of trust."
+          "affinity": 7,
+          "dynamic": "Familial",
+          "description": "Though protective of her brother, the Heiress finds his scrutiny of her management decisions frustrating and undermining to her authority."
         },
         "crusader": {
-          "affinity": 9,
-          "dynamic": "Fair Commander",
-          "description": "Demonstrated respect for Reynauld's privacy and supported his dignified response to betrayal."
+          "affinity": 5,
+          "dynamic": "Professional",
+          "description": "The heiress maintains a reserved, professional demeanor towards the crusader, her latest recruit."
         },
         "highwayman": {
-          "affinity": 4,
+          "affinity": 3,
           "dynamic": "Cautious",
-          "description": "Defended Dismas against false accusations, showing that despite her caution, she values truth and fairness."
+          "description": "The heiress regards the highwayman with suspicion. While his skills could prove valuable, his checkered past and gruff manner keep her on guard."
         },
         "hqclaimants": {
           "affinity": 2,
@@ -339,9 +334,11 @@
         ],
         "frequents": [
           "tavern",
+          "dower_house__portrait_room",
           "dower_house__wine_cellar",
           "dower_house__dining_hall",
           "dower_house__garden",
+          "dower_house__red_hook",
           "town_square"
         ]
       }
@@ -364,13 +361,13 @@
         "Scholarly",
         "Anxious",
         "Resourceful",
-        "Remorseful"
+        "Possessive"
       ],
       "status": {
-        "physical": 95,
-        "mental": 50,
+        "physical": 100,
+        "mental": 100,
         "affliction": "",
-        "description": "Deeply ashamed of his actions and desperate to make amends",
+        "description": "In good health and high spitits",
         "wounds": [],
         "diseases": []
       },
@@ -379,7 +376,7 @@
         "agility": 2,
         "intelligence": 9,
         "authority": 6,
-        "sociability": 7
+        "sociability": 8
       },
       "equipment": [
         "Letter opener",
@@ -415,28 +412,29 @@
       "magic": "None",
       "notes": [
         "Hates waste and is very possesive of his belongings",
-        "Has a penchant for fine wines to calm his nerves"
+        "Has a penchant for fine wines to calm his nerves",
+        "Particularly sensitive about financial decisions made without his input"
       ],
       "relationships": {
         "heiress": {
-          "affinity": 6,
+          "affinity": 7,
           "dynamic": "Familial",
-          "description": "Ashamed of disappointing his sister by betraying confidential information and causing unnecessary conflict."
+          "description": "While he admires his sister's initiative, the Heir feels undermined by her unilateral decisions regarding estate finances, creating a growing tension between his admiration and resentment."
         },
         "crusader": {
-          "affinity": 6,
-          "dynamic": "Penitent Scholar",
-          "description": "Deeply ashamed of betraying Reynauld's confidence, now committed to earning back trust through actions rather than words."
+          "affinity": 4,
+          "dynamic": "Cautious respect",
+          "description": "Though he recognizes the crusader's potential, the Heir is dubious over the trustworthiness of this new guard."
         },
         "highwayman": {
-          "affinity": 0,
-          "dynamic": "Shameful Accuser",
-          "description": "Frustrated by Dismas's refusal to accept apologies, yet understanding of the damage his false accusations caused."
+          "affinity": 2,
+          "dynamic": "Distrustful",
+          "description": "The Heir is distrusting towards the highwayman, fearing that the rugged man will betray them and steal his possessions."
         },
         "hqclaimants": {
           "affinity": 2,
           "dynamic": "Aristocratic Rivalry",
-          "description": "The Claimants' constant disdain and biting remarks left a lasting impression on the Heir during the balls and duels of their youth. He remains embittered but grudgingly acknowledges The Claimant brother's skill with a spear."
+          "description": "The Claimants' constant disdain and biting remarks left a lasting impression on the Heir during the balls and duels of their youth. The Heir remains embittered but grudgingly acknowledges The Claimant brother's skill with a spear."
         },
         "duchess": {
           "affinity": 5,
@@ -453,46 +451,33 @@
           "library__archive",
           "town_hall__record_archives",
           "town_hall__strong_room",
-          "harbor__warehouse",
-          "provision_house__office"
+          "warehouse_district",
+          "provisioner"
         ],
         "frequents": [
           "tavern",
+          "dower_house__portrait_room",
           "dower_house__wine_cellar",
-          "library__main_hall",
           "dower_house__astronomy_room",
-          "dower_house__garden"
+          "dower_house__garden",
+          "library__main"
         ]
       }
     }
   },
   "characterLogs": {
-    "crusader": [
-      {
-        "month": 1,
-        "entry": "Confronted the public revelation of his past with quiet dignity, choosing forgiveness over vengeance.",
-        "expiryMonth": 13
-      }
-    ],
-    "highwayman": [
-      {
-        "month": 1,
-        "entry": "Withdrew further after being falsely accused, reinforcing his reluctance to fully integrate with the group.",
-        "expiryMonth": 8
-      }
-    ],
     "kheir": [
       {
         "month": 1,
-        "entry": "Publicly apologized for violating trust and weaponizing private information.",
+        "entry": "Discovered his sister had made financial arrangements regarding the estate without consulting him.",
         "expiryMonth": 8
       }
     ],
     "heiress": [
       {
         "month": 1,
-        "entry": "Demonstrated firm leadership by holding her brother accountable while facilitating reconciliation.",
-        "expiryMonth": 4
+        "entry": "Revealed she had made compromises with the Butcher's Circus for protection when first arriving at the estate.",
+        "expiryMonth": 8
       }
     ]
   }

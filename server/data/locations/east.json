@@ -1,7 +1,7 @@
 [
   {
     "identifier": "east_district",
-    "title": "East District",
+    "title": "Eastern District",
     "description": "A maze of salt-worn buildings and creaking boardwalks stretching along the hamlet's waterfront. The harbor's docks extend like broken fingers into the unnaturally dark waters, while abandoned warehouses stand sentinel behind them.",
     "parent": "hamlet",
     "children": ["harbor", "warehouse_district", "tritonis_house", "house_of_yellow_hand"]

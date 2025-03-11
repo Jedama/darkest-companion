@@ -1,7 +1,7 @@
 [
   {
     "identifier": "south_district",
-    "title": "South District",
+    "title": "Southern District",
     "description": "Agricultural land stretches from the hamlet's edge toward the distant Weald. At its heart, the Mill Grounds stand in uneasy balance between salvation and corruption, where townspeople's courage drew new ward lines closer to the comet's impact site. Beyond the wards' protection, the old Apple Yard marks where cultivation gives way to fungal wilderness.",
     "parent": "hamlet",
     "children": ["granary", "mill_grounds", "apple_yard"]

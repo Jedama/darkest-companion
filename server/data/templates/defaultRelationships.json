@@ -124,14 +124,14 @@
     },
     "wretch": {
       "affinity": 3,
-      "dynamic": "Smug Indifference",
+      "dynamic": "Indifference",
       "description": "The Wretch is a relic of a forgotten triumph, a living reminder of the The Claimants' ruthless success. They feel a cold satisfaction in his fall, tempered by fleeting amusement at the absurdity of his new life."
     }
   },
   "duchess": {
     "kheir": {
       "affinity": 4,
-      "dynamic": "Amused Indifference",
+      "dynamic": "Indifference",
       "description": "In her brief early encounters with the Heir, the Duchess found his adoration amusing but ultimately inconsequential. His fumbling attempts to court her were quickly forgotten."
     },
     "heiress": {

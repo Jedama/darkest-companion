@@ -1,7 +1,7 @@
 [
   {
     "identifier": "north_west_district",
-    "title": "North West District",
+    "title": "North-western District",
     "description": "The Hamlet's most refined area, home to the Dower House, the old library with its arched windows, and the town hall with its aging clock tower.",
     "parent": "hamlet",
     "children": ["dower_house", "library", "town_hall", "bank"]

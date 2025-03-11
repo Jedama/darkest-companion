@@ -1,84 +1,91 @@
+// server/services/promptData/consequenceData
 import type { CharacterRecord } from '../../../shared/types/types';
 
 // Types for the consequence system
 interface StatUpdate {
-    strength?: number;
-    agility?: number;
-    intelligence?: number;
-    authority?: number;
-    sociability?: number;
-  }
-  
-  interface StatusUpdate {
-    physical?: number;
-    mental?: number;
-    description?: string;
-  }
-  
-  interface RelationshipUpdate {
-    target: string;
-    affinity?: number;
-    dynamic?: string;
-    description?: string;
-  }
-  
-  interface AppearanceUpdate {
-    height?: string;
-    build?: string;
-    skinTone?: string;
-    hairColor?: string;
-    hairStyle?: string;
-    features?: string;
-  }
-  
-  interface ClothingUpdate {
-    head?: string;
-    body?: string;
-    legs?: string;
-    other?: string;
-  }
+  strength?: number;
+  agility?: number;
+  intelligence?: number;
+  authority?: number;
+  sociability?: number;
+}
 
-  type LogTimeframe = 
-    | "transient"      // Just this event/month, likely irrelevant soon
-    | "short_term"     // Relevant for next few months
-    | "mid_term"       // Significant for half a year or so
-    | "long_term"      // Major impact lasting a year or more
-    | "permanent"      // Forever changes the character
+interface StatusUpdate {
+  physical?: number;
+  mental?: number;
+  description?: string;
+}
 
-  interface LogEntry {
-    entry: string;
-    timeframe: LogTimeframe;
-  }
-  
-  interface CharacterConsequence {
-    identifier: string;
-    add_log?: LogEntry;
-    update_stats?: StatUpdate;
-    update_status?: StatusUpdate;
-    gain_traits?: string[];
-    lose_traits?: string[];
-    update_relationships?: RelationshipUpdate[];
-    update_appearance?: AppearanceUpdate;
-    update_clothing?: ClothingUpdate;
-    gain_wound?: string;
-    lose_wound?: string;
-    gain_disease?: string;
-    lose_disease?: string;
-    gain_note?: string;
-    lose_note?: string;
-    gain_trinket?: string;
-    lose_trinket?: string;
-    update_money?: number;
-    update_religion?: string;
-    death?: string;
-  }
-  
-  export interface ConsequencePrompt {
-    characters: CharacterConsequence[];
-  }
-  
-  // The base consequence prompt template
-  // The base consequence prompt template
+interface RelationshipUpdate {
+  target: string;
+  affinity?: number;
+  dynamic?: string;
+  description?: string;
+}
+
+interface AppearanceUpdate {
+  height?: string;
+  build?: string;
+  skinTone?: string;
+  hairColor?: string;
+  hairStyle?: string;
+  features?: string;
+}
+
+interface ClothingUpdate {
+  head?: string;
+  body?: string;
+  legs?: string;
+  other?: string;
+}
+
+type LogTimeframe = 
+  | "transient"      // Just this event/month, likely irrelevant soon
+  | "short_term"     // Relevant for next few months
+  | "mid_term"       // Significant for half a year or so
+  | "long_term"      // Major impact lasting a year or more
+  | "permanent"      // Forever changes the character
+
+interface LogEntry {
+  entry: string;
+  timeframe: LogTimeframe;
+}
+
+// New interface for global event logs
+interface EventLog {
+  entry: string;
+  timeframe: LogTimeframe;
+}
+
+interface CharacterConsequence {
+  identifier: string;
+  add_log?: LogEntry;
+  update_stats?: StatUpdate;
+  update_status?: StatusUpdate;
+  gain_traits?: string[];
+  lose_traits?: string[];
+  update_relationships?: RelationshipUpdate[];
+  update_appearance?: AppearanceUpdate;
+  update_clothing?: ClothingUpdate;
+  gain_wound?: string;
+  lose_wound?: string;
+  gain_disease?: string;
+  lose_disease?: string;
+  gain_note?: string;
+  lose_note?: string;
+  gain_trinket?: string;
+  lose_trinket?: string;
+  update_money?: number;
+  update_religion?: string;
+  death?: string;
+}
+
+export interface ConsequencePrompt {
+  event_log: EventLog;  // Required single event log entry
+  characters: CharacterConsequence[];
+}
+
+// The updated consequence prompt template
 const consequenceInstructions = `
 NARRATIVE STORYTELLING COMPANION - CONSEQUENCE DETECTION
 
@@ -89,11 +96,21 @@ WHAT TO LOOK FOR:
 - Relationship developments: new dynamics, trust, conflict, or disdain between characters
 - Physical or mental changes: injuries, confidence boosts, trauma, or emotional breakthroughs
 - Personality shifts: changes in outlook, priorities, or behavior patterns
+- Significant plot events: major developments that impact the story overall
 
 STRICT JSON FORMAT REQUIREMENTS:
-- Output only the "characters" array. No other root keys.
-- All changes must relate to characters in the CHARACTERS list above.
+- Output contains "event_log" array and "characters" array as root keys.
+- All character changes must relate to characters in the CHARACTERS list above.
 - Use only the commands and fields below:
+
+GLOBAL EVENT LOG FORMAT:
+{
+  "event_log": {
+    "entry": "string describing the most significant plot event or development of the scene",
+    "timeframe": "transient" | "short_term" | "mid_term" | "long_term" | "permanent"
+  },
+  "characters": [...]
+}
 
 ALLOWED COMMANDS PER CHARACTER:
 {
@@ -173,8 +190,20 @@ GUIDANCE FOR QUALITY CONSEQUENCES:
   - Always remember: This is a game of managing broken, horrible people and difficulty, dysfunctional relationships, and those few moments of true redemption are our primary selling points. 
   Make the characters hate and love and despise and long for each other. Extreme character dynamics are the core of our stories.
 
-1. LOGS:
-   - Be specific and consice, focusing on the core of what transpired
+1. EVENT LOG:
+   - Add a single story log entry detaileing the core of what transpired
+   - Keep entries factual and focused on what happened, not character reactions
+   - Entry should be brief and summarize the scene
+   - Use timeframes to indicate story impact:
+     * transient: minor plot developments and character interactions
+     * short_term: events that influence the hamlet as a whole for a short while
+     * mid_term: significant developments with broader implications for the whole reclamation effort
+     * long_term: major plot points that shape the quest
+     * permanent: fundamental world or setting changes
+
+2. CHARACTER LOGS:
+   - Character logs are optional. Add one if relevant
+   - Focus only on the core development or revelation
    - Use timeframes appropriately:
      * transient: fleeting emotions or minor developments
      * short_term: events with impact over next few interactions
@@ -182,33 +211,39 @@ GUIDANCE FOR QUALITY CONSEQUENCES:
      * long_term: major life events that reshape a character
      * permanent: fundamental, irreversible transformations
 
-2. STATUS DESCRIPTIONS:
+3. STATUS DESCRIPTIONS:
    - Capture the character's current emotional/mental state
    - Be specific and evocative (e.g., "Haunted by memories of imprisonment" not "Feeling sad")
    - Reflect immediate conditions from this scene, not long-term states
    - Don't confine your numerical updates to multiples of five. 
 
-3. TRAITS & NOTES:
-   - Only add traits when clearly demonstrated, not just mentioned
+4. TRAITS:
+   - Traits represent fundamental character attributes reflected in their behavior
+   - One or two words maximum
+
+5. NOTES:
    - Notes should be specific and capture:
-     * Unique abilities or weaknesses revealed
-     * Persistent habits or behaviors shown
-     * Beliefs, values, or fears demonstrated
-  - Avoid adding duplicate notes that merely restate information already in the character's other notes or core background
-
-4. RELATIONSHIPS:
-   - Be bold and focus on evolving relationships towards future narrative paths
-   - Dynamics should be concise (1-3 words) and capture the relationship's essence
-   - Descriptions should explain WHY characters relate this way
-   - Avoid mentioning specific events in relationship descriptions
-   - Relationships at the extremeties 0 or 10 should be dramatic: open animosity, resentment, reverence, and love
-
-5. STATS:
+     * Unique abilities or skills
+     * Persistent habits or behaviors
+     * Established beliefs, values, or fears
+   - Format notes as timeless attributes rather than developments in progress
+   - Bad example: "Becoming suspicious of authority" (transitional)
+   - Good example: "Scrutinizes authority figures' motives" (established behavior)
+   - Avoid adding duplicate notes that merely restate information already present elsewhere
+   
+6. STATS:
    - Only update when a significant change is demonstrated
    - Strength/Agility: physical capabilities displayed
    - Intelligence: knowledge or mental acuity revealed
    - Authority: command presence or leadership shown
    - Sociability: social skills or connection demonstrated
+
+7. RELATIONSHIPS:
+   - Be bold but truthful, and focus on evolving relationships towards future narrative paths
+   - Dynamics should be concise (1-3 words) and capture the relationship's essence
+   - Descriptions should explain WHY characters relate this way
+   - Avoid mentioning specific events in relationship descriptions
+   - Relationships at the extremeties 0 or 10 should be dramatic: open animosity, resentment, reverence, or love
 
 RULES:
 1. Use ONLY the fields above. No new keys.
@@ -219,14 +254,18 @@ RULES:
 6. Don't include the questionmarks in your response, they are only there to indicate optional fields.
 7. Focus on the most meaningful 2-3 changes per character rather than trying to change everything.
 
-EXAMPLE GOOD CONSEQUENCE 1:
+EXAMPLE GOOD CONSEQUENCE:
 {
+  "event_log": {
+    "entry": "A challenge to the Heiress's leadership resulted in restructuring the hamlet's authority into a more collaborative council.",
+    "timeframe": "mid_term"
+  },
   "characters": [
     {
       "identifier": "abomination",
       "add_log": {
-        "entry": "Showed unexpected resolve by challenging Persephone and volunteering to explore the northern tunnels.",
-        "timeframe": "mid_term"
+        "entry": "Stood firm against the Heiress' established leadership, voicing concerns that changed hamlet governance.",
+        "timeframe": "short_term"
       },
       "update_stats": {
         "authority": 1,
@@ -236,31 +275,31 @@ EXAMPLE GOOD CONSEQUENCE 1:
         {
           "target": "heiress",
           "affinity": 1,
-          "dynamic": "Cautious Advisor",
-          "description": "Unexpectedly challenged the Heiress' authority while offering insight about the resonance in the tunnels, establishing himself as more than a passive follower."
+          "dynamic": "Quiet Counsel",
+          "description": "The Abomination offers wisdom that the Heiress has gradually come to value, providing a grounding perspective that tempers her more impulsive tendencies."
         }
-      ],
-      "gain_note": "Senses eldritch resonance in the northern tunnels similar to the force within him"
+      ]
     },
     {
       "identifier": "highwayman",
+      "add_log": {
+        "entry": "Initiated challenge against the Heiress's unilateral decision-making, sparking hamlet governance reform.",
+        "timeframe": "mid_term"
+      },
       "update_status": {
-        "mental": -9,
+        "mental": -9
       },
       "update_relationships": [
         {
           "target": "heiress",
           "affinity": -1,
-          "description": "Willing to defy her authority when he believes her decisions endanger their mission."
+          "dynamic": "Principled Defiance",
+          "description": "The Highwayman values mission success above loyalty to leadership, finding the Heiress's judgment increasingly at odds with his practical experience of survival."
         }
       ]
     },
     {
       "identifier": "crusader",
-      "add_log": {
-        "entry": "Mediated conflict between Dismas and Persephone, advocating for a more collaborative decision-making.",
-        "timeframe": "mid_term"
-      },
       "update_stats": {
         "authority": 1
       },
@@ -268,24 +307,25 @@ EXAMPLE GOOD CONSEQUENCE 1:
         {
           "target": "abomination",
           "affinity": 1,
-          "dynamic": "Cautious Ally",
-          "description": "Stood beside the Abomination during confrontation with the Heiress, acknowledging his insight while supporting a more diplomatic approach."
+          "dynamic": "Tolerance",
+          "description": "Despite his prior religious objections to the Abomination's condition, the Crusader has come to value his measured insight and restraint. Their growing alliance challenges the Crusader's dogmatic principles with a more nuanced understanding of virtue."
         },
         {
           "target": "heiress",
-          "affinity": 1,
+          "affinity": 1
         }
       ]
     },
     {
       "identifier": "heiress",
       "add_log": {
-        "entry": "Demonstrated vulnerability by accepting criticism and agreeing to a less authoritative approach.",
+        "entry": "Relinquished sole authority to adopt council-based leadership following group challenge.",
         "timeframe": "mid_term"
       },
       "update_stats": {
-        "authority": -1
+        "authority": -2
       },
+      "gain_note": "Seeks out and listens to other's opinions before finalizing decisions.",
       "lose_note": "Scared of losing her authority, she meets those challenging it by becoming more commanding and inflexible.",
       "update_status": {
         "mental": -27,
@@ -294,30 +334,35 @@ EXAMPLE GOOD CONSEQUENCE 1:
       "update_relationships": [
         {
           "target": "abomination",
-          "dynamic": "Reluctant Listener",
-          "description": "Has begun to acknowledge the Abomination's wisdom, seeing the modest and reasonable man before the beast."
+          "dynamic": "Hard-Won Respect",
+          "description": "The Heiress values the Abomination's insights despite her initial prejudice, finding unexpected wisdom beneath his monstrous appearance that challenges her preconceptions."
         },
         {
           "target": "highwayman",
-          "affinity": -2
+          "affinity": -2,
+          "dynamic": "Contempt",
+          "description": "The Heiress views the Highwayman as a direct threat undermining her authority, interpreting his practical suggestions as deliberate challenges to her leadership."
         },
         {
           "target": "crusader",
           "affinity": 1,
-          "description": "Values the Crusader's diplomatic approach and ability to bring consensus among the group while respecting her position."
         }
       ]
     }
   ]
 }
 
-EXAMPLE GOOD CONSEQUENCE 1:
+EXAMPLE GOOD CONSEQUENCE 2:
 {
+  "event_log": {
+    "entry": "The Highwayman's experienced nightmares about failing the Heiress.",
+    "timeframe": "transient"
+  },
   "characters": [
     {
       "identifier": "highwayman",
       "add_log": {
-        "entry": "Experienced recurring nightmares about the Heiress dying and him abandoning her like others in his past.",
+        "entry": "Experienced vivid nightmares of the Heiress's death and swore a personal oath of protection.",
         "timeframe": "mid_term"
       },
       "update_status": {
@@ -340,88 +385,102 @@ EXAMPLE GOOD CONSEQUENCE 1:
 }
 
 Now determine appropriate consequences based on the story. Focus on the most narratively significant developments that can impact future storytelling. Output them in JSON with no additional text.`;
+
+// Helper function to get the consequence instructions
+export function getConsequenceInstructions(): string {
+  return consequenceInstructions;
+}
+
+export function validateConsequenceUpdate(
+  update: ConsequencePrompt, 
+  characters: CharacterRecord
+): boolean {
+  // Check if update has the required structure
+  if (!update || !Array.isArray(update.characters)) return false;
   
-  // Helper function to get the consequence instructions
-  export function getConsequenceInstructions(): string {
-    return consequenceInstructions;
+  // Validate event_log (required)
+  if (!update.event_log || typeof update.event_log !== 'object') return false;
+  
+  // Validate required fields for event_log
+  if (!update.event_log.entry || !update.event_log.timeframe) return false;
+  
+  // Validate timeframe value
+  if (!["transient", "short_term", "mid_term", "long_term", "permanent"].includes(update.event_log.timeframe)) {
+    return false;
   }
   
-  export function validateConsequenceUpdate(
-    update: ConsequencePrompt, 
-    characters: CharacterRecord
-  ): boolean {
-    // Check if update has the required structure
-    if (!update || !Array.isArray(update.characters)) return false;
+  // Validate each character's consequences
+  for (const char of update.characters) {
+    // Required fields
+    if (!char.identifier) return false;
     
-    // Validate each character's consequences
-    for (const char of update.characters) {
-      // Required fields
-      if (!char.identifier) return false;
-      
-      // Check if the character identifier exists in the record
-      if (!characters[char.identifier]) return false;
-      
-      // Validate log timeframe
-      if (char.add_log && !["transient", "short_term", "mid_term", "long_term", "permanent"].includes(char.add_log.timeframe)) {
-        return false;
-      }
-      
-      // Validate stat ranges (just the change values, not the result)
-      if (char.update_stats) {
-        for (const [key, value] of Object.entries(char.update_stats)) {
-          // Check if the key is valid
-          if (!["strength", "agility", "intelligence", "authority", "sociability"].includes(key)) return false;
-          
-          // Check if the value is within allowed range (-5 to +5)
-          if (value < -5 || value > 5) return false;
-        }
-      }
-      
-      // Validate status changes (not the resulting values)
-      if (char.update_status) {
-        if (char.update_status.physical !== undefined && 
-            (char.update_status.physical < -50 || char.update_status.physical > 50)) {
-          return false;
-        }
+    // Check if the character identifier exists in the record
+    if (!characters[char.identifier]) return false;
+    
+    // Validate log timeframe
+    if (char.add_log && !["transient", "short_term", "mid_term", "long_term", "permanent"].includes(char.add_log.timeframe)) {
+      return false;
+    }
+    
+    // Validate stat ranges (just the change values, not the result)
+    if (char.update_stats) {
+      for (const [key, value] of Object.entries(char.update_stats)) {
+        // Check if the key is valid
+        if (!["strength", "agility", "intelligence", "authority", "sociability"].includes(key)) return false;
         
-        if (char.update_status.mental !== undefined && 
-            (char.update_status.mental < -50 || char.update_status.mental > 50)) {
-          return false;
-        }
-      }
-      
-      // Validate relationship updates
-      if (char.update_relationships) {
-        for (const rel of char.update_relationships) {
-          // Check if target exists
-          if (!rel.target || !characters[rel.target]) return false;
-          
-          // Validate affinity range for the change
-          if (rel.affinity !== undefined && (rel.affinity < -5 || rel.affinity > 5)) {
-            return false;
-          }
-        }
+        // Check if the value is within allowed range (-5 to +5)
+        if (value < -5 || value > 5) return false;
       }
     }
     
-    return true;
+    // Validate status changes (not the resulting values)
+    if (char.update_status) {
+      if (char.update_status.physical !== undefined && 
+          (char.update_status.physical < -50 || char.update_status.physical > 50)) {
+        return false;
+      }
+      
+      if (char.update_status.mental !== undefined && 
+          (char.update_status.mental < -50 || char.update_status.mental > 50)) {
+        return false;
+      }
+    }
+    
+    // Validate relationship updates
+    if (char.update_relationships) {
+      for (const rel of char.update_relationships) {
+        // Check if target exists
+        if (!rel.target || !characters[rel.target]) return false;
+        
+        // Validate affinity range for the change
+        if (rel.affinity !== undefined && (rel.affinity < -5 || rel.affinity > 5)) {
+          return false;
+        }
+      }
+    }
   }
   
-  // Helper function to format a consequence update
-  export function formatConsequenceUpdate(update: ConsequencePrompt): ConsequencePrompt {
-    // Apply any necessary transformations or validations to the consequences
-    // This returns the actual object, not a string
-    
-    // For example, you might want to:
-    // - Ensure all required fields exist
-    // - Remove any unexpected fields
-    // - Normalize data formats
-    
-    // Creating a new object to avoid mutating the input
-    return {
-      characters: update.characters.map(character => ({
-        ...character,
-        // Add any transformations here
-      }))
-    };
-  }
+  return true;
+}
+
+// Helper function to format a consequence update
+export function formatConsequenceUpdate(update: ConsequencePrompt): ConsequencePrompt {
+  // Apply any necessary transformations or validations to the consequences
+  // This returns the actual object, not a string
+  
+  // Creating a new object to avoid mutating the input
+  const formatted: ConsequencePrompt = {
+    // Format the required event_log
+    event_log: {
+      entry: update.event_log.entry,
+      timeframe: update.event_log.timeframe
+    },
+    // Format the characters array
+    characters: update.characters.map(character => ({
+      ...character,
+      // Add any transformations here
+    }))
+  };
+  
+  return formatted;
+}

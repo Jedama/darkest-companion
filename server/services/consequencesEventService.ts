@@ -1,6 +1,4 @@
 // services/consequencesEventService.ts
-
-import { ChatSession } from '@google/generative-ai';
 import type { Estate, Character } from '../../shared/types/types';
 import { getConsequenceInstructions } from './promptData/consequenceData';
 

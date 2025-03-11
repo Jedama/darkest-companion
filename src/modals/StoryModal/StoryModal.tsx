@@ -32,6 +32,25 @@ interface StoryResponse {
   };
 }
 
+interface ConsequenceChange {
+  text: string;
+  color: string;
+  affinity?: number;
+}
+
+interface ConsequenceCharacterDisplay {
+  identifier: string;
+  personalChanges: ConsequenceChange[];
+  relationshipChanges: Record<string, ConsequenceChange[]>;
+}
+
+interface ConsequenceResponse {
+  success: boolean;
+  display: {
+    characters: ConsequenceCharacterDisplay[];
+  };
+}
+
 type Phase = 'loading' | 'deck' | 'deal' | 'text';
 
 export function StoryModal({ estateName, onClose }: StoryModalProps) {
@@ -42,6 +61,7 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
 
   const [storyTitle, setStoryTitle] = useState('');
   const [storyBody, setStoryBody] = useState('');
+  const [consequenceDisplay, setConsequenceDisplay] = useState<ConsequenceCharacterDisplay[]>([]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -108,15 +128,25 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-              event: setupData.event,
               story: storyData.story.body,
               chosenCharacterIds: setupData.chosenCharacterIds,
             }),
             signal,
           }
         );
-
-        console.log('consequenceRes:', consequenceRes);
+        
+        if (!consequenceRes.ok) {
+          throw new Error(`Consequences route failed: ${consequenceRes.status}`);
+        }
+        
+        const consequenceData: ConsequenceResponse = await consequenceRes.json();
+        if (!consequenceData.success) {
+          throw new Error('Consequences route returned success=false');
+        }
+        
+        // Set consequence display data and log it
+        setConsequenceDisplay(consequenceData.display.characters);
+        console.log('Consequence Display Data:', consequenceData.display);
 
 
       } catch (err: any) {

@@ -235,9 +235,9 @@ Summary: ${eventSummaryWithReplacements}
   const fullPrompt =
     instructionsSection +
     contextSection +
+    eventSection +
     charactersSection +
     locationSection +
-    eventSection +
     npcSection +
     bystandersSection +
     keywordsSection;

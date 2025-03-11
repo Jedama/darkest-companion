@@ -1,5 +1,12 @@
 [
   {
+    "identifier": "center_district",
+    "title": "Central District",
+    "description": "The beating heart of what remains of the hamlet, where cobblestone streets converge from all cardinal directions. Once a bustling center of commerce and governance, now a hollow reminder of faded prosperity. The town square dominates the district's core, surrounded by the most essential establishments that stubbornly endure despite the Estate's shadow. Leaning buildings crowd together as if for mutual support, their weathered facades bearing silent witness to both the glory and folly of generations past. By day, residents hurry through on necessary business; by night, only the bravest or most foolish linger where lamplight fails to reach the deeper shadows.",
+    "parent": "hamlet",
+    "children": ["town_square", "coaching_inn", "old_church", "blacksmith", "apothecary", "cloth_merchant"]
+  },
+  {
     "identifier": "town_square",
     "title": "Town Square",
     "description": "The hamlet's heart, enclosed by weathered buildings that lean inward like spectators at a grim performance. Centuries-old cobblestones spiral toward the Ancestor's stern figure, while market stalls huddle beneath sagging wooden awnings. A few mounted oil lamps mark the square's corners, though most townsfolk hurry to complete their business before dusk claims the streets.",
@@ -18,7 +25,7 @@
     "identifier": "constabulary",
     "title": "Constabulary",
     "description": "A sturdy two-story building of fitted stone anchoring the square's northern edge. Here, the late Captain made both his fateful stands - first refusing the Ancestor's bribes to suppress the townspeople's protests, and years later organizing the hamlet's final defense against the horrors that followed. Though the building bears scars from both the Brigade's retribution and supernatural assaults, it stands as a testament to principles that proved stronger than gold.",
-    "parent": "town_square",
+    "parent": "center_district",
     "children": ["constabulary__basement", "constabulary__main", "constabulary__upper"]
   },
   {
