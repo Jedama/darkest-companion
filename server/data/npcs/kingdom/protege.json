@@ -1,0 +1,30 @@
+{
+  "identifier": "protege",
+  "title": "Protégé",
+  "name": "Evander",
+  "summary": "Once the brightest student at the University, Evander now dwells alone in the House on the Borderlands in the Valley, consumed by obsessive study of the Iron Crown. His isolated home emanates manic muttering and strange lights through boarded windows at all hours. Within, walls covered in calculations and diagrams form what he calls his 'Body of Work' - the mathematical framework for remaking reality itself. His brilliant mind burns too brightly to recognize the darkness he's summoning.",
+  "history": "Distinguished even among the University's elite scholars, Evander quickly became Professor Mortimer's favored student, assisting with research that revealed the recurring symbol of the Iron Crown throughout ancient civilizations. Their academic pursuit turned to horrified fascination when an invitation from the Ancestor brought them to witness a failed ritual in a remote manor. Where Mortimer recoiled from the sight of murdered cultists arranged along the points of the Iron Crown, Evander glimpsed potential. After a mysterious fire destroyed their research at the University, Evander abandoned formal education entirely, withdrawing to his Valley.",
+  "traits": [
+    "Brilliant",
+    "Obsessive",
+    "Ambitious"
+  ],
+  "appearance": {
+    "height": "Average, though often hunched over works",
+    "build": "Once fit, now gaunt from self-neglect",
+    "skinTone": "Sallow",
+    "hairColor": "Dark, with premature streaks of gray",
+    "hairStyle": "Wild and uncombed",
+    "features": "Piercing eyes with dark circles beneath, ink-stained fingers, occasional tremors"
+  },
+  "clothing": {
+    "head": "None",
+    "body": "Once-fine shirt now stained with ink and chemicals",
+    "legs": "Scholar's trousers worn thin at the knees",
+    "accessories": "Multiple journals strapped to belt"
+  },
+  "notes": [
+    "Speaks in fragmented, racing sentences that blend technical jargon with mystical references, occasionally shifting between multiple languages mid-thought",
+    "Maintains a wall of calculations he calls 'The Body of Work' - an evolving mathematical system of his own devising"
+  ]
+}

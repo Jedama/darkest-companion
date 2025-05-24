@@ -1,80 +1,175 @@
+/* CardComponent.css */
+
 :root {
-    --card-width: 250px;
-    --card-aspect-ratio: 606 / 939;
+  --card-width: 250px;
+  --card-aspect-ratio: 606 / 939;
+}
+
+.card-wrapper {
+  position: absolute;
+  width: var(--card-width);
+  aspect-ratio: var(--card-aspect-ratio);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-style: preserve-3d;
+  will-change: transform;
+  z-index: auto;
+  transition: transform 0.2s ease-out;
+}
+
+.card-wrapper:hover {
+  transform: translate(-50%, -50%) scale(1.05); /* Grow 5% larger */
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden; /* Important for the content inside */
+}
+
+.card-back {
+  background-image: url('src/assets/ui/modals/storymodal/card_back.png');
+}
+
+.card-front {
+  transform: rotateY(180deg);
+  position: relative; /* Needed for absolute positioning of overlay */
+}
+
+.deal-animation {
+  animation: deal-card 1s ease forwards;
+}
+
+/* Animation for flip + glide */
+@keyframes deal-card {
+  0% {
+    transform: translate(-50%, -50%) rotateY(0deg) rotateZ(0deg); /* Flip starts */
   }
-  
-  .card-wrapper {
-    position: absolute;
-    width: var(--card-width);
-    aspect-ratio: var(--card-aspect-ratio);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transform-style: preserve-3d;
-    will-change: transform;
-    z-index: auto;
+  50% {
+    transform: translate(-50%, -50%) rotateY(180deg) rotateZ(0deg); /* Flip ends */
   }
-  
-  .card-face {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    background-size: cover;
-    background-position: center;
+  100% {
+    /* Move to designated corner */
+    transform: translate(var(--corner-x), var(--corner-y)) 
+             rotateY(180deg) 
+             rotateZ(var(--final-rotation));
   }
+}
+
+/* Assign corners dynamically using data-corner */
+.card-wrapper[data-corner="0"] {
+  --corner-x: calc(-50vw + 10%);
+  --corner-y: calc(-50vh + 10%);
+  --final-rotation: 5deg; /* Slight left tilt */
+}
+
+.card-wrapper[data-corner="1"] {
+  --corner-x: calc(50vw - 110%);
+  --corner-y: calc(-50vh + 10%);
+  --final-rotation: -5deg; /* Slight right tilt */
+}
+
+.card-wrapper[data-corner="2"] {
+  --corner-x: calc(-50vw + 10%);
+  --corner-y: calc(50vh - 110%);
+  --final-rotation: 10deg; /* More left tilt */
+}
+
+.card-wrapper[data-corner="3"] {
+  --corner-x: calc(50vw - 110%);
+  --corner-y: calc(50vh - 110%);
+  --final-rotation: -10deg; /* More right tilt */
+}
+
+/* Consequence Display Styles */
+.consequences-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Make it cover the whole card face */
+  padding: 5% 5% 30% 5%; /* Top, Right, Bottom, Left padding */
+  box-sizing: border-box; /* Include padding in width/height */
+  overflow: hidden; /* Hide anything that overflows - NO SCROLLING */
   
-  .card-back {
-    background-image: url('src/assets/ui/modals/storymodal/card_back.png');
-  }
+  display: flex; /* Use flexbox for vertical alignment */
+  flex-direction: column;
+  justify-content: flex-end; /* Aligns content to the bottom of the padded area */
+  align-items: center; /* Center horizontally for block elements */
+  text-align: center; /* Center text within lines */
+
+  opacity: 0;
+  animation: fadeInConsequences 1s ease-out forwards;
+}
+
+/* Animation for fading in the consequence content */
+@keyframes fadeInConsequences {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Personal and Relationship sections styling */
+.personal-changes-display,
+.relationship-changes-display {
+  width: 100%;
+  height: 100%; /* Ensures they fill the overlay */
+  position: absolute; /* Positioned relative to .consequences-overlay */
+  top: 0;
+  left: 0;
+  padding: inherit; /* Inherit padding from .consequences-overlay */
+  box-sizing: border-box; /* Maintain box-sizing */
   
-  .card-front {
-    transform: rotateY(180deg);
-  }
+  display: flex; /* Use flexbox for vertical alignment */
+  flex-direction: column;
+  justify-content: flex-end; /* Aligns content to the bottom of the padded area */
+  align-items: center; /* Center horizontally for block elements */
+  text-align: center; /* Center text within lines */
+
+  /* Smooth transition for swapping content */
+  transition: opacity 0.3s ease; 
+}
+
+/* State classes for visibility */
+.personal-changes-display.active-content,
+.relationship-changes-display.active-content {
+  opacity: 1;
+  pointer-events: auto; /* Make interactive when active */
+}
+
+.personal-changes-display.inactive-content,
+.relationship-changes-display.inactive-content {
+  opacity: 0;
+  pointer-events: none; /* Prevent interaction when inactive */
+}
+
+/* Universal font application for consequence text (p tags) */
+.consequences-overlay p {
+  font-family: 'DwarvenAxe';
   
-  .deal-animation {
-    animation: deal-card 1s ease forwards;
-  }
-  
-  /* Simplified animation for flip + glide */
-  @keyframes deal-card {
-    0% {
-      transform: translate(-50%, -50%) rotateY(0deg) rotateZ(0deg); /* Flip starts */
-    }
-    50% {
-      transform: translate(-50%, -50%) rotateY(180deg) rotateZ(0deg); /* Flip ends */
-    }
-    100% {
-      /* Move to designated corner */
-      transform: translate(var(--corner-x), var(--corner-y)) 
-               rotateY(180deg) 
-               rotateZ(var(--final-rotation));
-    }
-  }
-  
-  /* Assign corners dynamically using data-corner */
-  .card-wrapper[data-corner="0"] {
-    --corner-x: calc(-50vw + 10%);
-    --corner-y: calc(-50vh + 10%);
-    --final-rotation: 5deg; /* Slight left tilt */
-  }
-  
-  .card-wrapper[data-corner="1"] {
-    --corner-x: calc(50vw - 110%);
-    --corner-y: calc(-50vh + 10%);
-    --final-rotation: -5deg; /* Slight right tilt */
-  }
-  
-  .card-wrapper[data-corner="2"] {
-    --corner-x: calc(-50vw + 10%);
-    --corner-y: calc(50vh - 110%);
-    --final-rotation: 10deg; /* More left tilt */
-  }
-  
-  .card-wrapper[data-corner="3"] {
-    --corner-x: calc(50vw - 110%);
-    --corner-y: calc(50vh - 110%);
-    --final-rotation: -10deg; /* More right tilt */
-  }
-  
-  
+  /* Your custom text-shadow outline */
+  text-shadow:
+    1px 1px 0 #000,   /* Bottom-right */
+    -1px 1px 0 #000,  /* Bottom-left */
+    1px -1px 0 #000,  /* Top-right */
+    -1px -1px 0 #000, /* Top-left */
+    1px 0 0 #000,     /* Right */
+    -1px 0 0 #000,    /* Left */
+    0 1px 0 #000,     /* Bottom */
+    0 -1px 0 #000,    /* Top */
+    2px 2px 0 #000,
+    -2px 2px 0 #000,
+    2px -2px 0 #000,
+    -2px -2px 0 #000,
+    2px 0 0 #000,
+    -2px 0 0 #000,
+    0 2px 0 #000,
+    0 -2px 0 #000;
+
+  font-size: 2.4rem;
+  line-height: 1; /* Adjust line height for readability */
+}

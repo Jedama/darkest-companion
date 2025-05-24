@@ -1,7 +1,8 @@
 // server/services/llmService.ts
+import OpenAI from "openai";
 import { Anthropic } from '@anthropic-ai/sdk';
 import type { ContentBlock } from '@anthropic-ai/sdk';
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import {GoogleGenAI} from '@google/genai';
 
 /**
  * Configuration for the LLM request.
@@ -57,6 +58,38 @@ export async function callClaude({
 }
 
 /**
+ * A function to call Grok via X.AI's API (using OpenAI's client).
+ * Uses the same pattern as other LLM functions for consistency.
+ */
+export async function callGrok({ 
+  prompt, 
+  model, 
+  maxTokens, 
+  temperature,
+  system
+}: LLMRequest): Promise<string> {
+  // Create an OpenAI client configured for X.AI
+  const client = new OpenAI({
+    apiKey: process.env.XAI_API_KEY || 'my_fallback_api_key',
+    baseURL: "https://api.x.ai/v1"
+  });
+
+  // Build and send the request
+  const response = await client.chat.completions.create({
+    model: model || "grok-3-beta",
+    max_tokens: maxTokens,
+    temperature: temperature ?? 1.0,
+    messages: [
+      ...(system ? [{ role: "system", content: system }] : []),
+      { role: "user", content: prompt }
+    ]
+  });
+
+  // Extract and return the response text
+  return response.choices[0]?.message?.content || '';
+}
+
+/**
  * A function to call Gemini via Google's Generative AI SDK.
  * The idea is to keep it generic so you can swap to different providers later.
  */
@@ -67,21 +100,28 @@ export async function callGemini({
   temperature
 }: LLMRequest): Promise<string> {
   // Create a Google Generative AI client using your API key
-  const genAI = new GoogleGenerativeAI(process.env.GOOGLE_CLOUD_API_KEY || 'my_fallback_api_key');
+  const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+
+  // Construct the generationConfig object
+  const generationConfig: {
+    maxOutputTokens?: number;
+    temperature?: number;
+    topP?: number;
+    topK?: number;
+  } = {};
+
+  generationConfig.temperature = temperature;
+
+  const ai = new GoogleGenAI({apiKey: GEMINI_API_KEY});
 
   // Retrieve the specified model or default to "gemini-1.5-flash"
-  const generativeModel = genAI.getGenerativeModel({
-    model: model || "gemini-exp-1206"
+  const response = await ai.models.generateContent({
+    model: 'gemini-2.5-flash-preview-05-20',
+    contents: prompt,
   });
 
-  // Format the prompt as a content array
-  const parts = [
-    {text: prompt}
-  ];
-
-  // Build and send the request using the generateContent method
-  const response = await generativeModel.generateContent(parts);
+  console.log(response.text);
 
   // Extract and return the response text
-  return response.response.text();
+  return response.text  ?? '';
 }

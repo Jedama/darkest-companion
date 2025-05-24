@@ -2,7 +2,7 @@
 import { Router, Request, Response } from 'express';
 import { compileStoryPrompt, separateStoryTitle } from '../services/storyEventService';
 import { loadEstate } from '../fileOps';
-import { callClaude, callGemini } from '../services/llm/llmService.js';
+import { callClaude, callGemini, callGrok } from '../services/llm/llmService.js';
 import type { Estate, EventData } from '../../shared/types/types.ts';
 import { Console } from 'console';
 
@@ -29,17 +29,24 @@ router.post('/estates/:estateName/events/story', async (req: Request, res: Respo
 
     // 3. Call Claude with the prompt
     //    (You can pass a custom model name if you like.)
-    const response = await callClaude({
+    /*const response = await callGrok({
+      prompt,
+      model: 'grok-3-beta',
+      maxTokens: 1024
+    });*/
+
+    /*const response = await callClaude({
       prompt,
       model: 'claude-3-7-sonnet-20250219',
       maxTokens: 1024
-    });
-
-    /*const response = await callGemini({
-      prompt,
-      model: 'gemini-exp-1206',
-      maxTokens: 1024
     });*/
+
+    const response = await callGemini({
+      prompt,
+      model: 'gemini-2.5-flash-preview-05-20',
+      maxTokens: 1024,
+      temperature: 0.5
+    });
 
     // 4. Extract title from response
     const { title, body } = separateStoryTitle(response);

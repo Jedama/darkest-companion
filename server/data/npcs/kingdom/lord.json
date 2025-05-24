@@ -1,0 +1,31 @@
+{
+  "identifier": "lord",
+  "title": "Lord",
+  "name": "Jeremiah",
+  "summary": "Once a successful farmer who owned the most fertile fields near the Estate, Jeremiah's recent elevation to nobility has inflated both his ego and his girth. His attempts at aristocratic refinement barely mask his rural origins, much like how his fine clothes strain to contain his ever-expanding form. Though he hosts lavish feasts for neighbors and travelers alike, those who observe closely might notice his growing obsession with the mysterious black meat served at his table, and how his eyes track guests with an hunger that seems beyond mere social ambition.",
+  "history": "When the Ancestor abandoned his outlying territories to focus on excavations beneath the manor, the agricultural lands fell into neglect. Jeremiah, already a successful farmer, seized this opportunity to expand his holdings as smaller farmers failed. His decisive actions to maintain food production earned him a lordly title from desperate officials seeking someone to manage the region. This newfound status transformed a simple man's ambitions, but it was his butcher's discovery of a black demonic goat, 'Black Phillip', that truly changed him. Since the first taste of that unusual meat, Jeremiah's appetite has become insatiable, driving him to host feasts where he might witness others succumb to the same hunger that now defines his existence.",
+  "traits": [
+    "Gluttonous",
+    "Ambitious",
+    "Abusive",
+    "Insatiable"
+  ],
+  "appearance": {
+    "height": "Tall and imposing",
+    "build": "Corpulent, expanding in all directions",
+    "skinTone": "Ruddy, with an unnatural sheen",
+    "hairColor": "Graying brown",
+    "hairStyle": "Thinning, slicked back with oils",
+    "features": "Multiple chins, swollen lips often glistening with grease"
+  },
+  "clothing": {
+    "head": "None",
+    "body": "Long open coat of burgundy velvet over straining waistcoat",
+    "legs": "Striped fine pants held by a large-buckled belt",
+    "accessories": "Thick golden necklace, often smudged with food"
+  },
+  "notes": [
+    "Always carries a handkerchief that bears fresh stains after each meal",
+    "Hunger and frustration manifest in fleshy backhands striking his wife"
+  ]
+}

@@ -188,13 +188,13 @@ Description: ${description}
       let connectionText = '';
       switch (connectionType) {
         case 'residence':
-          connectionText = 'resides at the event location';
+          connectionText = 'Resides at the event location';
           break;
         case 'workplace':
-          connectionText = 'works at the event location';
+          connectionText = 'Works at the event location';
           break;
         case 'frequent':
-          connectionText = 'frequents the event location';
+          connectionText = 'Frequents the event location';
           break;
       }
       

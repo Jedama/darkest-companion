@@ -1,0 +1,31 @@
+{
+    "identifier": "academic",
+    "title": "Academic",
+    "name": "Mortimer",
+    "summary": "A respected professor from the University in the Capital whose scholarly pursuits led him into the dangerous study of occult symbology. Though he maintains his teaching duties with admirable dedication, his nights are consumed by research into the Iron Crown - driven not by ambition, but by fear of what his former student might unleash. Behind his methodical demeanor and precise lectures lies a man haunted by memories of a ritual gone wrong and the growing certainty that catastrophe approaches.",
+    "history": "Once content with theoretical archaeology and ancient religion, Mortimer's life changed when he took brilliant student Evander under his wing. Their shared fascination with esoteric knowledge led them to discover the recurring symbol of the Iron Crown across disparate cultures. When a mysterious invitation brought them to the Ancestor's remote manor, they witnessed a failed ritual that left several dead. While Mortimer was horrified, Evander became obsessed. Now Mortimer divides his life between maintaining academic appearances during daylight hours and desperately researching countermeasures by candlelight, haunted by guilt over having introduced his student to knowledge that may doom them all.",
+    "traits": [
+      "Scholarly",
+      "Cautious",
+      "Paternal",
+      "Burdened"
+    ],
+    "appearance": {
+      "height": "Tall and increasingly stooped",
+      "build": "Thin, growing gaunt",
+      "skinTone": "Pale from countless hours indoors",
+      "hairColor": "Salt and pepper",
+      "hairStyle": "Well-groomed but increasingly disheveled",
+      "features": "Rectangular spectacles, neatly trimmed beard, hands that tremble slightly when discussing certain topics"
+    },
+    "clothing": {
+      "head": "None",
+      "body": "Tweed jacket with leather elbow patches over waistcoat",
+      "legs": "Pressed woolen trousers",
+      "accessories": "Pocket watch, leather satchel filled with notes, chalk-dusted fingers"
+    },
+    "notes": [
+      "Maintains voluminous correspondence with scholars across the known world",
+      "Speaks with eloquent precision, using academic terminology and poetic metaphors that often leave simpler listeners bewildered"
+    ]
+  }

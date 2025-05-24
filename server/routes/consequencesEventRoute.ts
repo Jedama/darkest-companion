@@ -1,7 +1,7 @@
 // server/routes/consequencesEventRoute.ts
 import { Router, Request, Response } from 'express';
 import { loadEstate, saveEstate } from '../fileOps';
-import { callClaude, callGemini } from '../services/llm/llmService.js';
+import { callClaude, callGemini, callGrok } from '../services/llm/llmService.js';
 import type { Estate } from '../../shared/types/types';
 import { compileConsequencesPrompt } from '../services/consequencesEventService';
 import { validateConsequenceUpdate, formatConsequenceUpdate } from '../services/promptData/consequenceData';
@@ -50,17 +50,24 @@ router.post('/estates/:estateName/events/consequences', async (req: Request<{est
     console.log('Consequences prompt:', prompt);
 
     // 3. Call LLM
-    /*const response = await callGemini({
+    const response = await callGemini({
       prompt,
-      model: 'gemini-exp-1206',
-      maxTokens: 1024
-    });*/
+      model: 'gemini-2.5-flash-preview-05-20',
+      maxTokens: 1024,
+      temperature: 0.5
+    });
 
-    const response = await callClaude({
+    /*const response = await callClaude({
       prompt,
       model: 'claude-3-7-sonnet-20250219',
       maxTokens: 2048
-    });
+    });*/
+
+    /*const response = await callGrok({
+      prompt,
+      model: 'grok-3-beta',
+      maxTokens: 2048
+    });*/
 
     // 4. Clean and parse the response
     const cleanResponse = (text: string): string => {

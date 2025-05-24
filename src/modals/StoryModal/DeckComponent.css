@@ -1,6 +1,6 @@
 :root {
     --card-width: 250px;
-    --card-aspect-ratio: 606 / 939; /* Adjust to your card image's aspect ratio */
+    --card-aspect-ratio: 606 / 939;
   }
   
   /* The container for the deck */

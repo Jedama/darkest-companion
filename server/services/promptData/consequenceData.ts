@@ -243,7 +243,7 @@ GUIDANCE FOR QUALITY CONSEQUENCES:
    - Dynamics should be concise (1-3 words) and capture the relationship's essence
    - Descriptions should explain WHY characters relate this way
    - Avoid mentioning specific events in relationship descriptions
-   - Relationships at the extremeties 0 or 10 should be dramatic: open animosity, resentment, reverence, or love
+   - Relationships at the extremeties 0 or 10 should be dramatic: open animosity, resentment, reverence, love, etc.
 
 RULES:
 1. Use ONLY the fields above. No new keys.

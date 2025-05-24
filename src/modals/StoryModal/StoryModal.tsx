@@ -63,6 +63,8 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
   const [storyBody, setStoryBody] = useState('');
   const [consequenceDisplay, setConsequenceDisplay] = useState<ConsequenceCharacterDisplay[]>([]);
 
+  const [hoveredCharacterId, setHoveredCharacterId] = useState<string | null>(null);
+
   useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
@@ -146,7 +148,7 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
         
         // Set consequence display data and log it
         setConsequenceDisplay(consequenceData.display.characters);
-        console.log('Consequence Display Data:', consequenceData.display);
+        //console.log('Consequence Display Data:', consequenceData.display);
 
 
       } catch (err: any) {
@@ -164,6 +166,15 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
     console.log('Deck shuffle complete!');
     setPhase('deal');
   }, [setPhase]);
+
+  // Hover Handlers
+  const handleCardHover = React.useCallback((id: string) => {
+    setHoveredCharacterId(id);
+  }, []);
+
+  const handleCardLeave = React.useCallback(() => {
+    setHoveredCharacterId(null);
+  }, []);
 
   // Handle errors
   if (error) {
@@ -206,23 +217,35 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
       */}
       {['deal', 'text'].includes(phase) && (
         <>
-          {chosenCharacterIds.map((id, i) => (
-            <CardComponent
-              key={id}
-              characterId={id}
-              cornerIndex={i}
-              // stagger by 1s
-              dealDelay={i * 1000}
-              onDealComplete={() => {
-                console.log(`Card ${id} finished dealing.`);
-                // If it’s the last card, we can move on to text phase,
-                // but only if we’re still in 'deal' phase:
-                if (i === chosenCharacterIds.length - 1 && phase === 'deal') {
-                  setPhase('text');
-                }
-              }}
-            />
-          ))}
+          {chosenCharacterIds.map((id, i) => {
+            // Find the consequences for this specific character
+            const charConsequences = consequenceDisplay.find(
+              (c) => c.identifier === id
+            );
+            return (
+              <CardComponent
+                key={id}
+                characterId={id}
+                cornerIndex={i}
+                // stagger by 1s
+                dealDelay={i * 1000}
+                onDealComplete={() => {
+                  console.log(`Card ${id} finished dealing.`);
+                  // If it’s the last card, we can move on to text phase,
+                  // but only if we’re still in 'deal' phase:
+                  if (i === chosenCharacterIds.length - 1 && phase === 'deal') {
+                    setPhase('text');
+                  }
+                }}
+                // Pass consequences only when phase is 'text'
+                consequences={phase === 'text' ? charConsequences : undefined} 
+                hoveredCharacterId={hoveredCharacterId}
+                onCardHover={handleCardHover}
+                onCardLeave={handleCardLeave}
+                allConsequences={consequenceDisplay}
+              />
+            );
+          })}
         </>
       )}
 

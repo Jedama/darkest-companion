@@ -24,9 +24,9 @@
       ],
       "status": {
         "physical": 100,
-        "mental": 100,
+        "mental": 16,
         "affliction": "",
-        "description": "In good health and high spitits",
+        "description": "His profound sense of isolation and emptiness has intensified, exacerbated by his companions' detached presence and the pervasive, unyielding despair of the Estate.",
         "wounds": [],
         "diseases": []
       },
@@ -35,7 +35,7 @@
         "agility": 3,
         "intelligence": 5,
         "authority": 7,
-        "sociability": 4
+        "sociability": 3
       },
       "equipment": [
         "Holy Sword (family heirloom)",
@@ -75,13 +75,16 @@
         "Has kleptomanic tendencies that he tries to hide",
         "Does a characteristic whistle after nabbing something, or when otherwise pleased with himself",
         "Sometimes writes letters to his family that he never sends",
-        "Wears simple farmer's clothes when out of his armor"
+        "Wears simple farmer's clothes when out of his armor",
+        "The absence of his characteristic whistle after intimate moments signifies his deep-seated melancholy and disillusionment.",
+        "Finds that physical intimacy only highlights his profound sense of isolation.",
+        "The absence of his characteristic whistle has become a reliable indicator of his deep emotional distress and disillusionment."
       ],
       "relationships": {
         "abomination": {
-          "affinity": 3,
-          "dynamic": "Strangers",
-          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+          "affinity": 2,
+          "dynamic": "Empty Intimacy",
+          "description": "Reynauld sought a moment of oblivion in Bigby's arms, but the physical act only highlighted the pervasive emptiness within him, reinforcing his profound isolation."
         },
         "antiquarian": {
           "affinity": 3,
@@ -94,14 +97,14 @@
           "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         },
         "bounty_hunter": {
-          "affinity": 3,
-          "dynamic": "Strangers",
-          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+          "affinity": 2,
+          "dynamic": "Stark Disconnect",
+          "description": "Reynauld perceives Tardif as an unfeeling, pragmatic force that offers no understanding or solace, further highlighting his profound isolation amidst the horrors."
         },
         "cataphract": {
-          "affinity": 3,
-          "dynamic": "Strangers",
-          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+          "affinity": 4,
+          "dynamic": "Grim Solace",
+          "description": "Experienced a brief, physical connection that provided no lasting comfort, reinforcing his sense of disillusionment and leaving him an island adrift in a sea of grim necessity, even with a shared moment of intimacy."
         },
         "cook": {
           "affinity": 3,
@@ -124,9 +127,9 @@
           "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         },
         "heiress": {
-          "affinity": 5,
-          "dynamic": "Professional",
-          "description": "The crusader maintains a professional relationship with the heiress, focusing on fulfilling his role as her protector with a devout sense of duty."
+          "affinity": 4,
+          "dynamic": "Hollow Obligation",
+          "description": "Reynauld perceives the physical encounter as a transactional act, emphasizing his deep-seated isolation and the Heiress's emotional detachment, further eroding his sense of purpose and turning duty into a joyless burden."
         },
         "highwayman": {
           "affinity": 7,
@@ -269,14 +272,16 @@
         "Rugged",
         "Desperate",
         "Fugitive",
-        "Remorseful",
-        "Cynical"
+        "Cynical",
+        "Dominant",
+        "Ruthless",
+        "Unrepentant"
       ],
       "status": {
         "physical": 100,
-        "mental": 100,
+        "mental": 65,
         "affliction": "",
-        "description": "In good health and high spitits",
+        "description": "Marked by a grim satisfaction in asserting his dominance, but now burdened by the deeper implications of his brutal actions, further scarring his already troubled conscience.",
         "wounds": [],
         "diseases": []
       },
@@ -320,7 +325,9 @@
       "magic": "None",
       "notes": [
         "Known to cheat at cards",
-        "Has a gallows sense of humor"
+        "Has a gallows sense of humor",
+        "Seeks desperate, temporary escapes from haunting memories.",
+        "Capable of profound acts of domination and humiliation to assert control or fulfill personal 'needs', regardless of the cost to others."
       ],
       "relationships": {
         "abomination": {
@@ -339,9 +346,9 @@
           "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         },
         "bounty_hunter": {
-          "affinity": 3,
-          "dynamic": "Strangers",
-          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+          "affinity": 4,
+          "dynamic": "Desperate Solace",
+          "description": "Sought a brutal, fleeting escape from his inner demons through physical intimacy with Tardif, only to find the void within him amplified by the encounter's lack of true connection."
         },
         "cataphract": {
           "affinity": 3,
@@ -399,9 +406,9 @@
           "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         },
         "kheir": {
-          "affinity": 3,
-          "dynamic": "Guardian",
-          "description": "Despite the Heir's distrust, the highwayman is resolute in his role as a guard, seeing their safety as his path to absolution."
+          "affinity": 2,
+          "dynamic": "Ruthless Controller",
+          "description": "Dismas views Percival as a means to an end, a vulnerable asset to be controlled and exploited for his own grim purposes, solidifying their dynamic as a twisted form of necessary payment for perceived debts."
         },
         "krakenslayer": {
           "affinity": 3,
@@ -519,9 +526,9 @@
       ],
       "status": {
         "physical": 100,
-        "mental": 100,
+        "mental": 95,
         "affliction": "",
-        "description": "In good health and high spirits",
+        "description": "Persephone feels increasingly frustrated by perceived distractions from the core mission, her resolve to maintain control hardening.",
         "wounds": [],
         "diseases": []
       },
@@ -565,7 +572,8 @@
       "magic": "None",
       "notes": [
         "Turns to wine when overwhelmed by the stress of managing the Hamlet",
-        "Attracted to women with ample breasts"
+        "Attracted to women with ample breasts",
+        "Approaches physical intimacy with a detached, utilitarian mindset, viewing it as a means to an end."
       ],
       "relationships": {
         "abomination": {
@@ -574,14 +582,14 @@
           "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         },
         "antiquarian": {
-          "affinity": 3,
-          "dynamic": "Strangers",
-          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+          "affinity": 2,
+          "dynamic": "Challenged Authority",
+          "description": "Persephone views Josephine as a direct threat to her dominion over the Estate's treasures and her established authority, leading to immediate conflict."
         },
         "arbalest": {
-          "affinity": 3,
-          "dynamic": "Strangers",
-          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+          "affinity": 1,
+          "dynamic": "Strained Alliance",
+          "description": "Persephone notes Missandei's growing disengagement and cynicism, viewing it as a detriment to their strained alliance and a sign of weakening resolve."
         },
         "bounty_hunter": {
           "affinity": 3,
@@ -600,8 +608,8 @@
         },
         "crusader": {
           "affinity": 5,
-          "dynamic": "Professional",
-          "description": "The heiress maintains a reserved, professional demeanor towards the crusader, her latest recruit."
+          "dynamic": "Controlled Utility",
+          "description": "Persephone views Reynauld as a reliable asset, whose presence and even physical availability can be leveraged without requiring emotional investment or disrupting her composed demeanor."
         },
         "duchess": {
           "affinity": 3,
@@ -644,9 +652,9 @@
           "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         },
         "kheir": {
-          "affinity": 8,
-          "dynamic": "Familial",
-          "description": "Despite a cold exterior and a lifetime of bickering, the heiress loves and will not let harm come upon the Heir."
+          "affinity": 6,
+          "dynamic": "Demanding Guardian",
+          "description": "Persephone feels a reluctant pity for Percival's profound distress, yet her unwavering focus on the mission compels her to push him, reinforcing her role as his firm, albeit caring, taskmaster."
         },
         "krakenslayer": {
           "affinity": 3,
@@ -762,13 +770,18 @@
         "Scholarly",
         "Anxious",
         "Resourceful",
-        "Possessive"
+        "Possessive",
+        "Traumatized",
+        "Victimized",
+        "Broken",
+        "Reclusive",
+        "Revulsed"
       ],
       "status": {
         "physical": 100,
-        "mental": 100,
+        "mental": 0,
         "affliction": "",
-        "description": "In good health and high spitits",
+        "description": "Plagued by overwhelming revulsion and deep-seated terror, his fragile composure shattered by the discovery of the Ancestor's grotesque mockery.",
         "wounds": [],
         "diseases": []
       },
@@ -776,8 +789,8 @@
         "strength": 2,
         "agility": 2,
         "intelligence": 9,
-        "authority": 7,
-        "sociability": 8
+        "authority": 4,
+        "sociability": 5
       },
       "equipment": [
         "Letter opener",
@@ -813,7 +826,10 @@
       "magic": "None",
       "notes": [
         "Hates waste and is very possesive of his belongings",
-        "Has a penchant for fine wines to calm his nerves"
+        "Has a penchant for fine wines to calm his nerves",
+        "Harbors a deep-seated fear and revulsion towards Josephine due to her coercive actions.",
+        "Haunted by the memory of forced intimacy and profound humiliation, struggling with basic trust.",
+        "Experiences extreme revulsion and panic when confronted with direct evidence or discussion of the Ancestor's rat hybridization experiments."
       ],
       "relationships": {
         "abomination": {
@@ -822,19 +838,19 @@
           "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         },
         "antiquarian": {
-          "affinity": 3,
-          "dynamic": "Strangers",
-          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+          "affinity": 0,
+          "dynamic": "Abject Terror",
+          "description": "Percival is utterly consumed by fear and revulsion towards Josephine, seeing her as a dangerous and immoral predator who systematically exploits his trauma and controls him through psychological torment, deepening his sense of powerlessness."
         },
         "arbalest": {
-          "affinity": 3,
-          "dynamic": "Strangers",
-          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+          "affinity": 2,
+          "dynamic": "Dismissed Ally",
+          "description": "Percival perceives Missandei's cynical dismissal as a lack of understanding for the true horror of the Ancestor's influence, feeling unheard and invalidated."
         },
         "bounty_hunter": {
-          "affinity": 3,
-          "dynamic": "Strangers",
-          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+          "affinity": 1,
+          "dynamic": "Humiliated Subservience",
+          "description": "Percival perceives Tardif's callous dismissal of his emotional distress as a further humiliation, solidifying a deep-seated resentment and increasing his sense of powerlessness in the bounty hunter's presence."
         },
         "cataphract": {
           "affinity": 3,
@@ -867,14 +883,14 @@
           "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         },
         "heiress": {
-          "affinity": 8,
-          "dynamic": "Familial",
-          "description": "The Heir admires, and is deeply jealous of, his sister's strength and ability to take initiative. Despite their fierce bickering, the Heir loves his sister."
+          "affinity": 6,
+          "dynamic": "Humiliated Burden",
+          "description": "Percival's profound revulsion and humiliation are exacerbated by Persephone's firm command, intensifying his anxiety and the feeling of being an unwilling, traumatized participant in the mission."
         },
         "highwayman": {
-          "affinity": 2,
-          "dynamic": "Distrustful",
-          "description": "The Heir is distrusting towards the highwayman, fearing that the rugged man will betray them and steal his possessions."
+          "affinity": 0,
+          "dynamic": "Terrified Victim",
+          "description": "Percival views Dismas as a terrifying, unpredictable abuser who has stripped him of all dignity and safety, leaving him with profound revulsion and a debilitating fear that permeates his every interaction."
         },
         "hood": {
           "affinity": 3,
@@ -1010,13 +1026,16 @@
         "Skilled",
         "Determined",
         "Resourceful",
-        "Independent"
+        "Independent",
+        "Resentful",
+        "Cynical",
+        "Withdrawn"
       ],
       "status": {
         "physical": 100,
-        "mental": 100,
+        "mental": 0,
         "affliction": "",
-        "description": "In good health and high spirits",
+        "description": "Her gnawing emptiness and bitter resentment are amplified, causing her to withdraw further and view the current conflicts as utterly trivial, particularly after a fleeting, exposed moment of vulnerability she quickly suppressed.",
         "wounds": [],
         "diseases": []
       },
@@ -1061,13 +1080,20 @@
       "notes": [
         "Has a signature confident smirk",
         "Carries her 'Childhood tresure', an old stuffed bunny",
-        "Her Crossbow's name is 'Millicent'"
+        "Her Crossbow's name is 'Millicent'",
+        "Occasionally lets personal pain slip through her armored demeanor during unguarded moments.",
+        "Tends to mask emotional pain with bold actions and confident demeanor.",
+        "The experience deepens her struggle with profound loneliness, particularly regarding her inability to forge true emotional bonds.",
+        "Her vulnerable side was briefly exposed in a moment of desperate intimacy, which she deeply resents.",
+        "Deeply resents the brief exposure of her emotional vulnerability, viewing it as a weakness.",
+        "Struggles with the internal conflict of seeking intimacy while simultaneously resenting its hollow, transactional nature.",
+        "Disengages from external conflicts when overwhelmed by personal pain."
       ],
       "relationships": {
         "abomination": {
-          "affinity": 3,
-          "dynamic": "Strangers",
-          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+          "affinity": 2,
+          "dynamic": "Resentful Disconnection",
+          "description": "Missandei resents the moment of shared vulnerability with Bigby, which only served to highlight her profound loneliness and inability to forge lasting bonds, further hardening her emotional defenses."
         },
         "antiquarian": {
           "affinity": 3,
@@ -1076,13 +1102,13 @@
         },
         "bounty_hunter": {
           "affinity": 3,
-          "dynamic": "Strangers",
-          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+          "dynamic": "Painful Resentment",
+          "description": "Missandei's resentment towards Tardif deepens, as his impenetrable nature amplifies her profound sense of loneliness and her frustration over her briefly exposed vulnerability during their recent intimacy."
         },
         "cataphract": {
-          "affinity": 3,
-          "dynamic": "Strangers",
-          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+          "affinity": 4,
+          "dynamic": "Resentful Closeness",
+          "description": "Missandei feels a bitter resentment towards the physical closeness, which amplified her profound loneliness and solidified her struggle to forge true emotional bonds, despite any lingering attraction."
         },
         "cook": {
           "affinity": 3,
@@ -1110,9 +1136,9 @@
           "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         },
         "heiress": {
-          "affinity": 3,
-          "dynamic": "Strangers",
-          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+          "affinity": 0,
+          "dynamic": "Disengaged Ally",
+          "description": "Missandei's increasing disengagement and open cynicism further strain her already transactional alliance with the Heiress, deepening the sense of mutual dissatisfaction."
         },
         "highwayman": {
           "affinity": 3,
@@ -1140,9 +1166,9 @@
           "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         },
         "kheir": {
-          "affinity": 3,
-          "dynamic": "Strangers",
-          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+          "affinity": 2,
+          "dynamic": "Cynical Observer",
+          "description": "Missandei sees Percival's meticulous investigations as a distraction from the harsh realities of their existence, viewing him as naive and ineffective."
         },
         "krakenslayer": {
           "affinity": 3,
@@ -1275,16 +1301,16 @@
         "physical": 100,
         "mental": 100,
         "affliction": "",
-        "description": "In good health and high spirits",
+        "description": "Feeling invigorated and highly amused by her successful manipulation of Percival, reveling in his palpable fear and helplessness.",
         "wounds": [],
         "diseases": []
       },
       "stats": {
         "strength": 2,
-        "agility": 6,
-        "intelligence": 8,
-        "authority": 5,
-        "sociability": 7
+        "agility": 7,
+        "intelligence": 9,
+        "authority": 7,
+        "sociability": 8
       },
       "equipment": [
         "Censer (containing her former master's soul)",
@@ -1323,7 +1349,9 @@
         "Possesses a censer containing her former master's soul",
         "Driven beyond all else to open her puzzle box",
         "Her former master occasionally whispers to her, trying to escape",
-        "Speaks multiple languages, including Levantine and languages of the Eastern isles"
+        "Speaks multiple languages, including Levantine and languages of the Eastern isles",
+        "Possesses knowledge of specific ledger details (page eighty-three) related to the estate.",
+        "Gains significant amusement and satisfaction from witnessing Percival's intense fear and revulsion."
       ],
       "relationships": {
         "abomination": {
@@ -1372,9 +1400,9 @@
           "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         },
         "heiress": {
-          "affinity": 3,
-          "dynamic": "Strangers",
-          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+          "affinity": 2,
+          "dynamic": "Direct Rivalry",
+          "description": "Josephine views Persephone's claims of ownership as an obstacle to her true objective, asserting her own dominance through cunning and challenge."
         },
         "highwayman": {
           "affinity": 3,
@@ -1402,9 +1430,9 @@
           "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         },
         "kheir": {
-          "affinity": 3,
-          "dynamic": "Strangers",
-          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+          "affinity": 6,
+          "dynamic": "Sadistic Controller",
+          "description": "Josephine views Percival as an increasingly broken and entertaining tool, whose profound fear and revulsion she delights in exploiting to further her own ends, finding him entirely pliable and a source of perverse amusement."
         },
         "krakenslayer": {
           "affinity": 3,
@@ -1536,13 +1564,14 @@
         "Aggressive",
         "Paranoid",
         "Resilient",
-        "Conflicted"
+        "Conflicted",
+        "Despairing"
       ],
       "status": {
         "physical": 100,
-        "mental": 100,
+        "mental": 36,
         "affliction": "",
-        "description": "In good health and high spirits",
+        "description": "Overwhelmed by profound despair, his soul corroding under the ceaseless torment of the Estate's whispers.",
         "wounds": [],
         "diseases": []
       },
@@ -1587,7 +1616,10 @@
       "notes": [
         "Keeps his arms locked up, with little room for movement",
         "Has a soft voice and doesn't curse",
-        "His constant slouching undermines his height"
+        "His constant slouching undermines his height",
+        "Becomes visibly tense when past traumas are indirectly referenced by others.",
+        "Carries the fresh sting of a failed attempt at human connection, reinforcing his belief in his own monstrous nature.",
+        "Finds a grim comfort in his chains as a symbol of his inescapable isolation."
       ],
       "relationships": {
         "antiquarian": {
@@ -1597,8 +1629,8 @@
         },
         "arbalest": {
           "affinity": 3,
-          "dynamic": "Strangers",
-          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+          "dynamic": "Shamed Retreat",
+          "description": "Bigby's failed attempt at intimacy with Missandei has deepened his sense of isolation and shame, causing him to retreat further into his own torment and reinforcing his belief in his monstrous nature."
         },
         "bounty_hunter": {
           "affinity": 3,
@@ -1606,9 +1638,9 @@
           "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         },
         "cataphract": {
-          "affinity": 3,
-          "dynamic": "Strangers",
-          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+          "affinity": 2,
+          "dynamic": "Guarded Isolation",
+          "description": "Bigby views Nyriad as another intrusion into his self-imposed isolation, preferring the grim comfort of his chains to any potential connection."
         },
         "cook": {
           "affinity": 3,
@@ -1616,9 +1648,9 @@
           "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         },
         "crusader": {
-          "affinity": 3,
-          "dynamic": "Strangers",
-          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+          "affinity": 2,
+          "dynamic": "Empty Intimacy",
+          "description": "Despite a moment of desperate physical connection, the experience left Bigby feeling more isolated and reinforced his belief that true connection is impossible for him."
         },
         "duchess": {
           "affinity": 3,
@@ -1809,7 +1841,7 @@
         "agility": 7,
         "intelligence": 7,
         "authority": 4,
-        "sociability": 1
+        "sociability": 0
       },
       "equipment": [
         "War axe",
@@ -1848,7 +1880,9 @@
       "notes": [
         "Takes pride in his professional skills",
         "Refuses to remove his mask and let anyone see his face",
-        "Often responds with just a snort"
+        "Often responds with just a snort",
+        "His metallic mask symbolizes an absolute refusal to allow any true emotional connection.",
+        "Considers psychological distress and 'whispers' as mere signs of mental fragility or common occurrences in the estate, unworthy of further investigation."
       ],
       "relationships": {
         "abomination": {
@@ -1862,14 +1896,14 @@
           "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         },
         "arbalest": {
-          "affinity": 3,
-          "dynamic": "Strangers",
-          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+          "affinity": 2,
+          "dynamic": "Callous Indifference",
+          "description": "Tardif's continued emotional detachment reinforces Missandei's resentment, deepening her sense of painful isolation and confirming his lack of emotional investment."
         },
         "cataphract": {
-          "affinity": 3,
-          "dynamic": "Strangers",
-          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+          "affinity": 2,
+          "dynamic": "Irritated Coexistence",
+          "description": "Tardif finds Nyriad's inquisitive nature and moral considerations to be an irritating distraction from his pragmatic goals, reinforcing his cynical view of others' weaknesses."
         },
         "cook": {
           "affinity": 3,
@@ -1877,9 +1911,9 @@
           "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         },
         "crusader": {
-          "affinity": 3,
-          "dynamic": "Strangers",
-          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+          "affinity": 1,
+          "dynamic": "Tolerated Irritant",
+          "description": "Tardif's patience for Reynauld's internal struggles wears thinner, viewing his emotional turmoil as an inefficiency and a burden rather than a shared human experience."
         },
         "duchess": {
           "affinity": 3,
@@ -1902,9 +1936,9 @@
           "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         },
         "highwayman": {
-          "affinity": 3,
-          "dynamic": "Strangers",
-          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+          "affinity": 4,
+          "dynamic": "Utilitarian Connection",
+          "description": "Views Dismas as a convenient outlet for physical needs, maintaining his characteristic detachment even during intimate moments, seeing it as purely transactional."
         },
         "hood": {
           "affinity": 3,
@@ -1927,9 +1961,9 @@
           "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         },
         "kheir": {
-          "affinity": 3,
-          "dynamic": "Strangers",
-          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+          "affinity": 1,
+          "dynamic": "Contemptuous Oversight",
+          "description": "Tardif's disdain for Percival's emotional 'drivel' hardens, viewing the Heir as a weak and inefficient obstacle to be managed or overcome rather than a partner."
         },
         "krakenslayer": {
           "affinity": 3,
@@ -2057,13 +2091,15 @@
         "Disciplined",
         "Stern",
         "Loyal",
-        "Battle-hardened"
+        "Battle-hardened",
+        "Unsettled",
+        "Disillusioned"
       ],
       "status": {
         "physical": 100,
-        "mental": 100,
+        "mental": 26,
         "affliction": "",
-        "description": "In good health and high spirits",
+        "description": "Profoundly unsettled and angered by the Estate's insidious psychological tolls, now understanding their soul-corroding nature through Bigby's anguish.",
         "wounds": [],
         "diseases": []
       },
@@ -2108,13 +2144,18 @@
       "notes": [
         "Carries the skull of her deceased horse, which grants her power",
         "Can communicate with the horse's spirit",
-        "Speaks with a mild Levantine accent"
+        "Speaks with a mild Levantine accent",
+        "Struggles with balancing duty and personal desires in moments of vulnerability.",
+        "Struggles to reconcile her primal urges with Cargadon's stern, spectral judgment, deepening her fractured loyalties.",
+        "Now aware of the 'whispers' that can drive individuals to madness and abandonment within the estate.",
+        "Understands that the Sanitarium's 'restorative properties' are a deceptive facade, allowing madness to fester.",
+        "Now perceives the Estate's 'solace' as a deceptive facade for the insidious 'whispers' that corrode the soul."
       ],
       "relationships": {
         "abomination": {
-          "affinity": 3,
-          "dynamic": "Strangers",
-          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+          "affinity": 4,
+          "dynamic": "Unsettling Clarity",
+          "description": "Nyriad's perception of Bigby has shifted from mere observation to a profound, unsettling understanding of his suffering as a direct manifestation of the Estate's psychological warfare, deepening her unease about their shared predicament."
         },
         "antiquarian": {
           "affinity": 3,
@@ -2122,9 +2163,9 @@
           "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         },
         "arbalest": {
-          "affinity": 3,
-          "dynamic": "Strangers",
-          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+          "affinity": 4,
+          "dynamic": "Branded Proximity",
+          "description": "Nyriad views the physical intimacy with Missandei as a stark, unsettling reminder of her primal urges, intensifying her internal conflict and feeling like a brand beneath Cargadon's disapproving gaze."
         },
         "bounty_hunter": {
           "affinity": 3,
@@ -2137,9 +2178,9 @@
           "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         },
         "crusader": {
-          "affinity": 3,
-          "dynamic": "Strangers",
-          "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
+          "affinity": 4,
+          "dynamic": "Primal Release",
+          "description": "Shared a moment of intense, physical intimacy driven by mutual despair, which has moved their dynamic beyond strangers, though it remains devoid of emotional connection or lasting solace."
         },
         "duchess": {
           "affinity": 3,
@@ -2307,5 +2348,285 @@
         ]
       }
     }
+  },
+  "characterLogs": {
+    "arbalest": [
+      {
+        "month": 3,
+        "entry": "Shared a fleeting moment of vulnerability with Bigby, hinting at a past filled with loss.",
+        "expiryMonth": 6
+      },
+      {
+        "month": 3,
+        "entry": "Initiated a bold moment of intimacy with Nyriad, momentarily pushing past her emotional barriers despite lingering distrust.",
+        "expiryMonth": 6
+      },
+      {
+        "month": 3,
+        "entry": "Sought desperate connection through intimacy, only to be left with renewed hollowness and a bitter understanding of emotional distance.",
+        "expiryMonth": 6
+      },
+      {
+        "month": 3,
+        "entry": "Engaged in a desperate intimacy with the Heiress that ultimately deepened her profound loneliness and exposed a vulnerability she despises.",
+        "expiryMonth": 10
+      },
+      {
+        "month": 3,
+        "entry": "Briefly exposed her deep emotional vulnerability in a moment of desperate intimacy, leaving her with a bitter aftertaste and heightened resentment.",
+        "expiryMonth": 10
+      },
+      {
+        "month": 3,
+        "entry": "Engaged in a moment of transactional intimacy that amplified her gnawing emptiness and bitter resentment.",
+        "expiryMonth": 6
+      },
+      {
+        "month": 3,
+        "entry": "Experienced a physical intimacy that only amplified her profound loneliness and bitter resentment, further exposing her raw vulnerability.",
+        "expiryMonth": 6
+      },
+      {
+        "month": 3,
+        "entry": "Overwhelmed by her internal pain, she disengaged from the conflict, viewing the squabble as petty and meaningless.",
+        "expiryMonth": 4
+      },
+      {
+        "month": 3,
+        "entry": "Dismissed the Heir's research as petty, reinforcing her cynical disengagement from the group's efforts due to her own internal struggles.",
+        "expiryMonth": 4
+      },
+      {
+        "month": 3,
+        "entry": "Her proclaimed cynicism was undercut by a fleeting, private moment of vulnerability concerning her stuffed bunny, which she quickly suppressed with bitter resentment.",
+        "expiryMonth": 6
+      }
+    ],
+    "abomination": [
+      {
+        "month": 3,
+        "entry": "Reacted with visible discomfort to Missandei's probing remarks, reinforcing his guarded nature.",
+        "expiryMonth": 6
+      },
+      {
+        "month": 3,
+        "entry": "His desperate attempt to connect with Missandei resulted in further isolation and despair, reinforcing his internal torment.",
+        "expiryMonth": 10
+      },
+      {
+        "month": 3,
+        "entry": "Shared a raw, desperate physical intimacy with Reynauld, which ultimately failed to provide solace and instead reinforced his sense of monstrous isolation.",
+        "expiryMonth": 10
+      },
+      {
+        "month": 3,
+        "entry": "Reaffirmed his profound despair and isolation, confirming that the Sanitarium merely allows the 'whispers' to fester within him, reinforcing his retreat.",
+        "expiryMonth": 6
+      },
+      {
+        "month": 3,
+        "entry": "Succumbed to a raw display of profound despair, his inner torment manifesting as guttural, tortured sounds.",
+        "expiryMonth": 6
+      }
+    ],
+    "cataphract": [
+      {
+        "month": 3,
+        "entry": "Allowed vulnerability to surface in a rare moment of connection with Missandei, briefly setting aside her disciplined resolve.",
+        "expiryMonth": 6
+      },
+      {
+        "month": 3,
+        "entry": "Sought a desperate, primal release from encroaching despair through intimacy, grappling with the internal conflict between her own desires and Cargadon's implied disapproval.",
+        "expiryMonth": 10
+      },
+      {
+        "month": 3,
+        "entry": "Underwent a raw, desperate physical release that left her feeling exposed, untethered, and without absolution, intensifying her internal conflicts.",
+        "expiryMonth": 6
+      },
+      {
+        "month": 3,
+        "entry": "Endured a moment of physical intimacy that felt unsatisfying and was tainted by Cargadon's silent disapproval, intensifying her internal conflict between duty and primal urges.",
+        "expiryMonth": 6
+      },
+      {
+        "month": 3,
+        "entry": "Discovered the unsettling circumstances of the cook's disappearance, learning of the 'whispers' that drove him to abandon his life and possessions.",
+        "expiryMonth": 6
+      },
+      {
+        "month": 3,
+        "entry": "Gained a deeper, more direct understanding of the Estate's insidious psychological tolls by witnessing Bigby's profound despair and learning the true nature of the Sanitarium's 'restoration'.",
+        "expiryMonth": 6
+      },
+      {
+        "month": 3,
+        "entry": "Observed Percival's profound mental distress upon discovering the Ancestor's grotesque relic, reinforcing her understanding of the Estate's insidious mental tolls.",
+        "expiryMonth": 6
+      },
+      {
+        "month": 3,
+        "entry": "Witnessed Bigby's profound spiritual torment, gaining terrifying clarity about the Estate's insidious whispers and their corrosive effect on the soul.",
+        "expiryMonth": 10
+      }
+    ],
+    "bounty_hunter": [
+      {
+        "month": 3,
+        "entry": "Engaged in physical intimacy while maintaining complete emotional detachment and immediately reverting to his professional demeanor.",
+        "expiryMonth": 6
+      },
+      {
+        "month": 3,
+        "entry": "Engaged in a perfunctory physical encounter with Dismas, maintaining his emotional distance and masked persona.",
+        "expiryMonth": 6
+      },
+      {
+        "month": 3,
+        "entry": "Encountered evidence of the cook's sudden disappearance, dismissing it as a common occurrence of weakness among the estate's inhabitants.",
+        "expiryMonth": 4
+      },
+      {
+        "month": 3,
+        "entry": "Dismissed the Heir's emotional anguish as irrelevant 'drivel', reasserting his cynical and pragmatic approach to the mission.",
+        "expiryMonth": 4
+      },
+      {
+        "month": 3,
+        "entry": "Reinforced his detached, utilitarian approach to the mission, prioritizing tactical data over the emotional states of his companions.",
+        "expiryMonth": 6
+      },
+      {
+        "month": 3,
+        "entry": "Maintained his purely pragmatic and detached worldview, dismissing emotional responses and supernatural phenomena as mere defects or common occurrences.",
+        "expiryMonth": 6
+      }
+    ],
+    "crusader": [
+      {
+        "month": 3,
+        "entry": "Sought temporary solace in physical intimacy, only to be left with the familiar hollow ache of his abandoned past and a renewed sense of disillusionment.",
+        "expiryMonth": 10
+      },
+      {
+        "month": 3,
+        "entry": "Experienced a physical connection that, rather than providing comfort, only amplified his existing sense of disillusionment and isolation.",
+        "expiryMonth": 6
+      },
+      {
+        "month": 3,
+        "entry": "Engaged in a desperate physical act with Bigby that failed to fill his inner void, confirming his profound sense of being adrift and alone.",
+        "expiryMonth": 10
+      },
+      {
+        "month": 3,
+        "entry": "Sought fleeting oblivion in physical intimacy with Persephone, but found only intensified isolation and profound emptiness.",
+        "expiryMonth": 6
+      },
+      {
+        "month": 3,
+        "entry": "Suffered silently amidst the ruins, his profound internal ache confirming his intensified sense of isolation and disillusionment, with no solace found.",
+        "expiryMonth": 6
+      },
+      {
+        "month": 3,
+        "entry": "His desperate search for solace and purpose in the graveyard only amplified his sense of isolation and disillusionment.",
+        "expiryMonth": 10
+      }
+    ],
+    "heiress": [
+      {
+        "month": 3,
+        "entry": "Demonstrated complete emotional detachment after an intimate encounter, immediately returning to her pragmatic leadership duties and logistical concerns.",
+        "expiryMonth": 6
+      },
+      {
+        "month": 3,
+        "entry": "Engaged in an intimate encounter with Missandei, maintaining an analytical and detached perspective.",
+        "expiryMonth": 4
+      },
+      {
+        "month": 3,
+        "entry": "Initiated a physical encounter with Reynauld, maintaining her emotional composure and detachment throughout.",
+        "expiryMonth": 4
+      },
+      {
+        "month": 3,
+        "entry": "Immediately asserted her ownership over a newly discovered hidden cavity, reinforcing her dominion over the Estate and directly clashing with the Antiquarian.",
+        "expiryMonth": 6
+      },
+      {
+        "month": 3,
+        "entry": "Asserted her authority over research priorities, attempting to refocus the Heir's efforts on more immediate threats.",
+        "expiryMonth": 4
+      },
+      {
+        "month": 3,
+        "entry": "Despite a moment of pity for Percival's distress, Persephone prioritized the retrieval of the grotesque clue, reinforcing her mission-driven resolve.",
+        "expiryMonth": 6
+      }
+    ],
+    "antiquarian": [
+      {
+        "month": 3,
+        "entry": "Successfully coerced Percival into a sexual act to extract information about the estate's ledger.",
+        "expiryMonth": 10
+      },
+      {
+        "month": 3,
+        "entry": "Discovered a hidden cavity in the Wine Cellar and immediately asserted her claim to its contents, directly challenging the Heiress's authority.",
+        "expiryMonth": 6
+      },
+      {
+        "month": 3,
+        "entry": "Successfully manipulated Percival by exploiting his deep-seated fear of the Ancestor's failed hybridization experiments, further solidifying her psychological control over him.",
+        "expiryMonth": 6
+      }
+    ],
+    "kheir": [
+      {
+        "month": 3,
+        "entry": "Was subjected to a humiliating and forced sexual act by Josephine, who sought information on his family's ledger.",
+        "expiryMonth": 10
+      },
+      {
+        "month": 3,
+        "entry": "Forced into a profoundly humiliating and non-consensual act of domination by Dismas, leaving him deeply traumatized and bereft of dignity.",
+        "expiryMonth": 1003
+      },
+      {
+        "month": 3,
+        "entry": "Experienced a profound re-traumatization upon encountering direct evidence of the Ancestor's depravity, intensifying his sense of violation and shame.",
+        "expiryMonth": 10
+      },
+      {
+        "month": 3,
+        "entry": "Reaffirmed his conviction that the Ancestor's corruption can be traced through seemingly mundane records, despite his sister's impatience.",
+        "expiryMonth": 4
+      },
+      {
+        "month": 3,
+        "entry": "Confronted directly with the horrifying legacy of the Ancestor's rat hybridization, triggering a severe psychological breakdown and intense revulsion.",
+        "expiryMonth": 15
+      },
+      {
+        "month": 3,
+        "entry": "Confronted by direct evidence of the Ancestor's rat hybridization experiments, Percival's composure shattered under extreme revulsion and humiliation.",
+        "expiryMonth": 15
+      }
+    ],
+    "highwayman": [
+      {
+        "month": 3,
+        "entry": "Sought temporary escape from his haunting memories through a desperate physical encounter, only to be left with deeper hollowness.",
+        "expiryMonth": 6
+      },
+      {
+        "month": 3,
+        "entry": "Asserted ruthless dominance over Percival through a deliberate act of non-consensual intimacy, fulfilling a dark and personal form of 'payment' and further solidifying his grim resolve.",
+        "expiryMonth": 15
+      }
+    ]
   }
 }

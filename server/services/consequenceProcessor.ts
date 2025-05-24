@@ -156,7 +156,7 @@ export interface ConsequenceDisplay {
           
           if (char.update_status.description) {
             display.personalChanges.push({
-              text: `↻ Status description`,
+              text: `↻ Status`,
               color: consequenceColorMap['Status'] || 'lightseagreen'
             });
           }

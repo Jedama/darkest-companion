@@ -141,7 +141,7 @@
         "physical": 100,
         "mental": 100,
         "affliction": "",
-        "description": "In good health and high spitits",
+        "description": "Weary and contemplative, questioning the purpose of their grim expedition and the nature of his reluctant alliance with the Antiquarian.",
         "wounds": [],
         "diseases": []
       },
@@ -186,7 +186,9 @@
       "notes": [
         "Known to cheat at cards",
         "Has a gallows sense of humor",
-        "Carries a tarnished locket taken from a past victim as a reminder of his sins"
+        "Carries a tarnished locket taken from a past victim as a reminder of his sins",
+        "Finds a bizarre comfort in stagnant, grim environments that are not overtly charnel.",
+        "Perceives his path as inextricably linked to the Antiquarian's, despite their disparate goals."
       ],
       "relationships": {
         "heiress": {
@@ -203,6 +205,11 @@
           "affinity": 7,
           "dynamic": "Comrade",
           "description": "Despite their differences, the highwayman and the crusader swiftly bonded over the mistakes of their respective pasts and their shared quest for redemption."
+        },
+        "antiquarian": {
+          "affinity": 4,
+          "dynamic": "Reluctant Alliance",
+          "description": "The Highwayman views the Antiquarian's relentless greed as baffling and contrary to his own search for atonement, yet accepts their intertwined, undesired destiny."
         }
       },
       "locations": {
@@ -364,9 +371,9 @@
       ],
       "status": {
         "physical": 100,
-        "mental": 100,
+        "mental": 95,
         "affliction": "",
-        "description": "In good health and high spitits",
+        "description": "Feeling increasingly anxious and disquieted by the unsettling atmosphere of the neglected room and the lack of coherent answers.",
         "wounds": [],
         "diseases": []
       },
@@ -411,7 +418,8 @@
       "magic": "None",
       "notes": [
         "Hates waste and is very possesive of his belongings",
-        "Has a penchant for fine wines to calm his nerves"
+        "Has a penchant for fine wines to calm his nerves",
+        "Speculates on the psychological purpose of forgotten rooms and spaces."
       ],
       "relationships": {
         "heiress": {
@@ -492,7 +500,7 @@
       "stats": {
         "strength": 6,
         "agility": 8,
-        "intelligence": 8,
+        "intelligence": 9,
         "authority": 6,
         "sociability": 4
       },
@@ -532,9 +540,16 @@
         "Her Crossbow's name is 'Millicent'",
         "Can identify dozens of bird species by their calls alone",
         "Reserves her signature confident smirk exclusively for the moment when victory becomes inevitable in her mind",
-        "Secretly yearns to be seen as a woman, not just a reliable marksman and medic"
+        "Secretly yearns to be seen as a woman, not just a reliable marksman and medic",
+        "Possesses exceptional observational skills, often detecting subtle environmental disturbances or hidden details."
       ],
-      "relationships": {},
+      "relationships": {
+        "antiquarian": {
+          "affinity": 4,
+          "dynamic": "Cautious Scrutiny",
+          "description": "Missandei's survivor instincts make her immediately wary of Josephine's secretive nature and potential for self-serving actions, marking her as a figure to be closely watched."
+        }
+      },
       "locations": {
         "residence": [
           "inn__crypt_room"
@@ -568,20 +583,21 @@
         "Knowledgeable",
         "Greedy",
         "Cunning",
-        "Immoral"
+        "Immoral",
+        "Insatiable"
       ],
       "status": {
         "physical": 100,
         "mental": 100,
         "affliction": "",
-        "description": "In good health and high spirits",
+        "description": "Her focus remains absolute, fueled by a relentless, predatory hunger for discovery even when faced with meager findings.",
         "wounds": [],
         "diseases": []
       },
       "stats": {
         "strength": 2,
         "agility": 6,
-        "intelligence": 8,
+        "intelligence": 9,
         "authority": 5,
         "sociability": 7
       },
@@ -623,9 +639,16 @@
         "Whispers to her censer during moments of stress; the trapped sorcerer within responds with venomous, hateful mutterings",
         "Instinctively touches objects, or their closest representative, while speaking about them",
         "Surrounds herself with fragrant vapours from the censer, to protect her sensitive nose",
-        "Meticulously maintains her hair's cleanliness"
+        "Meticulously maintains her hair's cleanliness",
+        "Possesses a highly sensitive nose capable of detecting faint, lingering scents like old blood."
       ],
-      "relationships": {},
+      "relationships": {
+        "bounty_hunter": {
+          "affinity": 4,
+          "dynamic": "Object of Disinterest",
+          "description": "Josephine's meticulous search for trinkets is met with Tardif's cynical disinterest, reinforcing his perception of her as a seeker of useless baubles rather than true bounty."
+        }
+      },
       "locations": {
         "residence": [
           "abbey__private_cells"
@@ -666,10 +689,10 @@
         "Conflicted"
       ],
       "status": {
-        "physical": 100,
-        "mental": 100,
+        "physical": 95,
+        "mental": 90,
         "affliction": "",
-        "description": "In good health and high spirits",
+        "description": "Tormented by the sickly presence of the 'rot' emanating from the ground, confirming his deep connection to the land's corruption.",
         "wounds": [],
         "diseases": []
       },
@@ -715,9 +738,16 @@
         "Speaks in a surprisingly soft, gentle voice",
         "Never uses profanity and visibly winces when others take the Lord's name in vain",
         "His constant slouching undermines his true height",
-        "Meticulously folds and arranges his few possessions"
+        "Meticulously folds and arranges his few possessions",
+        "Possesses an unsettlingly intuitive grasp of underlying truths and the festering decay beneath superficial appearances."
       ],
-      "relationships": {},
+      "relationships": {
+        "houndmaster": {
+          "affinity": 6,
+          "dynamic": "Shared Burden",
+          "description": "Bigby sees William as someone who, though focused on surface injustices, is indirectly drawn into the deeper fight against the pervasive rot that Bigby himself constantly perceives."
+        }
+      },
       "locations": {
         "residence": [
           "shore_path__condemned_shack"
@@ -766,9 +796,9 @@
       "stats": {
         "strength": 8,
         "agility": 7,
-        "intelligence": 7,
+        "intelligence": 8,
         "authority": 4,
-        "sociability": 1
+        "sociability": 0
       },
       "equipment": [
         "War axe",
@@ -811,7 +841,18 @@
         "Records debts and favors in a small, weathered notebook, crossing them off with satisfaction when settled",
         "Keeps meticulous tallies of kills, contracts, and earnings"
       ],
-      "relationships": {},
+      "relationships": {
+        "flagellant": {
+          "affinity": 4,
+          "dynamic": "Professional Disdain",
+          "description": "Tardif considers Damien's zealous pronouncements to be useless distractions from his pragmatic objectives, viewing them with thinly veiled contempt."
+        },
+        "antiquarian": {
+          "affinity": 4,
+          "dynamic": "Dismissive Apathy",
+          "description": "Tardif views Josephine's meticulous search for minor artifacts as a waste of time and energy, holding little respect for her pursuits compared to his own pragmatic objectives."
+        }
+      },
       "locations": {
         "residence": [
           "tavern__stag_room"
@@ -1142,13 +1183,14 @@
         "Devout",
         "Resilient",
         "Fervent",
-        "Determined"
+        "Determined",
+        "Invasive"
       ],
       "status": {
         "physical": 100,
         "mental": 100,
         "affliction": "",
-        "description": "In good health and high spirits",
+        "description": "Mentally energized by the potential for shared suffering and spiritual revelation.",
         "wounds": [],
         "diseases": []
       },
@@ -1202,6 +1244,16 @@
           "affinity": 2,
           "dynamic": "Disdainful Reverence",
           "description": "The Flagellant sees the Vestal as someone who fled her divine retribution, rejecting the sacred suffering he holds dear. Her strength intrigues him, but her defiance fills him with scorn and pity."
+        },
+        "antiquarian": {
+          "affinity": 4,
+          "dynamic": "Zealous Dismissal",
+          "description": "Damien's fervent devotion makes him dismissive of Josephine's worldly greed, seeing her actions as a minor distraction in the face of true spiritual decay."
+        },
+        "bounty_hunter": {
+          "affinity": 4,
+          "dynamic": "Ideological Friction",
+          "description": "Damien views Tardif's cold pragmatism as a barrier to true spiritual understanding, perceiving him as dismissive of profound truths."
         }
       },
       "locations": {
@@ -1382,7 +1434,8 @@
       "magic": "None",
       "notes": [
         "Her nonsensical monologues often seems to circle back to her grandmother",
-        "Rarely says anything even remotely relevant to what she responds to"
+        "Rarely says anything even remotely relevant to what she responds to",
+        "Possesses an uncanny ability to unintentionally locate hidden or narratively significant objects."
       ],
       "relationships": {},
       "locations": {
@@ -1423,21 +1476,22 @@
         "Just",
         "Resourceful",
         "Fond of animals",
-        "Brash"
+        "Brash",
+        "Righteous Indignation"
       ],
       "status": {
         "physical": 100,
-        "mental": 100,
+        "mental": 83,
         "affliction": "",
-        "description": "In good health and high spirits",
+        "description": "Filled with grim resolve and deep disgust at the palpable signs of hidden corruption discovered in the hideout.",
         "wounds": [],
         "diseases": []
       },
       "stats": {
         "strength": 8,
-        "agility": 7,
-        "intelligence": 8,
-        "authority": 9,
+        "agility": 8,
+        "intelligence": 10,
+        "authority": 10,
         "sociability": 6
       },
       "equipment": [
@@ -1477,9 +1531,27 @@
         "Always carries dog treats",
         "Habitually checks the wind direction",
         "Signals his hound with subtle hand gestures that others rarely notice",
-        "Hugs his hound for comfort when stressed or hurt"
+        "Hugs his hound for comfort when stressed or hurt",
+        "Deeply suspicious of subtle, manipulative tactics and veiled authority.",
+        "Aware of a distinct, sickly sweet odor associated with the newly discovered, vile contents of the crate."
       ],
-      "relationships": {},
+      "relationships": {
+        "antiquarian": {
+          "affinity": 3,
+          "dynamic": "Principled Opponent",
+          "description": "William views Josephine's selfish pilfering as an affront to his values and the mission's integrity, setting them on a path of direct opposition."
+        },
+        "hqclaimants": {
+          "affinity": 4,
+          "dynamic": "Distrustful Observer",
+          "description": "William views the Claimants' ambition as a dangerous and self-serving pursuit, seeing them as a potential threat rather than a reliable ally."
+        },
+        "abomination": {
+          "affinity": 4,
+          "dynamic": "Unsettling Witness",
+          "description": "William is slightly unnerved by Bigby's seemingly prophetic and unsettling understanding of the deeper 'rot' connected to the grave, feeling Bigby sees beyond the obvious."
+        }
+      },
       "locations": {
         "residence": [
           "inn__spire_room"
@@ -1517,9 +1589,9 @@
       ],
       "status": {
         "physical": 100,
-        "mental": 100,
+        "mental": 85,
         "affliction": "",
-        "description": "In good health and high spirits",
+        "description": "Disheartened and scornful of the Pilgrim's Shelter, feeling the weight of their failed search.",
         "wounds": [],
         "diseases": []
       },
@@ -1527,7 +1599,7 @@
         "strength": 7,
         "agility": 3,
         "intelligence": 10,
-        "authority": 9,
+        "authority": 10,
         "sociability": 5
       },
       "equipment": [
@@ -1568,7 +1640,8 @@
         "The siblings communicate in verbal volleys, each setting up clauses for the other to complete",
         "Agree unanimously on important matters but argue endlessly over trivial details, but only in private",
         "The Brother struggles hopelessly with maps and directions, while the Sister has a natural talent for painting landscapes",
-        "The sister often quotes classical literature and formal poetry and the brother is more militaristic and terse"
+        "The sister often quotes classical literature and formal poetry and the brother is more militaristic and terse",
+        "Believe the Ancestor abandoned the hamlet for 'more refined pursuits'."
       ],
       "relationships": {
         "kheir": {
@@ -1590,6 +1663,11 @@
           "affinity": 3,
           "dynamic": "Smug Indifference",
           "description": "The Wretch is a relic of a forgotten triumph, a living reminder of the The Claimants' ruthless success. They feel a cold satisfaction in his fall, tempered by fleeting amusement at the absurdity of his new life."
+        },
+        "hqclaimants": {
+          "affinity": 5,
+          "dynamic": "Shared Disappointment",
+          "description": "The siblings' usual insightful banter is dulled by their mutual frustration, echoing the hollow futility of their combined, unproductive search."
         }
       },
       "locations": {
@@ -1613,5 +1691,127 @@
         ]
       }
     }
+  },
+  "characterLogs": {
+    "houndmaster": [
+      {
+        "month": 5,
+        "entry": "Confronted the Antiquarian, Josephine, asserting the group's investigative purpose over her personal gain and displaying his inherent sense of justice.",
+        "expiryMonth": 8
+      },
+      {
+        "month": 5,
+        "entry": "Observed the Claimants' power-hungry search with disdain and reacted warily to Physician Imogen's subtle influence.",
+        "expiryMonth": 8
+      },
+      {
+        "month": 5,
+        "entry": "Discovered a mass grave containing a fallen comrade's pendant, intensifying his disgust for those who send men to their deaths and then discard them like refuse.",
+        "expiryMonth": 8
+      },
+      {
+        "month": 5,
+        "entry": "Discovered a suspicious, foul-smelling crate in the Smuggler's Hideout, intensifying his grim resolve against the pervasive corruption.",
+        "expiryMonth": 8
+      }
+    ],
+    "flagellant": [
+      {
+        "month": 5,
+        "entry": "Expressed zealous disdain for the 'false knowledge' of the Athenaeum, viewing its destruction as a natural consequence of its worldly corruption.",
+        "expiryMonth": 8
+      },
+      {
+        "month": 5,
+        "entry": "Verbalized his profound disdain for worldly pursuits, openly criticizing Josephine's materialistic ambitions.",
+        "expiryMonth": 6
+      },
+      {
+        "month": 5,
+        "entry": "Attempted to compel Bram into a painful confession, reaffirming his zealous belief in suffering as spiritual purification.",
+        "expiryMonth": 12
+      }
+    ],
+    "arbalest": [
+      {
+        "month": 5,
+        "entry": "Displayed immediate suspicion towards Josephine's secretive pilfering and her evasive responses, tightening her grip on her crossbow as a sign of readiness.",
+        "expiryMonth": 8
+      },
+      {
+        "month": 5,
+        "entry": "Discovered a distinct, clean spherical impression on the wine cellar wall, hinting at a recently removed object crucial to the Ancestor's blight.",
+        "expiryMonth": 12
+      }
+    ],
+    "kheir": [
+      {
+        "month": 5,
+        "entry": "Explored the Lavender Room, finding no clear purpose for the Ancestor and theorizing it was a 'chamber for quiet desperation'.",
+        "expiryMonth": 8
+      }
+    ],
+    "highwayman": [
+      {
+        "month": 5,
+        "entry": "Maintained a vigilant watch during exploration, identifying potential threats in the seemingly innocuous environment.",
+        "expiryMonth": 8
+      },
+      {
+        "month": 5,
+        "entry": "Observed the Antiquarian's unyielding greed, cementing his understanding of their contrasting motivations and the growing entanglement of their destinies.",
+        "expiryMonth": 8
+      }
+    ],
+    "hqclaimants": [
+      {
+        "month": 5,
+        "entry": "Confronted Physician Imogen, seeking knowledge of rites and transformations, and openly expressed disdain for the hamlet's practices.",
+        "expiryMonth": 8
+      },
+      {
+        "month": 5,
+        "entry": "Faced the humbling futility of their search in the Pilgrim's Shelter, finding no strategic advantage or forbidden knowledge.",
+        "expiryMonth": 8
+      }
+    ],
+    "antiquarian": [
+      {
+        "month": 5,
+        "entry": "Displayed her meticulous and ambitious nature by carefully scouring the cellar for hidden secrets rather than conventional valuables.",
+        "expiryMonth": 6
+      },
+      {
+        "month": 5,
+        "entry": "Her pursuit of valuables proved relentless; a meager discovery only intensified her predatory hunger for more.",
+        "expiryMonth": 8
+      },
+      {
+        "month": 5,
+        "entry": "Discovered no valuable artifacts in the Pilgrim's Shelter, yet her hunger for discovery remained undiminished, coupled with the detection of a faint, metallic scent of old blood.",
+        "expiryMonth": 8
+      }
+    ],
+    "bounty_hunter": [
+      {
+        "month": 5,
+        "entry": "Maintained a single-minded focus on acquiring the ledgers, demonstrating a complete disregard for emotional or spiritual pleas.",
+        "expiryMonth": 8
+      }
+    ],
+    "abomination": [
+      {
+        "month": 5,
+        "entry": "Experienced the palpable manifestation of the land's 'rot' and revealed his unsettling insight into the nature of hidden guilt and decay.",
+        "expiryMonth": 8
+      }
+    ],
+    "hood": [
+      {
+        "month": 5,
+        "entry": "Uncannily directed attention to a hidden, suspicious crate, demonstrating her peculiar knack for uncovering concealed objects.",
+        "expiryMonth": 8
+      }
+    ]
   }
 }

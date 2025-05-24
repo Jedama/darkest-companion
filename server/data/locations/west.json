@@ -12,7 +12,7 @@
     "description": "A repurposed manor house whose noble architecture now serves baser needs. Iron bars cover once-elegant windows, while the central tower rises above like a watchful guardian. Within, grand halls have been converted to wards, and the wine cellar holds patients rather than vintages.",
     "parent": "western_district",
     "children": ["sanitarium__tower_study", "sanitarium__treatment_ward", "sanitarium__medical_ward", "sanitarium__laboratorium", "sanitarium__cells", "sanitarium__courtyard", "sanitarium__reception", "sanitarium__nurse_quarters"],
-    "npcs": ["nurse"]
+    "npcs": ["nurse", "physician"]
   },
   {
     "identifier": "sanitarium__tower_study",
@@ -24,7 +24,7 @@
   {
     "identifier": "sanitarium__treatment_ward",
     "title": "Treatment Ward",
-    "description": "Long rows of narrow beds line the walls of what might once have been a grand ballroom, its high ceiling still bearing traces of gilt beneath years of lamp smoke. Iron brackets now hold privacy screens between patients, while wheeled carts carry implements whose purpose is best left unquestioned. The room's tall windows have been fitted with iron bars, as much to keep things out as in.",
+    "description": "What was once a grand ballroom now serves as the Physician's domain. Where iron brackets once held privacy screens between patients, elaborate copper and brass apparatus now stand, piping vapors to patients through intricate masks. Colored glass vessels bubble with mysterious concoctions, filling the air with medicinal scents. At the center sits the Physician's workstation, surrounded by jars of dried herbs, powdered minerals, and sealed vials whose contents shimmer unnaturally. The room's high ceiling disappears in a perpetual haze of aromatic smoke, while patients lie in various states of consciousness, their minds being reshaped by the Physician's unorthodox methods.",
     "parent": "sanitarium",
     "children": []
   },
@@ -43,6 +43,13 @@
     "children": []
   },
   {
+    "identifier": "sanitarium__physician_quarters",
+    "title": "Physician's Quarters",
+    "description": "A well-established chamber adjoining the Treatment Ward, claimed by the Physician upon her arrival and methodically arranged to her specifications. Heavy curtains of deep crimson block the windows, maintaining the controlled environment her work requires. Bookshelves line one wall, filled with medical tomes whose bindings bear unfamiliar scripts and symbols, now perfectly organized by some system only she comprehends. A permanent laboratory occupies one corner, where glass distillation equipment continuously processes herbs into potent essences. Her personal desk stands opposite her narrow bed, covered with carefully labeled vials and patient notes written in a precise, angular hand. Though impeccably maintained, the room retains a sense of separateness from the rest of the Sanitarium - a distinct territory within Daphne's broader domain.",
+    "parent": "sanitarium",
+    "children": []
+  },
+  {
     "identifier": "sanitarium__laboratorium",
     "title": "Laboratorium",
     "description": "A long chamber that once served as the house's kitchen, now converted to chemical pursuits. The great hearth still dominates one wall, though it now heats bubbling retorts and mysterious solutions rather than meals. Wooden tables bear the scars of spilled reagents, while the old dumbwaiter now carries specimens between floors instead of dishes.",
@@ -56,6 +63,13 @@
     "parent": "sanitarium",
     "children": [],
     "capacity": 4
+  },
+  {
+    "identifier": "sanitarium__treatment_library",
+    "title": "Treatment Library",
+    "description": "A compact reference room where medical knowledge resides alongside remedy samples. Modest shelves hold essential texts on surgery, anatomy, and various treatment philosophies, while glass-fronted cabinets display labeled specimens and pharmaceutical samples. A single study table occupies the center, its surface bearing the characteristic stains of medicinal compounds. Smaller than the hamlet's main library, this specialized collection focuses purely on practical healing arts, with texts chosen for utility rather than academic breadth.",
+    "parent": "sanitarium",
+    "children": []
   },
   {
     "identifier": "sanitarium__courtyard",

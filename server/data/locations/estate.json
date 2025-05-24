@@ -1,9 +1,9 @@
 [
-    {
-      "identifier": "estate",
-      "title": "The Estate",
-      "description": "The ancestral lands of the noble house, a territory now fractured by corruption and darkness. Once-proud holdings have fallen into decay, while ancient evils stir in forgotten corners.",
-      "parent": "world",
-      "children": ["hamlet", "weald", "warrens", "ruins", "cove", "farmstead", "courtyard"]
-    }
+  {
+    "identifier": "estate",
+    "title": "The Estate",
+    "description": "The ancestral lands of the noble house, a territory now fractured by corruption and darkness. Once-proud holdings have fallen into decay, while ancient evils stir in forgotten corners.",
+    "parent": "kingdom",
+    "children": ["hamlet", "weald", "warrens", "ruins", "cove", "farmstead", "courtyard"]
+  }
 ]

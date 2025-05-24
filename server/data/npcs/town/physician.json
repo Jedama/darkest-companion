@@ -1,0 +1,32 @@
+{
+  "identifier": "physician",
+  "title": "Physician",
+  "name": "Imogen",
+  "summary": "The Physician treats the hamlet's psychological afflictions from behind her ornate mask, her soft-spoken manner creating a soothing atmosphere for her vapor treatments. Where the Sanitarium's walls once echoed only with Daphne's clinical approach, the Physician's gentle voice now guides patients through mental transformations achieved through her aromatic concoctions and meditative techniques. Though her methods diverge dramatically from conventional medicine, their effectiveness cannot be denied.",
+  "history": "Graduated under the Professor's tutelage from the University, she, alongside the Chirurgeon, sought to cure the flaws of the human mind. Their paths eventually diverged as the Chirurgeon embraced increasingly invasive trepanation methods, while Imogen pursued the healing properties of vapors and meditation. The hamlet's unique afflictions drew her from her travels, offering minds that conventional medicine had failed to heal.",
+  "traits": [
+    "Patient",
+    "Gentle",
+    "Soft-spoken",
+    "Perceptive",
+    "Fluid"
+  ],
+  "appearance": {
+    "height": "Tall",
+    "build": "Full-figured",
+    "skinTone": "Rich brown",
+    "hairColor": "Dark",
+    "hairStyle": "Elaborate braids, kept hidden",
+    "features": "Face concealed behind mask"
+  },
+  "clothing": {
+    "head": "Tall cylindrical headpiece flowing to shoulders",
+    "body": "Long dark robes with crimson accents",
+    "legs": "Flowing skirts that brush the floor",
+    "accessories": "Brass incense vessel, various vials on a chain belt"
+  },
+  "notes": [
+    "Moves with deliberate grace, each gesture flowing into the next",
+    "Speaks in calm, measured tones that seem to diffuse tension"
+  ]
+}
