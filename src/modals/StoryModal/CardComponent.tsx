@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './CardComponent.css';
 
 // TODO: Move these to a types file
@@ -61,6 +61,8 @@ export function CardComponent({
     };
   }, [characterId, cornerIndex, dealDelay, onDealComplete]);
 
+  const [glowStyle, setGlowStyle] = useState<{ color: string; size: string } | null>(null);
+
   // Logic for determining which content to show
   const isThisCardHovered = hoveredCharacterId === characterId;
   const isAnotherCardHovered = hoveredCharacterId !== null && hoveredCharacterId !== characterId;
@@ -76,6 +78,60 @@ export function CardComponent({
   const relationshipsDisplayedOnThisCard = sourceOfRelationshipsConsequences
     ?.relationshipChanges[characterId] || [];
 
+  // Effect to calculate glow properties based on hover and relationship changes
+  useEffect(() => {
+    // Only calculate glow if another card is hovered AND this card is a target
+    if (isAnotherCardHovered && relationshipsDisplayedOnThisCard.length > 0) {
+      let totalAffinityChange = 0;
+      relationshipsDisplayedOnThisCard.forEach(change => {
+        if (typeof change.affinity === 'number') {
+          totalAffinityChange += change.affinity;
+        }
+      });
+
+      if (totalAffinityChange !== 0) {
+        // Call the helper function to get glow properties
+        const calculatedGlow = calculateGlowProperties(totalAffinityChange);
+        setGlowStyle(calculatedGlow);
+      } else {
+        // No net affinity change, so no glow
+        setGlowStyle(null);
+      }
+    } else {
+      // No other card hovered, or this card is the hovered one, so no glow here
+      setGlowStyle(null);
+    }
+  }, [isAnotherCardHovered, relationshipsDisplayedOnThisCard]); // Dependencies for this effect
+
+  // Helper function to map affinity to glow color and size
+  const calculateGlowProperties = (affinity: number) => {
+    const maxAbsAffinity = 5; // Max absolute affinity value (+/- 5)
+
+    let color = '';
+    let size = ''; // This will be the box-shadow spread value
+
+    if (affinity > 0) {
+      // Positive affinity: interpolate towards bright white
+      const intensity = Math.abs(affinity) / maxAbsAffinity; // 0 to 1
+      // Base opacity of 0.2, scales up to 1.0. This ensures small changes have some glow.
+      const alpha = Math.min(1, 0.2 + intensity * 0.8);
+      color = `rgba(255, 255, 255, ${alpha})`; // White glow
+      // Min spread 5px, max spread 25px (5 + 20*intensity)
+      size = `${5 + intensity * 20}px`;
+    } else if (affinity < 0) {
+      // Negative affinity: interpolate towards bright red
+      const intensity = Math.abs(affinity) / maxAbsAffinity; // 0 to 1
+      const alpha = Math.min(1, 0.2 + intensity * 0.8);
+      color = `rgba(255, 0, 0, ${alpha})`; // Red glow
+      size = `${5 + intensity * 20}px`;
+    } else {
+      // Affinity is 0
+      color = 'transparent'; // No color
+      size = '0px'; // No spread
+    }
+    return { color, size };
+  };
+
   const frontImageUrl = `src/assets/characters/card/${characterId}.png`;
 
   return (
@@ -90,6 +146,16 @@ export function CardComponent({
     >
       {/* Inner wrapper for hover effect */}
       <div className="card-inner-hover-effect">
+        <div
+          className="card-glow-overlay"
+          style={{
+            // Apply box-shadow if glowStyle is present, otherwise 'none' for smooth transition out
+            boxShadow: glowStyle ? `0 0 ${glowStyle.size} ${glowStyle.size} ${glowStyle.color}` : 'none',
+            // Control opacity based on whether glowStyle is active
+            opacity: glowStyle ? 1 : 0,
+          }}
+        ></div>
+        
         {/* The back face */}
         <div className="card-face card-back" />
         {/* The front face */}

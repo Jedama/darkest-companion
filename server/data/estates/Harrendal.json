@@ -139,9 +139,9 @@
       ],
       "status": {
         "physical": 100,
-        "mental": 100,
+        "mental": 85,
         "affliction": "",
-        "description": "Weary and contemplative, questioning the purpose of their grim expedition and the nature of his reluctant alliance with the Antiquarian.",
+        "description": "Overwhelmed by profound guilt and unease, the Charnel House intensifying his inner torment and the weight of his past actions.",
         "wounds": [],
         "diseases": []
       },
@@ -326,6 +326,11 @@
           "affinity": 3,
           "dynamic": "Cautious Disdain",
           "description": "The Heiress remembers the Duchess as aloof and self-absorbed during the few balls they attended together. Though she barely knew her, the Duchess's pride left a sour impression."
+        },
+        "abomination": {
+          "affinity": 4,
+          "dynamic": "Conflicting Views",
+          "description": "The Heiress views the Abomination's unsettling insights as a mystical distraction from her pragmatic search for facts, interpreting his claims as an indirect challenge to her judgment."
         }
       },
       "locations": {
@@ -371,9 +376,9 @@
       ],
       "status": {
         "physical": 100,
-        "mental": 80,
+        "mental": 72,
         "affliction": "",
-        "description": "Overwhelmed by the chaotic suffering of the ward and the perceived disdain of his companions, his anxiety is heightened.",
+        "description": "Overwhelmed by the dust, suffocating heat, and Bigby's horrifying revelation, his anxiety has escalated to an intense level of physical and mental discomfort.",
         "wounds": [],
         "diseases": []
       },
@@ -419,7 +424,8 @@
       "notes": [
         "Hates waste and is very possesive of his belongings",
         "Has a penchant for fine wines to calm his nerves",
-        "Speculates on the psychological purpose of forgotten rooms and spaces."
+        "Speculates on the psychological purpose of forgotten rooms and spaces.",
+        "Is deeply repulsed by decay, grime, and physical waste."
       ],
       "relationships": {
         "heiress": {
@@ -652,6 +658,11 @@
           "affinity": 4,
           "dynamic": "Object of Disinterest",
           "description": "Josephine's meticulous search for trinkets is met with Tardif's cynical disinterest, reinforcing his perception of her as a seeker of useless baubles rather than true bounty."
+        },
+        "hood": {
+          "affinity": 4,
+          "dynamic": "Irritated Superior",
+          "description": "Josephine views Tilly's childishness as an inconvenient distraction from her serious pursuits, finding her presence irritatingly unprofessional."
         }
       },
       "locations": {
@@ -697,15 +708,15 @@
         "physical": 95,
         "mental": 90,
         "affliction": "",
-        "description": "Tormented by the sickly presence of the 'rot' emanating from the ground, confirming his deep connection to the land's corruption.",
+        "description": "His torment is deepened by the confirmation that the 'rot' is not just decay, but a conscious, remembering entity connected to the land's corruption, which he can intimately perceive.",
         "wounds": [],
         "diseases": []
       },
       "stats": {
         "strength": 9,
         "agility": 6,
-        "intelligence": 5,
-        "authority": 3,
+        "intelligence": 6,
+        "authority": 4,
         "sociability": 2
       },
       "equipment": [
@@ -751,6 +762,11 @@
           "affinity": 6,
           "dynamic": "Shared Burden",
           "description": "Bigby sees William as someone who, though focused on surface injustices, is indirectly drawn into the deeper fight against the pervasive rot that Bigby himself constantly perceives."
+        },
+        "heiress": {
+          "affinity": 4,
+          "dynamic": "Frustrated Insight",
+          "description": "The Abomination is frustrated by the Heiress's dismissive pragmatism, believing her to be wilfully blind to the deeper, more insidious nature of the Estate's corruption that he can sense."
         }
       },
       "locations": {
@@ -907,7 +923,7 @@
         "strength": 9,
         "agility": 8,
         "intelligence": 7,
-        "authority": 8,
+        "authority": 9,
         "sociability": 5
       },
       "equipment": [
@@ -946,7 +962,8 @@
         "Speaks with a mild Levantine accent, which becomes more pronounced when excited or angry",
         "Maintains rigid military discipline, and is disappointed when she finds others' lacking",
         "Under extreme stress, her identity fractures as she begins speaking and acting as though she were Kargadaan",
-        "Forms immediate judgments of others and stubbornly sticks to them"
+        "Forms immediate judgments of others and stubbornly sticks to them",
+        "Her strong disapproval can cause the air to crackle and resonate with distant thunder."
       ],
       "relationships": {},
       "locations": {
@@ -998,7 +1015,7 @@
       "stats": {
         "strength": 3,
         "agility": 2,
-        "intelligence": 8,
+        "intelligence": 9,
         "authority": 7,
         "sociability": 6
       },
@@ -1040,7 +1057,8 @@
         "Refuses to reveal the contents of her 'secret ingredient' vial",
         "Insists companions eat more than they want, firmly believing undereating is more dangerous than overeating",
         "Age has dulled her eyesight, requiring her to work primarily by touch and smell when preparing food",
-        "Always talks of surviving hardships, but quietly harbors a deep fear of dying alone"
+        "Always talks of surviving hardships, but quietly harbors a deep fear of dying alone",
+        "Approaches death and the processing of bodies with a pragmatic and dispassionate, almost culinary, detachment."
       ],
       "relationships": {},
       "locations": {
@@ -1087,7 +1105,7 @@
         "physical": 100,
         "mental": 100,
         "affliction": "",
-        "description": "In good health and high spirits",
+        "description": "Exhilarated and invigorated by the sheer scale of death and the practical methods of the Charnel House, viewing it as a morbid triumph and potential feast.",
         "wounds": [],
         "diseases": []
       },
@@ -1133,7 +1151,8 @@
         "Maintains an aristocratic air, insisting on comforts befitting her station",
         "Treats her hunger with dark humor, often joking about eating her allies",
         "Speaks with with sardonic wit and cutting remarks",
-        "Views her human allies as temporary tools in her vendetta"
+        "Views her human allies as temporary tools in her vendetta",
+        "Derives perverse satisfaction from scenes of death and efficient disposal of bodies."
       ],
       "relationships": {
         "kheir": {
@@ -1403,7 +1422,7 @@
       },
       "stats": {
         "strength": 1,
-        "agility": 7,
+        "agility": 8,
         "intelligence": 3,
         "authority": 2,
         "sociability": 4
@@ -1441,7 +1460,8 @@
       "notes": [
         "Her nonsensical monologues often seems to circle back to her grandmother",
         "Rarely says anything even remotely relevant to what she responds to",
-        "Possesses an uncanny ability to unintentionally locate hidden or narratively significant objects."
+        "Possesses an uncanny ability to unintentionally locate hidden or narratively significant objects.",
+        "Holds a warm, faintly pulsing clay doll that smells of the Weald."
       ],
       "relationships": {},
       "locations": {
@@ -1765,6 +1785,11 @@
         "month": 5,
         "entry": "Struggled with overwhelming anxiety and discomfort in the Sanitarium, attempting to impose intellectual order on its disturbing chaos.",
         "expiryMonth": 8
+      },
+      {
+        "month": 5,
+        "entry": "His anxiety was significantly heightened by the unsanitary conditions and Bigby's chilling revelation of the 'rot's' sentient nature.",
+        "expiryMonth": 8
       }
     ],
     "highwayman": [
@@ -1776,6 +1801,11 @@
       {
         "month": 5,
         "entry": "Observed the Antiquarian's unyielding greed, cementing his understanding of their contrasting motivations and the growing entanglement of their destinies.",
+        "expiryMonth": 8
+      },
+      {
+        "month": 5,
+        "entry": "Experienced an intense resurgence of guilt and profound discomfort within the oppressive atmosphere of the Charnel House.",
         "expiryMonth": 8
       }
     ],
@@ -1811,6 +1841,11 @@
         "month": 5,
         "entry": "Discovered no valuable artifacts in the Pilgrim's Shelter, yet her hunger for discovery remained undiminished, coupled with the detection of a faint, metallic scent of old blood.",
         "expiryMonth": 8
+      },
+      {
+        "month": 5,
+        "entry": "Expressed her insatiable desire for the Ancestor's relics and became aware of the peculiar doll Tilly discovered.",
+        "expiryMonth": 8
       }
     ],
     "bounty_hunter": [
@@ -1825,12 +1860,50 @@
         "month": 5,
         "entry": "Experienced the palpable manifestation of the land's 'rot' and revealed his unsettling insight into the nature of hidden guilt and decay.",
         "expiryMonth": 8
+      },
+      {
+        "month": 5,
+        "entry": "Revealed his unsettling intuitive grasp of the Estate's true nature, identifying a sentient 'rot' that remembers past horrors.",
+        "expiryMonth": 12
       }
     ],
     "hood": [
       {
         "month": 5,
         "entry": "Uncannily directed attention to a hidden, suspicious crate, demonstrating her peculiar knack for uncovering concealed objects.",
+        "expiryMonth": 8
+      },
+      {
+        "month": 5,
+        "entry": "Unintentionally unearthed a strange, pulsing clay doll, demonstrating her uncanny ability to locate hidden objects.",
+        "expiryMonth": 8
+      }
+    ],
+    "duchess": [
+      {
+        "month": 5,
+        "entry": "Expressed open satisfaction and predatory interest in the Charnel House's efficiency and abundance of cadavers.",
+        "expiryMonth": 1005
+      }
+    ],
+    "cook": [
+      {
+        "month": 5,
+        "entry": "Exhibited disturbing professionalism and a morbid curiosity regarding the deceased and the operations of the Charnel House.",
+        "expiryMonth": 12
+      }
+    ],
+    "heiress": [
+      {
+        "month": 5,
+        "entry": "Her pragmatic investigative approach was directly challenged by Bigby's intuitive, unsettling understanding of the Estate's underlying corruption.",
+        "expiryMonth": 8
+      }
+    ],
+    "cataphract": [
+      {
+        "month": 5,
+        "entry": "Voiced her strong disapproval of the Hamlet's perceived avarice and Tilly's lack of discipline, demonstrating her rigid moral code.",
         "expiryMonth": 8
       }
     ]

@@ -28,6 +28,21 @@
     transform: scale(1.05); /* Only scale here */
 }
 
+.card-glow-overlay {
+  position: absolute;
+  /* Extend slightly beyond the card edges for a softer glow */
+  inset: 5px;
+  /* Optional: if cards have rounded corners, match them */
+  border-radius: 10px;
+  /* CRITICAL: Ensures the glow doesn't interfere with hover/click events on the card */
+  pointer-events: none;
+
+  /* Initial state (hidden) and smooth transitions */
+  opacity: 0;
+  box-shadow: 0 0 0px 0px transparent; /* Default to transparent, 0 size */
+  transition: box-shadow 0.3s ease-out, opacity 0.3s ease-out; /* Smooth transition */
+}
+
 .card-face {
   position: absolute;
   width: 100%;
