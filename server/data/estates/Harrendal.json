@@ -371,9 +371,9 @@
       ],
       "status": {
         "physical": 100,
-        "mental": 95,
+        "mental": 80,
         "affliction": "",
-        "description": "Feeling increasingly anxious and disquieted by the unsettling atmosphere of the neglected room and the lack of coherent answers.",
+        "description": "Overwhelmed by the chaotic suffering of the ward and the perceived disdain of his companions, his anxiety is heightened.",
         "wounds": [],
         "diseases": []
       },
@@ -446,6 +446,11 @@
           "affinity": 5,
           "dynamic": "Infatuation",
           "description": "As a young man, the Heir was captivated by the Duchess' elegance and fencing prowess. Though their interactions were brief and unreciprocated, her image lingered in his mind for years."
+        },
+        "flagellant": {
+          "affinity": 4,
+          "dynamic": "Unsettling Focus",
+          "description": "Percival finds Damien's zealous intensity and unnerving gaze deeply disquieting, fearing the Flagellant sees him as a subject for 'trials' rather than a colleague."
         }
       },
       "locations": {
@@ -1237,7 +1242,8 @@
         "Speaks in a mix of improvised religious doctrine and fragments of actual scripture",
         "Views his scarred flesh as 'The Testament' - a living document of his devotion to the Light",
         "Refers to his flail as 'The Burden'",
-        "Becomes more powerful the closer he is to death"
+        "Becomes more powerful the closer he is to death",
+        "Views others' distress and vulnerability as opportunities for spiritual revelation and 'trials'."
       ],
       "relationships": {
         "vestal": {
@@ -1645,9 +1651,9 @@
       ],
       "relationships": {
         "kheir": {
-          "affinity": 1,
-          "dynamic": "Dismissive Scorn",
-          "description": "The Claimants regarded the young Heir as a naive, overeager boy who aspired to noble grandeur but lacked the maturity or intellect to achieve it."
+          "affinity": 0,
+          "dynamic": "Utter Contempt",
+          "description": "The Claimants view the Heir as utterly incompetent and naive, a childish obstacle to their true objective rather than a partner in the quest."
         },
         "heiress": {
           "affinity": 3,
@@ -1730,6 +1736,11 @@
         "month": 5,
         "entry": "Attempted to compel Bram into a painful confession, reaffirming his zealous belief in suffering as spiritual purification.",
         "expiryMonth": 12
+      },
+      {
+        "month": 5,
+        "entry": "Interpreted the suffering within the Sanitarium as a divine testament and observed the Heir with unsettling intensity.",
+        "expiryMonth": 8
       }
     ],
     "arbalest": [
@@ -1748,6 +1759,11 @@
       {
         "month": 5,
         "entry": "Explored the Lavender Room, finding no clear purpose for the Ancestor and theorizing it was a 'chamber for quiet desperation'.",
+        "expiryMonth": 8
+      },
+      {
+        "month": 5,
+        "entry": "Struggled with overwhelming anxiety and discomfort in the Sanitarium, attempting to impose intellectual order on its disturbing chaos.",
         "expiryMonth": 8
       }
     ],
@@ -1772,6 +1788,11 @@
       {
         "month": 5,
         "entry": "Faced the humbling futility of their search in the Pilgrim's Shelter, finding no strategic advantage or forbidden knowledge.",
+        "expiryMonth": 8
+      },
+      {
+        "month": 5,
+        "entry": "Demonstrated their unwavering focus on personal records and disdain for the Heir's organizational approach amidst the ward's chaos.",
         "expiryMonth": 8
       }
     ],

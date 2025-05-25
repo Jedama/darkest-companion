@@ -15,11 +15,17 @@
   transform-style: preserve-3d;
   will-change: transform;
   z-index: auto;
-  transition: transform 0.2s ease-out;
 }
 
-.card-wrapper:hover {
-  transform: translate(-50%, -50%) scale(1.05); /* Grow 5% larger */
+.card-inner-hover-effect {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d; /* Keep 3D for children (card faces) */
+    transition: transform 0.2s ease-out; /* Apply transition here */
+}
+
+.card-inner-hover-effect:hover {
+    transform: scale(1.05); /* Only scale here */
 }
 
 .card-face {

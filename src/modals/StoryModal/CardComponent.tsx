@@ -84,18 +84,20 @@ export function CardComponent({
       ref={cardRef}
       data-corner={cornerIndex}
       style={{ zIndex: 100 - cornerIndex }}
-      // Only attach hover listeners if consequences are available (i.e., phase is 'text')
+      // Keep hover listeners on the outer wrapper, as it defines the clickable area
       onMouseEnter={consequences ? () => onCardHover(characterId) : undefined}
       onMouseLeave={consequences ? onCardLeave : undefined}
     >
-      {/* The back face */}
-      <div className="card-face card-back" />
-      {/* The front face */}
-      <div
-        className="card-face card-front"
-        style={{ backgroundImage: `url(${frontImageUrl})` }}
-      >
-        {/* Consequence Display */}
+      {/* Inner wrapper for hover effect */}
+      <div className="card-inner-hover-effect">
+        {/* The back face */}
+        <div className="card-face card-back" />
+        {/* The front face */}
+        <div
+          className="card-face card-front"
+          style={{ backgroundImage: `url(${frontImageUrl})` }}
+        >
+          {/* Consequence Display */}
         {consequences && (
           <div className="consequences-overlay">
             {/* Personal Changes Display */}
@@ -118,7 +120,8 @@ export function CardComponent({
             </div>
           </div>
         )}
-      </div>
+        </div>
+      </div> 
     </div>
   );
 }
