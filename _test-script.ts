@@ -1,138 +1,129 @@
-import { findAffinityComposition } from './server/services/townHall/expeditionPlanner.ts';
+import { findBestComposition, StrategyWeights } from './server/services/townHall/expeditionPlanner.ts';
 import { Character, CharacterRecord } from './shared/types/types';
 
 // ==================================
-// 0. MOCK FACTORY
+// 0. MOCK FACTORY (Unchanged)
 // ==================================
 
-/**
- * Creates a complete, type-safe Character object for testing.
- * It takes a Partial<Character> and merges it with a complete
- * default object, satisfying all of TypeScript's type requirements.
- * @param partialChar - The properties you want to override for this specific mock.
- * @returns A full Character object.
- */
 function createMockCharacter(partialChar: Partial<Character> & { identifier: string }): Character {
     const baseCharacter: Character = {
-        identifier: '',
-        title: '',
-        name: '',
-        level: 0,
-        money: 0,
-        description: '',
-        history: '',
-        summary: '',
-        race: 'Human',
-        gender: 'Male',
-        religion: 'None',
-        zodiac: 'Leo',
-        traits: [],
+        identifier: '', title: '', name: '', level: 0, money: 0, description: '', history: '',
+        summary: '', race: 'Human', gender: 'Male', religion: 'None', zodiac: 'Leo', traits: [],
         status: { physical: 100, mental: 100, affliction: '', description: '', wounds: [], diseases: [] },
         stats: { strength: 5, agility: 5, intelligence: 5, authority: 5, sociability: 5 },
         locations: { residence: [], workplaces: [], frequents: [] },
         appearance: { height: '', build: '', skinTone: '', hairColor: '', hairStyle: '', features: '' },
         clothing: { head: '', body: '', legs: '', accessories: '' },
         combat: { role: 'Damage', strengths: [], weaknesses: [] },
-        magic: 'None',
-        notes: [],
-        relationships: {},
+        magic: 'None', notes: [], relationships: {},
     };
-
-    // Deep merge relationships to avoid overwriting the whole object
-    const finalRelationships = {
-        ...baseCharacter.relationships,
-        ...partialChar.relationships
-    };
-
-    return {
-        ...baseCharacter,
-        ...partialChar,
-        relationships: finalRelationships,
-    };
+    const finalRelationships = { ...baseCharacter.relationships, ...partialChar.relationships };
+    return { ...baseCharacter, ...partialChar, relationships: finalRelationships };
 }
-
 
 console.log("--- Running Town Hall Composition Test Script ---");
 
 // ==================================
-// 1. SETUP MOCK DATA (Now Type-Safe)
+// 1. SETUP MOCK DATA (Expanded)
 // ==================================
-console.log("Setting up mock character data...");
+console.log("Setting up expanded mock character data...");
 
-// The "Clique": High affinity with each other.
-const vestal = createMockCharacter({ identifier: 'vestal', name: 'Junia', relationships: { plague_doctor: { affinity: 8, dynamic: '', description: '' }, grave_robber: { affinity: 7, dynamic: '', description: '' } } });
-const plague_doctor = createMockCharacter({ identifier: 'plague_doctor', name: 'Paracelsus', relationships: { vestal: { affinity: 8, dynamic: '', description: '' }, grave_robber: { affinity: 7, dynamic: '', description: '' } } });
-const grave_robber = createMockCharacter({ identifier: 'grave_robber', name: 'Audrey', relationships: { plague_doctor: { affinity: 7, dynamic: '', description: '' }, vestal: { affinity: 7, dynamic: '', description: '' } } });
+// --- VETERAN HEROES (Level 3+) ---
+const veteranCrusader = createMockCharacter({ identifier: 'vet_crusader', name: 'Reynauld', level: 4, relationships: { vet_highwayman: { affinity: 9, dynamic: '', description: '' }, rookieBountyHunter: { affinity: 9, dynamic: '', description: '' } } });
+const veteranHighwayman = createMockCharacter({ identifier: 'vet_highwayman', name: 'Dismas', level: 3, relationships: { vet_crusader: { affinity: 9, dynamic: '', description: '' } } });
+const loneWolfLeper = createMockCharacter({ identifier: 'lone_leper', name: 'Baldwin', level: 3 }); // High level, no strong relationships
 
-// The "Rivals": Low affinity with each other, but okay with others.
-const occultist = createMockCharacter({ identifier: 'occultist', name: 'Alhazred', relationships: { crusader: { affinity: 1, dynamic: '', description: '' }, vestal: { affinity: 2, dynamic: '', description: '' } } });
-const crusader = createMockCharacter({ identifier: 'crusader', name: 'Reynauld', relationships: { occultist: { affinity: 1, dynamic: '', description: '' }, highwayman: { affinity: 9, dynamic: '', description: '' } } });
-const highwayman = createMockCharacter({ identifier: 'highwayman', name: 'Dismas', relationships: { crusader: { affinity: 9, dynamic: '', description: '' } } });
+// --- APPRENTICE HEROES (Level 0-2) ---
+// An established, high-affinity team
+const apprenticeVestal = createMockCharacter({ identifier: 'app_vestal', name: 'Junia', level: 2, relationships: { app_plague_doctor: { affinity: 8, dynamic: '', description: '' }, app_hellion: { affinity: 7, dynamic: '', description: '' } } });
+const apprenticePlagueDoctor = createMockCharacter({ identifier: 'app_plague_doctor', name: 'Paracelsus', level: 1, relationships: { app_vestal: { affinity: 8, dynamic: '', description: '' } } });
+const apprenticeHellion = createMockCharacter({ identifier: 'app_hellion', name: 'Boudica', level: 2, relationships: { app_vestal: { affinity: 7, dynamic: '', description: '' } } });
 
-// The "Loners": Neutral affinity with most.
-const leper = createMockCharacter({ identifier: 'leper', name: 'Baldwin' });
-const arbalest = createMockCharacter({ identifier: 'arbalest', name: 'Missandei' });
+// A pair of rivals who shouldn't be together, but are decent level
+const rivalOccultist = createMockCharacter({ identifier: 'rival_occultist', name: 'Alhazred', level: 2, relationships: { rival_arbalest: { affinity: 1, dynamic: '', description: '' } } });
+const rivalArbalest = createMockCharacter({ identifier: 'rival_arbalest', name: 'Missandei', level: 2, relationships: { rival_occultist: { affinity: 1, dynamic: '', description: '' } } });
 
+// Rookies (Level 0)
+const rookieGraveRobber = createMockCharacter({ identifier: 'rook_graverobber', name: 'Audrey', level: 0 });
+const rookieJester = createMockCharacter({ identifier: 'rook_jester', name: 'Sarmenti', level: 0 });
+const rookieBountyHunter = createMockCharacter({ identifier: 'rook_bountyhunter', name: 'Tardif', level: 0, relationships: { vet_crusader: { affinity: 8, dynamic: '', description: '' } } });
+const rookieHoundmaster = createMockCharacter({ identifier: 'rook_houndmaster', name: 'William', level: 0 });
 
 const allCharacters: Character[] = [
-    vestal, plague_doctor, grave_robber, 
-    occultist, crusader, highwayman,
-    leper, arbalest
+    veteranCrusader, veteranHighwayman, loneWolfLeper,
+    apprenticeVestal, apprenticePlagueDoctor, apprenticeHellion,
+    rivalOccultist, rivalArbalest,
+    rookieGraveRobber, rookieJester, rookieBountyHunter, rookieHoundmaster
 ];
 
 const roster: CharacterRecord = {};
-allCharacters.forEach(char => {
-    roster[char.identifier] = char;
-});
-
+allCharacters.forEach(char => roster[char.identifier] = char);
 const availableHeroIds = allCharacters.map(char => char.identifier);
 
-console.log(`\nTesting with a roster of ${availableHeroIds.length} heroes.`);
-console.log("Expected outcome: The algorithm should try to group (Vestal, Plague Doctor, Grave Robber) and (Crusader, Highwayman).\n");
-
 // ==================================
-// 2. RUN THE SERVICE FUNCTION
+// 2. HELPER FUNCTIONS FOR TESTING
 // ==================================
 
-const getScore = (composition: string[][], roster: CharacterRecord): number => {
-    let totalScore = 0;
-    for (const party of composition) {
-        for (let i = 0; i < party.length; i++) for (let j = i + 1; j < party.length; j++) {
-            const c1 = roster[party[i]], c2 = roster[party[j]];
-            totalScore += (c1.relationships[party[j]]?.affinity ?? 3) + (c2.relationships[party[i]]?.affinity ?? 3);
-        }
+// These functions are simplified versions from your service for local testing/display
+const getPartyAffinityScore = (party: string[], roster: CharacterRecord): number => {
+    let score = 0;
+    for (let i = 0; i < party.length; i++) for (let j = i + 1; j < party.length; j++) {
+        const c1 = roster[party[i]], c2 = roster[party[j]];
+        score += (c1.relationships[party[j]]?.affinity ?? 3) + (c2.relationships[party[i]]?.affinity ?? 3);
     }
-    return totalScore;
+    return score;
+};
+
+const getPartyLevelPenalty = (party: string[], roster: CharacterRecord): number => {
+    const levels = party.map(id => roster[id]?.level ?? 0);
+    const maxLevel = Math.max(...levels);
+    let missionLevelTier = 0;
+    if (maxLevel >= 5) missionLevelTier = 5;
+    else if (maxLevel >= 3) missionLevelTier = 3;
+    else missionLevelTier = 0; // Apprentice missions (Lvl 0-2)
+    let hardship = 0;
+    for (const level of levels) {
+        const h = missionLevelTier - level;
+        if (h > 0) hardship += Math.pow(h, 3);
+    }
+    return hardship;
 };
 
 const displayComposition = (title: string, composition: string[][], roster: CharacterRecord) => {
     console.log(title);
-    const totalScore = getScore(composition, roster);
     composition.forEach((party, index) => {
-        const partyScore = getScore([party], roster);
-        const memberNames = party.map(id => roster[id]?.name ?? 'Unknown').join(', ');
-        console.log(`  Party ${index + 1} (Score: ${partyScore.toFixed(2)}): ${memberNames}`);
+        const affinityScore = getPartyAffinityScore(party, roster);
+        const levelPenalty = getPartyLevelPenalty(party, roster);
+        const memberDetails = party.map(id => `${roster[id]?.name} (L${roster[id]?.level})`).join(', ');
+        
+        console.log(`  Party ${index + 1}: ${memberDetails}`);
+        console.log(`    - Raw Affinity Score: ${affinityScore.toFixed(2)} | Raw Level Penalty: ${levelPenalty.toFixed(2)}`);
     });
-    console.log(`Total Score: ${totalScore.toFixed(2)}`);
 };
 
-
-// --- Generate a random composition first to see the baseline ---
-const randomComposition = findAffinityComposition(availableHeroIds, roster, 4, 0); // 0 iterations = random
-displayComposition("--- Initial Random Composition ---", randomComposition, roster);
-
-// --- Run the actual optimizer ---
-console.log("\n--- Running Optimizer... ---");
-const finalComposition = findAffinityComposition(availableHeroIds, roster, 4, 2000); // 2000 iterations for a good result
-
 // ==================================
-// 3. DISPLAY RESULTS
+// 3. RUN THE SERVICE FUNCTION
 // ==================================
-console.log("");
-displayComposition("--- Final Optimized Composition ---", finalComposition, roster);
 
-if (getScore(finalComposition, roster) > getScore(randomComposition, roster)) {
-    console.log("\nSUCCESS: The optimized score is higher than the random score.");
-} else {
-    console.log("\nNOTE: The optimized score is not higher than the random score. This can happen by chance if the random start was already very good. Try running again.");
-}
+console.log(`\n--- TEST CASE 1: Prioritizing Level Cohesion Heavily ---`);
+console.log("Expected: Veterans (L3+) should be grouped together. Apprentices (L0-2) should form other teams.");
+
+const levelFocusedWeights: Partial<StrategyWeights> = {
+    levelCohesion: 15.0, // Level penalty is 15x more important than affinity
+    affinity: 1.0,
+};
+
+const levelFocusedComposition = findBestComposition(availableHeroIds, roster, levelFocusedWeights);
+displayComposition("Final Composition (Level Focus):", levelFocusedComposition, roster);
+
+
+console.log(`\n\n--- TEST CASE 2: Prioritizing Affinity Heavily ---`);
+console.log("Expected: May create level-mismatched teams to group high-affinity pairs, like putting a rookie with the L4 Crusader if it improves the score.");
+
+const affinityFocusedWeights: Partial<StrategyWeights> = {
+    levelCohesion: 1.0,
+    affinity: 15.0,
+};
+
+const affinityFocusedComposition = findBestComposition(availableHeroIds, roster, affinityFocusedWeights);
+displayComposition("Final Composition (Affinity Focus):", affinityFocusedComposition, roster);
