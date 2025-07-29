@@ -2,8 +2,9 @@
   "identifier": "innkeeper",
   "title": "Innkeeper",
   "name": "Aldritch",
-  "summary": "The proprietor of The Torch and Crown maintains his duties with mechanical precision, his nightly rounds with candle in hand more habit than purpose. While cosmic horrors lurk beyond his walls and heroes stumble in bearing impossible wounds, he continues his father's routines - not from dedication, but because he knows no other way to pass the endless days.",
+  "description": "The proprietor of The Torch and Crown maintains his duties with mechanical precision, his nightly rounds with candle in hand more habit than purpose. While cosmic horrors lurk beyond his walls and heroes stumble in bearing impossible wounds, he continues his father's routines - not from dedication, but because he knows no other way to pass the endless days.",
   "history": "Long before the Estate's decline, Aldritch inherited the inn from his father, who inherited it from his father before him. When others fled the hamlet's growing darkness, he stayed - not out of bravery or greed, but from lassitude. He maintains the Torch and Crown as a rigorous duty, cleaning rooms that will never be full again, while late at night he sometimes wishes the reanimated dead who took his brave friends would have taken him, too.",
+  "summary": "innkeeper (Aldritch) -- A world-weary and melancholic Innkeeper, dutifully maintaining his inherited establishment with mechanical precision, desiring an end to his endless days.",
   "traits": [
     "World-weary",
     "Resigned",

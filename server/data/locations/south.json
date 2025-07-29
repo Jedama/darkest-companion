@@ -62,7 +62,7 @@
     "children": ["apple_yard", "apple_yard_barn", "mass_grave"]
   },
   {
-    "identifier": "apple_yard",
+    "identifier": "apple_yard__house",
     "title": "Apple Yard House",
     "description": "A sagging two-story home whose rotting walls sprout shelf fungi like hideous decorations. The front door hangs open perpetually, as if still reeling from the last time it was slammed in drunken rage. Through broken windows, the interior's fungal infestation glows with a sickly phosphorescence.",
     "parent": "apple_yard",

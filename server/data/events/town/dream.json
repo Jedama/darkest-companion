@@ -3,7 +3,7 @@
     "identifier": "dream0",
     "title": "Dream",
     "type": "town",
-    "summary": "[Character 1] wakes in the middle of the night.",
+    "description": "[Character 1] wakes in the middle of the night.",
     "nrChars": [1, 1],
     "keywords": ["Cold sweat", "Wistful longing", "Soothing", "Confusing"],
     "location": {
@@ -18,7 +18,7 @@
     "identifier": "dream1",
     "title": "Dream",
     "type": "town",
-    "summary": "[Character 1] wakes in the middle of the night, having dreamt of [Character 2] (referenced only).",
+    "description": "[Character 1] wakes in the middle of the night, having dreamt of [Character 2] (referenced only).",
     "nrChars": [2, 2],
     "keywords": [],
     "location": {

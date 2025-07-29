@@ -3,6 +3,7 @@
     "identifier": "north_district",
     "title": "Northern District",
     "description": "Dominated by the Abbey's spires and its tolling bells, this district houses both the living and the dead. The graveyard climbs the southern-and recently also the norther-hillside, while the abbey stands watchful above.",
+    "summary": "north_district (Northern District) -- A district dominated by the Abbey and its graveyard, housing both the living and the dead.",
     "parent": "hamlet",
     "children": ["graveyard", "abbey", "pilgrims_shelter"]
   },
@@ -10,6 +11,7 @@
     "identifier": "graveyard",
     "title": "Graveyard",
     "description": "The Estate's historic burial ground sprawls across the southern hillside, climbing from the hamlet toward the abbey above. Ancient family plots and well-tended graves give way to newer, hastily dug resting places, their occupants claimed by recent horrors. Stone paths wind between monuments, while iron gates mark entrances to more specialized grounds.",
+    "summary": "graveyard (Graveyard) -- The Estate's historic burial ground sprawling across a hillside with ancient family plots and new graves, leading towards the abbey.",
     "parent": "north_district",
     "children": ["graveyard__cursed_grounds", "graveyard__memorial_grounds", "graveyard__keepers_cottage", "graveyard__ossuary", "graveyard__charnel_house"],
     "npcs": ["abbot"]
@@ -19,6 +21,7 @@
     "title": "Cursed Grounds",
     "description": "A weathered sepulchre that looms against the hillside, its original purpose as a noble family's tomb all but forgotten. An eerie violet glow seeps from beneath its sealed doors, while unsettling whispers echo in the minds of those who venture too close. Bats and other creatures have made it their home.",
     "restored": "A stately mausoleum restored to dignified grandeur, its marble facade and bronze doors honoring the great families of generations past. Though the whispers remain, they feel more like reverent echoes of history than haunting threats.",
+    "summary": "graveyard__cursed_grounds (Cursed Grounds) -- A sepulchre or mausoleum on the hillside, a noble family's tomb associated with eerie glows and unsettling whispers.",
     "parent": "graveyard",
     "capacity": 4,
     "children": []
@@ -28,6 +31,7 @@
     "title": "Memorial Grounds",
     "description": "Once-orderly rows of memorial stones list drunkenly across overgrown grass. Weather and neglect have conspired to blur the names of fallen greats, while fallen leaves gather in the empty basins of offerings that no one maintains.",
     "restored": "Serene rows of restored monuments honor the Estate's fallen, each stone bearing a name and date in crisp lettering. Fresh flowers and small offerings appear regularly in polished basins, while carefully maintained paths allow mourners to walk among the memories of their loved ones.",
+    "summary": "graveyard__memorial_grounds (Memorial Grounds) -- A solemn area within the graveyard with rows of memorial stones, honoring the Estate's fallen.",
     "parent": "graveyard",
     "children": []
   },
@@ -35,6 +39,7 @@
     "identifier": "graveyard__keepers_cottage",
     "title": "Cemetery Keeper's Cottage",
     "description": "A modest dwelling overlooking the graves, its lower floor dedicated to record-keeping and tool storage. The upper room offers a sparse but serviceable living space, with windows providing clear views of both the old family plots and the troubling expanse of new graves to the north.",
+    "summary": "graveyard__keepers_cottage (Cemetery Keeper's Cottage) -- A modest dwelling overlooking the graves, serving as a living space and work area for the cemetery keeper.",
     "parent": "graveyard",
     "capacity": 1,
     "children": []
@@ -43,6 +48,7 @@
     "identifier": "graveyard__ossuary",
     "title": "Ossuary",
     "description": "Deep beneath the graveyard lies this catacomb, its winding passages lined with centuries of carefully arranged bones. Once a masterwork of geometric patterns formed from skulls and femurs, now many niches stand empty, their contents stolen. Heavy chains and multiple locks secure the entrance - installed after the tragedy of Martha, the cemetery keeper's daughter. When the Ancestor's experiments with reanimation brought the dead walking into the hamlet's streets, the young girl's fascination with the moving bones twisted into obsession. Now she haunts the Estate as the 'Bonetaker', skittering through shadows to collect specimens from both the dead and the reanimated.",
+    "summary": "graveyard__ossuary (Ossuary) -- A deep catacomb beneath the graveyard, lined with centuries of carefully arranged bones, and now associated with a reanimated 'Bonetaker'.",
     "parent": "graveyard",
     "children": []
   },
@@ -50,6 +56,7 @@
     "identifier": "graveyard__charnel_house",
     "title": "Charnel House",
     "description": "A practical stone building where the dead are prepared for burial. The workspace remains meticulously organized - tools arranged by size, records filed by date - though rust-colored stains mark the walls and tables in great splashes. A heavy trapdoor opens to reveal storage cellars that descend far deeper than the building's modest size would suggest.",
+    "summary": "graveyard__charnel_house (Charnel House) -- A practical stone building in the graveyard used for preparing the dead for burial, with an organized workspace and deep cellars.",
     "parent": "graveyard",
     "children": []
   },
@@ -57,6 +64,7 @@
     "identifier": "abbey",
     "title": "Abbey",
     "description": "A stern Gothic edifice that crowns the northern hill, its bell tower rising above the hamlet's other buildings. Stone steps lead up from the graveyard to its heavy oak doors, while stained glass windows cast colored light across all who enter.",
+    "summary": "abbey (Abbey) -- A stern Gothic edifice crowning the northern hill, with a bell tower and stained glass windows, a central place of worship.",
     "parent": "north_district",
     "children": ["abbey__transept", "abbey__vestry", "abbey__cloister", "abbey__scriptorium", "abbey__private_cells", "abbey__abbot_quarters", "abbey__bell_tower", "abbey__penance_chamber", "abbey__grounds"]
   },
@@ -64,6 +72,7 @@
     "identifier": "abbey__transept",
     "title": "Transept",
     "description": "The abbey's main hall stretches beneath vaulted ceilings, its pews arranged before a darkened altar. Tall windows cast long shadows across worn flagstones, while hundreds of votive candles - kept perpetually lit by the Abbot's own hand - provide what light they can.",
+    "summary": "abbey__transept (Transept) -- The abbey's main hall with vaulted ceilings, pews, a darkened altar, and constantly lit votive candles.",
     "parent": "abbey",
     "children": ["abbey__altar"]
   },
@@ -72,12 +81,14 @@
     "title": "Altar of Light",
     "description": "A broken shrine whose fractured crystal focuses no longer channel the sun's purifying rays. Shadows gather unnaturally in its corners even at midday.",
     "restored": "A beacon of hope restored, its crystal array capturing and amplifying daylight into beams that seem to push back the darkness. The surrounding area feels notably warmer and brighter.",
+    "summary": "abbey__altar (Altar of Light) -- A shrine within the abbey's transept, intended to channel purifying light and create a beacon of hope.",
     "parent": "abbey__transept"
   },
   {
     "identifier": "abbey__vestry",
     "title": "Vestry",
     "description": "A long, narrow room behind the transept where religious vestments and sacred items are stored. Meticulous organization betrays the Abbot's careful hand - each censer, chalice, and robe has its place. The air carries traces of incense and beeswax from the countless candles prepared here.",
+    "summary": "abbey__vestry (Vestry) -- A meticulously organized room behind the abbey's transept, used for storing religious vestments and sacred items.",
     "parent": "abbey",
     "children": []
   },
@@ -85,6 +96,7 @@
     "identifier": "abbey__cloister",
     "title": "Cloister",
     "description": "An open-aired walkway surrounds a small garden where herbs and flowers struggle to grow in the shadow of the abbey's walls. Rain-stained columns support the covered passage, their worn surfaces smoothed by generations of contemplative hands. The central fountain stands inexplicably filled with folded bedsheets, their crisp white edges peeking over its stone rim.",
+    "summary": "abbey__cloister (Cloister) -- An open-aired walkway around a small garden within the abbey, used for contemplation.",
     "parent": "abbey",
     "children": ["abbey__dorter"]
   },
@@ -92,6 +104,7 @@
     "identifier": "abbey__dorter",
     "title": "Dorter",
     "description": "The abbey's dormitory wing stretches along the cloister's eastern side. Simple beds line the walls, each with a small trunk for personal belongings. High windows admit thin shafts of light, while iron brackets hold torches for the darker hours. The space suggests a time when the abbey housed more faithful than it does now.",
+    "summary": "abbey__dorter (Dorter) -- The abbey's dormitory wing, a simple sleeping area with beds and trunks for pilgrims and faithful.",
     "parent": "abbey__cloister",
     "capacity": 8,
     "children": []
@@ -100,6 +113,7 @@
     "identifier": "abbey__scriptorium",
     "title": "Scriptorium",
     "description": "Located above the cloister's northern walk, this long room captures the best light for the scribes' detailed work. Angled writing desks face the windows, which offer an unobstructed view of the courtyard and the manor's distant ruins. Shelves hold precious inks and carefully preserved parchments, while a separate section contains the abbey's historical records.",
+    "summary": "abbey__scriptorium (Scriptorium) -- A long room in the abbey, ideal for scribes' detailed work, holding precious inks, parchments, and historical records.",
     "parent": "abbey",
     "children": []
   },
@@ -107,6 +121,7 @@
     "identifier": "abbey__private_cells",
     "title": "Private Cells",
     "description": "Four small chambers occupy the upper floor's western corner, each separated by thick stone walls for solitude. The rooms are austere and identical - space enough for a bed and prayer desk, with narrow windows admitting thin shafts of light. The bell tower's shadows sweep across these windows with each passing hour.",
+    "summary": "abbey__private_cells (Private Cells) -- Austere, identical small chambers within the abbey's upper floor, designed for solitude, prayer, and rest.",
     "parent": "abbey",
     "capacity": 4,
     "children": []
@@ -115,6 +130,7 @@
     "identifier": "abbey__abbot_quarters",
     "title": "Abbot's Quarters",
     "description": "A spartan chamber befitting its occupant's solemn nature. A narrow bed and simple desk take up little space, while shelves hold theological texts and a collection of unburned votive candles. A small shrine featuring a portrait of a young woman sits beneath the room's single window, where the Abbot often stands in quiet contemplation of the graves below.",
+    "summary": "abbey__abbot_quarters (Abbot's Quarters) -- A spartan chamber, the Abbot's private living space within the abbey, used for contemplation and study.",
     "parent": "abbey",
     "children": []
   },
@@ -122,6 +138,7 @@
     "identifier": "abbey__bell_tower",
     "title": "Bell Tower",
     "description": "Rising above the abbey's peaked roof, the tower houses a massive bronze bell whose tolling measures out the hamlet's days. The narrow staircase winds past the bell ringer's station to a windswept platform offering commanding views: the market square's morning bustle to the south, the sanitarium's candlelit windows to the west, and the harbor's foggy expanse to the east. Above all looms the darkened silhouette of the manor.",
+    "summary": "abbey__bell_tower (Bell Tower) -- A towering structure above the abbey, housing a massive bell and offering commanding views of the hamlet and manor.",
     "parent": "abbey",
     "children": []
   },
@@ -129,6 +146,7 @@
     "identifier": "abbey__penance_chamber",
     "title": "Penance Chamber",
     "description": "Deep beneath the abbey lies this chamber of personal mortification. Without candlelight, the darkness here is absolute - a void broken only by the occasional glint of metal from the implements of flagellation hanging from the walls. Wooden kneelers show the wear of countless hours of prayer, their surfaces polished smooth by penitent knees.",
+    "summary": "abbey__penance_chamber (Penance Chamber) -- A dark, subterranean chamber beneath the abbey, used for personal mortification and prayer.",
     "parent": "abbey",
     "children": []
   },
@@ -136,6 +154,7 @@
     "identifier": "abbey__grounds",
     "title": "Abbey Grounds",
     "description": "The hilltop plateau surrounding the abbey, enclosed by a low stone wall weathered by coastal winds. Flagstone paths connect the various buildings, while patches of hardy grass push through the stony soil. The space between the abbey proper and the pilgrim's shelter serves as a small gathering area, though these days it's more often used by hooded figures seeking solitary contemplation. From here, one can see both the manor's dark silhouette to the north and the hamlet spread below to the south.",
+    "summary": "abbey__grounds (Abbey Grounds) -- The hilltop plateau surrounding the abbey, featuring flagstone paths, gathering areas, and views of the hamlet.",
     "parent": "abbey",
     "children": []
   },
@@ -143,6 +162,7 @@
     "identifier": "abbey__pyre",
     "title": "Pyre",
     "description": "A grim fixture behind the abbey, partially hidden by the building's shadow. The stake rises from a platform of blackened stones, the ground around it perpetually scattered with ash despite frequent rains. Head Abbot Bertram maintains this space with disturbing diligence, the wood always dry and ready. Few venture near after dark, when the abbey's torchlight makes the stake's shadow seem to writhe of its own accord.",
+    "summary": "abbey__pyre (Pyre) -- A grim fixture behind the abbey, a platform with a stake used for burning, meticulously maintained.",
     "parent": "abbey__grounds",
     "children": []
   },
@@ -150,6 +170,7 @@
     "identifier": "pilgrims_shelter",
     "title": "Pilgrim's Shelter",
     "description": "A modest stone building set apart from the abbey proper, offering refuge to religious travelers. Three simple rooms and a common space cluster around a small courtyard, while a covered walkway provides shelter from the rain during the walk to morning prayers.",
+    "summary": "pilgrims_shelter (Pilgrim's Shelter) -- A modest stone building offering refuge to religious travelers, with simple rooms and a common space.",
     "parent": "north_district",
     "children": ["pilgrims_shelter__common_room", "pilgrims_shelter__wayfarers_room", "pilgrims_shelter__lantern_room", "pilgrims_shelter__vigil_room"]
   },
@@ -157,6 +178,7 @@
     "identifier": "pilgrims_shelter__common_room",
     "title": "Common Room",
     "description": "A humble gathering space warmed by a small hearth. A heavy oak table with benches serves for shared meals, while wall-mounted candleholders cast their light on religious texts left for study and contemplation. The scent of pine smoke mingles with that of well-worn prayer books.",
+    "summary": "pilgrims_shelter__common_room (Common Room) -- A humble gathering space within the Pilgrim's Shelter, with a hearth and a heavy oak table for shared meals and study.",
     "parent": "pilgrims_shelter",
     "children": []
   },
@@ -164,6 +186,7 @@
     "identifier": "pilgrims_shelter__wayfarers_room",
     "title": "Wayfarer's Room",
     "description": "The largest of the shelter's chambers, traditionally offered to those who've journeyed furthest. The northeast window provides a stark reminder of the pilgrim's path - the rocky shoreline trail visible far below, where dark waters meet the estate's craggy edge. A sturdy bed and simple writing desk offer welcome rest for weary travelers.",
+    "summary": "pilgrims_shelter__wayfarers_room (Wayfarer's Room) -- The largest chamber in the Pilgrim's Shelter, offering rest to travelers with a sturdy bed and writing desk, and views of the shoreline.",
     "parent": "pilgrims_shelter",
     "capacity": 2,
     "children": []
@@ -172,6 +195,7 @@
     "identifier": "pilgrims_shelter__lantern_room",
     "title": "Lantern Room",
     "description": "Dawn's first light floods this eastern-facing chamber through its tall, narrow window. A wall-mounted lantern bracket stands empty, though pilgrims often place their own lights there, creating a tradition of passing illumination from one traveler to the next. The room's simple furnishings cast long shadows in the morning light.",
+    "summary": "pilgrims_shelter__lantern_room (Lantern Room) -- An eastern-facing chamber in the Pilgrim's Shelter, traditionally used for pilgrims to place their lanterns, symbolizing shared illumination.",
     "parent": "pilgrims_shelter",
     "capacity": 1,
     "children": []
@@ -180,6 +204,7 @@
     "identifier": "pilgrims_shelter__vigil_room",
     "title": "Vigil Room",
     "description": "The smallest chamber, positioned with a clear view of the abbey's bell tower. Many travelers choose this room for its proximity to the night office, as the bell's tolling carries clearly through its shuttered window. A prayer stool sits beneath the window, worn smooth by countless hours of devotion.",
+    "summary": "pilgrims_shelter__vigil_room (Vigil Room) -- The smallest chamber in the Pilgrim's Shelter, chosen for its clear view of the abbey's bell tower and suitable for devotion.",
     "parent": "pilgrims_shelter",
     "capacity": 1,
     "children": []

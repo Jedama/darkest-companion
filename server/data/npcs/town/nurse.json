@@ -2,8 +2,9 @@
   "identifier": "nurse",
   "title": "The Nurse",
   "name": "Daphne",
-  "summary": "The Sanitarium's unflinching overseer, as much soldier as healer in her war against the hamlet's afflictions. Her methods may seem harsh, her treatments extreme, but none can question her dedication to those under her care. Even the most hardened heroes find comfort in her steady hands and unwavering resolve.",
+  "description": "The Sanitarium's unflinching overseer, as much soldier as healer in her war against the hamlet's afflictions. Her methods may seem harsh, her treatments extreme, but none can question her dedication to those under her care. Even the most hardened heroes find comfort in her steady hands and unwavering resolve.",
   "history": "When madness and disease first gripped the hamlet, many healers fled. Daphne chose to stay, converting the old sanitarium into her battlefield. In a place where hope itself seems diseased, she fights on, one patient at a time.",
+  "summary": "nurse (Daphne) -- An unyielding and clinical Nurse, the unflinching overseer of the Sanitarium, whose steadfast dedication to her patients employs extreme, yet effective, treatments.",
   "traits": [
     "Unyielding",
     "Clinical",

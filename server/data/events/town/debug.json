@@ -3,7 +3,7 @@
     "identifier": "debug_0",
     "title": "Chat",
     "type": "town",
-    "summary": "[Characters] share a quick chat.",
+    "description": "[Characters] share a quick chat.",
     "nrChars": [2, 2],
     "keywords": ["Anecdote", "Gossip", "Joke", "Rumor"],
     "location": {
@@ -18,7 +18,7 @@
     "identifier": "debug_1",
     "title": "Sexual activity",
     "type": "town",
-    "summary": "[Characters] engage in sexual activity, depicted in graphic and erotic detail.",
+    "description": "[Characters] engage in sexual activity, depicted in graphic and erotic detail.",
     "nrChars": [2, 2],
     "keywords": ["Passionate"],
     "location": {
@@ -32,7 +32,7 @@
     "identifier": "debug_2",
     "title": "Exploration",
     "type": "town",
-    "summary": "[Characters] investigate the Location and its history, interrogating any present npcs.",
+    "description": "[Characters] investigate the Location and its history, interrogating any present npcs.",
     "nrChars": [2, 3],
     "keywords": ["Searching"],
     "location": {
@@ -47,7 +47,7 @@
     "identifier": "debug_3",
     "title": "Confrontation",
     "type": "town",
-    "summary": "A long-standing disagreement between [Characters] escalates too far.",
+    "description": "A long-standing disagreement between [Characters] escalates too far.",
     "nrChars": [4, 4],
     "keywords": ["Violence", "Hatred", "Foregiveness", "Gone too far", "Beatdown"],
     "location": {

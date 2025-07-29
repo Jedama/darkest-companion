@@ -19,17 +19,17 @@ export async function compileStoryPrompt(
 ): Promise<string> {
 
   // Function to replace placeholders like [Character ?] or [Characters] with corresponding names
-  function replaceCharacterPlaceholders(summary: string, characters: Character[]): string {
-    let updatedSummary = summary;
+  function replaceCharacterPlaceholders(description: string, characters: Character[]): string {
+    let updatedDescription = description;
 
     // Replace specific [Character ?] placeholders
     characters.forEach((char, index) => {
       const placeholder = `[Character ${index + 1}]`;
-      updatedSummary = updatedSummary.replaceAll(placeholder, char.name);
+      updatedDescription = updatedDescription.replaceAll(placeholder, char.name);
     });
 
     // Replace [Characters] placeholder with a properly formatted list of character names
-    if (updatedSummary.includes('[Characters]')) {
+    if (updatedDescription.includes('[Characters]')) {
       const characterNames = characters
         .map((char) => char.name)
         .reduce((acc, name, idx, arr) => {
@@ -37,10 +37,10 @@ export async function compileStoryPrompt(
           if (idx === arr.length - 1) return `${acc} and ${name}`; // Last name with " and"
           return `${acc}, ${name}`; // Middle names with ","
         }, '');
-      updatedSummary = updatedSummary.replaceAll('[Characters]', characterNames);
+      updatedDescription = updatedDescription.replaceAll('[Characters]', characterNames);
     }
 
-    return updatedSummary;
+    return updatedDescription;
   }
 
   // 1. Gather character and data
@@ -55,11 +55,11 @@ export async function compileStoryPrompt(
   const contextSection = getContextText(estate.month, estate.estateName);
 
   // 3. Build [Characters] section
-  //    For each character, gather summary, stats, traits, status, notes, clothing, appearance, combat, and magic
+  //    For each character, gather description, stats, traits, status, notes, clothing, appearance, combat, and magic
   let charactersSection = `[Characters]\n`;
   for (const char of involvedCharacters) {
     charactersSection += `- ${char.name} (${char.title}):\n`;
-    charactersSection += `  - Summary: ${char.summary}\n`;
+    charactersSection += `  - Description: ${char.description}\n`;
     charactersSection += `  - History: ${char.history}\n`;
     charactersSection += `  - Stats: Strength: ${char.stats.strength}, Agility: ${char.stats.agility}, Intelligence: ${char.stats.intelligence}, Authority: ${char.stats.authority}, Sociability: ${char.stats.sociability}\n`;
     charactersSection += `  - Traits: ${char.traits.join(', ')}\n`;
@@ -143,8 +143,8 @@ Description: ${description}
       // Main header with name and title
       npcSection += `- ${npc.title} ${npc.name}\n`;
       
-      // Indented summary and history
-      npcSection += `  ${npc.summary}\n`;
+      // Indented description and history
+      npcSection += `  ${npc.description}\n`;
       npcSection += `  ${npc.history}\n`;
       
       // Compact appearance and traits section
@@ -204,7 +204,7 @@ Description: ${description}
       } else {
         // Add compact character information for non-event characters
         bystandersSection += `- ${char.name} (${char.title}) - ${connectionText}\n`;
-        bystandersSection += `  ${char.summary}\n`;
+        bystandersSection += `  ${char.description}\n`;
         
         // Add a few key traits
         if (char.traits.length > 0) {
@@ -218,10 +218,10 @@ Description: ${description}
   }
 
   // 8. Build [Event] section and replace placeholders
-  const eventSummaryWithReplacements = replaceCharacterPlaceholders(event.summary, involvedCharacters);
+  const eventDescriptionWithReplacements = replaceCharacterPlaceholders(event.description, involvedCharacters);
   const eventSection = `[Event]
 Title: "${event.title}"
-Summary: ${eventSummaryWithReplacements}
+Description: ${eventDescriptionWithReplacements}
 
 `;
 

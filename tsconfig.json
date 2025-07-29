@@ -15,7 +15,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "types": ["node"]  // Add this line
+    "types": ["node"] ,
+    "sourceMap": true
   },
   "include": ["src", "server", "shared"],
   "references": [{ "path": "./tsconfig.node.json" }]

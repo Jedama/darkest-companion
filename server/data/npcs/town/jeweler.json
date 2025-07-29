@@ -2,8 +2,9 @@
   "identifier": "jeweler",
   "title": "The Jeweler",
   "name": "Caspian",
-  "summary": "Once a trusted purveyor of fine gems to the Ancestor himself, Caspian fled the Estate before sharing his patron's fate. Now returned, he maintains a facade of modest trade while pursuing an obsession with the comet's crystalline fragments. His keen eye for both value and weakness makes him as dangerous in bargaining as he is useful to those seeking cosmic treasures.",
+  "description": "Once a trusted purveyor of fine gems to the Ancestor himself, Caspian fled the Estate before sharing his patron's fate. Now returned, he maintains a facade of modest trade while pursuing an obsession with the comet's crystalline fragments. His keen eye for both value and weakness makes him as dangerous in bargaining as he is useful to those seeking cosmic treasures.",
   "history": "A master jeweler who grew wealthy serving the Ancestor's extravagant tastes, Caspian's survival instincts led him to disappear just before his patron's final descent into madness. The Ancestor's posthumous comet's impact into the Farmstead drew him back to the Estate, where he now seeks power not in gold, but in otherworldly crystalline formations. His previous experience with the Estate's horrors taught him the value of appearing humble while pursuing grander ambitions.",
+  "summary": "jeweler (Caspian) -- An obsessive and manipulative Jeweler, formerly serving the Ancestor, who now discreetly pursues his acquisitive obsession with the comet's crystalline fragments.",
   "traits": [
     "Obsessive",
     "Manipulative",

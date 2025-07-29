@@ -1,0 +1,76 @@
+{
+  "identifier": "curator",
+  "title": "Curator",
+  "name": "Blathers",
+  "level": 0,
+  "money": 0,
+  "description": "A fastidious academic and lifelong scholar, the Curator has been drawn to the Estate by an insatiable curiosity for its unique and forgotten relics. His keen eye can spot value where others see only ruin, but his vast knowledge is tempered by his physical frailty. While he can support his allies with sharp analysis, his academic condescension and obsessive need to collect artifacts often clash with the brutal reality of combat.",
+  "history": "Having spent his life in the quiet halls of museums, the Curator's world was upended by tales of impossible artifacts emerging from the Estate. Unable to resist the call of such a historical enigma, he journeyed to the hamlet not as a warrior, but as a researcher on the ultimate field expedition. His goal is to document and preserve the treasures of this land before they are lost to the encroaching darkness, a task for which he will risk life and limb—preferably someone else's.",
+  "summary": "A curious and physically frail Curator, whose academic snobbery and obsessive need to collect artifacts clash with the brutal reality of the Estate.",
+  "race": "Human",
+  "gender": "Male",
+  "religion": "None",
+  "zodiac": "Virgo",
+  "traits": [
+    "Scholarly",
+    "Curious",
+    "Frail",
+    "Snobbish",
+    "Organized",
+    "Possessive"
+  ],
+  "status": {
+    "physical": 100,
+    "mental": 100,
+    "affliction": "",
+    "description": "In good health and high spitits",
+    "wounds": [],
+    "diseases": []
+  },
+  "stats": {
+    "strength": 2,
+    "agility": 3,
+    "intelligence": 10,
+    "authority": 5,
+    "sociability": 6
+  },
+  "equipment": [
+    "Shoddy Cane",
+    "Ruined Tome"
+  ],
+  "appearance": {
+    "height": "Short",
+    "build": "Portly",
+    "skinTone": "Fair",
+    "hairColor": "White",
+    "hairStyle": "Styled and neat",
+    "features": "Prominent nose, thick white moustache"
+  },
+  "clothing": {
+    "head": "Monocle",
+    "body": "Proper suit with a ruff collar",
+    "legs": "Dark breeches",
+    "accessories": "Small pouch on belt"
+  },
+  "combat": {
+    "role": "Support Analyst",
+    "strengths": [
+      "Enemy analysis",
+      "Finding extra loot",
+      "Debuffing enemies"
+    ],
+    "weaknesses": [
+      "Close combat",
+      "Low health",
+      "Easily flustered under pressure"
+    ]
+  },
+  "magic": "None",
+  "notes": [
+    "Used to working long 'night shifts' in his museum, he has a higher tolerance for staying awake.",
+    "Obsessively cleans his monocle, especially after a messy encounter.",
+    "Views combat through an academic lens, often muttering about 'improper technique' or 'fascinating anatomy'.",
+    "Despite his fascination with eldritch artifacts, he is secretly terrified of common insects and vermin."
+  ],
+  "relationships": {}
+}

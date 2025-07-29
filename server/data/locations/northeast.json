@@ -3,6 +3,7 @@
     "identifier": "north_east_district",
     "title": "North-eastern District",
     "description": "The estate's most ruined quarter, where the hamlet meets the sea. Buildings list precariously on the eroding cliffs, while the shore path winds treacherously toward the cove. This district bore the brunt of horrors emerging from the manor, its once-proud institutions now standing as hollow shells.",
+    "summary": "north_east_district (North-eastern District) -- The most ruined quarter where the hamlet meets the sea, with buildings on cliffs and a treacherous shore path.",
     "parent": "hamlet",
     "children": ["ravens_row", "athenaeum", "geological_study_hall", "sewer_entrance", "shore_path"]
   },
@@ -10,6 +11,7 @@
     "identifier": "shore_path",
     "title": "Shore Path",
     "description": "A precarious trail carved into the rocky coastline beneath the Estate's towering cliffs. Beginning as simple stone steps near the hamlet, it grows increasingly narrow as it winds beneath the manor's looming presence, eventually becoming little more than a ledge above the churning waters. Those who dare to follow it to its end speak of an enormous cavern mouth where the cove's dark waters vanish beneath the earth.",
+    "summary": "shore_path (Shore Path) -- A precarious trail carved into the rocky coastline, winding beneath the manor towards a cavern mouth.",
     "parent": "north_east_district",
     "children": ["shore_path__covert_jetty", "shore_path__condemned_shack"]
   },
@@ -17,6 +19,7 @@
     "identifier": "shore_path__covert_jetty",
     "title": "Covert Jetty",
     "description": "A sheltered dock extending from a narrow stair cut into the cliff face, designed for discrete deliveries to the manor above. The Ancestor's ingenious pulley system still spans the height of the cliff - chains and hooks dangling like forgotten gallows against the rock face. The greedy crew that made his final delivery disappeared beneath these unnaturally dark waters, their anchor dragging them to unknown depths.",
+    "summary": "shore_path__covert_jetty (Covert Jetty) -- A sheltered dock with a pulley system, designed for discrete deliveries to the manor from the sea.",
     "parent": "shore_path",
     "children": []
   },
@@ -25,6 +28,7 @@
     "title": "Condemned Shack",
     "description": "A crooked structure perched on a small rocky islet, connected to shore by a weathered stone bridge. Built atop the ruins of an ancient lighthouse, its upper floor has long since collapsed, though the ground floor remains stable enough to offer rudimentary shelter. From here, one can see both the manor's abandoned pulley system and the cove's distant mouth, though most residents avoid lingering in either direction.",
     "restored": "A precarious dwelling risen anew upon its rocky islet, with restored upper floor and a distinctive spired addition clinging to its side. Though still ramshackle by any measure, its weathered boards and crooked windows now offer proper shelter from the coastal winds. From its elevated position, one can see both the manor's abandoned pulley system and the cove's distant mouth, though most residents still avoid lingering in either direction.",
+    "summary": "shore_path__condemned_shack (Condemned Shack) -- A structure on a rocky islet, built on an old lighthouse, offering shelter and views of the cove.",
     "parent": "shore_path",
     "capacity": 2,
     "children": ["shore_path__smugglers_hideout"]
@@ -33,6 +37,7 @@
     "identifier": "shore_path__smugglers_hideout",
     "title": "Smuggler's Hideout",
     "description": "A flooded chamber beneath the condemned shack, its entrance half-submerged in the dark waters. This concealed berth once sheltered small boats from prying eyes, cleverly built into the old lighthouse's base. Iron rings for mooring still protrude from the algae-covered walls, though none have dared tie up here since the waters turned black.",
+    "summary": "shore_path__smugglers_hideout (Smuggler's Hideout) -- A hidden, flooded chamber beneath the condemned shack, built into an old lighthouse base for concealing small boats.",
     "parent": "shore_path__condemned_shack",
     "children": []
   },
@@ -41,6 +46,7 @@
     "title": "Athenaeum",
     "description": "Once the Estate's center of esoteric learning, now a shell of broken windows and toppled shelves. The Ancestor spared no expense in its construction, gathering scholars from across the known world to study ancient texts and enigmatic artifacts. A tattered banner still clings to its facade, its faded text - 'Scientia Est Lux Lucis' ('Knowledge Is Light') - now seeming more warning than motto. The domed observatory that once crowned the building lies shattered, its brass telescopes and astronomical instruments long since salvaged by fleeing scholars. When the horrors emerged, this building's position at the hamlet's edge ensured it was among the first to fall.",
     "restored": "A dark-timbered structure of sharp angles and gabled windows, crowned by a restored astronomical dome. Where scholars once sought forbidden secrets, their successors now study ways to contain and counter the Estate's many horrors. A new banner flies proudly: 'Scientia Est Scutum' ('Knowledge Is A Shield'). The building's distinctive silhouette, with its peaked roofs and working observatory, stands as a reminder that knowledge, properly directed, might yet save the hamlet.",
+    "summary": "athenaeum (Athenaeum) -- The Estate's center for esoteric learning, with a distinctive domed observatory, dedicated to studying ancient texts and artifacts.",
     "parent": "north_east_district",
     "children": []
   },
@@ -49,6 +55,7 @@
     "title": "Geological Study Hall",
     "description": "A partially collapsed tower commissioned to study the Estate's underlying rock formations. The eastern wall has entirely given way, leaving floors exposed like open drawers in a cabinet, their contents spilling into the abyss. The final expedition's equipment remains exactly as they left it - theodolites still aimed at survey points, core samples laid out for analysis, log books open to their last entries. None returned from the depths they were measuring.",
     "restored": "Rising dramatically against the coastal sky, its restored spire and observation tower once again serve scientific purpose - though now turned skyward as much as earthward. Modern scholars study the comet's impact since its crash at the Miller's farm, where crystalline corruption inches outward from the ruined mill. The old measurement tools remain in place, their needles still drawn to something deep beneath the manor's foundations, while new instruments track the comet's otherworldly effects on the region's bedrock.",
+    "summary": "geological_study_hall (Geological Study Hall) -- A tower designed for scientific study of the Estate's rock formations and cosmic phenomena, featuring observation tools.",
     "parent": "north_east_district",
     "children": []
   },
@@ -56,6 +63,7 @@
     "identifier": "sewer_entrance",
     "title": "Sewer Entrance",
     "description": "Heavy iron bars seal this ancient tunnel mouth, installed hastily when the Ancestor's early experiments with rat hybridization proved too successful. The bars show signs of persistent gnawing, while distant squeaks and scratches suggest the ratfolk still thrive in their underground domain. A faded warning sign hangs askew: 'Sealed by order of the Estate.'",
+    "summary": "sewer_entrance (Sewer Entrance) -- A heavily barred ancient tunnel mouth, leading to underground domains of thriving ratfolk.",
     "parent": "north_east_district",
     "children": []
   },
@@ -63,6 +71,7 @@
     "identifier": "ravens_row",
     "title": "Raven's Row",
     "description": "A well-maintained street of distinguished townhouses, its northern end marked by ruins where the district's scholarly institutions once stood. While those buildings closer to the manor were the first to fall to its horrors, the southern stretch remains a testament to the hamlet's former prosperity. An ornate metal arch spans the street's entrance, the Estate's Noble Raven worked into its weathered ironwork.",
+    "summary": "ravens_row (Raven's Row) -- A well-maintained street of distinguished townhouses, a testament to the hamlet's former prosperity, leading to scholarly ruins.",
     "parent": "north_east_district",
     "children": ["ravens_row__bakery", "ravens_row__merchant_house", "ravens_row__cryptographer_house", "ravens_row__professor_villa"]
   },
@@ -70,6 +79,7 @@
     "identifier": "ravens_row__bakery",
     "title": "Old Bakery",
     "description": "A sturdy three-story building marking the start of Raven's Row, its ground floor still bearing the worn baker's sign. Though the shop itself lies dormant, the massive stone ovens remain intact, and on quiet mornings, old residents swear they can still catch the ghost of fresh bread on the wind. The upper floors offer comfortable lodging, with large windows overlooking the morning bustle of the market square.",
+    "summary": "ravens_row__bakery (Old Bakery) -- A sturdy three-story building at Raven's Row, once a bakery with intact ovens, now offering comfortable lodging.",
     "parent": "ravens_row",
     "capacity": 2,
     "children": []
@@ -78,6 +88,7 @@
     "identifier": "ravens_row__merchant",
     "title": "Merchant's Row House",
     "description": "The grandest of Raven's Row's surviving townhouses, built to display its original owner's prosperity. Three stories of faded elegance rise above a small courtyard, its distinctive bay windows offering views down to the harbor. Though time has dulled its decorative flourishes, the spacious rooms and practical storage spaces remain appealing to those of mercantile inclination.",
+    "summary": "ravens_row__merchant (Merchant's Row House) -- The grandest townhouse on Raven's Row, built to display prosperity, with spacious rooms and harbor views.",
     "parent": "ravens_row",
     "capacity": 3,
     "children": []
@@ -86,6 +97,7 @@
     "identifier": "ravens_row__cryptographer",
     "title": "Cryptographer's Residence",
     "description": "A peculiar narrow house whose previous owner's paranoia proved surprisingly practical. Multiple locks secure every door, hidden compartments riddle the walls, and curious mechanical features suggest secrets yet undiscovered. Despite its oddities - or perhaps because of them - the house remains surprisingly well-preserved.",
+    "summary": "ravens_row__cryptographer (Cryptographer's Residence) -- A peculiar narrow house with multiple locks and hidden compartments, suggesting undiscovered secrets.",
     "parent": "ravens_row",
     "capacity": 2,
     "children": []
@@ -94,6 +106,7 @@
     "identifier": "ravens_row__professor",
     "title": "Professor's Villa",
     "description": "The last grand house before the ruins begin. Its northern wing lies collapsed where the horrors first struck, but the surviving rooms retain their dignified character - wood-paneled studies and book-lined walls speaking to quieter days. The original occupant, like many of the district's prestigious inhabitants, now rests beneath a wooden cross on the abbey's northern slope.",
+    "summary": "ravens_row__professor (Professor's Villa) -- A grand house on Raven's Row, with dignified wood-paneled studies and book-lined walls, a symbol of scholarly life.",
     "parent": "ravens_row",
     "capacity": 2,
     "children": []
@@ -102,6 +115,7 @@
     "identifier": "schoolhouse",
     "title": "Schoolhouse",
     "description": "Set apart from the main street in its own small courtyard, the hamlet's schoolhouse endures despite all odds. The Caretaker maintains a semblance of education here between his other duties, his rambling lectures occasionally straying from arithmetic to apocalyptic prophecy. Despite the stains on the ceiling and the occasional inexplicable scratching from within the walls, the neat rows of desks and determinedly organized shelves of primers suggest an institution refusing to succumb to the surrounding chaos.",
+    "summary": "schoolhouse (Schoolhouse) -- The hamlet's enduring schoolhouse, where education is maintained with neat rows of desks and organized primers, despite the surrounding chaos.",
     "parent": "north_east_district",
     "children": [],
     "npcs": ["caretaker"]
@@ -110,6 +124,7 @@
     "identifier": "manor_staircase",
     "title": "Manor Staircase",
     "description": "The foot of a long, winding stone staircase ascending directly from the northeast district to the manor far above. While nobility would arrive through the Courtyard path by the Dower House, this more practical path served the manor's staff and, later, the endless stream of workers and miners hired for the Ancestor's excavations. Iron lantern brackets still line the way, though their lights no longer guide workers home in the evening dark.",
+    "summary": "manor_staircase (Manor Staircase) -- A long, winding stone staircase ascending from the district to the manor above, primarily used by staff and workers.",
     "parent": "north_east_district",
     "children": []
   }

@@ -3,18 +3,21 @@
     "identifier": "reformatory",
     "title": "St. Martha's Reformatory",
     "description": "A grim stone structure perched on a desolate hillside. Its gray walls bear the weathering of harsh seasons, while inside, dormitories lined with iron-framed beds house troubled girls under the stern watch of the Sisters. The branding chamber remains most disturbing, its implements for 'marking the impure' surrounded by stains no amount of scrubbing can remove. Daily routines of prayer, labor, and harsh correction continue in this isolated place where the outside world's judgments cannot reach.",
+    "summary": "reformatory (St. Martha's Reformatory) -- A grim stone structure on a desolate hillside, serving as an isolated institution for troubled girls, known for its strict routines and branding chamber.",
     "parent": "kingdom"
   },
   {
     "identifier": "burnt_cottage",
     "title": "The Woodsman's Cottage",
     "description": "A blackened foundation ringed by scorched trees, all that remains of the humble home where the Woodsman and his wife briefly gave shelter to the Runaway. The stone hearth stands amid the devastation, reaching skyward like an accusing finger. Despite years passing, no vegetation reclaims this scarred earth.",
+    "summary": "burnt_cottage (The Woodsman's Cottage) -- A blackened foundation and scorched trees, all that remains of the humble home where the Woodsman and his wife once lived.",
     "parent": "kingdom"
   },
   {
     "identifier": "harvest_house",
     "title": "Harvest House",
     "description": "A three-story farmhouse standing proudly among fertile fields, recently expanded as its owners' fortunes have risen. Though still modest compared to true noble estates, the newly-titled Lord and Lady have adorned it with hasty attempts at grandeur. Farm tools and practical implements have been replaced with imitation finery. Local farmers speak of invitations to dine with their former equals, though many note the curious pattern of travelers who never complete their journey to these celebrated feasts.",
+    "summary": "harvest_house (Harvest House) -- A three-story farmhouse among fertile fields, expanded by its newly-titled owners, known for grand feasts and disappearing travelers.",
     "parent": "kingdom",
     "children": ["harvest_house_servants", "harvest_house_dining", "harvest_house_nursery"]
   },
@@ -22,6 +25,7 @@
     "identifier": "harvest_house_servants",
     "title": "Servants' Quarter",
     "description": "The farmhouse's ground floor, hastily converted from family living space to servants' quarters and food preparation areas. Livestock pens adjoin the kitchen, allowing the Carver immediate access to fresh meat. A sturdy cart with iron wheels stands near the back door, its bed stained dark despite frequent scrubbing. Servants hired from neighboring farms whisper about the master's insistence that all visitors be announced before being allowed upstairs, and the strange sounds that echo through the floorboards during late-night feasts.",
+    "summary": "harvest_house_servants (Servants' Quarter) -- The ground floor of Harvest House, converted into servants' quarters and food preparation areas, with adjoining livestock pens and unusual practices.",
     "parent": "harvest_house",
     "children": [],
     "npcs": ["carver"]
@@ -30,6 +34,7 @@
     "identifier": "harvest_house_dining",
     "title": "Dining Hall",
     "description": "Once the farmhouse's modest common room, now expanded by knocking down walls to create space for a long table surrounded by mismatched chairs acquired from across the region. Candles in tarnished holders provide inadequate light, casting most of the room in shadow while illuminating the heaping platters that never seem to empty. The newly-installed sideboard sags under silver serving dishes that gleam with recent polishing, a stark contrast to the rough-hewn beams overhead where hooks meant for curing meats now hold tapestries awkwardly cut to fit the space.",
+    "summary": "harvest_house_dining (Dining Hall) -- An expanded dining hall in Harvest House, featuring a long table for feasts, mismatched chairs, and heaping, never-ending platters.",
     "parent": "harvest_house",
     "children": [],
     "npcs": ["lord", "lady"]
@@ -38,6 +43,7 @@
     "identifier": "harvest_house_nursery",
     "title": "The Nursery",
     "description": "The uppermost floor, once sleeping quarters for a large farming family, now converted into an unsettling nursery despite no announcement of an expected child. The central cradle, built from butcher's blocks joined together, dominates the room with its unusual size and sturdiness. Walls once whitewashed now display crude paintings of feasting scenes, while strings of preserved meats hang from ceiling hooks in place of traditional mobiles. The Lady is often found here, rocking in a chair beside the empty cradle, her swollen form suggesting either impending motherhood or simply the effects of endless consumption.",
+    "summary": "harvest_house_nursery (The Nursery) -- The uppermost floor of Harvest House, converted into an unsettling nursery with a large cradle made of butcher's blocks and crude feasting paintings.",
     "parent": "harvest_house",
     "children": []
   }

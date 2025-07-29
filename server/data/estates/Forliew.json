@@ -1,7 +1,7 @@
 {
   "estateName": "Forliew",
   "money": 0,
-  "month": 1,
+  "month": 0,
   "characters": {
     "crusader": {
       "identifier": "crusader",
@@ -9,8 +9,9 @@
       "name": "Reynauld",
       "level": 0,
       "money": 0,
-      "summary": "Once a simple farmer who joined the war to save his family from famine, Reynauld rose unexpectedly through martial prowess to become a legendary commander. The horrors he witnessed and his own transformation into a hardened warrior left him unable to return to his former life. His peculiar habit of collecting trinkets from fallen enemies and his distinctive whistling became well-known among his men. Now drawn to the Estate, he seeks not holy war but a deeper purpose in combating forces that threaten the very fabric of humanity.",
+      "description": "Once a simple farmer who joined the war to save his family from famine, Reynauld rose unexpectedly through martial prowess to become a legendary commander. The horrors he witnessed and his own transformation into a hardened warrior left him unable to return to his former life. His peculiar habit of collecting trinkets from fallen enemies and his distinctive whistling became well-known among his men. Now drawn to the Estate, he seeks not holy war but a deeper purpose in combating forces that threaten the very fabric of humanity.",
       "history": "Born to till the soil, Reynauld lived a peaceful life with his wife and young son until famine threatened their survival. He joined the army as a conscript, leaving behind promises of return. His natural leadership and battlefield courage saw him rise from farmer to feared commander. In a pivotal moment, he spared The Warlord, recognizing the futility of endless conflict. This act, coupled with his growing disillusionment, led him to abandon both the war and thoughts of returning home, knowing he could no longer fit into that simple life.",
+      "summary": "A stalwart and inspiring former farmer turned legendary Crusader, haunted by war, who struggles with kleptomanic tendencies and a conflicted past.",
       "race": "Human",
       "gender": "Male",
       "religion": "The Light",
@@ -26,14 +27,14 @@
         "physical": 100,
         "mental": 100,
         "affliction": "",
-        "description": "In good health and high spitits",
+        "description": "His grim understanding of the corruption has deepened, strengthening his resolve to confront the unholy forces within the Estate.",
         "wounds": [],
         "diseases": []
       },
       "stats": {
         "strength": 8,
         "agility": 3,
-        "intelligence": 5,
+        "intelligence": 6,
         "authority": 7,
         "sociability": 4
       },
@@ -75,7 +76,9 @@
         "Has kleptomanic tendencies that he tries to hide",
         "Does a characteristic whistle after nabbing something, or when otherwise pleased with himself",
         "Writes letters to his family that he never sends",
-        "Wears simple farmer's clothes when out of his armor"
+        "Wears simple farmer's clothes when out of his armor",
+        "Possesses a keen eye for subtle environmental details and anomalies.",
+        "Possesses a heightened sensitivity to and understanding of unholy or unnatural transformations in the environment."
       ],
       "relationships": {
         "heiress": {
@@ -89,9 +92,9 @@
           "description": "While the crusader intends to uphold his duty with silent diligence, he realizes the meek Heir is unfit to lead."
         },
         "highwayman": {
-          "affinity": 7,
+          "affinity": 8,
           "dynamic": "Comrade",
-          "description": "The crusader sees in the highwayman a kindred spirit; both men with troubled pasts seeking to carve out a purpose through the quest they now share."
+          "description": "The crusader continues to see the highwayman as a vital comrade, valuing his pragmatic cynicism as a grounded perspective amidst the unholy transformations they face."
         },
         "seraph": {
           "affinity": 4,
@@ -124,8 +127,9 @@
       "name": "Dismas",
       "level": 0,
       "money": 0,
-      "summary": "Once a prisoner, the Highwayman is now a haunted fugitive, living off the squalor of the city's canals and the meager pickings from vermin. His vision of freedom has been replaced by a reality of degradation, driving him to reluctantly offer his services for a final, desperate heist. Now, his path has unexpectedly converged with that of the Heiress and the Heir, offering a precarious chance at redemption through service.",
+      "description": "Once a prisoner, the Highwayman is now a haunted fugitive, living off the squalor of the city's canals and the meager pickings from vermin. His vision of freedom has been replaced by a reality of degradation, driving him to reluctantly offer his services for a final, desperate heist. Now, his path has unexpectedly converged with that of the Heiress and the Heir, offering a precarious chance at redemption through service.",
       "history": "The Highwayman's tale is one of escape and survival, painted with strokes of desperation and grim resolve. Escaping from incarceration during a prison riot, he sought refuge in the underbelly of the city, subsisting in conditions that stripped away his illusions of freedom. A final job, taken out of sheer necessity, ended in tragedy, leaving him with a burden of guilt that no distance can alleviate.",
+      "summary": "A rugged, desperate, and remorseful Highwayman, haunted by his past as a fugitive, who cheats at cards and possesses a cynical gallows humor.",
       "race": "Human",
       "gender": "Male",
       "religion": "None",
@@ -141,14 +145,14 @@
         "physical": 100,
         "mental": 100,
         "affliction": "",
-        "description": "In good health and high spitits",
+        "description": "His grim understanding of the horrors within the Estate has deepened, confirming his cynical view of survival and the lack of mercy in this world.",
         "wounds": [],
         "diseases": []
       },
       "stats": {
         "strength": 6,
         "agility": 8,
-        "intelligence": 5,
+        "intelligence": 7,
         "authority": 3,
         "sociability": 3
       },
@@ -186,7 +190,10 @@
       "notes": [
         "Known to cheat at cards",
         "Has a gallows sense of humor",
-        "Carries a tarnished locket taken from a past victim as a reminder of his sins"
+        "Carries a tarnished locket taken from a past victim as a reminder of his sins",
+        "Perceptive in discerning hidden guilt and deep-seated burdens in others.",
+        "Possesses a keen eye for physical evidence of violence and its implications, discerning the nature of a struggle from subtle clues.",
+        "Possesses a keen ability to identify deceptive cries for help as potential traps."
       ],
       "relationships": {
         "heiress": {
@@ -200,9 +207,9 @@
           "description": "Despite the Heir's distrust, the highwayman is resolute in his role as a guard, seeing their safety as his path to absolution."
         },
         "crusader": {
-          "affinity": 7,
+          "affinity": 8,
           "dynamic": "Comrade",
-          "description": "Despite their differences, the highwayman and the crusader swiftly bonded over the mistakes of their respective pasts and their shared quest for redemption."
+          "description": "Despite their differing worldviews, the highwayman respects the crusader's unwavering resolve, finding his idealism a necessary counterpoint to his own cynicism in the face of shared horrors."
         }
       },
       "locations": {
@@ -229,8 +236,9 @@
       "name": "Persephone",
       "level": 0,
       "money": 0,
-      "summary": "The Heiress to the accursed Estate, excels at taking command in even the most daunting situations. With her sharp intellect and strategic prowess, she fearlessly leads the charge to reclaim her ancestral home while deftly managing the nearby hamlet. Her natural authority and decisive leadership serve as a beacon of strength for a community besieged by supernatural horrors. Though grateful for allies brave enough to join her cause, Persephone's unwavering confidence in her own judgment can manifest as stubborn resistance when her authority is challenged.",
+      "description": "The Heiress to the accursed Estate, excels at taking command in even the most daunting situations. With her sharp intellect and strategic prowess, she fearlessly leads the charge to reclaim her ancestral home while deftly managing the nearby hamlet. Her natural authority and decisive leadership serve as a beacon of strength for a community besieged by supernatural horrors. Though grateful for allies brave enough to join her cause, Persephone's unwavering confidence in her own judgment can manifest as stubborn resistance when her authority is challenged.",
       "history": "Upon receiving a chilling letter from her late ancestor, the Heiress left her academic pursuits with her brother in tow to take up her role as the Heiress of the Estate. She found herself thrust into a nightmarish reality where her ancestral home was not only physically deteriorated but also infested with the horrors summoned by her ancestor's dark rituals.",
+      "summary": "The decisive Heiress, a strategic and authoritative leader who struggles with stubbornness and anxiety about losing control, often resorting to wine.",
       "race": "Human",
       "gender": "Female",
       "religion": "None",
@@ -245,17 +253,17 @@
       ],
       "status": {
         "physical": 100,
-        "mental": 100,
+        "mental": 90,
         "affliction": "",
-        "description": "In good health and high spirits",
+        "description": "Focused and resolute, driven by a stubborn determination to piece together the tragic fate of past researchers and recover their lost knowledge.",
         "wounds": [],
         "diseases": []
       },
       "stats": {
         "strength": 2,
         "agility": 3,
-        "intelligence": 8,
-        "authority": 9,
+        "intelligence": 9,
+        "authority": 10,
         "sociability": 9
       },
       "equipment": [
@@ -293,13 +301,15 @@
         "Turns to wine when overwhelmed by stress",
         "Attracted to, and can't help staring at, women with ample breasts",
         "Scared of losing her authority, she meets those challenging it by becoming more commanding and inflexible.",
-        "Made early compromises for security that are now returning as complications"
+        "Suspects the Abbey is involved in coercive practices related to the new burials.",
+        "Believes Barkeep Bram is directly complicit or holds vital information regarding the unusual burials.",
+        "Resents the futility of knowledge left to decay and is driven to reclaim or understand it."
       ],
       "relationships": {
         "kheir": {
-          "affinity": 7,
+          "affinity": 8,
           "dynamic": "Familial",
-          "description": "Though protective of her brother, the Heiress finds his scrutiny of her management decisions frustrating and undermining to her authority."
+          "description": "Despite a cold exterior and a lifetime of bickering, the heiress loves and will not let harm come upon the Heir."
         },
         "crusader": {
           "affinity": 5,
@@ -349,8 +359,9 @@
       "name": "Percival",
       "level": 0,
       "money": 0,
-      "summary": "The Heir to the estate is a brilliant scholar and capable manager who is desperately trying to cope in this world of horrors far beyond his comfort. Despite being a man of cowardice and meek nature, Percival's keen intellect and organizational skills prove invaluable in coordinating the chaotic efforts to reclaim his ancestral home.",
+      "description": "The Heir to the estate is a brilliant scholar and capable manager who is desperately trying to cope in this world of horrors far beyond his comfort. Despite being a man of cowardice and meek nature, Percival's keen intellect and organizational skills prove invaluable in coordinating the chaotic efforts to reclaim his ancestral home.",
       "history": "Raised in academic circles far from the estate's dark legacy, Percival was reluctantly drawn into the family's quest by his sister. Despite his initial hesitation, he's found ways to apply his scholarly knowledge and managerial expertise to the daunting task at hand.",
+      "summary": "The meek, cowardly Heir, a brilliant scholar with a drinking problem, who struggles to cope with horrors and is very possessive of his belongings.",
       "race": "Human",
       "gender": "Male",
       "religion": "None",
@@ -361,13 +372,14 @@
         "Scholarly",
         "Anxious",
         "Resourceful",
-        "Possessive"
+        "Possessive",
+        "Alarmed"
       ],
       "status": {
         "physical": 100,
-        "mental": 100,
+        "mental": 45,
         "affliction": "",
-        "description": "In good health and high spitits",
+        "description": "Overwhelmed by paralyzing dread, Percival's fear of the unknown horrors within the Estate reached a peak, manifesting in visible signs of acute anxiety.",
         "wounds": [],
         "diseases": []
       },
@@ -375,7 +387,7 @@
         "strength": 2,
         "agility": 2,
         "intelligence": 9,
-        "authority": 6,
+        "authority": 7,
         "sociability": 8
       },
       "equipment": [
@@ -413,13 +425,13 @@
       "notes": [
         "Hates waste and is very possesive of his belongings",
         "Has a penchant for fine wines to calm his nerves",
-        "Particularly sensitive about financial decisions made without his input"
+        "Experiences physical symptoms of extreme anxiety, such as a visible bob in his throat and shallow breathing, when confronted with overwhelming horror."
       ],
       "relationships": {
         "heiress": {
-          "affinity": 7,
-          "dynamic": "Familial",
-          "description": "While he admires his sister's initiative, the Heir feels undermined by her unilateral decisions regarding estate finances, creating a growing tension between his admiration and resentment."
+          "affinity": 8,
+          "dynamic": "Shared Burden",
+          "description": "The grim discovery and the Abbot's words deepen their shared sense of dread, solidifying their common cause against the encroaching horrors."
         },
         "crusader": {
           "affinity": 4,
@@ -466,18 +478,77 @@
     }
   },
   "characterLogs": {
-    "kheir": [
-      {
-        "month": 1,
-        "entry": "Discovered his sister had made financial arrangements regarding the estate without consulting him.",
-        "expiryMonth": 8
-      }
-    ],
     "heiress": [
       {
-        "month": 1,
-        "entry": "Revealed she had made compromises with the Butcher's Circus for protection when first arriving at the estate.",
-        "expiryMonth": 8
+        "month": 0,
+        "entry": "Confronted Abbot Bertram regarding the alarming rate of burials and was met with chilling evasiveness, hinting at forced 'offerings.'",
+        "expiryMonth": 7
+      },
+      {
+        "month": 0,
+        "entry": "Confirmed her suspicions regarding the unusual burials and the barkeep's hidden knowledge, now viewing Bram as a crucial, if unwilling, source of information.",
+        "expiryMonth": 3
+      },
+      {
+        "month": 0,
+        "entry": "Discovered evidence of a vanished expedition's research in the Geological Study Hall, fueling her resentment for wasted knowledge.",
+        "expiryMonth": 3
+      },
+      {
+        "month": 0,
+        "entry": "Her suspicion towards Barkeep Bram was validated by his deliberate silence regarding the Wolf Room's past occupants, reinforcing her belief in his complicity in hidden affairs.",
+        "expiryMonth": 3
+      }
+    ],
+    "kheir": [
+      {
+        "month": 0,
+        "entry": "Overwhelmed by the disturbing expansion of the graveyard and Abbot Bertram's cryptic, unsettling responses.",
+        "expiryMonth": 3
+      },
+      {
+        "month": 0,
+        "entry": "His anxieties regarding the abnormal rate of burials and the Abbot's behavior were significantly heightened by the barkeep's evasive and fearful responses.",
+        "expiryMonth": 3
+      },
+      {
+        "month": 0,
+        "entry": "Overwhelmed by profound anxiety and dread upon witnessing the exposed, decaying Geological Study Hall and sensing the pervasive horror.",
+        "expiryMonth": 3
+      },
+      {
+        "month": 0,
+        "entry": "The oppressive atmosphere of the Wolf Room intensified Percival's inherent dread, solidifying his fears about the Estate's hidden horrors.",
+        "expiryMonth": 3
+      }
+    ],
+    "highwayman": [
+      {
+        "month": 0,
+        "entry": "Cynically observed the barkeep's obvious guilt and offered a cautionary, pragmatic warning against stirring up dangerous truths.",
+        "expiryMonth": 3
+      },
+      {
+        "month": 0,
+        "entry": "Discovered physical evidence of a brutal, monstrous attack in the Geological Study Hall, confirming a grim fate for its previous inhabitants.",
+        "expiryMonth": 3
+      },
+      {
+        "month": 0,
+        "entry": "Identified subtle physical evidence of decay and violence, correctly discerning a perceived cry for help as a trap and reinforcing his cynical worldview.",
+        "expiryMonth": 3
+      }
+    ],
+    "crusader": [
+      {
+        "month": 0,
+        "entry": "Reynauld's keen observational skills were evident as he systematically scoured the room, identifying telling details like a loose floorboard and violent wall scratches.",
+        "expiryMonth": 1
+      },
+      {
+        "month": 0,
+        "entry": "Recognized the unnatural 'change' in the environment, deepening his understanding of the forces at work within the Estate and solidifying his resolve to confront them.",
+        "expiryMonth": 7
       }
     ]
   }

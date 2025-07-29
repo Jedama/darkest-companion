@@ -1,0 +1,122 @@
+/* src/components/storymodal/ActivityLogModalContent.css */
+
+.activity-log-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  /* Responsive sizing for the paper */
+  width: 40vw; /* Use viewport width for responsiveness */
+  height: calc(40vw * 1.4); /* Maintain aspect ratio (700px height / 500px width = 1.4) */
+  max-width: 600px; /* Prevent it from getting too large on very wide screens */
+  max-height: 840px; /* Maintain aspect ratio with max-width */
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001; /* Above modal backdrop */
+
+  /* Fade-in animation for the entire log */
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+.activity-log-container.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.activity-log-paper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensure the image fits without cropping */
+  pointer-events: auto; /* Allow interaction with the paper area */
+}
+
+.activity-log-input-wrapper {
+  position: absolute;
+  /* Precise positioning and sizing to overlay the lines on the paper image */
+  top: 23%; /* Adjust to align with the start of the lines in the image */
+  left: 14%; /* Adjust to align with the left writing margin */
+  width: 73%; /* Adjust to fit the paper lines horizontally */
+  height: 60%; /* Adjust to fit the vertical space for writing */
+  overflow: hidden; /* Hide scrollbars if text goes beyond */
+  pointer-events: auto; /* Allow input */
+  scrollbar-width: none;    /* For Firefox */
+}
+
+/* For Webkit browsers (Chrome, Safari, Edge) */
+.activity-log-input-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.activity-log-textarea {
+  width: 100%;
+  height: 100%;
+  background: transparent; /* Make background transparent */
+  border: none; /* Remove default border */
+  resize: none; /* Prevent user from resizing */
+  padding: 0; /* Remove default padding, content will align to the wrapper's padding */
+  box-sizing: border-box;
+  color: #333; /* Darker text for readability on paper */
+  font-family: 'Italique', sans-serif; /* Apply the desired font */
+  font-size: clamp(1.2rem, 2vw, 1.8rem); /* Responsive font size, min 1.2rem, max 1.8rem */
+  line-height: 2.2; /* Line spacing for readability */
+  caret-color: #333; /* Color of the typing cursor */
+  outline: none; /* Remove default focus outline */
+  scrollbar-width: none;    /* For Firefox */
+}
+
+/* For Webkit browsers (Chrome, Safari, Edge) */
+.activity-log-textarea::-webkit-scrollbar {
+  display: none;
+}
+
+.activity-log-placeholder {
+  position: absolute;
+  top: 0; /* Align with the top of the input wrapper */
+  left: 0;
+  width: 100%;
+  padding: 0; /* Match textarea padding */
+  box-sizing: border-box;
+  color: rgba(51, 51, 51, 0.6); /* Faded color */
+  font-family: 'Italique', sans-serif;
+  font-size: clamp(1.2rem, 2vw, 1.8rem); /* Match textarea font size */
+  line-height: 2.2;
+  pointer-events: none; /* Important: allows clicks to pass to textarea below */
+  transition: opacity 0.3s ease-out; /* Smooth fade for placeholder */
+  text-align: center; /* Center placeholder text horizontally */
+}
+
+/* Quill button styling and animation */
+.activity-log-quill-button {
+  position: absolute;
+  bottom: -5%; /* Adjust as needed to place it below the paper */
+  right: -60%; /* Adjust as needed to place it to the right of the paper */
+  
+  /* Sizing: almost as tall as the paper */
+  width: auto; 
+  height: 65%; 
+  
+  cursor: pointer;
+  z-index: 10002; /* Ensure it's above paper and log container */
+  transition: transform 0.2s ease-out;
+  pointer-events: auto; /* Make button clickable */
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5)); /* Subtle shadow for depth */
+  transform-origin: bottom right; /* Anchor for rotation/scale effect */
+}
+
+/* Apply ALL hover effects (grow, wiggle, glow) when the 'is-hovered-opaque' class is present */
+.activity-log-quill-button.is-hovered-opaque {
+  transform: scale(1.05) rotate(3deg); /* The wiggle and larger grow */
+  filter: drop-shadow(0 0 5px white); /* The glow effect (increased for more visibility) */
+}

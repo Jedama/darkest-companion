@@ -2,8 +2,9 @@
   "identifier": "survivalist",
   "title": "Survivalist",
   "name": "Raven",
-  "summary": "Dwelling in a makeshift camp at the Weald's edge, the Survivalist offers her hard-won knowledge to those who would venture beyond the hamlet's walls. Her understanding of both wilderness survival and the Estate's particular dangers makes her teachings invaluable, though her methods often seem as harsh as the land itself.",
+  "description": "Dwelling in a makeshift camp at the Weald's edge, the Survivalist offers her hard-won knowledge to those who would venture beyond the hamlet's walls. Her understanding of both wilderness survival and the Estate's particular dangers makes her teachings invaluable, though her methods often seem as harsh as the land itself.",
   "history": "When the horrors first emerged from the manor, Raven did not flee but instead watched, learned, and adapted. She discovered which plants remained safe to eat when others turned poisonous, how to read the new patterns of corrupted wildlife, and where the land itself had become treacherous.",
+  "summary": "survivalist (Raven) -- An observant and hardened Survivalist, dwelling reclusively at the Weald's edge, who offers invaluable, harsh knowledge of wilderness survival and the Estate's dangers.",
   "traits": [
     "Observant",
     "Hardened",

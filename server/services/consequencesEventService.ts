@@ -21,7 +21,7 @@ export async function compileConsequencesPrompt(options: {
   let charactersSection = `[Characters]\n`;
   for (const char of involvedCharacters) {
     charactersSection += `  - [${char.identifier}] ${char.name} (${char.title}):\n`;
-    charactersSection += `  - Summary: ${char.summary}\n`;
+    charactersSection += `  - Description: ${char.description}\n`;
     charactersSection += `  - History: ${char.history}\n`;
     charactersSection += `  - Stats: strength: ${char.stats.strength}, agility: ${char.stats.agility}, intelligence: ${char.stats.intelligence}, authority: ${char.stats.authority}, sociability: ${char.stats.sociability}\n`;
     charactersSection += `  - Traits: ${char.traits.join(', ')}\n`;

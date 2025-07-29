@@ -2,8 +2,9 @@
   "identifier": "physician",
   "title": "Physician",
   "name": "Imogen",
-  "summary": "The Physician treats the hamlet's psychological afflictions from behind her ornate mask, her soft-spoken manner creating a soothing atmosphere for her vapor treatments. Where the Sanitarium's walls once echoed only with Daphne's clinical approach, the Physician's gentle voice now guides patients through mental transformations achieved through her aromatic concoctions and meditative techniques. Though her methods diverge dramatically from conventional medicine, their effectiveness cannot be denied.",
+  "description": "The Physician treats the hamlet's psychological afflictions from behind her ornate mask, her soft-spoken manner creating a soothing atmosphere for her vapor treatments. Where the Sanitarium's walls once echoed only with Daphne's clinical approach, the Physician's gentle voice now guides patients through mental transformations achieved through her aromatic concoctions and meditative techniques. Though her methods diverge dramatically from conventional medicine, their effectiveness cannot be denied.",
   "history": "Graduated under the Professor's tutelage from the University, she, alongside the Chirurgeon, sought to cure the flaws of the human mind. Their paths eventually diverged as the Chirurgeon embraced increasingly invasive trepanation methods, while Imogen pursued the healing properties of vapors and meditation. The hamlet's unique afflictions drew her from her travels, offering minds that conventional medicine had failed to heal.",
+  "summary": "physician (Imogen) -- A patient and perceptive Physician, employing gentle vapor treatments and meditative techniques to heal psychological afflictions, whose methods are remarkably effective.",
   "traits": [
     "Patient",
     "Gentle",

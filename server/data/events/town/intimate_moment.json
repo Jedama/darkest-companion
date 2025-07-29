@@ -2,7 +2,7 @@
     "identifier": "intimate_moment0",
     "title": "Intimate moment",
     "type": "town",
-    "summary": "[Character 1] and [Character 2] share a quiet, intimate moment together.",
+    "description": "[Character 1] and [Character 2] share a quiet, intimate moment together.",
     "nrChars": [2, 2],
     "keywords": ["Admittance", "Affection", "Trust", "Unreciprocated", "Humorous turn", "Light in darkness"],
     "location": ["Residence", "town_square", "graveyard", "shore", "field"]

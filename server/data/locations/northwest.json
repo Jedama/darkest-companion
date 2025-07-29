@@ -3,6 +3,7 @@
     "identifier": "north_west_district",
     "title": "North-western District",
     "description": "The Hamlet's most refined area, home to the Dower House, the old library with its arched windows, and the town hall with its aging clock tower.",
+    "summary": "north_west_district (North-western District) -- The Hamlet's most refined area, home to the Dower House, library, town hall, and bank.",
     "parent": "hamlet",
     "children": ["dower_house", "library", "town_hall", "bank"]
   },
@@ -10,6 +11,7 @@
     "identifier": "dower_house",
     "title": "Dower House",
     "description": "An old building intended for the Estate's widow. As the Ancestor-despite many prospects-never married, it had stood uninhabited for decades. Ivy creeps along its sturdy, weathered walls.",
+    "summary": "dower_house (Dower House) -- An old, sturdy building intended as a refined residence, now occupied by the Heir and Heiress.",
     "parent": "north_west_district",
     "children": ["dower_house__basement", "dower_house__first_floor", "dower_house__second_floor", "dower_house__third_floor", "dower_house__garden"],
     "log": ["Upon arriving at the Hamlet, the Heir and Heiress claimed their birthright as owners of the Estate. They chose to occupy and begin to refurbish the long-empty Dower House."]
@@ -18,6 +20,7 @@
     "identifier": "dower_house__basement",
     "title": "Basement",
     "description": "A cold, damp expanse beneath the main floor, often avoided due to its chill and the eerie echoes it carries.",
+    "summary": "dower_house__basement (Basement) -- A cold, damp lower level beneath the Dower House, containing a wine cellar and storage space.",
     "parent": "dower_house",
     "children": ["dower_house__wine_cellar", "dower_house__storage_space"]
   },
@@ -25,6 +28,7 @@
     "identifier": "dower_house__wine_cellar",
     "title": "Wine Cellar",
     "description": "Dusty racks of ancient bottles bearing the estate's faded crest line these walls. A lingering scent of stale cork and cobwebs hangs in the air.",
+    "summary": "dower_house__wine_cellar (Wine Cellar) -- A cellar in the Dower House basement, used for storing ancient wine bottles with the estate's crest.",
     "parent": "dower_house__basement",
     "children": []
   },
@@ -32,6 +36,7 @@
     "identifier": "dower_house__storage_space",
     "title": "Storage Space",
     "description": "Wooden crates and barrels fill most of the space, with narrow paths between them. A broken grandfather clock leans against one wall, while stacked chairs and rolled carpets take up another. Iron hooks in the ceiling beams suggest hanging storage was once used.",
+    "summary": "dower_house__storage_space (Storage Space) -- A space in the Dower House basement filled with wooden crates, barrels, and household items.",
     "parent": "dower_house__basement",
     "children": []
   },
@@ -39,6 +44,7 @@
     "identifier": "dower_house__first_floor",
     "title": "First Floor",
     "description": "An expansive level showcasing the Dower House's former grandeur, now dulled by time and neglect.",
+    "summary": "dower_house__first_floor (First Floor) -- An expansive level of the Dower House, showcasing its former grandeur with reception, dining, and service areas.",
     "parent": "dower_house",
     "children": ["dower_house__parlor", "dower_house__grand_hall", "dower_house__dining_hall", "dower_house__portrait_room", "dower_house__kitchen", "dower_house__barracks", "dower_house__butlers_room", "dower_house__servants_quarters"]
   },
@@ -46,6 +52,7 @@
     "identifier": "dower_house__parlor",
     "title": "Parlor",
     "description": "An elegant reception room dominated by a large marble fireplace and gilt-framed mirrors. Three sets of tall windows overlook the garden, each flanked by heavy damask curtains. A pianoforte occupies one corner, with chairs and small tables arranged for conversation, while a narrow cloak room adjoins the entrance, fitted with brass hooks, an oak bench, and a clouded mirror.",
+    "summary": "dower_house__parlor (Parlor) -- An elegant reception room in the Dower House, featuring a marble fireplace, a pianoforte, and garden views.",
     "parent": "dower_house__first_floor",
     "children": []
   },
@@ -53,6 +60,7 @@
     "identifier": "dower_house__grand_hall",
     "title": "Grand Hall",
     "description": "A modest but well-proportioned foyer with a brass chandelier hanging from a medallioned ceiling. A single curved staircase leads to the upper floor, while faded tapestries depicting the estate's history hang between oak-framed windows. The slate floor, laid in a diamond pattern, shows wear from decades of careful servants' footsteps.",
+    "summary": "dower_house__grand_hall (Grand Hall) -- A well-proportioned foyer in the Dower House, with a curved staircase, chandelier, and historical tapestries.",
     "parent": "dower_house__first_floor",
     "children": []
   },
@@ -60,6 +68,7 @@
     "identifier": "dower_house__dining_hall",
     "title": "Dining Hall",
     "description": "A banquet table sized for intimate family dinners centers the room, its surface dulled by years without polish. Tall windows draped in dusty green velvet alternate with modest portraits of previous housekeepers and butlers, while a sturdy sideboard still holds the house's everyday silver service. The dumbwaiter's brass doors wait quietly in the corner, last used when the house still maintained a full staff.",
+    "summary": "dower_house__dining_hall (Dining Hall) -- A room in the Dower House with a banquet table for intimate family dinners, decorated with portraits and a dumbwaiter.",
     "parent": "dower_house__first_floor",
     "children": []
   },
@@ -67,6 +76,7 @@
     "identifier": "dower_house__portrait_room",
     "title": "Portrait Room",
     "description": "A narrow gallery with faded green wallpaper peeling from the damp corners. Wooden wainscoting runs along the lower half of the walls, damaged in places but still sturdy. What makes this room peculiar is the collection of framed portraits hung in neat vertical rows against the weathered backdrop. Each new arrival to the Estate finds their likeness mysteriously appearing here within days of their recruitment, though no artist claims responsibility for the work. Haphazard stacks of books pile on the floor beneath the frames, their pages warped from humidity. The room seems to expand as needed, accommodating each new face that joins the fight against the encroaching darkness.",
+    "summary": "dower_house__portrait_room (Portrait Room) -- A narrow gallery in the Dower House displaying mysterious portraits of new Estate arrivals, with an expanding feel.",
     "parent": "dower_house__first_floor",
     "children": [],
     "npcs": ["caretaker"]
@@ -75,6 +85,7 @@
     "identifier": "dower_house__kitchen",
     "title": "Kitchen",
     "description": "A vast room with two large hearths and a central work island of scarred oak. Copper pots hang from ceiling racks, and a hand pump stands by the deep stone sink. The scullery takes up the north end, with huge washbasins and drying racks, while a dumbwaiter in the corner services the dining hall and guest wing above.",
+    "summary": "dower_house__kitchen (Kitchen) -- A vast kitchen in the Dower House with two large hearths, a work island, and a dumbwaiter, designed for extensive meal preparation.",
     "parent": "dower_house__first_floor",
     "children": []
   },
@@ -82,6 +93,7 @@
     "identifier": "dower_house__barracks",
     "title": "Dower House Barracks",
     "description": "A narrow wing designed to house guards, mercenaries, or other armed retainers.",
+    "summary": "dower_house__barracks (Dower House Barracks) -- A narrow wing in the Dower House designed to house guards, mercenaries, or armed retainers.",
     "parent": "dower_house__first_floor",
     "children": ["dower_house__barracks_room_east", "dower_house__barracks_room_west"]
   },
@@ -89,6 +101,7 @@
     "identifier": "dower_house__barracks_room_east",
     "title": "Eastern Barracks Room",
     "description": "A narrow bunkroom with four wooden cots, each with a brass-bound trunk at its foot. An iron brazier sits cold in the center, and a single barred window lets in weak light through clouded glass.",
+    "summary": "dower_house__barracks_room_east (Eastern Barracks Room) -- A narrow bunkroom in the Dower House Barracks, providing lodging for four with cots and trunks.",
     "parent": "dower_house__barracks",
     "capacity": 4,
     "children": []
@@ -97,6 +110,7 @@
     "identifier": "dower_house__barracks_room_west",
     "title": "Western Barracks Room",
     "description": "Four cots line the walls beneath a row of narrow windows. A tilted weapons rack holds space for eight weapons, with hooks for shields below. A washbasin stands in the corner, its copper badly oxidized.",
+    "summary": "dower_house__barracks_room_west (Western Barracks Room) -- A bunkroom in the Dower House Barracks, providing lodging for four, with weapon storage and narrow windows.",
     "parent": "dower_house__barracks",
     "capacity": 4,
     "children": []
@@ -105,6 +119,7 @@
     "identifier": "dower_house__butlers_room",
     "title": "Butler's Room",
     "description": "A private chamber befitting the head of household staff, with a single bed and a solid desk for managing accounts. A locked cabinet for household keys and records stands beside a small washstand. The room's single window overlooks the back garden.",
+    "summary": "dower_house__butlers_room (Butler's Room) -- A private chamber in the Dower House, suitable for the head of household staff, with a bed, desk, and record storage.",
     "parent": "dower_house__first_floor",
     "capacity": 1,
     "children": []
@@ -113,6 +128,7 @@
     "identifier": "dower_house__servants_quarters",
     "title": "Servants' Quarters",
     "description": "Six narrow bunks arranged in pairs, with a long oak table running down the center. A row of hooks by the door holds aprons and work clothes, while a large black stove squats in the corner. The single window has been painted shut.",
+    "summary": "dower_house__servants_quarters (Servants' Quarters) -- A room in the Dower House providing shared lodging for servants with bunks, a long table, and a stove.",
     "parent": "dower_house__first_floor",
     "capacity": 6,
     "children": []
@@ -121,6 +137,7 @@
     "identifier": "dower_house__second_floor",
     "title": "Second Floor",
     "description": "A quieter level designed for guests and study, accessible by the grand staircase.",
+    "summary": "dower_house__second_floor (Second Floor) -- A quieter level of the Dower House, designed for guests and study, accessible by the grand staircase.",
     "parent": "dower_house",
     "children": ["dower_house__guest_wing", "dower_house__study", "dower_house__astronomy_room"]
   },
@@ -128,6 +145,7 @@
     "identifier": "dower_house__guest_wing",
     "title": "Guest Wing",
     "description": "A corridor flanked by once-comfortable rooms intended for visiting nobility or well-to-do travelers.",
+    "summary": "dower_house__guest_wing (Guest Wing) -- A corridor in the Dower House flanked by comfortable rooms, intended for visiting nobility or travelers.",
     "parent": "dower_house__second_floor",
     "children": ["dower_house__rosewood_chamber", "dower_house__willow_chamber", "dower_house__lavender_room", "dower_house__ivy_room", "dower_house__guest_salon"]
   },
@@ -135,6 +153,7 @@
     "identifier": "dower_house__rosewood_chamber",
     "title": "Rosewood Chamber",
     "description": "A corner guest room with tall windows on two walls, each with faded red velvet drapes. The rosewood bed and matching wardrobe feature intricate floral carvings. A writing desk with a leather-inlaid top sits beneath one window, paired with a high-backed chair.",
+    "summary": "dower_house__rosewood_chamber (Rosewood Chamber) -- A corner guest room in the Dower House, featuring rosewood furniture, intricate floral carvings, and a writing desk.",
     "parent": "dower_house__guest_wing",
     "capacity": 2,
     "children": []
@@ -143,6 +162,7 @@
     "identifier": "dower_house__willow_chamber",
     "title": "Willow Chamber",
     "description": "The largest guest chamber, its walls painted with subtle pastoral scenes of weeping willows and streams. A small fireplace sits opposite the canopied bed, and tall windows face the evening sun.",
+    "summary": "dower_house__willow_chamber (Willow Chamber) -- The largest guest chamber in the Dower House, with pastoral wall paintings, a fireplace, and a canopied bed.",
     "parent": "dower_house__guest_wing",
     "capacity": 2,
     "children": []
@@ -151,6 +171,7 @@
     "identifier": "dower_house__lavender_room",
     "title": "Lavender Room",
     "description": "A cozy chamber with delicate purple wallpaper and a brass bed beneath a dormer window. A small writing desk and cushioned chair occupy the window nook.",
+    "summary": "dower_house__lavender_room (Lavender Room) -- A cozy chamber in the Dower House, with delicate purple wallpaper, a brass bed, and a writing desk in a window nook.",
     "parent": "dower_house__guest_wing",
     "capacity": 1,
     "children": []
@@ -159,6 +180,7 @@
     "identifier": "dower_house__ivy_room",
     "title": "Ivy Room",
     "description": "The smallest of the guest rooms, featuring green-tinted wallpaper with climbing ivy patterns. A narrow bed and washstand fit neatly under the sloped ceiling.",
+    "summary": "dower_house__ivy_room (Ivy Room) -- The smallest guest room in the Dower House, featuring green-tinted wallpaper with ivy patterns and a narrow bed.",
     "parent": "dower_house__guest_wing",
     "capacity": 1,
     "children": []
@@ -167,6 +189,7 @@
     "identifier": "dower_house__guest_salon",
     "title": "Guest Salon",
     "description": "A comfortable sitting room between the guest chambers, furnished with deep armchairs and reading tables. A dumbwaiter provides discrete meal service from the kitchen below, concealed behind a wooden panel. A small sideboard holds decanters and glasses, while a chess table waits by the window. Dark rectangles on the faded wallpaper mark where paintings once hung. One portrait remains - of a distant dowager's whose dark eyes peer down from near the ceiling.",
+    "summary": "dower_house__guest_salon (Guest Salon) -- A comfortable sitting room in the Dower House guest wing, with armchairs, reading tables, and discreet meal service via a dumbwaiter.",
     "parent": "dower_house__guest_wing",
     "children": []
   },
@@ -174,6 +197,7 @@
     "identifier": "dower_house__study",
     "title": "Study",
     "description": "A wood-paneled room centered on a heavy oak desk with brass fittings. Built-in bookshelves line three walls, with a marble fireplace on the fourth. Two leather armchairs face the desk, and a rolling library ladder provides access to the higher shelves. Through the east window, one can glimpse the abbey's bell tower between bare branches.",
+    "summary": "dower_house__study (Study) -- A wood-paneled room in the Dower House, serving as a study with a heavy oak desk, bookshelves, and a marble fireplace.",
     "parent": "dower_house__second_floor",
     "children": []
   },
@@ -181,6 +205,7 @@
     "identifier": "dower_house__astronomy_room",
     "title": "Astronomy Room",
     "description": "A circular room dominated by a brass telescope on a pivoting mount. Star charts cover the walls, and a curved desk holds navigational instruments. The hinged roof panel operates via a system of counterweights and brass cranks.",
+    "summary": "dower_house__astronomy_room (Astronomy Room) -- A circular room in the Dower House, dominated by a brass telescope and star charts, used for astronomical observation.",
     "parent": "dower_house__second_floor",
     "children": []
   },
@@ -188,6 +213,7 @@
     "identifier": "dower_house__third_floor",
     "title": "Third Floor",
     "description": "The most secluded level, offering just the master chamber beneath steep slate roofing. Dusty trunks and old dress forms lurk in the low-ceilinged alcoves under the eaves.",
+    "summary": "dower_house__third_floor (Third Floor) -- The most secluded level of the Dower House, containing the master chamber beneath steep slate roofing.",
     "parent": "dower_house",
     "children": ["dower_house__master_bedroom"]
   },
@@ -195,6 +221,7 @@
     "identifier": "dower_house__master_bedroom",
     "title": "Master Bedroom",
     "description": "A dignified sleeping chamber dominated by a carved oak canopy bed, built to be shared by two despite the house's intentions, and private fireplace. The circular window in the south wall overlooks the town square, while glass doors open onto a small balcony above the garden. Originally intended for a dowager's peaceful retirement, the room maintains its air of refined solitude with a cushioned window seat, a delicate writing desk, and a full-length mirror that catches the last rays of sunset.",
+    "summary": "dower_house__master_bedroom (Master Bedroom) -- A dignified sleeping chamber in the Dower House with a carved oak canopy bed, fireplace, and balcony overlooking the garden.",
     "parent": "dower_house__third_floor",
     "capacity": 2,
     "children": []
@@ -203,6 +230,7 @@
     "identifier": "dower_house__garden",
     "title": "Garden",
     "description": "A once-orderly area behind the Dower House, where formal paths cut through tangles of wild vines and untended shrubs. A cracked stone fountain stands dry in the center. Vibrant nightshade thrive in its basin. An iron gazebo, now largely collapsed, hints at more gracious times.",
+    "summary": "dower_house__garden (Garden) -- A formal garden area behind the Dower House, with paths, a stone fountain, and an iron gazebo, now home to wild growth.",
     "parent": "dower_house",
     "children": ["dower_house__red_hook", "dower_house__shed", "dower_house__manor_approach"]
   },
@@ -211,6 +239,7 @@
     "title": "Red Hook",
     "description": "Known as the Red Hook, this weathered stump of black stone once depicted a great curved tentacle reaching skyward. Though its presence in a widow's garden seems incongruous, historical records suggest it long predates the Dower House, and the Estate was built around it. Even in its ruined state it commands an inexplicable reverence. The Estate's records mention similar monuments, though this is the only one whose location remains known.",
     "restored": "Known as the Red Hook, this magnificent monument commands attention - a great curved tentacle of obsidian-black stone rising proudly from the garden's heart. Though its presence in a widow's garden seems incongruous, historical records suggest it long predates the Dower House, and the Estate was built around it. Mesmerizing geometric patterns cascade across its restored surface, each line crisp and perfect as the day it was carved. The Estate's records mention similar monuments, though this is the only one whose location remains known - and now, the only one restored to its former glory.",
+    "summary": "dower_house__red_hook (Red Hook) -- A magnificent, ancient monument of black stone in the Dower House garden, depicted as a curved tentacle, holding inexplicable reverence.",
     "parent": "dower_house__garden",
     "children": []
   },
@@ -218,6 +247,7 @@
     "identifier": "dower_house__shed",
     "title": "Garden Shed",
     "description": "A small wooden structure leaning slightly to one side, filled with rusted tools and decaying bags of mulch. A weathered potting bench beneath the window still holds a collection of cracked clay pots and mysteriously thriving herb sprouts.",
+    "summary": "dower_house__shed (Garden Shed) -- A small wooden structure in the Dower House garden, used for storing rusted tools and garden supplies.",
     "parent": "dower_house__garden",
     "capacity": 1,
     "children": []
@@ -226,6 +256,7 @@
     "identifier": "dower_house__manor_approach",
     "title": "Manor Approach",
     "description": "A weed-strewn path of cracked cobblestones, winding from the Dower House towards the ruins of the Estate's grand manor's and its mosquito-infested courtyard.",
+    "summary": "dower_house__manor_approach (Manor Approach) -- A path of cracked cobblestones winding from the Dower House towards the grand manor ruins.",
     "parent": "dower_house__garden",
     "children": []
   },
@@ -233,6 +264,7 @@
     "identifier": "library",
     "title": "Library",
     "description": "A stern stone building with arched windows, housing the Estate's centuries of accumulated knowledge. Though dust gathers in the quieter corners since budget constraints left the librarian to serve as both curator and steward, the institution maintains its essential functions with stubborn dignity.",
+    "summary": "library (Library) -- A stern stone building with arched windows, housing the Estate's centuries of accumulated knowledge and records.",
     "parent": "north_west_district",
     "children": ["library__main", "library__special_collections", "library__map_room", "library__archive", "library__lecture_hall", "library__steward_room", "library__scholars_wing", "library__librarians_quarters"],
     "npcs": ["archivist"]
@@ -241,6 +273,7 @@
     "identifier": "library__main",
     "title": "Main Hall",
     "description": "The heart of the building, where towering oak shelves stretch between gothic windows. A massive reading table dominates the center, its brass lamps still lit each evening, while leather armchairs gather near the large fireplace. The card catalog stands as a sentinel near the entrance, meticulously maintained by the Archivist despite the thin layer of dust on the higher shelves. Decades of scholars have left their initials carved into the window sills. A small memorial plaque honors the previous Librarian, though the circumstances of their death remain unrecorded.",
+    "summary": "library__main (Main Hall) -- The heart of the library, featuring towering oak shelves, a massive reading table, brass lamps, and a meticulously maintained card catalog.",
     "parent": "library",
     "children": []
   },
@@ -248,6 +281,7 @@
     "identifier": "library__special_collections",
     "title": "Special Collections Room",
     "description": "A locked chamber housing the library's rarest and most delicate works behind wire-meshed cabinet doors. A dedicated reading desk sits beneath a narrow window, its surface scarred by countless scholarly notations.",
+    "summary": "library__special_collections (Special Collections Room) -- A locked chamber in the library, housing its rarest and most delicate works behind wire-meshed cabinet doors.",
     "parent": "library",
     "children": []
   },
@@ -255,6 +289,7 @@
     "identifier": "library__map_room",
     "title": "Map Room",
     "description": "A long room lined with remaining rolled charts and surveys of the Estate's lands, many of the maps having been relocated to the Strategy room in the Town Hall. A massive drafting table occupies the center, while cabinets of regional maps and astronomical charts fill the spaces between windows.",
+    "summary": "library__map_room (Map Room) -- A long room in the library dedicated to maps and charts, featuring a massive drafting table and cabinets of surveys.",
     "parent": "library",
     "children": []
   },
@@ -262,6 +297,7 @@
     "identifier": "library__archive",
     "title": "Estate Archive",
     "description": "A vaulted chamber in the building's foundations, housing the Estate's records, journals, and administrative documents. Metal filing cabinets stand in rigid rows, their contents chronicling centuries of history, accounts, and correspondence.",
+    "summary": "library__archive (Estate Archive) -- A vaulted chamber in the library's foundations, housing centuries of the Estate's official records, journals, and documents.",
     "parent": "library",
     "children": []
   },
@@ -269,6 +305,7 @@
     "identifier": "library__lecture_hall",
     "title": "Lecture Hall",
     "description": "A modest auditorium with tiered wooden seating, now rarely used but maintained in hopes of future symposiums. A slate chalkboard spans the front wall, last week's astronomical calculations still visible in the corner.",
+    "summary": "library__lecture_hall (Lecture Hall) -- A modest auditorium in the library with tiered seating, used for lectures and symposiums, featuring a slate chalkboard.",
     "parent": "library",
     "children": []
   },
@@ -276,6 +313,7 @@
     "identifier": "library__steward_room",
     "title": "Steward's Room",
     "description": "An empty ground floor room near the building's rear entrance, its shelves still holding ledgers of past maintenance schedules. A narrow bed and washstand remain, gathering dust since the position's funding was cut.",
+    "summary": "library__steward_room (Steward's Room) -- An empty ground floor room in the library with shelves for maintenance ledgers, once serving a steward.",
     "parent": "library",
     "capacity": 1,
     "children": []
@@ -284,6 +322,7 @@
     "identifier": "library__scholars_wing",
     "title": "Scholar's Wing",
     "description": "A quiet annexe connected to the main library by a covered walkway, traditionally housing visiting researchers and fellows. Though less frequently occupied now, its rooms remain ready for serious scholars.",
+    "summary": "library__scholars_wing (Scholar's Wing) -- A quiet annexe connected to the main library, traditionally housing visiting researchers and fellows in ready rooms.",
     "parent": "library",
     "children": ["library__raven_room", "library__sparrow_room", "library__wren_room", "library__common_room"]
   },
@@ -291,6 +330,7 @@
     "identifier": "library__raven_room",
     "title": "Raven Room",
     "description": "The largest of the study-bedrooms, tucked into the wing's corner with windows on two walls. The Estate's coat of arms hangs above the mantle, its noble raven rendered in faded black. The traditional senior researcher's desk sits beneath the east window, while the western window offers a distant view of the great tree that towers above the Weald.",
+    "summary": "library__raven_room (Raven Room) -- The largest study-bedroom in the library's scholar's wing, with the Estate's coat of arms and a senior researcher's desk.",
     "parent": "library__scholars_wing",
     "capacity": 1,
     "children": []
@@ -299,6 +339,7 @@
     "identifier": "library__sparrow_room",
     "title": "Sparrow Room",
     "description": "A neat study-bedroom whose window catches the morning light. Simple but practical furnishings include a writing desk, narrow bed, and a bookshelf sized for frequent reference materials. Local sparrows often perch on the window sill, their morning songs providing a natural awakening.",
+    "summary": "library__sparrow_room (Sparrow Room) -- A neat study-bedroom in the library's scholar's wing, with practical furnishings, a writing desk, and morning light.",
     "parent": "library__scholars_wing",
     "capacity": 1,
     "children": []
@@ -307,6 +348,7 @@
     "identifier": "library__wren_room",
     "title": "Wren Room",
     "description": "The coziest of the study-bedrooms, with its window facing the evening sun. Despite its modest size, like its namesake, the room makes efficient use of space with clever shelving and a compact desk arrangement. A small brass wren decorates the door knocker.",
+    "summary": "library__wren_room (Wren Room) -- The coziest study-bedroom in the library's scholar's wing, efficiently designed with clever shelving and a compact desk.",
     "parent": "library__scholars_wing",
     "capacity": 1,
     "children": []
@@ -315,6 +357,7 @@
     "identifier": "library__common_room",
     "title": "Scholars' Common Room",
     "description": "A modest sitting room with well-worn leather chairs and a small kitchen alcove. Bookshelves line the walls, holding frequently-referenced texts and the previous residents' abandoned notes.",
+    "summary": "library__common_room (Scholars' Common Room) -- A modest sitting room in the library's scholar's wing, with leather chairs, a kitchen alcove, and bookshelves.",
     "parent": "library__scholars_wing",
     "children": []
   },
@@ -322,6 +365,7 @@
     "identifier": "library__librarians_quarters",
     "title": "Head Librarian's Quarters",
     "description": "A comfortable apartment above the library's entrance, with tall windows overlooking both the courtyard and town square beyond. Built-in bookshelves line the walls of the combined living and sleeping space, while a broad desk positioned by the windows allows the librarian to observe the comings and goings below.",
+    "summary": "library__librarians_quarters (Head Librarian's Quarters) -- A comfortable apartment above the library's entrance, serving as the Head Librarian's living and workspace with built-in bookshelves.",
     "parent": "library",
     "capacity": 1,
     "children": []
@@ -330,6 +374,7 @@
     "identifier": "town_hall",
     "title": "Town Hall",
     "description": "A stern Gothic edifice rising above its neighbors, crowned by a square tower with narrow windows. A broad avenue leads from the town square to the stone steps, which ascend to heavy oak doors beneath a carved portico, while gargoyles perch at each corner of the steep slate roof.",
+    "summary": "town_hall (Town Hall) -- A stern Gothic edifice with a clock tower, serving as the hamlet's central governance building with meeting halls and archives.",
     "parent": "north_west_district",
     "children": ["town_hall__vestibule", "town_hall__meeting_hall", "town_hall__strategy_room", "town_hall__council_chamber", "town_hall__record_archives", "town_hall__strong_room", "town_hall__document_storage"]
   },
@@ -337,6 +382,7 @@
     "identifier": "town_hall__vestibule",
     "title": "Vestibule",
     "description": "A high-ceilinged foyer with a worn stone floor and dark wood paneling. A notice board hangs beside each door - one bearing official proclamations, the other collecting layers of citizen requests and warnings.",
+    "summary": "town_hall__vestibule (Vestibule) -- A high-ceilinged foyer in the Town Hall, serving as an entrance and display area for official and citizen notices.",
     "parent": "town_hall",
     "children": []
   },
@@ -344,6 +390,7 @@
     "identifier": "town_hall__meeting_hall",
     "title": "Meeting Hall",
     "description": "The heart of the building, where tiered wooden benches face a raised platform dominated by a podium carved with the Estate's raven crest. Tall windows with heavy velvet drapes cast dramatic shadows across the floor, while iron chandeliers hang from exposed wooden beams. The space feels emptier now, with gatherings becoming increasingly rare.",
+    "summary": "town_hall__meeting_hall (Meeting Hall) -- The main hall of the Town Hall, with tiered seating and a podium, used for public gatherings and official proclamations.",
     "parent": "town_hall",
     "children": []
   },
@@ -351,6 +398,7 @@
     "identifier": "town_hall__strategy_room",
     "title": "Strategy Room",
     "description": "A chamber accessed by a narrow stair, its walls lined with maps relocated from the library. A massive oak table dominates the room, its surface scarred by years of marker pins and measuring tools. Arrow slits in the thick walls offer commanding views of the Hamlet's approaches.",
+    "summary": "town_hall__strategy_room (Strategy Room) -- A chamber in the Town Hall, lined with maps and a massive oak table, used for tactical planning and defense.",
     "parent": "town_hall",
     "children": []
   },
@@ -358,6 +406,7 @@
     "identifier": "town_hall__council_chamber",
     "title": "Council Chamber",
     "description": "A more intimate meeting room than the hall below, with high-backed chairs arranged around a circular table. Faded tapestries muffle conversations, while a fireplace provides both warmth and a means to quickly dispose of sensitive documents. The air carries a persistent smell of old paper and leather, and crude repairs to the ceiling beams hint at some past structural concern.",
+    "summary": "town_hall__council_chamber (Council Chamber) -- A more intimate meeting room in the Town Hall, with a circular table and fireplace, used for council deliberations.",
     "parent": "town_hall",
     "children": []
   },
@@ -365,6 +414,7 @@
     "identifier": "town_hall__record_archives",
     "title": "Record Archives",
     "description": "A long room of fitted stone shelves holding the Hamlet's official history. Carefully organized ledgers and proclamations share space with architectural plans and census records.",
+    "summary": "town_hall__record_archives (Record Archives) -- A long room in the Town Hall, housing the Hamlet's official history, ledgers, and records on fitted stone shelves.",
     "parent": "town_hall",
     "children": []
   },
@@ -372,6 +422,7 @@
     "identifier": "town_hall__strong_room",
     "title": "Strong Room",
     "description": "A heavily secured chamber behind an iron-bound door, housing the town's depleted treasury and items too valuable or dangerous for public knowledge.",
+    "summary": "town_hall__strong_room (Strong Room) -- A heavily secured chamber in the Town Hall, with an iron-bound door, used for housing the town's treasury and valuable items.",
     "parent": "town_hall",
     "children": []
   },
@@ -379,6 +430,7 @@
     "identifier": "town_hall__document_storage",
     "title": "Document Storage",
     "description": "A vaulted stone chamber where older records gather dust. A concealed passage to the Dower House lies hidden behind a section of fitted stone, operated by an intricate mechanism disguised as a torch bracket.",
+    "summary": "town_hall__document_storage (Document Storage) -- A vaulted stone chamber in the Town Hall for older records, featuring a concealed passage to the Dower House.",
     "parent": "town_hall",
     "children": []
   },
@@ -387,6 +439,7 @@
     "title": "Bank",
     "description": "A broken shell that once housed the hamlet's wealth. The grand entrance lies smashed open, plundered by desperate townsfolk in their flight from the Estate. Inside, the main hall's marble floor lies buried under debris, while the teller counter's brass grilles hang twisted from their mountings. The vault beyond stands empty, its thick door torn from its hinges by makeshift tools and desperate strength.",
     "restored": "A testament to restored order and returned prosperity. Fresh-cut stone has replaced the broken steps, while the entrance hall gleams with polished marble and brass. The restored teller counter stretches along one wall, its grilles glinting in the light from new windows. The vault door hangs straight and true once more, its mechanisms rebuilt to protect what wealth now returns to the hamlet's coffers.",
+    "summary": "bank (Bank) -- A building intended to house the hamlet's wealth and maintain financial order, featuring a vault and teller counter.",
     "parent": "north_west_district",
     "children": []
   }

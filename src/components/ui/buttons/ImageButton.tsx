@@ -17,10 +17,10 @@ import React, {
     height?: number;
     /** Called if user clicks on a non-transparent pixel */
     onClick?: () => void;
-    /** Optional: hovered/clicked visuals */
-    hoverClassName?: string;
     /** Optional inline styles */
     style?: CSSProperties;
+    /** Optional CSS class name to apply to the button's root div */
+    className?: string;
   }
   
   /**
@@ -30,11 +30,11 @@ import React, {
    */
   export const ImageButton: FC<ImageButtonProps> = ({
     textureUrl,
-    width = 100,
-    height = 100,
+    width,
+    height,
     onClick,
-    hoverClassName,
     style,
+    className,
   }) => {
     const [isHovered, setIsHovered] = useState(false);
   
@@ -100,14 +100,23 @@ import React, {
   
       // Convert that to the image's NATURAL coords
       // For instance, if you’re scaling the image from its natural size to the displayed size:
-      const scaleX = canvas.width / (width || canvas.width);
-      const scaleY = canvas.height / (height || canvas.height);
+      const scaleX = canvas.width / rect.width;
+      const scaleY = canvas.height / rect.height;
   
       const realX = Math.floor(mouseX * scaleX);
       const realY = Math.floor(mouseY * scaleY);
   
       const ctx = canvas.getContext('2d');
       if (!ctx) return;
+
+      // Add bounds check to prevent errors if mouse is outside canvas dimensions (e.g., due to rounding or padding)
+      if (realX < 0 || realX >= canvas.width || realY < 0 || realY >= canvas.height) {
+          setIsHovered(false);
+          if (evt.type === 'click' && onClick) {
+              // Optionally, handle clicks outside the valid pixel area differently
+          }
+          return;
+      }
   
       // Get pixel data from the offscreen canvas
       const pixel = ctx.getImageData(realX, realY, 1, 1).data; 
@@ -125,15 +134,18 @@ import React, {
       }
     };
   
+    // Combine the external className with our internal pixel-perfect hover class
+    const rootClasses = `${className || ''} ${isHovered ? 'is-hovered-opaque' : ''}`.trim();
+
     return (
       <div
+        className={rootClasses}
         style={{
           position: 'relative',
-          width,
-          height,
+          ...(width !== undefined && { width: width }),
+          ...(height !== undefined && { height: height }),
           display: 'inline-block',
-          // Make sure we actually receive mouse events
-          // (Sometimes for absolutely positioned children, pointer events might be none)
+          pointerEvents: 'auto', // Ensure this div always receives events
           ...style,
         }}
         onMouseMove={handleMouseEvent}

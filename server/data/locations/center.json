@@ -3,6 +3,7 @@
     "identifier": "center_district",
     "title": "Central District",
     "description": "The beating heart of what remains of the hamlet, where cobblestone streets converge from all cardinal directions. Once a bustling center of commerce and governance, now a hollow reminder of faded prosperity. The town square dominates the district's core, surrounded by the most essential establishments that stubbornly endure despite the Estate's shadow. Leaning buildings crowd together as if for mutual support, their weathered facades bearing silent witness to both the glory and folly of generations past. By day, residents hurry through on necessary business; by night, only the bravest or most foolish linger where lamplight fails to reach the deeper shadows.",
+    "summary": "center_district (Central District) -- The bustling, yet faded, heart of the hamlet with cobblestone streets, town square, and essential enduring establishments.",
     "parent": "hamlet",
     "children": ["town_square", "coaching_inn", "old_church", "blacksmith", "apothecary", "cloth_merchant"]
   },
@@ -10,6 +11,7 @@
     "identifier": "town_square",
     "title": "Town Square",
     "description": "The hamlet's heart, enclosed by weathered buildings that lean inward like spectators at a grim performance. Centuries-old cobblestones spiral toward the Ancestor's stern figure, while market stalls huddle beneath sagging wooden awnings. A few mounted oil lamps mark the square's corners, though most townsfolk hurry to complete their business before dusk claims the streets.",
+    "summary": "town_square (Town Square) -- The hamlet's heart, a central area with market stalls and the Ancestor's statue, where townsfolk conduct business.",
     "parent": "center_district",
     "children": ["ancestor_statue", "constabulary", "market_wagons", "puppet_theater"],
     "npcs": ["town_crier"]
@@ -18,6 +20,7 @@
     "identifier": "ancestor_statue",
     "title": "Ancestor's Statue",
     "description": "A commanding figure carved from dark stone that dominates the square's center, depicting the Estate's former master in formal robes, with the family's noble raven perched vigilant on the worn pedestal beside him. Decades of rain have weathered the severe features, while the granite base bears the nearly illegible remnants of the family motto. His gaze fixes southward toward the Old Road, the path that first carried his descendants back to reclaim their birthright.",
+    "summary": "ancestor_statue (Ancestor's Statue) -- A commanding stone statue of the former Estate master, dominating the town square's center.",
     "parent": "town_square",
     "children": []
   },
@@ -25,6 +28,7 @@
     "identifier": "constabulary",
     "title": "Constabulary",
     "description": "A sturdy two-story building of fitted stone anchoring the square's northern edge. Here, the late Captain made both his fateful stands - first refusing the Ancestor's bribes to suppress the townspeople's protests, and years later organizing the hamlet's final defense against the horrors that followed. Though the building bears scars from both the Brigade's retribution and supernatural assaults, it stands as a testament to principles that proved stronger than gold.",
+    "summary": "constabulary (Constabulary) -- A sturdy stone building at the square's edge, scarred by past conflicts, serving as the former center of town defense.",
     "parent": "center_district",
     "children": ["constabulary__basement", "constabulary__main", "constabulary__upper"]
   },
@@ -32,6 +36,7 @@
     "identifier": "constabulary__basement",
     "title": "Holding Cells",
     "description": "Three iron-barred cells line the stone walls, their heavy doors hanging askew on rusted hinges. Iron rings and chains remain mounted at intervals, anchored deep in the masonry. The ventilation shafts show signs of hasty modification, while dried ink stains mark where the record-keeper's desk once stood, the final entries in a peculiarly gentle hand.",
+    "summary": "constabulary__basement (Holding Cells) -- Iron-barred cells with rusted doors and chains, located in the constabulary basement, bearing signs of past occupancy.",
     "parent": "constabulary",
     "children": []
   },
@@ -39,6 +44,7 @@
     "identifier": "constabulary__main",
     "title": "Public Office",
     "description": "A broad chamber dominated by layers of yellowed notices - old public gathering permits visible beneath hastily sketched defense plans. The duty desk bears deep scars, some from violence, others from desperate fortification efforts. Twin staircases bracket the room: a narrow stone spiral descending to the cells, and broader wooden steps rising to the quarters above, their railings worn smooth by countless hands.",
+    "summary": "constabulary__main (Public Office) -- A broad chamber in the constabulary, filled with old notices and a scarred duty desk, with staircases leading to cells and quarters.",
     "parent": "constabulary",
     "children": []
   },
@@ -46,6 +52,7 @@
     "identifier": "constabulary__upper",
     "title": "Guards' Quarters",
     "description": "Simple chambers divided into sleeping quarters and a watch post overlooking the square. Empty gun racks line the walls above worn bedframes, their hooks bearing only dust. A pot-bellied stove occupies one corner, while ammunition crates serve as makeshift furniture, their contents long since expended. An open logbook still rests on the Captain's desk, its final page unfinished.",
+    "summary": "constabulary__upper (Guards' Quarters) -- Simple sleeping quarters and a watch post in the constabulary, overlooking the square with empty gun racks and a logbook.",
     "parent": "constabulary",
     "capacity": 4,
     "children": []
@@ -54,6 +61,7 @@
     "identifier": "market_wagons",
     "title": "Market Wagons",
     "description": "Weathered merchant carts arranged along the square's eastern edge, their striped awnings snapping in the coastal wind. Cobblestones here bear deep ruts from years of wheels turning in the same paths, while worn wooden platforms raise the stalls above the mud.",
+    "summary": "market_wagons (Market Wagons) -- Weathered merchant carts with striped awnings, arranged along the eastern edge of the town square.",
     "parent": "town_square",
     "children": ["market_wagons__nomad_wagon", "market_wagons__jeweler", "market_wagons__pet_store"]
   },
@@ -61,6 +69,7 @@
     "identifier": "market_wagons__nomad_wagon",
     "title": "Nomad's Wagon",
     "description": "A dark-wood caravan decorated with brass fittings and hanging charms, positioned where afternoon light best displays its exotic wares. The merchant conducts business through a sliding panel beneath a striped awning, her collection of trinkets and talismans hanging from neat rows of hooks. A small brazier burns perpetually beside her counter, though its smoke seems to sink rather than rise.",
+    "summary": "market_wagons__nomad_wagon (Nomad's Wagon) -- A dark-wood caravan within the market wagons, selling exotic trinkets and talismans from beneath a striped awning.",
     "parent": "market_wagons",
     "children": [],
     "npcs": ["nomad"]
@@ -69,6 +78,7 @@
     "identifier": "market_wagons__jeweler",
     "title": "Jeweler's Cart",
     "description": "A sturdy wagon converted into a makeshift workshop, its reinforced shutters bristling with locks. Crystals and precious stones catch the light from a hinged display case, though the most valuable pieces remain hidden in iron-bound boxes beneath the counter. An array of delicate tools hangs from the awning's support beam.",
+    "summary": "market_wagons__jeweler (Jeweler's Cart) -- A sturdy wagon converted into a makeshift workshop within the market, displaying crystals and precious stones.",
     "parent": "market_wagons",
     "children": [],
     "npcs": ["jeweler"]
@@ -77,6 +87,7 @@
     "identifier": "market_wagons__pet_store",
     "title": "Pet Store Wagon",
     "description": "A peculiar conveyance of wire cages and covered pens, the sound of rustling and quiet chirps emerging from beneath oiled canvas covers. The proprietor tends to his charges from a small workspace wedged between the larger cages, surrounded by bags of feed and straw.",
+    "summary": "market_wagons__pet_store (Pet Store Wagon) -- A peculiar wagon within the market featuring wire cages and covered pens with sounds of rustling and chirping from animals.",
     "parent": "market_wagons",
     "children": []
   },
@@ -85,6 +96,7 @@
     "title": "Puppet Theater",
     "description": "A weathered wooden puppet booth, its window frame gaping darkly against rotting panels. Broken shutters lie among tangled puppet strings and discarded props below, while cobwebs drape the corners where once curtains hung.",
     "restored": "A quaint puppet booth stands ready for performance, its window frame neatly bordered to create a proper stage for the puppeteer's art. Fresh paint brightens the panels, while new shutters and warm lamplight promise simple entertainments to come.",
+    "summary": "A wooden booth in the town square designed for entertaining audiences with puppet shows, a source of simple fun and distraction.",
     "parent": "town_square",
     "children": []
   }

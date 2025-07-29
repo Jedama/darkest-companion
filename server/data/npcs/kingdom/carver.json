@@ -2,8 +2,9 @@
     "identifier": "carver",
     "title": "The Carver",
     "name": "Tohno",
-    "summary": "The Landowners' butcher, whose discovery of the regenerating Black Phillip transformed him from a simple tradesman to an unwitting catalyst for horror. Once known for his efficient, humane slaughtering techniques, Tohno now serves his master's insatiable appetite with increasingly disturbing practices. His cleaver rarely leaves his hand, and his once-pristine butcher's apron now bears stains that will never wash clean.",
+    "description": "The Landowners' butcher, whose discovery of the regenerating Black Phillip transformed him from a simple tradesman to an unwitting catalyst for horror. Once known for his efficient, humane slaughtering techniques, Tohno now serves his master's insatiable appetite with increasingly disturbing practices. His cleaver rarely leaves his hand, and his once-pristine butcher's apron now bears stains that will never wash clean.",
     "history": "Tohno served many farming families before Jeremiah's rise to prominence secured his exclusive employment. His fortunes changed when he discovered a strange black goat in the fields - one of the Ancestor's abandoned experiments, rumored to have escaped during the manor's evacuation. Upon butchering the creature, Tohno was astonished to find its flesh regenerating overnight. Seeing an opportunity to please his employers, he served the unusual meat at their table, not realizing the hunger it would awaken. Now he tends to Black Phillip with religious devotion, harvesting endless meat while the creature regenerates impossibly fast. As his masters' appetites expanded beyond animal flesh, Tohno happily took to carving up and serving travelers who he ensured would never reach the Harvest House alive.",
+    "summary": "carver (Tohno) -- An efficient, obedient, and unflinching butcher transformed by a regenerating black goat, now serving his masters' insatiable and disturbing appetites.",
     "traits": [
       "Efficient",
       "Obedient",

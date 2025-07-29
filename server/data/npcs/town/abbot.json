@@ -2,8 +2,9 @@
   "identifier": "abbot",  
   "title": "Abbot",
   "name": "Tobias",
-  "summary": "The Abbot is a solemn figure, his weathered face a testament to personal loss and unwavering faith. Having lost his wife, he now devotes himself entirely to his religious duties, finding solace in the rituals and responsibilities of his position.",
+  "description": "The Abbot is a solemn figure, his weathered face a testament to personal loss and unwavering faith. Having lost his wife, he now devotes himself entirely to his religious duties, finding solace in the rituals and responsibilities of his position.",
   "history": "Once a happily married man, the Abbot lost his wife to illness years ago. Grief-stricken, he turned to the church for solace, eventually rising to the position of Abbot. His personal tragedy has deeply influenced his approach to faith and his interactions with his flock.",
+  "summary": "abbot (Tobias) -- A solemn and devoted Abbot, deeply melancholic from personal loss, who now finds unwavering solace in his religious duties.",
   "traits": [
     "Solemn",
     "Devoted",

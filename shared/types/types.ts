@@ -59,11 +59,13 @@ export interface Character {
   name: string;
   level: number;
   money: number;
-  summary: string;
+  description: string;
   history: string;
+  summary: string;
   race: string;
   gender: string;
   religion: string;
+  zodiac: string;
   traits: string[];
   status: Status;
   stats: Stats;
@@ -80,8 +82,9 @@ export interface NPC {
   identifier: string;
   title: string;
   name: string;
-  summary: string;
+  description: string;
   history: string;
+  summary: string;
   traits: string[];
   appearance: Appearance;
   clothing: Clothing;
@@ -109,7 +112,7 @@ export type EventRecord = {
 export interface EventData {
   identifier: string;
   title: string;
-  summary: string;
+  description: string;
   nrChars: number;     // number of characters typically involved
   keywords: string[];  // e.g., ["combat", "gambling", "nighttime"]
   location: EventLocationRequirements;  // location requirements for characters
@@ -132,6 +135,7 @@ export interface LocationData {
   identifier: string;
   title: string;
   description: string;
+  summary: string;
   restored?: string;    // description when location is restored
   capacity?: number;    // max number of characters that can reside here
   npcs?: string[];      // array of NPC identifiers connected to this location

@@ -2,8 +2,9 @@
   "identifier": "nomad",
   "title": "Nomad",
   "name": "Naima",
-  "summary": "The Nomad guides her ornate wagon through the hamlet's marketplace, trading in trinkets that blur the line between superstition and survival. Her deep knowledge of both protective charms and the Estate's particular horrors suggests her choice of trading post is far from random.",
+  "description": "The Nomad guides her ornate wagon through the hamlet's marketplace, trading in trinkets that blur the line between superstition and survival. Her deep knowledge of both protective charms and the Estate's particular horrors suggests her choice of trading post is far from random.",
   "history": "Though her true origins remain as mysterious as her wares, Naima's arrival coincided with the first whispers of the Estate's awakening evils. Her caravan, she claims, follows the paths of darkness across the land - not to profit from suffering, but to arm those who would stand against it. The hamlet's particular breed of horror seems to have caught her professional interest, leading her to establish a more permanent arrangement in the market square.",
+  "summary": "nomad (Naima) -- An enigmatic and perceptive Nomad who trades protective charms and follows paths of darkness, choosing to establish her trade in the hamlet due to its unique horrors.",
   "traits": [
     "Enigmatic",
     "Perceptive",

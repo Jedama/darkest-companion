@@ -35,7 +35,7 @@
 }
 
 .portrait-container {
-  aspect-ratio: 442 / 565;
+  aspect-ratio: 315 / 420;
   width: 100%;
   transition: transform 0.2s ease-in-out;
   margin: 0 auto;
@@ -64,8 +64,8 @@
 
 .character-portrait {
   position: absolute;
-  width: calc(190 / 442 * 100%);
-  height: calc(278 / 565 * 100%);
+  width: calc(190 / 315 * 100%);
+  height: calc(278 / 420 * 100%);
   object-fit: contain;
 }
 

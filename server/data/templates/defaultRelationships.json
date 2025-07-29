@@ -126,6 +126,11 @@
       "affinity": 3,
       "dynamic": "Indifference",
       "description": "The Wretch is a relic of a forgotten triumph, a living reminder of the The Claimants' ruthless success. They feel a cold satisfaction in his fall, tempered by fleeting amusement at the absurdity of his new life."
+    },
+      "psychiatrist": {
+      "affinity": 3,
+      "dynamic": "Condescending Patronage",
+      "description": "The Claimants view the Therapist as little more than a hired professional they once consulted for their fashionable anxieties. They treated him with a detached, aristocratic dismissiveness. As for the book now in their possession, they consider it a rightfully acquired artifact, its previous ownership a trivial and forgotten detail."
     }
   },
   "duchess": {
@@ -157,6 +162,13 @@
       "affinity": 4,
       "dynamic": "Fallen Servant",
       "description": "The Seraph found in the Crusader a capable commander whose tactical brilliance served the Light's purpose well. His reverence was genuine, his devotion unquestioned, which made his mercy toward the Warlord all the more galling. Though he was among her most trusted generals, his departure from the crusade marked him as another soul too weak to uphold the Light's righteous judgment."
+    }
+  },
+  "psychiatrist": {
+    "hqclaimants": {
+      "affinity": 2,
+      "dynamic": "Analytical Disdain",
+      "description": "The Therapist recalls the Claimants as insufferably arrogant patients, embodying the very vanity he despises. The fact that they now possess one of his valuable texts is a source of profound irritation, and he views them as pretentious fools meddling with forces they cannot comprehend."
     }
   }
 }

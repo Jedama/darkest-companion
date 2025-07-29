@@ -1,0 +1,21 @@
+{
+  // Inherit all the good stuff from your main config
+  "extends": "./tsconfig.json",
+
+  "compilerOptions": {
+    // Override the specific settings needed for Node.js script execution
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    // We don't need composite or emit for ts-node, so we can leave them out.
+    // ts-node will respect "noEmit": true from the base config, which is fine.
+  },
+
+  // IMPORTANT: Define which files belong to this "scripting" context.
+  // This prevents it from trying to compile your React components.
+  "include": [
+    "_test-script.ts",
+    // If you have other scripts, you can add them here:
+    // "server/**/*.ts",
+    // "scripts/**/*.ts"
+  ]
+}

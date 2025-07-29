@@ -2,8 +2,9 @@
   "identifier": "miller_wife",
   "title": "Miller's Wife",
   "name": "Mildred",
-  "summary": "A husk of stone and light blue crystals who retained her mind through sheer force of will. Where others were fully corrupted, she maintains enough lucidity to aid those who would end her husband's torment.",
+  "description": "A husk of stone and light blue crystals who retained her mind through sheer force of will. Where others were fully corrupted, she maintains enough lucidity to aid those who would end her husband's torment.",
   "history": "The proud miller's wife watched her husband's deal with the Ancestor drain their lives and land. When the comet struck, she alone partially resisted its corruption, sustained by memories of brighter days and determination to free her husband from his eternal agony.",
+  "summary": "miller_wife (Mildred) -- A determined and purposeful crystalline husk, who, despite her corruption, retained her mind and aids those seeking to end her husband's torment.",
   "traits": [
     "Determined",
     "Wistful",

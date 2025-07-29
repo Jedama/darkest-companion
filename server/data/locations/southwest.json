@@ -3,6 +3,7 @@
     "identifier": "southwest_district",
     "title": "South-western District",
     "description": "A tangle of narrow streets and leaning buildings where travelers first enter the hamlet. The Old Road meets civilized streets near the stagecoach's clearing, while various establishments - from respectable inn to questionable tavern - cater to those seeking rest or distraction. The district grew organically around the original waypoint, its architecture reflecting generations of hasty additions and repairs.",
+    "summary": "southwest_district (South-western District) -- A tangle of narrow streets where travelers enter the hamlet, offering various establishments for rest and distraction near the Old Road.",
     "parent": "hamlet",
     "children": ["stagecoach", "omen_seeker_wagon", "carpenter", "wainwright", "alley", "inn", "tavern", "brothel", "butchers_circus"]
   },
@@ -10,6 +11,7 @@
     "identifier": "stagecoach",
     "title": "Stagecoach",
     "description": "A black, dignified conveyance bears the Estate's crest upon its door, brass fittings gleaming dully in the lantern light. A simpler wagon draped in weathered cloth stands tucked behind it, ready for when the Caretaker's maddened driving leaves the sturdier one collapsed in some distant ditch. Fresh horses stamp nervously in their traces, sensing what their predecessors learned too late about the Estate's paths.",
+    "summary": "stagecoach (Stagecoach) -- A dignified conveyance bearing the Estate's crest, used for travel and transport to and from the hamlet.",
     "parent": "southwest_district",
     "children": [],
     "npcs": ["caretaker"]
@@ -18,6 +20,7 @@
     "identifier": "omen_seeker_wagon",
     "title": "Omen Seeker's Wagon",
     "description": "A peculiar carriage perched high on tall wheels, crowned by a brass circular cross that catches what little light reaches it. The wagon stands perpetually empty, save for those times when its small window blazes with blinding white radiance. Dark cloth decorated with a painted eye drapes its sides, while a black lantern swings from the curved roof, marking a fortune-teller's domain.",
+    "summary": "omen_seeker_wagon (Omen Seeker's Wagon) -- A peculiar, high-wheeled carriage used by a fortune-teller, known for its dark cloth, painted eye, and occasional blinding radiance.",
     "parent": "southwest_district",
     "children": [],
     "capacity": 1
@@ -26,6 +29,7 @@
     "identifier": "carpenter",
     "title": "Carpenter's Store",
     "description": "The scent of fresh sawdust and pitch mingles with older, mustier notes from the timber stacked against rain-stained walls. Unfinished chairs and tables crowd the workshop floor, their joints awaiting pegs that the carpenter tests with suspicious care - too many local trees have begun growing wrong. A curtained alcove holds his other works, their box-like shapes needed more frequently since the invasion.",
+    "summary": "carpenter (Carpenter's Store) -- A workshop filled with the scent of sawdust, where the carpenter crafts and tests wooden furniture and other works.",
     "parent": "southwest_district",
     "children": [],
     "npcs": ["builder"]
@@ -34,6 +38,7 @@
     "identifier": "wainwright",
     "title": "Wainwright's Workshop",
     "description": "A long building of weathered stone whose walls bear the scars of countless wheel-iron fittings. Through tall doors, the grinding of lathe and rasp mingles with the rhythmic striking of Marcus's hammer against iron rims. The yard holds neat stacks of seasoned wood for spokes and axles, while inside, wheels of all sizes hang from chains like strange trophies, awaiting their turn on the repair rack.",
+    "summary": "wainwright (Wainwright's Workshop) -- A workshop where wheels of all sizes are crafted and repaired, filled with the sounds of lathe, rasp, and hammer.",
     "parent": "southwest_district",
     "children": [],
     "npcs": ["wainwright"]
@@ -42,6 +47,7 @@
     "identifier": "alley",
     "title": "The Alley",
     "description": "A narrow passage between tavern and brothel where shadows seem to linger past sunrise. Local storytellers claim it earned the name \"Gaunts' Walk\" when an entire family - made skeletal by poverty - died here during a harsh winter. Whether their ghosts still pace these cobbles matters little to those who stumble through after dark, finding more immediate dangers in its depths.",
+    "summary": "alley (The Alley) -- A narrow passage between the tavern and brothel, known for its lingering shadows and past tragedies.",
     "parent": "southwest_district",
     "children": []
   },
@@ -49,6 +55,7 @@
     "identifier": "inn",
     "title": "Inn",
     "description": "A peculiar structure of two asymmetric towers bridged across the Old Road's entrance to the hamlet. The northern tower stands broader but lower, its massive chimney perpetually smoking, while the southern tower rises higher with multiple gables and dormers crowned with wrought-iron finials. A narrow covered bridge spans between their first floors, its shadows falling across the weathered cobblestones below.",
+    "summary": "inn (Inn) -- A peculiar lodging establishment composed of two asymmetric towers bridged across the Old Road, serving as a gateway to the hamlet.",
     "parent": "southwest_district",
     "children": ["inn__north", "inn__south", "inn__bridge"],
     "npcs": ["innkeeper"]
@@ -57,6 +64,7 @@
     "identifier": "inn__north",
     "title": "Inn North Tower",
     "description": "The broader but lower tower, marked by its massive hearth chimney that looms over the Old Road's entrance. Three floors of dark timber and aged stone rise from the stables, centered around the common hall's perpetually lit hearth. Leaded windows of varying sizes pierce the walls in asymmetric patterns, while the steep roof bristles with smaller chimney stacks.",
+    "summary": "inn__north (Inn North Tower) -- The broader, lower tower of the inn, featuring a massive hearth chimney, stables, and a common hall.",
     "parent": "inn",
     "children": ["inn__stables", "inn__common", "inn__keeper_nook", "inn__raven_room", "inn__bell_room", "inn__spire_room", "inn__rookery_room"]
   },
@@ -64,6 +72,7 @@
     "identifier": "inn__south",
     "title": "Inn South Tower",
     "description": "The taller of the inn's towers, rising unusually high above its original roofline where a truncated kitchen chimney still stains the facade with soot. Its upper floors, clearly later additions, are clad in weathered shingles and crowned with wrought-iron finials. Each level steps slightly back from the one below, creating a tiered silhouette that looms over the Old Road's entrance.",
+    "summary": "inn__south (Inn South Tower) -- The taller tower of the inn, with tiered upper floors and a kitchen and reception area, overlooking the Old Road.",
     "parent": "inn",
     "children": ["inn__kitchen", "inn__reception", "inn__crypt_room", "inn__gargoyle_room", "inn__shadow_room", "inn__moon_room", "inn__twilight_room", "inn__tower_room"]
   },
@@ -71,6 +80,7 @@
     "identifier": "inn__bridge",
     "title": "Inn Bridge Gallery",
     "description": "A narrow enclosed passage spanning the Old Road, connecting the common hall to the reception area. Leaded windows offer views down the cobbled street as it winds toward the Weald's darkness. The wooden floor creaks underfoot, its boards worn thin by generations of crossing feet.",
+    "summary": "inn__bridge (Inn Bridge Gallery) -- A narrow enclosed passage spanning the Old Road, connecting the inn's common hall to its reception area.",
     "parent": "inn",
     "children": []
   },
@@ -78,6 +88,7 @@
     "identifier": "inn__stables",
     "title": "Inn Stables",
     "description": "A practical space of worn stone and sturdy timber, where stalls line the walls and hay fills the air with its sweet decay. Iron rings for tethering mounts are mounted at regular intervals, while a broad wooden staircase rises along the back wall to the common hall above.",
+    "summary": "inn__stables (Inn Stables) -- A practical space in the inn's north tower, featuring stalls and iron rings for tethering mounts, with a staircase to the common hall.",
     "parent": "inn__north",
     "children": []
   },
@@ -85,6 +96,7 @@
     "identifier": "inn__common",
     "title": "Inn Common Hall",
     "description": "A high-ceilinged chamber dominated by a great stone hearth, where various maps and landscapes hang in dark frames above wine-red chairs. Round wooden tables, scarred by years of use, gather in intimate clusters across the floor, while tall windows admit what light they can through leaded panes. The scent of woodsmoke mingles with tobacco and whispered conversations.",
+    "summary": "inn__common (Inn Common Hall) -- A high-ceilinged chamber in the inn's north tower, dominated by a great stone hearth and round wooden tables, used for gathering and conversation.",
     "parent": "inn__north",
     "children": []
   },
@@ -92,6 +104,7 @@
     "identifier": "inn__kitchen",
     "title": "Inn Kitchen",
     "description": "A modest kitchen space of practical efficiency, its stone floor worn smooth by countless steps between hearth and counter. Copper pots hang from iron hooks, while shelves of preserves line the walls. A narrow service stair leads to the reception area above.",
+    "summary": "inn__kitchen (Inn Kitchen) -- A modest, efficient kitchen space in the inn, with a stone floor, copper pots, and shelves of preserves, used for preparing food.",
     "parent": "inn__south",
     "children": []
   },
@@ -99,6 +112,7 @@
     "identifier": "inn__reception",
     "title": "Inn Reception",
     "description": "The inn's formal entrance opens onto a space of dark wood panels and burgundy wallpaper, where Aldritch keeps watch from behind a broad desk of polished oak. The ancient guest book lies perpetually open, its pages recording arrivals but rarely departures. A brass lamp casts warm light across the registration desk, though it does little to brighten the room's far corners.",
+    "summary": "inn__reception (Inn Reception) -- The inn's formal entrance and registration area, with a broad desk and an ancient guest book, overseen by the innkeeper.",
     "parent": "inn__south",
     "children": []
   },
@@ -106,6 +120,7 @@
     "identifier": "inn__keeper_nook",
     "title": "Inn Keeper's Nook",
     "description": "A cramped space tucked behind the common room, barely large enough for a narrow bed and standing closet. Wooden pegs hold Aldritch's spare coat and the candleholder he uses for nightly roundsd. The idea to take residence in one of his establishment's grander rooms has never occurred to him.",
+    "summary": "inn__keeper_nook (Inn Keeper's Nook) -- A cramped, private space for the innkeeper, located behind the common room, used for rest and personal belongings.",
     "parent": "inn__north",
     "children": []
   },
@@ -113,6 +128,7 @@
     "identifier": "inn__raven_room",
     "title": "Inn Raven Room",
     "description": "A corner chamber whose tall windows face both the half-burnt manor and the abbey's spires. Dark wooden beams cross the ceiling in angular patterns, centered on a carved medallion bearing the Estate's Noble Raven. The four-poster bed's headboard displays the same motif, marking this as the inn's most prestigious lodging.",
+    "summary": "inn__raven_room (Inn Raven Room) -- The inn's most prestigious lodging, a corner chamber with a four-poster bed and the Estate's Noble Raven motif, offering manor and abbey views.",
     "parent": "inn__north",
     "children": [],
     "capacity": 2
@@ -121,6 +137,7 @@
     "identifier": "inn__bell_room",
     "title": "Inn Bell Room",
     "description": "Named for its view of the abbey's bell tower, though the gothic window's heavy curtains now remain perpetually drawn. The room centers on an unusual circular bed, its iron frame suggesting it was once able to rotate, while devotional candles left by successive occupants crowd the shelf near the door.",
+    "summary": "inn__bell_room (Inn Bell Room) -- A room in the inn named for its view of the abbey's bell tower, featuring an unusual circular bed and devotional candles.",
     "parent": "inn__north",
     "capacity": 2,
     "children": []
@@ -129,6 +146,7 @@
     "identifier": "inn__spire_room",
     "title": "Inn Spire Room",
     "description": "A high corner room where a worn telescope stands permanently aimed at the dilapidated manor through leaded glass. Faded charts cover one wall, their calculations and notes written in a frenzied hand, while an elaborate brass astrolabe gathers dust on the bedside table.",
+    "summary": "inn__spire_room (Inn Spire Room) -- A high corner room in the inn, featuring a telescope and charts aimed at the manor, used for observations.",
     "parent": "inn__north",
     "children": [],
     "capacity": 2
@@ -137,6 +155,7 @@
     "identifier": "inn__rookery_room",
     "title": "Inn Rookery Room",
     "description": "The highest room in the north tower, its peaked ceiling following the roofline's sharp angles. Iron brackets that once held bird cages line the walls, while the window seat offers clear views of the ravens that still circle the manor's distant towers.",
+    "summary": "inn__rookery_room (Inn Rookery Room) -- The highest room in the inn's north tower, with a peaked ceiling and iron brackets, offering views of ravens circling the manor.",
     "parent": "inn__north",
     "children": [],
     "capacity": 1
@@ -145,6 +164,7 @@
     "identifier": "inn__crypt_room",
     "title": "Inn Crypt Room",
     "description": "A ground-floor chamber tucked beside the kitchen, perpetually cool no matter the season. The room features an unusual vaulted ceiling and walls of fitted stone rather than timber, suggesting it predates the inn itself. A massive oakwood wardrobe, far too grand for such a modest chamber, stands awkwardly against scorched stonework.",
+    "summary": "inn__crypt_room (Inn Crypt Room) -- A perpetually cool ground-floor chamber in the inn with a vaulted stone ceiling and an unusually grand wardrobe.",
     "parent": "inn__south",
     "children": [],
     "capacity": 1
@@ -153,6 +173,7 @@
     "identifier": "inn__gargoyle_room",
     "title": "Inn Gargoyle Room",
     "description": "A third-floor chamber marked by a stone grotesque that leers through the dormer window. The carved creature seems to watch the room's occupants through the glass, while its shadow falls across the bed at peculiar angles regardless of the sun's position.",
+    "summary": "inn__gargoyle_room (Inn Gargoyle Room) -- A third-floor chamber in the inn, marked by a stone grotesque gargoyle leering through its dormer window.",
     "parent": "inn__south",
     "children": [],
     "capacity": 1
@@ -161,6 +182,7 @@
     "identifier": "inn__shadow_room",
     "title": "Inn Shadow Room",
     "description": "A corner room whose position catches the manor's half-burnt silhouette at sunset, casting its distinctive shape across the far wall. Mirrors of various sizes clutter the walls and corners, clearly stored here and forgotten, their frames collecting dust while their surfaces multiply the manor's shadow into a disorienting display.",
+    "summary": "inn__shadow_room (Inn Shadow Room) -- A corner room in the inn where the manor's silhouette is cast at sunset, filled with disorienting reflections from stored mirrors.",
     "parent": "inn__south",
     "children": [],
     "capacity": 2
@@ -169,6 +191,7 @@
     "identifier": "inn__moon_room",
     "title": "Inn Moon Room",
     "description": "Distinguished by its unusual circular window, fitted with panes of subtly tinted glass in a lunar pattern. The light it casts transforms the simple chamber throughout the month, painting the walls with pale colors that mirror the moon's phases.",
+    "summary": "inn__moon_room (Inn Moon Room) -- A chamber in the inn distinguished by its unusual circular window with tinted lunar-patterned glass, casting shifting light.",
     "parent": "inn__south",
     "children": [],
     "capacity": 1
@@ -177,6 +200,7 @@
     "identifier": "inn__twilight_room",
     "title": "Inn Twilight Room",
     "description": "The last room to receive sunlight each day, its western window stretching nearly floor to ceiling. Curtains cover all the room's walls but the windowed one, their colourful patterns faded by years of exposure to the setting sun.",
+    "summary": "inn__twilight_room (Inn Twilight Room) -- The last room in the inn to receive sunlight, with a large western window and faded colorful curtains.",
     "parent": "inn__south",
     "children": [],
     "capacity": 2
@@ -185,6 +209,7 @@
     "identifier": "inn__tower_room",
     "title": "Inn Tower Room",
     "description": "The highest chamber in the southern tower, accessed by a narrow spiral stair. The octagonal room offers views in all directions through diamond-paned windows, while a brass compass rose is inlaid into the wooden floor, its needle pointing slightly askew from true north.",
+    "summary": "inn__tower_room (Inn Tower Room) -- The highest octagonal chamber in the inn's southern tower, offering panoramic views and featuring a brass compass rose inlaid in the floor.",
     "parent": "inn__south",
     "capacity": 1,
     "children": []
@@ -193,6 +218,7 @@
     "identifier": "brothel",
     "title": "The Brothel",
     "description": "A tall, narrow building whose respectable facade belies its nature, marked only by a simple sign bearing an inverted cross and its name The Vestal's Secret. Glazed windows catch lamplight without revealing the activities within. The upper floors lean slightly over the alley, their weathered shutters perpetually closed against prying eyes.",
+    "summary": "brothel (The Brothel) -- A tall, narrow building with a discreet facade and an inverted cross sign, offering private rooms for illicit activities.",
     "parent": "southwest_district",
     "children": ["brothel__reception", "brothel__dukes_chamber", "brothel__earls_chamber", "brothel__viscounts_chamber", "brothel__counts_chamber", "brothel__barons_chamber", "brothel__dormitory", "brothel__powder_room", "brothel__madams_quarters"],
     "npcs": ["brothel_keeper"]
@@ -201,6 +227,7 @@
     "identifier": "brothel__reception", 
     "title": "Reception Parlor",
     "description": "A dimly lit chamber where velvet curtains mask the realities beyond. The Madam's high-backed chair faces the door, while mirrors arranged to catch lamplight create an illusion of space and warmth. Beneath peeling gilt and tired furnishings, the room maintains a desperate grasp at refinement.",
+    "summary": "brothel__reception (Reception Parlor) -- A dimly lit chamber in the brothel, with velvet curtains and mirrors, serving as a reception area for clients.",
     "parent": "brothel",
     "children": []
   },
@@ -208,6 +235,7 @@
     "identifier": "brothel__dukes_chamber",
     "title": "Duke's Chamber", 
     "description": "The brothel's premier room, where heavy curtains frame a massive bed whose elaborate carvings mock the business conducted upon it. A golden mirror hangs opposite, its frame darkened where countless hands have gripped it. Despite its pretensions to luxury, the space carries the same weariness as the rooms below.",
+    "summary": "brothel__dukes_chamber (Duke's Chamber) -- The brothel's premier room, featuring a massive, elaborately carved bed and a golden mirror, designed for luxury.",
     "parent": "brothel",
     "children": []
   },
@@ -215,6 +243,7 @@
     "identifier": "brothel__earls_chamber",
     "title": "Earl's Chamber",
     "description": "Dark wood panels line walls that have absorbed decades of whispered promises and quiet desperation. The bed's brass frame gleams dully in lamplight, while a chaise lounge beneath the window offers false implications of romance.",
+    "summary": "brothel__earls_chamber (Earl's Chamber) -- A chamber in the brothel with dark wood panels, a brass-framed bed, and a chaise lounge.",
     "parent": "brothel",
     "children": []
   },
@@ -222,6 +251,7 @@
     "identifier": "brothel__viscounts_chamber",
     "title": "Viscount's Chamber",
     "description": "A room where faded silk wallpaper peels at the edges, revealing older patterns beneath. The bed's heavy curtains hang motionless in stale air, while a washbasin in the corner offers minimal concession to hygiene.",
+    "summary": "brothel__viscounts_chamber (Viscount's Chamber) -- A room in the brothel with faded silk wallpaper, heavy curtains, and a washbasin, providing basic amenities.",
     "parent": "brothel",
     "children": []
   },
@@ -229,6 +259,7 @@
     "identifier": "brothel__counts_chamber",
     "title": "Count's Chamber",
     "description": "Pretensions to nobility fade here, where worn carpet and clouded mirrors frame a simple bed. A painted screen in one corner offers the illusion of privacy, its edges chipped to reveal cheaper wood beneath the gilt.",
+    "summary": "brothel__counts_chamber (Count's Chamber) -- A brothel room with worn carpet, clouded mirrors, and a simple bed, offering an illusion of privacy via a painted screen.",
     "parent": "brothel",
     "children": []
   },
@@ -236,6 +267,7 @@
     "identifier": "brothel__barons_chamber",
     "title": "Baron's Chamber",
     "description": "The most basic room bears its grand name like a cruel joke. A narrow bed with bent iron frame occupies most of the space, while a splintered stool serves as both chair and washstand. Dark stains mark the threadbare sheets - some perhaps from the Madam's barbed wire when she changed the bedding, though most have darker origins.",
+    "summary": "brothel__barons_chamber (Baron's Chamber) -- The most basic room in the brothel, with a narrow iron-framed bed and splintered stool, for the most humble guests.",
     "parent": "brothel",
     "children": []
   },
@@ -243,6 +275,7 @@
     "identifier": "brothel__dormitory",
     "title": "Workers' Dormitory",
     "description": "A long room beneath the sloped roof where narrow beds line the walls like accusations. Personal belongings remain hidden in locked trunks, while a single cracked mirror hangs where all must share its broken reflection. The air hangs heavy with cheap perfume and quiet sobs.",
+    "summary": "brothel__dormitory (Workers' Dormitory) -- A long room in the brothel with narrow beds and locked trunks, serving as a shared sleeping space for workers.",
     "parent": "brothel",
     "children": [],
     "capacity": 6
@@ -251,6 +284,7 @@
     "identifier": "brothel__powder_room",
     "title": "Powder Room",
     "description": "A cramped space where warped mirrors and guttering candles transform workers into the fantasies their clients desire. Stained basins line one wall, while open wardrobes display the required costumes. Rouge and powder dust every surface, a futile attempt to color the grey reality beneath.",
+    "summary": "brothel__powder_room (Powder Room) -- A cramped space in the brothel where workers prepare using mirrors, candles, and costumes for their clients.",
     "parent": "brothel",
     "children": []
   },
@@ -258,6 +292,7 @@
     "identifier": "brothel__madams_quarters",
     "title": "Madam's Quarters",
     "description": "Agnes's private chamber offers no comfort beyond isolation. A narrow bed and simple desk occupy opposite walls, while a shrine-like collection of wilting roses fills the windowsill. Barbed wire coils in a ceramic bowl, waiting for the morning when she'll wrap it fresh around her arm.",
+    "summary": "brothel__madams_quarters (Madam's Quarters) -- The Madam's private, isolated chamber in the brothel, spartan yet containing personal items like wilting roses and barbed wire.",
     "parent": "brothel",
     "children": []
   },
@@ -265,6 +300,7 @@
     "identifier": "tavern",
     "title": "Tavern",
     "description": "A timber-framed establishment whose weathered sign still bears the faded name \"The Keening Well.\" The ground floor's tall windows cast long shadows across drink-stained tables, while a modest stage occupies one corner beneath a narrow balcony. The bar stretches along the back wall and curves into the gambling section, its brass fittings dulled by years of polishing, while creaking stairs lead to both the upper rooms and the cellar below.",
+    "summary": "tavern (Tavern) -- A timber-framed establishment with a stage, bar, and gambling section, offering drinks and entertainment for patrons.",
     "parent": "southwest_district",
     "children": ["tavern__main", "tavern__kitchen", "tavern__bear_room", "tavern__stag_room", "tavern__wolf_room", "tavern__barkeep_chamber", "tavern__cook_quarter"],
     "npcs": ["barkeep"]
@@ -273,6 +309,7 @@
     "identifier": "tavern__main",
     "title": "Main Hall",
     "description": "A high-ceilinged chamber where the din of gambling mingles with general revelry. The bar's long counter curves past heavy oak tables toward the card players' corner, allowing the barkeep to observe both ordinary patrons and those testing their fortunes. Lanterns hang from iron hooks between ceiling beams, while a raised platform serves traveling performers who compete with the rattle of dice for attention.",
+    "summary": "tavern__main (Main Hall) -- A high-ceilinged chamber in the tavern, bustling with gambling and revelry, featuring a bar, tables, and a raised stage for performers.",
     "parent": "tavern",
     "children": []
   },
@@ -280,6 +317,7 @@
     "identifier": "tavern__kitchen",
     "title": "Kitchen",
     "description": "A cramped space behind the bar where decades of smoke have stained the ceiling black. The iron stove burns perpetually, warming stews that help soak up cheaper ales, while strings of garlic and dried herbs hang from overhead racks more from tradition than utility.",
+    "summary": "tavern__kitchen (Kitchen) -- A cramped space behind the tavern's bar, with a perpetually burning iron stove, used for preparing food and warming stews.",
     "parent": "tavern",
     "children": []
   },
@@ -287,6 +325,7 @@
     "identifier": "tavern__bear_room",
     "title": "Bear Room",
     "description": "The largest of the tavern's chambers, with a sturdy bed and iron-bound chest. Its window opens onto the shared balcony, offering a view of the alley below through leadlight panes. The mounted head above the mantle seems to watch the door with glass eyes. The Barkeep cannot resist showing the scars running down his arm that he won as trophy in their duel.",
+    "summary": "tavern__bear_room (Bear Room) -- The largest chamber in the tavern, with a sturdy bed and iron-bound chest, featuring a mounted bear's head and an alley view.",
     "parent": "tavern",
     "children": [],
     "capacity": 2
@@ -295,6 +334,7 @@
     "identifier": "tavern__stag_room",
     "title": "Stag Room",
     "description": "Antlers mounted above the headboard cast branching shadows across the walls, while the balcony door's lock shows signs of recent repair. A heavy scent still fills the room, of the Conscript's hips hammering against the Barmaid's, driving the final nail into the mind of his loving wife, writing love letters out in her apple yard.",
+    "summary": "tavern__stag_room (Stag Room) -- A tavern room marked by mounted antlers and a heavy scent, with a balcony door, hinting at past dramatic encounters.",
     "parent": "tavern",
     "children": [],
     "capacity": 2
@@ -303,6 +343,7 @@
     "identifier": "tavern__wolf_room",
     "title": "Wolf Room",
     "description": "The smallest but sturdiest of the Inn's rooms, tucked into the building's corner. Its narrow window and reinforced door suggest privacy or paranoia, and are hired out to the most reclusive guests visiting the Hamlet. The bed is narrow and tall enough to require steps, while the room's only decoration is a small painting of a wolf in a forest, under moonlight.",
+    "summary": "tavern__wolf_room (Wolf Room) -- The smallest, sturdiest room in the tavern, designed for privacy with a narrow window and reinforced door, suitable for reclusive guests.",
     "parent": "tavern",
     "children": [],
     "capacity": 1
@@ -311,6 +352,7 @@
     "identifier": "tavern__barkeep_chamber",
     "title": "Barkeep's Chamber",
     "description": "A surprisingly tidy room tucked beneath the tavern floor, where worn floorboards overhead mark the passage of patrons above. The narrow bed and simple desk suggest functionality over comfort, while a locked chest holds ledgers of debts and payments. A small stove provides warmth, though its chimney often carries down the sounds of revelry from the kitchen.",
+    "summary": "tavern__barkeep_chamber (Barkeep's Chamber) -- The barkeep's tidy private room beneath the tavern floor, used for rest and managing ledgers.",
     "parent": "tavern",
     "children": [],
     "capacity": 1
@@ -319,6 +361,7 @@
     "identifier": "tavern__cook_quarter",
     "title": "Cook's Quarter",
     "description": "A small chamber across from the barkeep's room, its door hanging open since the last cook's abrupt departure. Shelves still hold carefully labeled spice jars and recipe books, while a hook-lined rack awaits the return of copper pots. The bed remains made, as if its former occupant merely stepped out for air rather than fled into the night.",
+    "summary": "tavern__cook_quarter (Cook's Quarter) -- A small chamber in the tavern, once the cook's private quarters, still holding spice jars, recipe books, and waiting for its occupant's return.",
     "parent": "tavern",
     "children": [],
     "capacity": 1
@@ -327,6 +370,7 @@
     "identifier": "butchers_circus",
     "title": "Butcher's Circus",
     "description": "A blood-sport arena that sprawls across the hamlet's southwestern edge, its crimson and black pavilion tents rising like dark sails against the sky. Iron chains link the various structures, strung with flags bearing the marks of fallen champions. The metallic scent of blood mingles with sawdust and torch smoke, while the Ringmaster's laughter carries across the grounds.",
+    "summary": "butchers_circus (Butcher's Circus) -- A blood-sport arena with crimson and black pavilion tents, where champions rise and fall for entertainment.",
     "parent": "southwest_district",
     "children": ["butchers_circus__arena", "butchers_circus__twins_post", "butchers_circus__banner_workshop", "butchers_circus__ringmaster_wagon", "butchers_circus__performers_quarter"],
     "npcs": ["circus_twins"]
@@ -335,6 +379,7 @@
     "identifier": "butchers_circus__arena",
     "title": "Main Arena",
     "description": "A vast pavilion tent whose red-and-black stripes seem to writhe in torchlight. Banners bearing crossed swords hang between ornate metal posts, while a snarling boar's head of hammered steel crowns the entrance arch. Inside, tiered seating surrounds a sawdust ring stained with the efforts of countless battles, where champions rise and fall for the crowd's entertainment.",
+    "summary": "butchers_circus__arena (Main Arena) -- A vast pavilion tent in the Butcher's Circus with tiered seating around a sawdust ring, used for combat and entertainment.",
     "parent": "butchers_circus",
     "children": []
   },
@@ -342,6 +387,7 @@
     "identifier": "butchers_circus__twins_post",
     "title": "Twins' Post",
     "description": "The circus's primary entrance, marked by towering metal standards wrapped in chains. Jack and Jacques maintain their eternal vigil here, their mirrored positions and synchronized movements creating an unsettling gateway ritual. Trophy masks of defeated fighters hang from the chains above, their empty eyes watching new challengers pass below.",
+    "summary": "butchers_circus__twins_post (Twins' Post) -- The primary entrance to the Butcher's Circus, marked by towering metal standards and trophy masks, guarded by the twins.",
     "parent": "butchers_circus",
     "children": []
   },
@@ -349,6 +395,7 @@
     "identifier": "butchers_circus__banner_workshop",
     "title": "Banner Workshop",
     "description": "A long tent filled with the whisper of silk and scratch of needles, where the circus's distinctive banners take shape. Racks of finished standards display the heraldry of current champions, while tables groan under rolls of fabric in red and black. Delicate instruments for working metal thread catch lamplight like abandoned weapons.",
+    "summary": "butchers_circus__banner_workshop (Banner Workshop) -- A tent within the Butcher's Circus used for crafting distinctive banners and standards for champions and events.",
     "parent": "butchers_circus",
     "children": []
   },
@@ -356,6 +403,7 @@
     "identifier": "butchers_circus__ringmaster_wagon",
     "title": "Ringmaster's Wagon",
     "description": "An elaborate caravan decorated with spiked metalwork and hanging lanterns, its windows glowing with perpetual candlelight. Maul conducts the circus's business from this mobile throne room, where victory purses are counted and future matches planned. Trophy cases line the walls, displaying trinkets taken from particularly memorable bouts.",
+    "summary": "butchers_circus__ringmaster_wagon (Ringmaster's Wagon) -- An elaborate caravan serving as the mobile throne room for the Ringmaster, where circus business is conducted and trophies displayed.",
     "parent": "butchers_circus",
     "children": []
   },
@@ -363,6 +411,7 @@
     "identifier": "butchers_circus__performers_quarter",
     "title": "Performers' Quarter",
     "description": "A cluster of smaller tents where fighters prepare for their moments in the ring. Canvas walls barely muffle the sounds of training and meditation, while braziers cast long shadows of warriors practicing their forms. A medical station occupies the nearest tent, ready to tend those fortunate enough to survive their defeats.",
+    "summary": "butchers_circus__performers_quarter (Performers' Quarter) -- A cluster of smaller tents in the Butcher's Circus where fighters prepare for combat and receive medical attention.",
     "parent": "butchers_circus",
     "children": []
   }

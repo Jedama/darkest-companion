@@ -2,8 +2,9 @@
   "identifier": "blacksmith",
   "title": "Blacksmith",
   "name": "Gus",
-  "summary": "The Blacksmith is a remarkably cheerful soul whose booming laugh and glowing forge remain constant comforts in the hamlet's darkening days. Known as much for his masterful metalwork as his ability to lift spirits, Gus treats both mundane horseshoes and demon-slaying weapons with equal enthusiasm and care.",
+  "description": "The Blacksmith is a remarkably cheerful soul whose booming laugh and glowing forge remain constant comforts in the hamlet's darkening days. Known as much for his masterful metalwork as his ability to lift spirits, Gus treats both mundane horseshoes and demon-slaying weapons with equal enthusiasm and care.",
   "history": "A fixture of the hamlet long before its troubles, Gus learned the trade from his father and has practiced it through prosperity and catastrophe alike. When others fled the estate's emerging horrors, he simply added weaponsmithing to his repertoire, maintaining his jolly demeanor even while crafting implements of nightmare-slaying. His forge has become something of a sanctuary, where the warmth and rhythmic hammering provide a sense of normalcy amidst chaos.",
+  "summary": "blacksmith (Gus) -- A perpetually cheerful and steadfast Blacksmith, a masterful metalworker whose forge provides a grounding sanctuary for the hamlet amidst chaos.",
   "traits": [
     "Perpetually Cheerful",
     "Steadfast",

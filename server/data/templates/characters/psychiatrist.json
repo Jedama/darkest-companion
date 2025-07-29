@@ -1,0 +1,76 @@
+{
+  "identifier": "psychiatrist",
+  "title": "Therapist",
+  "name": "Charles",
+  "level": 0,
+  "money": 0,
+  "description": "An urbane and sophisticated psychiatrist whose reassuring demeanor conceals a sinister purpose. The Therapist uses a twisted blend of medical science and eldritch power to create codependency, offering temporary relief at the cost of his patients' free will. He views the broken souls of the Estate not as people to be healed, but as subjects to be 'fixed' and bound to his service, all while battling his own addictions and the whispers of his abyssal patron.",
+  "history": "Once a brilliant but frustrated doctor, the Therapist sought a true cure for the plagues of the mind. His ambition led him to a pact with a sinister entity he calls 'Father,' granting him profound power to manipulate the psyche. His philosophy warped: why cure illness when you can control it? Now, he preys on the desperate, creating a cycle of reliance that serves both his god-complex and the unknowable agenda of the being he serves.",
+  "summary": "A sophisticated but manipulative Therapist who uses eldritch power disguised as science to create codependent patients, all while battling his own addictions and fear of losing control.",
+  "race": "Human",
+  "gender": "Male",
+  "religion": "None",
+  "zodiac": "Scorpio",
+  "traits": [
+    "Sophisticated",
+    "Manipulative",
+    "Arrogant",
+    "Codependent",
+    "Pragmatic",
+    "Addictive"
+  ],
+  "status": {
+    "physical": 100,
+    "mental": 100,
+    "affliction": "",
+    "description": "In good health and high spitits",
+    "wounds": [],
+    "diseases": []
+  },
+  "stats": {
+    "strength": 2,
+    "agility": 4,
+    "intelligence": 10,
+    "authority": 8,
+    "sociability": 5
+  },
+  "equipment": [
+    "Outdated Pistol",
+    "Suspicious Sedative"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Slender",
+    "skinTone": "Fair",
+    "hairColor": "Dark with grey temples",
+    "hairStyle": "Neatly coiffed",
+    "features": "Sharp features, well-groomed goatee"
+  },
+  "clothing": {
+    "head": "Pince-nez spectacles",
+    "body": "Dark green coat over a waistcoat",
+    "legs": "Dark trousers",
+    "accessories": "Purple ascot tie"
+  },
+  "combat": {
+    "role": "Backline Controller",
+    "strengths": [
+      "Stress manipulation",
+      "Powerful debuffs and buffs",
+      "Disrupting enemy formations"
+    ],
+    "weaknesses": [
+      "Physically fragile",
+      "Low direct damage output",
+      "Dangerous side-effects"
+    ]
+  },
+  "magic": "A pact with an eldritch entity he calls 'Father'. He channels its power through twisted psychiatric methods, allowing him to alter minds, bestow boons with insidious costs, and commune with the abyss.",
+  "notes": [
+    "Refers to his otherworldly patron simply as 'Father'.",
+    "Uses alcohol and gambling as vices to cope with the mental strain of his pact.",
+    "Meticulous about his appearance, especially his pocket watch and suit, to maintain an illusion of control.",
+    "Sees his 'patients' less as people and more as experiments in his grand, twisted philosophy."
+  ],
+  "relationships": {}
+}

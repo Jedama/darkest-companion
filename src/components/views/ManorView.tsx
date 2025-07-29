@@ -185,7 +185,7 @@ export function ManorView({
           textureUrl={townEventButton}
           width={400}
           height={250}
-          onClick={handleTownEventClick}  // <-- Hook up the function here
+          onClick={handleTownEventClick}
         />
       </div>
     </div>

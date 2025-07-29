@@ -4,7 +4,7 @@
     "name": "William & Fergus",
     "level": 0,
     "money": 0,
-    "summary": "The Houndmaster is a former lawman who now fights alongside his faithful wolfhound, Fergus. Together they form a formidable team, using their skills to track down enemies and protect their allies.",
+    "description": "The Houndmaster is a former lawman who now fights alongside his faithful wolfhound, Fergus. Together they form a formidable team, using their skills to track down enemies and protect their allies.",
     "history": "Once a dedicated member of law enforcement, the Houndmaster uncovered corruption within his ranks. This discovery led him to leave his post and seek justice in his own way, with Fergus as his loyal companion.",
     "race": "Human",
     "gender": "Male",

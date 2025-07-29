@@ -2,8 +2,9 @@
   "identifier": "sailor",
   "title": "Sailor",
   "name": "Marston",
-  "summary": "A retired seaman who maintains The Stumbling Corpse with the same stern discipline he once commanded on deck. Though his sailing days ended when a strange illness left him with a persistent limp, he keeps watch over his establishment with quiet vigilance, marking each night's unusual occurrences in his logbook with the precision of a ship's captain.",
+  "description": "A retired seaman who maintains The Stumbling Corpse with the same stern discipline he once commanded on deck. Though his sailing days ended when a strange illness left him with a persistent limp, he keeps watch over his establishment with quiet vigilance, marking each night's unusual occurrences in his logbook with the precision of a ship's captain.",
   "history": "Spent thirty years at sea before the strange waters near the Estate's coast claimed his ship and most of his crew. While recovering from the illness that followed his rescue, he took over the then-abandoned boarding house, converting it into a haven for those who still brave the harbor's dangers.",
+  "summary": "sailor (Marston) -- A watchful and disciplined retired Sailor, now maintaining The Stumbling Corpse, who quietly logs unusual occurrences despite a persistent limp from a strange illness.",
   "traits": [
     "Watchful",
     "Taciturn",

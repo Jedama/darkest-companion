@@ -4,7 +4,9 @@ import React, { useState, useEffect } from 'react';
 import { DeckComponent } from './DeckComponent';
 import { CardComponent } from './CardComponent';  
 import { ImageButton } from '../../components/ui/buttons/ImageButton.tsx';
+import { ActivityLog } from './ActivityLog.tsx';
 import './StoryModal.css';
+import './ActivityLog.css';
 
 interface StoryModalProps {
   estateName: string;
@@ -51,10 +53,10 @@ interface ConsequenceResponse {
   };
 }
 
-type Phase = 'loading' | 'deck' | 'deal' | 'text';
+type Phase = 'input' | 'loading' | 'deck' | 'deal' | 'text';
 
 export function StoryModal({ estateName, onClose }: StoryModalProps) {
-  const [phase, setPhase] = useState<Phase>('loading');
+  const [phase, setPhase] = useState<Phase>('input');
   const [error, setError] = useState<string | null>(null);
 
   const [chosenCharacterIds, setChosenCharacterIds] = useState<string[]>([]);
@@ -65,107 +67,115 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
 
   const [hoveredCharacterId, setHoveredCharacterId] = useState<string | null>(null);
 
-  useEffect(() => {
+  const fetchStoryFlow = React.useCallback(async (userPrompt: string | null) => {
     const controller = new AbortController();
     const signal = controller.signal;
+    setError(null); // Clear previous errors
   
-    async function fetchStoryFlow() {
-      try {
-        // 1) Setup random event
-        const setupRes = await fetch(
-          `http://localhost:3000/estates/${estateName}/events/setup-random`,
-          {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            signal,
-          }
-        );
-        if (!setupRes.ok) {
-          throw new Error(`Setup route failed: ${setupRes.status}`);
+    setPhase('deck');
+
+    try {
+      // 1) Setup random event (now with optional userPrompt)
+      const setupRes = await fetch(
+        `http://localhost:3000/estates/${estateName}/events/setup-random`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ userPrompt }), // Pass the userPrompt
+          signal,
         }
-        const setupData: SetupResponse = await setupRes.json();
-        if (!setupData.success) {
-          throw new Error('Setup returned success=false');
-        }
-
-        console.log('setupData:', setupData);
-        setChosenCharacterIds(setupData.chosenCharacterIds);
-
-        // Go to deck phase
-        setPhase('deck');
-
-        // 2) Story route
-        const storyRes = await fetch(
-          `http://localhost:3000/estates/${estateName}/events/story`,
-          {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              event: setupData.event,
-              chosenCharacterIds: setupData.chosenCharacterIds,
-              locations: setupData.locations,
-              npcIds: setupData.npcs,
-              bystanders: setupData.bystanders
-            }),
-            signal,
-          }
-        );
-        if (!storyRes.ok) {
-          throw new Error(`Story route failed: ${storyRes.status}`);
-        }
-        const storyData: StoryResponse = await storyRes.json();
-        if (!storyData.success) {
-          throw new Error('Story route returned success=false');
-        }
-
-        // console.log('storyRes:', storyData);
-
-        setStoryTitle(storyData.story.title);
-        setStoryBody(storyData.story.body);
-
-        // 3) Consequences route
-        const consequenceRes = await fetch(
-          `http://localhost:3000/estates/${estateName}/events/consequences`,
-          {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              story: storyData.story.body,
-              chosenCharacterIds: setupData.chosenCharacterIds,
-            }),
-            signal,
-          }
-        );
-        
-        if (!consequenceRes.ok) {
-          throw new Error(`Consequences route failed: ${consequenceRes.status}`);
-        }
-        
-        const consequenceData: ConsequenceResponse = await consequenceRes.json();
-        if (!consequenceData.success) {
-          throw new Error('Consequences route returned success=false');
-        }
-        
-        // Set consequence display data and log it
-        setConsequenceDisplay(consequenceData.display.characters);
-        //console.log('Consequence Display Data:', consequenceData.display);
-
-
-      } catch (err: any) {
-        if (signal.aborted) return;
-        console.error('Error in fetchStoryFlow:', err);
-        setError(err.message);
+      );
+      if (!setupRes.ok) {
+        throw new Error(`Setup route failed: ${setupRes.status}`);
       }
+      const setupData: SetupResponse = await setupRes.json();
+      if (!setupData.success) {
+        throw new Error('Setup returned success=false');
+      }
+
+      console.log('setupData:', setupData);
+      setChosenCharacterIds(setupData.chosenCharacterIds);
+
+      // Transition to deck phase AFTER fetching setup data
+      // (This transition now happens from handleLogProceed, not directly in useEffect)
+      // setPhase('deck'); // This is handled by handleLogProceed
+
+      // 2) Story route
+      const storyRes = await fetch(
+        `http://localhost:3000/estates/${estateName}/events/story`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            event: setupData.event,
+            chosenCharacterIds: setupData.chosenCharacterIds,
+            locations: setupData.locations,
+            npcIds: setupData.npcs,
+            bystanders: setupData.bystanders
+          }),
+          signal,
+        }
+      );
+      if (!storyRes.ok) {
+        throw new Error(`Story route failed: ${storyRes.status}`);
+      }
+      const storyData: StoryResponse = await storyRes.json();
+      if (!storyData.success) {
+        throw new Error('Story route returned success=false');
+      }
+
+      setStoryTitle(storyData.story.title);
+      setStoryBody(storyData.story.body);
+
+      // 3) Consequences route
+      const consequenceRes = await fetch(
+        `http://localhost:3000/estates/${estateName}/events/consequences`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            story: storyData.story.body,
+            chosenCharacterIds: setupData.chosenCharacterIds,
+          }),
+          signal,
+        }
+      );
+      
+      if (!consequenceRes.ok) {
+        throw new Error(`Consequences route failed: ${consequenceRes.status}`);
+      }
+      
+      const consequenceData: ConsequenceResponse = await consequenceRes.json();
+      if (!consequenceData.success) {
+        throw new Error('Consequences route returned success=false');
+      }
+      
+      setConsequenceDisplay(consequenceData.display.characters);
+
+    } catch (err: any) {
+      if (signal.aborted) return;
+      console.error('Error in fetchStoryFlow:', err);
+      setError(err.message);
+      // If an error occurs, maybe reset phase or stay on logInput
+      setPhase('input'); // Allow user to try again
     }
+  }, [estateName]);
   
-    fetchStoryFlow();
-    return () => controller.abort();
+  useEffect(() => {
+    // We can potentially add some pre-loading logic here if needed,
+    // but the main data fetch is now user-triggered.
   }, []);
 
   const handleShuffleComplete = React.useCallback(() => {
     console.log('Deck shuffle complete!');
     setPhase('deal');
   }, [setPhase]);
+
+   // Handler for when the user proceeds from the Activity Log
+  const handleLogProceed = React.useCallback(async (logContent: string | null) => {
+    setPhase('loading'); // Show loading screen while fetching
+    await fetchStoryFlow(logContent);
+  }, [fetchStoryFlow]);
 
   // Hover Handlers
   const handleCardHover = React.useCallback((id: string) => {
@@ -200,21 +210,17 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
 
   return (
     <div className="story-modal-content">
-      {/* 
-        1) The DECK: 
-           Show the deck if phase >= 'deck'. 
-           Let it remain there through dealing & text if you want.
-      */}
-      <DeckComponent
-        phase={phase} 
-        onShuffleComplete={handleShuffleComplete}
-      />
+      {phase === 'input' && (
+        <ActivityLog onProceed={handleLogProceed} />
+      )}
+      
+      {['deck', 'deal', 'text'].includes(phase) && (
+        <DeckComponent
+          phase={phase} 
+          onShuffleComplete={handleShuffleComplete}
+        />
+      )}
 
-      {/* 
-        2) The CARDS: 
-           Show them if we are in the 'deal' phase or beyond 
-           (so they stay on screen during the text). 
-      */}
       {['deal', 'text'].includes(phase) && (
         <>
           {chosenCharacterIds.map((id, i) => {

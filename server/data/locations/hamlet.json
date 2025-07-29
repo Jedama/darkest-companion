@@ -3,6 +3,7 @@
     "identifier": "hamlet",
     "title": "Hamlet",
     "description": "The Ancestor's once-proud Estate's only settlement. Many houses stand empty due to the brigand raids and the ever-growing shadow of supernatural horrors unearthed beneath the manor.",
+    "summary": "hamlet (Hamlet) -- The Estate's primary settlement, an urban area composed of several districts, where residents struggle against corruption and supernatural horrors.",
     "parent": "estate",
     "children": ["north_west_district", "north_district", "north_east_district", "east_district", "south_east_district", "south_district", "south_west_district", "west_district", "center_district"]
   }

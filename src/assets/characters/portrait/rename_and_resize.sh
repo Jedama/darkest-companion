@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir -p large small
+
 # Loop through all PNG files in the current directory
 for file in *.png; do
     # Skip directories and non-files
@@ -14,7 +16,7 @@ for file in *.png; do
     base="${basename%%[0-9]*}"
 
     # Define new filenames for 'large' and 'small' directories
-    large_filename="${base}_832x1216.png"
+    large_filename="${base}_1024x1536.png"
     small_filename="${base}_190x278.png"
 
     # Move and rename the file to the 'large' directory

@@ -19,7 +19,7 @@ const ASSETS = {
     gems: (gemName: string) => 
       new URL(`${BASE_PATH}/ui/panels/characterpanel/gems/${gemName}.png`, import.meta.url).href,
     portrait: (identifier: string) => 
-      new URL(`${BASE_PATH}/characters/portrait/large/${identifier}_832x1216.png`, import.meta.url).href,
+      new URL(`${BASE_PATH}/characters/portrait/large/${identifier}_1024x1536.png`, import.meta.url).href,
     bookmarks: {
       health: (level = 10) => 
         new URL(`${BASE_PATH}/ui/panels/characterpanel/bookmarks/health${level}.png`, import.meta.url).href,

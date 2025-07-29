@@ -1,0 +1,76 @@
+{
+  "identifier": "sibyl_ms",
+  "title": "Sibyl",
+  "name": "Elara",
+  "level": 0,
+  "money": 0,
+  "description": "The last known survivor of a massacred sylvan coven, the Sibyl is a traumatized vagrant whose meek demeanor conceals a volatile connection to her goddess, The Radiance. While she can channel this divine power to mend wounds, her profound grief and simmering hatred can transform her into a conduit for a destructive, hateful light that scorches the earth and twists life into unnatural forms.",
+  "history": "Born an outcast and branded a 'half-breed', the Sibyl found sanctuary in a secluded coven. This peace was shattered when crusaders destroyed her home, forcing her to hide while her kin were slaughtered. Now, she wanders in a desperate search for other survivors, her journey fueled by a deep survivor's guilt and a growing hatred for the cruel world that took everything from her. Her faith is her only comfort, but her goddess's power is as dangerous as it is divine.",
+  "summary": "A traumatized, vagrant priestess whose grief twists her connection to a dangerous goddess, making her a volatile and unpredictable force of both healing and destruction.",
+  "race": "Human",
+  "gender": "Female",
+  "religion": "The Radiance",
+  "zodiac": "Pisces",
+  "traits": [
+    "Timid",
+    "Devout",
+    "Traumatized",
+    "Misanthropic",
+    "Vengeful",
+    "Resilient"
+  ],
+  "status": {
+    "physical": 100,
+    "mental": 100,
+    "affliction": "",
+    "description": "In good health and high spitits",
+    "wounds": [],
+    "diseases": []
+  },
+  "stats": {
+    "strength": 2,
+    "agility": 4,
+    "intelligence": 9,
+    "authority": 3,
+    "sociability": 6
+  },
+  "equipment": [
+    "Pouch of Dried Soil",
+    "Vagrant's Cloak"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Slender",
+    "skinTone": "Fair",
+    "hairColor": "Blond",
+    "hairStyle": "Long, partially obscured by veil",
+    "features": "Eyes often hidden in shadow, giving her a sorrowful and enigmatic look. Faint, old scars on her visible skin."
+  },
+  "clothing": {
+    "head": "Tattered white veil with beads",
+    "body": "Worn, dark priestess's robes over a lighter dress",
+    "legs": "None",
+    "accessories": "Simple religious adornments"
+  },
+  "combat": {
+    "role": "Volatile Healer / Blaster",
+    "strengths": [
+      "Potent healing abilities",
+      "High magical damage",
+      "Can debuff enemies"
+    ],
+    "weaknesses": [
+      "Physically frail",
+      "Mentally unstable",
+      "Her strongest powers can harm allies"
+    ]
+  },
+  "magic": "Channels 'The Radiance', a celestial goddess whose power can manifest as gentle, healing moonlight or as a hateful, blighting solar fire that twists life unnaturally.",
+  "notes": [
+    "Haunted by the memory of a 'little one' from her coven who died in the massacre.",
+    "Was ostracized as a 'half-breed' in her youth, leading to a deep-seated distrust of 'cityfolk'.",
+    "Forages for herbs and berries out of habit, a skill from her sylvan upbringing.",
+    "The Radiance's power is amplified by her intense emotions, especially her grief and rage."
+  ],
+  "relationships": {}
+}

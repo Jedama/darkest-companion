@@ -2,8 +2,9 @@
   "identifier": "caretaker",
   "title": "Caretaker",
   "name": "Grayson",
-  "summary": "The Caretaker is an unsettling constant in the hamlet's daily life, his duties expanding far beyond his original role. Between maintaining provisions for expeditions, teaching at the schoolhouse, and tending to the hamlet's endless repairs, he drifts through his tasks in a state of perpetual distraction, muttering about portents and prophecies.",
+  "description": "The Caretaker is an unsettling constant in the hamlet's daily life, his duties expanding far beyond his original role. Between maintaining provisions for expeditions, teaching at the schoolhouse, and tending to the hamlet's endless repairs, he drifts through his tasks in a state of perpetual distraction, muttering about portents and prophecies.",
   "history": "Once the estate's head groundskeeper, Grayson witnessed the Ancestor's descent into madness firsthand, though he speaks of these memories only in cryptic fragments. When the horrors emerged and others fled, he remained, perhaps anchored by duty, madness, or some mixture of both. Now he serves as the hamlet's odd-job man, shopkeeper, and reluctant educator, his fractured mind somehow maintaining just enough coherence to keep the settlement functioning.",
+  "summary": "caretaker (Grayson) -- An obsessive and unhinged Caretaker, drifting through duties with cryptic prophecies, haunted by witnessing the Ancestor's descent into madness.",
   "traits": [
     "Obsessive",
     "Cryptic",
