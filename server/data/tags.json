@@ -263,6 +263,22 @@
     {
       "tag": "Charmer",
       "description": "Has a charismatic, flirtatious, or seductive personality that can be a mechanic or cause unique interactions"
+    },
+    {
+      "tag": "HeavyHitter",
+      "description": "Excels at dealing high, direct burst damage with their primary attacks, distinct from Damage-over-Time specialists."
+    },
+    {
+      "tag": "Just",
+      "description": "This character is driven by a strong, often selfless, moral code."
+    },
+    {
+      "tag": "Immoral",
+      "description": "This character is primarily self-serving and is willing to harm others, break laws, or act unethically to achieve their personal goals."
+    },
+    {
+      "tag": "Abrasive",
+      "description": "This character's personality is argumentative, judgmental, or arrogant, leading them to challenge leadership, question strategy, and cause interpersonal conflict within the party."
     }
   ]
 }

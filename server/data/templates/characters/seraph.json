@@ -70,21 +70,8 @@
     "Can momentarily manifest angelic wings"
   ],
   "tags": [
-    "Frontline",
-    "Immobile",
-    "Tank",
-    "Guarder",
-    "Marker",
-    "MarkSynergy",
-    "Stanceshifter",
-    "Riposter",
-    "ArmorPiercer",
-    "SelfSufficient",
-    "Brink",
-    "Religious",
-    "Warrior",
-    "Outcast",
-    "Vigilant"
+    "Frontline", "Immobile", "Tank", "Guarder", "Marker", "MarkSynergy", "Stanceshifter", "HeavyHitter", "Just",
+    "Riposter", "ArmorPiercer", "SelfSufficient", "Brink", "Religious", "Warrior", "Outcast", "Vigilant"
   ],
   "relationships": {
   }

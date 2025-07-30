@@ -68,17 +68,8 @@
     "Often accompanied by the Circus Twins, Jack and Jacques, who serve as her guardians and performers, even on quests"
   ],
   "tags": [
-      "Frontline",
-      "StressHealer",
-      "Buffer",
-      "Stunner",
-      "Disruptor",
-      "GuardBreaker",
-      "Bleeder",
-      "Executor",
-      "Leader",
-      "Entertainer",
-      "Scavenger"
+      "Frontline", "StressHealer", "Buffer", "Stunner", "Disruptor", "GuardBreaker", "Bleeder", "Executor", 
+      "Leader", "Entertainer", "Scavenger", "HeavyHitter", "Immoral"
     ],
   "relationships": {}
 }

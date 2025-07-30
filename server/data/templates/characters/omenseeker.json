@@ -30,7 +30,7 @@
       "strength": 7,
       "agility": 8,
       "intelligence": 8,
-      "authority": 7,
+      "authority": 6,
       "sociability": 5
   },
   "equipment": [
@@ -72,7 +72,7 @@
     "Speaks the with thick Levantine accent and flair"
   ],
   "tags": [
-    "Flexible", "Debuffer", "Stunner", "Disruptor", "Bleeder", "ArmorPiercer", "BleedSynergy", 
+    "Flexible", "Debuffer", "Stunner", "Disruptor", "Bleeder", "ArmorPiercer", "BleedSynergy", "Just", "Abrasive",
     "BlightSynergy", "Crit", "Warrior", "Religious", "Scholarly", "Vigilant", "Scavenger"
   ],
   "relationships": {}

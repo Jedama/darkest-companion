@@ -29,7 +29,7 @@
     "strength": 6,
     "agility": 8,
     "intelligence": 8,
-    "authority": 6,
+    "authority": 5,
     "sociability": 4
   },
   "equipment": [
@@ -72,7 +72,7 @@
   ],
   "tags": [
     "Backline", "Healer", "Cleanser", "Debuffer", "Mercenary", "Warrior", "MarkApplier", "MarkSynergy",
-    "StressHealer", "Disruptor", "Immobile"
+    "StressHealer", "Disruptor", "Immobile", "HeavyHitter"
   ],
   "relationships": {}
 }

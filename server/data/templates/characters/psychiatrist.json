@@ -73,21 +73,8 @@
     "Sees his 'patients' less as people and more as experiments in his grand, twisted philosophy."
   ],
   "tags": [
-    "Backline",
-    "StressHealer",
-    "Buffer",
-    "Debuffer",
-    "Stunner",
-    "Disruptor",
-    "GuardBreaker",
-    "Marker",
-    "Weak",
-    "Frail",
-    "Unstable",
-    "Eldritch",
-    "Scholarly",
-    "Drunkard",
-    "Outcast"
+    "Backline", "StressHealer", "Buffer", "Debuffer", "Stunner", "Disruptor", "GuardBreaker", "Abrasive",
+    "Marker", "Weak", "Frail", "Unstable", "Eldritch", "Scholarly", "Drunkard", "Outcast"
   ],
   "relationships": {}
 }

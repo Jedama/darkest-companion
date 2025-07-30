@@ -68,19 +68,8 @@
       "Known for her accent and occasional nautical idioms"
   ],
   "tags": [
-    "Dancer",
-    "Tank",
-    "Bleeder",
-    "BleedSynergy",
-    "Marker",
-    "MarkSynergy",
-    "Debuffer",
-    "Disruptor",
-    "Executor",
-    "Setup",
-    "ArmorPiercer",
-    "GiantHunter",
-    "Warrior"
+    "Dancer", "Tank", "Bleeder", "BleedSynergy", "Marker", "MarkSynergy", "Debuffer", "HeavyHitter",
+    "Disruptor", "Executor", "Setup", "ArmorPiercer", "GiantHunter", "Warrior"
   ],
   "relationships": {}
 }

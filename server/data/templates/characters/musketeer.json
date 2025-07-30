@@ -71,18 +71,8 @@
     "Proficient in first aid"
   ],
   "tags": [
-    "Backline",
-    "Healer",
-    "Cleanser",
-    "Buffer",
-    "Marker",
-    "MarkSynergy",
-    "Bleeder",
-    "ArmorPiercer",
-    "Riposter",
-    "GuardBreaker",
-    "Cycler",
-    "Noble"
+    "Backline", "Healer", "Cleanser", "Buffer", "Marker", "MarkSynergy", "Bleeder", "ArmorPiercer", 
+    "Riposter", "GuardBreaker", "Cycler", "Noble", "HeavyHitter"
   ],
   "relationships": {}
 }

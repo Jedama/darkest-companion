@@ -1,85 +1,76 @@
 {
-    "identifier": "jester",
-    "title": "Jester",
-    "name": "Sarmenti",
-    "level": 0,
-    "money": 0,
-    "description": "Once a wandering street musician who fell prey to an otherworldly melody, the Jester now combines deadly precision with musical talent. Though appearing as a mere entertainer, he harbors dark experiences from his past that fuel both his performances and his combat prowess. His versatile skills allow him to support allies with inspiring tunes or inflict bleeding wounds with his sickle, all while maintaining an unsettling air of manic glee.",
-    "history": "Originally a directionless street performer, Sarmenti discovered a mysterious melody in a cemetery that awakened his ambition. His newfound talent led him to perform at the royal court, where he faced cruel mockery and humiliation. In revenge, he performed the demonic melody, resulting in death and dismemberment of the whole court, after which he severed his own finger to rid himself of the cursed talent. He now wanders, haunted by fragments of that forgotten tune.",
-    "race": "Human",
-    "gender": "Male",
-    "religion": "None",
-    "zodiac": "Pisces",
-    "traits": [
-      "Maniacal",
-      "Versatile",
-      "Theatrical",
-      "Quipster"
+  "identifier": "jester",
+  "title": "Jester",
+  "name": "Sarmenti",
+  "level": 0,
+  "money": 0,
+  "description": "Once a wandering street musician who fell prey to an otherworldly melody, the Jester now combines deadly precision with musical talent. Though appearing as a mere entertainer, he harbors dark experiences from his past that fuel both his performances and his combat prowess. His versatile skills allow him to support allies with inspiring tunes or inflict bleeding wounds with his sickle, all while maintaining an unsettling air of manic glee.",
+  "history": "Originally a directionless street performer, Sarmenti discovered a mysterious melody in a cemetery that awakened his ambition. His newfound talent led him to perform at the royal court, where he faced cruel mockery and humiliation. In revenge, he performed the demonic melody, resulting in death and dismemberment of the whole court, after which he severed his own finger to rid himself of the cursed talent. He now wanders, haunted by fragments of that forgotten tune.",
+  "race": "Human",
+  "gender": "Male",
+  "religion": "None",
+  "zodiac": "Pisces",
+  "traits": [
+    "Maniacal",
+    "Versatile",
+    "Theatrical",
+    "Quipster"
+  ],
+  "status": {
+    "physical": 100,
+    "mental": 100,
+    "affliction": "",
+    "description": "In good health and high spirits",
+    "wounds": [],
+    "diseases": []
+  },
+  "stats": {
+    "strength": 4,
+    "agility": 7,
+    "intelligence": 5,
+    "authority": 3,
+    "sociability": 10
+  },
+  "equipment": [
+    "Sickle",
+    "Lute",
+    "Bells",
+    "Dagger"
+  ],
+  "appearance": {
+    "height": "Tall",
+    "build": "Lean",
+    "skinTone": "Pale",
+    "hairColor": "Black",
+    "hairStyle": "Long and unkempt",
+    "features": "Gaunt face, prominent cheekbones, dark circles under eyes"
+  },
+  "clothing": {
+    "head": "White theatrical mask",
+    "body": "Red and black jester's attire with bells",
+    "legs": "Dark fitted pants",
+    "accessories": "Shoes with bells"
+  },
+  "combat": {
+    "role": "Support",
+    "strengths": [
+      "Musical inspiration",
+      "Precision",
+      "Keeps morale up"
     ],
-    "status": {
-      "physical": 100,
-      "mental": 100,
-      "affliction": "",
-      "description": "In good health and high spirits",
-      "wounds": [],
-      "diseases": []
-    },
-    "stats": {
-      "strength": 4,
-      "agility": 7,
-      "intelligence": 5,
-      "authority": 3,
-      "sociability": 10
-    },
-    "equipment": [
-      "Sickle",
-      "Lute",
-      "Bells",
-      "Dagger"
-    ],
-    "appearance": {
-      "height": "Tall",
-      "build": "Lean",
-      "skinTone": "Pale",
-      "hairColor": "Black",
-      "hairStyle": "Long and unkempt",
-      "features": "Gaunt face, prominent cheekbones, dark circles under eyes"
-    },
-    "clothing": {
-      "head": "White theatrical mask",
-      "body": "Red and black jester's attire with bells",
-      "legs": "Dark fitted pants",
-      "accessories": "Shoes with bells"
-    },
-    "combat": {
-      "role": "Support",
-      "strengths": [
-        "Musical inspiration",
-        "Precision",
-        "Keeps morale up"
-      ],
-      "weaknesses": [
-        "Weak",
-        "Frail"
-      ]
-    },
-    "magic": "None",
-    "notes": [
-      "Never removes his mask",
-      "Often talks in jokes and rhymes",
-      "Carries and plays his lute around the hamlet"
-    ],
-    "tags": [
-      "Dancer",
-      "StressHealer",
-      "Frail",
-      "Bleeder",
-      "Buffer",
-      "Executor",
-      "Setup",
-      "Crit",
-      "Unstable",
-      "Entertainer"
-    ],
-    "relationships": {}
-  }
+    "weaknesses": [
+      "Weak",
+      "Frail"
+    ]
+  },
+  "magic": "None",
+  "notes": [
+    "Never removes his mask",
+    "Often talks in jokes and rhymes",
+    "Carries and plays his lute around the hamlet"
+  ],
+  "tags": [
+    "Dancer", "StressHealer", "Frail", "Bleeder", "Buffer", "Executor", "Setup", "Crit", "Unstable", "Entertainer"
+  ],
+  "relationships": {}
+}

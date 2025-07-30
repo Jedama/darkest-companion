@@ -74,7 +74,7 @@
     "Keeps meticulous tallies of kills, contracts, and earnings"
   ],
   "tags": [
-    "Flexible", "Mercenary", "Warrior", "MarkApplier", "HumanHunter", "GiantHunter",
+    "Flexible", "Mercenary", "Warrior", "MarkApplier", "HumanHunter", "GiantHunter", "HeavyHitter",
     "MarkSynergy", "Stunner", "Debuffer", "Disruptor", "StunSynergy", "Scout", "Bleeder"
   ],
   "relationships": {
