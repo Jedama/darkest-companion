@@ -1,73 +1,88 @@
 {
-    "identifier": "occultist",
-    "title": "Occultist",
-    "name": "Alhazred",
-    "level": 0,
-    "money": 0,
-    "description": "A powerful occultist who has delved deep into forbidden knowledge and eldritch powers. Alhazred has performed rituals that have left him forever changed, serving as a conduit to unknown regions and constantly assailed by blasphemous forces. His pursuit of arcane wisdom and impossible power has come at a great cost, both to himself and those around him.",
-    "history": "Alhazred conducted rituals to explore the Outer Sphere, found a mysterious pyramid in a desert that changed everything, sacrificed parts of himself for power, and ultimately became a beacon for eldritch entities. His apotheosis was achieved through dangerous rituals and communion with forces beyond mortal comprehension.",
-    "race": "Human",
-    "gender": "Male",
-    "religion": "Occultism",
-    "zodiac": "Scorpio",
-    "traits": [
-        "Knowledgeable",
-        "Ambitious",
-        "Fearless",
-        "Haunted",
-        "Powerful",
-        "Enigmatic"
+  "identifier": "occultist",
+  "title": "Occultist",
+  "name": "Alhazred",
+  "level": 0,
+  "money": 0,
+  "description": "A powerful occultist who has delved deep into forbidden knowledge and eldritch powers. Alhazred has performed rituals that have left him forever changed, serving as a conduit to unknown regions and constantly assailed by blasphemous forces. His pursuit of arcane wisdom and impossible power has come at a great cost, both to himself and those around him.",
+  "history": "Alhazred conducted rituals to explore the Outer Sphere, found a mysterious pyramid in a desert that changed everything, sacrificed parts of himself for power, and ultimately became a beacon for eldritch entities. His apotheosis was achieved through dangerous rituals and communion with forces beyond mortal comprehension.",
+  "race": "Human",
+  "gender": "Male",
+  "religion": "Occultism",
+  "zodiac": "Scorpio",
+  "traits": [
+    "Knowledgeable",
+    "Ambitious",
+    "Fearless",
+    "Haunted",
+    "Powerful",
+    "Enigmatic"
+  ],
+  "status": {
+    "physical": 100,
+    "mental": 100,
+    "affliction": "",
+    "description": "In good health and high spirits",
+    "wounds": [],
+    "diseases": []
+  },
+  "stats": {
+    "strength": 3,
+    "agility": 3,
+    "intelligence": 8,
+    "authority": 8,
+    "sociability": 5
+  },
+  "equipment": [
+    "Ritual dagger",
+    "Skull with candle"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Lean",
+    "skinTone": "Tanned",
+    "hairColor": "Black",
+    "hairStyle": "Long, partially hidden by turban",
+    "features": "Goatee and styled curled mustache"        
+  },
+  "clothing": {
+    "head": "White turban",
+    "body": "White tunic with red embroidery",
+    "legs": "Loose-fitting pants",
+    "accessories": "Necklace"
+  },
+  "combat": {
+    "role": "Healer & Controller",
+    "strengths": [
+      "Powerful spells",
+      "Knowledge of the unknown",
+      "Ability to weaken enemies"
     ],
-    "status": {
-        "physical": 100,
-        "mental": 100,
-        "affliction": "",
-        "description": "In good health and high spirits",
-        "wounds": [],
-        "diseases": []
-    },
-    "stats": {
-        "strength": 3,
-        "agility": 3,
-        "intelligence": 8,
-        "authority": 8,
-        "sociability": 5
-    },
-    "equipment": [
-        "Ritual dagger",
-        "Skull with candle"
-    ],
-    "appearance": {
-        "height": "Average",
-        "build": "Lean",
-        "skinTone": "Tanned",
-        "hairColor": "Black",
-        "hairStyle": "Long, partially hidden by turban",
-        "features": "Goatee and styled curled mustache"        
-    },
-    "clothing": {
-        "head": "White turban",
-        "body": "White tunic with red embroidery",
-        "legs": "Loose-fitting pants",
-        "accessories": "Necklace"
-    },
-    "combat": {
-        "role": "Healer & Controller",
-        "strengths": [
-            "Powerful spells",
-            "Knowledge of the unknown",
-            "Ability to weaken enemies"
-        ],
-        "weaknesses": [
-            "Physically vulnerable",
-            "Mentally strained",
-            "Dependent on magical abilities"
-        ]
-    },
-    "magic": "Eldritch tenacle summoning",
-    "notes": [
-        "Constantly hears whispers from eldritch entities",
-        "Has sacrificed parts of himself for power"
-    ],
-    "relationships": {}
+    "weaknesses": [
+      "Physically vulnerable",
+      "Mentally strained",
+      "Dependent on magical abilities"
+    ]
+  },
+  "magic": "Eldritch tenacle summoning",
+  "notes": [
+    "Constantly hears whispers from eldritch entities",
+    "Has sacrificed parts of himself for power"
+  ],
+  "tags": [
+    "Flexible",
+    "Healer",
+    "Debuffer",
+    "Stunner",
+    "Marker",
+    "Disruptor",
+    "EldritchHunter",
+    "Unstable",
+    "Frail",
+    "Dark",
+    "Eldritch",
+    "Scholarly",
+    "Vigilant"
+  ],
+  "relationships": {}
 }

@@ -1,77 +1,81 @@
 {
-    "identifier": "antiquarian",
-    "title": "Antiquarian",
-    "name": "Josephine",
-    "level": 0,
-    "money": 0,
-    "description": "The Antiquarian is a cunning and morally ambiguous character driven by an insatiable greed for valuable artifacts and occult knowledge. Her pursuit of power and wealth leads her to dark places, both literally and figuratively. She has arrived at the estate to pilfer the Ancestor's relics, and in search of the final piece of a mysterious puzzle box.",
-    "history": "Originally from the deserts around the Levantine Sultanate, the Antiquarian has traveled the world trading in supernatural relics. She became a disciple to a sorcerer to advance her knowledge of the arcane, only to betray and imprison him in a censer during a ritual. Her past is marked by self-serving decisions and a willingness to sacrifice others for her goals.",
-    "race": "Human",
-    "gender": "Female",
-    "religion": "None",
-    "zodiac": "Gemini",
-    "traits": [
-        "Ambitious",
-        "Knowledgeable",
-        "Greedy",
-        "Cunning",
-        "Immoral"
+  "identifier": "antiquarian",
+  "title": "Antiquarian",
+  "name": "Josephine",
+  "level": 0,
+  "money": 0,
+  "description": "The Antiquarian is a cunning and morally ambiguous character driven by an insatiable greed for valuable artifacts and occult knowledge. Her pursuit of power and wealth leads her to dark places, both literally and figuratively. She has arrived at the estate to pilfer the Ancestor's relics, and in search of the final piece of a mysterious puzzle box.",
+  "history": "Originally from the deserts around the Levantine Sultanate, the Antiquarian has traveled the world trading in supernatural relics. She became a disciple to a sorcerer to advance her knowledge of the arcane, only to betray and imprison him in a censer during a ritual. Her past is marked by self-serving decisions and a willingness to sacrifice others for her goals.",
+  "race": "Human",
+  "gender": "Female",
+  "religion": "None",
+  "zodiac": "Gemini",
+  "traits": [
+    "Ambitious",
+    "Knowledgeable",
+    "Greedy",
+    "Cunning",
+    "Immoral"
+  ],
+  "status": {
+    "physical": 100,
+    "mental": 100,
+    "affliction": "",
+    "description": "In good health and high spirits",
+    "wounds": [],
+    "diseases": []
+  },
+  "stats": {
+    "strength": 2,
+    "agility": 6,
+    "intelligence": 8,
+    "authority": 5,
+    "sociability": 7
+  },
+  "equipment": [
+    "Censer (containing her former master's soul)",
+    "Kukri",
+    "Flash powder"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Slender",
+    "skinTone": "Tanned",
+    "hairColor": "Dark",
+    "hairStyle": "Short",
+    "features": "Long fingers"
+  },
+  "clothing": {
+    "head": "Blue bandana",
+    "body": "Light-colored robe",
+    "legs": "Light pants",
+    "accessories": "Red scarf covering lower face, multiple necklaces"
+  },
+  "combat": {
+    "role": "Scavenger",
+    "strengths": [
+      "Finding valuables",
+      "Healing and invigorating vapors",
+      "Dodging and hiding"
     ],
-    "status": {
-        "physical": 100,
-        "mental": 100,
-        "affliction": "",
-        "description": "In good health and high spirits",
-        "wounds": [],
-        "diseases": []
-    },
-    "stats": {
-        "strength": 2,
-        "agility": 6,
-        "intelligence": 8,
-        "authority": 5,
-        "sociability": 7
-    },
-    "equipment": [
-        "Censer (containing her former master's soul)",
-        "Kukri",
-        "Flash powder"
-    ],
-    "appearance": {
-        "height": "Average",
-        "build": "Slender",
-        "skinTone": "Tanned",
-        "hairColor": "Dark",
-        "hairStyle": "Short",
-        "features": "Long fingers"
-    },
-    "clothing": {
-        "head": "Blue bandana",
-        "body": "Light-colored robe",
-        "legs": "Light pants",
-        "accessories": "Orange scarf covering lower face, multiple necklaces"
-    },
-    "combat": {
-        "role": "Scavenger",
-        "strengths": [
-            "Finding valuables",
-            "Healing and invigorating vapors",
-            "Dodging and hiding"
-        ],
-        "weaknesses": [
-            "Weak",
-            "Frail",
-            "Selfish"
-        ]
-    },
-    "magic": "None",
-    "notes": [
-        "Speaks multiple languages fluently, including Levantine and the language of the Eastern isles",
-        "Whispers to her censer during moments of stress; the trapped sorcerer within responds with venomous, hateful mutterings",
-        "Instinctively touches objects, or their closest representative, while speaking about them",
-        "Surrounds herself with fragrant vapours from the censer, to protect her sensitive nose",
-        "Meticulously maintains her hair's cleanliness"
-    ],
-    "relationships": {
-    }
+    "weaknesses": [
+      "Weak",
+      "Frail",
+      "Selfish"
+    ]
+  },
+  "magic": "None",
+  "notes": [
+    "Speaks multiple languages fluently, including Levantine and the language of the Eastern isles",
+    "Whispers to her censer during moments of stress; the trapped sorcerer within responds with venomous, hateful mutterings",
+    "Instinctively touches objects, or their closest representative, while speaking about them",
+    "Surrounds herself with fragrant vapours from the censer, to protect her sensitive nose",
+    "Meticulously maintains her hair's cleanliness"
+  ],
+  "tags": [
+    "Backline", "Weak", "Frail", "Hider", "Buffer", "Debuffer", "Scavenger", "Mercenary",
+    "Scholarly", "BlightDealer"
+  ],
+  "relationships": {
+  }
 }

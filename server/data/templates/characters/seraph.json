@@ -1,77 +1,91 @@
 {
-    "identifier": "seraph",
-    "title": "Seraph",
-    "name": "Joan",
-    "level": 0,
-    "money": 0,
-    "description": "A devout warrior who hears the voice of 'The Light', the Seraph has transformed from a humble farmer to a zealous crusader. Burned and scarred from a near-death experience, she now serves as a vessel for divine power, though the true nature of the entity guiding her remains ambiguous.",
-    "history": "Born into poverty, the Seraph's life changed when she began hearing voices  from The Light. Believing herself chosen, she took up arms, causing a schism in the church. Hunted by witch hunter Mathis, she was captured and sentenced to burn. During her execution, a miraculous intervention saved her, and though leaving her horribly scarred it elevated her to a figure of deity, and she went on to lead many holy crusades. Now, guided by the voice, she has come to the Hamlet to purge evil.",
-    "race": "Human",
-    "gender": "Female",
-    "religion": "The Light",
-    "zodiac": "Aries",
-    "traits": [
-        "Zealous",
-        "Devout",
-        "Conflicted",
-        "Protective",
-        "Judgmental",
-        "Haunted"
+  "identifier": "seraph",
+  "title": "Seraph",
+  "name": "Joan",
+  "level": 0,
+  "money": 0,
+  "description": "A devout warrior who hears the voice of 'The Light', the Seraph has transformed from a humble farmer to a zealous crusader. Burned and scarred from a near-death experience, she now serves as a vessel for divine power, though the true nature of the entity guiding her remains ambiguous.",
+  "history": "Born into poverty, the Seraph's life changed when she began hearing voices  from The Light. Believing herself chosen, she took up arms, causing a schism in the church. Hunted by witch hunter Mathis, she was captured and sentenced to burn. During her execution, a miraculous intervention saved her, and though leaving her horribly scarred it elevated her to a figure of deity, and she went on to lead many holy crusades. Now, guided by the voice, she has come to the Hamlet to purge evil.",
+  "race": "Human",
+  "gender": "Female",
+  "religion": "The Light",
+  "zodiac": "Aries",
+  "traits": [
+    "Zealous",
+    "Devout",
+    "Conflicted",
+    "Protective",
+    "Judgmental",
+    "Haunted"
+  ],
+  "status": {
+    "physical": 100,
+    "mental": 100,
+    "affliction": "",
+    "description": "In good health and high spirits",
+    "wounds": [],
+    "diseases": []
+  },
+  "stats": {
+    "strength": 8,
+    "agility": 2,
+    "intelligence": 4,
+    "authority": 7,
+    "sociability": 4
+  },
+  "equipment": [
+    "Holy sword",
+    "Holy shield"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Athletic",
+    "skinTone": "Severely scarred",
+    "hairColor": "None",
+    "hairStyle": "Burnt away",
+    "features": "Charred, burnt skin"
+  },
+  "clothing": {
+    "head": "Mask to hide scarred face",
+    "body": "Full plate armor",
+    "legs": "Armored leggings",
+    "accessories": "None"
+  },
+  "combat": {
+    "role": "Warrior",
+    "strengths": [
+      "Divine protection",
+      "Cleansing flames",
+      "Unwavering faith"
     ],
-    "status": {
-        "physical": 100,
-        "mental": 100,
-        "affliction": "",
-        "description": "In good health and high spirits",
-        "wounds": [],
-        "diseases": []
-    },
-    "stats": {
-        "strength": 8,
-        "agility": 2,
-        "intelligence": 4,
-        "authority": 7,
-        "sociability": 4
-    },
-    "equipment": [
-        "Holy sword",
-        "Holy shield"
-    ],
-    "appearance": {
-        "height": "Average",
-        "build": "Athletic",
-        "skinTone": "Severely scarred",
-        "hairColor": "None",
-        "hairStyle": "Burnt away",
-        "features": "Charred, burnt skin"
-    },
-    "clothing": {
-        "head": "Mask to hide scarred face",
-        "body": "Full plate armor",
-        "legs": "Armored leggings",
-        "accessories": "None"
-    },
-    "combat": {
-        "role": "Warrior",
-        "strengths": [
-            "Divine protection",
-            "Cleansing flames",
-            "Unwavering faith"
-        ],
-        "weaknesses": [
-            "Very fragile body beneath armor",
-            "Unsettling presence"
-        ]
-    },
-    "magic": "Holy fire",
-    "notes": [
-        "Hears voices claiming to be 'The Light'",
-        "Occasionally regrets leaving her simple life",
-        "Can momentarily manifest angelic wings"
-    ],
-    "relationships": {
-        "The Church": "Estranged",
-        "Mathis the Witch Hunter": "Former pursuer",
-        "Followers": "Small group of devoted believers"
-    }
+    "weaknesses": [
+      "Very fragile body beneath armor",
+      "Unsettling presence"
+    ]
+  },
+  "magic": "Holy fire",
+  "notes": [
+    "Hears voices claiming to be 'The Light'",
+    "Occasionally regrets leaving her simple life",
+    "Can momentarily manifest angelic wings"
+  ],
+  "tags": [
+    "Frontline",
+    "Immobile",
+    "Tank",
+    "Guarder",
+    "Marker",
+    "MarkSynergy",
+    "Stanceshifter",
+    "Riposter",
+    "ArmorPiercer",
+    "SelfSufficient",
+    "Brink",
+    "Religious",
+    "Warrior",
+    "Outcast",
+    "Vigilant"
+  ],
+  "relationships": {
+  }
 }

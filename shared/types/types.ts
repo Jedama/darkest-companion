@@ -75,6 +75,7 @@ export interface Character {
   combat: Combat;
   magic: string;
   notes: string[];
+  tags: string[];
   relationships: Record<string, Relationship>;
 }
 

@@ -1,75 +1,79 @@
 {
-    "identifier": "omenseeker",
-    "title": "Omen Seeker",
-    "name": "Mesmira",
-    "level": 0,
-    "money": 0,
-    "description": "The Omen Seeker is a nomadic inquisitor and monster hunter from the Levantine Sultanate, devoted to 'the Flame.' She's a complex individual, balancing unwavering conviction with deep-seated guilt over past actions. Stern and disciplined, she wields an arsenal of specialized weapons to combat supernatural threats.",
-    "history": "The Omen Seeker's past involves violent acts against communities, which continue to haunt her. She travels with a well-stocked wagon, serving as both her mobile home and a base of operations. While dedicated to her mission of purging evil, she grapples with the morality of her methods and the weight of lives taken in the name of her faith.",
-    "race": "Human",
-    "gender": "Female",
-    "religion": "The Flame",
-    "zodiac": "Sagittarius",
-    "traits": [
-      "Devout",
-      "Stern",
-      "Disciplined",
-      "Confident",
-      "Judgmental",
-      "Experienced"
+  "identifier": "omenseeker",
+  "title": "Omen Seeker",
+  "name": "Mesmira",
+  "level": 0,
+  "money": 0,
+  "description": "The Omen Seeker is a nomadic inquisitor and monster hunter from the Levantine Sultanate, devoted to 'the Flame.' She's a complex individual, balancing unwavering conviction with deep-seated guilt over past actions. Stern and disciplined, she wields an arsenal of specialized weapons to combat supernatural threats.",
+  "history": "The Omen Seeker's past involves violent acts against communities, which continue to haunt her. She travels with a well-stocked wagon, serving as both her mobile home and a base of operations. While dedicated to her mission of purging evil, she grapples with the morality of her methods and the weight of lives taken in the name of her faith.",
+  "race": "Human",
+  "gender": "Female",
+  "religion": "The Flame",
+  "zodiac": "Sagittarius",
+  "traits": [
+    "Devout",
+    "Stern",
+    "Disciplined",
+    "Confident",
+    "Judgmental",
+    "Experienced"
+  ],
+  "status": {
+    "physical": 100,
+    "mental": 100,
+    "affliction": "",
+    "description": "In good health and high spirits",
+    "wounds": [],
+    "diseases": []
+  },
+  "stats": {
+      "strength": 7,
+      "agility": 8,
+      "intelligence": 8,
+      "authority": 7,
+      "sociability": 5
+  },
+  "equipment": [
+    "Consecrated whip",
+    "Throwing axe",
+    "Bladed boomerang",
+    "Holy water"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Curvy",
+    "skinTone": "Dark",
+    "hairColor": "Black",
+    "hairStyle": "Long, wavy",
+    "features": "Enormous breasts"
+  },
+  "clothing": {
+    "head": "Ornate, flowing headpiece",
+    "body": "Low-cut, off-shoulder dark top",
+    "legs": "Flowing skirt with high slit and thighhighs",
+    "accessories": "Multiple necklaces, large earrings, arm bracers"
+  },
+  "combat": {
+    "role": "Combatant",
+    "strengths": [
+      "Debilitation",
+      "Quick thinking",
+      "Versatility"
     ],
-    "status": {
-      "physical": 100,
-      "mental": 100,
-      "affliction": "",
-      "description": "In good health and high spirits",
-      "wounds": [],
-      "diseases": []
-    },
-    "stats": {
-        "strength": 7,
-        "agility": 8,
-        "intelligence": 8,
-        "authority": 7,
-        "sociability": 5
-    },
-    "equipment": [
-      "Consecrated whip",
-      "Throwing axe",
-      "Bladed boomerang",
-      "Holy water"
-    ],
-    "appearance": {
-      "height": "Average",
-      "build": "Curvy",
-      "skinTone": "Dark",
-      "hairColor": "Black",
-      "hairStyle": "Long, wavy",
-      "features": "Enormous breasts"
-    },
-    "clothing": {
-      "head": "Ornate, flowing headpiece",
-      "body": "Low-cut, off-shoulder dark top",
-      "legs": "Flowing skirt with high slit and thighhighs",
-      "accessories": "Multiple necklaces, large earrings, arm bracers"
-    },
-    "combat": {
-      "role": "Combatant",
-      "strengths": [
-        "Debilitation",
-        "Quick thinking",
-        "Versatility"
-      ],
-      "weaknesses": [
-        "Light armor"
-      ]
-    },
-    "magic": "None",
-    "notes": [
-      "Travels with a well-stocked wagon",
-      "Skilled in divination",
-      "Possesses extensive knowledge of monsters",
-      "Speaks the with thick Levantine accent and flair"
-    ],
-    "relationships": {}
+    "weaknesses": [
+      "Light armor"
+    ]
+  },
+  "magic": "None",
+  "notes": [
+    "Travels with a well-stocked wagon",
+    "Skilled in divination",
+    "Possesses extensive knowledge of monsters",
+    "Speaks the with thick Levantine accent and flair"
+  ],
+  "tags": [
+    "Flexible", "Debuffer", "Stunner", "Disruptor", "Bleeder", "ArmorPiercer", "BleedSynergy", 
+    "BlightSynergy", "Crit", "Warrior", "Religious", "Scholarly", "Vigilant", "Scavenger"
+  ],
+  "relationships": {}
 }

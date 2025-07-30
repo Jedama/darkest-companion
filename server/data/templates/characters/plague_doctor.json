@@ -11,28 +11,28 @@
   "religion": "Agnostic",
   "zodiac": "Aquarius",
   "traits": [
-      "Innovative",
-      "Obsessive",
-      "Paranoid",
-      "Isolated"
+    "Innovative",
+    "Obsessive",
+    "Paranoid",
+    "Isolated"
   ],
   "status": {
-      "physical": 100,
-      "mental": 100,
-      "description": "In good health and decent spirits",
-      "wounds": [],
-      "diseases": []
+    "physical": 100,
+    "mental": 100,
+    "description": "In good health and decent spirits",
+    "wounds": [],
+    "diseases": []
   },
   "stats": {
-      "strength": 3,
-      "agility": 2,
-      "intelligence": 9,
-      "authority": 3,
-      "sociability": 2
+    "strength": 3,
+    "agility": 2,
+    "intelligence": 9,
+    "authority": 3,
+    "sociability": 2
   },
   "equipment": [
-      "Incicion knife",
-      "Toxic flasks"
+    "Incicion knife",
+    "Toxic flasks"
   ],
   "appearance": {
     "height": "Average",
@@ -49,22 +49,26 @@
     "accessories": "Sachets"
   },
   "combat": {
-      "role": "Poisoner",
-      "strengths": [
-          "Chemical warfare",
-          "Medical knowledge",
-          "Blinding"
-      ],
-      "weaknesses": [
-          "Physical combat",
-          "Communication",
-          "Agility",
-          "Dodging"
-      ]
+    "role": "Poisoner",
+    "strengths": [
+      "Chemical warfare",
+      "Medical knowledge",
+      "Blinding"
+    ],
+    "weaknesses": [
+      "Physical combat",
+      "Communication",
+      "Agility",
+      "Dodging"
+    ]
   },
   "magic": "None.",
   "notes": [
       "Struggles with ethical boundaries in her pursuit of knowledge"
+  ],
+  "tags": [
+    "Backline", "Blighter", "Stunner", "Cleanser", "Debuffer", "Bleeder", 
+    "Disruptor", "Buffer", "SelfSufficient", "Scholarly"
   ],
   "relationships": {}
 }

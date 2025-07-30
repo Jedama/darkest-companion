@@ -71,7 +71,11 @@
       "The siblings communicate in verbal volleys, each setting up clauses for the other to complete",
       "Agree unanimously on important matters but argue endlessly over trivial details, but only in private",
       "The Brother struggles hopelessly with maps and directions, while the Sister has a natural talent for painting landscapes",
-      "The sister often quotes classical literature and formal poetry and the brother is more militaristic and terse"
+      "The Sister often quotes classical literature and formal poetry and the brother is more militaristic and terse",
+      "Shamelessly steal things they desire, such as plans and the book the Sister carries"
+    ],
+    "tags": [
+      "Flexible", "Stanceshifter", "Tank", "Healer", "StressHealer", "Guarder", "Riposter", "Disruptor", "ArmorPiercer", "Cleanser", "Companion", "Noble", "Leader", "Strategist", "Eldritch", "Religious", "Scout"
     ],
     "relationships": {}
   }

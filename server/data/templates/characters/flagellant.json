@@ -71,5 +71,9 @@
       "Refers to his flail as 'The Burden'",
       "Becomes more powerful the closer he is to death"
     ],
+    "tags": [
+      "Frontline", "ShortReach", "Tank", "Healer", "StressHealer", "Bleeder", "Cleanser", 
+      "SelfSufficient", "SelfStress", "Religious", "Unstable"
+    ],
     "relationships": {}
   }

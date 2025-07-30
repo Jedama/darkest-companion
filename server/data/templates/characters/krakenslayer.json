@@ -1,71 +1,86 @@
 {
-    "identifier": "krakenslayer",
-    "title": "Krakenslayer",
-    "name": "Hilda",
-    "level": 0,
-    "money": 0,
-    "description": "A seasoned and fearless monster hunter of the seas, Hilda is known for her unparalleled skill in slaying krakens and other maritime beasts. Her rugged demeanor and battle-hardened experience make her a formidable ally in any nautical adventure.",
-    "history": "Hilda has spent years hunting dangerous sea creatures, accumulating a wealth of experience and numerous scars. Her body is adorned with tattoos commemorating her most significant kills, each one a testament to her prowess as a hunter.",
-    "race": "Human",
-    "gender": "Female",
-    "religion": "Sea Mother",
-    "zodiac": "Pisces",
-    "traits": [
-        "Confident",
-        "Tough",
-        "Superstitious",
-        "Boastful",
-        "Resilient"
+  "identifier": "krakenslayer",
+  "title": "Krakenslayer",
+  "name": "Sirena",
+  "level": 0,
+  "money": 0,
+  "description": "A seasoned and fearless monster hunter of the seas, the Krakenslayer is known for her unparalleled skill in slaying krakens and other maritime beasts. Her rugged demeanor and battle-hardened experience make her a formidable ally in any nautical adventure.",
+  "history": "The Krakenslayer has spent years hunting dangerous sea creatures, accumulating a wealth of experience and numerous scars. Her body is adorned with tattoos commemorating her most significant kills, each one a testament to her prowess as a hunter.",
+  "race": "Human",
+  "gender": "Female",
+  "religion": "None",
+  "zodiac": "Pisces",
+  "traits": [
+    "Confident",
+    "Tough",
+    "Superstitious",
+    "Boastful",
+    "Resilient"
+  ],
+  "status": {
+    "physical": 100,
+    "mental": 100,
+    "affliction": "",
+    "description": "In good health and high spirits",
+    "wounds": [],
+    "diseases": []
+  },
+  "stats": {
+    "strength": 8,
+    "agility": 8,
+    "intelligence": 5,
+    "authority": 5,
+    "sociability": 4
+  },
+  "equipment": [
+    "Twin harpoons attached to chains",
+    "Chains"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Athletic",
+    "skinTone": "Tanned",
+    "hairColor": "Blonde",
+    "hairStyle": "Short, messy",
+    "features": "Tattoos on arms, chest, and neck"
+  },
+  "clothing": {
+    "head": "Red bandana",
+    "body": "White, sleeveless shirt",
+    "legs": "Leather pants",
+    "accessories": "Gold ring earring, chain necklace with shark teeth"
+  },
+  "combat": {
+    "role": "Versatile Hunter",
+    "strengths": [
+      "Close-range melee harpoon slashing",
+      "Long-range chain attacks",
+      "Adaptable fighting style"
     ],
-    "status": {
-        "physical": 100,
-        "mental": 100,
-        "affliction": "",
-        "description": "In good health and high spirits",
-        "wounds": [],
-        "diseases": []
-    },
-    "stats": {
-        "strength": 8,
-        "agility": 8,
-        "intelligence": 5,
-        "authority": 5,
-        "sociability": 4
-    },
-    "equipment": [
-        "Twin harpoons attached to chains",
-        "Chains"
-    ],
-    "appearance": {
-        "height": "Average",
-        "build": "Athletic",
-        "skinTone": "Tanned",
-        "hairColor": "Blonde",
-        "hairStyle": "Short, messy",
-        "features": "Tattoos on arms, chest, and neck"
-    },
-    "clothing": {
-        "head": "Red bandana",
-        "body": "White, sleeveless shirt",
-        "legs": "Leather pants",
-        "accessories": "Gold ring earring, chain necklace with shark teeth"
-    },
-    "combat": {
-        "role": "Versatile Hunter",
-        "strengths": [
-            "Close-range melee harpoon slashing",
-            "Long-range chain attacks",
-            "Adaptable fighting style"
-        ],
-        "weaknesses": [
-            "Struggles against heavily armored opponents",
-            "Limited effectiveness in confined spaces"
-        ]
-    },
-    "magic": "None",
-    "notes": [
-        "Has numerous tattoos commemorating her kills",
-        "Known for her accent and occasional nautical idioms"
-    ],
-    "relationships": {}
+    "weaknesses": [
+      "Struggles against heavily armored opponents",
+      "Limited effectiveness in confined spaces"
+    ]
+  },
+  "magic": "None",
+  "notes": [
+      "Has numerous tattoos commemorating her kills",
+      "Known for her accent and occasional nautical idioms"
+  ],
+  "tags": [
+    "Dancer",
+    "Tank",
+    "Bleeder",
+    "BleedSynergy",
+    "Marker",
+    "MarkSynergy",
+    "Debuffer",
+    "Disruptor",
+    "Executor",
+    "Setup",
+    "ArmorPiercer",
+    "GiantHunter",
+    "Warrior"
+  ],
+  "relationships": {}
 }

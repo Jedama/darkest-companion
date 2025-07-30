@@ -69,6 +69,10 @@
     "His constant slouching undermines his true height",
     "Meticulously folds and arranges his few possessions"
   ],
-    "relationships": {
+  "tags": [
+    "Frontline", "Tank", "SelfSufficient", "Disruptor", "Blighter", "Shapeshifter", "Religious",
+    "Eldritch", "Unstable", "Outcast", "Stunner", "SelfStress"
+  ],
+  "relationships": {
   }
 }

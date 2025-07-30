@@ -70,6 +70,10 @@
     "Hates waste and is very possesive of his belongings",
     "Has a penchant for fine wines to calm his nerves"
   ],
+  "tags": [
+    "Flexible", "Weak", "Frail", "Healer", "StressHealer", "Blighter", "Debuffer",
+    "Noble", "Scholar", "Strategist", "Drunkard", "SelfStress", "Scavenger", "Scout"
+  ],
   "relationships": {
   }
 }

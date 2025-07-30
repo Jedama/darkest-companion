@@ -8,7 +8,7 @@
   "history": "The Itinerant Cook has spent her life working across a wide range of settings from high-end kitchens to makeshift camp setups. Her travels have exposed her to diverse and often dangerous situations, which she has consistently survived. She has a dark side to her expertise, including knowledge of luring and slaughtering both beasts and people.",
   "race": "Human",
   "gender": "Female",
-  "religion": "",
+  "religion": "None",
   "zodiac": "Virgo",
   "traits": [
     "Experienced",
@@ -72,6 +72,10 @@
     "Insists companions eat more than they want, firmly believing undereating is more dangerous than overeating",
     "Age has dulled her eyesight, requiring her to work primarily by touch and smell when preparing food",
     "Always talks of surviving hardships, but quietly harbors a deep fear of dying alone"
+  ],
+  "tags": [
+    "Backline", "Immobile", "Healer", "Buffer", "MarkApplier", "Hider", "Debuffer", 
+    "Cleanser", "Frail", "BlightDealer", "Scavenger", "Setup"
   ],
   "relationships": {}
 }

@@ -1,74 +1,88 @@
 {
-    "identifier": "musketeer",
-    "title": "Musketeer",
-    "name": "Margaret",
-    "level": 0,
-    "money": 0,
-    "description": "The Musketeer is a skilled sharpshooter from a noble family that is related to the Ancestor's family. Her encounter with an eldritch eye during a crucial competition has left her both traumatized, humiliated, and driven to seek out revenge among the otherworldly prey of the Estate.",
-    "history": "Born into wealth, Margaret learned hunting and shooting from her father, a survivor of 'the lost jungle'. After a traumatic experience during a shooting competition where she saw an eldritch eye, she began seeking more dangerous prey, eventually coming to the Estate to hunt otherworldly creatures.",
-    "race": "Human",
-    "gender": "Female",
-    "religion": "None",
-    "zodiac": "Sagittarius",
-    "traits": [
-        "Skilled",
-        "Determined",
-        "Adventurous",
-        "Traumatized",
-        "Taciturn",
-        "Resourceful"
+  "identifier": "musketeer",
+  "title": "Musketeer",
+  "name": "Margaret",
+  "level": 0,
+  "money": 0,
+  "description": "The Musketeer is a skilled sharpshooter from a noble family that is related to the Ancestor's family. Her encounter with an eldritch eye during a crucial competition has left her both traumatized, humiliated, and driven to seek out revenge among the otherworldly prey of the Estate.",
+  "history": "Born into wealth, Margaret learned hunting and shooting from her father, a survivor of 'the lost jungle'. After a traumatic experience during a shooting competition where she saw an eldritch eye, she began seeking more dangerous prey, eventually coming to the Estate to hunt otherworldly creatures.",
+  "race": "Human",
+  "gender": "Female",
+  "religion": "None",
+  "zodiac": "Sagittarius",
+  "traits": [
+    "Skilled",
+    "Determined",
+    "Adventurous",
+    "Traumatized",
+    "Taciturn",
+    "Resourceful"
+  ],
+  "status": {
+    "physical": 100,
+    "mental": 100,
+    "affliction": "",
+    "description": "In good health and high spirits",
+    "wounds": [],
+    "diseases": []
+  },
+  "stats": {
+    "strength": 4,
+    "agility": 7,
+    "intelligence": 6,
+    "authority": 5,
+    "sociability": 4
+  },
+  "equipment": [
+    "Musket",
+    "Sidearm",
+    "Smoke pellets",
+    "First aid kit"
+  ],
+  "appearance": {
+    "height": "Tall",
+    "build": "Thin",
+    "skinTone": "Fair",
+    "hairColor": "Copper Red",
+    "hairStyle": "Tied up with bangs",
+    "features": "Flat-chested"
+  },
+  "clothing": {
+    "head": "Wide-brimmed hat with feathers",
+    "body": "Reinforced vest and cloak",
+    "legs": "Leather trousers",
+    "accessories": "Cape"
+  },
+  "combat": {
+    "role": "Sharpshooter",
+    "strengths": [
+      "Excellent marksmanship",
+      "Analytical eye",
+      "Survival skills"
     ],
-    "status": {
-        "physical": 100,
-        "mental": 100,
-        "affliction": "",
-        "description": "In good health and high spirits",
-        "wounds": [],
-        "diseases": []
-    },
-    "stats": {
-        "strength": 4,
-        "agility": 7,
-        "intelligence": 6,
-        "authority": 5,
-        "sociability": 4
-    },
-    "equipment": [
-        "Musket",
-        "Sidearm",
-        "Smoke pellets",
-        "First aid kit"
-    ],
-    "appearance": {
-        "height": "Tall",
-        "build": "Thin",
-        "skinTone": "Fair",
-        "hairColor": "Copper Red",
-        "hairStyle": "Tied up with bangs",
-        "features": "Flat-chested"
-    },
-    "clothing": {
-        "head": "Wide-brimmed hat with feathers",
-        "body": "Reinforced vest and cloak",
-        "legs": "Leather trousers",
-        "accessories": "Cape"
-    },
-    "combat": {
-        "role": "Sharpshooter",
-        "strengths": [
-            "Excellent marksmanship",
-            "Analytical eye",
-            "Survival skills"
-        ],
-        "weaknesses": [
-            "Close-quarters combat",
-            "Musket needs reloading"
-        ]
-    },
-    "magic": "",
-    "notes": [
-        "Has a family connections to the Ancestor",
-        "Proficient in first aid"
-    ],
-    "relationships": {}
+    "weaknesses": [
+      "Close-quarters combat",
+      "Musket needs reloading"
+    ]
+  },
+  "magic": "",
+  "notes": [
+    "Has a family connections to the Ancestor",
+    "Proficient in first aid"
+  ],
+  "tags": [
+    "Backline",
+    "Healer",
+    "Cleanser",
+    "Buffer",
+    "Marker",
+    "MarkSynergy",
+    "Bleeder",
+    "ArmorPiercer",
+    "Riposter",
+    "GuardBreaker",
+    "Cycler",
+    "Noble"
+  ],
+  "relationships": {}
 }

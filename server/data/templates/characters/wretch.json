@@ -1,69 +1,73 @@
 {
-    "identifier": "wretch",
-    "title": "Wretch",
-    "name": "Yersin",
-    "level": 0,
-    "money": 0,
-    "description": "A disgraced aristocrat turned pauper, the Wretch has become a walking plague after years of hardship. He spreads blight and commands hordes of rats, using disease as his weapon. Though dangerous, the Wretch is unpredictable and cowardly, prone to fleeing or sacrificing allies to save himself.",
-    "history": "Once a nobleman, the Wretch fell from grace and has since lived a life of poverty and disease. His years on the streets have taught him to survive by any means necessary, including embracing the very filth and pestilence that society shuns.",
-    "race": "Human",
-    "gender": "Male",
-    "religion": "",
-    "zodiac": "Cancer",
-    "traits": [
-        "Cynical",
-        "Bitter",
-        "Manipulative",
-        "Survivalist"
+  "identifier": "wretch",
+  "title": "Wretch",
+  "name": "Yersin",
+  "level": 0,
+  "money": 0,
+  "description": "A disgraced aristocrat turned pauper, the Wretch has become a walking plague after years of hardship. He spreads blight and commands hordes of rats, using disease as his weapon. Though dangerous, the Wretch is unpredictable and cowardly, prone to fleeing or sacrificing allies to save himself.",
+  "history": "Once a nobleman, the Wretch fell from grace and has since lived a life of poverty and disease. His years on the streets have taught him to survive by any means necessary, including embracing the very filth and pestilence that society shuns.",
+  "race": "Human",
+  "gender": "Male",
+  "religion": "None",
+  "zodiac": "Cancer",
+  "traits": [
+    "Cynical",
+    "Bitter",
+    "Manipulative",
+    "Survivalist"
+  ],
+  "status": {
+    "physical": 100,
+    "mental": 100,
+    "affliction": "",
+    "description": "In good health and high spirits",
+    "wounds": [],
+    "diseases": []
+  },
+  "stats": {
+    "strength": 2,
+    "agility": 1,
+    "intelligence": 4,
+    "authority": 3,
+    "sociability": 2
+  },
+  "equipment": [
+      "Cane with concealed stiletto"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Gaunt",
+    "skinTone": "Pale, sickly",
+    "hairColor": "Dark, greasy",
+    "hairStyle": "Unkempt",
+    "features": "Patchy beard, tumor-like growths on skull"
+  },
+  "clothing": {
+    "head": "Red, tattered hood",
+    "body": "Purple, worn-out cloak",
+    "legs": "Threadbare trousers",
+    "accessories": "None"
+  },
+  "combat": {
+    "role": "Controller",
+    "strengths": [
+      "Spreading disease",
+      "Controlling rats"
     ],
-    "status": {
-        "physical": 100,
-        "mental": 100,
-        "affliction": "",
-        "description": "In good health and high spirits",
-        "wounds": [],
-        "diseases": []
-    },
-    "stats": {
-        "strength": 2,
-        "agility": 1,
-        "intelligence": 4,
-        "authority": 3,
-        "sociability": 2
-    },
-    "equipment": [
-        "Cane with concealed stiletto"
-    ],
-    "appearance": {
-        "height": "Average",
-        "build": "Gaunt",
-        "skinTone": "Pale, sickly",
-        "hairColor": "Dark, greasy",
-        "hairStyle": "Unkempt",
-        "features": "Patchy beard, tumor-like growths on skull"
-    },
-    "clothing": {
-        "head": "Red, tattered hood",
-        "body": "Purple, worn-out cloak",
-        "legs": "Threadbare trousers",
-        "accessories": "None"
-    },
-    "combat": {
-        "role": "Controller",
-        "strengths": [
-            "Spreading disease",
-            "Controlling rats"
-        ],
-        "weaknesses": [
-            "Physical frailty",
-            "Unpredictable loyalty",
-            "Prone to cowardice"
-        ]
-    },
-    "magic": "None",
-    "notes": [
-        "Commands a horde of rats he affectionately calls his 'pretties'",
-        "His favorite rat, who rides on his shoulder, is named Nicodemus"
-    ],
-    "relationships": {}
+    "weaknesses": [
+      "Physical frailty",
+      "Unpredictable loyalty",
+      "Prone to cowardice"
+    ]
+  },
+  "magic": "None",
+  "notes": [
+    "Commands a horde of rats he affectionately calls his 'pretties'",
+    "His favorite rat, who rides on his shoulder, is named Nicodemus"
+  ],
+  "tags": [
+    "Flexible", "Tank", "Blighter", "Hider", "Bleeder", "ArmorPiercer", "BlightSynergy", "Riposter", 
+    "Disruptor", "SelfSufficient", "Setup", "Noble", "Companion", "Outcast", "Scavenger"
+  ],
+  "relationships": {}
 }

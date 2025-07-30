@@ -1,78 +1,82 @@
 {
-    "identifier": "bounty_hunter",
-    "title": "Bounty Hunter",
-    "name": "Tardif",
-    "level": 0,
-    "money": 0,
-    "description": "A ruthless and professional bounty hunter who takes pride in his work. The Bounty Hunter is a skilled fighter, motivated primarily by profit and self-interest. His cynical worldview and loner tendencies suggest a dark past that he refuses to talk about.",
-    "history": "While his past is a well-guarded secret, The Bounty Hunter has clearly lived a life of violence and danger. He's honed his skills as a bounty hunter, becoming a calculated and efficient killer who specializes in identifying weak points and executing targets.",
-    "race": "Human",
-    "gender": "Male",
-    "religion": "",
-    "zodiac": "Capricorn",
-    "traits": [
-        "Professional",
-        "Ruthless",
-        "Cynical",
-        "Loner",
-        "Taciturn"
+  "identifier": "bounty_hunter",
+  "title": "Bounty Hunter",
+  "name": "Tardif",
+  "level": 0,
+  "money": 0,
+  "description": "A ruthless and professional bounty hunter who takes pride in his work. The Bounty Hunter is a skilled fighter, motivated primarily by profit and self-interest. His cynical worldview and loner tendencies suggest a dark past that he refuses to talk about.",
+  "history": "While his past is a well-guarded secret, The Bounty Hunter has clearly lived a life of violence and danger. He's honed his skills as a bounty hunter, becoming a calculated and efficient killer who specializes in identifying weak points and executing targets.",
+  "race": "Human",
+  "gender": "Male",
+  "religion": "None",
+  "zodiac": "Capricorn",
+  "traits": [
+    "Professional",
+    "Ruthless",
+    "Cynical",
+    "Loner",
+    "Taciturn"
+  ],
+  "status": {
+    "physical": 100,
+    "mental": 100,
+    "affliction": "",
+    "description": "In good health and high spirits",
+    "wounds": [],
+    "diseases": []
+  },
+  "stats": {
+    "strength": 8,
+    "agility": 7,
+    "intelligence": 7,
+    "authority": 4,
+    "sociability": 1
+  },
+  "equipment": [
+    "War axe",
+    "Grappling hook",
+    "Flash grenades",
+    "Caltrops"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Athletic",
+    "skinTone": "Tanned",
+    "hairColor": "Dark",
+    "hairStyle": "Short",
+    "features": "Stubble, strong jawline"
+  },
+  "clothing": {
+    "head": "Metallic mask with cloth covering face",
+    "body": "Dark armor with shoulder pads",
+    "legs": "Dark armored leggings",
+    "accessories": "Belt of hunting tools"
+  },
+  "combat": {
+    "role": "Fighter",
+    "strengths": [
+      "Targeting weak points",
+      "Single combat",
+      "Adaptability",
+      "Follows orders (when paid to)"
     ],
-    "status": {
-        "physical": 100,
-        "mental": 100,
-        "affliction": "",
-        "description": "In good health and high spirits",
-        "wounds": [],
-        "diseases": []
-    },
-    "stats": {
-        "strength": 8,
-        "agility": 7,
-        "intelligence": 7,
-        "authority": 4,
-        "sociability": 1
-    },
-    "equipment": [
-        "War axe",
-        "Grappling hook",
-        "Flash grenades",
-        "Caltrops"
-    ],
-    "appearance": {
-        "height": "Average",
-        "build": "Athletic",
-        "skinTone": "Tanned",
-        "hairColor": "Dark",
-        "hairStyle": "Short",
-        "features": "Stubble, strong jawline"
-    },
-    "clothing": {
-        "head": "Metallic mask with cloth covering face",
-        "body": "Dark armor with shoulder pads",
-        "legs": "Dark armored leggings",
-        "accessories": "Belt of hunting tools"
-    },
-    "combat": {
-        "role": "Fighter",
-        "strengths": [
-            "Targeting weak points",
-            "Single combat",
-            "Adaptability",
-            "Follows orders (when paid to)"
-        ],
-        "weaknesses": [
-            "Difficulty working in teams",
-            "Demands high pay"
-        ]
-    },
-    "magic": "None",
-    "notes": [
-        "Responds with a dismissive snort to questions he deems unworthy of verbal answers",
-        "Refuses to remove his mask in any circumstance",
-        "Speaks in terse, short sentences",
-        "Records debts and favors in a small, weathered notebook, crossing them off with satisfaction when settled",
-        "Keeps meticulous tallies of kills, contracts, and earnings"
-    ],
-    "relationships": {
-    }
+    "weaknesses": [
+      "Difficulty working in teams",
+      "Demands high pay"
+    ]
+  },
+  "magic": "None",
+  "notes": [
+    "Responds with a dismissive snort to questions he deems unworthy of verbal answers",
+    "Refuses to remove his mask in any circumstance",
+    "Speaks in terse, short sentences",
+    "Records debts and favors in a small, weathered notebook, crossing them off with satisfaction when settled",
+    "Keeps meticulous tallies of kills, contracts, and earnings"
+  ],
+  "tags": [
+    "Flexible", "Mercenary", "Warrior", "MarkApplier", "HumanHunter", "GiantHunter",
+    "MarkSynergy", "Stunner", "Debuffer", "Disruptor", "StunSynergy", "Scout", "Bleeder"
+  ],
+  "relationships": {
+  }
 }

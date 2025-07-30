@@ -72,5 +72,9 @@
     "Views combat through an academic lens, often muttering about 'improper technique' or 'fascinating anatomy'.",
     "Despite his fascination with eldritch artifacts, he is secretly terrified of common insects and vermin."
   ],
+  "tags": [
+    "Backline", "Immobile", "Weak", "Frail", "Healer", "Cleanse", "Buffer", "Marker", "Crit", "Executor",
+    "Debuffer", "Disruptor", "Stealth", "Scholarly", "Strategist", "SelfStress", "Scavenger", "Vigilant"
+  ],
   "relationships": {}
 }

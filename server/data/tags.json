@@ -1,0 +1,268 @@
+{
+  "tags": [
+    {
+      "tag": "Frontline",
+      "description": "Effective in Ranks 1-2."
+    },
+    {
+      "tag": "Backline",
+      "description": "Effective in Ranks 3-4."
+    },
+    {
+      "tag": "Flexible",
+      "description": "Effective in most ranks."
+    },
+    {
+      "tag": "Dancer",
+      "description": "Uses abilities that involve movement between ranks."
+    },
+    {
+      "tag": "Immobile",
+      "description": "Heavily penalized by being moved from their preferred position."
+    },
+    {
+      "tag": "ShortReach",
+      "description": "Can only effectively target front ranks from their position."
+    },
+    {
+      "tag": "Tank",
+      "description": "Excels at absorbing or mitigating incoming damage."
+    },
+    {
+      "tag": "Healer",
+      "description": "Reliably restores Health Points (HP) to allies."
+    },
+    {
+      "tag": "StressHealer",
+      "description": "Reliably reduces Stress from allies."
+    },
+    {
+      "tag": "Buffer",
+      "description": "Focuses on applying positive buffs to allies."
+    },
+    {
+      "tag": "Debuffer",
+      "description": "Focuses on applying negative debuffs to enemies."
+    },
+    {
+      "tag": "Disruptor",
+      "description": "Specializes in moving enemies and breaking their formation."
+    },
+    {
+      "tag": "Stunner",
+      "description": "Has reliable, high-chance Stun abilities."
+    },
+    {
+      "tag": "Weak",
+      "description": "Has a low overall damage output compared to other heroes."
+    },
+    {
+      "tag": "Frail",
+      "description": "Has low survivability (HP/Dodge) and benefits from being guarded."
+    },
+    {
+      "tag": "SelfSufficient",
+      "description": "Has strong abilities to heal their own HP or Stress."
+    },
+    {
+      "tag": "SelfStress",
+      "description": "Has abilities or traits that cause stress to themself."
+    },
+    {
+      "tag": "Bleeder",
+      "description": "Reliably applies Bleed damage-over-time effects."
+    },
+    {
+      "tag": "BleedSynergy",
+      "description": "Gains a bonus when attacking Bleeding targets."
+    },
+    {
+      "tag": "Blighter",
+      "description": "Reliably applies Blight damage-over-time effects."
+    },
+    {
+      "tag": "BlightSynergy",
+      "description": "Gains a bonus when attacking Blighted targets."
+    },
+    {
+      "tag": "Marker",
+      "description": "Reliably applies the Mark debuff to enemies."
+    },
+    {
+      "tag": "MarkSynergy",
+      "description": "Gains a bonus when attacking Marked targets."
+    },
+    {
+      "tag": "StunSynergy",
+      "description": "Gains a bonus when attacking Stunned targets."
+    },
+    {
+      "tag": "Guarder",
+      "description": "Can use an ability to Guard an ally."
+    },
+    {
+      "tag": "Riposter",
+      "description": "Has an ability that activates a counter-attack stance."
+    },
+    {
+      "tag": "Stealther",
+      "description": "Has an ability to become untargetable."
+    },
+    {
+      "tag": "Hider",
+      "description": "Can force an ally to Guard them."
+    },
+    {
+      "tag": "Cleanser",
+      "description": "Can remove Bleed/Blight DoTs, stuns, or debuffs from allies."
+    },
+    {
+      "tag": "ArmorPiercer",
+      "description": "Has abilities that ignore or reduce enemy Protection."
+    },
+    {
+      "tag": "Crit",
+      "description": "Has an inherently high Critical Strike chance or abilities that buff crits."
+    },
+    {
+      "tag": "Religious",
+      "description": "Adheres to the faith of the Light; often interacts with the Abbey."
+    },
+    {
+      "tag": "Eldritch",
+      "description": "Draws power from or is touched by unknowable, cosmic forces."
+    },
+    {
+      "tag": "Noble",
+      "description": "Comes from a background of nobility or aristocracy."
+    },
+    {
+      "tag": "Criminal",
+      "description": "Has a history of operating outside the law."
+    },
+    {
+      "tag": "Scholarly",
+      "description": "Has an academic, intellectual, or research-oriented background."
+    },
+    {
+      "tag": "Drunkard",
+      "description": "Regularly drinks alcohol, often as a mechanic."
+    },
+    {
+      "tag": "Animal",
+      "description": "Is a non-human, beast-like creature."
+    },
+    {
+      "tag": "Companion",
+      "description": "Is accompanied by a persistent partner (animal or otherwise)."
+    },
+    {
+      "tag": "Mercenary",
+      "description": "Primarily motivated by payment rather than altruism or duty."
+    },
+    {
+      "tag": "Warrior",
+      "description": "Has a background as a soldier, guard, or other martial professional."
+    },
+    {
+      "tag": "Shapeshifter",
+      "description": "Can change their physical form, altering their abilities and stats."
+    },
+    {
+      "tag": "Scavenger",
+      "description": "Has abilities or passives related to finding extra loot."
+    },
+    {
+      "tag": "Leader",
+      "description": "Has explicit abilities that command or rally others."
+    },
+    {
+      "tag": "Strategist",
+      "description": "A strategic thinker, often a support character, but not necessarily a leader."
+    },
+    {
+      "tag": "Unstable",
+      "description": "Prone to psychological breaks or has high-risk, self-damaging abilities."
+    },
+    {
+      "tag": "Outcast",
+      "description": "Socially isolated; may have poor starting relationships."
+    },
+    {
+      "tag": "Light",
+      "description": "Gains benefits or new abilities in high Torchlight."
+    },
+    {
+      "tag": "Dark",
+      "description": "Gains benefits or new abilities in low/no Torchlight."
+    },
+    {
+      "tag": "Vigilant",
+      "description": "Can prevent nighttime ambushes during camping."
+    },
+    {
+      "tag": "Scout",
+      "description": "Has a high passive scouting chance in dungeons."
+    },
+    {
+      "tag": "BeastHunter",
+      "description": "Has abilities that are more effective against Beast-type enemies."
+    },
+    {
+      "tag": "EldritchHunter",
+      "description": "Has abilities that are more effective against Eldritch-type enemies."
+    },
+    {
+      "tag": "UnholyHunter",
+      "description": "Has abilities that are more effective against Unholy-type enemies."
+    },
+    {
+      "tag": "HumanHunter",
+      "description": "Has abilities that are more effective against Human-type enemies."
+    },
+    {
+      "tag": "GiantHunter",
+      "description": "Has abilities that are more effective against Larger enemies."
+    },
+    {
+      "tag": "Stanceshifter",
+      "description": "Can switch between two or more modes or 'stances', altering how their abilities function."
+    },
+    {
+      "tag": "Elder",
+      "description": "An elderly character, often implying wisdom, unique skills, but potential physical limitations."
+    },
+    {
+      "tag": "Child",
+      "description": "A very young character, often implying inexperience, potential, or unique interactions."
+    },
+    {
+      "tag": "Setup",
+      "description": "Has a 'once per battle' ability that provides a significant, battle-lasting buff."
+    },
+    {
+      "tag": "GuardBreaker",
+      "description": "Has abilities that can ignore or remove the Guard status from an enemy."
+    },
+    {
+      "tag": "Executor",
+      "description": "Gains a significant bonus or new effect when attacking enemies at low health."
+    },
+    {
+      "tag": "Entertainer",
+      "description": "Has a history of performance for entertainment."
+    },
+    {
+      "tag": "Cycler",
+      "description": "Has powerful abilities that have long cooldowns, or cycle through stages."
+    },
+    {
+      "tag": "Brink",
+      "description" : "Has powerful abilities that are only usable at low health or gains significant bonuses when on Death's Door."
+    },
+    {
+      "tag": "Charmer",
+      "description": "Has a charismatic, flirtatious, or seductive personality that can be a mechanic or cause unique interactions"
+    }
+  ]
+}

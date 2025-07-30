@@ -16,7 +16,6 @@
     "Determined",
     "Pragmatic",
     "Regretful",
-    "Volatile",
     "Authoritative"
   ],
   "status": {
@@ -71,6 +70,10 @@
     "Maintains rigid control over his Worgen form, but the scent of blood can agitate his inner beast.",
     "Carries immense guilt over his past pride and isolationism, which he now views as the cause of his people's suffering.",
     "Has a grim, cynical sense of humor, often joking about his own curse."
+  ],
+  "tags": [
+    "Dancer", "Shapeshifter", "Bleeder", "BleedSynergy", "MarkSynergy", "Riposter", "Buffer", 
+    "Crit", "GuardBreaker", "Executor", "Noble", "Leader", "Warrior", "Outcast", "Eldritch", "Religious"
   ],
   "relationships": {}
 }

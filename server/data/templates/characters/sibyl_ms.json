@@ -72,5 +72,22 @@
     "Forages for herbs and berries out of habit, a skill from her sylvan upbringing.",
     "The Radiance's power is amplified by her intense emotions, especially her grief and rage."
   ],
+  "tags": [
+    "Flexible",
+    "Stanceshifter",
+    "Healer",
+    "Blighter",
+    "Buffer",
+    "Debuffer",
+    "Disruptor",
+    "ArmorPiercer",
+    "BlightSynergy",
+    "Cleanser",
+    "Religious",
+    "Outcast",
+    "Unstable",
+    "Frail",
+    "Scout"
+  ],
   "relationships": {}
 }

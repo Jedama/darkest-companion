@@ -72,6 +72,23 @@
       "Signals his hound with subtle hand gestures that others rarely notice",
       "Hugs his hound for comfort when stressed or hurt"
     ],
+    "tags": [
+      "Flexible",
+      "StressHealer",
+      "Guarder",
+      "Marker",
+      "MarkSynergy",
+      "Bleeder",
+      "BeastHunter",
+      "Stunner",
+      "Debuffer",
+      "SelfSufficient",
+      "Companion",
+      "Leader",
+      "Strategist",
+      "Vigilant",
+      "Scout"
+    ],
     "relationships": {
     }
   }

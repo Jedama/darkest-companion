@@ -63,7 +63,7 @@
     "weaknesses": [
       "Ranged combat",
       "Speed",
-      "Evation"
+      "Evasion"
     ]
   },
   "magic": "The light, a divine power that lets him smite foes and heal allies",
@@ -73,6 +73,10 @@
     "Writes letters to his family that he never sends",
     "Wears simple farmer's clothes when out of his armor"
   ],
-  "relationships": {   
+  "tags": [
+    "Dancer", "Tank", "Leader", "ShortReach", "Healer", "UnholyHunter",
+    "Religious", "StressHealer", "Stunner", "Light", "Warrior", "Vigilant"
+  ],
+  "relationships": {
   }
 }

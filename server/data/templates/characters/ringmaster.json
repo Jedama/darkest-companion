@@ -1,71 +1,84 @@
 {
-    "identifier": "ringmaster",
-    "title": "Ringmaster",
-    "name": "Maul",
-    "level": 0,
-    "money": 0,
-    "description": "The Ringmaster is the charismatic and ruthless leader of the infamous traveling fighting arena: The Butcher's Circus. She delights in orchestrating spectacles of combat, pushing contestants to their limits for the entertainment of bloodthirsty crowds. Her elaborate costume and masked helm conceal a shrewd mind that's always calculating the next big show.",
-    "history": "Rising from humble beginnings, the Ringmaster built her reputation through cunning and a flair for the dramatic. She transformed a small-time fighting pit into a renowned traveling arena, drawing both desperate warriors and thrill-seeking audiences from across the land.",
-    "race": "Human",
-    "gender": "Female",
-    "religion": "None",
-    "zodiac": "Leo",
-    "traits": [
-      "Charismatic",
-      "Ruthless",
+  "identifier": "ringmaster",
+  "title": "Ringmaster",
+  "name": "Maul",
+  "level": 0,
+  "money": 0,
+  "description": "The Ringmaster is the charismatic and ruthless leader of the infamous traveling fighting arena: The Butcher's Circus. She delights in orchestrating spectacles of combat, pushing contestants to their limits for the entertainment of bloodthirsty crowds. Her elaborate costume and masked helm conceal a shrewd mind that's always calculating the next big show.",
+  "history": "Rising from humble beginnings, the Ringmaster built her reputation through cunning and a flair for the dramatic. She transformed a small-time fighting pit into a renowned traveling arena, drawing both desperate warriors and thrill-seeking audiences from across the land.",
+  "race": "Human",
+  "gender": "Female",
+  "religion": "None",
+  "zodiac": "Leo",
+  "traits": [
+    "Charismatic",
+    "Ruthless",
+    "Theatrical",
+    "Cunning",
+    "Ambitious",
+    "Sadistic"
+  ],
+  "status": {
+    "physical": 100,
+    "mental": 100,
+    "affliction": "",
+    "description": "In good health and high spirits",
+    "wounds": [],
+    "diseases": []
+  },
+  "stats": {
+    "strength": 8,
+    "agility": 7,
+    "intelligence": 6,
+    "authority": 7,
+    "sociability": 8
+  },
+  "equipment": [
+    "Morningstar"
+  ],
+  "appearance": {
+    "height": "Tall",
+    "build": "Slender",
+    "skinTone": "Fair",
+    "hairColor": "None",
+    "hairStyle": "Bald",
+    "features": "Scar over left eye"
+  },
+  "clothing": {
+    "head": "Ornate spiked helm with a single eye hole",
+    "body": "Elaborate coat with feathered collar",
+    "legs": "Fitted trousers",
+    "accessories": "Large bow tie, sleeves in mismatched colours"
+  },
+  "combat": {
+    "role": "Headliner",
+    "strengths": [
+      "Encouragement",
+      "Violence",
+      "Blunt force"
+    ],
+    "weaknesses": [
       "Theatrical",
-      "Cunning",
-      "Ambitious",
-      "Sadistic"
+      "Overconfident"
+    ]
+  },
+  "magic": "None",
+  "notes": [
+    "Her mouth is often covered in blood, which everyone hopes is just part of her makeup",
+    "Often accompanied by the Circus Twins, Jack and Jacques, who serve as her guardians and performers, even on quests"
+  ],
+  "tags": [
+      "Frontline",
+      "StressHealer",
+      "Buffer",
+      "Stunner",
+      "Disruptor",
+      "GuardBreaker",
+      "Bleeder",
+      "Executor",
+      "Leader",
+      "Entertainer",
+      "Scavenger"
     ],
-    "status": {
-      "physical": 100,
-      "mental": 100,
-      "affliction": "",
-      "description": "In good health and high spirits",
-      "wounds": [],
-      "diseases": []
-    },
-    "stats": {
-      "strength": 8,
-      "agility": 7,
-      "intelligence": 6,
-      "authority": 7,
-      "sociability": 8
-    },
-    "equipment": [
-      "Morningstar"
-    ],
-    "appearance": {
-      "height": "Tall",
-      "build": "Slender",
-      "skinTone": "Fair",
-      "hairColor": "None",
-      "hairStyle": "Bald",
-      "features": "Scar over left eye"
-    },
-    "clothing": {
-      "head": "Ornate spiked helm with a single eye hole",
-      "body": "Elaborate coat with feathered collar",
-      "legs": "Fitted trousers",
-      "accessories": "Large bow tie, sleeves in mismatched colours"
-    },
-    "combat": {
-      "role": "Headliner",
-      "strengths": [
-        "Encouragement",
-        "Violence",
-        "Blunt force"
-      ],
-      "weaknesses": [
-        "Theatrical",
-        "Overconfident"
-      ]
-    },
-    "magic": "None",
-    "notes": [
-      "Her mouth is often covered in blood, which everyone hopes is just part of her makeup",
-      "Often accompanied by the Circus Twins, Jack and Jacques, who serve as her guardians and performers, even on quests"
-    ],
-    "relationships": {}
-  }
+  "relationships": {}
+}

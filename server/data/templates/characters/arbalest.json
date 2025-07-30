@@ -1,74 +1,78 @@
 {
-    "identifier": "arbalest",
-    "title": "Arbalest",
-    "name": "Missandei",
-    "level": 0,
-    "money": 0,
-    "description": "A skilled crossbowwoman with a tragic past, the Arbalest is a survivor who has honed her skills with the arbalest through years of hardship and adventure. Her quest for wealth is driven by a deeper search for a home she may never find.",
-    "history": "After a violent attack on her home that killed her father, the Arbalest was forced to flee with only a crossbow for protection. She has since traveled widely, serving as a mercenary, and has developed exceptional skills with her weapon and knowledge of herbal medicine.",
-    "race": "Human",
-    "gender": "Female",
-    "religion": "None",
-    "zodiac": "Cancer",
-    "traits": [
-      "Survivor",
-      "Skilled",
-      "Determined",
-      "Resourceful",
-      "Independent"
+  "identifier": "arbalest",
+  "title": "Arbalest",
+  "name": "Missandei",
+  "level": 0,
+  "money": 0,
+  "description": "A skilled crossbowwoman with a tragic past, the Arbalest is a survivor who has honed her skills with the arbalest through years of hardship and adventure. Her quest for wealth is driven by a deeper search for a home she may never find.",
+  "history": "After a violent attack on her home that killed her father, the Arbalest was forced to flee with only a crossbow for protection. She has since traveled widely, serving as a mercenary, and has developed exceptional skills with her weapon and knowledge of herbal medicine.",
+  "race": "Human",
+  "gender": "Female",
+  "religion": "None",
+  "zodiac": "Cancer",
+  "traits": [
+    "Survivor",
+    "Skilled",
+    "Determined",
+    "Resourceful",
+    "Independent"
+  ],
+  "status": {
+    "physical": 100,
+    "mental": 100,
+    "affliction": "",
+    "description": "In good health and high spirits",
+    "wounds": [],
+    "diseases": []
+  },
+  "stats": {
+    "strength": 6,
+    "agility": 8,
+    "intelligence": 8,
+    "authority": 6,
+    "sociability": 4
+  },
+  "equipment": [
+    "Crossbow",
+    "Armor"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Athletic",
+    "skinTone": "Dark",
+    "hairColor": "Black",
+    "hairStyle": "Dreads tied up in a short upright ponytail",
+    "features": "Deep lines below fierce eyes"
+  },
+  "clothing": {
+    "head": "White headband",
+    "body": "Metal armor emphasizing modest chest",
+    "legs": "Baggy pants and greaves",
+    "accessories": "Gauntlet on one hand and glove on the other"
+  },
+  "combat": {
+    "role": "Sharpshooter",
+    "strengths": [
+      "Exceptional accuracy",
+      "Healing knowledge",
+      "Survival skills"
     ],
-    "status": {
-      "physical": 100,
-      "mental": 100,
-      "affliction": "",
-      "description": "In good health and high spirits",
-      "wounds": [],
-      "diseases": []
-    },
-    "stats": {
-      "strength": 6,
-      "agility": 8,
-      "intelligence": 8,
-      "authority": 6,
-      "sociability": 4
-    },
-    "equipment": [
-      "Crossbow",
-      "Armor"
-    ],
-    "appearance": {
-      "height": "Average",
-      "build": "Athletic",
-      "skinTone": "Dark",
-      "hairColor": "Black",
-      "hairStyle": "Dreads tied up in a short upright ponytail",
-      "features": "Deep lines below fierce eyes"
-    },
-    "clothing": {
-      "head": "White headband",
-      "body": "Metal armor emphasizing modest chest",
-      "legs": "Baggy pants and greaves",
-      "accessories": "Gauntlet on one hand and glove on the other"
-    },
-    "combat": {
-      "role": "Sharpshooter",
-      "strengths": [
-        "Exceptional accuracy",
-        "Healing knowledge",
-        "Survival skills"
-      ],
-      "weaknesses": [
-        "Close combat",
-        "Unversatile"
-      ]
-    },
-    "magic": "None",
-    "notes": [
-      "Carries her 'Childhood tresure', an old stuffed bunny",
-      "Her Crossbow's name is 'Millicent'",
-      "Can identify dozens of bird species by their calls alone",
-      "Reserves her signature confident smirk exclusively for the moment when victory becomes inevitable in her mind",
-      "Secretly yearns to be seen as a woman, not just a reliable marksman and medic"
-    ],
-    "relationships": {}
-  }
+    "weaknesses": [
+      "Close combat",
+      "Unversatile"
+    ]
+  },
+  "magic": "None",
+  "notes": [
+    "Carries her 'Childhood tresure', an old stuffed bunny",
+    "Her Crossbow's name is 'Millicent'",
+    "Can identify dozens of bird species by their calls alone",
+    "Reserves her signature confident smirk exclusively for the moment when victory becomes inevitable in her mind",
+    "Secretly yearns to be seen as a woman, not just a reliable marksman and medic"
+  ],
+  "tags": [
+    "Backline", "Healer", "Cleanser", "Debuffer", "Mercenary", "Warrior", "MarkApplier", "MarkSynergy",
+    "StressHealer", "Disruptor", "Immobile"
+  ],
+  "relationships": {}
+}

@@ -70,6 +70,10 @@
     "Speaks with with sardonic wit and cutting remarks",
     "Views her human allies as temporary tools in her vendetta"
   ],
+  "tags": [
+    "Frontline", "Riposter", "Shapeshifter", "SelfSufficient", "Debuffer", "Stunner", 
+    "Setup", "Crit", "SelfStress", "Noble", "Warrior", "Unstable", "Outcast", "Eldritch"
+  ],
   "relationships": {
   }
 }

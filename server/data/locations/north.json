@@ -156,13 +156,22 @@
     "description": "The hilltop plateau surrounding the abbey, enclosed by a low stone wall weathered by coastal winds. Flagstone paths connect the various buildings, while patches of hardy grass push through the stony soil. The space between the abbey proper and the pilgrim's shelter serves as a small gathering area, though these days it's more often used by hooded figures seeking solitary contemplation. From here, one can see both the manor's dark silhouette to the north and the hamlet spread below to the south.",
     "summary": "abbey__grounds (Abbey Grounds) -- The hilltop plateau surrounding the abbey, featuring flagstone paths, gathering areas, and views of the hamlet.",
     "parent": "abbey",
-    "children": []
+    "children": ["abbey__pyre", "abbey__secluded_shrine"]
   },
   {
     "identifier": "abbey__pyre",
     "title": "Pyre",
     "description": "A grim fixture behind the abbey, partially hidden by the building's shadow. The stake rises from a platform of blackened stones, the ground around it perpetually scattered with ash despite frequent rains. Head Abbot Bertram maintains this space with disturbing diligence, the wood always dry and ready. Few venture near after dark, when the abbey's torchlight makes the stake's shadow seem to writhe of its own accord.",
     "summary": "abbey__pyre (Pyre) -- A grim fixture behind the abbey, a platform with a stake used for burning, meticulously maintained.",
+    "parent": "abbey__grounds",
+    "children": []
+  },
+  {
+    "identifier": "abbey__secluded_shrine",
+    "title": "Secluded Shrine",
+    "description": "Tucked away in a forgotten corner of the abbey grounds, half-swallowed by overgrown briars, stands the statue of a forgotten warrior-saint. Her stone form is cracked and stained with lichen, the altar before her shattered.",
+    "restored": "Cleared of overgrowth and carefully repaired, the shrine is once again a place of quiet reverence. The statue of the warrior-saint stands proud and clean, her stone gaze offering resolute strength. The gentle motes of light now glow with a steady, comforting warmth, and the air feels charged with a renewed, protective grace.",
+    "summary": "abbey__secluded_shrine (Secluded Shrine) -- A forgotten shrine in hidden amongst the briars of the abbey grounds, featuring a statue of a warrior-saint.",
     "parent": "abbey__grounds",
     "children": []
   },

@@ -11,39 +11,39 @@
   "religion": "The Light",
   "zodiac": "Libra",
   "traits": [
-      "Devoted",
-      "Righteous",
-      "Compassionate",
-      "Vindictive",
-      "Temperamental",
-      "Salacious"
+    "Devoted",
+    "Righteous",
+    "Compassionate",
+    "Vindictive",
+    "Temperamental",
+    "Salacious"
   ],
   "status": {
-      "physical": 100,
-      "mental": 100,
-      "affliction": "",
-      "description": "In good health and decent spirits",
-      "wounds": [],
-      "diseases": []
+    "physical": 100,
+    "mental": 100,
+    "affliction": "",
+    "description": "In good health and decent spirits",
+    "wounds": [],
+    "diseases": []
   },
   "stats": {
-      "strength": 4,
-      "agility": 3,
-      "intelligence": 6,
-      "authority": 6,
-      "sociability": 3
+    "strength": 4,
+    "agility": 3,
+    "intelligence": 6,
+    "authority": 6,
+    "sociability": 3
   },
   "equipment": [
-      "Sacred Mace",
-      "Divine Tome"
+    "Sacred Mace",
+    "Divine Tome"
   ],
   "appearance": {
-      "height": "Average",
-      "build": "Sturdy",
-      "skinTone": "Pale",
-      "hairColor": "Blonde",
-      "hairStyle": "Tied down",
-      "features": "Deep-set eyes, pronounced chin"
+    "height": "Average",
+    "build": "Sturdy",
+    "skinTone": "Pale",
+    "hairColor": "Blonde",
+    "hairStyle": "Tied down",
+    "features": "Deep-set eyes, pronounced chin"
   },
   "clothing": {
     "head": "Hooded robe and wimple",
@@ -52,18 +52,30 @@
     "accessories": "Pauldrons, gloves"
   },
   "combat": {
-      "role": "Healer",
-      "strengths": [
-          "Healing abilities",
-          "Divine magic"
-      ],
-      "weaknesses": [
-          "Physical confrontations",
-          "Endurance"
-      ]
+    "role": "Healer",
+    "strengths": [
+      "Healing abilities",
+      "Divine magic"
+    ],
+    "weaknesses": [
+      "Physical confrontations",
+      "Endurance"
+    ]
   },
   "magic": "Powerful healing and protection spells as well as the ability to smite enemies with holy light",
   "notes": [
+    "Keeps a diary of her salacious fantasies with her companions"
+  ],
+  "tags": [
+    "Backline",
+    "Healer",
+    "Stunner",
+    "Debuffer",
+    "SelfSufficient",
+    "Light",
+    "UnholyHunter",
+    "Religious",
+    "Vigilant"
   ],
   "relationships": {}
 }

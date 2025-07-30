@@ -1,75 +1,78 @@
 {
-    "identifier": "cataphract",
-    "title": "Cataphract",
-    "name": "Nyriad",
-    "level": 0,
-    "money": 0,
-    "description": "The Cataphract is a formidable mounted warrior from the Levantine Sultanate, bonded with the spirit of her horse, Kargadaan, whose skull she always carries around. In battle, it transforms into a spectral steed of blue flames to assist the Cataphract. Together they form an unstoppable cavalry unit, using their combined skills to charge into battle and vanquish foes.",
-    "history": "Once a respected warrior of the Levantine Sultanate, the Cataphract's life changed when her beloved Kargadaan was fatally wounded. Desperate, she stole a powerful artifact to revive him, resulting in their exile. Now the spirit of the horse speaks to her, and they fight together against the horrors of the estate.",
-    "race": "Human",
-    "gender": "Female",
-    "religion": "",
-    "zodiac": "Capricorn",
-    "traits": [
-      "Proud",
-      "Valorous",
-      "Disciplined",
-      "Stern",
-      "Loyal",
-      "Battle-hardened"
+  "identifier": "cataphract",
+  "title": "Cataphract",
+  "name": "Nyriad",
+  "level": 0,
+  "money": 0,
+  "description": "The Cataphract is a formidable mounted warrior from the Levantine Sultanate, bonded with the spirit of her horse, Kargadaan, whose skull she always carries around. In battle, it transforms into a spectral steed of blue flames to assist the Cataphract. Together they form an unstoppable cavalry unit, using their combined skills to charge into battle and vanquish foes.",
+  "history": "Once a respected warrior of the Levantine Sultanate, the Cataphract's life changed when her beloved Kargadaan was fatally wounded. Desperate, she stole a powerful artifact to revive him, resulting in their exile. Now the spirit of the horse speaks to her, and they fight together against the horrors of the estate.",
+  "race": "Human",
+  "gender": "Female",
+  "religion": "None",
+  "zodiac": "Capricorn",
+  "traits": [
+    "Proud",
+    "Valorous",
+    "Disciplined",
+    "Stern",
+    "Loyal",
+    "Battle-hardened"
+  ],
+  "status": {
+    "physical": 100,
+    "mental": 100,
+    "affliction": "",
+    "description": "In good health and high spirits",
+    "wounds": [],
+    "diseases": []
+  },
+  "stats": {
+      "strength": 9,
+      "agility": 8,
+      "intelligence": 7,
+      "authority": 8,
+      "sociability": 5
+  },
+  "equipment": [
+    "Polearm",
+    "Spectral longbow",
+    "Banner"
+  ],
+  "appearance": {
+    "height": "Tall",
+    "build": "Athletic",
+    "skinTone": "Sun-tanned (hidden by full armor)",
+    "hairColor": "Dark",
+    "hairStyle": "Ponytail (hidden by helmet)",
+    "features": "Angular facial structure and prominent cheekbones"
+  },
+  "clothing": {
+    "head": "Plumed helmet",
+    "body": "Splint mail armor",
+    "legs": "Riding leathers",
+    "accessories": "Red scarf"
+  },
+  "combat": {
+    "role": "Warrior",
+    "strengths": [
+      "Mobility",
+      "Battlefield control",
+      "Command"
     ],
-    "status": {
-      "physical": 100,
-      "mental": 100,
-      "affliction": "",
-      "description": "In good health and high spirits",
-      "wounds": [],
-      "diseases": []
-    },
-    "stats": {
-        "strength": 9,
-        "agility": 8,
-        "intelligence": 7,
-        "authority": 8,
-        "sociability": 5
-    },
-    "equipment": [
-      "Polearm",
-      "Spectral longbow",
-      "Banner"
-    ],
-    "appearance": {
-      "height": "Tall",
-      "build": "Athletic",
-      "skinTone": "Sun-tanned (hidden by full armor)",
-      "hairColor": "Dark",
-      "hairStyle": "Ponytail (hidden by helmet)",
-      "features": "Angular facial structure and prominent cheekbones"
-    },
-    "clothing": {
-      "head": "Plumed helmet",
-      "body": "Splint mail armor",
-      "legs": "Riding leathers",
-      "accessories": "Red scarf"
-    },
-    "combat": {
-      "role": "Warrior",
-      "strengths": [
-        "Mobility",
-        "Battlefield control",
-        "Command"
-      ],
-      "weaknesses": [
-        "Slow attrition"
-      ]
-    },
-    "magic": "Supernatural connection to Kargadaan",
-    "notes": [
-      "Regularly converses with Kargadaan's skull, though no one else can hear it",
-      "Speaks with a mild Levantine accent, which becomes more pronounced when excited or angry",
-      "Maintains rigid military discipline, and is disappointed when she finds others' lacking",
-      "Under extreme stress, her identity fractures as she begins speaking and acting as though she were Kargadaan",
-      "Forms immediate judgments of others and stubbornly sticks to them"
-    ],
-    "relationships": {}
+    "weaknesses": [
+      "Slow attrition"
+    ]
+  },
+  "magic": "Supernatural connection to Kargadaan",
+  "notes": [
+    "Regularly converses with Kargadaan's skull, though no one else can hear it",
+    "Speaks with a mild Levantine accent, which becomes more pronounced when excited or angry",
+    "Maintains rigid military discipline, and is disappointed when she finds others' lacking",
+    "Under extreme stress, her identity fractures as she begins speaking and acting as though she were Kargadaan",
+    "Forms immediate judgments of others and stubbornly sticks to them"
+  ],
+  "tags": [
+    "Dancer", "Healer", "Companion", "Warrior", "Leader", "Vigilant", "Debuffer"
+  ],
+  "relationships": {}
 }

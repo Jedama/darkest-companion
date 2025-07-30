@@ -1,71 +1,85 @@
 {
-    "identifier": "offering",
-    "title": "Offering",
-    "name": "Lulu",
-    "level": 0,
-    "money": 0,
-    "description": "Driven by a morbid fascination with mortality, the Offering shields her allies while seeking to understand the fragility of life. Her helpless, vulnerable getup renders her powerless to stop the violations she eagerly welcomes unto herself from friend and foe alike, in order to experience the depths of agony, suffering, and desperation.",
-    "history": "Born into a secluded cult and groomed for sacrifice, the Offering's fate took a cruel twist when an eldritch entity rejected her, instead taking her heart and replacing it with another's - one that carried the memories of a young abused girl. Left with an empty chest and overwhelmed by newfound empathy and pain, the Offering fled her cult. She now walks a precarious path between life and death, driven to understand and share in others' suffering.",
-    "race": "Human",
-    "gender": "Female",
-    "religion": "None",
-    "zodiac": "Pisces",
-    "traits": [
-      "Morbidly curious",
-      "Masochistic",
-      "Accepting",
-      "Empathetic",
-      "Taciturn"
+  "identifier": "offering",
+  "title": "Offering",
+  "name": "Lulu",
+  "level": 0,
+  "money": 0,
+  "description": "Driven by a morbid fascination with mortality, the Offering shields her allies while seeking to understand the fragility of life. Her helpless, vulnerable getup renders her powerless to stop the violations she eagerly welcomes unto herself from friend and foe alike, in order to experience the depths of agony, suffering, and desperation.",
+  "history": "Born into a secluded cult and groomed for sacrifice, the Offering's fate took a cruel twist when an eldritch entity rejected her, instead taking her heart and replacing it with another's - one that carried the memories of a young abused girl. Left with an empty chest and overwhelmed by newfound empathy and pain, the Offering fled her cult. She now walks a precarious path between life and death, driven to understand and share in others' suffering.",
+  "race": "Human",
+  "gender": "Female",
+  "religion": "None",
+  "zodiac": "Pisces",
+  "traits": [
+    "Morbidly curious",
+    "Masochistic",
+    "Accepting",
+    "Empathetic",
+    "Taciturn"
+  ],
+  "status": {
+    "physical": 100,
+    "mental": 100,
+    "affliction": "",
+    "description": "In good health and high spirits",
+    "wounds": [],
+    "diseases": []
+  },
+  "stats": {
+      "strength": 6,
+      "agility": 2,
+      "intelligence": 6,
+      "authority": 4,
+      "sociability": 1
+  },
+  "equipment": [
+    "Heart levitating behind her, wrapped in chains"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Curvy",
+    "skinTone": "Pale",
+    "hairColor": "Green",
+    "hairStyle": "Elaborate updo with ornaments",
+    "features": "Large breasts"
+  },
+  "clothing": {
+    "head": "Blindfold, gag, ribbons",
+    "body": "Tiny patches of fleeting silk",
+    "legs": "None",
+    "accessories": "Dark arm binding, gorgerin, ribbons"
+  },
+  "combat": {
+    "role": "Tank",
+    "strengths": [
+      "High endurance",
+      "Protective nature",
+      "Willingness to suffer"
     ],
-    "status": {
-      "physical": 100,
-      "mental": 100,
-      "affliction": "",
-      "description": "In good health and high spirits",
-      "wounds": [],
-      "diseases": []
-    },
-    "stats": {
-        "strength": 6,
-        "agility": 2,
-        "intelligence": 6,
-        "authority": 4,
-        "sociability": 1
-    },
-    "equipment": [
-      "Heart levitating behind her, wrapped in chains"
-    ],
-    "appearance": {
-      "height": "Average",
-      "build": "Curvy",
-      "skinTone": "Pale",
-      "hairColor": "Green",
-      "hairStyle": "Elaborate updo with ornaments",
-      "features": "Large breasts"
-    },
-    "clothing": {
-      "head": "Blindfold, gag, ribbons",
-      "body": "Tiny patches of fleeting silk",
-      "legs": "None",
-      "accessories": "Dark arm binding, gorgerin, ribbons"
-    },
-    "combat": {
-      "role": "Tank",
-      "strengths": [
-        "High endurance",
-        "Protective nature",
-        "Willingness to suffer"
-      ],
-      "weaknesses": [
-        "Short range",
-        "Weak attacks",
-        "Psychologically vulnerable"
-      ]
-    },
-    "magic": "Life force manipulation",
-    "notes": [
-      "Her arms are tightly bound together and unusable below her chest",
-      "The gag in her mouth renders her unable to speak"
-    ],
-    "relationships": {}
-  }
+    "weaknesses": [
+      "Short range",
+      "Weak attacks",
+      "Psychologically vulnerable"
+    ]
+  },
+  "magic": "Life force manipulation",
+  "notes": [
+    "Her arms are tightly bound together and unusable below her chest",
+    "The gag in her mouth renders her unable to speak"
+  ],
+  "tags": [
+    "Frontline",
+    "Immobile",
+    "ShortReach",
+    "Tank",
+    "Cleanser",
+    "Debuffer",
+    "Disruptor",
+    "SelfSufficient",
+    "Eldritch",
+    "Religious",
+    "Outcast",
+    "Unstable"
+  ],
+  "relationships": {}
+}
