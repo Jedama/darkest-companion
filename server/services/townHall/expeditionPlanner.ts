@@ -4,10 +4,10 @@ import {
     StrategyWeights, 
     PartyScoringStatistics, 
     NormalizationStats,
-    StrategyDefinition
-} from './expeditionStrategies';
+    generateDefaultWeights
+} from './expeditionStrategies/';
 
-// --- NEW: DEBUG INFORMATION TYPES ---
+// --- DEBUG INFORMATION TYPES ---
 // These types structure the detailed breakdown of the scoring.
 
 /**
@@ -55,31 +55,16 @@ export interface BestCompositionResult {
 }
 
 // ==================================
-// 1. TYPE DEFINITIONS (Most are now imported)
+// TYPE DEFINITIONS
 // ==================================
 
 export type Party = string[];
 export type Composition = Party[];
 
-// ==================================
-// 2. WEIGHTS CONFIGURATION
-// ==================================
-
-// The default weights now use the new, descriptive IDs.
-const defaultWeights: Required<StrategyWeights> = {
-  minimizeLevelHardship: 10,
-  maximizeGameplaySynergy: 2,
-  maximizeAffinity: 1,
-  maximizePeakAffinity: 0,
-  minimizeDiscord: 0,
-  balanceAuthority: 0,
-  maximizeChildGuardianship: 0,
-  maximizeCommandClarity: 0,
-  maximizeCommandClarity_Heiress: 0,
-};
 
 // This function now works with the dynamically generated StrategyWeights type.
 function defineWeights(customWeights: StrategyWeights): Required<StrategyWeights> {
+  const defaultWeights = generateDefaultWeights();
   return {
     ...defaultWeights,
     ...customWeights,
@@ -88,7 +73,7 @@ function defineWeights(customWeights: StrategyWeights): Required<StrategyWeights
 
 
 // ==================================
-// 3. NORMALIZATION & UNIFIED SCORING
+// NORMALIZATION & UNIFIED SCORING
 // ==================================
 
 // Helper function (can be in this file or the strategies file)
@@ -102,7 +87,7 @@ const calculateStats = (scores: number[]): NormalizationStats => {
 };
 
 /**
- * [REFACTORED] Pre-computes stats for each registered strategy.
+ * Pre-computes stats for each registered strategy.
  */
 function generateScoringStatistics(
     availableHeroes: string[],
@@ -144,7 +129,6 @@ function generateScoringStatistics(
 }
 
 /**
- * [REPLACED] The old calculateCompositionScore is now this more powerful function.
  * Calculates a unified score AND generates a detailed analysis object.
  */
 function analyzeComposition(
@@ -227,7 +211,7 @@ function analyzeComposition(
 
 
 // ==================================
-// 4. OPTIMIZER (Now uses the new structures)
+// OPTIMIZER
 // ==================================
 
 export function findBestComposition(
@@ -301,7 +285,7 @@ export function findBestComposition(
 
 
 // ==================================
-// 5. DEBUG FORMATTING UTILITY (Updated)
+// DEBUG FORMATTING UTILITY
 // ==================================
 
 /**
@@ -316,7 +300,7 @@ export function formatDebugInfoForConsole(
     console.log("== EXPEDITION COMPOSITION ANALYSIS ==");
     console.log("========================================");
 
-    // --- NEW: Display Normalization Info ---
+    // --- Display Normalization Info ---
     console.log("\n--- Normalization Baseline (Mean / StdDev) ---");
     const statsForTable = Object.entries(stats).map(([id, stat]) => ({
         "Strategy": STRATEGY_REGISTRY.find(s => s.identifier === id)?.name || id,
@@ -333,7 +317,7 @@ export function formatDebugInfoForConsole(
     debugInfo.parties.forEach((partyInfo, index) => {
         console.log("\n----------------------------------------");
         
-        // --- NEW: Display Members with Levels ---
+        // --- Display Members with Levels ---
         const memberDetails = partyInfo.party.map(id => {
             const char = roster[id];
             return char ? `${char.name} (Lvl ${char.level})` : 'Unknown Hero';
@@ -347,7 +331,7 @@ export function formatDebugInfoForConsole(
             "Strategy": b.strategyName,
             "Weight": b.weight,
             "Raw Score": parseFloat(b.rawScore.toFixed(2)),
-            "Normalized (Z)": parseFloat(b.normalizedScore.toFixed(2)), // Renamed for clarity
+            "Normalized (Z)": parseFloat(b.normalizedScore.toFixed(2)),
             "Final Contribution": parseFloat(b.weightedScore.toFixed(2)),
         }));
 
@@ -363,7 +347,7 @@ export function formatDebugInfoForConsole(
             "Strategy": b.strategyName,
             "Weight": b.weight,
             "Raw Score": parseFloat(b.rawScore.toFixed(2)),
-            "Normalized (Z)": parseFloat(b.normalizedScore.toFixed(2)), // Renamed for clarity
+            "Normalized (Z)": parseFloat(b.normalizedScore.toFixed(2)),
             "Final Contribution": parseFloat(b.weightedScore.toFixed(2)),
         }));
 
