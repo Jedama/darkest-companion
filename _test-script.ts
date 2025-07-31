@@ -95,8 +95,8 @@ async function runTests() {
   const affinityFocusedWeights: StrategyWeights = {
     maximizeAffinity: 2.0,
     maximizePeakAffinity: 1.0,
-    minimizeLevelHardship: 10.0,
-    maximizeCommandClarity_Heiress: 5.0
+    minimizeLevelHardship: 15.0,
+    balanceCondition: 5.0
   };
 
   const affinityResult = findBestComposition(availableHeroIds, roster, affinityFocusedWeights);

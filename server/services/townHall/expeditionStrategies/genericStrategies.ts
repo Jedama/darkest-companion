@@ -5,6 +5,7 @@
  */
 
 import { CharacterRecord } from '../../../../shared/types/types';
+import { AfflictionType, VirtueType, isAffliction, isVirtue } from '../../../../shared/constants/afflictions';
 import { Party, Composition } from '../expeditionPlanner';
 import {
   countTag,
@@ -13,6 +14,38 @@ import {
   calculateCombinatorialSynergy,
   calculateStackingTagSynergy
 } from './strategyUtils';
+
+// ==================================
+// MAPS FOR SCORING
+// ==================================
+
+// --- Severity & Benefit Mappings ---
+// These maps translate a named condition into a numerical score.
+const AFFLICTION_SEVERITY: Record<AfflictionType, number> = {
+  // High disruption
+  abusive: 80,
+  paranoid: 75,
+  ferocious: 70,
+  // High risk
+  masochistic: 65,
+  fearful: 60,
+  refracted: 60,
+  // Moderate disruption
+  irrational: 50,
+  selfish: 45,
+  discordant: 45,
+  // Low disruption
+  hopeless: 35,
+  rapturous: 30,
+};
+
+const VIRTUE_BENEFIT: Record<VirtueType, number> = {
+  stalwart: 50,
+  courageous: 45,
+  vigorous: 40,
+  powerful: 35,
+  focused: 30,
+};
 
 // ==================================
 // GAMEPLAY SYNERGY SCORING
@@ -309,7 +342,68 @@ export function minimizeLiabilityExposure(party: Party, roster: CharacterRecord)
 // COMPOSITION SCORING FUNCTIONS
 // ==================================
 
-export function scoreCompositionByAuthorityDistribution(composition: Composition, roster: CharacterRecord): number {
+/**
+ * Calculates a single "Condition Score" for a party.
+ * A higher score indicates a party in poorer condition (high stress, low health, afflictions).
+ * The score is intentionally non-linear to heavily penalize high-risk parties.
+ */
+function calculatePartyConditionScore(party: Party, roster: CharacterRecord): number {
+  let score = 0;
+
+  for (const heroId of party) {
+    const hero = roster[heroId];
+    if (!hero) continue;
+
+    // 1. Add score from missing health and mental fortitude (stress).
+    // Assumes 100 is max, 0 is min.
+    const missingHealth = 100 - hero.status.physical;
+    const currentStress = 100 - hero.status.mental; // Inverted, so 100 mental = 0 stress score
+    
+    score += (missingHealth * 0.25); // Health is fourth as important as stress
+    score += currentStress;
+
+    // 2. Add or subtract score based on afflictions and virtues.
+    const condition = hero.status.affliction;
+    if (condition) {
+      if (isAffliction(condition)) {
+        score += AFFLICTION_SEVERITY[condition];
+      } else if (isVirtue(condition)) {
+        score -= VIRTUE_BENEFIT[condition];
+      }
+    }
+  }
+
+  // 3. Apply the non-linear curve.
+  // This curve makes scores below 50 change slowly, while scores above 50 escalate rapidly.
+  // A score of 0-30 remains low. A score of 50 becomes ~88. A score of 80 becomes ~215.
+  const curvedScore = (score / 10) + Math.pow(Math.max(0, score - 30) / 15, 2.5);
+
+  // We don't want virtues to create a negative score, just reduce risk.
+  return Math.max(0, curvedScore);
+}
+
+/**
+ * Balances the distribution of "Condition Score" across all parties in a composition.
+ * It heavily penalizes compositions where one party is significantly more at-risk
+ * (stressed, wounded, afflicted) than others.
+ * The goal is to spread the risk evenly.
+ */
+export function scoreCompositionByConditionBalance(composition: Composition, roster: CharacterRecord): number {
+  if (composition.length < 2) return 0;
+
+  // 1. Get the Condition Score for each party.
+  const partyScores = composition.map(party => calculatePartyConditionScore(party, roster));
+
+  // 2. Calculate the standard deviation of these scores.
+  const mean = partyScores.reduce((a, b) => a + b, 0) / partyScores.length;
+  const variance = partyScores.map(score => Math.pow(score - mean, 2)).reduce((a, b) => a + b, 0) / partyScores.length;
+  const stdDev = Math.sqrt(variance);
+
+  // The standard deviation itself is the final score we want to minimize.
+  return stdDev;
+}
+
+export function scoreCompositionByAuthorityBalance(composition: Composition, roster: CharacterRecord): number {
   if (composition.length < 2) return 0;
 
   const leadershipPotentialScores = composition.map(party => {

@@ -54,7 +54,7 @@ export const STRATEGY_REGISTRY: readonly StrategyDefinition[] = [
     direction: 'minimize',
     scope: 'party',
     scorer: generic.scorePartyByLevelPenalty,
-    defaultWeight: 10,
+    defaultWeight: 15,
   },
   {
     identifier: 'maximizeGameplaySynergy',
@@ -114,7 +114,15 @@ export const STRATEGY_REGISTRY: readonly StrategyDefinition[] = [
     description: 'Ensures a balanced distribution of leadership potential across parties, preventing over-concentration of authority.',
     direction: 'minimize',
     scope: 'composition',
-    scorer: generic.scoreCompositionByAuthorityDistribution,
+    scorer: generic.scoreCompositionByAuthorityBalance,
+  },
+  {
+    identifier: 'balanceCondition',
+    name: 'Condition Distribution',
+    description: 'Balances the distribution of afflictions and virtues across parties to ensure no single party is overly burdened or empowered.',
+    direction: 'minimize',
+    scope: 'composition',
+    scorer: generic.scoreCompositionByConditionBalance,
   },
 
   // --- "Standard" Opinionated Strategies (Can be used by multiple characters) ---

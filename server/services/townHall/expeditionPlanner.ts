@@ -39,6 +39,12 @@ export interface PartyDebugInfo {
 export interface CompositionDebugInfo {
   composition: Composition;
   finalScore: number;
+
+  // The total score for the composition, combining all party and composition scores.
+  partyScopeScore: number;
+  compositionScopeScore: number;
+  scaledPartyScore: number;
+
   // Analysis for each party in the composition.
   parties: PartyDebugInfo[];
   // Analysis for strategies that score the composition as a whole.
@@ -137,10 +143,15 @@ function analyzeComposition(
   weights: Required<StrategyWeights>,
   stats: PartyScoringStatistics
 ): CompositionDebugInfo {
-  let totalWeightedScore = 0;
+  let totalPartyScopeScore = 0;
+  let totalCompositionScopeScore = 0;
+
   const debugInfo: CompositionDebugInfo = {
     composition,
     finalScore: 0,
+    partyScopeScore: 0,
+    compositionScopeScore: 0,
+    scaledPartyScore: 0,
     parties: [],
     compositionScopeBreakdown: [],
   };
@@ -178,7 +189,9 @@ function analyzeComposition(
     }
     partyDebug.totalPartyScore = singlePartyScore;
     debugInfo.parties.push(partyDebug);
-    totalWeightedScore += singlePartyScore;
+    
+    // CHANGE: Add the score of this party to the party-scope bucket
+    totalPartyScopeScore += singlePartyScore;
   }
 
   // --- Process Composition-Scoped Strategies ---
@@ -193,7 +206,8 @@ function analyzeComposition(
     const directionalMultiplier = strategy.direction === 'maximize' ? 1 : -1;
     const weightedScore = normalizedScore * weight * directionalMultiplier;
 
-    totalWeightedScore += weightedScore;
+    // CHANGE: Add the score of this strategy to the composition-scope bucket
+    totalCompositionScopeScore += weightedScore;
 
     debugInfo.compositionScopeBreakdown.push({
       strategyId: strategy.identifier,
@@ -204,8 +218,26 @@ function analyzeComposition(
       weightedScore,
     });
   }
+
+  // ===================================================================
+  // NEW: Final Score Calculation with Scaling
+  // ===================================================================
+
+  // Determine the scaling factor. Use 1 as a minimum to avoid multiplying by zero.
+  const numParties = composition.length || 1;
   
-  debugInfo.finalScore = totalWeightedScore;
+  // Scale the party-scoped score to give it equal footing with the composition scores.
+  const scaledPartyScore = totalPartyScopeScore / numParties;
+
+  // The final score is the sum of the (unscaled) party scores and the SCALED composition score.
+  const finalScore = scaledPartyScore + totalCompositionScopeScore;
+
+  // Populate the debug info with all the calculated values for clear analysis.
+  debugInfo.partyScopeScore = totalPartyScopeScore;
+  debugInfo.compositionScopeScore = totalCompositionScopeScore;
+  debugInfo.scaledPartyScore = scaledPartyScore;
+  debugInfo.finalScore = finalScore;
+  
   return debugInfo;
 }
 

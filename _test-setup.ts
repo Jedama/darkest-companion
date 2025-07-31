@@ -1,6 +1,7 @@
 import { saveEstate } from './server/fileOps.js';
 import { loadCharacterTemplates, loadDefaultRelationships } from './server/templateLoader.js';
-import { Estate, Character, CharacterRecord, Relationship } from './shared/types/types.js';
+import { Estate,  CharacterRecord } from './shared/types/types.js';
+import { AFFLICTIONS, VIRTUES, ConditionType } from './shared/constants/afflictions.js';
 
 const TEST_ESTATE_NAME = '_test_estate';
 
@@ -42,6 +43,17 @@ function generateBellCurveAffinity(mean: number = 4, stdDev: number = 1.5): numb
     return Math.round(Math.max(0, Math.min(10, num)));
 }
 
+/**
+ * Generates a random health or mental stat, skewed heavily towards being healthy.
+ * @returns A number between 0 and 100.
+ */
+function generateSkewedStat(): number {
+    // Math.pow(Math.random(), 0.3) creates a curve where most values are high (close to 1.0)
+    // and very few are low.
+    const skewedRandom = Math.pow(Math.random(), 0.35);
+    return Math.floor(skewedRandom * 101);
+}
+
 // ==================================
 // 2. MAIN SETUP SCRIPT
 // ==================================
@@ -53,13 +65,13 @@ async function createTestEstate() {
   console.log('--- Generating Randomized Test Estate ---');
 
   // --- Phase 1: Load Base Templates ---
-  console.log('[1/5] Loading character templates...');
+  console.log('[1/6] Loading character templates...');
   const characterTemplates = await loadCharacterTemplates();
   const defaultRelationships = await loadDefaultRelationships();
   console.log(`Loaded ${Object.keys(characterTemplates).length} character templates.`);
 
   // --- Phase 2: Initial Roster Population ---
-  console.log('[2/5] Populating initial roster...');
+  console.log('[2/6] Populating initial roster...');
   const testRoster: CharacterRecord = {};
   for (const id in characterTemplates) {
     const template = characterTemplates[id];
@@ -70,13 +82,13 @@ async function createTestEstate() {
   }
 
   // --- Phase 3: Procedural Level Generation ---
-  console.log('[3/5] Procedurally assigning random levels...');
+  console.log('[3/6] Procedurally assigning random levels...');
   for (const id in testRoster) {
       testRoster[id].level = getRandomizedLevel();
   }
 
   // --- Phase 4: Procedural Relationship Generation ---
-  console.log('[4/5] Procedurally generating mutual relationships...');
+  console.log('[4/6] Procedurally generating mutual relationships...');
   const characterIds = Object.keys(testRoster);
   for (let i = 0; i < characterIds.length; i++) {
     for (let j = i + 1; j < characterIds.length; j++) {
@@ -101,8 +113,38 @@ async function createTestEstate() {
     }
   }
 
-  // --- Phase 5: Apply Specific Overrides ---
-  console.log('[5/5] Applying specific overrides to guarantee test conditions...');
+  // --- Phase 5: Procedural Health, Stress, and Condition Generation ---
+  console.log('[5/6] Procedurally assigning health, stress, and conditions...');
+  const afflictionKeys = Object.keys(AFFLICTIONS) as (keyof typeof AFFLICTIONS)[];
+  const virtueKeys = Object.keys(VIRTUES) as (keyof typeof VIRTUES)[];
+
+  for (const id in testRoster) {
+    const hero = testRoster[id];
+    hero.status.physical = generateSkewedStat();
+    hero.status.mental = generateSkewedStat();
+
+    // Reset affliction before assigning a new one
+    hero.status.affliction = ""; 
+
+    // Let's create a chance-based system for conditions.
+    const roll = Math.random(); // A roll from 0.0 to 1.0
+
+    if (roll < 0.15) { // 15% chance to get an affliction
+      const randomIndex = Math.floor(Math.random() * afflictionKeys.length);
+      hero.status.affliction = afflictionKeys[randomIndex] as ConditionType;
+      // If afflicted, their mental state should be poor.
+      hero.status.mental = Math.min(hero.status.mental, Math.floor(Math.random() * 40));
+    } else if (roll < 0.22) { // 7% chance to get a virtue (15% to 22%)
+      const randomIndex = Math.floor(Math.random() * virtueKeys.length);
+      hero.status.affliction = virtueKeys[randomIndex] as ConditionType;
+      // If virtuous, their mental state should be excellent.
+      hero.status.mental = 100;
+    }
+    // Otherwise (78% of the time), they have no specific named condition.
+  }
+
+  // --- Phase 6: Apply Specific Overrides ---
+  console.log('[6/6] Applying specific overrides to guarantee test conditions...');
   // This ensures that no matter what the random generation does, we have our key test cases.
   if (testRoster['occultist'] && testRoster['arbalest']) {
     testRoster['occultist'].relationships['arbalest'] = { affinity: 1, dynamic: 'Rival', description: '' };
