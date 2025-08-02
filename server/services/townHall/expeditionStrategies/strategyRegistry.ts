@@ -63,7 +63,7 @@ export const STRATEGY_REGISTRY: readonly StrategyDefinition[] = [
     direction: 'maximize',
     scope: 'party',
     scorer: generic.scorePartyByGameplaySynergy,
-    defaultWeight: 2,
+    defaultWeight: 1,
   },
   {
     identifier: 'maximizeAffinity',
@@ -72,7 +72,7 @@ export const STRATEGY_REGISTRY: readonly StrategyDefinition[] = [
     direction: 'maximize',
     scope: 'party',
     scorer: generic.scorePartyByAffinity,
-    defaultWeight: 1,
+    defaultWeight: 3,
   },
   {
     identifier: 'maximizePeakAffinity',
@@ -91,12 +91,12 @@ export const STRATEGY_REGISTRY: readonly StrategyDefinition[] = [
     scorer: generic.scorePartyByDiscordPenalty,
   },
   {
-    identifier: 'maximizeChildGuardianship',
-    name: 'Children Guardianship',
-    description: 'Ensures children are protected by capable guardians.',
+    identifier: 'maximizeCommandClarity',
+    name: 'Command Clarity',
+    description: 'Evaluates the clarity of command and authority distribution within a party using a standard, objective model.',
     direction: 'maximize',
     scope: 'party',
-    scorer: generic.scorePartyByChildGuardianship,
+    scorer: generic.scorePartyByCommandClarity,
   },
   {
     identifier: 'minimizeLiabilityExposure',
@@ -104,7 +104,15 @@ export const STRATEGY_REGISTRY: readonly StrategyDefinition[] = [
     description: 'Punishes parties for unmitigated weaknesses and liabilities like "Unstable" or "Elder".',
     direction: 'minimize',
     scope: 'party',
-    scorer: generic.minimizeLiabilityExposure,
+    scorer: generic.scorePartyByLiabilityExposure,
+  },
+  {
+    identifier: 'minimizeTacticalNonsense',
+    name: 'Tactical Nonsense',
+    description: 'Avoids parties with heroes that have no clear role or synergy, preventing tactical confusion.',
+    direction: 'minimize',
+    scope: 'party',
+    scorer: generic.scorePartyByTacticalNonsense,
   },
 
   // --- Generic Composition Strategies ---
@@ -123,16 +131,7 @@ export const STRATEGY_REGISTRY: readonly StrategyDefinition[] = [
     direction: 'minimize',
     scope: 'composition',
     scorer: generic.scoreCompositionByConditionBalance,
-  },
-
-  // --- "Standard" Opinionated Strategies (Can be used by multiple characters) ---
-  {
-    identifier: 'maximizeCommandClarity',
-    name: 'Command Clarity',
-    description: 'Evaluates the clarity of command and authority distribution within a party using a standard, objective model.',
-    direction: 'maximize',
-    scope: 'party',
-    scorer: generic.maximizeCommandClarity,
+    defaultWeight: 3,
   },
   
   // --- Character-Specific Strategies ---
@@ -142,8 +141,32 @@ export const STRATEGY_REGISTRY: readonly StrategyDefinition[] = [
     description: 'Evaluates command clarity according to the Heiress\'s specific biases and anxieties.',
     direction: 'maximize',
     scope: 'party',
-    scorer: character.maximizeCommandClarity_Heiress,
+    scorer: character.scorePartyByCommandClarity_Heiress,
   },
+  {
+    identifier: 'maximizeQuarantinedHorrors_Heir',
+    name: 'Quarantined Horrors (Heir)',
+    description: 'Tries to quarantine all the scary heroes together so they won\'t disturb the rest.',
+    direction: 'maximize',
+    scope: 'composition',
+    scorer: character.scoreCompositionByQuarantinedHorrors_Heir,
+  },
+  {
+    identifier: 'maximizeChildGuardianship_Cook',
+    name: 'Children Guardianship',
+    description: 'Ensures children are protected by capable guardians.',
+    direction: 'maximize',
+    scope: 'party',
+    scorer: character.scorePartyByChildGuardianship_Cook,
+  },
+  {
+    identifier: 'maximizeGenderBalance_Zenith',
+    name: 'Gender Balance (Zenith)',
+    description: 'Rewards parties that achieve a balanced gender distribution, and potentially romantic rivalries.',
+    direction: 'maximize',
+    scope: 'party',
+    scorer: character.scorePartyBySocialVitality_Zenith,
+  }
 
 ] as const;
 

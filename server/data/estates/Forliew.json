@@ -303,7 +303,8 @@
         "Scared of losing her authority, she meets those challenging it by becoming more commanding and inflexible.",
         "Suspects the Abbey is involved in coercive practices related to the new burials.",
         "Believes Barkeep Bram is directly complicit or holds vital information regarding the unusual burials.",
-        "Resents the futility of knowledge left to decay and is driven to reclaim or understand it."
+        "Resents the futility of knowledge left to decay and is driven to reclaim or understand it.",
+        "Is highly suspicious of Archivist Edwin's motives and his reluctance to reveal sealed records."
       ],
       "relationships": {
         "kheir": {
@@ -377,9 +378,9 @@
       ],
       "status": {
         "physical": 100,
-        "mental": 45,
+        "mental": 27,
         "affliction": "",
-        "description": "Overwhelmed by paralyzing dread, Percival's fear of the unknown horrors within the Estate reached a peak, manifesting in visible signs of acute anxiety.",
+        "description": "Overwhelmed by paralyzing dread, Percival's fear of the unknown horrors within the Estate reached a peak, manifesting in visible signs of acute anxiety, further exacerbated by the Archivist's ominous presence and warning.",
         "wounds": [],
         "diseases": []
       },
@@ -498,6 +499,11 @@
         "month": 0,
         "entry": "Her suspicion towards Barkeep Bram was validated by his deliberate silence regarding the Wolf Room's past occupants, reinforcing her belief in his complicity in hidden affairs.",
         "expiryMonth": 3
+      },
+      {
+        "month": 0,
+        "entry": "Demanded access to sealed records, demonstrating unwavering determination to uncover the Manor's hidden past despite the Archivist's cryptic resistance.",
+        "expiryMonth": 3
       }
     ],
     "kheir": [
@@ -520,6 +526,11 @@
         "month": 0,
         "entry": "The oppressive atmosphere of the Wolf Room intensified Percival's inherent dread, solidifying his fears about the Estate's hidden horrors.",
         "expiryMonth": 3
+      },
+      {
+        "month": 0,
+        "entry": "Experienced acute physical and mental distress while confronting the oppressive atmosphere of the Main Hall and the grim task of historical investigation.",
+        "expiryMonth": 3
       }
     ],
     "highwayman": [
@@ -536,6 +547,11 @@
       {
         "month": 0,
         "entry": "Identified subtle physical evidence of decay and violence, correctly discerning a perceived cry for help as a trap and reinforcing his cynical worldview.",
+        "expiryMonth": 3
+      },
+      {
+        "month": 0,
+        "entry": "Noted Archivist Edwin's unusual stillness and hidden scars, confirming his cynical view of hidden suffering and the dangerous nature of the Estate's secrets.",
         "expiryMonth": 3
       }
     ],

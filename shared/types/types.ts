@@ -1,4 +1,5 @@
 // shared/types/types.ts
+import { StrategyWeights } from '../../server/services/townHall/expeditionStrategies'; // Importing dynamically created type
 
 export interface Stats {
   strength: number;
@@ -76,6 +77,7 @@ export interface Character {
   magic: string;
   notes: string[];
   tags: string[];
+  strategyWeights?: StrategyWeights;
   relationships: Record<string, Relationship>;
 }
 
@@ -145,10 +147,20 @@ export interface LocationData {
 }
 
 // ========== Estate ==========
+
+export type EstateRoles = {
+  margrave: string; // The character identifier of the Margrave
+  bursar: string;   // The character identifier of the Bursar
+  sheriff?: string; // Optional: The character identifier of the Sheriff
+  judge?: string;   // Optional: The character identifier of the Judge
+  council?: string[]; // Optional: A list of character identifiers for the council
+};
+
 export interface Estate {
   estateName: string;
   money: number;
   month: number;
+  roles: EstateRoles; // Roles within the estate
   characters: CharacterRecord;
   restoredLocations?: string[];  // list of location identifiers that have been restored
 
@@ -172,6 +184,10 @@ export function createNewEstate(estateName: string): Estate {
     estateName,
     money: 0,
     month: 0,
+    roles: {
+      margrave: 'heiress',
+      bursar: 'kheir',
+    },
     characters: {}
   };
 }

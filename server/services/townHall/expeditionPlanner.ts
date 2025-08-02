@@ -39,11 +39,11 @@ export interface PartyDebugInfo {
 export interface CompositionDebugInfo {
   composition: Composition;
   finalScore: number;
-
-  // The total score for the composition, combining all party and composition scores.
-  partyScopeScore: number;
-  compositionScopeScore: number;
-  scaledPartyScore: number;
+  
+  // Totals for the scored portion of the composition
+  partyScopeScore: number;       // The sum of all active party scores
+  compositionScopeScore: number; // The unscaled sum of all composition-scoped scores
+  scaledPartyScore: number;      // The scaled party score, averaged across all parties and adjusted for composition scope
 
   // Analysis for each party in the composition.
   parties: PartyDebugInfo[];
@@ -141,13 +141,19 @@ function analyzeComposition(
   composition: Composition,
   roster: CharacterRecord,
   weights: Required<StrategyWeights>,
-  stats: PartyScoringStatistics
+  stats: PartyScoringStatistics,
+  partiesToScore?: number
 ): CompositionDebugInfo {
+  // If partiesToScore is not provided, score all of them. Otherwise, take the first N.
+  const activeParties = partiesToScore === undefined 
+    ? composition 
+    : composition.slice(0, partiesToScore);
+
   let totalPartyScopeScore = 0;
   let totalCompositionScopeScore = 0;
 
   const debugInfo: CompositionDebugInfo = {
-    composition,
+    composition, // Always show the full composition
     finalScore: 0,
     partyScopeScore: 0,
     compositionScopeScore: 0,
@@ -157,8 +163,10 @@ function analyzeComposition(
   };
 
   // --- Process Party-Scoped Strategies ---
+  // NOTE: This loop still analyzes ALL parties for the debug breakdown,
+  // but we only add the scores of ACTIVE parties to the total.
   const partyStrategies = STRATEGY_REGISTRY.filter(s => s.scope === 'party');
-  for (const party of composition) {
+  for (const [index, party] of composition.entries()) {
     let singlePartyScore = 0;
     const partyDebug: PartyDebugInfo = {
       party,
@@ -168,15 +176,16 @@ function analyzeComposition(
 
     for (const strategy of partyStrategies) {
         const weight = weights[strategy.identifier] ?? 0;
-        if (weight === 0) continue;
-
+        // We still calculate even with weight 0 for complete debug info
         const rawScore = strategy.scorer(party, roster);
         const strategyStats = stats[strategy.identifier];
         const normalizedScore = (rawScore - strategyStats.mean) / (strategyStats.stdDev || 1);
         const directionalMultiplier = strategy.direction === 'maximize' ? 1 : -1;
         const weightedScore = normalizedScore * weight * directionalMultiplier;
         
-        singlePartyScore += weightedScore;
+        if (weight > 0) {
+          singlePartyScore += weightedScore;
+        }
         
         partyDebug.breakdown.push({
           strategyId: strategy.identifier,
@@ -189,24 +198,27 @@ function analyzeComposition(
     }
     partyDebug.totalPartyScore = singlePartyScore;
     debugInfo.parties.push(partyDebug);
-    
-    // CHANGE: Add the score of this party to the party-scope bucket
-    totalPartyScopeScore += singlePartyScore;
+
+    // CRUCIAL: Only add the score to the total if the party is "active"
+    if (index < activeParties.length) {
+      totalPartyScopeScore += singlePartyScore;
+    }
   }
 
   // --- Process Composition-Scoped Strategies ---
+  // This part now operates ONLY on the active subset of parties.
   const compositionStrategies = STRATEGY_REGISTRY.filter(s => s.scope === 'composition');
   for (const strategy of compositionStrategies) {
     const weight = weights[strategy.identifier] ?? 0;
     if (weight === 0) continue;
 
-    const rawScore = strategy.scorer(composition, roster);
+    // Pass the active subset to the scorer
+    const rawScore = strategy.scorer(activeParties, roster);
     const strategyStats = stats[strategy.identifier];
     const normalizedScore = (rawScore - strategyStats.mean) / (strategyStats.stdDev || 1);
     const directionalMultiplier = strategy.direction === 'maximize' ? 1 : -1;
     const weightedScore = normalizedScore * weight * directionalMultiplier;
 
-    // CHANGE: Add the score of this strategy to the composition-scope bucket
     totalCompositionScopeScore += weightedScore;
 
     debugInfo.compositionScopeBreakdown.push({
@@ -219,18 +231,14 @@ function analyzeComposition(
     });
   }
 
-  // ===================================================================
-  // NEW: Final Score Calculation with Scaling
-  // ===================================================================
-
-  // Determine the scaling factor. Use 1 as a minimum to avoid multiplying by zero.
-  const numParties = composition.length || 1;
+  // --- Final Score Calculation with Scaling ---
+  const numActiveParties = activeParties.length || 1;
   
-  // Scale the party-scoped score to give it equal footing with the composition scores.
-  const scaledPartyScore = totalPartyScopeScore / numParties;
+  // Scale the party-scoped score by averaging it.
+  const scaledPartyScore = totalPartyScopeScore / numActiveParties;
 
-  // The final score is the sum of the (unscaled) party scores and the SCALED composition score.
-  const finalScore = scaledPartyScore + totalCompositionScopeScore;
+  // The final score is the sum of the averaged party score and the (unscaled) composition score.
+  const finalScore = scaledPartyScore + (totalCompositionScopeScore * 0.75);
 
   // Populate the debug info with all the calculated values for clear analysis.
   debugInfo.partyScopeScore = totalPartyScopeScore;
@@ -250,16 +258,16 @@ export function findBestComposition(
     availableHeroes: string[],
     roster: CharacterRecord,
     customWeights: StrategyWeights,
-    partySize: number = 4
-): BestCompositionResult { // <-- Updated return type
+    partySize: number = 4,
+    partiesToScore?: number
+): BestCompositionResult {
     const numHeroes = availableHeroes.length;
     const weights = defineWeights(customWeights);
 
     if (numHeroes <= partySize) {
         const singleParty = availableHeroes.slice(0, partySize);
         const composition = singleParty.length > 0 ? [singleParty] : [];
-        // Even for this simple case, we generate debug info.
-        const scoringStats = generateScoringStatistics(availableHeroes, roster, partySize, 500); // Small sample is fine
+        const scoringStats = generateScoringStatistics(availableHeroes, roster, partySize, 500);
         const debugInfo = analyzeComposition(composition, roster, weights, scoringStats);
         return { composition, debugInfo, scoringStats };
     }
@@ -278,40 +286,110 @@ export function findBestComposition(
     }
     bestComposition = bestComposition.filter(party => party.length > 0);
     
-    // --- Store the full debug object for the best result ---
-    let bestDebugInfo = analyzeComposition(bestComposition, roster, weights, scoringStats);
+    let bestDebugInfo = analyzeComposition(bestComposition, roster, weights, scoringStats, partiesToScore);
     let bestScore = bestDebugInfo.finalScore;
 
+    // --- Main Optimization Loop with Multiple Move Types ---
     for (let i = 0; i < iterations; i++) {
         const currentComposition = JSON.parse(JSON.stringify(bestComposition)) as Composition;
-        if (currentComposition.length < 2) break;
+        const numParties = currentComposition.length;
 
-        let p1_idx = Math.floor(Math.random() * currentComposition.length);
-        let p2_idx = Math.floor(Math.random() * currentComposition.length);
-        while (p1_idx === p2_idx) {
-            p2_idx = Math.floor(Math.random() * currentComposition.length);
+        if (numParties < 2) break; // Not enough parties to perform any swaps.
+
+        const moveChoice = Math.random();
+
+        // --- MOVE SELECTION ---
+        // We'll use a probability distribution to select a move.
+        // 60% chance for a Simple Swap (local fine-tuning)
+        // 25% chance for a Double Swap (breaking up pairs)
+        // 15% chance for a Chain Reaction Swap (major exploration)
+        
+        // ** Fallback Logic: If a complex move isn't possible (e.g., not enough parties),
+        // ** we'll default to a simple swap.
+
+        // --- MOVE 1: Double Swap (25% chance) ---
+        if (moveChoice < 0.25 && numParties >= 2) {
+            const allPartyIndices = Array.from({ length: numParties }, (_, k) => k);
+            const shuffledIndices = allPartyIndices.sort(() => 0.5 - Math.random());
+            const [p1_idx, p2_idx] = shuffledIndices.slice(0, 2);
+
+            // Ensure parties have at least 2 heroes for a double swap
+            if (currentComposition[p1_idx].length >= 2 && currentComposition[p2_idx].length >= 2) {
+                // Select two distinct heroes from party 1
+                const h1a_idx = Math.floor(Math.random() * currentComposition[p1_idx].length);
+                let h1b_idx = Math.floor(Math.random() * currentComposition[p1_idx].length);
+                while (h1b_idx === h1a_idx) {
+                    h1b_idx = Math.floor(Math.random() * currentComposition[p1_idx].length);
+                }
+
+                // Select two distinct heroes from party 2
+                const h2a_idx = Math.floor(Math.random() * currentComposition[p2_idx].length);
+                let h2b_idx = Math.floor(Math.random() * currentComposition[p2_idx].length);
+                while (h2b_idx === h2a_idx) {
+                    h2b_idx = Math.floor(Math.random() * currentComposition[p2_idx].length);
+                }
+
+                // Perform the 2-for-2 swap
+                const [hero1a, hero1b] = [currentComposition[p1_idx][h1a_idx], currentComposition[p1_idx][h1b_idx]];
+                const [hero2a, hero2b] = [currentComposition[p2_idx][h2a_idx], currentComposition[p2_idx][h2b_idx]];
+                
+                currentComposition[p1_idx][h1a_idx] = hero2a;
+                currentComposition[p1_idx][h1b_idx] = hero2b;
+                currentComposition[p2_idx][h2a_idx] = hero1a;
+                currentComposition[p2_idx][h2b_idx] = hero1b;
+            }
+
+        // --- MOVE 2: Chain Reaction Swap (15% chance) ---
+        } else if (moveChoice < 0.40 && numParties >= 3) {
+            // Determine the length of the chain, from 3 up to all parties
+            const chainLength = Math.floor(Math.random() * (numParties - 2)) + 3;
+
+            // Get N unique party indices for the chain
+            const allPartyIndices = Array.from({ length: numParties }, (_, k) => k);
+            const shuffledIndices = allPartyIndices.sort(() => 0.5 - Math.random());
+            const chainIndices = shuffledIndices.slice(0, chainLength);
+
+            // Select one random hero from each party in the chain
+            const heroIndices = chainIndices.map(p_idx => Math.floor(Math.random() * currentComposition[p_idx].length));
+            const heroesToCycle = chainIndices.map((p_idx, k) => currentComposition[p_idx][heroIndices[k]]);
+            
+            // Perform the cycle swap (last hero moves to first party, others move forward)
+            for (let k = 0; k < chainLength; k++) {
+                const sourceHero = heroesToCycle[(k + chainLength - 1) % chainLength]; // Get hero from previous party in the cycle
+                const targetPartyIdx = chainIndices[k];
+                const targetHeroIdx = heroIndices[k];
+                currentComposition[targetPartyIdx][targetHeroIdx] = sourceHero;
+            }
+
+        // --- MOVE 3: Simple Swap (60% chance or fallback) ---
+        } else {
+            const p1_idx = Math.floor(Math.random() * numParties);
+            let p2_idx = Math.floor(Math.random() * numParties);
+            while (p1_idx === p2_idx) {
+                p2_idx = Math.floor(Math.random() * numParties);
+            }
+            const h1_idx = Math.floor(Math.random() * currentComposition[p1_idx].length);
+            const h2_idx = Math.floor(Math.random() * currentComposition[p2_idx].length);
+            
+            // Perform the simple 1-for-1 swap
+            const hero1 = currentComposition[p1_idx][h1_idx];
+            const hero2 = currentComposition[p2_idx][h2_idx];
+            currentComposition[p1_idx][h1_idx] = hero2;
+            currentComposition[p2_idx][h2_idx] = hero1;
         }
 
-        const h1_idx = Math.floor(Math.random() * currentComposition[p1_idx].length);
-        const h2_idx = Math.floor(Math.random() * currentComposition[p2_idx].length);
-        
-        const hero1 = currentComposition[p1_idx][h1_idx];
-        const hero2 = currentComposition[p2_idx][h2_idx];
-        currentComposition[p1_idx][h1_idx] = hero2;
-        currentComposition[p2_idx][h2_idx] = hero1;
 
-        // --- Get the full analysis for the new composition ---
-        const currentDebugInfo = analyzeComposition(currentComposition, roster, weights, scoringStats);
+        // --- Score the new composition and check for improvement ---
+        const currentDebugInfo = analyzeComposition(currentComposition, roster, weights, scoringStats, partiesToScore);
         const newScore = currentDebugInfo.finalScore;
 
         if (newScore > bestScore) {
             bestScore = newScore;
             bestComposition = currentComposition;
-            bestDebugInfo = currentDebugInfo; // <-- Save the new best debug info
+            bestDebugInfo = currentDebugInfo;
         }
     }
 
-    // --- Return the comprehensive result object ---
     return { composition: bestComposition, debugInfo: bestDebugInfo, scoringStats };
 }
 
@@ -386,4 +464,107 @@ export function formatDebugInfoForConsole(
         console.table(compBreakdownForTable);
     }
     console.log("\n========================================");
+}
+
+// expeditionPlanner.ts
+
+/**
+ * A "meta" optimizer that wraps findBestComposition.
+ * It determines the optimal number of parties to send by iteratively testing
+ * if benching a team improves the average quality of the remaining active teams.
+ * This version includes a "Diminishing Returns" penalty to incentivize sending
+ * more parties.
+ * 
+ * @returns An object containing the best composition, its debug info, and the recommended number of active parties.
+ */
+export async function findOptimalArrangement(
+    availableHeroes: string[],
+    roster: CharacterRecord,
+    customWeights: StrategyWeights,
+    partySize: number = 4
+) {
+    // --- NEW: Tunable constant for the benching penalty ---
+    // A value of 0.95 means each benched team makes the total score worth 5% less.
+    // Raise this value (e.g., to 0.98) to be MORE willing to bench teams.
+    // Lower this value (e.g., to 0.90) to be LESS willing to bench teams.
+    const BENCH_PENALTY_FACTOR = 0.90; 
+    
+    const weights = defineWeights(customWeights);
+    const totalParties = Math.ceil(availableHeroes.length / partySize);
+    const completeParties = Math.floor(availableHeroes.length / partySize);
+
+    if (completeParties === 0) {
+        console.log("Not enough heroes to form a single complete party.");
+        return {
+            composition: [availableHeroes],
+            debugInfo: null,
+            score: -Infinity,
+            activePartiesCount: 0,
+            scoringStats: null,
+        };
+    }
+
+    // --- Baseline Run: Optimize and score with all complete parties active ---
+    console.log(`[Meta-Optimizer] Baseline run: Optimizing for ${completeParties} active parties.`);
+    const baselineResult = findBestComposition(availableHeroes, roster, customWeights, partySize, completeParties);
+    
+    const sampleSize = Math.min(4000, Math.max(500, availableHeroes.length * 50));
+    const scoringStats = generateScoringStatistics(availableHeroes, roster, partySize, sampleSize);
+
+    const baselineDebugInfo = analyzeComposition(baselineResult.composition, roster, weights, scoringStats, completeParties);
+    const baselineScore = baselineDebugInfo.finalScore;
+
+    let overallBest = {
+        composition: baselineResult.composition,
+        debugInfo: baselineDebugInfo,
+        score: baselineScore, // This is the raw, unadjusted score
+        activePartiesCount: completeParties,
+        scoringStats: scoringStats,
+    };
+    
+    // --- Iterative Benching Runs ---
+    for (let numToBench = 1; numToBench < completeParties; numToBench++) {
+        const numActive = completeParties - numToBench;
+        console.log(`\n[Meta-Optimizer] Testing scenario: Optimizing for ${numActive} active parties.`);
+
+        const heroesForNextRun = overallBest.composition.flat();
+        const candidateResult = findBestComposition(heroesForNextRun, roster, customWeights, partySize, numActive);
+        
+        const candidateDebugInfo = analyzeComposition(candidateResult.composition, roster, weights, scoringStats, numActive);
+        const candidateScore = candidateDebugInfo.finalScore; // Raw score for the candidate
+
+        // --- NEW: Apply diminishing returns penalty for a fair comparison ---
+
+        // 1. Calculate the adjusted score for the new candidate plan.
+        const candidatePenalty = Math.pow(BENCH_PENALTY_FACTOR, numToBench);
+        const adjustedCandidateScore = candidateScore * candidatePenalty;
+        
+        // 2. Calculate the adjusted score for the current best plan.
+        const prevNumBenched = completeParties - overallBest.activePartiesCount;
+        const bestSoFarPenalty = Math.pow(BENCH_PENALTY_FACTOR, prevNumBenched);
+        const adjustedBestScore = overallBest.score * bestSoFarPenalty;
+        
+        // 3. Update the console log to show the new adjusted scores for transparency.
+        console.log(`> Result for ${numActive} parties: ${candidateScore.toFixed(4)} (Adjusted: ${adjustedCandidateScore.toFixed(4)}). Best adjusted so far: ${adjustedBestScore.toFixed(4)}`);
+        
+        // 4. Compare the adjusted scores, not the raw scores.
+        if (adjustedCandidateScore > adjustedBestScore) {
+            console.log(`---> New best strategy found! Benching ${numToBench} team(s) improves average quality.`);
+            overallBest = {
+                composition: candidateResult.composition,
+                debugInfo: candidateDebugInfo,
+                score: candidateScore, // Always store the raw score
+                activePartiesCount: numActive,
+                scoringStats: scoringStats,
+            };
+        } else {
+            console.log(`---> Benching did not improve average party quality enough to justify the cost. Sticking with ${overallBest.activePartiesCount} active parties.`);
+            break; 
+        }
+    }
+
+    console.log("\n--- OPTIMIZATION COMPLETE ---");
+    console.log(`Final Recommendation: Send ${overallBest.activePartiesCount} out of ${totalParties} parties.`);
+
+    return overallBest;
 }

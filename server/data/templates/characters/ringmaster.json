@@ -28,9 +28,9 @@
   },
   "stats": {
     "strength": 8,
-    "agility": 7,
-    "intelligence": 6,
-    "authority": 7,
+    "agility": 6,
+    "intelligence": 5,
+    "authority": 6,
     "sociability": 8
   },
   "equipment": [

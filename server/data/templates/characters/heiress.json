@@ -74,6 +74,14 @@
     "Backline", "Healer", "StressHealer", "Blighter", "Marker", "MarkSynergy", "Debuffer", "Abrasive",
     "Noble", "Leader", "Drunkard", "Vigilant", "Weak", "Frail", "Strategist", "Scavenger"
   ],
+  "strategyWeights": {
+    "maximizeCommandClarity_Heiress": 10,
+    "minimizeLiabilityExposure": 6.5,
+    "minimizeTacticalNonsense": 3,
+    "minimizeDiscord": 3,
+    "maximizeGameplaySynergy": 2,
+    "maximizeAffinity": 1
+  },
   "relationships": {  
   }
 }

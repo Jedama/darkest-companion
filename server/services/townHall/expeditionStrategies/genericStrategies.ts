@@ -5,7 +5,7 @@
  */
 
 import { CharacterRecord } from '../../../../shared/types/types';
-import { AfflictionType, VirtueType, isAffliction, isVirtue } from '../../../../shared/constants/afflictions';
+import { AfflictionType, VirtueType, isAffliction, isVirtue } from '../../../../shared/constants/conditions.js';
 import { Party, Composition } from '../expeditionPlanner';
 import {
   countTag,
@@ -13,7 +13,7 @@ import {
   calculateSimplePairSynergy,
   calculateCombinatorialSynergy,
   calculateStackingTagSynergy
-} from './strategyUtils';
+} from './strategyUtils.js';
 
 // ==================================
 // MAPS FOR SCORING
@@ -52,42 +52,77 @@ const VIRTUE_BENEFIT: Record<VirtueType, number> = {
 // ==================================
 
 export function scorePartyByGameplaySynergy(party: Party, roster: CharacterRecord): number {
-    let score = 0;
+  let score = 0;
 
-    // --- KEYSTONE + ENABLER SYNERGIES (A + B Stacking) ---
-    score += calculateStackingPairSynergy(party, roster, 'Marker', 'MarkSynergy', 30, 5, 15);
-    score += calculateStackingPairSynergy(party, roster, 'Blighter', 'BlightSynergy', 25, 5, 10);
-    score += calculateStackingPairSynergy(party, roster, 'Bleeder', 'BleedSynergy', 25, 5, 10);
-    score += calculateStackingPairSynergy(party, roster, 'Stunner', 'StunSynergy', 25, 5, 10);
-    // Stunners buy time for Setup heroes to do their thing.
-    score += calculateStackingPairSynergy(party, roster, 'Stunner', 'Setup', 20, 10, 5);
+  // --- FOUNDATION ROLE BONUSES (Raising the Sea Level) ---
+  let roleBonus = 0;
 
-    // --- SIMPLE PAIR SYNERGIES (One-to-One relationships) ---
-    score += calculateSimplePairSynergy(party, roster, 'Guarder', 'Frail', 40);
-    score += calculateSimplePairSynergy(party, roster, 'Riposter', 'Healer', 15);
-    // A flexible hero in a dance troupe is a nice bonus.
-    score += calculateCombinatorialSynergy(party, roster, 'Dancer', 'Flexible', 10);
+  // Archetype 1: Does the party have a Protector?
+  if (countTag(party, roster, 'Tank') > 0 || countTag(party, roster, 'Guarder') > 0) {
+    roleBonus += 10;
+  }
 
-    // --- WOLFPACK SYNERGIES (More of the same is good) ---
-    score += calculateStackingTagSynergy(party, roster, 'Dancer', 5, 20, 2);
+  // Archetype 2: Does the party have a Sustainer?
+  if (countTag(party, roster, 'Healer') > 0 || countTag(party, roster, 'StressHealer') > 0 || countTag(party, roster, 'Cleanser') > 0) {
+    roleBonus += 10;
+  }
 
-    // --- ANTI-SYNERGIES (using the same helpers with negative scores) ---
-    score += calculateSimplePairSynergy(party, roster, 'Dancer', 'Immobile', -40);
-    score += calculateSimplePairSynergy(party, roster, 'Guarder', 'Hider', -15);
+  // Archetype 3: Does the party have a Controller?
+  if (countTag(party, roster, 'Stunner') > 0 || countTag(party, roster, 'Disruptor') > 0 || countTag(party, roster, 'Debuffer') > 0) {
+    roleBonus += 5;
+  }
 
-    // Positional gridlock
-    score += calculateStackingTagSynergy(party, roster, 'Frontline', -50, -25, 3);
-    score += calculateStackingTagSynergy(party, roster, 'Backline', -40, -20, 3);
+  // Archetype 4: Does the party have a Striker?
+  if (countTag(party, roster, 'HeavyHitter') > 0 || countTag(party, roster, 'Bleeder') > 0 || countTag(party, roster, 'Blighter') > 0) {
+    roleBonus += 5;
+  }
 
-    score += calculateStackingTagSynergy(party, roster, 'Weak', -60, -30, 2); // The Pillow Fort
+  // Archetype 5: Does the party have a Front- and Backliner?
+  if (countTag(party, roster, 'Frontliner') > 0 || countTag(party, roster, 'Flexible') > 0 || countTag(party, roster, 'Dancer') > 0) {
+    roleBonus += 5;
+  }
+  if (countTag(party, roster, 'Backliner') > 0 || countTag(party, roster, 'Flexible') > 0 || countTag(party, roster, 'Dancer') > 0) {
+    roleBonus += 5;
+  }
 
-    // Stress still needs custom logic as it's a bit more complex.
-    const selfStressCount = countTag(party, roster, 'SelfStress');
-    const stressHealerCount = countTag(party, roster, 'StressHealer');
-    if (selfStressCount > 0 && stressHealerCount === 0) score -= 40 * selfStressCount;
-    if (selfStressCount > stressHealerCount) score -= 50 * (selfStressCount - stressHealerCount);
+  // Add the role bonus to the main score
+  score += roleBonus;
 
-    return score;
+  // --- KEYSTONE + ENABLER SYNERGIES (A + B Stacking) ---
+  score += calculateStackingPairSynergy(party, roster, 'Marker', 'MarkSynergy', 30, 5, 15);
+  score += calculateStackingPairSynergy(party, roster, 'Blighter', 'BlightSynergy', 25, 5, 10);
+  score += calculateStackingPairSynergy(party, roster, 'Bleeder', 'BleedSynergy', 25, 5, 10);
+  score += calculateStackingPairSynergy(party, roster, 'Stunner', 'StunSynergy', 25, 5, 10);
+  // Stunners buy time for Setup heroes to do their thing.
+  score += calculateStackingPairSynergy(party, roster, 'Stunner', 'Setup', 20, 10, 5);
+
+  // --- SIMPLE PAIR SYNERGIES (One-to-One relationships) ---
+  score += calculateSimplePairSynergy(party, roster, 'Guarder', 'Frail', 30);
+  score += calculateSimplePairSynergy(party, roster, 'Riposter', 'Healer', 10);
+  score += calculateSimplePairSynergy(party, roster, 'Buffer', 'HeavyHitter', 15);
+  // A flexible hero in a dance troupe is a nice bonus.
+  score += calculateCombinatorialSynergy(party, roster, 'Dancer', 'Flexible', 10);
+
+  // --- WOLFPACK SYNERGIES (More of the same is good) ---
+  score += calculateStackingTagSynergy(party, roster, 'Dancer', 5, 20, 2);
+
+  // --- ANTI-SYNERGIES (using the same helpers with negative scores) ---
+  score += calculateSimplePairSynergy(party, roster, 'Dancer', 'Immobile', -5);
+  score += calculateSimplePairSynergy(party, roster, 'Guarder', 'Hider', -5);
+
+  // Positional gridlock
+  score += calculateStackingTagSynergy(party, roster, 'Frontline', -50, -25, 3);
+  score += calculateStackingTagSynergy(party, roster, 'Backline', -40, -20, 3);
+
+  score += calculateStackingTagSynergy(party, roster, 'Weak', -60, -30, 2); // The Pillow Fort
+
+  // Stress still needs custom logic as it's a bit more complex.
+  const selfStressCount = countTag(party, roster, 'SelfStress');
+  const stressHealerCount = countTag(party, roster, 'StressHealer');
+  if (selfStressCount > 0 && stressHealerCount === 0) score -= 40 * selfStressCount;
+  else if (selfStressCount > stressHealerCount) score -= 25 * (selfStressCount - stressHealerCount);
+
+  return score;
 }
 
 // ==================================
@@ -108,6 +143,9 @@ export function scorePartyByLevelPenalty(party: Party, roster: CharacterRecord):
     if (hardship < 0) hardship = 0; // No penalty for being overleveled
     totalHardship += Math.pow(hardship, 1.5);
   }
+
+  // Cap total hardship at 8, as anything beyond is a disaster.
+  if (totalHardship > 8) totalHardship = 8;
 
   return totalHardship;
 }
@@ -162,51 +200,21 @@ export function scorePartyByDiscordPenalty(party: Party, roster: CharacterRecord
   return totalDiscord;
 }
 
-export function scorePartyByChildGuardianship(party: Party, roster: CharacterRecord): number {
-  let score = 0;
-  if (countTag(party, roster, 'Child') === 0) {
-    return 0;
-  }
-  score += calculateSimplePairSynergy(party, roster, 'Child', 'Guarder', 8);
-  if (score == 0) {
-    score += calculateSimplePairSynergy(party, roster, 'Child', 'Tank', 3);
-  }
-  score += calculateSimplePairSynergy(party, roster, 'Child', 'Healer', 2);
-  return score;
-}
-
-// ==================================
-// GENERIC "OPINIONATED" STRATEGIES
-// ==================================
-
-/**
- * Calculates a "command clarity" score based on a standard, objective model.
- * It values experience, recognized leadership tags, and a clear authority gap,
- * while penalizing instability.
- */
-export function maximizeCommandClarity(party: Party, roster: CharacterRecord): number {
+export function scorePartyByCommandClarity(party: Party, roster: CharacterRecord): number {
   if (party.length < 2) return 0;
 
   const partyLevels = party.map(id => roster[id]?.level ?? 0);
   const maxLevelInParty = Math.max(...partyLevels);
 
-  // STEP 1: Calculate "Standard" Effective Authority Score (EAS)
   const partyWithEAS = party.map(id => {
     const hero = roster[id];
     let bonus = 0;
-
-    // Objective Qualifications:
     if (hero.tags.includes('Leader')) bonus += 3;
     if (hero.tags.includes('Strategist')) bonus += 2;
-
-    // Objective Penalties:
     if (hero.tags.includes('Unstable')) bonus -= 3;
-    if (hero.tags.includes('Child')) bonus -= 2; // Children are seen as less reliable
-
-    // Experience Factor: Punishes inexperience relative to the team's best.
+    if (hero.tags.includes('Child')) bonus -= 2;
     const levelDeficit = maxLevelInParty - hero.level;
-    bonus -= levelDeficit; // Each level below the max is a -1 EAS penalty.
-
+    bonus -= levelDeficit;
     const eas = hero.stats.authority + bonus;
     return { id, eas, hero };
   }).sort((a, b) => b.eas - a.eas);
@@ -214,54 +222,35 @@ export function maximizeCommandClarity(party: Party, roster: CharacterRecord): n
   const leader1 = partyWithEAS[0];
   const leader2 = partyWithEAS[1];
 
-  // STEP 2: Calculate Potential Score (Balanced View)
-  const scoreA = leader1.eas * 2; // Moderate weight on leader's power
+  const scoreA = leader1.eas * 2;
   const primaryGap = leader1.eas - leader2.eas;
-  const scoreB = Math.log(primaryGap + 1) * 5; // Moderate weight on the gap
+  const scoreB = Math.log(primaryGap + 1) * 5;
   const potentialScore = scoreA + scoreB;
 
-  // STEP 3: Calculate Total Pressure Score (Reasonable)
   let totalPressureScore = 0;
   for (let i = 1; i < partyWithEAS.length; i++) {
     const subordinate = partyWithEAS[i];
     const gap_to_leader = leader1.eas - subordinate.eas;
     const riskFactor = 1 / (gap_to_leader + 0.5);
-
-    // Reasonable Neutral Point: Basic respect is the baseline.
     const affinity_to_leader = subordinate.hero.relationships[leader1.id]?.affinity ?? 3;
     let affinityModifier = affinity_to_leader - 6;
-
-    // An Abrasive subordinate adds significant pressure, independent of their loyalty.
     if (subordinate.hero.tags.includes('Abrasive')) {
       affinityModifier -= 1.5;
     }
-
     totalPressureScore += (riskFactor * affinityModifier * 5);
   }
 
-  // STEP 4: Convert to Cohesion Factor (More sensitive to internal strife)
-  const cohesionFactor = 1 + (totalPressureScore / 25); // Smaller denominator = more swing
-
-  // STEP 5: Final Score
+  const cohesionFactor = 1 + (totalPressureScore / 25);
   return potentialScore * cohesionFactor;
 }
 
-/**
- * Calculates a total liability exposure score for a given party.
- * A lower score is better (target is 0). The goal is to create a balanced party
- * where character weaknesses are mitigated by the strengths of their companions.
- */
-export function minimizeLiabilityExposure(party: Party, roster: CharacterRecord): number {
+export function scorePartyByLiabilityExposure(party: Party, roster: CharacterRecord): number {
   let totalRiskScore = 0;
   if (party.length === 0) return 0;
-
   const partyHeroes = party.map(id => roster[id]);
-
-  // SECTION 1: INDIVIDUAL RISK ASSESSMENT
   for (const hero of partyHeroes) {
     if (!hero) continue;
     const otherHeroes = partyHeroes.filter(h => h && h.identifier !== hero.identifier);
-
     if (hero.tags.includes('Unstable')) {
       let containmentScore = 0;
       for (const stabilizer of otherHeroes) {
@@ -305,8 +294,6 @@ export function minimizeLiabilityExposure(party: Party, roster: CharacterRecord)
         totalRiskScore += Math.max(0, temptationScore - disciplineScore) * 3;
     }
   }
-
-  // SECTION 2: GROUP RISK ASSESSMENT
   let corruptionPressure = 0;
   let moralFortitude = 0;
   for (const hero of partyHeroes) {
@@ -322,7 +309,6 @@ export function minimizeLiabilityExposure(party: Party, roster: CharacterRecord)
   if (corruptionPressure > 0) {
     totalRiskScore += Math.max(0, corruptionPressure - moralFortitude) * 2;
   }
-
   const immobileCount = countTag(party, roster, 'Immobile');
   if (immobileCount > 0) {
       const positionalRiskBase = Math.pow(immobileCount, 2) * 10;
@@ -334,76 +320,124 @@ export function minimizeLiabilityExposure(party: Party, roster: CharacterRecord)
       const avgRepositioning = party.length > 0 ? repositioningScore / party.length : 1;
       totalRiskScore += positionalRiskBase / avgRepositioning;
   }
-  
   return totalRiskScore;
 }
+
+export function scorePartyByTacticalNonsense(party: Party, roster: CharacterRecord): number {
+  let nonsenseScore = 0; // Starts at 0, goes negative.
+
+  // 1. Penalize over-reliance on luck/enemy action
+  nonsenseScore += calculateStackingTagSynergy(party, roster, 'Crit', 10, 15, 2); // Crits are unreliable
+  nonsenseScore += calculateStackingTagSynergy(party, roster, 'Riposter', 15, 20, 2); // Riposters rely on enemy actions
+  nonsenseScore += countTag(party, roster, 'Brink') * 50; // Being on low health is not a strategy, it's a liability
+
+  // 2. Penalize inefficient or slow setups
+  nonsenseScore += calculateStackingTagSynergy(party, roster, 'Setup', -5, 25, 1); // Too many setup heroes is exploitable
+  nonsenseScore += calculateStackingTagSynergy(party, roster, 'Stealther', -5, 20, 1); // Half the party can't be hiding
+
+  // 3. Penalize chaotic movement
+  nonsenseScore += calculateStackingTagSynergy(party, roster, 'Dancer', 10, 15, 2); // The battlefield is not a dance floor
+  nonsenseScore += calculateStackingTagSynergy(party, roster, 'Disruptor', -5, 10, 1); // We don't need everyone throwing enemies around
+  
+  return nonsenseScore;
+}
+
 
 // ==================================
 // COMPOSITION SCORING FUNCTIONS
 // ==================================
 
 /**
- * Calculates a single "Condition Score" for a party.
- * A higher score indicates a party in poorer condition (high stress, low health, afflictions).
- * The score is intentionally non-linear to heavily penalize high-risk parties.
+ * [HELPER] Calculates a single "liability" score for a hero based on their condition.
+ * A higher score indicates a hero in poorer condition (high stress, low health, afflictions).
+ * The score is non-linear for stress to heavily penalize high-risk individuals.
  */
-function calculatePartyConditionScore(party: Party, roster: CharacterRecord): number {
-  let score = 0;
+function calculateHeroConditionLiability(hero: CharacterRecord[string] | undefined): number {
+  if (!hero) return 0;
 
-  for (const heroId of party) {
-    const hero = roster[heroId];
-    if (!hero) continue;
+  let liabilityScore = 0;
 
-    // 1. Add score from missing health and mental fortitude (stress).
-    // Assumes 100 is max, 0 is min.
-    const missingHealth = 100 - hero.status.physical;
-    const currentStress = 100 - hero.status.mental; // Inverted, so 100 mental = 0 stress score
-    
-    score += (missingHealth * 0.25); // Health is fourth as important as stress
-    score += currentStress;
+  // --- Stress Penalty (Exponential) ---
+  // Stress is the most dangerous factor. We penalize it exponentially.
+  // A hero at 80 stress is much more than twice as dangerous as one at 40.
+  const stress = 100 - hero.status.mental;
+  liabilityScore += Math.pow(stress / 10, 2.5); // e.g., 50 stress -> ~44, 80 stress -> ~181
 
-    // 2. Add or subtract score based on afflictions and virtues.
-    const condition = hero.status.affliction;
-    if (condition) {
-      if (isAffliction(condition)) {
-        score += AFFLICTION_SEVERITY[condition];
-      } else if (isVirtue(condition)) {
-        score -= VIRTUE_BENEFIT[condition];
-      }
+  // --- Health Penalty (Linear) ---
+  // Missing health is a risk, but more manageable than stress.
+  const missingHealth = 100 - hero.status.physical;
+  liabilityScore += missingHealth * 0.25;
+
+  // --- Affliction/Virtue Modifier (Large Flat Value) ---
+  // Afflictions are a huge, immediate liability. Virtues are a significant asset.
+  const condition = hero.status.affliction;
+  if (condition) {
+    if (isAffliction(condition)) {
+      // Afflictions add a large, flat penalty on top of everything else.
+      liabilityScore += AFFLICTION_SEVERITY[condition];
+    } else if (isVirtue(condition)) {
+      // Virtues provide a substantial reduction in perceived liability.
+      liabilityScore -= VIRTUE_BENEFIT[condition] * 1.5;
     }
   }
 
-  // 3. Apply the non-linear curve.
-  // This curve makes scores below 50 change slowly, while scores above 50 escalate rapidly.
-  // A score of 0-30 remains low. A score of 50 becomes ~88. A score of 80 becomes ~215.
-  const curvedScore = (score / 10) + Math.pow(Math.max(0, score - 30) / 15, 2.5);
-
-  // We don't want virtues to create a negative score, just reduce risk.
-  return Math.max(0, curvedScore);
+  return Math.max(0, liabilityScore); // Liability cannot be negative.
 }
 
 /**
- * Balances the distribution of "Condition Score" across all parties in a composition.
- * It heavily penalizes compositions where one party is significantly more at-risk
- * (stressed, wounded, afflicted) than others.
- * The goal is to spread the risk evenly.
+ * [REVISED] Calculates a holistic "Total Liability" score for a composition.
+ * This score's primary purpose is to heavily penalize the inclusion of any high-risk
+ * heroes (high stress, afflicted, low health) anywhere in the composition. The balancing
+ * of risk between parties is now a secondary, but still present, concern.
+ *
+ * It works by:
+ * 1. Calculating an individual, non-linear "liability" score for each hero.
+ * 2. Summing these scores to get a total liability for the entire composition (primary component).
+ * 3. Adding a penalty based on the standard deviation of liability between parties (secondary component).
+ *
+ * The goal is to minimize this score. A higher score means more overall liability and/or imbalance.
  */
 export function scoreCompositionByConditionBalance(composition: Composition, roster: CharacterRecord): number {
-  if (composition.length < 2) return 0;
+  if (composition.length === 0) return 0;
 
-  // 1. Get the Condition Score for each party.
-  const partyScores = composition.map(party => calculatePartyConditionScore(party, roster));
+  const partyLiabilityScores = composition.map(party => {
+    if (party.length === 0) return 0;
+    return party
+      .map(id => calculateHeroConditionLiability(roster[id]))
+      .reduce((sum, score) => sum + score, 0);
+  });
 
-  // 2. Calculate the standard deviation of these scores.
-  const mean = partyScores.reduce((a, b) => a + b, 0) / partyScores.length;
-  const variance = partyScores.map(score => Math.pow(score - mean, 2)).reduce((a, b) => a + b, 0) / partyScores.length;
-  const stdDev = Math.sqrt(variance);
+  // 1. Calculate the TOTAL liability.
+  const totalCompositionLiability = partyLiabilityScores.reduce((sum, score) => sum + score, 0);
 
-  // The standard deviation itself is the final score we want to minimize.
-  return stdDev;
+  // 2. The PRIMARY component of the score is the AVERAGE liability per party.
+  // This is what we will return. It's clean, simple, and size-independent.
+  const averagePartyLiability = totalCompositionLiability / composition.length;
+
+  // --- Handling the Imbalance Penalty ---
+  // The imbalance should be a small nudge, not a core part of the score that gets normalized.
+  // We can add it as a small percentage of the main score.
+  if (partyLiabilityScores.length > 1) {
+    const meanLiability = averagePartyLiability; // Same value
+    const variance = partyLiabilityScores
+      .map(score => Math.pow(score - meanLiability, 2))
+      .reduce((sum, squaredDiff) => sum + squaredDiff, 0) / partyLiabilityScores.length;
+    const imbalancePenalty = Math.sqrt(variance);
+
+    // Instead of adding them, make the penalty a *small multiplier* on the main score.
+    // e.g., add 0.1% of the imbalance penalty value to the average liability.
+    // This gives a tiny nudge towards balance without corrupting the main metric.
+    // The '0.1' here is a tuning factor.
+    return averagePartyLiability + (imbalancePenalty * 0.1);
+  }
+
+  // If only one party, just return the average liability.
+  return averagePartyLiability;
 }
 
+
 export function scoreCompositionByAuthorityBalance(composition: Composition, roster: CharacterRecord): number {
+  // ... this function remains unchanged ...
   if (composition.length < 2) return 0;
 
   const leadershipPotentialScores = composition.map(party => {

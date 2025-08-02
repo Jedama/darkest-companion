@@ -1,50 +1,46 @@
-# React + TypeScript + Vite
+# Jed's Darkest Dungeon Companion
+*A solo passion project to expand and enhance the world of Darkest Dungeon.*
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Roster Screenshot](./screenshots/manorview.png)
+![Narrative Event Screenshot](./screenshots/storyview.png)
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
+This project is a **companion app for Darkest Dungeon**, designed as an immersive tool to enrich the game's atmosphere with:
+- Deep narrative events  
+- Increased difficulty by altering the flow of the game and taking some decisions out of the player's hands
+- A database of locations, lore, and consequences
 
-## Expanding the ESLint configuration
+Built primarily for personal use and experimentation with **TypeScript**, this is an ongoing project I develop in my spare time.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+---
 
-- Configure the top-level `parserOptions` property like this:
+## Features
+- **Character Profiles** – With backstories, stats, traits, and relationships  
+- **Narrative Events** – Text-driven encounters that bring life to the estate.  
+- **Party Interaction** – Characters interact through AI-driven storytelling, influenced by their personalities.  
+- **World & Lore** – Structured data for hamlet districts and enemies.
+- **Consequence System** – Event outcomes dynamically affect characters and the narrative state.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Tech Stack
+- **Language:** TypeScript  
+- **Build Tool:** [Vite](https://vitejs.dev/) 
+- **Approach:** Custom-built systems for narrative data, consequence processing, and event planning  
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+---
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Next Goals
+- Create the tutorial section with the stagecoach crash
+- Introduce a role system.
+- Create the town hall planning, where a council prepares the month's expedition parties.
+- Read and inject game data to live update health & stress based on events.
+
+---
+
+## Disclaimer
+This is a **personal, non-commercial fan project** inspired by *Darkest Dungeon*.  
+All rights to the original game belong to **Red Hook Studios**.  
+Many assets were generated using AI.

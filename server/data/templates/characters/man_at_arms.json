@@ -28,10 +28,10 @@
   },
   "stats": {
     "strength": 7,
-    "agility": 4,
-    "intelligence": 8,
-    "authority": 10,
-    "sociability": 6
+    "agility": 3,
+    "intelligence": 7,
+    "authority": 9,
+    "sociability": 5
   },
   "equipment": [
     "Heavy mace",
