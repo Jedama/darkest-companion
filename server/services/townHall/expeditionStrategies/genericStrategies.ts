@@ -348,40 +348,39 @@ export function scorePartyByTacticalNonsense(party: Party, roster: CharacterReco
 // ==================================
 
 /**
- * [HELPER] Calculates a single "liability" score for a hero based on their condition.
- * A higher score indicates a hero in poorer condition (high stress, low health, afflictions).
- * The score is non-linear for stress to heavily penalize high-risk individuals.
+ * [HELPER] Calculates a detailed breakdown of a hero's condition liability.
  */
-function calculateHeroConditionLiability(hero: CharacterRecord[string] | undefined): number {
-  if (!hero) return 0;
+function getDetailedLiability(hero: CharacterRecord[string] | undefined): { stress: number, other: number, total: number } {
+  if (!hero) return { stress: 0, other: 0, total: 0 };
 
-  let liabilityScore = 0;
+  let stressLiability = 0;
+  let otherLiability = 0;
 
   // --- Stress Penalty (Exponential) ---
-  // Stress is the most dangerous factor. We penalize it exponentially.
-  // A hero at 80 stress is much more than twice as dangerous as one at 40.
   const stress = 100 - hero.status.mental;
-  liabilityScore += Math.pow(stress / 10, 2.5); // e.g., 50 stress -> ~44, 80 stress -> ~181
+  stressLiability += Math.pow(stress / 10, 2.5);
 
   // --- Health Penalty (Linear) ---
-  // Missing health is a risk, but more manageable than stress.
   const missingHealth = 100 - hero.status.physical;
-  liabilityScore += missingHealth * 0.25;
+  otherLiability += missingHealth * 0.25;
 
-  // --- Affliction/Virtue Modifier (Large Flat Value) ---
-  // Afflictions are a huge, immediate liability. Virtues are a significant asset.
+  // --- Affliction/Virtue Modifier ---
   const condition = hero.status.affliction;
   if (condition) {
     if (isAffliction(condition)) {
-      // Afflictions add a large, flat penalty on top of everything else.
-      liabilityScore += AFFLICTION_SEVERITY[condition];
+      otherLiability += AFFLICTION_SEVERITY[condition];
     } else if (isVirtue(condition)) {
-      // Virtues provide a substantial reduction in perceived liability.
-      liabilityScore -= VIRTUE_BENEFIT[condition] * 1.5;
+      // A virtue reduces non-stress liability (it makes you more resilient)
+      otherLiability -= VIRTUE_BENEFIT[condition] * 1.5;
     }
   }
 
-  return Math.max(0, liabilityScore); // Liability cannot be negative.
+  const totalLiability = stressLiability + otherLiability;
+  return {
+      stress: Math.max(0, stressLiability),
+      other: Math.max(0, otherLiability),
+      total: Math.max(0, totalLiability)
+  };
 }
 
 /**
@@ -400,11 +399,35 @@ function calculateHeroConditionLiability(hero: CharacterRecord[string] | undefin
 export function scoreCompositionByConditionBalance(composition: Composition, roster: CharacterRecord): number {
   if (composition.length === 0) return 0;
 
+  const STRESS_HEALER_FACTOR = 0.9; // Stress healers reduce stress liability by 10%
+
   const partyLiabilityScores = composition.map(party => {
     if (party.length === 0) return 0;
-    return party
-      .map(id => calculateHeroConditionLiability(roster[id]))
-      .reduce((sum, score) => sum + score, 0);
+
+    // 1. Identify if a stress healer is present in this specific party.
+    const partyHasStressHealer = party.some(id => {
+      const hero = roster[id];
+      return hero && (hero.tags.includes('StressHealer'));
+    });
+
+    // 2. Calculate the total stress liability and other liability for the party.
+    let totalPartyStressLiability = 0;
+    let totalPartyOtherLiability = 0;
+
+    for (const id of party) {
+        const detailedLiability = getDetailedLiability(roster[id]);
+        totalPartyStressLiability += detailedLiability.stress;
+        totalPartyOtherLiability += detailedLiability.other;
+    }
+
+    // 3. If a healer is present, apply the multiplicative bonus ONLY to the stress part.
+    if (partyHasStressHealer) {
+        totalPartyStressLiability *= STRESS_HEALER_FACTOR;
+    }
+    
+    // 4. The final liability for this party is the sum of the (potentially reduced) stress
+    //    and the unchanged other liabilities.
+    return totalPartyStressLiability + totalPartyOtherLiability;
   });
 
   // 1. Calculate the TOTAL liability.

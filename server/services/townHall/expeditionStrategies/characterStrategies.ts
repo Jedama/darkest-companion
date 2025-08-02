@@ -194,39 +194,39 @@ export function scorePartyBySocialVitality_Zenith(party: Party, roster: Characte
 
   // --- NEW: Affinity Modifier for 2 Male / 2 Female Parties ---
   if (males.length === 2 && females.length === 2) {
-  let affinityAdjustment = 0;
-  const NEUTRAL_AFFINITY = 4; // On a 0-10 scale.
+    let affinityAdjustment = 0;
+    const NEUTRAL_AFFINITY = 4; // On a 0-10 scale.
 
-  const getAffinity = (fromId: string, toId: string) => {
-    return roster[fromId]?.relationships?.[toId]?.affinity ?? NEUTRAL_AFFINITY;
-  };
+    const getAffinity = (fromId: string, toId: string) => {
+      return roster[fromId]?.relationships?.[toId]?.affinity ?? NEUTRAL_AFFINITY;
+    };
 
-  // 1. Intra-Gender Rivalry (low affinity is good)
-  const maleAff1 = getAffinity(males[0], males[1]);
-  const maleAff2 = getAffinity(males[1], males[0]);
-  affinityAdjustment += (NEUTRAL_AFFINITY - maleAff1); // Bonus if aff < 4
-  affinityAdjustment += (NEUTRAL_AFFINITY - maleAff2);
-  
-  const femaleAff1 = getAffinity(females[0], females[1]);
-  const femaleAff2 = getAffinity(females[1], females[0]);
-  affinityAdjustment += (NEUTRAL_AFFINITY - femaleAff1); // Bonus if aff < 4
-  affinityAdjustment += (NEUTRAL_AFFINITY - femaleAff2);
+    // 1. Intra-Gender Rivalry (low affinity is good)
+    const maleAff1 = getAffinity(males[0], males[1]);
+    const maleAff2 = getAffinity(males[1], males[0]);
+    affinityAdjustment += (NEUTRAL_AFFINITY - maleAff1); // Bonus if aff < 4
+    affinityAdjustment += (NEUTRAL_AFFINITY - maleAff2);
+    
+    const femaleAff1 = getAffinity(females[0], females[1]);
+    const femaleAff2 = getAffinity(females[1], females[0]);
+    affinityAdjustment += (NEUTRAL_AFFINITY - femaleAff1); // Bonus if aff < 4
+    affinityAdjustment += (NEUTRAL_AFFINITY - femaleAff2);
 
-  // 2. Inter-Gender Appreciation (high affinity is good)
-  for (const maleId of males) {
-    for (const femaleId of females) {
-      // Male -> Female affinity
-      affinityAdjustment += (getAffinity(maleId, femaleId) - NEUTRAL_AFFINITY);
-      // Female -> Male affinity
-      affinityAdjustment += (getAffinity(femaleId, maleId) - NEUTRAL_AFFINITY);
+    // 2. Inter-Gender Appreciation (high affinity is good)
+    for (const maleId of males) {
+      for (const femaleId of females) {
+        // Male -> Female affinity
+        affinityAdjustment += (getAffinity(maleId, femaleId) - NEUTRAL_AFFINITY);
+        // Female -> Male affinity
+        affinityAdjustment += (getAffinity(femaleId, maleId) - NEUTRAL_AFFINITY);
+      }
     }
+
+    // Scale the adjustment to be a "light" modifier, e.g., +/- 15 points max
+    const affinityModifier = affinityAdjustment / 4; 
+    score += affinityModifier;
   }
 
-  // Scale the adjustment to be a "light" modifier, e.g., +/- 15 points max
-  const affinityModifier = affinityAdjustment / 4; 
-  score += affinityModifier;
-}
-
-// Clamp final score between 0 and 100
-return Math.max(0, Math.min(100, score));
+  // Clamp final score between 0 and 100
+  return Math.max(0, Math.min(100, score));
 }

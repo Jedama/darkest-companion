@@ -68,13 +68,13 @@ async function runTests() {
   console.log("\n--- Running Test Scenarios ---");
 
   // --- TEST CASE 0: The Usual Plan (Level parity, synergies, affinity) ---
-  console.log(`\n\n--- TEST CASE 0: The Usual Plan (Level parity, synergies, affinity) ---`);
+  /*console.log(`\n\n--- TEST CASE 0: The Usual Plan (Level parity, synergies, affinity) ---`);
   console.log("Expected: Very well balanced teams for level and synergies. May bench a team if it improves overall quality.");
   
   const balancedWeights: StrategyWeights = {
-    minimizeLevelHardship: 15,
+    minimizeLevelHardship: 10,
     maximizeGameplaySynergy: 2,
-    maximizeAffinity: 2,
+    maximizeAffinity: 3,
     balanceCondition: 10, // Give it some weight to see if it benches anyone
   };
 
@@ -101,13 +101,14 @@ async function runTests() {
   console.log("Expected: Parties should be built around core combos (Marking, Guarding, etc.).");
 
   const synergyFocusedWeights: StrategyWeights = {
-      maximizeGameplaySynergy: 10.0, 
-      minimizeLevelHardship: 10.0,
-      maximizeAffinity: 2.0,
+    maximizeGameplaySynergy: 10.0, 
+    minimizeLevelHardship: 5.0,
+    maximizeAffinity: 2.0,
+    balanceCondition: 1,
   };
 
   const synergyResult = await findOptimalArrangement(availableHeroIds, roster, synergyFocusedWeights);
-  displayOptimalResult(synergyResult, roster);
+  displayOptimalResult(synergyResult, roster);*/
 
   
   // --- TEST CASE 3: The Risk-Averse Plan (Condition Focus) ---
@@ -115,10 +116,11 @@ async function runTests() {
   console.log("Expected: High chance of benching a team to isolate afflicted/stressed heroes.");
 
   const conditionFocusedWeights: StrategyWeights = {
-    minimizeLevelHardship: 10.0,
+    minimizeLevelHardship: 0.0,
     maximizeGameplaySynergy: 0.0,
     maximizeAffinity: 0.0,
-    balanceCondition: 10.0, // Very high weight
+    balanceCondition: 0.0, 
+    maximizeSocialVitalitya_Zenith: 10,
   };
 
   const conditionResult = await findOptimalArrangement(availableHeroIds, roster, conditionFocusedWeights);

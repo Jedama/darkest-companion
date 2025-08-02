@@ -3508,8 +3508,8 @@
       ],
       "status": {
         "physical": 73,
-        "mental": 100,
-        "affliction": "",
+        "mental": 10,
+        "affliction": "abusive",
         "description": "In good health and high spitits",
         "wounds": [],
         "diseases": []
@@ -9338,8 +9338,8 @@
       ],
       "status": {
         "physical": 64,
-        "mental": 27,
-        "affliction": "abusive",
+        "mental": 97,
+        "affliction": "",
         "description": "In good health and high spirits",
         "wounds": [],
         "diseases": []

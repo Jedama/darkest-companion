@@ -160,7 +160,7 @@ export const STRATEGY_REGISTRY: readonly StrategyDefinition[] = [
     scorer: character.scorePartyByChildGuardianship_Cook,
   },
   {
-    identifier: 'maximizeGenderBalance_Zenith',
+    identifier: 'maximizeSocialVitality_Zenith',
     name: 'Gender Balance (Zenith)',
     description: 'Rewards parties that achieve a balanced gender distribution, and potentially romantic rivalries.',
     direction: 'maximize',
