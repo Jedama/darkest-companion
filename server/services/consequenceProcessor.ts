@@ -1,5 +1,5 @@
 // server/services/consequencesProcessor.ts
-import { Estate, Character, LogEntry, Relationship } from '../../shared/types/types';
+import { Estate, Character, LogEntry, CharacterRelationship } from '../../shared/types/types';
 
 // Define all possible consequence types matching the JSON structure
 export interface CharacterConsequence {

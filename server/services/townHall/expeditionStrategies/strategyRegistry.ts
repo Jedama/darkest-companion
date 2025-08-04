@@ -1,3 +1,4 @@
+// server/services/townHall/expeditionStrategies/strategyRegistry.ts
 /**
  * @file This is the central registry for all expedition scoring strategies.
  * It imports scorer functions from other files and assembles them into a

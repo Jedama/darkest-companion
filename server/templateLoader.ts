@@ -4,9 +4,9 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import type {
-  Character,
-  CharacterRecord,
-  Relationship,
+  CharacterTemplate,
+  CharacterTemplateRecord,
+  CharacterRelationship,
   NPC,
   EventData,
   EventRecord,
@@ -20,6 +20,7 @@ const TEMPLATES_DIR = path.join(__dirname, 'data', 'templates');
 const CHARACTER_DIR = path.join(__dirname, 'data', 'templates', 'characters');
 const NPCS_DIR = path.join(__dirname, 'data', 'npcs', 'town');
 const DEFAULT_RELATIONSHIPS_FILE = path.join(TEMPLATES_DIR, 'defaultRelationships.json');
+const DEFAULT_WEIGHTS_FILE = path.join(TEMPLATES_DIR, 'defaultCharacterStrategies.json');
 
 // Where your events live
 const EVENTS_DIR = path.join(__dirname, 'data', 'events');
@@ -34,16 +35,16 @@ const REQUIRED_CHARACTER_TEMPLATES = ['crusader', 'highwayman', 'heiress', 'khei
  *  Character Templates
  * ------------------------------------------------------------------- */
 
-export async function loadCharacterTemplates(): Promise<CharacterRecord> {
+export async function loadCharacterTemplates(): Promise<CharacterTemplateRecord> {
   try {
     const files = await readdir(CHARACTER_DIR);
-    const templates: CharacterRecord = {};
+    const templates: CharacterTemplateRecord = {};
 
     // Load all template files
     for (const file of files) {
       if (file.endsWith('.json')) {
         const content = await readFile(path.join(CHARACTER_DIR, file), 'utf-8');
-        const character: Character = JSON.parse(content);
+        const character: CharacterTemplate = JSON.parse(content);
         templates[character.identifier] = character;
       }
     }
@@ -67,9 +68,9 @@ export async function loadCharacterTemplates(): Promise<CharacterRecord> {
 export async function validateTemplate(templatePath: string): Promise<boolean> {
   try {
     const content = await readFile(templatePath, 'utf-8');
-    const character: Character = JSON.parse(content);
+    const character: CharacterTemplate = JSON.parse(content);
     
-    const requiredFields = ['identifier', 'title', 'name', 'level', 'stats', 'traits'];
+    const requiredFields = ['identifier', 'title', 'name', 'stats', 'traits'];
     for (const field of requiredFields) {
       if (!(field in character)) {
         console.error(`Template ${templatePath} missing required field: ${field}`);
@@ -87,7 +88,7 @@ export async function validateTemplate(templatePath: string): Promise<boolean> {
 /* -------------------------------------------------------------------
  *  Default Relationships
  * ------------------------------------------------------------------- */
-export type DefaultRelationshipsMap = Record<string, Record<string, Relationship>>;
+export type DefaultRelationshipsMap = Record<string, Record<string, CharacterRelationship>>;
 
 export async function loadDefaultRelationships(): Promise<DefaultRelationshipsMap> {
   try {
@@ -286,4 +287,19 @@ export async function loadNPCsByIds(npcIds: string[]): Promise<NPC[]> {
   return npcIds
     .map(id => allNPCs[id])
     .filter((npc): npc is NPC => !!npc); // Filter out undefined entries
+}
+
+/* -------------------------------------------------------------------
+ *  Default Character Strategy Weights
+ * ------------------------------------------------------------------- */
+
+// This function loads the character-specific overrides.
+export async function loadDefaultCharacterWeights(): Promise<Record<string, Record<string, number>>> {
+  try {
+    const content = await readFile(DEFAULT_WEIGHTS_FILE, 'utf-8');
+    return JSON.parse(content);
+  } catch (error) {
+    console.error('Error loading default character weights:', error);
+    throw error;
+  }
 }

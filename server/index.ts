@@ -3,7 +3,7 @@ import express, { Request, Response } from 'express';
 import cors from 'cors';
 import { loadEstate, saveEstate, listEstates, deleteEstate } from './fileOps.js';
 import { createNewEstate } from '../shared/types/types.js';
-import type { Estate } from '../shared/types/types.js';
+import type { Estate, Character, CharacterTemplate, CharacterRecord, CharacterStatus, CharacterLocations } from '../shared/types/types.js';
 import logRoutes from './logs/logRoutes.js';
 import setupEventRoute from './routes/setupEventRoute.js';
 import storyEventRoute from './routes/storyEventRoute.js';
@@ -54,6 +54,41 @@ function validateEstateName(name: string): { valid: boolean; error?: string } {
   return { valid: true };
 }
 
+/**
+ * Creates a full Character instance from a template, adding default dynamic data.
+ * This is where the "blueprint" becomes a "real character".
+ * @param template The character blueprint to use.
+ * @param gameData The static data manager instance to get default relationships/locations.
+ * @returns A full Character object ready for gameplay.
+ */
+function createCharacterFromTemplate(
+  template: CharacterTemplate, 
+  gameData: StaticGameDataManager
+): Character {
+  // Define the default starting status for any new character
+  const defaultStatus: CharacterStatus = {
+    physical: 100,
+    mental: 100,
+    affliction: "",
+    description: "In good health and high spirits",
+    wounds: [],
+    diseases: [],
+  };
+
+  return {
+    ...template, // 1. Copy all static properties from the template blueprint
+    
+    // 2. Add the dynamic properties with their default starting values
+    level: 0,
+    money: 0,
+    status: defaultStatus,
+    
+    // 3. Get the dynamic starting relationships and locations from the manager
+    relationships: gameData.getDefaultRelationshipsForCharacter(template.identifier),
+    locations: gameData.getRandomizedLocationsForCharacter(template.identifier),
+  };
+}
+
 app.get('/estates', async (_req: Request, res: Response<string[]>) => {
   try {
     const estates = await listEstates();
@@ -95,23 +130,21 @@ app.post('/estates', async (req: Request<{}, {}, CreateEstateBody>, res: Respons
     // Get data from the static manager instead of loading it each time
     const characterTemplates = gameData.getCharacterTemplates();
     
-    // Filter only the initial characters from templates
-    const defaultCharacters = Object.fromEntries(
+    // Use the helper function to build the full Character objects
+    const defaultCharacters: CharacterRecord = Object.fromEntries(
       DEFAULT_CHARACTER_IDS
         .map((id) => {
           const template = characterTemplates[id];
-          if (!template) return [id, undefined];
+          if (!template) {
+            console.warn(`Template for required character ID "${id}" not found. Skipping.`);
+            return null; // Return null to filter it out later
+          }
           
-          return [
-            id,
-            {
-              ...template,
-              relationships: gameData.getDefaultRelationshipsForCharacter(id) || {}, 
-              locations: gameData.getRandomizedLocationsForCharacter(id)
-            },
-          ];
+          // Use our new function to construct the full character!
+          const character = createCharacterFromTemplate(template, gameData);
+          return [id, character];
         })
-        .filter(([_, char]) => char !== undefined) // Ensure character exists
+        .filter((entry): entry is [string, Character] => entry !== null) // Filter out any that were not found
     );
 
     // Create new estate with initial characters

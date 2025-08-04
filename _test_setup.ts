@@ -1,7 +1,13 @@
 // _test_setup.ts
 import { saveEstate } from './server/fileOps.js';
-import { loadCharacterTemplates, loadDefaultRelationships } from './server/templateLoader.js';
-import { Estate,  CharacterRecord } from './shared/types/types.js';
+import StaticGameDataManager from './server/staticGameDataManager.js';
+import { 
+  Estate,  
+  Character,
+  CharacterRecord,
+  CharacterTemplate,
+  CharacterStatus
+} from './shared/types/types.js';
 import { AFFLICTIONS, VIRTUES, ConditionType } from './shared/constants/conditions.js';
 
 const TEST_ESTATE_NAME = '_test_estate';
@@ -55,6 +61,36 @@ function generateSkewedStat(): number {
     return Math.floor(skewedRandom * 101);
 }
 
+/**
+ * Creates a full Character instance from a template, adding default dynamic data.
+ * @param template The character blueprint to use.
+ * @param gameData The static data manager instance.
+ * @returns A full Character object ready for gameplay.
+ */
+function createCharacterFromTemplate(
+  template: CharacterTemplate, 
+  gameData: StaticGameDataManager
+): Character {
+  const defaultStatus: CharacterStatus = {
+    physical: 100,
+    mental: 100,
+    affliction: "",
+    description: "In good health and high spirits",
+    wounds: [],
+    diseases: [],
+  };
+
+  return {
+    ...template,
+    level: 0,
+    money: 0,
+    status: defaultStatus,
+    relationships: gameData.getDefaultRelationshipsForCharacter(template.identifier),
+    locations: gameData.getRandomizedLocationsForCharacter(template.identifier),
+    strategyWeights: gameData.getStrategiesForCharacter(template.identifier),
+  };
+}
+
 // ==================================
 // 2. MAIN SETUP SCRIPT
 // ==================================
@@ -67,19 +103,19 @@ async function createTestEstate() {
 
   // --- Phase 1: Load Base Templates ---
   console.log('[1/6] Loading character templates...');
-  const characterTemplates = await loadCharacterTemplates();
-  const defaultRelationships = await loadDefaultRelationships();
+  const gameData = StaticGameDataManager.getInstance();
+  await gameData.initialize(); // This loads everything we need!
+
+  const characterTemplates = gameData.getCharacterTemplates();
   console.log(`Loaded ${Object.keys(characterTemplates).length} character templates.`);
 
   // --- Phase 2: Initial Roster Population ---
-  console.log('[2/6] Populating initial roster...');
+  console.log('[2/6] Populating initial roster from templates...');
   const testRoster: CharacterRecord = {};
   for (const id in characterTemplates) {
     const template = characterTemplates[id];
-    testRoster[id] = {
-      ...template,
-      relationships: defaultRelationships[id] || {},
-    };
+    // Create a complete character with default values
+    testRoster[id] = createCharacterFromTemplate(template, gameData);
   }
 
   // --- Phase 3: Procedural Level Generation ---

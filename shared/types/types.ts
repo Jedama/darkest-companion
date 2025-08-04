@@ -1,7 +1,5 @@
 // shared/types/types.ts
-import { StrategyWeights } from '../../server/services/townHall/expeditionStrategies'; // Importing dynamically created type
-
-export interface Stats {
+export interface CharacterStats {
   strength: number;
   agility: number;
   intelligence: number;
@@ -9,16 +7,7 @@ export interface Stats {
   sociability: number;
 }
 
-export interface Status {
-  physical: number;
-  mental: number;
-  affliction: string;
-  description: string;
-  wounds: string[];
-  diseases: string[];
-}
-
-export interface Appearance {
+export interface CharacterAppearance {
   height: string;
   build: string;
   skinTone: string;
@@ -27,23 +16,26 @@ export interface Appearance {
   features: string;
 }
 
-export interface Clothing {
+export interface CharacterClothing {
   head: string;
   body: string;
   legs: string;
   accessories: string;
 }
 
-export interface Combat {
+export interface CharacterCombat {
   role: string;
   strengths: string[];
   weaknesses: string[];
 }
 
-export interface Relationship {
-  affinity: number;
-  dynamic: string;
+export interface CharacterStatus {
+  physical: number;
+  mental: number;
+  affliction: string;
   description: string;
+  wounds: string[]; // Or a more specific Wound type
+  diseases: string[]; // Or a more specific Disease type
 }
 
 export interface CharacterLocations {
@@ -52,33 +44,45 @@ export interface CharacterLocations {
   frequents: string[];
 }
 
+export interface CharacterRelationship {
+  affinity: number;
+  dynamic: string;
+  description: string;
+}
+
+
+export type StrategyWeights = Record<string, number>;
+
 // ========== Character ==========
 
-export interface Character {
+export interface Character extends CharacterTemplate {
+  level: number;
+  money: number;
+  status: CharacterStatus;
+  relationships: Record<string, CharacterRelationship>;
+  locations: CharacterLocations;
+  strategyWeights: StrategyWeights;
+}
+
+export interface CharacterTemplate {
   identifier: string;
   title: string;
   name: string;
-  level: number;
-  money: number;
   description: string;
   history: string;
-  summary: string;
   race: string;
   gender: string;
   religion: string;
   zodiac: string;
   traits: string[];
-  status: Status;
-  stats: Stats;
-  locations: CharacterLocations;
-  appearance: Appearance;
-  clothing: Clothing;
-  combat: Combat;
+  stats: CharacterStats;
+  equipment: string[];
+  appearance: CharacterAppearance;
+  clothing: CharacterClothing;
+  combat: CharacterCombat;
   magic: string;
   notes: string[];
   tags: string[];
-  strategyWeights?: StrategyWeights;
-  relationships: Record<string, Relationship>;
 }
 
 export interface NPC {
@@ -89,15 +93,10 @@ export interface NPC {
   history: string;
   summary: string;
   traits: string[];
-  appearance: Appearance;
-  clothing: Clothing;
+  appearance: CharacterAppearance;
+  clothing: CharacterClothing;
   notes: string[];
 }
-
-// Utility type for storing multiple characters by their identifier
-export type CharacterRecord = {
-  [identifier: string]: Character;
-};
 
 // ========== Logs ==========
 // Each log entry records a piece of narrative or event detail at a given month.
@@ -106,11 +105,6 @@ export interface LogEntry {
   entry: string;          // short description of what happened
   expiryMonth: number;    // month when this log should expire
 }
-
-// ========== Events ==========
-export type EventRecord = {
-  [identifier: string]: EventData;
-};
 
 export interface EventData {
   identifier: string;
@@ -202,3 +196,12 @@ export function addCharacterToEstate(estate: Estate, character: Character): Esta
     }
   };
 }
+
+// A record of blueprints, loaded at startup.
+export type CharacterTemplateRecord = Record<string, CharacterTemplate>;
+
+// A record of active characters in an estate's state.
+export type CharacterRecord = Record<string, Character>;
+
+// A record of all available event blueprints.
+export type EventRecord = Record<string, EventData>;
