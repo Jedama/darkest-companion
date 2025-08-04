@@ -166,37 +166,6 @@ export interface Estate {
 
 }
 
-// ========== Helper Functions ==========
-
-export function getCharacter(characters: CharacterRecord, id: string): Character | undefined {
-  return characters[id];
-}
-
-// Helper function to create a new estate
-export function createNewEstate(estateName: string): Estate {
-  return {
-    estateName,
-    money: 0,
-    month: 0,
-    roles: {
-      margrave: 'heiress',
-      bursar: 'kheir',
-    },
-    characters: {}
-  };
-}
-
-// Helper function to add a character to an estate
-export function addCharacterToEstate(estate: Estate, character: Character): Estate {
-  return {
-    ...estate,
-    characters: {
-      ...estate.characters,
-      [character.identifier]: character
-    }
-  };
-}
-
 // A record of blueprints, loaded at startup.
 export type CharacterTemplateRecord = Record<string, CharacterTemplate>;
 
