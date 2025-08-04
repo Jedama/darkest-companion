@@ -342,6 +342,96 @@ export function scorePartyByTacticalNonsense(party: Party, roster: CharacterReco
   return nonsenseScore;
 }
 
+/**
+ * [GENERIC] Maximizes the effectiveness of a "dedicated protector" party structure.
+ *
+ * This strategy is based on the philosophy that a party's defensive strength is
+ * the product of a powerful protector multiplied by the party's effective
+ * utilization of that protection. A great shield is useless if there's nothing
+ * fragile to defend.
+ *
+ * The function scores a party by:
+ * 1. Identifying the single best protector (the "Bulwark") based on a score
+ *    derived primarily from defensive tags (`Tank`, `Guarder`) and modified by
+ *    Strength and relative Level.
+ * 2. Calculating the "Vulnerability" of the other three members (the "Wards")
+ *    based on tags like `Frail` and `Child`.
+ * 3. The final score is the natural logarithm of (`Bulwark's Score` * `Total Vulnerability`),
+ *    which heavily rewards parties that pair a strong protector with genuinely
+ *    vulnerable allies, while compressing the final score to a manageable range.
+ *
+ * @param party The party to be scored.
+ * @param roster The complete character roster.
+ * @returns A score representing the party's defensive synergy. Higher is better.
+ */
+export function scorePartyByDedicatedProtector(party: Party, roster: CharacterRecord): number {
+  if (party.length !== 4) {
+    return 0;
+  }
+
+  const partyHeroes = party.map(id => roster[id]);
+  const averagePartyLevel = partyHeroes.reduce((sum, h) => sum + h.level, 0) / partyHeroes.length;
+
+  // ===================================================================
+  // 1. Calculate the "Protector Score" for every hero to find the Bulwark.
+  // ===================================================================
+  const protectorScores = partyHeroes.map(hero => {
+    // --- Base Score from Tags ---
+    let baseScore = 1; // "Best of a bad situation" base value.
+    if (hero.tags.includes('Tank')) baseScore += 30;
+    if (hero.tags.includes('Guarder')) baseScore += 25;
+    if (hero.tags.includes('SelfSufficient')) baseScore += 10;
+    if (hero.tags.includes('Warrior')) baseScore += 5; // Small bonus for martial training
+
+    // --- Stat & Level Modifiers ---
+    const strengthModifier = 1 + (hero.stats.strength / 10); // Range [1.0, 2.0]
+    const levelDelta = hero.level - averagePartyLevel;
+    const levelModifier = 1 + (levelDelta * 0.1);
+
+    return {
+      id: hero.identifier,
+      score: baseScore * strengthModifier * levelModifier,
+    };
+  });
+
+  // Identify the Bulwark (hero with the highest Protector Score).
+  protectorScores.sort((a, b) => b.score - a.score);
+  const bulwark = protectorScores[0];
+  const bulwarkPotency = bulwark.score;
+
+  // ===================================================================
+  // 2. Calculate the "Vulnerability" of the Wards.
+  // ===================================================================
+  const wards = partyHeroes.filter(h => h.identifier !== bulwark.id);
+  let partyVulnerability = 0;
+
+  for (const ward of wards) {
+    // --- Base Score from Tags ---
+    let baseVulnerability = 0;
+    if (ward.tags.includes('Child')) baseVulnerability += 30; // Highest priority
+    if (ward.tags.includes('Frail')) baseVulnerability += 20;
+    if (ward.tags.includes('Weak')) baseVulnerability += 15;
+    if (ward.tags.includes('Hider')) baseVulnerability += 10;
+    if (ward.tags.includes('Backline')) baseVulnerability += 5;
+
+    // --- Stat Modifier ---
+    const fragilityModifier = 1 + ((10 - ward.stats.strength) / 10); // Range [1.0, 2.0]
+
+    partyVulnerability += baseVulnerability * fragilityModifier;
+  }
+
+  // ===================================================================
+  // 3. Calculate the Final, Scaled Score.
+  // ===================================================================
+  const rawScore = bulwarkPotency * partyVulnerability;
+
+  // Use the natural logarithm to compress the score into a manageable range.
+  // The `+ 1` ensures the input is always positive.
+  const scaledScore = Math.log(rawScore + 1);
+
+  return scaledScore;
+}
+
 
 // ==================================
 // COMPOSITION SCORING FUNCTIONS
@@ -460,7 +550,6 @@ export function scoreCompositionByConditionBalance(composition: Composition, ros
 
 
 export function scoreCompositionByAuthorityBalance(composition: Composition, roster: CharacterRecord): number {
-  // ... this function remains unchanged ...
   if (composition.length < 2) return 0;
 
   const leadershipPotentialScores = composition.map(party => {

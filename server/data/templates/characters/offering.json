@@ -15,7 +15,7 @@
     "Masochistic",
     "Accepting",
     "Empathetic",
-    "Taciturn"
+    "Mute"
   ],
   "status": {
     "physical": 100,
@@ -68,18 +68,8 @@
     "The gag in her mouth renders her unable to speak"
   ],
   "tags": [
-    "Frontline",
-    "Immobile",
-    "ShortReach",
-    "Tank",
-    "Cleanser",
-    "Debuffer",
-    "Disruptor",
-    "SelfSufficient",
-    "Eldritch",
-    "Religious",
-    "Outcast",
-    "Unstable"
+    "Frontline", "Immobile", "ShortReach", "Tank", "Cleanser", "Debuffer", "Disruptor", 
+    "SelfSufficient", "Eldritch", "Religious", "Outcast", "Unstable"
   ],
   "relationships": {}
 }

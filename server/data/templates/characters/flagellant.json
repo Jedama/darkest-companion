@@ -1,79 +1,78 @@
 {
-    "identifier": "flagellant",
-    "title": "Flagellant",
-    "name": "Damien",
-    "level": 0,
-    "money": 0,
-    "description": "A zealous devotee who finds power and religious ecstasy through self-inflicted pain. Once a vagrant, Damien discovered his calling after a violent encounter, leading him to dedicate his life to suffering as a form of worship and atonement.",
-    "history": "Formerly a destitute wanderer in the city, Damien's life changed when he was attacked by drunks. The pain awakened a fervent religious conviction within him, leading him to join the clergy and later seek out suffering as a form of spiritual enlightenment.",
-    "race": "Human",
-    "gender": "Male",
-    "religion": "The Light",
-    "zodiac": "Pisces",
-    "traits": [
-      "Zealous",
-      "Masochistic",
-      "Devout",
-      "Resilient",
-      "Fervent",
-      "Determined"
+  "identifier": "flagellant",
+  "title": "Flagellant",
+  "name": "Damien",
+  "level": 0,
+  "money": 0,
+  "description": "A zealous devotee who finds power and religious ecstasy through self-inflicted pain. Once a vagrant, Damien discovered his calling after a violent encounter, leading him to dedicate his life to suffering as a form of worship and atonement.",
+  "history": "Formerly a destitute wanderer in the city, Damien's life changed when he was attacked by drunks. The pain awakened a fervent religious conviction within him, leading him to join the clergy and later seek out suffering as a form of spiritual enlightenment.",
+  "race": "Human",
+  "gender": "Male",
+  "religion": "The Light",
+  "zodiac": "Pisces",
+  "traits": [
+    "Zealous",
+    "Masochistic",
+    "Devout",
+    "Resilient",
+    "Fervent",
+    "Determined"
+  ],
+  "status": {
+    "physical": 100,
+    "mental": 100,
+    "affliction": "",
+    "description": "In good health and high spirits",
+    "wounds": [],
+    "diseases": []
+  },
+  "stats": {
+    "strength": 7,
+    "agility": 2,
+    "intelligence": 4,
+    "authority": 5,
+    "sociability": 2
+  },
+  "equipment": [
+    "Flail"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Muscular",
+    "skinTone": "Pale, marked with scars",
+    "hairColor": "Black",
+    "hairStyle": "Short and patchy",
+    "features": "Pronounced lips and chin, scars on his back, missing teeth"
+  },
+  "clothing": {
+    "head": "Hood",
+    "body": "Tattered, blood-stained robes",
+    "legs": "Simple, worn trousers",
+    "accessories": "Spiked crown-like collar"
+  },
+  "combat": {
+    "role": "Front-line",
+    "strengths": [
+      "Pain resistance",
+      "Religious fervor",
+      "Self-sacrifice"
     ],
-    "status": {
-      "physical": 100,
-      "mental": 100,
-      "affliction": "",
-      "description": "In good health and high spirits",
-      "wounds": [],
-      "diseases": []
-    },
-    "stats": {
-      "strength": 7,
-      "agility": 3,
-      "intelligence": 4,
-      "authority": 5,
-      "sociability": 3
-    },
-    "equipment": [
-      "Flail",
-      "Ragged robes"
-    ],
-    "appearance": {
-      "height": "Average",
-      "build": "Muscular",
-      "skinTone": "Pale, marked with scars",
-      "hairColor": "Black",
-      "hairStyle": "Short and patchy",
-      "features": "Pronounced lips and chin, scars on his back"
-    },
-    "clothing": {
-      "head": "Hood",
-      "body": "Tattered, blood-stained robes",
-      "legs": "Simple, worn trousers",
-      "accessories": "Spiked crown-like collar"
-    },
-    "combat": {
-      "role": "Front-line",
-      "strengths": [
-        "Pain resistance",
-        "Religious fervor",
-        "Self-sacrifice"
-      ],
-      "weaknesses": [
-        "Ranged combat",
-        "Overzealousness",
-        "Mental fortitude"
-      ]
-    },
-    "magic": "None",
-    "notes": [
-      "Speaks in a mix of improvised religious doctrine and fragments of actual scripture",
-      "Views his scarred flesh as 'The Testament' - a living document of his devotion to the Light",
-      "Refers to his flail as 'The Burden'",
-      "Becomes more powerful the closer he is to death"
-    ],
-    "tags": [
-      "Frontline", "ShortReach", "Tank", "Healer", "StressHealer", "Bleeder", "Cleanser", 
-      "SelfSufficient", "SelfStress", "Religious", "Unstable"
-    ],
-    "relationships": {}
-  }
+    "weaknesses": [
+      "Ranged combat",
+      "Overzealousness",
+      "Mental fortitude"
+    ]
+  },
+  "magic": "None",
+  "notes": [
+    "Speaks in a mix of improvised religious doctrine and fragments of actual scripture",
+    "Views his scarred flesh as 'The Testament' - a living document of his devotion to the Light",
+    "Refers to his flail as 'The Burden'",
+    "Becomes more powerful the closer he is to death"
+  ],
+  "tags": [
+    "Frontline", "ShortReach", "Tank", "Healer", "StressHealer", "Bleeder", "Cleanser", 
+    "SelfSufficient", "SelfStress", "Religious", "Unstable", "Brink"
+  ],
+  "relationships": {}
+}

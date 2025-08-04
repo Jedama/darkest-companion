@@ -120,7 +120,7 @@ async function runTests() {
     maximizeGameplaySynergy: 0.0,
     maximizeAffinity: 0.0,
     balanceCondition: 0.0, 
-    maximizeSocialVitalitya_Zenith: 10,
+    maximizeDedicatedProtector_Martyr: 10,
   };
 
   const conditionResult = await findOptimalArrangement(availableHeroIds, roster, conditionFocusedWeights);

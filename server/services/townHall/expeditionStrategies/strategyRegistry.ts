@@ -114,6 +114,14 @@ export const STRATEGY_REGISTRY: readonly StrategyDefinition[] = [
     scope: 'party',
     scorer: generic.scorePartyByTacticalNonsense,
   },
+  {
+    identifier: 'maximizeDedicatedProtector',
+    name: 'Dedicated Protector',
+    description: 'Ensures at least one hero is a dedicated protector, enhancing party defense and survivability.',
+    direction: 'maximize',
+    scope: 'party',
+    scorer: generic.scorePartyByDedicatedProtector,
+  },
 
   // --- Generic Composition Strategies ---
   {
@@ -144,14 +152,6 @@ export const STRATEGY_REGISTRY: readonly StrategyDefinition[] = [
     scorer: character.scorePartyByCommandClarity_Heiress,
   },
   {
-    identifier: 'maximizeQuarantinedHorrors_Heir',
-    name: 'Quarantined Horrors (Heir)',
-    description: 'Tries to quarantine all the scary heroes together so they won\'t disturb the rest.',
-    direction: 'maximize',
-    scope: 'composition',
-    scorer: character.scoreCompositionByQuarantinedHorrors_Heir,
-  },
-  {
     identifier: 'maximizeChildGuardianship_Cook',
     name: 'Children Guardianship',
     description: 'Ensures children are protected by capable guardians.',
@@ -166,6 +166,40 @@ export const STRATEGY_REGISTRY: readonly StrategyDefinition[] = [
     direction: 'maximize',
     scope: 'party',
     scorer: character.scorePartyBySocialVitality_Zenith,
+  },
+  {
+    identifier: 'minimizeSufferingDisparity_Flagellant',
+    name: 'Suffering Disparity (Flagellant)',
+    description: 'Minimizes the suffering disparity within a party, ensuring everyone feels the clarity of pain.',
+    direction: 'minimize',
+    scope: 'party',
+    scorer: character.scoreCompositionBySufferingDisparity_Flagellant,
+  },
+  {
+    identifier: 'maximizeDedicatedProtector_Martyr',
+    name: 'Dedicated Protector (Martyr)',
+    description: 'Ensures at least one hero is a dedicated protector, based on their bonds with whom they protect.',
+    direction: 'maximize',
+    scope: 'party',
+    scorer: character.scorePartyByDedicatedProtector_Martyr,
+  },
+  {
+    identifier: 'maximizeDedicatedProtector_Offering',
+    name: 'Dedicated Protector (Offering)',
+    description: 'Value understanding and morbid empathy through protection, according to the philosophy of the Offering.',
+    direction: 'maximize',
+    scope: 'party',
+    scorer: character.scorePartyByDedicatedProtector_Offering,
+  },
+
+  // --- Character-Specific Composition Strategies ---
+  {
+    identifier: 'maximizeQuarantinedHorrors_Heir',
+    name: 'Quarantined Horrors (Heir)',
+    description: 'Tries to quarantine all the scary heroes together so they won\'t disturb the rest.',
+    direction: 'maximize',
+    scope: 'composition',
+    scorer: character.scoreCompositionByQuarantinedHorrors_Heir,
   }
 
 ] as const;
