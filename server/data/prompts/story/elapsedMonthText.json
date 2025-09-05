@@ -1,0 +1,18 @@
+[  
+  {
+    "month": 0,
+    "text": "The Descendants of house ${estateName} are currently traveling along the old road toward the hamlet, having received the Ancestor's letter and inherited the estate. Unaware of the true horrors that await, they journey with a mix of trepidation and determination to reclaim their family legacy."
+  },
+  {
+    "month": 1,
+    "text": "The Descendants of house ${estateName} have just arrived and taken residence in the Dower House. Still unpacking their belongings, they are struggling to make sense of the desolation around them - the haunted looks of villagers, the crumbling buildings, and whispers of horrors beyond the hamlet's borders. They've begun gathering information from the Caretaker and townsfolk about what transpired after the Ancestor's death, slowly piecing together the extent of the corruption. No expeditions have been mounted yet; preparations are still underway for the dangers that lie beyond the hamlet's protective walls."
+  },
+  {
+    "month": 2,
+    "text": "An expedition into the ruins beneath the ancestral home has been completed. Those who returned witnessed firsthand the terrible truth - the walking dead and fanatical cultists now inhabit what was once the ${estateName} family stronghold. This grim reality has hardened resolve at the estate. The first heroes - broken souls seeking redemption or fortune - have been recruited, establishing a tenuous foothold in the hamlet. The Dower House serves as the base of operations for planning the next foray into the corrupted lands, the monumental task ahead now becoming clear."
+  },
+  {
+    "month": 3, 
+    "text": "Several expeditions have ventured into the corrupted regions surrounding the hamlet. Each journey reveals new challenges, but also yields treasures and knowledge vital to the cause. The roster of heroes has begun to grow as word spreads of the effort to reclaim the Estate. Though each hero arrives bearing their own scars and stories, all seek purpose in this grim endeavor. A strategy room has been established in the town hall, where maps are marked with known dangers and the hamlet's leaders debate which threat to confront next. The darkness is vast, but the first steps have been taken toward reclaiming the estate from its corruption."
+  }
+]

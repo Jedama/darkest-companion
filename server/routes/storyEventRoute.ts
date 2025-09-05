@@ -43,7 +43,7 @@ router.post('/estates/:estateName/events/story', async (req: Request, res: Respo
 
     const response = await callGemini({
       prompt,
-      model: 'gemini-2.5-flash-preview-05-20',
+      model: 'gemini-2.5-pro',
       maxTokens: 1024,
       temperature: 0.5
     });

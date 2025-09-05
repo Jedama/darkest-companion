@@ -1,5 +1,5 @@
 import type { Estate, EventData, Character, NPC, LocationData } from '../../shared/types/types.ts';
-import { getInstructionsText, getContextText } from './promptData/narrativeData.js';
+import { compileNarrativeContext  } from './promptService.js';
 import StaticGameDataManager from '../staticGameDataManager.js';
 
 /**
@@ -43,16 +43,23 @@ export async function compileStoryPrompt(
     return updatedDescription;
   }
 
-  // 1. Gather character and data
+  // 1. Build [Instructions] and [Context] section using the prompt service
+  const gameData = StaticGameDataManager.getInstance();
+
+  const narrativeContextPayload = {
+    month: estate.month,
+    estateName: estate.estateName,
+    instructions: gameData.getPromptStoryInstructions(),
+    backstory: gameData.getPromptStoryBackstory(),
+    zodiacs: gameData.getPromptZodiacSeasons(),
+    scenarios: gameData.getPromptElapsedMonthText()
+  };
+
+  const narrativeContext = compileNarrativeContext(narrativeContextPayload);
+
+  // 2. Gather character and data
   const involvedCharacters: Character[] = chosenCharacterIds.map(id => estate.characters[id]);
-  
-  // Get NPCs from the static data manager instead of loading them from files
-  const npcs: NPC[] = StaticGameDataManager.getInstance().getNPCsByIds(npcIds);
-
-  // 2. Build [Instructions] and [Context]
-  const instructionsSection = getInstructionsText();
-
-  const contextSection = getContextText(estate.month, estate.estateName);
+  const npcs: NPC[] = gameData.getNPCsByIds(npcIds);
 
   // 3. Build [Characters] section
   //    For each character, gather description, stats, traits, status, notes, clothing, appearance, combat, and magic
@@ -233,8 +240,7 @@ Description: ${eventDescriptionWithReplacements}
 
   // 10. Combine everything
   const fullPrompt =
-    instructionsSection +
-    contextSection +
+    narrativeContext  +
     eventSection +
     charactersSection +
     locationSection +

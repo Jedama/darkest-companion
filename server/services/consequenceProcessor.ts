@@ -1,13 +1,15 @@
 // server/services/consequencesProcessor.ts
 import { Estate, Character, LogEntry, CharacterRelationship } from '../../shared/types/types';
 
+interface ConsequenceLogEntry {
+  entry: string
+  timeframe: 'transient' | 'short_term' | 'mid_term' | 'long_term' | 'permanent'
+}
+
 // Define all possible consequence types matching the JSON structure
 export interface CharacterConsequence {
   identifier: string;
-  add_log?: {
-    entry: string;
-    timeframe: 'transient' | 'short_term' | 'mid_term' | 'long_term' | 'permanent';
-  };
+  add_log?: ConsequenceLogEntry;
   update_stats?: {
     strength?: number;
     agility?: number;
@@ -54,6 +56,7 @@ export interface CharacterConsequence {
 }
 
 export interface ConsequencesResult {
+  event_log?: ConsequenceLogEntry;
   characters: CharacterConsequence[];
 }
 
@@ -310,6 +313,10 @@ export function applyConsequences(estate: Estate, consequences: ConsequencesResu
     updatedEstate.characterLogs = {} as { [charIdentifier: string]: LogEntry[] };
   }
 
+  if (consequences.event_log){
+    processEstateLog(updatedEstate, consequences.event_log);
+  }
+
   // Process each character's consequences
   for (const characterConsequence of consequences.characters) {
     const { identifier } = characterConsequence;
@@ -340,31 +347,51 @@ export function applyConsequences(estate: Estate, consequences: ConsequencesResu
 }
 
 /**
+ * Process and add a log entry to the estate
+ */
+function processEstateLog(estate: Estate, consequence: ConsequenceLogEntry): void {
+
+  // Create a new log entry
+  const logEntry: LogEntry = {
+    month: estate.month, // Current month from estate
+    entry: consequence.entry,
+    expiryMonth: calculateExpiryMonth(estate.month, consequence.timeframe)
+  };
+
+  if (!estate.estateLogs) {
+    estate.estateLogs = [];
+  }
+  
+  // Add the log entry to the character's logs
+  estate.estateLogs.push(logEntry);
+}
+
+/**
  * Process and add a log entry to a character's logs
  */
 function processAddLog(estate: Estate, character: Character, consequence: CharacterConsequence): void {
-    if (!consequence.add_log) return;
-    
-    // Ensure characterLogs exists on the estate
-    if (!estate.characterLogs) {
-      estate.characterLogs = {};
-    }
-    
-    // Initialize character logs array if it doesn't exist
-    if (!estate.characterLogs[character.identifier]) {
-      estate.characterLogs[character.identifier] = [];
-    }
-    
-    // Create a new log entry
-    const logEntry: LogEntry = {
-      month: estate.month, // Current month from estate
-      entry: consequence.add_log.entry,
-      expiryMonth: calculateExpiryMonth(estate.month, consequence.add_log.timeframe)
-    };
-    
-    // Add the log entry to the character's logs
-    estate.characterLogs[character.identifier].push(logEntry);
+  if (!consequence.add_log) return;
+  
+  // Ensure characterLogs exists on the estate
+  if (!estate.characterLogs) {
+    estate.characterLogs = {};
   }
+  
+  // Initialize character logs array if it doesn't exist
+  if (!estate.characterLogs[character.identifier]) {
+    estate.characterLogs[character.identifier] = [];
+  }
+  
+  // Create a new log entry
+  const logEntry: LogEntry = {
+    month: estate.month, // Current month from estate
+    entry: consequence.add_log.entry,
+    expiryMonth: calculateExpiryMonth(estate.month, consequence.add_log.timeframe)
+  };
+  
+  // Add the log entry to the character's logs
+  estate.characterLogs[character.identifier].push(logEntry);
+}
 
 /**
  * Update a character's stats based on consequences
@@ -624,8 +651,8 @@ function calculateExpiryMonth(currentMonth: number, timeframe: string): number {
       'permanent': 1000
     };
   
-    // Default to mid_term if timeframe is not recognized
-    const months = timeframeToMonths[timeframe] || timeframeToMonths['mid_term'];
+    // Default to transient if timeframe is not recognized
+    const months = timeframeToMonths[timeframe] || timeframeToMonths['transient'];
     
     return currentMonth + months;
   }

@@ -1,11 +1,11 @@
 // server/routes/consequencesEventRoute.ts
+import type { Estate } from '../../shared/types/types.js';
 import { Router, Request, Response } from 'express';
 import { loadEstate, saveEstate } from '../fileOps.js';
 import { callClaude, callGemini, callGrok } from '../services/llm/llmService.js';
-import type { Estate } from '../../shared/types/types.js';
 import { compileConsequencesPrompt } from '../services/consequencesEventService.js';
-import { validateConsequenceUpdate, formatConsequenceUpdate } from '../services/promptData/consequenceData.js';
-import type { ConsequencePrompt } from '../services/promptData/consequenceData.js';
+import { validateConsequenceUpdate, formatConsequenceUpdate } from '../services/promptService.js';
+import type { ConsequencePrompt } from '../services/promptService.js';
 import { applyConsequences, ConsequencesResult, prepareConsequenceDisplay } from '../services/consequenceProcessor.js';
 
 const router = Router();

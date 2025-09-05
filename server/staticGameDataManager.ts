@@ -10,7 +10,11 @@ import {
 // Import from the strategy registry. The registry is the ultimate source of truth
 // for all available strategies and their default values.
 import { generateDefaultWeights } from './services/townHall/expeditionStrategies/strategyRegistry.js';
+import { loadTextFile, loadJsonFile } from './fileOps.js';
+import path from 'path';
 
+interface ZodiacSeason { name: string; text: string; }
+interface ElapsedMonthText { month: number; text: string; }
 
 /**
  * Picks a random subset of locations for a character based on predefined rules:
@@ -97,6 +101,15 @@ class StaticGameDataManager {
    */
   private characterWeightOverrides: Record<string, Record<string, number>> = {};
 
+  // Prompt data
+  private promptStoryInstructions: string = '';
+  private promptStoryBackstory: string = '';
+  private promptConsequenceInstructions: string = '';
+  private promptConsequenceFormat: string = '';
+  private promptConsequenceExamples: string = '';
+  private promptZodiacSeaons: ZodiacSeason[] = [];
+  private promptMonthText: ElapsedMonthText[] = [];
+
   private constructor() {}
 
   public static getInstance(): StaticGameDataManager {
@@ -117,6 +130,8 @@ class StaticGameDataManager {
     
     try {
       console.log('Initializing static game data...');
+
+      const promptsBasePath = './data/prompts'
       
       // Load all static data in parallel for efficiency
       const [
@@ -127,7 +142,14 @@ class StaticGameDataManager {
         locations,
         townEvents,
         townKeywords,
-        npcs
+        npcs,
+        promptStoryInstructions,
+        promptStoryBackstory,
+        promptConsequenceInstructions,
+        promptConsequenceFormat,
+        promptConsequenceExamples,
+        zodiacSeasons,
+        elapsedMonthText
       ] = await Promise.all([
         loadCharacterTemplates(),
         loadDefaultRelationships(),
@@ -136,7 +158,14 @@ class StaticGameDataManager {
         loadAllLocations(),
         loadEventTemplatesForCategory('town'),
         loadTownKeywords(),
-        loadAllNPCs()
+        loadAllNPCs(),
+        loadTextFile(`${promptsBasePath}/story/storyInstructions.txt`),
+        loadTextFile(`${promptsBasePath}/story/storyBackstory.txt`),
+        loadTextFile(`${promptsBasePath}/consequences/consequencesInstructions.txt`),
+        loadTextFile(`${promptsBasePath}/consequences/consequencesFormat.txt`),
+        loadTextFile(`${promptsBasePath}/consequences/consequencesExamples.txt`),
+        loadJsonFile<ZodiacSeason[]>(`${promptsBasePath}/story/zodiacSeasons.json`),
+        loadJsonFile<ElapsedMonthText[]>(`${promptsBasePath}/story/elapsedMonthText.json`)
       ]);
       
       // Store the loaded data
@@ -148,17 +177,18 @@ class StaticGameDataManager {
       this.townEvents = townEvents;
       this.townKeywords = townKeywords;
       this.npcs = npcs;
-
-
-      // Here, we generate the baseline weights from the strategy registry.
-      // The `generateDefaultWeights` function returns a highly specific, dynamically
-      // generated type based on the registry's contents.
-      // We use a type assertion (`as`) to tell TypeScript, "Trust us, we know
-      // this function will always produce a simple `Record<string, number>`."
-      // This is a safe and necessary step to bridge the gap between the complex,
-      // specific registry type and the general-purpose type used by the rest of the application.
+      
       this.baseDefaultWeights = generateDefaultWeights() as Record<string, number>;
       
+      // Store prompt data
+      this.promptStoryInstructions = promptStoryInstructions;
+      this.promptStoryBackstory = promptStoryBackstory;
+      this.promptConsequenceInstructions = promptConsequenceInstructions;
+      this.promptConsequenceFormat = promptConsequenceFormat;
+      this.promptConsequenceExamples = promptConsequenceExamples;
+      this.promptZodiacSeaons = zodiacSeasons;
+      this.promptMonthText = elapsedMonthText;
+
       // Build lookup maps
       this.buildLocationMap();
       
@@ -292,18 +322,42 @@ class StaticGameDataManager {
       .filter((npc): npc is NPC => !!npc);
   }
 
-  /**
-   * Gets the final, complete set of strategy weights for a given character.
-   * This method performs a three-step process:
-   * 1. Starts with the full set of global default weights from the registry.
-   * 2. Looks up the character-specific overrides loaded from JSON.
-   * 3. Merges the overrides on top of the defaults, producing the final weights.
-   * 
-   * This ensures every character has a value for every strategy, while allowing
-   * for easy, minimal configuration of their unique preferences.
-   * @param characterId The identifier of the character (e.g., "heiress").
-   * @returns A complete map of strategy identifiers to their final weights.
-   */
+  public getPromptStoryInstructions(): string {
+    this.ensureInitialized();
+    return this.promptStoryInstructions;
+  }
+
+  public getPromptStoryBackstory(): string {
+    this.ensureInitialized();
+    return this.promptStoryBackstory;
+  }
+
+  public getPromptConsequenceInstructions(): string {
+    this.ensureInitialized();
+    return this.promptConsequenceInstructions;
+  }
+
+  public getPromptConsequenceFormat(): string {
+    this.ensureInitialized();
+    return this.promptConsequenceFormat;
+  }
+
+  public getPromptConsequenceExamples(): string {
+    this.ensureInitialized();
+    return this.promptConsequenceExamples;
+  }
+
+  public getPromptZodiacSeasons(): ZodiacSeason[] {
+    this.ensureInitialized();
+    return this.promptZodiacSeaons;
+  }
+  
+  public getPromptElapsedMonthText(): ElapsedMonthText[] {
+    this.ensureInitialized();
+    return this.promptMonthText;
+  }
+
+  // --- Add the new, smart getter method ---
   public getStrategiesForCharacter(characterId: string): StrategyWeights {
     this.ensureInitialized();
     

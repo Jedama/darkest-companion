@@ -157,12 +157,13 @@ export interface Estate {
   roles: EstateRoles; // Roles within the estate
   characters: CharacterRecord;
   restoredLocations?: string[];  // list of location identifiers that have been restored
+  estateLogs?: LogEntry[];
 
   // Optional logs per entity type
   characterLogs?: { [charIdentifier: string]: LogEntry[] };
-  eventLogs?: { [eventIdentifier: string]: LogEntry[] };
-  locationLogs?: { [locationIdentifier: string]: LogEntry[] };
-  npcLogs?: { [npcIdentifier: string]: LogEntry[] };
+  //eventLogs?: { [eventIdentifier: string]: LogEntry[] };
+  //locationLogs?: { [locationIdentifier: string]: LogEntry[] };
+  //npcLogs?: { [npcIdentifier: string]: LogEntry[] };
 
 }
 
