@@ -2,10 +2,10 @@
   {
     "identifier": "north_east_district",
     "title": "North-eastern District",
-    "description": "The estate's most ruined quarter, where the hamlet meets the sea. Buildings list precariously on the eroding cliffs, while the shore path winds treacherously toward the cove. This district bore the brunt of horrors emerging from the manor, its once-proud institutions now standing as hollow shells.",
+    "description": "The Hamlet's most ruined quarter, where its streets meet the sea. Buildings list precariously on the eroding cliffs, while the shore path winds treacherously toward the cove. This district bore the brunt of horrors emerging from the manor, its once-proud institutions now standing as hollow shells.",
     "summary": "north_east_district (North-eastern District) -- The most ruined quarter where the hamlet meets the sea, with buildings on cliffs and a treacherous shore path.",
     "parent": "hamlet",
-    "children": ["ravens_row", "athenaeum", "geological_study_hall", "sewer_entrance", "shore_path"]
+    "children": ["ravens_row", "athenaeum", "geological_study_hall", "sewer_entrance", "shore_path", "schoolhouse", "manor_staircase"]
   },
   {
     "identifier": "shore_path",
@@ -73,7 +73,7 @@
     "description": "A well-maintained street of distinguished townhouses, its northern end marked by ruins where the district's scholarly institutions once stood. While those buildings closer to the manor were the first to fall to its horrors, the southern stretch remains a testament to the hamlet's former prosperity. An ornate metal arch spans the street's entrance, the Estate's Noble Raven worked into its weathered ironwork.",
     "summary": "ravens_row (Raven's Row) -- A well-maintained street of distinguished townhouses, a testament to the hamlet's former prosperity, leading to scholarly ruins.",
     "parent": "north_east_district",
-    "children": ["ravens_row__bakery", "ravens_row__merchant_house", "ravens_row__cryptographer_house", "ravens_row__professor_villa"]
+    "children": ["ravens_row__bakery", "ravens_row__merchant", "ravens_row__cryptographer", "ravens_row__professor"]
   },
   {
     "identifier": "ravens_row__bakery",

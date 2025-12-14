@@ -5,7 +5,7 @@
     "description": "A maze of salt-worn buildings and creaking boardwalks stretching along the hamlet's waterfront. The harbor's docks extend like broken fingers into the unnaturally dark waters, while abandoned warehouses stand sentinel behind them.",
     "summary": "east_district (Eastern District) -- A maze of salt-worn buildings and creaking boardwalks along the hamlet's waterfront, with docks extending into dark waters and abandoned warehouses.",
     "parent": "hamlet",
-    "children": ["harbor", "warehouse_district", "tritonis_house", "house_of_yellow_hand"]
+    "children": ["harbor", "warehouse_district", "tritonis_house", "yellow_hand", "yellowfinger_house", "kraken_society", "stumbling_corpse"]
   },
   {
     "identifier": "harbor",

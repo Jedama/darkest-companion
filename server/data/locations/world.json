@@ -1,9 +1,10 @@
 [
-    {
-        "identifier": "world",
-        "title": "Known World",
-        "description": "A realm of ancient powers and lurking horrors, where civilization's torch burns ever dimmer against encroaching darkness.",
-        "parent": null,
-        "children": ["estate", "sunward_isles", "levantine_empire", "city_of_thousand_temples", "ostvengr"]
-    }
+  {
+    "identifier": "world",
+    "title": "Known World",
+    "description": "A vast and varied land of distinct nations and uneasy alliances. From the isolated traditions of the Sunward Isles to the militarized, industrial expanse of Ostvengr, civilization asserts itself through commerce and conquest. The Levantine Empire and the City of a Thousand Temples stand as monuments to human ambition, maintaining order and trade across the continents. A kingdom stands at its center, and on its rugged coastline, a neglected Ancestral Estate sits apart from these geopolitical machinations, harboring secrets that will soon draw eyes away from the concerns of the wider world.",
+    "summary": "world (Known World) -- A vast land of nations like Ostvengr and the Sunward Isles, functioning through trade and war while ancient secrets linger in the margins.",
+    "parent": null,
+    "children": ["kingdom", "sunward_isles", "levantine_empire", "city_of_thousand_temples", "ostvengr"]
+  }
 ]

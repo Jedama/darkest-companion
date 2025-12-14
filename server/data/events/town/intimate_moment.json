@@ -1,9 +1,28 @@
 {
-    "identifier": "intimate_moment0",
-    "title": "Intimate moment",
-    "type": "town",
-    "description": "[Character 1] and [Character 2] share a quiet, intimate moment together.",
-    "nrChars": [2, 2],
-    "keywords": ["Admittance", "Affection", "Trust", "Unreciprocated", "Humorous turn", "Light in darkness"],
-    "location": ["Residence", "town_square", "graveyard", "shore", "field"]
+  "identifier": "intimate_moment_0",
+  "title": "Intimate Moment",
+  "type": "town",
+  "description": "[Character 1] and [Character 2] share a quiet, intimate moment together.",
+  "nrChars": [2, 2],
+  "keywords": [
+    "Admittance",
+    "Affection",
+    "Trust",
+    "Unreciprocated",
+    "Humorous turn"
+  ],
+  "location": {
+    "default": [
+      "graveyard",
+      "abbey__cloister",
+      "abbey__grounds",
+      "shore_path",
+      "outsider_bonfire"
+    ],
+    "residence": [1, 2],
+    "workplaces": [],
+    "frequents": [],
+    "allowAll": false,
+    "allowParentLocations": true
+  }
 }

@@ -11,7 +11,8 @@
       "residence": [],
       "workplaces": [1, 2, 3],
       "frequents": [1, 2, 3],
-      "allowAll": true
+      "allowAll": true,
+      "allowParentLocations": true
     }
   },
   {
@@ -22,10 +23,12 @@
     "nrChars": [2, 2],
     "keywords": ["Passionate"],
     "location": {
-        "default": [],
-        "residence": [1, 2],
-        "workplaces": [],
-        "frequents": []
+      "default": [],
+      "residence": [1, 2],
+      "workplaces": [],
+      "frequents": [],
+      "allowAll": true,
+      "allowParentLocations": true
     }
   },
   {
@@ -36,11 +39,12 @@
     "nrChars": [2, 3],
     "keywords": ["Searching"],
     "location": {
-        "default": ["yellow_hand", "abbey", "inn"],
-        "residence": [],
-        "workplaces": [],
-        "frequents": [1, 2, 3],
-        "allowAll": true
+      "default": ["yellow_hand", "abbey", "inn"],
+      "residence": [],
+      "workplaces": [],
+      "frequents": [1, 2, 3],
+      "allowAll": true,
+      "allowParentLocations": true
     }
   },
   {
@@ -51,11 +55,12 @@
     "nrChars": [4, 4],
     "keywords": ["Violence", "Hatred", "Foregiveness", "Gone too far", "Beatdown"],
     "location": {
-        "default": ["yellow_hand", "tavern", "inn"],
-        "residence": [1, 2, 3, 4],
-        "workplaces": [1, 2, 3, 4],
-        "frequents": [1, 2, 3, 4],
-        "allowAll": true
+      "default": ["yellow_hand", "tavern", "inn"],
+      "residence": [1, 2, 3, 4],
+      "workplaces": [1, 2, 3, 4],
+      "frequents": [1, 2, 3, 4],
+      "allowAll": true,
+      "allowParentLocations": true
     }
   }
 ]

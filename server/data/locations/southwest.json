@@ -111,7 +111,7 @@
   {
     "identifier": "inn__reception",
     "title": "Inn Reception",
-    "description": "The inn's formal entrance opens onto a space of dark wood panels and burgundy wallpaper, where Aldritch keeps watch from behind a broad desk of polished oak. The ancient guest book lies perpetually open, its pages recording arrivals but rarely departures. A brass lamp casts warm light across the registration desk, though it does little to brighten the room's far corners.",
+    "description": "The inn's formal entrance opens onto a space of dark wood panels and burgundy wallpaper, where the Innkeeper keeps watch from behind a broad desk of polished oak. The ancient guest book lies perpetually open, its pages recording arrivals but rarely departures. A brass lamp casts warm light across the registration desk, though it does little to brighten the room's far corners.",
     "summary": "inn__reception (Inn Reception) -- The inn's formal entrance and registration area, with a broad desk and an ancient guest book, overseen by the innkeeper.",
     "parent": "inn__south",
     "children": []
@@ -119,7 +119,7 @@
   {
     "identifier": "inn__keeper_nook",
     "title": "Inn Keeper's Nook",
-    "description": "A cramped space tucked behind the common room, barely large enough for a narrow bed and standing closet. Wooden pegs hold Aldritch's spare coat and the candleholder he uses for nightly roundsd. The idea to take residence in one of his establishment's grander rooms has never occurred to him.",
+    "description": "A cramped space tucked behind the common room, barely large enough for a narrow bed and standing closet. Wooden pegs hold the Innkeeper's spare coat and the candleholder he uses for nightly rounds. The idea to take residence in one of his establishment's grander rooms has never occurred to him.",
     "summary": "inn__keeper_nook (Inn Keeper's Nook) -- A cramped, private space for the innkeeper, located behind the common room, used for rest and personal belongings.",
     "parent": "inn__north",
     "children": []
@@ -333,7 +333,7 @@
   {
     "identifier": "tavern__stag_room",
     "title": "Stag Room",
-    "description": "Antlers mounted above the headboard cast branching shadows across the walls, while the balcony door's lock shows signs of recent repair. A heavy scent still fills the room, of the Conscript's hips hammering against the Barmaid's, driving the final nail into the mind of his loving wife, writing love letters out in her apple yard.",
+    "description": "Antlers mounted above the headboard cast branching shadows across the walls, while the balcony door's lock shows signs of recent repair. A heavy scent of musk lingers in the air, hinting at past dramatic encounters.",
     "summary": "tavern__stag_room (Stag Room) -- A tavern room marked by mounted antlers and a heavy scent, with a balcony door, hinting at past dramatic encounters.",
     "parent": "tavern",
     "children": [],
@@ -342,7 +342,7 @@
   {
     "identifier": "tavern__wolf_room",
     "title": "Wolf Room",
-    "description": "The smallest but sturdiest of the Inn's rooms, tucked into the building's corner. Its narrow window and reinforced door suggest privacy or paranoia, and are hired out to the most reclusive guests visiting the Hamlet. The bed is narrow and tall enough to require steps, while the room's only decoration is a small painting of a wolf in a forest, under moonlight.",
+    "description": "The smallest but sturdiest of the tavern's rooms, tucked into the building's corner. Its narrow window and reinforced door suggest privacy or paranoia, and are hired out to the most reclusive guests visiting the Hamlet. The bed is narrow and tall enough to require steps, while the room's only decoration is a small painting of a wolf in a forest, under moonlight.",
     "summary": "tavern__wolf_room (Wolf Room) -- The smallest, sturdiest room in the tavern, designed for privacy with a narrow window and reinforced door, suitable for reclusive guests.",
     "parent": "tavern",
     "children": [],

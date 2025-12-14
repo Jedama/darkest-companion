@@ -77,11 +77,13 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
     try {
       // 1) Setup random event (now with optional userPrompt)
       const setupRes = await fetch(
-        `http://localhost:3000/estates/${estateName}/events/setup-random`,
+        `http://localhost:3000/estates/${estateName}/events/setup`,
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ userPrompt }), // Pass the userPrompt
+          body: JSON.stringify({ 
+            description: userPrompt
+          }),
           signal,
         }
       );

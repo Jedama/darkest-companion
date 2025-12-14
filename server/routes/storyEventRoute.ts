@@ -24,6 +24,8 @@ router.post('/estates/:estateName/events/story', async (req: Request, res: Respo
       return res.status(404).json({ error: `Estate '${estateName}' not found` });
     }
 
+    console.log('Story Route Body:', JSON.stringify(req.body, null, 2));
+
     // 2. Build the prompt using your storyEventService
     const prompt = await compileStoryPrompt(estate, event, chosenCharacterIds, locations, npcIds, bystanders);
 
@@ -43,9 +45,9 @@ router.post('/estates/:estateName/events/story', async (req: Request, res: Respo
 
     const response = await callGemini({
       prompt,
-      model: 'gemini-2.5-pro',
+      model: 'gemini-3-pro-preview',
       maxTokens: 1024,
-      temperature: 0.5
+      temperature: 1
     });
 
     // 4. Extract title from response

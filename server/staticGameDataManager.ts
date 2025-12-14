@@ -81,7 +81,7 @@ class StaticGameDataManager {
   private locationMap: Map<string, LocationData> = new Map();
   
   // Event data
-  private townEvents: EventRecord = {};
+  private eventsByCategory: Record<string, EventRecord> = {};
   private townKeywords: string[] = [];
   
   // NPC data
@@ -141,6 +141,7 @@ class StaticGameDataManager {
         characterWeightOverrides,
         locations,
         townEvents,
+        storyEvents,
         townKeywords,
         npcs,
         promptStoryInstructions,
@@ -157,6 +158,7 @@ class StaticGameDataManager {
         loadDefaultCharacterWeights(),
         loadAllLocations(),
         loadEventTemplatesForCategory('town'),
+        loadEventTemplatesForCategory('story'),
         loadTownKeywords(),
         loadAllNPCs(),
         loadTextFile(`${promptsBasePath}/story/storyInstructions.txt`),
@@ -174,7 +176,11 @@ class StaticGameDataManager {
       this.defaultCharacterLocations = defaultCharacterLocations;
       this.characterWeightOverrides = characterWeightOverrides;
       this.locations = locations;
-      this.townEvents = townEvents;
+      this.eventsByCategory = {
+        town: townEvents,
+        story: storyEvents,
+        // additional event categories go here
+      };
       this.townKeywords = townKeywords;
       this.npcs = npcs;
       
@@ -198,7 +204,9 @@ class StaticGameDataManager {
       console.log(`StaticGameDataManager initialized successfully with:`);
       console.log(`- ${Object.keys(this.characterTemplates).length} character templates`);
       console.log(`- ${this.locations.length} locations`);
-      console.log(`- ${Object.keys(this.townEvents).length} town events`);
+      const townCount = Object.keys(this.eventsByCategory.town || {}).length;
+      const totalCount = Object.values(this.eventsByCategory).reduce((sum, rec) => sum + Object.keys(rec).length, 0);
+      console.log(`- ${totalCount} total events (${townCount} town)`);
       console.log(`- ${Object.keys(this.npcs).length} NPCs`);
     } catch (error) {
       console.error('Failed to initialize StaticGameDataManager:', error);
@@ -256,14 +264,27 @@ class StaticGameDataManager {
   
   /* Event Methods */
   
-  public getTownEvents(): EventRecord {
+  public getEventsByCategory(category: string): EventRecord {
     this.ensureInitialized();
-    return this.townEvents;
+    return this.eventsByCategory[category] || {};
   }
-  
+
+  public getTownEvents(): EventRecord {
+    return this.getEventsByCategory('town');
+  }
+
   public getTownEventById(id: string): EventData | undefined {
     this.ensureInitialized();
-    return this.townEvents[id];
+    return (this.eventsByCategory.town || {})[id];
+  }
+
+  public getEventById(id: string): EventData | undefined {
+    this.ensureInitialized();
+    for (const rec of Object.values(this.eventsByCategory)) {
+      const ev = rec[id];
+      if (ev) return ev;
+    }
+    return undefined;
   }
   
   public getTownKeywords(): string[] {

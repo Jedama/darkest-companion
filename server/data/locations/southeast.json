@@ -27,7 +27,7 @@
   {
     "identifier": "guild_hall__master_quarters",
     "title": "Guild Master's Quarters",
-    "description": "Thorne and Freya's shared chamber doubles as a planning office, its walls covered in tactical maps. A heavy desk bears both old brigade documents and current training rosters, while weapon racks display an impressive array of combat styles.",
+    "description": "The shared chamber for the Guild Master and Trainer doubles as a planning office, its walls covered in tactical maps. A heavy desk bears both old brigade documents and current training rosters, while weapon racks display an impressive array of combat styles.",
     "summary": "guild_hall__master_quarters (Guild Master's Quarters) -- A shared chamber in the Guild Hall that serves as a planning office, with tactical maps and weapon displays.",
     "parent": "guild_hall",
     "children": [],
@@ -46,7 +46,7 @@
     "identifier": "training_ring",
     "title": "Training Ring",
     "description": "A proper practice arena reduced to debris and splintered timber. The collapsed viewing stands and broken practice dummies speak to the intensity of use rather than poor construction. Iron fixtures and solid foundation stones wait amid the wreckage, ready for restoration.",
-    "restored": "A proper training arena rebuilt to withstand even Freya's most demanding drills. Tiered wooden stands encircle a packed-earth ring, while reinforced practice dummies stand ready for abuse. Brass hooks hold torches for evening practice, though few remain after dark despite the ring's robust reconstruction.",
+    "restored": "A proper training arena rebuilt to withstand even the Guild Trainer's most demanding drills. Tiered wooden stands encircle a packed-earth ring, while reinforced practice dummies stand ready for abuse. Brass hooks hold torches for evening practice, though few remain after dark despite the ring's robust reconstruction.",
     "summary": "training_ring (Training Ring) -- A proper practice arena with tiered stands and practice dummies, used for intensive combat drills and training.",
     "parent": "guild_hall",
     "children": [],
@@ -55,7 +55,7 @@
   {
     "identifier": "training_yard",
     "title": "Training Yard",
-    "description": "A cleared space behind the Guild Hall where Freya now drills recruits. Wooden posts serve for weapons practice, while straw targets line the far wall. Though functional, it serves as a constant reminder of the ruined Training Ring's absence.",
+    "description": "A cleared space behind the Guild Hall where the Guild Trainer now drills recruits. Wooden posts serve for weapons practice, while straw targets line the far wall. Though functional, it serves as a constant reminder of the ruined Training Ring's absence.",
     "summary": "training_yard (Training Yard) -- A cleared space behind the Guild Hall, used for weapons practice and drilling recruits with posts and straw targets.",
     "parent": "guild_hall",
     "children": [],
@@ -72,7 +72,7 @@
   {
     "identifier": "apothecary",
     "title": "Apothecary",
-    "description": "A narrow three-story building of dark timber and clouded windows, its faded sign bearing traces of painted herbs - though closer inspection reveals specimens unlike any natural flora. The ground floor shop stands frozen in time since the Apothecary perished in the invasion, the neat precision of its shelves a stark contrast to the wild growths that once marked his sister's experiments.",
+    "description": "A narrow three-story building of dark timber and clouded windows, its faded sign bearing traces of painted herbs - though closer inspection reveals specimens unlike any natural flora. The ground floor shop stands frozen in time since the Apothecary perished in the invasion, the neat precision of its shelves a stark contrast to the wild growths that still mark his sister's experiments.",
     "summary": "apothecary (Apothecary) -- A narrow three-story building serving as a shop for remedies and unusual flora, with a history of unusual botanical experiments.",
     "parent": "southeast_district",
     "children": ["apothecary__shop", "apothecary__garden", "apothecary__second_floor", "apothecary__third_floor"]

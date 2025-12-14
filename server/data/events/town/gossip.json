@@ -1,29 +1,50 @@
 [
   {
-    "identifier": "gossip0",
+    "identifier": "gossip_0",
     "title": "Gossip",
     "type": "town",
     "description": "[Character 1] and [Character 2] talk about [Character 3].",
     "nrChars": [3, 3],
     "keywords": ["Shared anecdote", "Longing", "Looks", "Praise", "Disparagement", "Rumors", "History", "Secrets"],
-    "location": ["Town square", "Streets", "Tavern"]
+    "location": {
+      "default": ["town_square", "inn", "tavern"],
+      "residence": [1, 2, 3],
+      "workplaces": [],
+      "frequents": [1, 2, 3],
+      "allowAll": false,
+      "allowParentLocations": true
+    }
   },
   {
-    "identifier": "gossip1",
+    "identifier": "gossip_1",
     "title": "Gossip",
     "type": "town",
     "description": "[Character 1], [Character 2], and [Character 3] talk about [Character 4].",
     "nrChars": [4, 4],
     "keywords": ["Shared anecdote", "Longing", "Looks", "Praise", "Disparagement", "Rumors", "History", "Secrets"],
-    "location": ["Town square", "Streets", "Tavern"]
+    "location": {
+      "default": ["town_square", "inn", "tavern"],
+      "residence": [1, 2, 3, 4],
+      "workplaces": [],
+      "frequents": [1, 2, 3, 4],
+      "allowAll": false,
+      "allowParentLocations": true
+    }
   },
   {
-    "identifier": "gossip2",
+    "identifier": "gossip_2",
     "title": "Story",
     "type": "town",
     "description": "[Character 1] tells [Character 2] and [Character 3] a story about [Character 4].",
     "nrChars": [4, 4],
     "keywords": ["Longing", "Looks", "Praise", "Disparagement", "Rumors", "History", "Secrets"],
-    "location": ["Town square", "Streets", "Tavern"]
+    "location": {
+      "default": ["town_square", "inn", "tavern"],
+      "residence": [1, 2, 3, 4],
+      "workplaces": [],
+      "frequents": [1, 2, 3, 4],
+      "allowAll": false,
+      "allowParentLocations": true
+    }
   }
 ]

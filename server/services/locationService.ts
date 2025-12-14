@@ -1,9 +1,35 @@
 import { Estate, Character, EventData, LocationData } from '../../shared/types/types';
 import StaticGameDataManager from '../staticGameDataManager.js';
 
+const TOWN_SCOPE_ROOT = "hamlet";
+
 interface ProcessedLocation {
   baseScore: number;
   sharedCount: number;
+}
+
+/**
+ * True if `locationId` is a descendant of `ancestorId` (ancestor can be parent, grandparent, etc).
+ * Returns false if the chain breaks (missing parent in map).
+ */
+function isDescendantOf(
+  locationId: string,
+  ancestorId: string,
+  locationMap: Map<string, LocationData>
+): boolean {
+  let current = locationMap.get(locationId);
+  const guard = new Set<string>(); // prevents loops
+
+  while (current?.parent) {
+    if (guard.has(current.identifier)) return false;
+    guard.add(current.identifier);
+
+    if (current.parent === ancestorId) return true;
+
+    current = locationMap.get(current.parent);
+  }
+
+  return false;
 }
 
 /**
@@ -121,8 +147,11 @@ export function scoreLocations(
   // If allowAll is set, treat every location as part of the default
   let defaultLocations: LocationData[] = [];
   if (event.location.allowAll) {
-    defaultLocations = [...allLocations];
-    console.log('allowAll is set, including all locations as default.');
+    defaultLocations = allLocations.filter((loc) => {
+      if (loc.identifier === TOWN_SCOPE_ROOT) return false;          // exclude "hamlet"
+      if (loc.parent === TOWN_SCOPE_ROOT) return false;             // exclude districts (direct children)
+      return isDescendantOf(loc.identifier, TOWN_SCOPE_ROOT, locationMap); // include deeper descendants
+    });
   } else {
     // Otherwise, map event.location.default (which are IDs) to actual objects
     defaultLocations = event.location.default

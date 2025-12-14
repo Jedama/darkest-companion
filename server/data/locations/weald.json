@@ -1,0 +1,35 @@
+[
+  {
+    "identifier": "weald",
+    "title": "The Weald",
+    "description": "A sprawling expanse of ancient timber where fungal corruption has overtaken the natural order. Twisted roots choke the path while the canopy grows dense enough to blot out the sun, casting the forest floor in perpetual twilight. Miasmal vapors drift between trees that bear more resemblance to swollen flesh than wood, and the silence is broken only by the shifting of unseen things.",
+    "summary": "weald (The Weald) -- A sprawling expanse of ancient timber and fungal corruption that chokes the region in perpetual twilight and miasmal vapors.",
+    "parent": "estate",
+    "children": ["old_road"]
+  },
+  {
+    "identifier": "old_road",
+    "title": "The Old Road",
+    "description": "The forgotten trade route that winds its way toward the Hamlet, now little more than a scar through the wilderness. Brigands and worse stalk the shadows of ruined waystations, watching for those foolish enough to travel without armed escort. The mud here is deep and treacherous, eager to claim boots and wheels alike.",
+    "summary": "old_road (The Old Road) -- The forgotten trade route winding toward the Hamlet, plagued by brigands and deep mud that claims boots and wheels alike.",
+    "parent": "weald",
+    "children": ["prologue__stagecoach", "prologue__crash_site"]
+  },
+  {
+    "identifier": "prologue__stagecoach",
+    "title": "Stagecoach Interior",
+    "description": "A heavy carriage that smells of old leather and anxious sweat, lurching violently over the rutted track. Through the front partition, the Caretaker can be heard whipping the two panicked horses, his manic muttering competing with the groan of straining axles. The interior lanterns sway wildly, casting erratic shadows that offer no comfort against the encroaching dark.",
+    "summary": "prologue__stagecoach (Stagecoach Interior) -- The cramping interior of a heavy carriage where the Caretaker drives two panicked horses down the rutted track.",
+    "parent": "old_road",
+    "children": [],
+    "npcs": ["caretaker"]
+  },
+  {
+    "identifier": "prologue__crash_site",
+    "title": "Crash Site",
+    "description": "A muddy depression in the road where the carriage's axle finally gave way to the rough terrain. The vehicle lies crippled on its side, spilling trunks and provisions into the mire while the horses have torn free of their traces and vanished. The driver is nowhere to be seen, leaving the survivors alone beneath the looming, hostile boughs.",
+    "summary": "prologue__crash_site (Crash Site) -- A muddy depression where the carriage lies crippled, spilling provisions into the mire after the horses tore free.",
+    "parent": "old_road",
+    "children": []
+  }
+]

@@ -2,7 +2,7 @@
   {
     "identifier": "north_district",
     "title": "Northern District",
-    "description": "Dominated by the Abbey's spires and its tolling bells, this district houses both the living and the dead. The graveyard climbs the southern-and recently also the norther-hillside, while the abbey stands watchful above.",
+    "description": "Dominated by the Abbey's spires and its tolling bells, this district houses both the living and the dead. The graveyard climbs the southern-and recently also the northern-hillside, while the abbey stands watchful above.",
     "summary": "north_district (Northern District) -- A district dominated by the Abbey and its graveyard, housing both the living and the dead.",
     "parent": "hamlet",
     "children": ["graveyard", "abbey", "pilgrims_shelter"]
@@ -47,7 +47,7 @@
   {
     "identifier": "graveyard__ossuary",
     "title": "Ossuary",
-    "description": "Deep beneath the graveyard lies this catacomb, its winding passages lined with centuries of carefully arranged bones. Once a masterwork of geometric patterns formed from skulls and femurs, now many niches stand empty, their contents stolen. Heavy chains and multiple locks secure the entrance - installed after the tragedy of Martha, the cemetery keeper's daughter. When the Ancestor's experiments with reanimation brought the dead walking into the hamlet's streets, the young girl's fascination with the moving bones twisted into obsession. Now she haunts the Estate as the 'Bonetaker', skittering through shadows to collect specimens from both the dead and the reanimated.",
+    "description": "Deep beneath the graveyard lies this catacomb, its winding passages lined with centuries of carefully arranged bones. Once a masterwork of geometric patterns formed from skulls and femurs, now many niches stand empty, their contents stolen. Heavy chains and multiple locks secure the entrance - installed after the tragedy of Martha, the late cemetery keeper's daughter.",
     "summary": "graveyard__ossuary (Ossuary) -- A deep catacomb beneath the graveyard, lined with centuries of carefully arranged bones, and now associated with a reanimated 'Bonetaker'.",
     "parent": "graveyard",
     "children": []
@@ -82,7 +82,8 @@
     "description": "A broken shrine whose fractured crystal focuses no longer channel the sun's purifying rays. Shadows gather unnaturally in its corners even at midday.",
     "restored": "A beacon of hope restored, its crystal array capturing and amplifying daylight into beams that seem to push back the darkness. The surrounding area feels notably warmer and brighter.",
     "summary": "abbey__altar (Altar of Light) -- A shrine within the abbey's transept, intended to channel purifying light and create a beacon of hope.",
-    "parent": "abbey__transept"
+    "parent": "abbey__transept",
+    "children": []
   },
   {
     "identifier": "abbey__vestry",

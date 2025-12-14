@@ -8,295 +8,295 @@ interface ConsequenceLogEntry {
 
 // Define all possible consequence types matching the JSON structure
 export interface CharacterConsequence {
-  identifier: string;
-  add_log?: ConsequenceLogEntry;
-  update_stats?: {
-    strength?: number;
-    agility?: number;
-    intelligence?: number;
-    authority?: number;
-    sociability?: number;
-  };
-  update_status?: {
-    physical?: number;
-    mental?: number;
-    description?: string;
-  };
-  gain_traits?: string[];
-  lose_traits?: string[];
-  update_relationships?: {
-    target: string;
-    affinity?: number;
-    dynamic?: string;
-    description?: string;
-  }[];
-  update_appearance?: {
-    height?: string;
-    build?: string;
-    skinTone?: string;
-    hairColor?: string;
-    hairStyle?: string;
-    features?: string;
-  };
-  update_clothing?: {
-    head?: string;
-    body?: string;
-    legs?: string;
-    accessories?: string;
-  };
-  gain_wound?: string;
-  lose_wound?: string;
-  gain_disease?: string;
-  lose_disease?: string;
-  gain_note?: string;
-  lose_note?: string;
-  update_money?: number;
-  update_religion?: string;
-  // death?: string; // Will be implemented later
+identifier: string;
+add_log?: ConsequenceLogEntry;
+update_stats?: {
+  strength?: number;
+  agility?: number;
+  intelligence?: number;
+  authority?: number;
+  sociability?: number;
+};
+update_status?: {
+  physical?: number;
+  mental?: number;
+  description?: string;
+};
+gain_traits?: string[];
+lose_traits?: string[];
+update_relationships?: {
+  target: string;
+  affinity?: number;
+  dynamic?: string;
+  description?: string;
+}[];
+update_appearance?: {
+  height?: string;
+  build?: string;
+  skinTone?: string;
+  hairColor?: string;
+  hairStyle?: string;
+  features?: string;
+};
+update_clothing?: {
+  head?: string;
+  body?: string;
+  legs?: string;
+  accessories?: string;
+};
+gain_wound?: string;
+lose_wound?: string;
+gain_disease?: string;
+lose_disease?: string;
+gain_note?: string;
+lose_note?: string;
+update_money?: number;
+update_religion?: string;
+// death?: string; // Will be implemented later
 }
 
 export interface ConsequencesResult {
-  event_log?: ConsequenceLogEntry;
-  characters: CharacterConsequence[];
+event_log?: ConsequenceLogEntry;
+characters: CharacterConsequence[];
 }
 
 /**
  * Interface for the display-friendly consequence data
  */
 export interface ConsequenceDisplay {
-    characters: {
-      identifier: string;
-      personalChanges: Array<{
+  characters: {
+    identifier: string;
+    personalChanges: Array<{
+      text: string;
+      color: string;
+    }>;
+    relationshipChanges: {
+      [targetIdentifier: string]: Array<{
         text: string;
         color: string;
+        affinity?: number; // For determining glow effect
       }>;
-      relationshipChanges: {
-        [targetIdentifier: string]: Array<{
-          text: string;
-          color: string;
-          affinity?: number; // For determining glow effect
-        }>;
-      };
-    }[];
-  }
-  
-  /**
-   * Color mapping for different consequence types
-   */
-  const consequenceColorMap: Record<string, string> = {
-    'Strength': 'crimson',
-    'Agility': 'green',
-    'Intelligence': 'dodgerblue',
-    'Authority': 'darkmagenta',
-    'Sociability': 'yellow',
-    'Physical': 'red',
-    'Mental': 'white',
-    'Money': 'gold',
-    'Note': 'burlywood',
-    'Appearance': 'beige',
-    'Clothing': 'violet',
-    'Status': 'lightseagreen',
-    'Wound': 'darkred',
-    'Disease': '#90EE90',
-    'Religion': 'lightyellow',
-    'Trait': 'orange'
-  };
-  
-  /**
-   * Prepares display-friendly consequence data for the frontend
-   * 
-   * @param consequences The raw consequence data from the LLM
-   * @returns Formatted display data for the frontend
-   */
-  export function prepareConsequenceDisplay(consequences: ConsequencesResult): ConsequenceDisplay {
-    return {
-      characters: consequences.characters.map(char => {
-        const display = {
-          identifier: char.identifier,
-          personalChanges: [] as Array<{ text: string; color: string }>,
-          relationshipChanges: {} as Record<string, Array<{ text: string; color: string; affinity?: number }>>
-        };
-  
-        // Process add_log (just for debugging if needed)
-        // if (char.add_log) {
-        //   display.personalChanges.push({
-        //     text: `Log entry added`,
-        //     color: 'white'
-        //   });
-        // }
-  
-        // Process stats
-        if (char.update_stats) {
-          Object.entries(char.update_stats).forEach(([stat, value]) => {
-            if (value !== undefined) {
-              const prefix = value > 0 ? '+' : '';
-              const statName = stat.charAt(0).toUpperCase() + stat.slice(1);
-              display.personalChanges.push({
-                text: `${statName} ${prefix}${value}`,
-                color: consequenceColorMap[statName] || 'white'
-              });
-            }
-          });
-        }
-  
-        // Process status
-        if (char.update_status) {
-          if (char.update_status.physical !== undefined) {
-            const prefix = char.update_status.physical > 0 ? '+' : '';
-            display.personalChanges.push({
-              text: `Physical ${prefix}${char.update_status.physical}`,
-              color: consequenceColorMap['Physical'] || 'red'
-            });
-          }
-          
-          if (char.update_status.mental !== undefined) {
-            const prefix = char.update_status.mental > 0 ? '+' : '';
-            display.personalChanges.push({
-              text: `Mental ${prefix}${char.update_status.mental}`,
-              color: consequenceColorMap['Mental'] || 'white'
-            });
-          }
-          
-          if (char.update_status.description) {
-            display.personalChanges.push({
-              text: `↻ Status`,
-              color: consequenceColorMap['Status'] || 'lightseagreen'
-            });
-          }
-        }
-  
-        // Process traits
-        if (char.gain_traits && char.gain_traits.length > 0) {
-          char.gain_traits.forEach(trait => {
-            display.personalChanges.push({
-              text: `+ ${trait}`,
-              color: consequenceColorMap['Trait'] || 'orange'
-            });
-          });
-        }
-  
-        if (char.lose_traits && char.lose_traits.length > 0) {
-          char.lose_traits.forEach(trait => {
-            display.personalChanges.push({
-              text: `- ${trait}`,
-              color: consequenceColorMap['Trait'] || 'orange'
-            });
-          });
-        }
-  
-        // Process appearance
-        if (char.update_appearance) {
-          if (Object.values(char.update_appearance).some(v => v !== undefined)) {
-            display.personalChanges.push({
-              text: `↻ Appearance`,
-              color: consequenceColorMap['Appearance'] || 'beige'
-            });
-          }
-        }
-  
-        // Process clothing
-        if (char.update_clothing) {
-          if (Object.values(char.update_clothing).some(v => v !== undefined)) {
-            display.personalChanges.push({
-              text: `↻ Clothing`,
-              color: consequenceColorMap['Clothing'] || 'violet'
-            });
-          }
-        }
-  
-        // Process wounds & diseases
-        if (char.gain_wound) {
-          display.personalChanges.push({
-            text: `+ Wound`,
-            color: consequenceColorMap['Wound'] || 'darkred'
-          });
-        }
-  
-        if (char.lose_wound) {
-          display.personalChanges.push({
-            text: `- Wound`,
-            color: consequenceColorMap['Wound'] || 'darkred'
-          });
-        }
-  
-        if (char.gain_disease) {
-          display.personalChanges.push({
-            text: `+ Disease`,
-            color: consequenceColorMap['Disease'] || '#90EE90'
-          });
-        }
-  
-        if (char.lose_disease) {
-          display.personalChanges.push({
-            text: `- Disease`,
-            color: consequenceColorMap['Disease'] || '#90EE90'
-          });
-        }
-  
-        // Process notes
-        if (char.gain_note) {
-          display.personalChanges.push({
-            text: `+ Note`,
-            color: consequenceColorMap['Note'] || 'burlywood'
-          });
-        }
-  
-        // Process money
-        if (char.update_money !== undefined) {
-          const prefix = char.update_money > 0 ? '+' : '';
-          display.personalChanges.push({
-            text: `Money ${prefix}${char.update_money}`,
-            color: consequenceColorMap['Money'] || 'gold'
-          });
-        }
-  
-        // Process religion
-        if (char.update_religion) {
-          display.personalChanges.push({
-            text: `Religion → ${char.update_religion}`,
-            color: consequenceColorMap['Religion'] || 'lightyellow'
-          });
-        }
-  
-        // Process relationships
-        if (char.update_relationships) {
-          char.update_relationships.forEach(rel => {
-            if (!display.relationshipChanges[rel.target]) {
-              display.relationshipChanges[rel.target] = [];
-            }
-  
-            // Affinity change
-            if (rel.affinity !== undefined) {
-              const prefix = rel.affinity > 0 ? '+' : '';
-              display.relationshipChanges[rel.target].push({
-                text: `Affinity ${prefix}${rel.affinity}`,
-                color: rel.affinity > 0 ? 'white' : 'red',
-                affinity: rel.affinity
-              });
-            }
-  
-            // Dynamic change
-            if (rel.dynamic) {
-              display.relationshipChanges[rel.target].push({
-                text: `↻ Dynamic`,
-                color: 'orange'
-              });
-            }
-  
-            // Description change
-            if (rel.description) {
-              display.relationshipChanges[rel.target].push({
-                text: `↻ Description`,
-                color: 'orange'
-              });
-            }
-          });
-        }
-  
-        return display;
-      })
     };
-  }
+  }[];
+}
+  
+/**
+ * Color mapping for different consequence types
+ */
+const consequenceColorMap: Record<string, string> = {
+  'Strength': 'crimson',
+  'Agility': 'green',
+  'Intelligence': 'dodgerblue',
+  'Authority': 'darkmagenta',
+  'Sociability': 'yellow',
+  'Physical': 'red',
+  'Mental': 'white',
+  'Money': 'gold',
+  'Note': 'burlywood',
+  'Appearance': 'beige',
+  'Clothing': 'violet',
+  'Status': 'lightseagreen',
+  'Wound': 'darkred',
+  'Disease': '#90EE90',
+  'Religion': 'lightyellow',
+  'Trait': 'orange'
+};
+  
+/**
+ * Prepares display-friendly consequence data for the frontend
+  * 
+  * @param consequences The raw consequence data from the LLM
+  * @returns Formatted display data for the frontend
+  */
+export function prepareConsequenceDisplay(consequences: ConsequencesResult): ConsequenceDisplay {
+  return {
+    characters: consequences.characters.map(char => {
+      const display = {
+        identifier: char.identifier,
+        personalChanges: [] as Array<{ text: string; color: string }>,
+        relationshipChanges: {} as Record<string, Array<{ text: string; color: string; affinity?: number }>>
+      };
+
+      // Process add_log (just for debugging if needed)
+      // if (char.add_log) {
+      //   display.personalChanges.push({
+      //     text: `Log entry added`,
+      //     color: 'white'
+      //   });
+      // }
+
+      // Process stats
+      if (char.update_stats) {
+        Object.entries(char.update_stats).forEach(([stat, value]) => {
+          if (value !== undefined) {
+            const prefix = value > 0 ? '+' : '';
+            const statName = stat.charAt(0).toUpperCase() + stat.slice(1);
+            display.personalChanges.push({
+              text: `${statName} ${prefix}${value}`,
+              color: consequenceColorMap[statName] || 'white'
+            });
+          }
+        });
+      }
+
+      // Process status
+      if (char.update_status) {
+        if (char.update_status.physical !== undefined) {
+          const prefix = char.update_status.physical > 0 ? '+' : '';
+          display.personalChanges.push({
+            text: `Physical ${prefix}${char.update_status.physical}`,
+            color: consequenceColorMap['Physical'] || 'red'
+          });
+        }
+        
+        if (char.update_status.mental !== undefined) {
+          const prefix = char.update_status.mental > 0 ? '+' : '';
+          display.personalChanges.push({
+            text: `Mental ${prefix}${char.update_status.mental}`,
+            color: consequenceColorMap['Mental'] || 'white'
+          });
+        }
+        
+        if (char.update_status.description) {
+          display.personalChanges.push({
+            text: `↻ Status`,
+            color: consequenceColorMap['Status'] || 'lightseagreen'
+          });
+        }
+      }
+
+      // Process traits
+      if (char.gain_traits && char.gain_traits.length > 0) {
+        char.gain_traits.forEach(trait => {
+          display.personalChanges.push({
+            text: `+ ${trait}`,
+            color: consequenceColorMap['Trait'] || 'orange'
+          });
+        });
+      }
+
+      if (char.lose_traits && char.lose_traits.length > 0) {
+        char.lose_traits.forEach(trait => {
+          display.personalChanges.push({
+            text: `- ${trait}`,
+            color: consequenceColorMap['Trait'] || 'orange'
+          });
+        });
+      }
+
+      // Process appearance
+      if (char.update_appearance) {
+        if (Object.values(char.update_appearance).some(v => v !== undefined)) {
+          display.personalChanges.push({
+            text: `↻ Appearance`,
+            color: consequenceColorMap['Appearance'] || 'beige'
+          });
+        }
+      }
+
+      // Process clothing
+      if (char.update_clothing) {
+        if (Object.values(char.update_clothing).some(v => v !== undefined)) {
+          display.personalChanges.push({
+            text: `↻ Clothing`,
+            color: consequenceColorMap['Clothing'] || 'violet'
+          });
+        }
+      }
+
+      // Process wounds & diseases
+      if (char.gain_wound) {
+        display.personalChanges.push({
+          text: `+ Wound`,
+          color: consequenceColorMap['Wound'] || 'darkred'
+        });
+      }
+
+      if (char.lose_wound) {
+        display.personalChanges.push({
+          text: `- Wound`,
+          color: consequenceColorMap['Wound'] || 'darkred'
+        });
+      }
+
+      if (char.gain_disease) {
+        display.personalChanges.push({
+          text: `+ Disease`,
+          color: consequenceColorMap['Disease'] || '#90EE90'
+        });
+      }
+
+      if (char.lose_disease) {
+        display.personalChanges.push({
+          text: `- Disease`,
+          color: consequenceColorMap['Disease'] || '#90EE90'
+        });
+      }
+
+      // Process notes
+      if (char.gain_note) {
+        display.personalChanges.push({
+          text: `+ Note`,
+          color: consequenceColorMap['Note'] || 'burlywood'
+        });
+      }
+
+      // Process money
+      if (char.update_money !== undefined) {
+        const prefix = char.update_money > 0 ? '+' : '';
+        display.personalChanges.push({
+          text: `Money ${prefix}${char.update_money}`,
+          color: consequenceColorMap['Money'] || 'gold'
+        });
+      }
+
+      // Process religion
+      if (char.update_religion) {
+        display.personalChanges.push({
+          text: `Religion → ${char.update_religion}`,
+          color: consequenceColorMap['Religion'] || 'lightyellow'
+        });
+      }
+
+      // Process relationships
+      if (char.update_relationships) {
+        char.update_relationships.forEach(rel => {
+          if (!display.relationshipChanges[rel.target]) {
+            display.relationshipChanges[rel.target] = [];
+          }
+
+          // Affinity change
+          if (rel.affinity !== undefined) {
+            const prefix = rel.affinity > 0 ? '+' : '';
+            display.relationshipChanges[rel.target].push({
+              text: `Affinity ${prefix}${rel.affinity}`,
+              color: rel.affinity > 0 ? 'white' : 'red',
+              affinity: rel.affinity
+            });
+          }
+
+          // Dynamic change
+          if (rel.dynamic) {
+            display.relationshipChanges[rel.target].push({
+              text: `↻ Dynamic`,
+              color: 'orange'
+            });
+          }
+
+          // Description change
+          if (rel.description) {
+            display.relationshipChanges[rel.target].push({
+              text: `↻ Description`,
+              color: 'orange'
+            });
+          }
+        });
+      }
+
+      return display;
+    })
+  };
+}
 
 /**
  * Apply consequences to the estate based on the structured LLM response
@@ -344,6 +344,34 @@ export function applyConsequences(estate: Estate, consequences: ConsequencesResu
   }
 
   return updatedEstate;
+}
+
+/**
+ * Ensures that every character involved in the event has a consequence object.
+ * If the LLM omitted a character (because nothing happened), this adds an empty
+ * consequence object for them so the frontend can still render the character card.
+ */
+export function ensureAllCharactersHaveConsequences(
+  consequences: ConsequencesResult, 
+  chosenCharacterIds: string[]
+): ConsequencesResult {
+  
+  // 1. Create a Set of IDs that the LLM actually returned
+  const returnedIds = new Set(consequences.characters.map(c => c.identifier));
+
+  // 2. Iterate through the IDs selected by the user
+  chosenCharacterIds.forEach((id) => {
+    if (!returnedIds.has(id)) {
+      // 3. Create an empty consequence object implies "no change"
+      const emptyConsequence: CharacterConsequence = {
+        identifier: id
+      };
+      
+      consequences.characters.push(emptyConsequence);
+    }
+  });
+
+  return consequences;
 }
 
 /**
@@ -643,16 +671,17 @@ function clamp(value: number, min: number, max: number): number {
  * Calculate the expiry month based on the timeframe
  */
 function calculateExpiryMonth(currentMonth: number, timeframe: string): number {
-    const timeframeToMonths: Record<string, number> = {
-      'transient': 1,
-      'short_term': 3,
-      'mid_term': 7, 
-      'long_term': 12,
-      'permanent': 1000
-    };
+  const timeframeToMonths: Record<string, number> = {
+    'transient': 1,
+    'short_term': 3,
+    'mid_term': 7, 
+    'long_term': 12,
+    'permanent': 1000
+  };
+
+  // Default to transient if timeframe is not recognized
+  const months = timeframeToMonths[timeframe] || timeframeToMonths['transient'];
   
-    // Default to transient if timeframe is not recognized
-    const months = timeframeToMonths[timeframe] || timeframeToMonths['transient'];
-    
-    return currentMonth + months;
-  }
+  return currentMonth + months;
+}
+

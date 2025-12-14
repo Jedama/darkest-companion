@@ -1,0 +1,102 @@
+[
+  {
+    "identifier": "prologue_0",
+    "title": "The Old Road",
+    "type": "town",
+    "description": "[Characters] sit inside the stagecoach, travelling down the old road towards the Hamlet for the first time, about to start their long quest. The party should still be in the stagecoach, surrounded by the old grizzled trees of the old road, the Hamlet still not in sight. This is the prologue, and the characters aren't yet fully aware of the horrors that await them.",
+    "nrChars": [4, 4],
+    "keywords": [
+      "Game of cards",
+      "Passing the bottle",
+      "Gear check",
+      "Argument",
+      "Story",
+      "No dialogue",
+      "Confidence",
+      "Hubris",
+      "Anxiety"
+    ],
+    "location": {
+      "default": ["prologue__stagecoach"],
+      "residence": [],
+      "workplaces": [],
+      "frequents": [],
+      "allowAll": false,
+      "allowParentLocations": false
+    }
+  },
+  {
+    "identifier": "prologue_1",
+    "title": "Crash",
+    "type": "story",
+    "description": "Travelling down the old road, the stagecoach crashes, abruptly ending the journey. The Caretaker, who was driving, mysteriously disappears. [Characters] assess their injuries and begin making their way to the Hamlet by foot. This is the prologue, and the characters aren't yet fully aware of the horrors that await them.",
+    "nrChars": [4, 4],
+    "keywords": [
+      "Disorientation",
+      "Pain",
+      "Blame",
+      "Denial",
+      "Practicality",
+      "Search",
+      "Resignation"
+    ],
+    "location": {
+      "default": ["prologue__crash_site"],
+      "residence": [],
+      "workplaces": [],
+      "frequents": [],
+      "allowAll": false,
+      "allowParentLocations": false
+    }
+  },
+  {
+    "identifier": "prologue_2",
+    "title": "Send these vermin a message",
+    "type": "story",
+    "description": "On their way to the Hamlet on foot, after the Stagecoach crashed and the Caretaker vanished, [Characters] encounter [Enemies] and prepare for attack. Set the stage for the battle, but don't start it yet.",
+    "nrChars": [4, 4],
+    "keywords": [
+      "Threats",
+      "Intimidation",
+      "Caution",
+      "Hesitation",
+      "Bloodlust",
+      "Resolve",
+      "Send these vermin a message. The rightful owners has returned, and their kind is no longer welcome!"
+    ],
+    "location": {
+      "default": ["prologue__old_road"],
+      "residence": [],
+      "workplaces": [],
+      "frequents": [],
+      "allowAll": false,
+      "allowParentLocations": false
+    }
+  },
+  {
+    "identifier": "prologue_3",
+    "title": "Vanquished",
+    "type": "town",
+    "description": "After defeating [Enemies] encountered on the old road, [Characters] pause to assess the situation. Narrate their post-battle conversation—whether relieved, hostile, or weary—and their actions as they continue their journey towards the Hamlet on foot.",
+    "nrChars": [4, 4],
+    "keywords": [
+      "Relief",
+      "Exhaustion",
+      "Grim satisfaction",
+      "Discomfort",
+      "Second thoughts",
+      "Professional detachment",
+      "Tension",
+      "Quiet pride",
+      "Unease"
+    ],
+    "location": {
+      "default": ["prologue__old_road"],
+      "residence": [],
+      "workplaces": [],
+      "frequents": [],
+      "allowAll": false,
+      "allowParentLocations": false
+    }
+  }
+]

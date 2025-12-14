@@ -1,81 +1,145 @@
-// setupEventService.ts
 import { loadEstate } from '../fileOps';
 import { Estate, EventData, LocationData } from '../../shared/types/types';
 import { pickEventLocation } from './locationService';
 import StaticGameDataManager from '../staticGameDataManager.js';
 
+export interface SetupEventOptions {
+  characterIds?: string[];
+  eventId?: string;
+  description?: string; // Currently unused, but prepared for future usage
+}
+
 /**
- * Loads all event templates, picks one at random.
+ * Resolves which event template to use.
+ * If eventId is provided, looks it up. Otherwise, picks random.
  */
-function pickRandomEvent(): EventData {
+function resolveEvent(options: SetupEventOptions): EventData {
   const gameData = StaticGameDataManager.getInstance();
   const allEvents = gameData.getTownEvents();
-  const eventIds = Object.keys(allEvents);
 
+  // 1. Specific Event Requested
+  if (options.eventId) {
+    const event = allEvents[options.eventId];
+    if (!event) {
+      throw new Error(`Requested event '${options.eventId}' not found in game data.`);
+    }
+    console.log(`Using specific event: ${event.identifier}`);
+    return event;
+  }
+
+  // 2. Random Selection
+  const eventIds = Object.keys(allEvents);
   if (eventIds.length === 0) {
     throw new Error('No event templates found in data/events.');
   }
-
-  // const randomId = eventIds[Math.floor(Math.random() * eventIds.length)];
-  // Debug: Set a specific event ID for testing
-  const randomId = 'debug_2';
+  const randomId = eventIds[Math.floor(Math.random() * eventIds.length)];
+  console.log(`Picked random event: ${allEvents[randomId].identifier}`);
   return allEvents[randomId];
 }
 
 /**
- * Picks a random subset of character IDs from the estate.
- * Ensures we have enough characters to match a randomly selected number within the event's nrChars range.
+ * Resolves participants.
+ * 1. Starts with specific IDs provided by the user.
+ * 2. Calculates a random target size based on the event range [min, max].
+ * 3. Fills remaining slots with random characters from the estate.
  */
-function pickRandomCharacters(estate: Estate, nrCharsRange: [number, number]): string[] {
-  const allCharIds = Object.keys(estate.characters);
+function resolveCharacters(
+  estate: Estate,
+  event: EventData,
+  options: SetupEventOptions
+): string[] {
+  const allEstateCharIds = Object.keys(estate.characters);
+  
+  // 1. Determine Event Range
+  const nrCharsRange: [number, number] = 
+    (Array.isArray(event.nrChars) && event.nrChars.length === 2) 
+      ? [event.nrChars[0], event.nrChars[1]] 
+      : [1, 4];
 
-  if (allCharIds.length < nrCharsRange[0]) {
-    throw new Error(
-      `Not enough characters in the estate to pick ${nrCharsRange[0]}. Have only ${allCharIds.length}.`
-    );
+  const minRequired = nrCharsRange[0];
+  const maxAllowed = nrCharsRange[1];
+
+  // 2. Start with User Selections
+  let selected: string[] = [];
+  
+  if (options.characterIds && options.characterIds.length > 0) {
+    // Validate they exist
+    const missing = options.characterIds.filter(id => !allEstateCharIds.includes(id));
+    if (missing.length > 0) {
+      throw new Error(`Requested character IDs not found in estate: ${missing.join(', ')}`);
+    }
+    selected = [...options.characterIds];
   }
 
-  // Determine how many characters to pick within the range
-  const howMany = Math.floor(
-    Math.random() * (nrCharsRange[1] - nrCharsRange[0] + 1)
-  ) + nrCharsRange[0];
-
-  // Shuffle the array using Fisher-Yates
-  for (let i = allCharIds.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [allCharIds[i], allCharIds[j]] = [allCharIds[j], allCharIds[i]];
+  // 3. Truncate if User provided too many for this specific event
+  if (selected.length > maxAllowed) {
+    console.warn(`Provided ${selected.length} characters, but event max is ${maxAllowed}. Truncating.`);
+    selected = selected.slice(0, maxAllowed);
   }
 
-  // Return the first `howMany`
-  return allCharIds.slice(0, howMany);
+  // 4. Determine Target Count
+  // We pick a random number between min and max.
+  // However, if the user specifically provided a valid number of people 
+  // (e.g. range is 2-4, user provided 3), we should probably stick to 3 
+  // OR we can still try to fill to 4?
+  // Let's stick to the "Fill to Random Target" strategy.
+  
+  // Pick random size within range
+  let targetCount = Math.floor(
+    Math.random() * (maxAllowed - minRequired + 1)
+  ) + minRequired;
+
+  // Ensure target count isn't smaller than what the user explicitly asked for
+  // (e.g. range 1-4, user provided 3, random rolled 2 -> force it to 3)
+  if (selected.length > targetCount) {
+    targetCount = selected.length;
+  }
+
+  // 5. Fill with Random Characters
+  const needed = targetCount - selected.length;
+
+  if (needed > 0) {
+    // Filter out characters already selected
+    const pool = allEstateCharIds.filter(id => !selected.includes(id));
+
+    if (pool.length < needed) {
+      throw new Error(`Not enough spare characters in estate to fill event. Needed ${needed}, have ${pool.length}.`);
+    }
+
+    // Shuffle pool
+    for (let i = pool.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [pool[i], pool[j]] = [pool[j], pool[i]];
+    }
+
+    // Add the top N from the pool
+    const fillers = pool.slice(0, needed);
+    selected = [...selected, ...fillers];
+  }
+
+  return selected;
 }
 
 /**
- * Combines event and town keywords, removes duplicates, shuffles, and selects a subset.
-*/
+ * Combines event and town keywords.
+ */
 export function pickKeywords(
   eventKeywords: string[],
   townKeywords: string[]
 ): string[] {
-  // 1. Combine + remove duplicates
   const combined = Array.from(new Set([...eventKeywords, ...townKeywords]));
   
-  // 2. Shuffle
   for (let i = combined.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [combined[i], combined[j]] = [combined[j], combined[i]];
   }
   
-  // 3. Choose keywords
   let chosen = combined.slice(0, 4);
   
-  // 4. Ensure at least one original event keyword is in the final set
-  //    but only if the event had any original keywords.
   const eventKeywordsSet = new Set(eventKeywords);
   if (eventKeywords.length > 0) {
     const hasEventKeyword = chosen.some((kw) => eventKeywordsSet.has(kw));
     if (!hasEventKeyword) {
-      // replace the last chosen with a random event keyword
       const randomEventKeyword =
       eventKeywords[Math.floor(Math.random() * eventKeywords.length)];
       chosen[chosen.length - 1] = randomEventKeyword;
@@ -86,48 +150,42 @@ export function pickKeywords(
 }
 
 /**
- * Main function that:
- * 1) Loads the estate,
- * 2) Picks a random event,
- * 3) Picks random characters to match the event requirement,
- * 4) Optionally stores the selection in the estate (commented out below).
+ * Main Orchestrator
  */
-export async function setupRandomEvent(estateName: string): Promise<{
+export async function setupEvent(
+  estateName: string, 
+  options: SetupEventOptions = {}
+): Promise<{
   event: EventData;
   chosenCharacterIds: string[];
   locations: LocationData[];
   npcs: string[];
   bystanders: Array<{characterId: string, connectionType: 'residence' | 'workplace' | 'frequent'}>;
 }> {
-  // Get the game data manager
   const gameData = StaticGameDataManager.getInstance();
 
-  // 1. Load the estate
+  // 1. Load Estate
   const estate = await loadEstate(estateName);
   if (!estate) {
     throw new Error(`Estate '${estateName}' not found`);
   }
 
-  // 2. Pick a random event
-  const event = pickRandomEvent();
+  // 2. Resolve Event (Specific or Random)
+  const template = resolveEvent(options);
 
-  // 3. Get town keywords & pick final set
+  // Clone to avoid mutating shared data
+  const event: EventData = typeof structuredClone === 'function'
+    ? structuredClone(template)
+    : JSON.parse(JSON.stringify(template));
+
+  // 3. Resolve Keywords
   const townKeywords = gameData.getTownKeywords();
-  const finalKeywords = pickKeywords(event.keywords || [], townKeywords);
-  event.keywords = finalKeywords; // Overwrite or add a new property
+  event.keywords = pickKeywords(event.keywords || [], townKeywords);
 
-  // 4. Determine the range for nrChars
-  if (!Array.isArray(event.nrChars) || event.nrChars.length !== 2) {
-    throw new Error(`Invalid nrChars format for event '${event.identifier}'. Expected a range [min, max].`);
-  }
+  // 4. Resolve Characters (Specific or Random)
+  const chosenCharacterIds = resolveCharacters(estate, event, options);
 
-  // Cast nrChars to [number, number] for type safety
-  const nrCharsRange: [number, number] = [event.nrChars[0], event.nrChars[1]];
-
-  // 5. Pick random characters
-  const chosenCharacterIds = pickRandomCharacters(estate, nrCharsRange);
-
-  // 6. Get location information, NPCs, and bystanders
+  // 5. Resolve Location & Context
   let locations: LocationData[] = [];
   let npcs: string[] = [];
   let bystanders: Array<{characterId: string, connectionType: 'residence' | 'workplace' | 'frequent'}> = [];
@@ -143,6 +201,5 @@ export async function setupRandomEvent(estateName: string): Promise<{
     bystanders = result.bystanders;
   }
 
-  // Return the data for the route handler (or the next step)
   return { event, chosenCharacterIds, locations, npcs, bystanders };
 }

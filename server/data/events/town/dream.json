@@ -11,7 +11,8 @@
         "residence": [1],
         "workplaces": [],
         "frequents": [],
-        "allowAll": false
+        "allowAll": false,
+        "allowParentLocations": false
     }
   },
   {
@@ -26,7 +27,8 @@
         "residence": [1],
         "workplaces": [],
         "frequents": [],
-        "allowAll": false
+        "allowAll": false,
+        "allowParentLocations": false
     }
   }
 ]

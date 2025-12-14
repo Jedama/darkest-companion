@@ -1,0 +1,30 @@
+[
+  {
+    "identifier": "prologue__stagecoach",
+    "title": "Prologue Stagecoach",
+    "description": "A cramped, lantern-swayed interior where the stagecoach's black wood and brass fittings enclose the party like a traveling coffin. Wheels grind over ruts and stones as the Old Road threads between grizzled trees, their bare branches scraping the roof with a sound like distant claws. Dust and old leather hang in the air, and every jolt reminds the passengers how far they are from safety. Beyond the small window, the forest presses close—too close—offering only brief glimpses of the pale road before swallowing the view again.",
+    "summary": "prologue__stagecoach (Prologue Stagecoach) -- Inside the stagecoach on the Old Road: cramped lanternlight, grinding wheels, and a forest that leans in too close.",
+    "parent": "old_road",
+    "children": [],
+    "npcs": ["caretaker"],
+    "features": ["interior", "travel", "lanternlight"]
+  },
+  {
+    "identifier": "prologue__crash_site",
+    "title": "Prologue Crash Site",
+    "description": "A torn clearing where the Old Road has chewed the stagecoach to splinters and iron. A wheel lies half-buried in mud, spokes snapped like bones, while spilled provisions sink into black earth under steady drizzle. Harness straps twitch in the wind; the horses are gone, leaving only deep gouges in the road where they bolted. The trees crowd the wreckage in a crooked ring, their trunks scarred with fresh impacts and their branches swaying as if in quiet approval of the ruin. Whatever led the coach to this end, it left no clear tracks—only the sudden, wrong absence of the one who held the reins.",
+    "summary": "prologue__crash_site (Prologue Crash Site) -- A wrecked clearing on the Old Road: splintered coach, scattered supplies, and the unsettling absence of the driver.",
+    "parent": "old_road",
+    "children": [],
+    "features": ["wreckage", "scattered_supplies", "mud", "unsettling_absence"]
+  },
+  {
+    "identifier": "prologue__old_road",
+    "title": "Prologue Old Road",
+    "description": "A narrow, rutted track cutting through ancient woodland, where the ground rises and falls in slow, indifferent waves. The road is bordered by leaning stones and half-swallowed marker posts, their carvings worn smooth by weather and neglect. Here the forest feels not merely wild but watchful: crows shift on high branches, and the undergrowth holds its breath when footsteps approach. Fog clings low to the ditches, and the air smells of wet bark, cold iron, and old rot. The Hamlet lies ahead somewhere beyond the trees, but the road offers no sign of it—only the sense that each step forward is another step deeper into a place that remembers.",
+    "summary": "prologue__old_road (Prologue Old Road) -- A rutted woodland track of fog, old markers, and watchful silence, leading toward a Hamlet still out of sight.",
+    "parent": "old_road",
+    "children": ["prologue__stagecoach", "prologue__crash_site"],
+    "features": ["woodland", "fog", "marker_stones", "ominous_silence"]
+  }
+]

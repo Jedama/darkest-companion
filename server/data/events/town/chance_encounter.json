@@ -1,0 +1,28 @@
+{
+  "identifier": "chance_encounter_0",
+  "title": "Chance Encounter",
+  "type": "town",
+  "description": "[Characters] cross paths unexpectedly while going about their daily affairs.",
+  "nrChars": [2, 3],
+  "keywords": [
+    "Tension",
+    "Nostalgia",
+    "Awkward silence",
+    "Caught red-handed",
+    "Opportunity",
+    "Manipulation"
+  ],
+  "location": {
+    "default": [
+      "town_square",
+      "market_wagons",
+      "market_wagons__jeweler",
+      "market_wagons__nomad_wagon"
+    ],
+    "residence": [],
+    "workplaces": [1, 2, 3],
+    "frequents": [1, 2, 3],
+    "allowAll": true,
+    "allowParentLocations": true
+  }
+}

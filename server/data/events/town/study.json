@@ -1,9 +1,32 @@
 {
-    "identifier": "study_0",
-    "title": "Study",
-    "type": "town",
-    "description": "[Characters] spend time reading, experimenting, or simply passing the time.",
-    "nrChars": [2, 4],
-    "keywords": ["Clashing opinions", "Humorous", "Carelessness", "Tampering with documents", "Intimate", "Bullying"],
-    "location": ["dower_study", "library"]
+  "identifier": "study_0",
+  "title": "Study",
+  "type": "town",
+  "description": "[Characters] spend time reading, experimenting, or simply passing the time.",
+  "nrChars": [2, 4],
+  "keywords": [
+    "Clashing opinions",
+    "Humorous",
+    "Carelessness",
+    "Tampering with documents",
+    "Intimate",
+    "Bullying"
+  ],
+  "location": {
+    "default": [
+      "library",
+      "library__main",
+      "library__map_room",
+      "library__archive",
+      "library__special_collections",
+      "town_hall__record_archives",
+      "dower_house__astronomy_room",
+      "dower_house__study"
+    ],
+    "residence": [],
+    "workplaces": [],
+    "frequents": [],
+    "allowAll": false,
+    "allowParentLocations": true
+  }
 }

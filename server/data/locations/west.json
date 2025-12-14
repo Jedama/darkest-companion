@@ -5,15 +5,15 @@
     "description": "Centuries past, this was the hamlet's noble quarter, now a hollow echo of former grandeur. The noble house's tower now holds the sanitarium, and with the Weald's miasma it mark this district as a place to avoid. The Caretaker still maintains his provisions, and the Survivalist alone finds comfort beneath the twisted trees.",
     "summary": "west_district (Western District) -- The hamlet's former noble quarter, now characterized by the sanitarium and proximity to the Weald's unsettling influence.",
     "parent": "hamlet",
-    "children": ["sanitarium", "provisioner", "survivalist_tent", "weald_edge", "outsider_bonfire", "cartographer_camp"]
+    "children": ["sanitarium", "provisioner", "survivalist_tent", "weald_edge", "outsider_bonfire", "cartographer_camp", "palisade_wall"]
   },
   {
     "identifier": "sanitarium",
     "title": "Sanitarium",
     "description": "A repurposed manor house whose noble architecture now serves baser needs. Iron bars cover once-elegant windows, while the central tower rises above like a watchful guardian. Within, grand halls have been converted to wards, and the wine cellar holds patients rather than vintages.",
     "summary": "sanitarium (Sanitarium) -- A repurposed manor house serving as a medical facility, with grand halls converted to wards and a central tower.",
-    "parent": "western_district",
-    "children": ["sanitarium__tower_study", "sanitarium__treatment_ward", "sanitarium__medical_ward", "sanitarium__laboratorium", "sanitarium__cells", "sanitarium__courtyard", "sanitarium__reception", "sanitarium__nurse_quarters"],
+    "parent": "west_district",
+    "children": ["sanitarium__tower_study", "sanitarium__treatment_ward", "sanitarium__medical_ward", "sanitarium__laboratorium", "sanitarium__cells", "sanitarium__courtyard", "sanitarium__reception", "sanitarium__nurse_quarters", "sanitarium__physician_quarters", "sanitarium__treatment_library"],
     "npcs": ["nurse", "physician"]
   },
   {
@@ -102,7 +102,7 @@
     "title": "Provisioner's Store",
     "description": "A cluttered establishment whose organization follows its keeper's fractured logic. Shelves climb the walls in uneven patterns, laden with supplies deemed essential by Grayson's inscrutable criteria. Expedition gear shares space with rusted tools and salvaged oddities, while his endless ledgers fill a corner desk, their margins crowded with prophecies and maintenance schedules.",
     "summary": "provisioner (Provisioner's Store) -- A cluttered establishment organized by its keeper's unique logic, laden with expedition gear, tools, and supplies.",
-    "parent": "western_district",
+    "parent": "west_district",
     "children": []
   },
   {
@@ -110,7 +110,7 @@
     "title": "Survivalist's Tent",
     "description": "A sturdy leather pavilion anchored by precisely placed stakes at the settlement's western edge. Maps secured with monster-bone weights cover a makeshift table, their margins marked with observations in Raven's precise hand. Some smaller tents stand nearby, ready for occupants.",
     "summary": "survivalist_tent (Survivalist's Tent) -- A sturdy leather pavilion at the settlement's western edge, used for strategic planning with monster-bone weighted maps.",
-    "parent": "western_district",
+    "parent": "west_district",
     "children": [],
     "capacity": 3
   },
@@ -119,7 +119,7 @@
     "title": "Weald Edge",
     "description": "The ragged border where the hamlet's influence fails against encroaching wilderness. Here, twisted trees lean over crumbling stone walls, their branches tangled with the remnants of old rope from the Gallows Tree. That ancient execution ground still bears its grim fruit, though none can say whether the swaying corpses move from wind or something else. Above the diseased canopy rises the Tall Tree, its uppermost branches lost in mist where the Shrieker's vast nest blocks out the sky. Fungal growths creep closer with each season, their phosphorescent gleam visible through the undergrowth.",
     "summary": "weald_edge (Weald Edge) -- The ragged border where the hamlet meets encroaching wilderness, characterized by twisted trees, ancient execution grounds, and fungal growths.",
-    "parent": "western_district",
+    "parent": "west_district",
     "children": []
   },
   {
@@ -128,7 +128,7 @@
     "description": "A scatter of scorched stones and cold ash where the hamlet once celebrated brighter days. Rusted spits and broken benches lie half-buried in weeds, while dark stains mark where revelers spilled their drinks in hasty flight. The old solstice grounds stand empty now, though some say the flames died only after the last celebrant vanished into the Weald's darkness.",
     "restored": "A welcoming circle of warmth and light at the hamlet's edge. Iron spits turn above carefully maintained flames, while sturdy benches and barrels provide comfort for those seeking respite from the Estate's horrors. Though the Weald's shadows press close, they cannot breach the ring of firelight where townsfolk still gather to share meals and memories of better days.",
     "summary": "outsider_bonfire (Outsider's Bonfire) -- A welcoming circle of warmth and light at the hamlet's edge, used for gatherings, sharing meals, and finding respite.",
-    "parent": "western_district",
+    "parent": "west_district",
     "children": []
   },
   {
@@ -137,7 +137,7 @@
     "description": "A collapsed tent whose scattered contents speak of hasty abandonment. Moldering maps poke from muddy earth, their careful markings rendered meaningless by the Estate's shifting geography. A broken theodolite still points toward the manor, its brass dulled by years of neglect.",
     "restored": "A well-ordered pavilion where brass instruments gleam on sturdy tables, dedicated to the endless task of mapping the Estate's fluid boundaries. Fresh charts line the walls, each noting how paths and landmarks drift between surveys. The cartographer works by lamplight into the night, knowing tomorrow's expedition might find everything changed anew.",
     "summary": "cartographer_camp (Cartographer's Camp) -- A well-ordered pavilion with brass instruments and charts, dedicated to mapping the Estate's fluid and shifting boundaries.",
-    "parent": "western_district",
+    "parent": "west_district",
     "children": []
   },
   {

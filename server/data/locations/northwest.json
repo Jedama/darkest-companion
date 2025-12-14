@@ -255,7 +255,7 @@
   {
     "identifier": "dower_house__manor_approach",
     "title": "Manor Approach",
-    "description": "A weed-strewn path of cracked cobblestones, winding from the Dower House towards the ruins of the Estate's grand manor's and its mosquito-infested courtyard.",
+    "description": "A weed-strewn path of cracked cobblestones, winding from the Dower House towards the ruins of the Estate's grand manor and its mosquito-infested courtyard.",
     "summary": "dower_house__manor_approach (Manor Approach) -- A path of cracked cobblestones winding from the Dower House towards the grand manor ruins.",
     "parent": "dower_house__garden",
     "children": []

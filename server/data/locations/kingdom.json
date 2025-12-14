@@ -1,5 +1,13 @@
 [
   {
+    "identifier": "kingdom",
+    "title": "The Kingdom",
+    "description": "A sprawling monarchy of crumbling stone and rigid tradition, stretching from fertile inland plains to the storm-battered coast. It is a land of vast, lonely roads connecting isolated settlements, where the crown's influence wanes with every mile traveled from the capital. While trade and agriculture persist, a sense of stagnation hangs over the provinces, allowing stern religious orders and ambitious upstarts to carve out their own domains. The Kingdom functions through inertia, largely ignoring the rot taking hold in its forgotten corners—most notably the notorious Estate on its edge.",
+    "summary": "kingdom (The Kingdom) -- A sprawling monarchy of rigid tradition and decaying infrastructure, encompassing the Reformatory, the Harvest House, and the coastal Estate.",
+    "parent": "world",
+    "children": ["estate", "reformatory", "burnt_cottage", "harvest_house"]
+  },
+  {
     "identifier": "reformatory",
     "title": "St. Martha's Reformatory",
     "description": "A grim stone structure perched on a desolate hillside. Its gray walls bear the weathering of harsh seasons, while inside, dormitories lined with iron-framed beds house troubled girls under the stern watch of the Sisters. The branding chamber remains most disturbing, its implements for 'marking the impure' surrounded by stains no amount of scrubbing can remove. Daily routines of prayer, labor, and harsh correction continue in this isolated place where the outside world's judgments cannot reach.",
