@@ -1,5 +1,5 @@
 import { loadEstate } from '../fileOps';
-import { Estate, EventData, LocationData } from '../../shared/types/types';
+import { Estate, EventData, LocationData, Bystander } from '../../shared/types/types';
 import { pickEventLocation } from './locationService';
 import StaticGameDataManager from '../staticGameDataManager.js';
 
@@ -9,6 +9,45 @@ export interface SetupEventOptions {
   description?: string; // Currently unused, but prepared for future usage
 }
 
+export interface ResolvedCharacters {
+  chosenCharacterIds: string[];
+  overflowCharacterIds: string[]; // only from user input that was truncated
+}
+
+/**
+ * Removes duplicate IDs from an array while preserving the original order.
+ * @param ids - Array of string IDs, possibly with duplicates
+ * @returns New array with duplicates removed, original order preserved
+ */
+function dedupePreserveOrder(ids: string[]): string[] {
+  const seen = new Set<string>();
+  const result: string[] = [];
+
+  for (const raw of ids) {
+    // Trim whitespace
+    const id = raw.trim();
+
+    // Ignore empty strings
+    if (!id) continue;
+
+    if (!seen.has(id)) {
+      seen.add(id);
+      result.push(id);
+    }
+  }
+
+  return result;
+}
+
+/**
+ * Extracts the number of characters range from an event.
+ */
+function getNrCharsRange(event: EventData): [number, number] {
+  return (Array.isArray(event.nrChars) && event.nrChars.length === 2)
+    ? [event.nrChars[0], event.nrChars[1]]
+    : [1, 4];
+}
+
 /**
  * Resolves which event template to use.
  * If eventId is provided, looks it up. Otherwise, picks random.
@@ -16,6 +55,9 @@ export interface SetupEventOptions {
 function resolveEvent(options: SetupEventOptions): EventData {
   const gameData = StaticGameDataManager.getInstance();
   const allEvents = gameData.getTownEvents();
+
+  const requestedCount = options.characterIds?.length ?? 0;
+  const filterCount = Math.min(requestedCount, 4);
 
   // 1. Specific Event Requested
   if (options.eventId) {
@@ -28,10 +70,23 @@ function resolveEvent(options: SetupEventOptions): EventData {
   }
 
   // 2. Random Selection
-  const eventIds = Object.keys(allEvents);
+  let eventIds = Object.keys(allEvents);
   if (eventIds.length === 0) {
     throw new Error('No event templates found in data/events.');
   }
+
+  // Filter by Compatibility with Requested Character Count
+  if (requestedCount > 0) {
+    const compatible = eventIds.filter((id) => {
+      const ev = allEvents[id];
+      const [, maxAllowed] = getNrCharsRange(ev);
+      return maxAllowed >= filterCount;
+    });
+
+    eventIds = compatible;
+  }
+
+
   const randomId = eventIds[Math.floor(Math.random() * eventIds.length)];
   console.log(`Picked random event: ${allEvents[randomId].identifier}`);
   return allEvents[randomId];
@@ -47,20 +102,18 @@ function resolveCharacters(
   estate: Estate,
   event: EventData,
   options: SetupEventOptions
-): string[] {
+): ResolvedCharacters {
   const allEstateCharIds = Object.keys(estate.characters);
   
   // 1. Determine Event Range
-  const nrCharsRange: [number, number] = 
-    (Array.isArray(event.nrChars) && event.nrChars.length === 2) 
-      ? [event.nrChars[0], event.nrChars[1]] 
-      : [1, 4];
+  const nrCharsRange = getNrCharsRange(event);
 
   const minRequired = nrCharsRange[0];
   const maxAllowed = nrCharsRange[1];
 
   // 2. Start with User Selections
   let selected: string[] = [];
+  let overflowCharacterIds: string[] = [];
   
   if (options.characterIds && options.characterIds.length > 0) {
     // Validate they exist
@@ -73,18 +126,11 @@ function resolveCharacters(
 
   // 3. Truncate if User provided too many for this specific event
   if (selected.length > maxAllowed) {
-    console.warn(`Provided ${selected.length} characters, but event max is ${maxAllowed}. Truncating.`);
-    selected = selected.slice(0, maxAllowed);
+    overflowCharacterIds = selected.slice(maxAllowed);   // capture extras
+    selected = selected.slice(0, maxAllowed);            // keep participants
   }
 
   // 4. Determine Target Count
-  // We pick a random number between min and max.
-  // However, if the user specifically provided a valid number of people 
-  // (e.g. range is 2-4, user provided 3), we should probably stick to 3 
-  // OR we can still try to fill to 4?
-  // Let's stick to the "Fill to Random Target" strategy.
-  
-  // Pick random size within range
   let targetCount = Math.floor(
     Math.random() * (maxAllowed - minRequired + 1)
   ) + minRequired;
@@ -117,7 +163,7 @@ function resolveCharacters(
     selected = [...selected, ...fillers];
   }
 
-  return selected;
+  return { chosenCharacterIds: selected, overflowCharacterIds };
 }
 
 /**
@@ -160,9 +206,19 @@ export async function setupEvent(
   chosenCharacterIds: string[];
   locations: LocationData[];
   npcs: string[];
-  bystanders: Array<{characterId: string, connectionType: 'residence' | 'workplace' | 'frequent'}>;
+  bystanders: Bystander[];
 }> {
   const gameData = StaticGameDataManager.getInstance();
+
+  // Dedup characterIds (order-preserving)
+  const dedupedCharacterIds = options.characterIds
+    ? dedupePreserveOrder(options.characterIds)
+    : undefined;
+
+  const normalizedOptions: SetupEventOptions = {
+    ...options,
+    characterIds: dedupedCharacterIds,
+  };
 
   // 1. Load Estate
   const estate = await loadEstate(estateName);
@@ -171,7 +227,7 @@ export async function setupEvent(
   }
 
   // 2. Resolve Event (Specific or Random)
-  const template = resolveEvent(options);
+  const template = resolveEvent(normalizedOptions);
 
   // Clone to avoid mutating shared data
   const event: EventData = typeof structuredClone === 'function'
@@ -183,19 +239,22 @@ export async function setupEvent(
   event.keywords = pickKeywords(event.keywords || [], townKeywords);
 
   // 4. Resolve Characters (Specific or Random)
-  const chosenCharacterIds = resolveCharacters(estate, event, options);
+  const { chosenCharacterIds, overflowCharacterIds } =
+  resolveCharacters(estate, event, normalizedOptions);
 
   // 5. Resolve Location & Context
   let locations: LocationData[] = [];
   let npcs: string[] = [];
-  let bystanders: Array<{characterId: string, connectionType: 'residence' | 'workplace' | 'frequent'}> = [];
+  let bystanders: Array<{characterId: string, connectionType: 'residence' | 'workplace' | 'frequent' | 'present'}> = [];
   
   if (event.location) {
     const result = await pickEventLocation(
       event,
       chosenCharacterIds.map((id) => estate.characters[id]),
+      overflowCharacterIds.map((id) => estate.characters[id]),
       estate
     );
+
     locations = result.locations;
     npcs = result.npcs;
     bystanders = result.bystanders;

@@ -1,4 +1,4 @@
-import { Estate, Character, EventData, LocationData } from '../../shared/types/types';
+import { Estate, Character, EventData, LocationData, Bystander } from '../../shared/types/types';
 import StaticGameDataManager from '../staticGameDataManager.js';
 
 const TOWN_SCOPE_ROOT = "hamlet";
@@ -6,6 +6,21 @@ const TOWN_SCOPE_ROOT = "hamlet";
 interface ProcessedLocation {
   baseScore: number;
   sharedCount: number;
+}
+
+/**
+ * Determines the type of connection a character has to a specific location.
+ * Returns 'residence', 'workplace', 'frequent', or null if no connection exists.
+ */
+function getConnectionToLocation(
+  character: Character,
+  locationId: string
+): Exclude<Bystander['connectionType'], 'present'> | null {
+  // Priority: residence > workplace > frequent
+  if (character.locations.residence.includes(locationId)) return 'residence';
+  if (character.locations.workplaces.includes(locationId)) return 'workplace';
+  if (character.locations.frequents.includes(locationId)) return 'frequent';
+  return null;
 }
 
 /**
@@ -339,11 +354,12 @@ function getSurroundingLocationsAndNPCs(
 export function pickEventLocation(
   event: EventData,
   characters: Character[],
+  overflowCharacters: Character[],
   estate: Estate
 ): Promise<{ 
   locations: LocationData[]; 
   npcs: string[]; 
-  bystanders: Array<{characterId: string, connectionType: 'residence' | 'workplace' | 'frequent'}>
+  bystanders: Bystander[];
 }> {
   // Get the location map from our static data manager
   const locationMap = StaticGameDataManager.getInstance().getLocationMap();
@@ -361,34 +377,105 @@ export function pickEventLocation(
   );
 
   // 4) Find characters connected to these locations
-  const charIds = characters.map(c => c.identifier);
-  const bystanders = findCharactersConnectedToLocations(estate, surroundingLocations);
-  
-  // If there are more than 5 bystanders, limit to a random 5
-  let limitedBystanders = bystanders;
-  if (bystanders.length > 5) {
-    // Fisher-Yates shuffle
-    for (let i = bystanders.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [bystanders[i], bystanders[j]] = [bystanders[j], bystanders[i]];
-    }
-    limitedBystanders = bystanders.slice(0, 5);
+  const pickedLocationId = surroundingLocations.length > 0 ? surroundingLocations[0].identifier : null;
+
+  // If somehow we have no picked location, fall back to no bystanders
+  if (!pickedLocationId) {
+    return Promise.resolve({
+      locations: surroundingLocations,
+      npcs,
+      bystanders: []
+    });
   }
 
-  return Promise.resolve({ 
-    locations: surroundingLocations, 
-    npcs, 
-    bystanders: limitedBystanders 
+  // Fast lookup to distinguish participants from non-participants later
+  const participantIdSet = new Set(characters.map(c => c.identifier));
+
+  // 1) Participant connection metadata (does NOT count toward cap)
+  const participantBystanders: Bystander[] = [];
+  for (const p of characters) {
+    // Determine how (if at all) this participant is tied to the location
+    const conn = getConnectionToLocation(p, pickedLocationId);
+    // Only include participants who actually have a connection
+    if (conn) {
+      participantBystanders.push({ characterId: p.identifier, connectionType: conn });
+    }
+  }
+
+  // 2) Fill non-participant bystanders up to cap (overflow first, then locals)
+  const MAX_NONPARTICIPANT_BYSTANDERS = 4;
+  const nonParticipantBystanders: Bystander[] = [];
+  const addedNonParticipant = new Set<string>();
+
+  // 2a) Add overflow first (upgrading present -> residence/workplace/frequent if applicable)
+  for (const oc of overflowCharacters) {
+
+    // Stop once we've hit the hard cap
+    if (nonParticipantBystanders.length >= MAX_NONPARTICIPANT_BYSTANDERS) break;
+
+    // Defensive checks — overflow should never override participants
+    const id = oc.identifier;
+    if (participantIdSet.has(id)) continue;
+    if (addedNonParticipant.has(id)) continue;
+
+    // Attempt to upgrade from generic presence
+    const conn = getConnectionToLocation(oc, pickedLocationId);
+    nonParticipantBystanders.push({
+      characterId: id,
+      // Fall back to "present" if no stronger connection exists
+      connectionType: conn ?? 'present'
+    });
+    addedNonParticipant.add(id);
+  }
+
+  // 2b) Fill remaining slots with location-connected non-participants
+  if (nonParticipantBystanders.length < MAX_NONPARTICIPANT_BYSTANDERS) {
+    // Precomputed list of characters tied to the location (only the main location, despite the plural name)
+    const connected = findCharactersConnectedToLocations(estate, surroundingLocations);
+
+    // Filter out participants and already-added overflow characters
+    const candidates = connected.filter((b) =>
+      !participantIdSet.has(b.characterId) && !addedNonParticipant.has(b.characterId)
+    );
+
+    // Shuffle to keep randomness (Fisher–Yates shuffle)
+    for (let i = candidates.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [candidates[i], candidates[j]] = [candidates[j], candidates[i]];
+    }
+
+    // Add shuffled candidates until we hit the cap
+    for (const c of candidates) {
+      if (nonParticipantBystanders.length >= MAX_NONPARTICIPANT_BYSTANDERS) break;
+      nonParticipantBystanders.push(c);
+      addedNonParticipant.add(c.characterId);
+    }
+  }
+
+  // Final bystander list:
+  // - Participants (metadata, uncapped) first
+  // - Non-participants (capped) second
+  const bystanders = [...participantBystanders, ...nonParticipantBystanders];
+
+  return Promise.resolve({
+    locations: surroundingLocations,
+    npcs,
+    bystanders
   });
 }
 
+/**
+ * Finds all characters in the estate who are connected to any of the given locations.
+ * Connection types include residence, workplace, frequent. 
+ * (This actually only cares about the first location in the array for now.)
+ */
 export function findCharactersConnectedToLocations(
   estate: Estate,
   locations: LocationData[]
-): Array<{characterId: string, connectionType: 'residence' | 'workplace' | 'frequent'}> {
+): Array<{characterId: string, connectionType: 'residence' | 'workplace' | 'frequent' | 'present'}> {
   // Only use the first location in the array
   const locationId = locations.length > 0 ? locations[0].identifier : null;
-  const connections: Array<{characterId: string, connectionType: 'residence' | 'workplace' | 'frequent'}> = [];
+  const connections: Array<{characterId: string, connectionType: 'residence' | 'workplace' | 'frequent' | 'present'}> = [];
   
   // Return empty array if no locations provided
   if (!locationId) return connections;

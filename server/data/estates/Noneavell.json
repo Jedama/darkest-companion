@@ -406,9 +406,9 @@
           "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         },
         "kheir": {
-          "affinity": 2,
-          "dynamic": "Ruthless Controller",
-          "description": "Dismas views Percival as a means to an end, a vulnerable asset to be controlled and exploited for his own grim purposes, solidifying their dynamic as a twisted form of necessary payment for perceived debts."
+          "affinity": 3,
+          "dynamic": "Sadistic Handler",
+          "description": "Dismas derives grim satisfaction from asserting physical dominance over Percival, viewing the Heir as a pathetic creature that requires painful discipline."
         },
         "krakenslayer": {
           "affinity": 3,
@@ -573,7 +573,8 @@
       "notes": [
         "Turns to wine when overwhelmed by the stress of managing the Hamlet",
         "Attracted to women with ample breasts",
-        "Approaches physical intimacy with a detached, utilitarian mindset, viewing it as a means to an end."
+        "Approaches physical intimacy with a detached, utilitarian mindset, viewing it as a means to an end.",
+        "Values efficiency and strict discipline above empathy or comfort."
       ],
       "relationships": {
         "abomination": {
@@ -652,9 +653,9 @@
           "description": "No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone."
         },
         "kheir": {
-          "affinity": 6,
-          "dynamic": "Demanding Guardian",
-          "description": "Persephone feels a reluctant pity for Percival's profound distress, yet her unwavering focus on the mission compels her to push him, reinforcing her role as his firm, albeit caring, taskmaster."
+          "affinity": 5,
+          "dynamic": "Cold Taskmaster",
+          "description": "Persephone views Percival's trauma responses as inefficiencies, prioritizing the mission's documentation over his mental stability."
         },
         "krakenslayer": {
           "affinity": 3,
@@ -781,7 +782,7 @@
         "physical": 100,
         "mental": 0,
         "affliction": "",
-        "description": "Plagued by overwhelming revulsion and deep-seated terror, his fragile composure shattered by the discovery of the Ancestor's grotesque mockery.",
+        "description": "Suffocating in panic, trapped between past trauma and present tormentors",
         "wounds": [],
         "diseases": []
       },
@@ -889,8 +890,8 @@
         },
         "highwayman": {
           "affinity": 0,
-          "dynamic": "Terrified Victim",
-          "description": "Percival views Dismas as a terrifying, unpredictable abuser who has stripped him of all dignity and safety, leaving him with profound revulsion and a debilitating fear that permeates his every interaction."
+          "dynamic": "Tormented Prey",
+          "description": "Percival sees Dismas as a predatory monster who denies him comfort and inflicts pain to assert total control."
         },
         "hood": {
           "affinity": 3,
@@ -2565,6 +2566,11 @@
         "month": 3,
         "entry": "Despite a moment of pity for Percival's distress, Persephone prioritized the retrieval of the grotesque clue, reinforcing her mission-driven resolve.",
         "expiryMonth": 6
+      },
+      {
+        "month": 3,
+        "entry": "Expressed admiration for the ruthless efficiency and strict discipline of the reformatory sisters.",
+        "expiryMonth": 15
       }
     ],
     "antiquarian": [
@@ -2614,6 +2620,11 @@
         "month": 3,
         "entry": "Confronted by direct evidence of the Ancestor's rat hybridization experiments, Percival's composure shattered under extreme revulsion and humiliation.",
         "expiryMonth": 15
+      },
+      {
+        "month": 3,
+        "entry": "Suffered a panic attack in the branding chamber, exacerbated by Dismas physically preventing him from drinking.",
+        "expiryMonth": 6
       }
     ],
     "highwayman": [
@@ -2626,7 +2637,19 @@
         "month": 3,
         "entry": "Asserted ruthless dominance over Percival through a deliberate act of non-consensual intimacy, fulfilling a dark and personal form of 'payment' and further solidifying his grim resolve.",
         "expiryMonth": 15
+      },
+      {
+        "month": 3,
+        "entry": "Physically intimidated the Heir, denying him his coping mechanism to assert dominance.",
+        "expiryMonth": 6
       }
     ]
-  }
+  },
+  "estateLogs": [
+    {
+      "month": 3,
+      "entry": "While exploring the branding chamber, Persephone admired the brutal discipline of the past, while Dismas physically tormented Percival to keep him in line.",
+      "expiryMonth": 4
+    }
+  ]
 }

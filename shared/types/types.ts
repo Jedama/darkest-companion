@@ -175,3 +175,13 @@ export type CharacterRecord = Record<string, Character>;
 
 // A record of all available event blueprints.
 export type EventRecord = Record<string, EventData>;
+
+
+// ========== Bystanders ==========
+
+type BystanderConnectionType = 'residence' | 'workplace' | 'frequent' | 'present';
+
+export interface Bystander {
+  characterId: string;
+  connectionType: BystanderConnectionType;
+}

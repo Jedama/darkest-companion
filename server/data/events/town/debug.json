@@ -62,5 +62,21 @@
       "allowAll": true,
       "allowParentLocations": true
     }
+  },
+  {
+    "identifier": "debug_4",
+    "title": "Reformatory",
+    "type": "town",
+    "description": "[Characters] find themselves exploring an old reformatory.",
+    "nrChars": [3, 3],
+    "keywords": ["Exploration", "Investigation", "Abandoned"],
+    "location": {
+      "default": ["reformatory"],
+      "residence": [],
+      "workplaces": [],
+      "frequents": [],
+      "allowAll": false,
+      "allowParentLocations": false
+    }
   }
 ]

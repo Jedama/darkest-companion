@@ -74,6 +74,16 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
   
     setPhase('deck');
 
+    // Debug character IDs
+    const characterIds = [
+      'kheir',
+      'heiress',
+      'highwayman',
+      'crusader',
+      'arbalest',
+      'antiquarian',
+    ];
+
     try {
       // 1) Setup random event (now with optional userPrompt)
       const setupRes = await fetch(
@@ -82,7 +92,9 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ 
-            description: userPrompt
+            description: userPrompt,
+            characterIds,
+            eventId: 'debug_4'
           }),
           signal,
         }

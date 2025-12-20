@@ -1,4 +1,4 @@
-import type { Estate, EventData, Character, NPC, LocationData } from '../../shared/types/types.ts';
+import type { Estate, EventData, Character, NPC, LocationData, Bystander } from '../../shared/types/types.ts';
 import { compileNarrativeContext  } from './promptService.js';
 import StaticGameDataManager from '../staticGameDataManager.js';
 
@@ -15,7 +15,7 @@ export async function compileStoryPrompt(
   chosenCharacterIds: string[],
   locations: LocationData[],
   npcIds: string[],
-  bystanders: Array<{characterId: string, connectionType: 'residence' | 'workplace' | 'frequent'}> = []
+  bystanders: Bystander[] = []
 ): Promise<string> {
 
   // Function to replace placeholders like [Character ?] or [Characters] with corresponding names
@@ -202,6 +202,9 @@ Description: ${description}
           break;
         case 'frequent':
           connectionText = 'Frequents the event location';
+          break;
+        case 'present':
+          connectionText = 'Present at the event location';
           break;
       }
       
