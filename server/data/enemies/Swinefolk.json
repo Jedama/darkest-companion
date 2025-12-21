@@ -1,0 +1,163 @@
+[
+  {
+    "identifier": "swine_chopper",
+    "title": "Swine Chopper",
+    "description": "The Swine Chopper is a hulking executioner bred for the filth of the Warrens. Armored in scarred flesh and crude protection, he advances with relentless force, swinging cleaver and flail in wide, ruinous arcs meant to overwhelm rather than outfight. Where he plants his feet, resistance is ground down through sheer brutality.",
+    "history": "Choppers are among the most physically imposing of the Swinefolk—creatures shaped by butchery, confinement, and endless hunger. Within the warrens they serve as enforcers and guards, driving lesser swine forward and cutting down intruders with industrial efficiency. Their presence reflects the Warrens themselves: crowded, violent, and built to process flesh without pause or mercy.",
+    "summary": "A heavily armored melee brute who dominates close combat through raw strength and punishing attacks.",
+    "race": "Swinefolk",
+    "gender": "Male",
+    "faction": ["Swinefolk"],
+    "religion": "Unknown",
+    "traits": [
+      "Brutish",
+      "Unyielding",
+      "Savage",
+      "Single-minded"
+    ],
+    "stats": {
+      "strength": 8,
+      "agility": 4,
+      "intelligence": 2,
+      "authority": 5,
+      "sociability": 1
+    },
+    "equipment": [
+      "Serrated cleaver",
+      "Ball and chain"
+    ],
+    "appearance": {
+      "height": "Tall",
+      "build": "Muscular",
+      "skinTone": "Brown",
+      "hairColor": "Sparse",
+      "hairStyle": "Patchy bristles",
+      "features": "Thick jowls, small furious eyes, and a body layered with scar tissue"
+    },
+    "clothing": {
+      "head": "None",
+      "body": "Leather straps and crude bindings stretched across the torso",
+      "legs": "Tattered loincloth",
+      "accessories": "Heavy chains wrapped around the arms and waist"
+    },
+    "combat": {
+      "role": "Heavy melee",
+      "strengths": [
+        "Exceptional durability",
+        "Overwhelming physical power"
+      ],
+      "weaknesses": [
+        "Slow reactions",
+        "Limited awareness"
+      ]
+    },
+    "magic": "None"
+  },
+  {
+    "identifier": "swine_slasher",
+    "title": "Swine Slasher",
+    "description": "The Swine Slasher darts through the warrens with feral speed, wielding a hooked blade designed to catch, tear, and drag prey off balance. Lighter and more agile than his kin, he strikes with cruel precision, harrying weakened targets before retreating behind sturdier bodies.",
+    "history": "Slashers fill the role of hunters among the Swinefolk—those who chase down escaping victims and exploit openings created by heavier enforcers. Their gear is scavenged and repurposed, favoring mobility over protection. In the cramped tunnels of the Warrens, their speed and familiarity with the terrain make them especially dangerous.",
+    "summary": "A swift melee attacker who relies on speed, positioning, and precise strikes to dismantle vulnerable foes.",
+    "race": "Swinefolk",
+    "gender": "Male",
+    "faction": ["Swinefolk"],
+    "religion": "Unknown",
+    "traits": [
+      "Cunning",
+      "Agile",
+      "Cruel",
+      "Opportunistic"
+    ],
+    "stats": {
+      "strength": 5,
+      "agility": 8,
+      "intelligence": 3,
+      "authority": 3,
+      "sociability": 2
+    },
+    "equipment": [
+      "Large hook",
+      "Round shield"
+    ],
+    "appearance": {
+      "height": "Average",
+      "build": "Lean",
+      "skinTone": "Pink",
+      "hairColor": "Sparse",
+      "hairStyle": "Bristled crest",
+      "features": "Narrow snout, sharp teeth, and quick, darting movements"
+    },
+    "clothing": {
+      "head": "Spiked metal helmet",
+      "body": "Leather straps crisscrossing the chest",
+      "legs": "Tattered loincloth",
+      "accessories": "Crude shield strapped tightly to the forearm"
+    },
+    "combat": {
+      "role": "Assassin",
+      "strengths": [
+        "High mobility",
+        "Precise strikes"
+      ],
+      "weaknesses": [
+        "Low durability",
+        "Limited adaptability"
+      ]
+    },
+    "magic": "None"
+  },
+  {
+    "identifier": "swine_wretch",
+    "title": "Swine Wretch",
+    "description": "The Swine Wretch is a crawling abomination, its malformed body dragging itself forward on human-like arms while its useless pig legs trail behind. Its distended flesh bears the warped outline of a human skull beneath the skin, a grim reminder of the process that birthed it.",
+    "history": "Wretches are the refuse of the Warrens—failed transformations, broken stock, and bodies warped beyond any practical use. They are not culled, but left to linger, spreading sickness and despair wherever they crawl. Whether ignored or deliberately unleashed, their existence speaks to the Warrens’ complete disregard for waste or mercy.",
+    "summary": "A fragile but disturbing hazard that spreads disease and psychological strain through its presence.",
+    "race": "Swinefolk",
+    "gender": "Unknown",
+    "faction": ["Swinefolk"],
+    "religion": "Unknown",
+    "traits": [
+      "Diseased",
+      "Pitiful",
+      "Unstable",
+      "Grotesque"
+    ],
+    "stats": {
+      "strength": 3,
+      "agility": 2,
+      "intelligence": 1,
+      "authority": 0,
+      "sociability": 0
+    },
+    "equipment": [
+      "None"
+    ],
+    "appearance": {
+      "height": "Short",
+      "build": "Emaciated",
+      "skinTone": "Sickly beige",
+      "hairColor": "Sparse",
+      "hairStyle": "Patchy bristles",
+      "features": "Bloated belly with the faint outline of a human skull beneath the skin"
+    },
+    "clothing": {
+      "head": "None",
+      "body": "None",
+      "legs": "None",
+      "accessories": "None"
+    },
+    "combat": {
+      "role": "Biological hazard",
+      "strengths": [
+        "Disease-spreading fluids",
+        "Psychological disturbance"
+      ],
+      "weaknesses": [
+        "Extreme physical frailty",
+        "Very slow movement"
+      ]
+    },
+    "magic": "None"
+  }
+]

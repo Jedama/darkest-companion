@@ -1,0 +1,110 @@
+[
+  {
+    "identifier": "supplicant",
+    "title": "Supplicant",
+    "description": "The Supplicant is not the corpse that lurches beneath it, but the massive parasite fused to its head. A bloated tick, swollen with stolen blood, grips the desiccated body like a harness, its hooked limbs buried deep into dead flesh. The host’s arms and legs move only as the parasite demands, dragged forward as the creature feeds, steers, and endures behind a slack, emptied face.",
+    "history": "Supplicants are formed when the Bloodsuckers’ hunger outlives the host meant to satisfy it. Whether by devotion, coercion, or simple exhaustion, the human body collapses long before the parasite does. Rather than abandon its meal, the creature binds itself fully to the remains, preserving just enough structure to continue feeding and moving among its kind.",
+    "summary": "A disturbing parasitic entity that spreads corruption and disease while disrupting enemies through its grotesque presence.",
+    "race": "Parasite",
+    "gender": "Unknown",
+    "faction": ["Bloodsucker"],
+    "religion": "Unknown",
+    "traits": [
+      "Parasitic",
+      "Grotesque",
+      "Unsettling",
+      "Persistent"
+    ],
+    "stats": {
+      "strength": 4,
+      "agility": 3,
+      "intelligence": 1,
+      "authority": 2,
+      "sociability": 0
+    },
+    "equipment": [
+      "None"
+    ],
+    "appearance": {
+      "height": "Medium",
+      "build": "Bulbous and asymmetrical",
+      "skinTone": "Dark red and black",
+      "hairColor": "None",
+      "hairStyle": "None",
+      "features": "A swollen tick embedded in the upper torso, its distended body pulsing as it feeds"
+    },
+    "clothing": {
+      "head": "Massive parasitic tick fused to the skull",
+      "body": "Elegant but tattered dark robe hanging loosely from a withered frame",
+      "legs": "Ragged trousers barely supporting the corpse",
+      "accessories": "None"
+    },
+    "combat": {
+      "role": "Disruptor",
+      "strengths": [
+        "Spreading corruption",
+        "Poisonous influence"
+      ],
+      "weaknesses": [
+        "Poor mobility",
+        "Low direct damage"
+      ]
+    },
+    "magic": "None"
+  },
+  {
+    "identifier": "sycophant",
+    "title": "Sycophant",
+    "description": "The Sycophant flits across the battlefield with unsettling speed, its insectile form a blur of wings, claws, and glistening red flesh. It strikes not to kill, but to harass—darting in to rake skin, whisper madness, and withdraw before retaliation can land.",
+    "history": "Sycophants serve as attendants and scavengers within the Bloodsucker hierarchy, thriving in the shadow of larger, more dominant kin. Drawn to conflict and suffering, they swarm intruders relentlessly, feeding on fear and instability. Though fragile, their persistence and agility make them a constant, needling presence that erodes resolve over time.",
+    "summary": "A fast-moving harasser that relies on speed, evasion, and psychological pressure rather than brute force.",
+    "race": "Insectoid",
+    "gender": "Unknown",
+    "faction": ["Bloodsucker"],
+    "religion": "Unknown",
+    "traits": [
+      "Skittish",
+      "Opportunistic",
+      "Unnerving",
+      "Persistent"
+    ],
+    "stats": {
+      "strength": 2,
+      "agility": 8,
+      "intelligence": 3,
+      "authority": 1,
+      "sociability": 0
+    },
+    "equipment": [
+      "Claws",
+      "Wings"
+    ],
+    "appearance": {
+      "height": "Small",
+      "build": "Insectile",
+      "skinTone": "Black with deep red underbelly",
+      "hairColor": "None",
+      "hairStyle": "None",
+      "features": "Segmented body with translucent wings, multiple eyes, and hooked mandibles"
+    },
+    "clothing": {
+      "head": "None",
+      "body": "None",
+      "legs": "None",
+      "accessories": "None"
+    },
+    "combat": {
+      "role": "Harasser",
+      "strengths": [
+        "High evasion",
+        "Stress pressure",
+        "Spreading corruption"
+      ],
+      "weaknesses": [
+        "Low durability",
+        "Minimal stopping power"
+      ]
+    },
+    "magic": "None"
+  }
+]

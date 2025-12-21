@@ -80,8 +80,6 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
       'heiress',
       'highwayman',
       'crusader',
-      'arbalest',
-      'antiquarian',
     ];
 
     try {
@@ -94,7 +92,7 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
           body: JSON.stringify({ 
             description: userPrompt,
             characterIds,
-            eventId: 'debug_4'
+            eventId: 'prologue_2'
           }),
           signal,
         }

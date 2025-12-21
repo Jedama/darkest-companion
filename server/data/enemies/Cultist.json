@@ -1,0 +1,75 @@
+[
+  {
+    "title": "Cultist Brawler",
+    "faction": ["Cultist"],
+    "summary": "A brutal close-quarters devotee who relies on raw strength, ritual fervor, and cruel precision to tear foes apart at arm’s length.",
+    "race": "Human",
+    "gender": "Male",
+    "stats": {
+      "strength": 7,
+      "agility": 5,
+      "intelligence": 2
+    },
+    "equipment": [
+      "Claw-like weapons"
+    ],
+    "appearance": {
+      "height": "Tall",
+      "build": "Muscular",
+      "skin_tone": "Pale"
+    },
+    "clothing": {
+      "headwear": "Skull mask with a spiked crown",
+      "top": "Bare torso",
+      "pants": "Dark tattered robe with prominent girdle"
+    },
+    "combat": {
+      "role": "Close combat",
+      "strengths": [
+        "Ritual fervor",
+        "Brutal precision"
+      ],
+      "weaknesses": [
+        "Limited versatility",
+        "Short reach"
+      ]
+    }
+  },
+  {
+    "title": "Cultist Acolyte",
+    "faction": ["Cultist"],
+    "summary": "A sinister backline caster who assails the mind with unholy incantations, warping resolve and positioning while relying on distance and ritual control to survive.",
+    "race": "Human",
+    "gender": "Female",
+    "stats": {
+      "strength": 3,
+      "agility": 4,
+      "intelligence": 7
+    },
+    "equipment": [
+      "Ritual magic cane"
+    ],
+    "appearance": {
+      "height": "Average",
+      "build": "Thin",
+      "skin_tone": "Pale"
+    },
+    "clothing": {
+      "headwear": "Skull mask with a spiked crown",
+      "top": "Dark robes with occult symbols",
+      "pants": "Dark robes (full-length)"
+    },
+    "combat": {
+      "role": "Spellcaster",
+      "strengths": [
+        "Unholy incantations",
+        "Mental assaults",
+        "Position disruption"
+      ],
+      "weaknesses": [
+        "Physically fragile",
+        "Overwhelmed in melee"
+      ]
+    }
+  }
+]

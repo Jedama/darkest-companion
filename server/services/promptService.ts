@@ -61,7 +61,7 @@ export function compileNarrativeContext(payload: NarrativeContextPayload): strin
     ${backstory}
 
     PRESENT DAY:
-    ${zodiac.text}
+    It is the month of ${zodiac.name}. ${zodiac.text}
     ${formatTimeSinceEvent(month)} have passed since the Ancestor's suicide and invasion of the hamlet. 
     ${presentDayText}
   `;

@@ -12,7 +12,7 @@
       "title": "Crusader",
       "name": "Reynauld",
       "level": 0,
-      "money": 0,
+      "money": 50,
       "description": "Once a simple farmer who joined the war to save his family from famine, Reynauld rose unexpectedly through martial prowess to become a legendary commander. The horrors he witnessed and his own transformation into a hardened warrior left him unable to return to his former life. His peculiar habit of collecting trinkets from fallen enemies and his distinctive whistling became well-known among his men. Now drawn to the Estate, he seeks not holy war but a deeper purpose in combating forces that threaten the very fabric of humanity.",
       "history": "Born to till the soil, Reynauld lived a peaceful life with his wife and young son until famine threatened their survival. He joined the army as a conscript, leaving behind promises of return. His natural leadership and battlefield courage saw him rise from farmer to feared commander. In a pivotal moment, he spared The Warlord, recognizing the futility of endless conflict. This act, coupled with his growing disillusionment, led him to abandon both the war and thoughts of returning home, knowing he could no longer fit into that simple life.",
       "summary": "A stalwart and inspiring former farmer turned legendary Crusader, haunted by war, who struggles with kleptomanic tendencies and a conflicted past.",
@@ -29,18 +29,18 @@
       ],
       "status": {
         "physical": 100,
-        "mental": 100,
+        "mental": 95,
         "affliction": "",
-        "description": "Smug and satisfied, humming a cheerful tune",
+        "description": "Hiding shame behind a hollow command presence",
         "wounds": [],
         "diseases": []
       },
       "stats": {
         "strength": 8,
-        "agility": 5,
+        "agility": 3,
         "intelligence": 5,
-        "authority": 8,
-        "sociability": 3
+        "authority": 7,
+        "sociability": 4
       },
       "equipment": [
         "Holy Sword (family heirloom)",
@@ -81,8 +81,7 @@
         "Does a characteristic whistle after nabbing something, or when otherwise pleased with himself",
         "Writes letters to his family that he never sends",
         "Wears simple farmer's clothes when out of his armor",
-        "Uses displays of religious paternalism to distract victims during theft.",
-        "Rationalizes theft as 'unburdening' his victims."
+        "Whistles nervously to comfort himself when the darkness becomes oppressive."
       ],
       "tags": [
         "Dancer",
@@ -106,14 +105,14 @@
           "description": "The crusader maintains a professional relationship with the heiress, focusing on fulfilling his role as her protector with a devout sense of duty."
         },
         "kheir": {
-          "affinity": 1,
-          "dynamic": "Deserving Prey",
-          "description": "Reynauld views the Heir's weakness as an invitation to take what he wants, justifying his predation as a form of moral instruction."
+          "affinity": 2,
+          "dynamic": "Malicious Protection",
+          "description": "Reynauld defends the Heir with a curling lip, fighting the temptation to let the weak nobleman taste the steel he so fears."
         },
         "highwayman": {
-          "affinity": 9,
-          "dynamic": "Criminal Kinship",
-          "description": "Feels a genuine connection with Dismas, the only one who sees his hypocrisy and responds with a smirk rather than judgment."
+          "affinity": 8,
+          "dynamic": "Shared Burden",
+          "description": "Reynauld sees his own desperation reflected in the Highwayman, binding them as two lost souls walking into madness."
         },
         "seraph": {
           "affinity": 4,
@@ -126,14 +125,17 @@
           "dower_house__barracks_room_east"
         ],
         "workplaces": [
+          "palisade_wall",
+          "guild_hall",
+          "training_ring",
           "abbey__grounds"
         ],
         "frequents": [
-          "abbey",
-          "tavern",
           "dower_house__garden",
           "town_square",
-          "mill_grounds"
+          "mill_grounds",
+          "abbey",
+          "tavern"
         ]
       },
       "strategyWeights": {
@@ -178,11 +180,13 @@
         "Cynical"
       ],
       "status": {
-        "physical": 100,
-        "mental": 91,
+        "physical": 76,
+        "mental": 100,
         "affliction": "",
-        "description": "Amused by the Crusader's audacity",
-        "wounds": [],
+        "description": "Spitting blood and gripping his flintlock",
+        "wounds": [
+          "Internal chest bruising"
+        ],
         "diseases": []
       },
       "stats": {
@@ -241,19 +245,19 @@
       ],
       "relationships": {
         "heiress": {
-          "affinity": 2,
-          "dynamic": "Mutinous",
-          "description": "Resents her condescension and threats, barely restraining his violent impulses against her authority."
+          "affinity": 4,
+          "dynamic": "Guardian",
+          "description": "The highwayman is determined to prove himself to the heiress and to assist in her quest despite her warranted distrust."
         },
         "kheir": {
-          "affinity": 0,
-          "dynamic": "Contempt",
-          "description": "Despises the Heir's weakness and blindness, viewing him as deserving of whatever misfortunes—or thefts—befall him."
+          "affinity": 3,
+          "dynamic": "Guardian",
+          "description": "Despite the Heir's distrust, the highwayman is resolute in his role as a guard, seeing their safety as his path to absolution."
         },
         "crusader": {
-          "affinity": 10,
-          "dynamic": "Thieves' Honor",
-          "description": "Dismas respects the Crusader's skill and shared contempt for the nobility, finding an unexpected equal in the art of deception."
+          "affinity": 8,
+          "dynamic": "Kindred Spirits",
+          "description": "Dismas finds comfort in the Crusader's presence, recognizing another damned soul seeking an absolution that may never come."
         }
       },
       "locations": {
@@ -261,15 +265,16 @@
           "dower_house__barracks_room_east"
         ],
         "workplaces": [
+          "guild_hall",
           "palisade_wall",
           "training_ring"
         ],
         "frequents": [
           "alley",
-          "inn",
-          "yellow_hand",
           "town_square",
-          "tavern"
+          "tavern",
+          "yellow_hand",
+          "inn"
         ]
       },
       "strategyWeights": {
@@ -316,9 +321,9 @@
       ],
       "status": {
         "physical": 100,
-        "mental": 95,
+        "mental": 80,
         "affliction": "",
-        "description": "Rattled but maintaining an icy facade of authority",
+        "description": "Violently trembling beneath a facade of rigid command",
         "wounds": [],
         "diseases": []
       },
@@ -339,7 +344,7 @@
         "skinTone": "Fair",
         "hairColor": "Blond",
         "hairStyle": "Tied up in a bun and with curly bangs",
-        "features": "Strong jawline and pointy nose"
+        "features": "Smear of dark muck on jaw"
       },
       "clothing": {
         "head": "Hair needle",
@@ -415,9 +420,9 @@
           "description": "The heiress maintains a reserved, professional demeanor towards the crusader, her latest recruit."
         },
         "highwayman": {
-          "affinity": 1,
-          "dynamic": "Threat Assessment",
-          "description": "Views the Highwayman as a volatile savage who responds to discipline with drawn steel, confirming her worst suspicions."
+          "affinity": 3,
+          "dynamic": "Cautious",
+          "description": "The heiress regards the highwayman with suspicion. While his skills could prove valuable, his checkered past and gruff manner keep her on guard."
         },
         "hqclaimants": {
           "affinity": 2,
@@ -435,14 +440,14 @@
           "dower_house__master_bedroom"
         ],
         "workplaces": [
-          "town_hall__meeting_hall"
+          "town_hall__strategy_room"
         ],
         "frequents": [
+          "town_square",
+          "tavern",
           "dower_house__portrait_room",
           "dower_house__garden",
-          "dower_house__wine_cellar",
-          "town_square",
-          "dower_house__dining_hall"
+          "dower_house__red_hook"
         ]
       }
     },
@@ -469,9 +474,9 @@
       ],
       "status": {
         "physical": 100,
-        "mental": 62,
+        "mental": 67,
         "affliction": "",
-        "description": "Humiliated, terrified, and acutely aware of his powerlessness",
+        "description": "Terrified and using the Crusader as a human shield",
         "wounds": [],
         "diseases": []
       },
@@ -479,7 +484,7 @@
         "strength": 2,
         "agility": 2,
         "intelligence": 9,
-        "authority": 6,
+        "authority": 7,
         "sociability": 8
       },
       "equipment": [
@@ -497,7 +502,7 @@
       "clothing": {
         "head": "None",
         "body": "Well-tailored jacket and waistcoat",
-        "legs": "Mustard yellow breeches",
+        "legs": "Sodden with filth",
         "accessories": "Bowtie"
       },
       "combat": {
@@ -516,7 +521,7 @@
       "magic": "None",
       "notes": [
         "Hates waste and is very possesive of his belongings",
-        "Freezes completely when confronted by physical dominance."
+        "Has a penchant for fine wines to calm his nerves"
       ],
       "tags": [
         "Flexible",
@@ -541,14 +546,14 @@
           "description": "The Heir admires, and is deeply jealous of, his sister's strength and ability to take initiative. Despite their fierce bickering, the Heir loves his sister."
         },
         "crusader": {
-          "affinity": 0,
-          "dynamic": "Oppressor",
-          "description": "Percival sees the Crusader not as a protector, but as a looming threat who takes what he wishes with terrifying impunity."
+          "affinity": 5,
+          "dynamic": "Desperate Reliance",
+          "description": "Percival clings to the Crusader's shadow for safety, tolerating the warrior's mockery as the necessary price of survival."
         },
         "highwayman": {
-          "affinity": 0,
-          "dynamic": "Terror",
-          "description": "Fears the man who readily drew a weapon in response to an accusation."
+          "affinity": 2,
+          "dynamic": "Distrustful",
+          "description": "The Heir is distrusting towards the highwayman, fearing that the rugged man will betray them and steal his possessions."
         },
         "hqclaimants": {
           "affinity": 2,
@@ -566,16 +571,16 @@
           "dower_house__master_bedroom"
         ],
         "workplaces": [
-          "town_hall__record_archives",
           "library__map_room",
-          "town_hall__strong_room"
+          "town_hall__record_archives",
+          "town_hall__strong_room",
+          "warehouse_district"
         ],
         "frequents": [
-          "dower_house__wine_cellar",
-          "dower_house__astronomy_room",
           "dower_house__garden",
+          "dower_house__portrait_room",
           "library__main",
-          "dower_house__portrait_room"
+          "tavern"
         ]
       },
       "strategyWeights": {
@@ -601,66 +606,71 @@
     }
   },
   "characterLogs": {
-    "crusader": [
+    "kheir": [
       {
         "month": 0,
-        "entry": "Succumbed to impulse and stole a silver comb from a vanity, whistling cheerfully despite the gloom.",
+        "entry": "Clung desperately to a bottle of vintage wine as a talisman against fear during the approach to the Estate.",
         "expiryMonth": 1
       },
       {
         "month": 0,
-        "entry": "Stole the Heir's silver flask and played the peacemaker to cover his tracks.",
+        "entry": "Prioritized salvaging a vintage wine bottle over his own safety immediately after the crash.",
         "expiryMonth": 3
       },
       {
         "month": 0,
-        "entry": "Fabricated a story about the Heiress to distract the Heir and steal a gold-threaded handkerchief.",
+        "entry": "Cowered behind the Crusader during the ambush, prioritizing the safety of a wine bottle over his own dignity.",
+        "expiryMonth": 1
+      }
+    ],
+    "heiress": [
+      {
+        "month": 0,
+        "entry": "Forced herself to maintain a rigid, dutiful facade despite the suffocating dread of the Weald.",
         "expiryMonth": 1
       },
       {
         "month": 0,
-        "entry": "Successfully intimidated the Heir to steal a silver snuffbox, rationalizing the act as a mercy.",
+        "entry": "Forced herself to assume command of the survivors despite her visible shock.",
+        "expiryMonth": 1
+      },
+      {
+        "month": 0,
+        "entry": "Struggled to mask violent physical tremors while forcefully commanding her brother to maintain appearances.",
         "expiryMonth": 1
       }
     ],
     "highwayman": [
       {
         "month": 0,
-        "entry": "Witnessed Reynauld's theft with weary acceptance, choosing camaraderie over moralizing.",
+        "entry": "Shared a silent moment of grim understanding with the Crusader, acknowledging their shared damnation.",
+        "expiryMonth": 3
+      },
+      {
+        "month": 0,
+        "entry": "Secured the crash site perimeter and confirmed the driver's disappearance.",
         "expiryMonth": 1
       },
       {
         "month": 0,
-        "entry": "Drew his dagger on the Heiress and Heir after being insulted and accused of theft.",
-        "expiryMonth": 3
-      },
-      {
-        "month": 0,
-        "entry": "Witnessed the Crusader's theft and chose silent complicity, finding amusement in the hypocrisy.",
+        "entry": "Suffered internal injuries from the crash but remained combat-ready against the ambush.",
         "expiryMonth": 3
       }
     ],
-    "heiress": [
+    "crusader": [
       {
         "month": 0,
-        "entry": "Nearly provoked a lethal confrontation by treating the Highwayman's pride with aristocratic disdain.",
+        "entry": "Whistled a discordant country tune to cope with the encroaching darkness, momentarily revealing the farmer beneath the armor.",
         "expiryMonth": 1
-      }
-    ],
-    "kheir": [
+      },
       {
         "month": 0,
-        "entry": "Lost his silver flask and accused the Highwayman, resulting in a terrifying standoff.",
+        "entry": "Succumbed to kleptomania and stole a purse of gold from the Heir amidst the wreckage.",
         "expiryMonth": 3
       },
       {
         "month": 0,
-        "entry": "Was intimidated into submission by Reynauld, too terrified to defend his sister against false claims.",
-        "expiryMonth": 3
-      },
-      {
-        "month": 0,
-        "entry": "Was paralyzed by fear and unable to stop the Crusader from stealing his silver snuffbox.",
+        "entry": "Felt a dark urge to let the Heir be harmed before stepping in to protect him.",
         "expiryMonth": 3
       }
     ]
@@ -668,22 +678,17 @@
   "estateLogs": [
     {
       "month": 0,
-      "entry": "In the labyrinthine Shadow Room, Aldritch revealed that the mirrors serve to track the Manor's inescapable influence, hardening the warriors' resolve to destroy the source.",
+      "entry": "The party endured a harrowing carriage ride through the Weald, the oppressive darkness forging a silent understanding between the soldiers while the siblings struggled to mask their terror.",
       "expiryMonth": 3
     },
     {
       "month": 0,
-      "entry": "Accusations regarding a missing flask nearly escalated to bloodshed between the mercenaries and the scions, diffused only by the Crusader's intervention.",
-      "expiryMonth": 3
+      "entry": "The stagecoach crashed in the Weald, leaving the party stranded, injured, and without their driver.",
+      "expiryMonth": 7
     },
     {
       "month": 0,
-      "entry": "Reynauld manipulated the Heir to steal a valuable handkerchief, an act witnessed and silently condoned by the Highwayman.",
-      "expiryMonth": 1
-    },
-    {
-      "month": 0,
-      "entry": "Reynauld intimidated the Heir into silence while stealing a silver snuffbox, framing the theft as a lesson in spiritual unburdening.",
+      "entry": "Survivors of a carriage crash were ambushed by brigands in the Weald immediately after dragging themselves from the wreckage.",
       "expiryMonth": 3
     }
   ]

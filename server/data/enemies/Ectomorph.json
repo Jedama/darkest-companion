@@ -1,0 +1,110 @@
+[
+  {
+    "identifier": "tall_man",
+    "title": "Tall Man",
+    "description": "The Tall Man manifests as a stretched, gangling silhouette given depth—too long in the limbs, too narrow in the chest, its edges wavering as if reality struggles to agree on its shape. It moves in patient, predatory silence, fading into shadow and returning a heartbeat later where fear is easiest to harvest.",
+    "history": "Since the disastrous experiment in the Ruins, the veil has frayed, and ectomorphic entities have begun to push through in growing numbers. The Tall Man is among the more coherent manifestations—stable enough to hunt rather than merely drift. It seems to prefer dim corridors and broken sanctums, where poor light and tighter spaces allow it to slip from notice until the moment it chooses to be seen.",
+    "summary": "A stealthy ectomorphic predator that vanishes into darkness and reappears to unleash focused terror.",
+    "race": "Ectomorph",
+    "gender": "Male",
+    "faction": ["Ectomorph"],
+    "religion": "Unknown",
+    "traits": [
+      "Elusive",
+      "Predatory",
+      "Patient",
+      "Unnerving"
+    ],
+    "stats": {
+      "strength": 6,
+      "agility": 8,
+      "intelligence": 7,
+      "authority": 4,
+      "sociability": 0
+    },
+    "equipment": [
+      "None"
+    ],
+    "appearance": {
+      "height": "Tall",
+      "build": "Skeletal",
+      "skinTone": "Turquoise",
+      "hairColor": "None",
+      "hairStyle": "None",
+      "features": "Overlong limbs and penis, and a narrow head"
+    },
+    "clothing": {
+      "head": "None",
+      "body": "None",
+      "legs": "None",
+      "accessories": "None"
+    },
+    "combat": {
+      "role": "Assassin",
+      "strengths": [
+        "Stealth",
+        "Agility",
+        "Terror"
+      ],
+      "weaknesses": [
+        "Light",
+        "Physical force"
+      ]
+    },
+    "magic": "None"
+  },
+  {
+    "identifier": "bloated_specter",
+    "title": "Bloated Specter",
+    "description": "The Bloated Specter drifts forward as a swollen mass of ectoplasmic volume, studded with too many eyes and split by a distended maw. It is ponderous but stubbornly present, hanging in the air like a pressure front. When it lashes out, it does not tear flesh—it crushes composure, flooding the mind with panic and intrusive sensation.",
+    "history": "Not every ectomorphic visitor arrives in a clean, humanoid outline. Some manifestations congeal into dense, durable forms, as if the other realm presses harder in certain places. The Bloated Specter is one such intrusion: slow to reposition, difficult to disperse, and content to linger while its mere proximity does the work. In the Ruins, it gathers where the tear is worst—where the air feels heavy and the silence seems to listen back.",
+    "summary": "A durable hovering apparition that applies crushing psychological pressure and assaults the mind with uncanny force.",
+    "race": "Ectomorph",
+    "gender": "Unknown",
+    "faction": ["Ectomorph"],
+    "religion": "Unknown",
+    "traits": [
+      "Oppressive",
+      "Alien",
+      "Observant",
+      "Persistent"
+    ],
+    "stats": {
+      "strength": 5,
+      "agility": 4,
+      "intelligence": 8,
+      "authority": 5,
+      "sociability": 0
+    },
+    "equipment": [
+      "None"
+    ],
+    "appearance": {
+      "height": "Short",
+      "build": "Bloated",
+      "skinTone": "Turquoise",
+      "hairColor": "None",
+      "hairStyle": "None",
+      "features": "Floating ectoplasmic bulk with clustered eyes and a gaping, flexing mouth"
+    },
+    "clothing": {
+      "head": "None",
+      "body": "None",
+      "legs": "None",
+      "accessories": "None"
+    },
+    "combat": {
+      "role": "Caster",
+      "strengths": [
+        "Psychic assaults",
+        "Terror",
+        "Durability"
+      ],
+      "weaknesses": [
+        "Physical force",
+        "Speed"
+      ]
+    },
+    "magic": "Psychic pressure and ectoplasmic emanations that destabilize perception"
+  }
+]

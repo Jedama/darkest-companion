@@ -61,7 +61,12 @@ GUIDANCE FOR QUALITY CONSEQUENCES:
   - Authority: command presence or leadership shown
   - Sociability: social skills or connection demonstrated
 
-7. RELATIONSHIPS:
+7. CLOTHES & APPEARANCE
+  - Only include long-term or permanent changes. For temporary changes, (e.g. Sodden with filth) use the status field.
+  - Focus on persistent physical markers: scars, brandings, missing limbs.
+  - When updating a field, include the original. Not "Gashed", but "Green overcoat with a deep gash."
+
+8. RELATIONSHIPS:
   - Be bold but truthful, and focus on evolving relationships towards future narrative paths
   - Dynamics should be concise (1-3 words) and capture the relationship's essence
   - Descriptions should explain WHY characters relate this way

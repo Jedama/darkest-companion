@@ -1,0 +1,110 @@
+[
+  {
+    "identifier": "pelagic_grouper",
+    "title": "Pelagic Grouper",
+    "description": "The Pelagic Grouper is a seaworn warrior shaped by surf and slaughter. He advances with practiced restraint, casting his harpoon not only to wound, but to claim space and deny escape. Where stone is slick with brine, he moves as if on familiar ground—closing in with a cutlass once the prey has been pinned and shaken.",
+    "history": "The Seafolk do not arrive as solitary beasts, but as disciplined raiders from the dark edges of the water. Groupers form the backbone of these forays—fighters accustomed to unstable footing, poor visibility, and sudden violence. When the tide of the Estate’s misery draws them closer to shore, they follow it with the calm certainty of predators returning to a favored hunting ground.",
+    "summary": "A versatile frontline raider who controls distance with a harpoon and finishes targets in close combat with a cutlass.",
+    "race": "Seafolk",
+    "gender": "Unknown",
+    "faction": ["Seafolk"],
+    "religion": "Unknown",
+    "traits": [
+      "Territorial",
+      "Disciplined",
+      "Predatory",
+      "Cold-eyed"
+    ],
+    "stats": {
+      "strength": 6,
+      "agility": 7,
+      "intelligence": 4,
+      "authority": 4,
+      "sociability": 2
+    },
+    "equipment": [
+      "Cutlass",
+      "Harpoon"
+    ],
+    "appearance": {
+      "height": "Average",
+      "build": "Muscular",
+      "skinTone": "Green",
+      "hairColor": "None",
+      "hairStyle": "None",
+      "features": "Webbed hands, heavy jaw, and unblinking eyes that reflect dull sea-light"
+    },
+    "clothing": {
+      "head": "None",
+      "body": "None",
+      "legs": "None",
+      "accessories": "Salt-crusted harness and corded bindings for weapons"
+    },
+    "combat": {
+      "role": "Fighter",
+      "strengths": [
+        "Range control",
+        "Adaptable offense"
+      ],
+      "weaknesses": [
+        "Susceptible to wounds and disruption"
+      ]
+    },
+    "magic": "None"
+  },
+  {
+    "identifier": "pelagic_shaman",
+    "title": "Pelagic Shaman",
+    "description": "The Pelagic Shaman stands apart from the press of blades, directing the Seafolk with quiet certainty. Its voice is low and measured, carrying a cadence that unsettles the mind as much as it steadies allied hands. With staff and dagger held more as symbols than necessities, it turns the fight into an ordeal—patching wounds, hardening resolve, and reminding intruders they are out of place in the deep’s domain.",
+    "history": "Among the Seafolk, shamans serve as keepers of memory and discipline—figures who bind a raiding party into something more than a swarm of hungry bodies. They are seen wherever the Seafolk press inland: near drowned corridors, brackish tunnels, and the places where saltwater seeps into stone. Whether their craft is learned, inherited, or simply adapted to the depths, its effects are unmistakable: allies endure longer, and enemies come apart from within.",
+    "summary": "A backline support caster who applies psychological pressure while sustaining allies through austere, sea-borne arts.",
+    "race": "Seafolk",
+    "gender": "Unknown",
+    "faction": ["Seafolk"],
+    "religion": "Unknown",
+    "traits": [
+      "Composed",
+      "Unsettling",
+      "Observant",
+      "Patient"
+    ],
+    "stats": {
+      "strength": 3,
+      "agility": 4,
+      "intelligence": 8,
+      "authority": 6,
+      "sociability": 3
+    },
+    "equipment": [
+      "Staff",
+      "Dagger"
+    ],
+    "appearance": {
+      "height": "Average",
+      "build": "Lean",
+      "skinTone": "Purple",
+      "hairColor": "None",
+      "hairStyle": "None",
+      "features": "Pink, bulging eyes"
+    },
+    "clothing": {
+      "head": "Golden crest",
+      "body": "None",
+      "legs": "Tattered loincloth",
+      "accessories": "Wrapped cords, small pouches, and charms of shell and bone"
+    },
+    "combat": {
+      "role": "Spellcaster",
+      "strengths": [
+        "Psychological pressure",
+        "Ally support",
+        "Battle control"
+      ],
+      "weaknesses": [
+        "Physical frailty",
+        "Vulnerable in close combat"
+      ]
+    },
+    "magic": "Shamanistic chants"
+  }
+]

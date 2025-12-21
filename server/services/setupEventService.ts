@@ -54,14 +54,13 @@ function getNrCharsRange(event: EventData): [number, number] {
  */
 function resolveEvent(options: SetupEventOptions): EventData {
   const gameData = StaticGameDataManager.getInstance();
-  const allEvents = gameData.getTownEvents();
-
+  
   const requestedCount = options.characterIds?.length ?? 0;
   const filterCount = Math.min(requestedCount, 4);
-
+  
   // 1. Specific Event Requested
   if (options.eventId) {
-    const event = allEvents[options.eventId];
+    const event = gameData.getEventById(options.eventId);
     if (!event) {
       throw new Error(`Requested event '${options.eventId}' not found in game data.`);
     }
@@ -70,7 +69,8 @@ function resolveEvent(options: SetupEventOptions): EventData {
   }
 
   // 2. Random Selection
-  let eventIds = Object.keys(allEvents);
+  const townEvents = gameData.getTownEvents();
+  let eventIds = Object.keys(townEvents);
   if (eventIds.length === 0) {
     throw new Error('No event templates found in data/events.');
   }
@@ -78,18 +78,25 @@ function resolveEvent(options: SetupEventOptions): EventData {
   // Filter by Compatibility with Requested Character Count
   if (requestedCount > 0) {
     const compatible = eventIds.filter((id) => {
-      const ev = allEvents[id];
+      const ev = townEvents[id];
       const [, maxAllowed] = getNrCharsRange(ev);
       return maxAllowed >= filterCount;
     });
+
+    // If no events that support the requested count of characters was found, throw error
+    if (compatible.length === 0) {
+      throw new Error(
+        `No compatible town events found for requested character count ${filterCount}.`
+      );
+    }
 
     eventIds = compatible;
   }
 
 
   const randomId = eventIds[Math.floor(Math.random() * eventIds.length)];
-  console.log(`Picked random event: ${allEvents[randomId].identifier}`);
-  return allEvents[randomId];
+  console.log(`Picked random event: ${townEvents[randomId].identifier}`);
+  return townEvents[randomId];
 }
 
 /**

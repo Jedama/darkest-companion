@@ -1,0 +1,110 @@
+[
+  {
+    "identifier": "bone_soldier",
+    "title": "Bone Soldier",
+    "description": "The Bone Soldier advances with the practiced economy of a trained warrior, its movements stripped of hesitation and fear. Though flesh has long since fallen away, the habits of the sword remain—measured steps, precise cuts, and an uncanny sense of timing that recalls a life once spent in disciplined combat.",
+    "history": "The ruins are crowded with the remains of those who once served, defended, or died with steel in hand. Some of these dead do not rest. Bound by the Ancestor's necromancers, the Bone Soldier rises with fragments of its former purpose intact. It does not think as it once did, but the motions of war endure, etched into bone by repetition and duty.",
+    "summary": "A disciplined undead melee combatant that retains the weapon skill and precision it possessed in life.",
+    "race": "Skeleton",
+    "gender": "Unknown",
+    "faction": ["Undead"],
+    "religion": "None",
+    "traits": [
+      "Unyielding",
+      "Methodical",
+      "Silent",
+      "Relentless"
+    ],
+    "stats": {
+      "strength": 6,
+      "agility": 7,
+      "intelligence": 2,
+      "authority": 3,
+      "sociability": 0
+    },
+    "equipment": [
+      "Sword"
+    ],
+    "appearance": {
+      "height": "Average",
+      "build": "Skeletal",
+      "skinTone": "Bone",
+      "hairColor": "None",
+      "hairStyle": "None",
+      "features": "Bare skull and exposed joints bound together by darkened sinew and residue"
+    },
+    "clothing": {
+      "head": "Tattered bandages wrapped around the skull",
+      "body": "Remnants of corroded armor plates",
+      "legs": "Tattered trousers hanging from exposed bone",
+      "accessories": "Rust-fused straps and buckles"
+    },
+    "combat": {
+      "role": "Melee fighter",
+      "strengths": [
+        "Precise weapon use",
+        "Extended melee reach",
+        "Consistent damage output"
+      ],
+      "weaknesses": [
+        "Structurally fragile",
+        "Limited adaptability",
+        "Susceptible to disruption"
+      ]
+    },
+    "magic": "None"
+  },
+  {
+    "identifier": "bone_rabble",
+    "title": "Bone Rabble",
+    "description": "The Bone Rabble lurches forward in loose formation, a mass of poorly assembled remains animated by little more than momentum. It swings its crude weapon without finesse or intent, relying on numbers and persistence to overwhelm those who hesitate.",
+    "history": "Not all who died in the ruins were warriors. Laborers, pilgrims, and the forgotten dead are stirred alongside soldiers, rising as broken imitations of life. These lesser skeletons are driven forward as fodder, their purpose simple: to occupy space, draw blows, and wear the living down through repetition.",
+    "summary": "A weak but numerous undead attacker that relies on sheer presence rather than skill.",
+    "race": "Skeleton",
+    "gender": "Unknown",
+    "faction": ["Undead"],
+    "religion": "None",
+    "traits": [
+      "Mindless",
+      "Disposable",
+      "Persistent",
+      "Clumsy"
+    ],
+    "stats": {
+      "strength": 2,
+      "agility": 2,
+      "intelligence": 1,
+      "authority": 0,
+      "sociability": 0
+    },
+    "equipment": [
+      "Crude club"
+    ],
+    "appearance": {
+      "height": "Average",
+      "build": "Skeletal",
+      "skinTone": "Bone",
+      "hairColor": "None",
+      "hairStyle": "None",
+      "features": "Misaligned bones and cracked skulls loosely held together"
+    },
+    "clothing": {
+      "head": "None",
+      "body": "Tattered cloth clinging to the ribcage",
+      "legs": "Worn trousers in various states of decay",
+      "accessories": "None"
+    },
+    "combat": {
+      "role": "Frontline",
+      "strengths": [
+        "Numbers",
+        "Ability to absorb attention"
+      ],
+      "weaknesses": [
+        "Extreme fragility",
+        "Slow and uncoordinated"
+      ]
+    },
+    "magic": "None"
+  }
+]
