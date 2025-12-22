@@ -23,6 +23,7 @@ interface SetupResponse {
     characterId: string;
     connectionType: 'residence' | 'workplace' | 'frequent';
   }>;
+  enemies: string[];
 }
 
 interface StoryResponse {
@@ -90,9 +91,10 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ 
-            description: userPrompt,
+            eventId: 'prologue_2',
             characterIds,
-            eventId: 'prologue_2'
+            enemyIds: [],
+            description: userPrompt
           }),
           signal,
         }
@@ -123,6 +125,7 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
             chosenCharacterIds: setupData.chosenCharacterIds,
             locations: setupData.locations,
             npcIds: setupData.npcs,
+            enemyIds: setupData.enemies,
             bystanders: setupData.bystanders
           }),
           signal,

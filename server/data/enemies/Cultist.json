@@ -1,75 +1,109 @@
 [
   {
+    "identifier": "cultist_brawler",
     "title": "Cultist Brawler",
-    "faction": ["Cultist"],
-    "summary": "A brutal close-quarters devotee who relies on raw strength, ritual fervor, and cruel precision to tear foes apart at arm’s length.",
+    "description": "The Cultist Brawler is the muscle of the roaming congregations—masked, crowned, and eager for close bloodshed. He fights with bladed gauntlets, tearing at flesh as if each wound were proof of devotion. He is not clever, but he is persistent, and he is rarely alone.",
+    "history": "Cultist Brawlers are drawn from the hard and hungry: drifters, thugs, deserters, and men who found purpose in the cult’s certainty. They travel with the chanters and handlers, serving as escorts and enforcers wherever the Iron Crown’s influence spreads. Whether as emissaries among other threats or as a sign of something deeper at work, their presence marks a place where fear is being cultivated, not merely endured.",
+    "summary": "A relentless melee zealot who overwhelms targets at close range with bladed gauntlets and stubborn aggression.",
     "race": "Human",
     "gender": "Male",
+    "faction": ["Cultist"],
+    "religion": "The Heart of Darkness",
+    "traits": [
+      "Fanatical",
+      "Brutal",
+      "Persistent",
+      "Single-minded"
+    ],
     "stats": {
       "strength": 7,
       "agility": 5,
-      "intelligence": 2
+      "intelligence": 2,
+      "authority": 2,
+      "sociability": 1
     },
     "equipment": [
-      "Claw-like weapons"
+      "Bladed gauntlets"
     ],
     "appearance": {
       "height": "Tall",
       "build": "Muscular",
-      "skin_tone": "Pale"
+      "skinTone": "Pale",
+      "hairColor": "Unknown",
+      "hairStyle": "Hidden",
+      "features": "Rough hands and scarred forearms, with a heavy, predatory stance"
     },
     "clothing": {
-      "headwear": "Skull mask with a spiked crown",
-      "top": "Bare torso",
-      "pants": "Dark tattered robe with prominent girdle"
+      "head": "Skull mask crowned with iron spikes",
+      "body": "Bare torso marked by scars and crude inked symbols",
+      "legs": "Dark, tattered robes secured by a prominent girdle",
+      "accessories": "Leather straps and metal bindings for the gauntlets"
     },
     "combat": {
       "role": "Close combat",
       "strengths": [
-        "Ritual fervor",
-        "Brutal precision"
+        "Relentless aggression",
+        "Strong pressure in melee"
       ],
       "weaknesses": [
         "Limited versatility",
-        "Short reach"
+        "Ineffective at range"
       ]
-    }
+    },
+    "magic": "None"
   },
   {
+    "identifier": "cultist_witch",
     "title": "Cultist Acolyte",
-    "faction": ["Cultist"],
-    "summary": "A sinister backline caster who assails the mind with unholy incantations, warping resolve and positioning while relying on distance and ritual control to survive.",
+    "description": "The Cultist Acolyte keeps to the rear, speaking in steady incantations that fray the mind and invite something unseen to tug at the body. Her chants are not meant to kill quickly—they are meant to unmake composure, to break formation, to leave the faithful’s knives and claws to do the rest.",
+    "history": "Acolytes are the cult’s voice in the world beyond the Manor—wanderers by choice or necessity, drawn to the same looming certainty that gathers others to twisted idols. They move among the Estate’s many dangers, sometimes alongside local horrors, sometimes apart, but always marked by the Iron Crown. Alone they are seldom decisive; with protectors at their side, their words can turn a skirmish into a slow collapse of resolve.",
+    "summary": "A backline caster who inflicts psychological pressure and disrupts positioning through dark incantations.",
     "race": "Human",
     "gender": "Female",
+    "faction": ["Cultist"],
+    "religion": "The Heart of Darkness",
+    "traits": [
+      "Zealous",
+      "Composed",
+      "Unsettling",
+      "Patient"
+    ],
     "stats": {
       "strength": 3,
       "agility": 4,
-      "intelligence": 7
+      "intelligence": 7,
+      "authority": 4,
+      "sociability": 2
     },
     "equipment": [
-      "Ritual magic cane"
+      "Ritual cane"
     ],
     "appearance": {
       "height": "Average",
       "build": "Thin",
-      "skin_tone": "Pale"
+      "skinTone": "Pale",
+      "hairColor": "Unknown",
+      "hairStyle": "Hidden",
+      "features": "Still posture and careful movements, as if listening for distant instructions"
     },
     "clothing": {
-      "headwear": "Skull mask with a spiked crown",
-      "top": "Dark robes with occult symbols",
-      "pants": "Dark robes (full-length)"
+      "head": "Skull mask crowned with iron spikes",
+      "body": "Dark robes patterned with occult symbols",
+      "legs": "Full-length dark robes",
+      "accessories": "Corded sash and small pouches for charms and powders"
     },
     "combat": {
       "role": "Spellcaster",
       "strengths": [
-        "Unholy incantations",
-        "Mental assaults",
-        "Position disruption"
+        "Psychological pressure",
+        "Position disruption",
+        "Battlefield control"
       ],
       "weaknesses": [
-        "Physically fragile",
-        "Overwhelmed in melee"
+        "Physical fragility",
+        "Vulnerable in close combat"
       ]
-    }
+    },
+    "magic": "Incantations that strain the mind and call unseen force to pull and push"
   }
 ]

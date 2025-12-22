@@ -1,17 +1,32 @@
 // server/staticGameDataManager.ts
 import { 
-  CharacterTemplate, CharacterTemplateRecord, LocationData, EventRecord, NPC,
-  EventData, CharacterRelationship, CharacterLocations, StrategyWeights
-} from '../shared/types/types';
+  CharacterTemplate, 
+  CharacterTemplateRecord, 
+  LocationData, 
+  EventRecord, 
+  NPC,
+  EventData, 
+  CharacterRelationship, 
+  CharacterLocations, 
+  StrategyWeights, 
+  Enemy, 
+  EnemyRecord
+} from '../shared/types/types.js';
 import { 
-  loadCharacterTemplates, loadDefaultRelationships, loadDefaultCharacterLocations,
-  loadEventTemplatesForCategory, loadTownKeywords, loadAllLocations, loadAllNPCs, loadDefaultCharacterWeights
+  loadCharacterTemplates, 
+  loadDefaultRelationships, 
+  loadDefaultCharacterLocations,
+  loadEventTemplatesForCategory, 
+  loadTownKeywords, 
+  loadAllLocations, 
+  loadAllNPCs, 
+  loadAllEnemies,
+  loadDefaultCharacterWeights
 } from './templateLoader.js';
 // Import from the strategy registry. The registry is the ultimate source of truth
 // for all available strategies and their default values.
 import { generateDefaultWeights } from './services/townHall/expeditionStrategies/strategyRegistry.js';
 import { loadTextFile, loadJsonFile } from './fileOps.js';
-import path from 'path';
 
 interface ZodiacSeason { name: string; text: string; }
 interface ElapsedMonthText { month: number; text: string; }
@@ -87,6 +102,9 @@ class StaticGameDataManager {
   // NPC data
   private npcs: Record<string, NPC> = {};
 
+  // Enemy data
+  private enemies: EnemyRecord = {};
+
   /**
    * @description Holds the complete set of default weights for ALL strategies.
    * This object is generated directly from the `strategyRegistry` at startup,
@@ -144,6 +162,7 @@ class StaticGameDataManager {
         storyEvents,
         townKeywords,
         npcs,
+        enemies,
         promptStoryInstructions,
         promptStoryBackstory,
         promptConsequenceInstructions,
@@ -161,6 +180,7 @@ class StaticGameDataManager {
         loadEventTemplatesForCategory('story'),
         loadTownKeywords(),
         loadAllNPCs(),
+        loadAllEnemies(),
         loadTextFile(`${promptsBasePath}/story/storyInstructions.txt`),
         loadTextFile(`${promptsBasePath}/story/storyBackstory.txt`),
         loadTextFile(`${promptsBasePath}/consequences/consequencesInstructions.txt`),
@@ -183,6 +203,7 @@ class StaticGameDataManager {
       };
       this.townKeywords = townKeywords;
       this.npcs = npcs;
+      this.enemies = enemies;
       
       this.baseDefaultWeights = generateDefaultWeights() as Record<string, number>;
       
@@ -208,6 +229,7 @@ class StaticGameDataManager {
       const totalCount = Object.values(this.eventsByCategory).reduce((sum, rec) => sum + Object.keys(rec).length, 0);
       console.log(`- ${totalCount} total events (${townCount} town)`);
       console.log(`- ${Object.keys(this.npcs).length} NPCs`);
+      console.log(`- ${Object.keys(this.enemies).length} enemies`);
     } catch (error) {
       console.error('Failed to initialize StaticGameDataManager:', error);
       throw error;
@@ -342,6 +364,20 @@ class StaticGameDataManager {
       .map(id => this.npcs[id])
       .filter((npc): npc is NPC => !!npc);
   }
+
+  /* Enemy Methods */
+
+  public getAllEnemies(): EnemyRecord {
+    this.ensureInitialized();
+    return this.enemies;
+  }
+
+  public getEnemyById(id: string): Enemy | undefined {
+    this.ensureInitialized();
+    return this.enemies[id];
+  }
+
+  /* Prompt Methods */
 
   public getPromptStoryInstructions(): string {
     this.ensureInitialized();

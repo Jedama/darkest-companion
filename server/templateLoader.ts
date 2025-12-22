@@ -2,28 +2,28 @@
 import { readdir, readFile, stat } from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { dirname } from 'path';
 import type {
   CharacterTemplate,
   CharacterTemplateRecord,
   CharacterRelationship,
   NPC,
+  Enemy,
+  EnemyRecord,
   EventData,
   EventRecord,
   LocationData
 } from '../shared/types/types.js';
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __dirname = path.dirname(__filename);
 
 const TEMPLATES_DIR = path.join(__dirname, 'data', 'templates');
 const CHARACTER_DIR = path.join(__dirname, 'data', 'templates', 'characters');
 const NPCS_DIR = path.join(__dirname, 'data', 'npcs', 'town');
+const ENEMIES_DIR = path.join(__dirname, 'data', 'enemies');
+const EVENTS_DIR = path.join(__dirname, 'data', 'events');
 const DEFAULT_RELATIONSHIPS_FILE = path.join(TEMPLATES_DIR, 'defaultRelationships.json');
 const DEFAULT_WEIGHTS_FILE = path.join(TEMPLATES_DIR, 'defaultCharacterStrategies.json');
-
-// Where your events live
-const EVENTS_DIR = path.join(__dirname, 'data', 'events');
 
 // Keywords file
 const TOWN_KEYWORDS_FILE = path.join(__dirname, 'data', 'keywords', 'default.json');
@@ -287,6 +287,51 @@ export async function loadNPCsByIds(npcIds: string[]): Promise<NPC[]> {
   return npcIds
     .map(id => allNPCs[id])
     .filter((npc): npc is NPC => !!npc); // Filter out undefined entries
+}
+
+/* -------------------------------------------------------------------
+ *  Enemies
+* ------------------------------------------------------------------- */
+
+export async function loadAllEnemies(): Promise<EnemyRecord> {
+  try {
+    const files = await collectJsonFilesRecursively(ENEMIES_DIR);
+    const enemies: EnemyRecord = {};
+
+    for (const file of files) {
+      const content = await readFile(file, 'utf-8');
+
+      let enemyArray: Enemy[];
+      try {
+        const parsed = JSON.parse(content);
+        enemyArray = Array.isArray(parsed) ? parsed : [parsed];
+      } catch (parseError) {
+        console.error(`Error parsing enemy JSON file ${file}:`, parseError);
+        continue;
+      }
+
+      for (const enemy of enemyArray) {
+        if (!enemy.identifier) {
+          console.warn(`Enemy in file ${file} missing 'identifier'. Skipping...`);
+          continue;
+        }
+
+        if (enemies[enemy.identifier]) {
+          console.warn(
+            `Duplicate enemy identifier "${enemy.identifier}" found in ${file}. ` +
+            `Later definition will override earlier one.`
+          );
+        }
+
+        enemies[enemy.identifier] = enemy;
+      }
+    }
+
+    return enemies;
+  } catch (error) {
+    console.error('Error loading enemies:', error);
+    throw error;
+  }
 }
 
 /* -------------------------------------------------------------------

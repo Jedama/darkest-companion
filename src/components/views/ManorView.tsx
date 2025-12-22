@@ -7,7 +7,10 @@ import type { Character } from '../../../shared/types/types.ts';
 import { useModalContext } from '../../modals/ModalProvider';
 import { StoryModal } from '../../modals/StoryModal/StoryModal';
 import { ImageButton } from '../ui/buttons/ImageButton.tsx';
+
 import townEventButton from '../../assets/ui/views/manor/button_event.png';
+import recruitButton from '../../assets/ui/views/manor/button_recruit.png';
+
 import './ManorView.css';
 
 interface ManorViewProps {
@@ -86,34 +89,40 @@ export function useInertiaScroll(
 export function ManorView({
   characters,
   onCharacterSelect,
-  selectedCharacterId
+  selectedCharacterId,
 }: ManorViewProps) {
   const { currentEstate } = useEstateContext();
   const estateName = currentEstate?.estateName || 'no-estate-selected';
 
-  // 1) Access the modal context
   const { show, hide } = useModalContext();
-  
+
   const [frameImages, setFrameImages] = useState<{ [key: number]: string }>({});
   const [portraits, setPortraits] = useState<{ [key: string]: string }>({});
   const gridRef = useRef<HTMLDivElement>(null);
 
   useInertiaScroll(gridRef);
 
+  // Default fallback URLs (immediately available)
+  const defaultPortraitUrl = new URL(
+    '../../assets/ui/views/manor/defaultportrait_190x278.png',
+    import.meta.url
+  ).href;
+
+  // Pick whatever "safe default frame" you want. frame_0 is a reasonable baseline.
+  const defaultFrameUrl = new URL(
+    '../../assets/ui/views/manor/frame_0.png',
+    import.meta.url
+  ).href;
+
   useEffect(() => {
-    // Load frame images
     const loadFrameImages = async () => {
       const frames: { [key: number]: string } = {};
       for (let i = 0; i <= 6; i++) {
-        try {
-          const framePath = new URL(
-            `../../assets/ui/views/manor/frame_${i}.png`,
-            import.meta.url
-          ).href;
-          frames[i] = framePath;
-        } catch (error) {
-          console.error(`Failed to load frame_${i}.png`);
-        }
+        // new URL won't throw for missing files at runtime, but this is fine as a URL builder.
+        frames[i] = new URL(
+          `../../assets/ui/views/manor/frame_${i}.png`,
+          import.meta.url
+        ).href;
       }
       setFrameImages(frames);
     };
@@ -121,63 +130,91 @@ export function ManorView({
   }, []);
 
   useEffect(() => {
-    // Load character portraits
-    const loadPortraits = async () => {
-      const loadedPortraits: { [key: string]: string } = {};
-      for (const character of characters) {
-        try {
-          const portraitPath = new URL(
-            `../../assets/characters/portrait/small/${character.identifier}_190x278.png`,
-            import.meta.url
-          ).href;
-          loadedPortraits[character.identifier] = portraitPath;
-        } catch (error) {
-          // Fallback portrait
-          const defaultPath = new URL(
-            '../../assets/ui/default_portrait.png',
-            import.meta.url
-          ).href;
-          loadedPortraits[character.identifier] = defaultPath;
-        }
-      }
-      setPortraits(loadedPortraits);
-    };
-    loadPortraits();
+    const loadedPortraits: { [key: string]: string } = {};
+    for (const character of characters) {
+      loadedPortraits[character.identifier] = new URL(
+        `../../assets/characters/portrait/small/${character.identifier}_190x278.png`,
+        import.meta.url
+      ).href;
+    }
+    setPortraits(loadedPortraits);
   }, [characters]);
 
   function handleTownEventClick() {
     show(
       <StoryModal
-        // the StoryModal can close itself via onClose => hide()
         onClose={hide}
         estateName={estateName}
       />
     );
   }
 
+  function handleRecruitClick() {
+    show(
+      <div style={{ padding: 20 }}>
+        <h2>New Recruit</h2>
+        <p>Recruit modal goes here.</p>
+        <button onClick={hide}>Close</button>
+      </div>
+    );
+  }
+
+  // When a portrait fails to load, replace it with default (both DOM + state).
+  function handlePortraitError(characterId: string) {
+    setPortraits((prev) => {
+      // avoid extra state updates if already default
+      if (prev[characterId] === defaultPortraitUrl) return prev;
+      return { ...prev, [characterId]: defaultPortraitUrl };
+    });
+  }
+
   return (
     <div className="manor-view">
       <div className="portrait-grid" ref={gridRef}>
-        {characters.map((character) => (
-          <div
-            key={character.identifier}
-            className="portrait-container"
-            onClick={() => onCharacterSelect(character)}
-          >
-            <div className="portrait-frame">
-              <img
-                src={frameImages[Math.min(character.level, 6)]}
-                alt={`Level ${character.level} frame`}
-                className="frame-image"
-              />
-              <img
-                src={portraits[character.identifier]}
-                alt={character.name}
-                className="character-portrait"
+        {characters.map((character) => {
+          const frameIndex = Math.min(character.level, 6);
+          const frameSrc = frameImages[frameIndex] ?? defaultFrameUrl;
+
+          const portraitSrc = portraits[character.identifier] ?? defaultPortraitUrl;
+
+          return (
+            <div
+              key={character.identifier}
+              className="portrait-container"
+              onClick={() => onCharacterSelect(character)}
+              // optional: if you later use selectedCharacterId, you can toggle a class here
+              // data-selected={selectedCharacterId === character.identifier}
+            >
+              <div className="portrait-frame">
+                <img
+                  src={frameSrc}
+                  alt={`Level ${character.level} frame`}
+                  className="frame-image"
+                />
+                <img
+                  src={portraitSrc}
+                  alt={character.name}
+                  className="character-portrait"
+                  onError={(e) => {
+                    // DOM immediate fallback to stop broken-image icon
+                    (e.currentTarget as HTMLImageElement).src = defaultPortraitUrl;
+                    handlePortraitError(character.identifier);
+                  }}
+                />
+              </div>
+            </div>
+          );
+        })}
+        <div className="portrait-container recruit-tile">
+          <div className="portrait-frame">
+            <div className="recruit-button-wrapper">
+              <ImageButton
+                textureUrl={recruitButton}
+                onClick={handleRecruitClick}
               />
             </div>
           </div>
-        ))}
+        </div>
       </div>
 
       <div className="manor-button-container">

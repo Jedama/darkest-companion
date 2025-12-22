@@ -1,5 +1,5 @@
-// src/components/ui/ImageButton/ImageButton.tsx
-import React, {
+// src/components/ui/buttons/ImageButton.tsx
+import {
     FC,
     useEffect,
     useRef,

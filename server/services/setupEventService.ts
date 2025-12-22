@@ -1,11 +1,12 @@
 import { loadEstate } from '../fileOps';
-import { Estate, EventData, LocationData, Bystander } from '../../shared/types/types';
+import { Estate, EventData, LocationData, Bystander, Enemy } from '../../shared/types/types';
 import { pickEventLocation } from './locationService';
 import StaticGameDataManager from '../staticGameDataManager.js';
 
 export interface SetupEventOptions {
-  characterIds?: string[];
   eventId?: string;
+  characterIds?: string[];
+  enemyIds?: string[];
   description?: string; // Currently unused, but prepared for future usage
 }
 
@@ -39,12 +40,22 @@ function dedupePreserveOrder(ids: string[]): string[] {
   return result;
 }
 
+function validateEnemyIds(enemyIds: string[]): void {
+  const gameData = StaticGameDataManager.getInstance();
+  if (enemyIds.length === 0) return;
+
+  const missing = enemyIds.filter((id) => !gameData.getEnemyById(id));
+  if (missing.length > 0) {
+    throw new Error(`Enemy IDs not found in game data: ${missing.join(', ')}`);
+  }
+}
+
 /**
  * Extracts the number of characters range from an event.
  */
 function getNrCharsRange(event: EventData): [number, number] {
-  return (Array.isArray(event.nrChars) && event.nrChars.length === 2)
-    ? [event.nrChars[0], event.nrChars[1]]
+  return (Array.isArray(event.characterCount) && event.characterCount.length === 2)
+    ? [event.characterCount[0], event.characterCount[1]]
     : [1, 4];
 }
 
@@ -213,6 +224,7 @@ export async function setupEvent(
   chosenCharacterIds: string[];
   locations: LocationData[];
   npcs: string[];
+  enemies: string[];
   bystanders: Bystander[];
 }> {
   const gameData = StaticGameDataManager.getInstance();
@@ -222,9 +234,13 @@ export async function setupEvent(
     ? dedupePreserveOrder(options.characterIds)
     : undefined;
 
+  const userEnemyIds = options.enemyIds
+    ? dedupePreserveOrder(options.enemyIds)
+    : [];
+
   const normalizedOptions: SetupEventOptions = {
     ...options,
-    characterIds: dedupedCharacterIds,
+    characterIds: dedupedCharacterIds
   };
 
   // 1. Load Estate
@@ -241,6 +257,15 @@ export async function setupEvent(
     ? structuredClone(template)
     : JSON.parse(JSON.stringify(template));
 
+  // 2a. Validate Enemy IDs if provided
+  const eventEnemyIds = Array.isArray(event.enemies)
+    ? dedupePreserveOrder(event.enemies)
+    : [];
+
+    const enemies = eventEnemyIds.length > 0 ? eventEnemyIds : userEnemyIds;
+
+  validateEnemyIds(enemies);
+  
   // 3. Resolve Keywords
   const townKeywords = gameData.getTownKeywords();
   event.keywords = pickKeywords(event.keywords || [], townKeywords);
@@ -252,8 +277,8 @@ export async function setupEvent(
   // 5. Resolve Location & Context
   let locations: LocationData[] = [];
   let npcs: string[] = [];
-  let bystanders: Array<{characterId: string, connectionType: 'residence' | 'workplace' | 'frequent' | 'present'}> = [];
-  
+  let bystanders: Bystander[] = [];
+
   if (event.location) {
     const result = await pickEventLocation(
       event,
@@ -267,5 +292,5 @@ export async function setupEvent(
     bystanders = result.bystanders;
   }
 
-  return { event, chosenCharacterIds, locations, npcs, bystanders };
+  return { event, chosenCharacterIds, locations, npcs, enemies, bystanders };
 }

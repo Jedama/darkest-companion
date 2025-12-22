@@ -1,4 +1,4 @@
-import type { Estate, EventData, Character, NPC, LocationData, Bystander } from '../../shared/types/types.ts';
+import type { Estate, EventData, Character, NPC, LocationData, Bystander, Enemy } from '../../shared/types/types.ts';
 import { compileNarrativeContext  } from './promptService.js';
 import StaticGameDataManager from '../staticGameDataManager.js';
 
@@ -15,6 +15,7 @@ export async function compileStoryPrompt(
   chosenCharacterIds: string[],
   locations: LocationData[],
   npcIds: string[],
+  enemyIds: string[],
   bystanders: Bystander[] = []
 ): Promise<string> {
 
@@ -43,6 +44,30 @@ export async function compileStoryPrompt(
     return updatedDescription;
   }
 
+  function replaceEnemyPlaceholders(description: string, enemies: Enemy[]): string {
+    let updatedDescription = description;
+
+    // Replace specific [Enemy ?] placeholders
+    enemies.forEach((enemy, index) => {
+      const placeholder = `[Enemy ${index + 1}]`;
+      updatedDescription = updatedDescription.replaceAll(placeholder, enemy.title);
+    });
+
+    // Replace [Enemies] placeholder with a properly formatted list of enemy titles
+    if (updatedDescription.includes('[Enemies]')) {
+      const enemyNames = enemies
+        .map((e) => e.title)
+        .reduce((acc, name, idx, arr) => {
+          if (idx === 0) return name;
+          if (idx === arr.length - 1) return `${acc} and ${name}`;
+          return `${acc}, ${name}`;
+        }, '');
+      updatedDescription = updatedDescription.replaceAll('[Enemies]', enemyNames);
+    }
+
+    return updatedDescription;
+  }
+
   // 1. Build [Instructions] and [Context] section using the prompt service
   const gameData = StaticGameDataManager.getInstance();
 
@@ -60,6 +85,9 @@ export async function compileStoryPrompt(
   // 2. Gather character and data
   const involvedCharacters: Character[] = chosenCharacterIds.map(id => estate.characters[id]);
   const npcs: NPC[] = gameData.getNPCsByIds(npcIds);
+  const enemies: Enemy[] = enemyIds
+    .map((id) => gameData.getEnemyById(id))
+    .filter((e): e is Enemy => !!e);
 
   // 3. Build [Characters] section
   //    For each character, gather description, stats, traits, status, notes, clothing, appearance, combat, and magic
@@ -187,7 +215,7 @@ Description: ${description}
   if (bystanders.length > 0) {
     bystandersSection = `[Bystanders]\n`;
     
-    for (const { characterId, connectionType } of bystanders) {
+    for (const { identifier: characterId, connectionType } of bystanders) {
       const char = estate.characters[characterId];
       if (!char) continue;
       
@@ -227,8 +255,45 @@ Description: ${description}
     }
   }
 
-  // 8. Build [Event] section and replace placeholders
-  const eventDescriptionWithReplacements = replaceCharacterPlaceholders(event.description, involvedCharacters);
+  // 8. Build [Enemies] section (if any)
+  let enemiesSection = '';
+  if (enemies.length > 0) {
+    enemiesSection = `[Enemies]\n`;
+
+    for (const enemy of enemies) {
+      enemiesSection += `- ${enemy.title}\n`;
+      enemiesSection += `  - ${enemy.description}\n`;
+      enemiesSection += `  - ${enemy.history}\n`;
+
+      // Identity / flavor
+      enemiesSection += `  - Race/Gender/Religion: ${enemy.race}, ${enemy.gender}, ${enemy.religion}\n`;
+
+      // Stats & kit
+      enemiesSection += `  - Stats: Strength: ${enemy.stats.strength}, Agility: ${enemy.stats.agility}, Intelligence: ${enemy.stats.intelligence}\n`;
+      if (enemy.traits?.length) {
+        enemiesSection += `  - Traits: ${enemy.traits.join(', ')}\n`;
+      }
+      if (enemy.equipment?.length) {
+        enemiesSection += `  - Equipment: ${enemy.equipment.join(', ')}\n`;
+      }
+
+      // Appearance / clothing
+      enemiesSection += `  - Appearance: ${enemy.appearance.height}, ${enemy.appearance.build}, ${enemy.appearance.skinTone} skin, ${enemy.appearance.hairStyle} ${enemy.appearance.hairColor} hair, ${enemy.appearance.features}\n`;
+      enemiesSection += `  - Clothing: Head: ${enemy.clothing.head}; Body: ${enemy.clothing.body}; Legs: ${enemy.clothing.legs}; Accessories: ${enemy.clothing.accessories}\n`;
+
+      // Combat / magic
+      enemiesSection += `  - Combat: Role: ${enemy.combat.role}. Strengths: ${enemy.combat.strengths.join(', ')}. Weaknesses: ${enemy.combat.weaknesses.join(', ')}.\n`;
+      if (enemy.magic) {
+        enemiesSection += `  - Magic: ${enemy.magic}\n`;
+      }
+
+      enemiesSection += `\n`;
+    }
+  }
+
+  // 9. Build [Event] section and replace placeholders
+  let eventDescriptionWithReplacements = replaceCharacterPlaceholders(event.description, involvedCharacters);
+  eventDescriptionWithReplacements = replaceEnemyPlaceholders(eventDescriptionWithReplacements, enemies);
   const eventSection = `[Event]
 Title: "${event.title}"
 Description: ${eventDescriptionWithReplacements}
@@ -249,6 +314,7 @@ Description: ${eventDescriptionWithReplacements}
     locationSection +
     npcSection +
     bystandersSection +
+    enemiesSection +
     keywordsSection;
 
   console.log(fullPrompt);

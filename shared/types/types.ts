@@ -98,10 +98,34 @@ export interface NPC {
   notes: string[];
 }
 
+export interface Enemy {
+  identifier: string;
+  title: string;
+  faction: string[];
+  description: string;
+  history: string;
+  summary: string;
+
+  race: string;
+  gender: string;
+  religion: string;
+
+  traits: string[];
+  stats: CharacterStats;
+  equipment: string[];
+
+  appearance: CharacterAppearance;
+  clothing: CharacterClothing;
+  combat: CharacterCombat;
+
+  magic: string;
+}
+
+
 // ========== Logs ==========
 // Each log entry records a piece of narrative or event detail at a given month.
 export interface LogEntry {
-  month: number;          // in-game month the log occured during
+  month: number;          // in-game month the log occurred during
   entry: string;          // short description of what happened
   expiryMonth: number;    // month when this log should expire
 }
@@ -110,9 +134,10 @@ export interface EventData {
   identifier: string;
   title: string;
   description: string;
-  nrChars: number;     // number of characters typically involved
+  characterCount: number;     // number of characters typically involved
   keywords: string[];  // e.g., ["combat", "gambling", "nighttime"]
   location: EventLocationRequirements;  // location requirements for characters
+  enemies?: string[];  // optional array of enemy identifiers
   // You can add fields like "specialConsequences", "outcomes", etc., if needed
 }
 
@@ -138,6 +163,15 @@ export interface LocationData {
   npcs?: string[];      // array of NPC identifiers connected to this location
   parent: string;       // parent location identifier
   children: string[];   // child location identifiers
+}
+
+// ========== Bystanders ==========
+
+type BystanderConnectionType = 'residence' | 'workplace' | 'frequent' | 'present';
+
+export interface Bystander {
+  identifier: string;
+  connectionType: BystanderConnectionType;
 }
 
 // ========== Estate ==========
@@ -176,12 +210,7 @@ export type CharacterRecord = Record<string, Character>;
 // A record of all available event blueprints.
 export type EventRecord = Record<string, EventData>;
 
+// A record of all available enemies.
+export type EnemyRecord = Record<string, Enemy>;
 
-// ========== Bystanders ==========
 
-type BystanderConnectionType = 'residence' | 'workplace' | 'frequent' | 'present';
-
-export interface Bystander {
-  characterId: string;
-  connectionType: BystanderConnectionType;
-}

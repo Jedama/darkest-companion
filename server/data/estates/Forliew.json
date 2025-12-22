@@ -105,14 +105,14 @@
           "description": "The crusader maintains a professional relationship with the heiress, focusing on fulfilling his role as her protector with a devout sense of duty."
         },
         "kheir": {
-          "affinity": 2,
-          "dynamic": "Malicious Protection",
-          "description": "Reynauld defends the Heir with a curling lip, fighting the temptation to let the weak nobleman taste the steel he so fears."
+          "affinity": 0,
+          "dynamic": "Open Contempt",
+          "description": "Reynauld views the Heir's physical cowardice as a pathetic disgrace, tolerating his presence only as a burdensome duty."
         },
         "highwayman": {
-          "affinity": 8,
-          "dynamic": "Shared Burden",
-          "description": "Reynauld sees his own desperation reflected in the Highwayman, binding them as two lost souls walking into madness."
+          "affinity": 9,
+          "dynamic": "Battle Brothers",
+          "description": "Reynauld finds a silent, warrior's kinship with Dismas, acknowledging their shared readiness to meet violence with violence."
         },
         "seraph": {
           "affinity": 4,
@@ -180,10 +180,10 @@
         "Cynical"
       ],
       "status": {
-        "physical": 76,
+        "physical": 71,
         "mental": 100,
         "affliction": "",
-        "description": "Spitting blood and gripping his flintlock",
+        "description": "Spitting blood and combat-ready",
         "wounds": [
           "Internal chest bruising"
         ],
@@ -245,9 +245,9 @@
       ],
       "relationships": {
         "heiress": {
-          "affinity": 4,
-          "dynamic": "Guardian",
-          "description": "The highwayman is determined to prove himself to the heiress and to assist in her quest despite her warranted distrust."
+          "affinity": 5,
+          "dynamic": "Stalwart Shield",
+          "description": "Dismas proves his worth by physically shielding the Heiress, treating the threat as routine to calm her nerves."
         },
         "kheir": {
           "affinity": 3,
@@ -255,7 +255,7 @@
           "description": "Despite the Heir's distrust, the highwayman is resolute in his role as a guard, seeing their safety as his path to absolution."
         },
         "crusader": {
-          "affinity": 8,
+          "affinity": 9,
           "dynamic": "Kindred Spirits",
           "description": "Dismas finds comfort in the Crusader's presence, recognizing another damned soul seeking an absolution that may never come."
         }
@@ -321,9 +321,9 @@
       ],
       "status": {
         "physical": 100,
-        "mental": 80,
+        "mental": 75,
         "affliction": "",
-        "description": "Violently trembling beneath a facade of rigid command",
+        "description": "Trembling but defiant in the face of danger",
         "wounds": [],
         "diseases": []
       },
@@ -420,9 +420,9 @@
           "description": "The heiress maintains a reserved, professional demeanor towards the crusader, her latest recruit."
         },
         "highwayman": {
-          "affinity": 3,
-          "dynamic": "Cautious",
-          "description": "The heiress regards the highwayman with suspicion. While his skills could prove valuable, his checkered past and gruff manner keep her on guard."
+          "affinity": 4,
+          "dynamic": "Valued Protector",
+          "description": "Persephone recognizes the Highwayman's immediate willingness to shield her from harm, softening her suspicion with necessary gratitude."
         },
         "hqclaimants": {
           "affinity": 2,
@@ -474,9 +474,9 @@
       ],
       "status": {
         "physical": 100,
-        "mental": 67,
+        "mental": 57,
         "affliction": "",
-        "description": "Terrified and using the Crusader as a human shield",
+        "description": "Humiliated, terrified, and mud-soaked",
         "wounds": [],
         "diseases": []
       },
@@ -521,7 +521,8 @@
       "magic": "None",
       "notes": [
         "Hates waste and is very possesive of his belongings",
-        "Has a penchant for fine wines to calm his nerves"
+        "Has a penchant for fine wines to calm his nerves",
+        "Instinctively uses allies as human shields when terrified"
       ],
       "tags": [
         "Flexible",
@@ -546,9 +547,9 @@
           "description": "The Heir admires, and is deeply jealous of, his sister's strength and ability to take initiative. Despite their fierce bickering, the Heir loves his sister."
         },
         "crusader": {
-          "affinity": 5,
-          "dynamic": "Desperate Reliance",
-          "description": "Percival clings to the Crusader's shadow for safety, tolerating the warrior's mockery as the necessary price of survival."
+          "affinity": 4,
+          "dynamic": "Parasitic Reliance",
+          "description": "Percival clings desperately to Reynauld for survival, disregarding the warrior's obvious disgust to ensure his own safety."
         },
         "highwayman": {
           "affinity": 2,
@@ -621,6 +622,11 @@
         "month": 0,
         "entry": "Cowered behind the Crusader during the ambush, prioritizing the safety of a wine bottle over his own dignity.",
         "expiryMonth": 1
+      },
+      {
+        "month": 0,
+        "entry": "Attempted to use the Crusader as a human shield during the ambush, only to be physically rejected.",
+        "expiryMonth": 1
       }
     ],
     "heiress": [
@@ -637,6 +643,11 @@
       {
         "month": 0,
         "entry": "Struggled to mask violent physical tremors while forcefully commanding her brother to maintain appearances.",
+        "expiryMonth": 1
+      },
+      {
+        "month": 0,
+        "entry": "Maintained a command presence despite the crash, ordering her brother to stand.",
         "expiryMonth": 1
       }
     ],
@@ -655,6 +666,11 @@
         "month": 0,
         "entry": "Suffered internal injuries from the crash but remained combat-ready against the ambush.",
         "expiryMonth": 3
+      },
+      {
+        "month": 0,
+        "entry": "Interposed himself between the Heiress and the brigand, readying his flintlock.",
+        "expiryMonth": 1
       }
     ],
     "crusader": [
@@ -672,6 +688,11 @@
         "month": 0,
         "entry": "Felt a dark urge to let the Heir be harmed before stepping in to protect him.",
         "expiryMonth": 3
+      },
+      {
+        "month": 0,
+        "entry": "Physically dislodged the clinging Heir to engage the brigand threat.",
+        "expiryMonth": 1
       }
     ]
   },
@@ -689,6 +710,11 @@
     {
       "month": 0,
       "entry": "Survivors of a carriage crash were ambushed by brigands in the Weald immediately after dragging themselves from the wreckage.",
+      "expiryMonth": 3
+    },
+    {
+      "month": 0,
+      "entry": "The stagecoach crashed on the Old Road, leaving the party battered and facing a brigand ambush amidst the wreckage.",
       "expiryMonth": 3
     }
   ]

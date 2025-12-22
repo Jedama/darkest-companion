@@ -8,20 +8,22 @@ const router = Router();
  * POST /estates/:estateName/events/setup
  * Sets up an event. Can be purely random, or directed by specific inputs.
  * Body: {
- *   characterIds?: string[],
  *   eventId?: string,
+ *   characterIds?: string[],
+ *   enemyIds?: string[],
  *   description?: string
  * }
  */
 router.post('/estates/:estateName/events/setup', async (req: Request, res: Response) => {
   try {
     const { estateName } = req.params;
-    const { characterIds, eventId, description } = req.body;
+    const { eventId, characterIds, enemyIds, description } = req.body;
 
     // Call the service to pick random event + characters
     const result = await setupEvent(estateName, {
-      characterIds,
       eventId,
+      characterIds,
+      enemyIds,
       description // Passed through, though currently unused logic-wise
     });
 

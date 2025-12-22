@@ -398,7 +398,7 @@ export function pickEventLocation(
     const conn = getConnectionToLocation(p, pickedLocationId);
     // Only include participants who actually have a connection
     if (conn) {
-      participantBystanders.push({ characterId: p.identifier, connectionType: conn });
+      participantBystanders.push({ identifier: p.identifier, connectionType: conn });
     }
   }
 
@@ -420,11 +420,7 @@ export function pickEventLocation(
 
     // Attempt to upgrade from generic presence
     const conn = getConnectionToLocation(oc, pickedLocationId);
-    nonParticipantBystanders.push({
-      characterId: id,
-      // Fall back to "present" if no stronger connection exists
-      connectionType: conn ?? 'present'
-    });
+    nonParticipantBystanders.push({ identifier: id, connectionType: conn ?? 'present' });
     addedNonParticipant.add(id);
   }
 
@@ -435,7 +431,7 @@ export function pickEventLocation(
 
     // Filter out participants and already-added overflow characters
     const candidates = connected.filter((b) =>
-      !participantIdSet.has(b.characterId) && !addedNonParticipant.has(b.characterId)
+      !participantIdSet.has(b.identifier) && !addedNonParticipant.has(b.identifier)
     );
 
     // Shuffle to keep randomness (Fisher–Yates shuffle)
@@ -448,7 +444,7 @@ export function pickEventLocation(
     for (const c of candidates) {
       if (nonParticipantBystanders.length >= MAX_NONPARTICIPANT_BYSTANDERS) break;
       nonParticipantBystanders.push(c);
-      addedNonParticipant.add(c.characterId);
+      addedNonParticipant.add(c.identifier);
     }
   }
 
@@ -472,40 +468,30 @@ export function pickEventLocation(
 export function findCharactersConnectedToLocations(
   estate: Estate,
   locations: LocationData[]
-): Array<{characterId: string, connectionType: 'residence' | 'workplace' | 'frequent' | 'present'}> {
-  // Only use the first location in the array
+): Bystander[] {
+  // Only use the first location in the array (your current behavior)
   const locationId = locations.length > 0 ? locations[0].identifier : null;
-  const connections: Array<{characterId: string, connectionType: 'residence' | 'workplace' | 'frequent' | 'present'}> = [];
-  
-  // Return empty array if no locations provided
-  if (!locationId) return connections;
-  
-  // Loop through all characters in the estate
-  Object.entries(estate.characters).forEach(([characterId, character]) => {
-    // Check residence connections
-    for (const locId of character.locations.residence) {
-      if (locId === locationId) {
-        connections.push({ characterId, connectionType: 'residence' });
-        break; // Only add once for residence
-      }
+  if (!locationId) return [];
+
+  const connections: Bystander[] = [];
+
+  for (const [characterId, character] of Object.entries(estate.characters)) {
+    // Priority: residence > workplace > frequent
+    if (character.locations.residence.includes(locationId)) {
+      connections.push({ identifier: characterId, connectionType: "residence" });
+      continue;
     }
-    
-    // Check workplace connections
-    for (const locId of character.locations.workplaces) {
-      if (locId === locationId) {
-        connections.push({ characterId, connectionType: 'workplace' });
-        break; // Only add once for workplaces
-      }
+
+    if (character.locations.workplaces.includes(locationId)) {
+      connections.push({ identifier: characterId, connectionType: "workplace" });
+      continue;
     }
-    
-    // Check frequent connections
-    for (const locId of character.locations.frequents) {
-      if (locId === locationId) {
-        connections.push({ characterId, connectionType: 'frequent' });
-        break; // Only add once for frequents
-      }
+
+    if (character.locations.frequents.includes(locationId)) {
+      connections.push({ identifier: characterId, connectionType: "frequent" });
+      continue;
     }
-  });
-  
+  }
+
   return connections;
 }

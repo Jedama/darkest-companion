@@ -1,109 +1,161 @@
 [
   {
-    "identifier": "cultist_brawler",
-    "title": "Cultist Brawler",
-    "description": "The Cultist Brawler is the muscle of the roaming congregations—masked, crowned, and eager for close bloodshed. He fights with bladed gauntlets, tearing at flesh as if each wound were proof of devotion. He is not clever, but he is persistent, and he is rarely alone.",
-    "history": "Cultist Brawlers are drawn from the hard and hungry: drifters, thugs, deserters, and men who found purpose in the cult’s certainty. They travel with the chanters and handlers, serving as escorts and enforcers wherever the Iron Crown’s influence spreads. Whether as emissaries among other threats or as a sign of something deeper at work, their presence marks a place where fear is being cultivated, not merely endured.",
-    "summary": "A relentless melee zealot who overwhelms targets at close range with bladed gauntlets and stubborn aggression.",
+    "identifier": "brigand_cutthroat",
+    "title": "Brigand Cutthroat",
+    "faction": ["Brigand"],
+    "description": "The Cutthroat is the sharp, merciless edge of the brigand ranks. A master of ambush and sudden violence, he haunts the Old Road and its surrounding thickets, waiting for the instant a traveler’s guard falters. He does not seek a fair fight—only a decisive one—darting through chaos with twin daggers to open arteries and vanish before reprisal can find him.",
+    "history": "Most Cutthroats are drawn from the desperate and the dispossessed: deserters, failed footpads, and men who learned early that subtlety keeps one alive longer than courage. Within brigand bands, they are valued not for loyalty or leadership, but for their reliability in bloodshed. Where others hesitate, the Cutthroat strikes.",
+    "summary": "A lethal skirmisher who excels at ambush tactics and close-quarters bleeding attacks, relying on speed and precision rather than endurance.",
     "race": "Human",
     "gender": "Male",
-    "faction": ["Cultist"],
-    "religion": "The Heart of Darkness",
+    "religion": "Pagan",
     "traits": [
-      "Fanatical",
-      "Brutal",
-      "Persistent",
-      "Single-minded"
+      "Opportunistic",
+      "Precise",
+      "Ruthless",
+      "Agile"
     ],
     "stats": {
       "strength": 7,
-      "agility": 5,
-      "intelligence": 2,
+      "agility": 9,
+      "intelligence": 4,
       "authority": 2,
-      "sociability": 1
+      "sociability": 3
     },
     "equipment": [
-      "Bladed gauntlets"
+      "Twin daggers"
     ],
     "appearance": {
       "height": "Tall",
-      "build": "Muscular",
-      "skinTone": "Pale",
+      "build": "Athletic",
+      "skinTone": "Dark",
       "hairColor": "Unknown",
       "hairStyle": "Hidden",
-      "features": "Rough hands and scarred forearms, with a heavy, predatory stance"
+      "features": "A notably large, crooked nose and cold, predatory eyes"
     },
     "clothing": {
-      "head": "Skull mask crowned with iron spikes",
-      "body": "Bare torso marked by scars and crude inked symbols",
-      "legs": "Dark, tattered robes secured by a prominent girdle",
-      "accessories": "Leather straps and metal bindings for the gauntlets"
+      "head": "Green hood that partially obscures a stubbled face",
+      "body": "Reinforced thick gambeson",
+      "legs": "Hardy green breeches",
+      "accessories": "Tan padded vest and leather utility straps"
     },
     "combat": {
       "role": "Close combat",
       "strengths": [
-        "Relentless aggression",
-        "Strong pressure in melee"
+        "High critical precision",
+        "Exceptional mobility"
       ],
       "weaknesses": [
-        "Limited versatility",
+        "Low physical endurance",
         "Ineffective at range"
       ]
     },
     "magic": "None"
   },
   {
-    "identifier": "cultist_acolyte",
-    "title": "Cultist Acolyte",
-    "description": "The Cultist Acolyte keeps to the rear, speaking in steady incantations that fray the mind and invite something unseen to tug at the body. Her chants are not meant to kill quickly—they are meant to unmake composure, to break formation, to leave the faithful’s knives and claws to do the rest.",
-    "history": "Acolytes are the cult’s voice in the world beyond the Manor—wanderers by choice or necessity, drawn to the same looming certainty that gathers others to twisted idols. They move among the Estate’s many dangers, sometimes alongside local horrors, sometimes apart, but always marked by the Iron Crown. Alone they are seldom decisive; with protectors at their side, their words can turn a skirmish into a slow collapse of resolve.",
-    "summary": "A backline caster who inflicts psychological pressure and disrupts positioning through dark incantations.",
+    "identifier": "brigand_fusilier",
+    "title": "Brigand Fusilier",
+    "faction": ["Brigand"],
+    "description": "The Fusilier brings the thunder of black powder to the brigand trade. Though lacking the discipline of a true marksman, he compensates with the brutal efficiency of his blunderbuss, scattering shot and smoke alike to shatter formations and morale. His presence turns skirmishes into chaos, filling the air with choking powder and the promise of indiscriminate destruction.",
+    "history": "Many Fusiliers were once powder-monkeys, watchmen, or militiamen who discovered that firearms yield greater profit when freed from law and restraint. They tend their weapons with near-superstitious care, believing the roar of the gun to be both shield and threat—a sound that wards off enemies mundane and otherwise.",
+    "summary": "A disruptive backline combatant who uses black powder weaponry to inflict area damage, suppress foes, and sow panic.",
     "race": "Human",
-    "gender": "Female",
-    "faction": ["Cultist"],
-    "religion": "The Heart of Darkness",
+    "gender": "Male",
+    "religion": "Pagan",
     "traits": [
-      "Zealous",
-      "Composed",
-      "Unsettling",
-      "Patient"
+      "Vigilant",
+      "Noisy",
+      "Destructive"
     ],
     "stats": {
-      "strength": 3,
-      "agility": 4,
-      "intelligence": 7,
-      "authority": 4,
-      "sociability": 2
+      "strength": 4,
+      "agility": 7,
+      "intelligence": 5,
+      "authority": 1,
+      "sociability": 6
     },
     "equipment": [
-      "Ritual cane"
+      "Blunderbuss"
     ],
     "appearance": {
       "height": "Average",
-      "build": "Thin",
-      "skinTone": "Pale",
+      "build": "Lean",
+      "skinTone": "Tan",
       "hairColor": "Unknown",
       "hairStyle": "Hidden",
-      "features": "Still posture and careful movements, as if listening for distant instructions"
+      "features": "Soot-stained skin and squinted eyes from years of muzzle flashes"
     },
     "clothing": {
-      "head": "Skull mask crowned with iron spikes",
-      "body": "Dark robes patterned with occult symbols",
-      "legs": "Full-length dark robes",
-      "accessories": "Corded sash and small pouches for charms and powders"
+      "head": "Green hood pulled low",
+      "body": "Rugged linen shirt",
+      "legs": "Brown canvas trousers",
+      "accessories": "Green cloak, tan padded vest, and a scorched gunpowder pouch"
     },
     "combat": {
-      "role": "Spellcaster",
+      "role": "Suppressive Marksman",
       "strengths": [
-        "Psychological pressure",
-        "Position disruption",
-        "Battlefield control"
+        "Crowd control",
+        "Rapid fire"
       ],
       "weaknesses": [
-        "Physical fragility",
-        "Vulnerable in close combat"
+        "Vulnerable in melee",
+        "Poor individual accuracy"
       ]
     },
-    "magic": "Incantations that strain the mind and call unseen force to pull and push"
+    "magic": "None"
+  },
+  {
+    "identifier": "brigand_blood",
+    "title": "Brigand Bloodletter",
+    "faction": ["Brigand"],
+    "description": "The Bloodletter is the iron fist of the brigand gangs—a towering brute who rules through visceral terror. He wields pain as both weapon and language, his cat o’ nine tails cracking flesh and will in equal measure. On the battlefield, he advances without haste, absorbing punishment as he lashes out, breaking bodies and spirits alike.",
+    "history": "Bloodletters are most often former pit-fighters, executioners, or men who learned to equate dominance with survival. Few brigands willingly challenge one; fewer still survive doing so. Within larger gangs, the Bloodletter’s authority is absolute—not because it is granted, but because it is enforced.",
+    "summary": "A massive frontline enforcer who controls the battlefield through intimidation, raw physical durability, and relentless close-range pressure.",
+    "race": "Human",
+    "gender": "Male",
+    "religion": "Pagan",
+    "traits": [
+      "Sadistic",
+      "Imposing",
+      "Authoritative",
+      "Thick-skinned"
+    ],
+    "stats": {
+      "strength": 10,
+      "agility": 3,
+      "intelligence": 3,
+      "authority": 9,
+      "sociability": 2
+    },
+    "equipment": [
+      "Cat o' nine tails whip",
+      "Heavy flintlock pistol"
+    ],
+    "appearance": {
+      "height": "Massive",
+      "build": "Hulking and Muscular",
+      "skinTone": "Dark",
+      "hairColor": "None",
+      "hairStyle": "Bald",
+      "features": "A map of jagged battle scars across his torso and back, and a split lip"
+    },
+    "clothing": {
+      "head": "Green hood obscuring a scarred face",
+      "body": "Bare, scarred chest",
+      "legs": "Blood-stained green pants",
+      "accessories": "Spiked iron bracelets, large golden necklace, and two heavy leather belts"
+    },
+    "combat": {
+      "role": "Frontline Enforcer",
+      "strengths": [
+        "Extreme physical durability",
+        "Crowd intimidation"
+      ],
+      "weaknesses": [
+        "Slow movements",
+        "Low tactical flexibility"
+      ]
+    },
+    "magic": "None"
   }
 ]

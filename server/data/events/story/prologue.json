@@ -71,7 +71,8 @@
       "frequents": [],
       "allowAll": false,
       "allowParentLocations": false
-    }
+    },
+    "enemies": ["brigand_cutthroat"]
   },
   {
     "identifier": "prologue_3",

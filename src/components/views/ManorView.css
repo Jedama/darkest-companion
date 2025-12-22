@@ -78,3 +78,17 @@
   gap: 16px; /* space between multiple buttons */
   z-index: 10;
 }
+
+/* Recruit tile: avoid double hover scaling (ImageButton already scales) */
+.recruit-tile:hover {
+  transform: none;
+}
+
+/* Size the recruit icon relative to the tile (tweak this %) */
+.recruit-button-wrapper {
+  width: 80%;
+  height: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

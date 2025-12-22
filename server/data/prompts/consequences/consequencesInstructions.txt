@@ -79,6 +79,7 @@ RULES:
 2. For removals (lose_trait, lose_note, etc.), values MUST match existing entries exactly.
 3. Omit fields entirely if no changes (don't include empty arrays/objects).
 4. If an event character is absent (merely talked or dreamt about), do NOT list any consequences for them, ONLY for the speakers/dreamers.
-5. Refer to the characters by their identifiers, labeled with [identifier] above. Be extra attentive as some characters don't use their exact title as identifier (Heir is kheir, for example)
-6. Don't include the questionmarks in your response, they are only there to indicate optional fields.
-7. Focus on the most meaningful 2-3 changes per character rather than trying to change everything.
+5. Use the characers' identifiers, labeled with [identifier] above. Be extra attentive as some characters don't use their exact title as identifier (Heir is kheir, for example)
+6. In text, such as descriptions, refer to the characters by their titles, not names. ("the Heir", not "Percival").
+7. Don't include the questionmarks in your response, they are only there to indicate optional fields.
+8. Focus on the most meaningful 2-3 changes per character rather than trying to change everything.

@@ -1,6 +1,6 @@
 [
   {
-    "identifier": "pelagic_grouper",
+    "identifier": "fishman_harpoon",
     "title": "Pelagic Grouper",
     "description": "The Pelagic Grouper is a seaworn warrior shaped by surf and slaughter. He advances with practiced restraint, casting his harpoon not only to wound, but to claim space and deny escape. Where stone is slick with brine, he moves as if on familiar ground—closing in with a cutlass once the prey has been pinned and shaken.",
     "history": "The Seafolk do not arrive as solitary beasts, but as disciplined raiders from the dark edges of the water. Groupers form the backbone of these forays—fighters accustomed to unstable footing, poor visibility, and sudden violence. When the tide of the Estate’s misery draws them closer to shore, they follow it with the calm certainty of predators returning to a favored hunting ground.",
@@ -53,7 +53,7 @@
     "magic": "None"
   },
   {
-    "identifier": "pelagic_shaman",
+    "identifier": "fishman_shaman",
     "title": "Pelagic Shaman",
     "description": "The Pelagic Shaman stands apart from the press of blades, directing the Seafolk with quiet certainty. Its voice is low and measured, carrying a cadence that unsettles the mind as much as it steadies allied hands. With staff and dagger held more as symbols than necessities, it turns the fight into an ordeal—patching wounds, hardening resolve, and reminding intruders they are out of place in the deep’s domain.",
     "history": "Among the Seafolk, shamans serve as keepers of memory and discipline—figures who bind a raiding party into something more than a swarm of hungry bodies. They are seen wherever the Seafolk press inland: near drowned corridors, brackish tunnels, and the places where saltwater seeps into stone. Whether their craft is learned, inherited, or simply adapted to the depths, its effects are unmistakable: allies endure longer, and enemies come apart from within.",
