@@ -1,5 +1,4 @@
 // src/components/characterpanel/CharacterPanel.tsx
-import React from 'react';
 import { useMemo } from 'react';
 import type { Character } from '../../../shared/types/types.ts';
 import type { StatName } from '../../types/statTypes.ts';

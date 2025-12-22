@@ -64,8 +64,8 @@
 
 .character-portrait {
   position: absolute;
-  width: calc(190 / 315 * 100%);
-  height: calc(278 / 420 * 100%);
+  width: calc(190 / 315 * 100% + 2px); /* +2px to slightly overlap frame edges */
+  height: calc(278 / 420 * 100% + 2px);
   object-fit: contain;
 }
 
