@@ -5,6 +5,10 @@ import type { ViewType } from '../../types/viewTypes.ts';
 import type { Character } from '../../../shared/types/types.ts';
 import './MainLayout.css';
 
+import manorBg from '../../assets/ui/backgrounds/manor.png';
+import oldroadBg from '../../assets/ui/backgrounds/oldroad.png';
+import strategyBg from '../../assets/ui/backgrounds/strategy.png';
+
 interface MainLayoutProps {
   characters: Character[];
   selectedCharacter: Character | null;
@@ -14,9 +18,9 @@ interface MainLayoutProps {
 
 // Map views to their background images
 const VIEW_BACKGROUNDS: Record<ViewType, string> = {
-  manor: '/src/assets/ui/backgrounds/manor.png',
-  dungeon: '/src/assets/ui/backgrounds/oldroad.png',
-  strategy: '/src/assets/ui/backgrounds/strategy.png'
+  manor: manorBg,
+  dungeon: oldroadBg,
+  strategy: strategyBg,
 };
 
 export function MainLayout({ 

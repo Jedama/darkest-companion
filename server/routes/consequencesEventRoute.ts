@@ -6,7 +6,7 @@ import { callClaude, callGemini, callGrok } from '../services/llm/llmService.js'
 import { compileConsequencesPrompt } from '../services/consequencesEventService.js';
 import { validateConsequenceUpdate, formatConsequenceUpdate } from '../services/promptService.js';
 import type { ConsequencePrompt } from '../services/promptService.js';
-import { applyConsequences, ConsequencesResult, prepareConsequenceDisplay, ensureAllCharactersHaveConsequences } from '../services/consequenceProcessor.js';
+import { applyConsequences, ConsequencesResult, prepareConsequenceDisplay, ensureAllCharactersHaveConsequences } from '../services/llmResponseProcessor.js';
 
 const router = Router();
 
@@ -50,18 +50,18 @@ router.post('/estates/:estateName/events/consequences', async (req: Request<{est
     console.log('Consequences prompt:', prompt);
 
     // 3. Call LLM
-    const response = await callGemini({
+    /*const response = await callGemini({
       prompt,
       model: 'gemini-3-pro-preview',
       maxTokens: 1024,
       temperature: 1
-    });
-
-    /*const response = await callClaude({
-      prompt,
-      model: 'claude-3-7-sonnet-20250219',
-      maxTokens: 2048
     });*/
+
+    const response = await callClaude({
+      prompt,
+      model: 'claude-opus-4-5-20251101',
+      maxTokens: 2048
+    });
 
     /*const response = await callGrok({
       prompt,

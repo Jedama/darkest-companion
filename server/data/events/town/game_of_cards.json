@@ -3,7 +3,7 @@
   "title": "Game of Cards",
   "type": "town",
   "description": "[Characters] settle down for a game of cards.",
-  "nrChars": [2, 4],
+  "characterCount": [2, 4],
   "keywords": [
     "Brawl",
     "All-in Loss",

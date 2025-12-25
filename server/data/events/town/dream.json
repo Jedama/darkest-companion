@@ -4,7 +4,7 @@
     "title": "Dream",
     "type": "town",
     "description": "[Character 1] wakes in the middle of the night.",
-    "nrChars": [1, 1],
+    "characterCount": [1, 1],
     "keywords": ["Cold sweat", "Wistful longing", "Soothing", "Confusing"],
     "location": {
         "default": [],
@@ -20,7 +20,7 @@
     "title": "Dream",
     "type": "town",
     "description": "[Character 1] wakes in the middle of the night, having dreamt of [Character 2] (referenced only).",
-    "nrChars": [2, 2],
+    "characterCount": [2, 2],
     "keywords": [],
     "location": {
         "default": [],

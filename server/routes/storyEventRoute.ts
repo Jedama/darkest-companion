@@ -1,6 +1,7 @@
 // server/routes/storyEventRoute.ts
 import { Router, Request, Response } from 'express';
-import { compileStoryPrompt, separateStoryTitle } from '../services/storyEventService';
+import { compileStoryPrompt } from '../services/storyEventService';
+import { separateStoryTitle } from '../services/llmResponseProcessor.js';
 import { loadEstate } from '../fileOps';
 import { callClaude, callGemini, callGrok } from '../services/llm/llmService.js';
 import type { Estate, EventData } from '../../shared/types/types.ts';
@@ -37,18 +38,18 @@ router.post('/estates/:estateName/events/story', async (req: Request, res: Respo
       maxTokens: 1024
     });*/
 
-    /*const response = await callClaude({
+    const response = await callClaude({
       prompt,
-      model: 'claude-3-7-sonnet-20250219',
+      model: 'claude-opus-4-5-20251101',
       maxTokens: 1024
-    });*/
+    });
 
-    const response = await callGemini({
+    /*const response = await callGemini({
       prompt,
       model: 'gemini-3-pro-preview',
       maxTokens: 1024,
       temperature: 1
-    });
+    });*/
 
     // 4. Extract title from response
     const { title, body } = separateStoryTitle(response);

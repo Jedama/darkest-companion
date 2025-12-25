@@ -1,8 +1,14 @@
+// server/services/setupEventService.ts
 import { loadEstate } from '../fileOps';
-import { Estate, EventData, LocationData, Bystander, Enemy } from '../../shared/types/types';
-import { pickEventLocation } from './locationService';
 import StaticGameDataManager from '../staticGameDataManager.js';
+import { pickEventLocation } from './locationService';
 
+import type { Estate, EventData, LocationData, Bystander } from '../../shared/types/types.ts';
+
+// Constants
+const MAX_SCENE_NPCS = 6;
+
+// Module types
 export interface SetupEventOptions {
   eventId?: string;
   characterIds?: string[];
@@ -15,11 +21,10 @@ export interface ResolvedCharacters {
   overflowCharacterIds: string[]; // only from user input that was truncated
 }
 
-/**
- * Removes duplicate IDs from an array while preserving the original order.
- * @param ids - Array of string IDs, possibly with duplicates
- * @returns New array with duplicates removed, original order preserved
- */
+/* -------------------------------------------------------------------
+ *  Helpers
+ * ------------------------------------------------------------------- */
+
 function dedupePreserveOrder(ids: string[]): string[] {
   const seen = new Set<string>();
   const result: string[] = [];
@@ -50,19 +55,32 @@ function validateEnemyIds(enemyIds: string[]): void {
   }
 }
 
-/**
- * Extracts the number of characters range from an event.
- */
-function getNrCharsRange(event: EventData): [number, number] {
-  return (Array.isArray(event.characterCount) && event.characterCount.length === 2)
-    ? [event.characterCount[0], event.characterCount[1]]
-    : [1, 4];
+function validateNpcIds(npcIds: string[]): void {
+  const gameData = StaticGameDataManager.getInstance();
+  if (npcIds.length === 0) return;
+
+  const missing = npcIds.filter((id) => !gameData.getNPCById(id));
+  if (missing.length > 0) {
+    throw new Error(`NPC IDs not found in game data: ${missing.join(', ')}`);
+  }
 }
 
-/**
- * Resolves which event template to use.
- * If eventId is provided, looks it up. Otherwise, picks random.
- */
+function pickRandomSubset<T>(items: T[], count: number): T[] {
+  if (count <= 0 || items.length === 0) return [];
+
+  const copy = [...items];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+
+  return copy.slice(0, Math.min(count, copy.length));
+}
+
+/* -------------------------------------------------------------------
+ *  Resolvers
+ * ------------------------------------------------------------------- */
+
 function resolveEvent(options: SetupEventOptions): EventData {
   const gameData = StaticGameDataManager.getInstance();
   
@@ -80,7 +98,7 @@ function resolveEvent(options: SetupEventOptions): EventData {
   }
 
   // 2. Random Selection
-  const townEvents = gameData.getTownEvents();
+  const townEvents = gameData.getEventsByCategory('town');
   let eventIds = Object.keys(townEvents);
   if (eventIds.length === 0) {
     throw new Error('No event templates found in data/events.');
@@ -90,7 +108,7 @@ function resolveEvent(options: SetupEventOptions): EventData {
   if (requestedCount > 0) {
     const compatible = eventIds.filter((id) => {
       const ev = townEvents[id];
-      const [, maxAllowed] = getNrCharsRange(ev);
+      const [, maxAllowed] = ev.characterCount;
       return maxAllowed >= filterCount;
     });
 
@@ -124,10 +142,10 @@ function resolveCharacters(
   const allEstateCharIds = Object.keys(estate.characters);
   
   // 1. Determine Event Range
-  const nrCharsRange = getNrCharsRange(event);
+  const characterCountRange = event.characterCount;
 
-  const minRequired = nrCharsRange[0];
-  const maxAllowed = nrCharsRange[1];
+  const minRequired = characterCountRange[0];
+  const maxAllowed = characterCountRange[1];
 
   // 2. Start with User Selections
   let selected: string[] = [];
@@ -185,6 +203,49 @@ function resolveCharacters(
 }
 
 /**
+ * NPC priority:
+ * 1) event.npcs (never trimmed unless they exceed MAX)
+ * 2) location NPCs
+ * 3) random NPCs from ALL town NPCs (excluding already chosen)
+ */
+function resolveEventNpcs(params: {
+  eventNpcIds: string[];
+  locationNpcIds: string[];
+  randomCount: number;
+  townNpcPoolIds: string[];
+}): string[] {
+  const { eventNpcIds, locationNpcIds, randomCount, townNpcPoolIds } = params;
+
+  const eventNpcs = dedupePreserveOrder(eventNpcIds);
+  if (eventNpcs.length > MAX_SCENE_NPCS) {
+    throw new Error(
+      `Event specifies ${eventNpcs.length} NPCs, which exceeds MAX_SCENE_NPCS (${MAX_SCENE_NPCS}).`
+    );
+  }
+
+  // 1) Event NPCs first
+  let final = [...eventNpcs];
+
+  // 2) Add location NPCs next (up to cap)
+  const locationNpcs = dedupePreserveOrder(locationNpcIds).filter((id) => !final.includes(id));
+  const slotsAfterEvent = MAX_SCENE_NPCS - final.length;
+  if (slotsAfterEvent > 0) {
+    final = [...final, ...locationNpcs.slice(0, slotsAfterEvent)];
+  }
+
+  // 3) Random from ALL town NPCs (excluding already chosen)
+  const slotsAfterLocation = MAX_SCENE_NPCS - final.length;
+  const randomSlots = Math.min(Math.max(0, randomCount), slotsAfterLocation);
+  if (randomSlots > 0) {
+    const pool = dedupePreserveOrder(townNpcPoolIds).filter((id) => !final.includes(id));
+    const randomPicks = pickRandomSubset(pool, randomSlots);
+    final = [...final, ...randomPicks];
+  }
+
+  return final;
+}
+
+/**
  * Combines event and town keywords.
  */
 export function pickKeywords(
@@ -213,9 +274,10 @@ export function pickKeywords(
   return chosen;
 }
 
-/**
- * Main Orchestrator
- */
+/* -------------------------------------------------------------------
+ *  Main orchestrator
+ * ------------------------------------------------------------------- */
+
 export async function setupEvent(
   estateName: string, 
   options: SetupEventOptions = {}
@@ -262,6 +324,7 @@ export async function setupEvent(
     ? dedupePreserveOrder(event.enemies)
     : [];
 
+    // Use event enemies if specified, so user doesn't overwrite important story elements (bosses, etc)
     const enemies = eventEnemyIds.length > 0 ? eventEnemyIds : userEnemyIds;
 
   validateEnemyIds(enemies);
@@ -288,8 +351,21 @@ export async function setupEvent(
     );
 
     locations = result.locations;
-    npcs = result.npcs;
     bystanders = result.bystanders;
+    
+    const eventNpcIds = Array.isArray(event.npcs) ? dedupePreserveOrder(event.npcs) : [];
+    const locationNpcIds = Array.isArray(result.npcs) ? dedupePreserveOrder(result.npcs) : [];
+    const randomCount = Number.isInteger(event.randomNPCs) ? Math.max(0, event.randomNPCs!) : 0;
+
+    // Pull random NPCs from ALL town NPCs
+    const townNpcPoolIds = Object.keys(gameData.getNPCsByCategory('town'));
+
+    npcs = resolveEventNpcs({
+      eventNpcIds,
+      locationNpcIds,
+      randomCount,
+      townNpcPoolIds
+    });
   }
 
   return { event, chosenCharacterIds, locations, npcs, enemies, bystanders };

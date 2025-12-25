@@ -3,7 +3,7 @@
     "kheir": {
       "affinity": 8,
       "dynamic": "Familial",
-      "description": "Despite a cold exterior and a lifetime of bickering, the heiress loves and will not let harm come upon the Heir."
+      "description": "The Heiress maintains a sharp-tongued rapport with her brother, quick to criticize his anxieties in private but equally quick to defend him from others. Beneath the cutting remarks lies fierce protectiveness."
     },
     "crusader": {
       "affinity": 5,
@@ -11,9 +11,9 @@
       "description": "The heiress maintains a reserved, professional demeanor towards the crusader, her latest recruit."
     },
     "highwayman": {
-      "affinity": 3,
-      "dynamic": "Cautious",
-      "description": "The heiress regards the highwayman with suspicion. While his skills could prove valuable, his checkered past and gruff manner keep her on guard."
+      "affinity": 4,
+      "dynamic": "Guarded Pragmatism",
+      "description": "The Heiress recognizes the Highwayman's value as a skilled fighter and tracker, though his criminal background requires she remain watchful. She hired him for competence, not trustworthiness."
     },
     "hqclaimants": {
       "affinity": 2,
@@ -35,12 +35,12 @@
     "kheir": {
       "affinity": 4,
       "dynamic": "Skeptical",
-      "description": "While the crusader intends to uphold his duty with silent diligence, he realizes the meek Heir is unfit to lead."
+      "description": "The Crusader has pledged to protect the Heir despite obvious doubts about his fitness for the trials ahead. He sees a frightened scholar where leadership is needed, but duty demands he try."
     },
     "highwayman": {
-      "affinity": 7,
-      "dynamic": "Comrade",
-      "description": "The crusader sees in the highwayman a kindred spirit; both men with troubled pasts seeking to carve out a purpose through the quest they now share."
+      "affinity": 6,
+      "dynamic": "Wary Recognition",
+      "description": "The Crusader recognizes something familiar in the Highwayman's bearing - another man haunted by his past. He wonders if they might find common ground, though trust must be earned."
     },
     "seraph": {
       "affinity": 4,
@@ -52,34 +52,34 @@
     "heiress": {
       "affinity": 4,
       "dynamic": "Guardian",
-      "description": "The highwayman is determined to prove himself to the heiress and to assist in her quest despite her warranted distrust."
+      "description": "The Highwayman is determined to prove his worth to the Heiress and earn a place in her service, seeing this quest as his path to redemption."
     },
     "kheir": {
       "affinity": 3,
       "dynamic": "Guardian",
-      "description": "Despite the Heir's distrust, the highwayman is resolute in his role as a guard, seeing their safety as his path to absolution."
+      "description": "The Highwayman takes his role as the Heir's guard seriously, viewing the nervous scholar's safety as part of his quest for absolution."
     },
     "crusader": {
-      "affinity": 7,
-      "dynamic": "Comrade",
-      "description": "Despite their differences, the highwayman and the crusader swiftly bonded over the mistakes of their respective pasts and their shared quest for redemption."
+      "affinity": 6,
+      "dynamic": "Hopeful Kinship",
+      "description": "The Highwayman sees in the Crusader another man seeking redemption through violence. He hopes this stern warrior might understand the weight of a violent past better than most."
     }
   },
   "kheir": {
     "heiress": {
       "affinity": 8,
       "dynamic": "Familial",
-      "description": "The Heir admires, and is deeply jealous of, his sister's strength and ability to take initiative. Despite their fierce bickering, the Heir loves his sister."
+      "description": "The Heir both admires and envies his sister's boldness, feeling perpetually caught between pride in her achievements and inadequacy at his own. Despite their constant bickering, he trusts her completely."
     },
     "crusader": {
       "affinity": 4,
-      "dynamic": "Cautious respect",
-      "description": "Though he recognizes the crusader's potential, the Heir is dubious over the trustworthiness of this new guard."
+      "dynamic": "Nervous Reliance",
+      "description": "The Heir is intimidated by the Crusader's imposing presence and martial bearing, but finds some comfort in having such a formidable protector."
     },
     "highwayman": {
-      "affinity": 2,
-      "dynamic": "Distrustful",
-      "description": "The Heir is distrusting towards the highwayman, fearing that the rugged man will betray them and steal his possessions."
+      "affinity": 3,
+      "dynamic": "Anxious Wariness",
+      "description": "The Heir is deeply uncomfortable around the rough-mannered Highwayman, finding his criminal past and casual violence unsettling despite his sister's trust in hiring him."
     },
     "hqclaimants": {
       "affinity": 2,
@@ -120,11 +120,11 @@
     "duchess": {
       "affinity": 3,
       "dynamic": "Lingering Resentment",
-      "description": "The fading influence of the scheming Claimants served only as a backdrop to the Duchess' greater rivalry with the Countess."
+      "description": "The Claimants viewed the Duchess as a social rival whose pride and influence stood in the way of their own ambitions at court."
     },
     "wretch": {
-      "affinity": 3,
-      "dynamic": "Indifference",
+      "affinity": 2,
+      "dynamic": "Cruel Satisfaction",
       "description": "The Wretch is a relic of a forgotten triumph, a living reminder of the The Claimants' ruthless success. They feel a cold satisfaction in his fall, tempered by fleeting amusement at the absurdity of his new life."
     },
       "psychiatrist": {
@@ -147,21 +147,21 @@
     "hqclaimants": {
       "affinity": 3,
       "dynamic": "Rivalrous Disdain",
-      "description": "The fading influence of the scheming the Claimants served only as a backdrop to the Duchess' greater rivalry with the Countess."
+      "description": "The Duchess saw the Claimants as scheming upstarts beneath her station, their fading influence barely worth acknowledging amid her greater rivalry with the Countess."
     }
   },
   "wretch": {
     "hqclaimants": {
       "affinity": 2,
       "dynamic": "Faded Bitterness",
-      "description": "The Wretch has long since resigned himself to the ruin of the Vyrmholt family, finding solace among his rats. Though the bitterness lingers faintly, he sees the Claimants as remnants of a life he left behind\u2014distant, self-congratulatory specters of his disgrace."
+      "description": "The Wretch has long since resigned himself to the ruin of his once-noble family, finding solace among his rats. Though the bitterness lingers faintly, he sees the Claimants as remnants of a life he left behind; distant, self-congratulatory specters of his disgrace."
     }
   },
   "seraph": {
     "crusader": {
       "affinity": 4,
       "dynamic": "Fallen Servant",
-      "description": "The Seraph found in the Crusader a capable commander whose tactical brilliance served the Light's purpose well. His reverence was genuine, his devotion unquestioned, which made his mercy toward the Warlord all the more galling. Though he was among her most trusted generals, his departure from the crusade marked him as another soul too weak to uphold the Light's righteous judgment."
+      "description": "The Seraph valued the Crusader as a capable commander whose devotion to the Light seemed unquestioned. His mercy toward the Warlord and subsequent departure from the crusade marked him as another soul too weak to uphold righteous judgment."
     }
   },
   "psychiatrist": {

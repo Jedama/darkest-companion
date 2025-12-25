@@ -91,7 +91,7 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ 
-            eventId: 'prologue_2',
+            eventId: userPrompt, // For debugging
             characterIds,
             enemyIds: [],
             description: userPrompt

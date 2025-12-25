@@ -17,7 +17,7 @@ function App() {
   // Grab the current estate from context
   const { currentEstate } = useEstateContext();
 
-  // Gate 1: Boot gate (fonts)
+  // Boot gate (fonts)
   // NOTE: When you build a proper main menu/splash screen, you can move this gating there
   // and show an actual loading screen/progress bar instead of this minimal placeholder.
   const [bootReady, setBootReady] = useState(false);
@@ -45,7 +45,7 @@ function App() {
     };
   }, []);
 
-  // Gate 3: Estate assets gate (UI + roster assets)
+  // Estate assets gate (UI + roster assets)
   // This runs only after an estate has been loaded/created, because we need the roster identifiers.
   const [estateAssetsReady, setEstateAssetsReady] = useState(false);
 
@@ -69,7 +69,7 @@ function App() {
         new URL('./assets/ui/backgrounds/strategy.png', import.meta.url).href,
 
         // Default portrait
-        new URL('./assets/ui/default_portrait.png', import.meta.url).href,
+        new URL('./assets/ui/defaultportrait_190x278.png', import.meta.url).href,
 
         // Manor buttons
         new URL('./assets/ui/views/manor/button_event.png', import.meta.url).href,

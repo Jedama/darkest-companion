@@ -1,0 +1,17 @@
+ALLOW parent locations false does not work. Or yes it does but maybe don't add up to world?
+
+
+Two-Event Structure:
+Event A: "Dungeon Complete - Return" (narrative)
+
+Heroes returning to hamlet, discussing what happened
+New quirks are narratively introduced/explained
+Character interactions based on how the dungeon went
+Type: "dungeon" event with dialogue/narration
+
+Event B: "Dungeon Complete - Summary" (mechanical)
+
+Stats screen showing relationship changes, stress/health shifts
+Gold distribution breakdown with personality-based narrative flavor
+Maybe a brief summary of major dungeon moments
+More UI-focused, less pure narrative

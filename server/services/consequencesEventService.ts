@@ -46,7 +46,7 @@ export async function compileConsequencesPrompt(options: {
       if (charA.identifier !== charB.identifier) {
         const rel = charA.relationships[charB.identifier];
         if (rel) {
-          relationshipLines += `${charA.title} → ${charB.title} (Affinity: ${rel.affinity}, Dynamic: ${rel.dynamic}, Description: ${rel.description})\n`;
+          relationshipLines += `${charA.identifier} → ${charB.identifier} (Affinity: ${rel.affinity}, Dynamic: ${rel.dynamic}, Description: ${rel.description})\n`;
         }
       }
     }
@@ -66,6 +66,11 @@ export async function compileConsequencesPrompt(options: {
 
     ${consequenceInstructions}
     ${consequenceFormat}
+
+    EXAMPLE CONSEQUENCES:
+    Below are examples demonstrating well-formatted consequences. Note how:
+    - Log entries are self-contained.
+    - Relationship descriptions focus on ongoing dynamics, not specific events.
     ${consequenceExamples}
   `.trim();
 

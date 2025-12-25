@@ -1,38 +1,81 @@
 // server/templateLoader.ts
+// File order (savegame-first):
+// Imports → Path constants → Helpers → Character data → Relationships → Character meta (locations/weights)
+// → World (Locations/NPCs/Enemies) → Events → Keywords
+
 import { readdir, readFile, stat } from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
+
 import type {
+  CharacterRelationship,
   CharacterTemplate,
   CharacterTemplateRecord,
-  CharacterRelationship,
-  NPC,
   Enemy,
   EnemyRecord,
   EventData,
   EventRecord,
-  LocationData
+  LocationData,
+  NPC,
+  NPCRecord,
 } from '../shared/types/types.js';
+
+/* -------------------------------------------------------------------
+ *  Module paths
+ * ------------------------------------------------------------------- */
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const TEMPLATES_DIR = path.join(__dirname, 'data', 'templates');
-const CHARACTER_DIR = path.join(__dirname, 'data', 'templates', 'characters');
-const NPCS_DIR = path.join(__dirname, 'data', 'npcs', 'town');
-const ENEMIES_DIR = path.join(__dirname, 'data', 'enemies');
-const EVENTS_DIR = path.join(__dirname, 'data', 'events');
+const DATA_DIR = path.join(__dirname, 'data');
+
+const TEMPLATES_DIR = path.join(DATA_DIR, 'templates');
+const CHARACTER_DIR = path.join(TEMPLATES_DIR, 'characters');
+
+const LOCATIONS_DIR = path.join(DATA_DIR, 'locations');
+const NPCS_DIR = path.join(DATA_DIR, 'npcs');
+const ENEMIES_DIR = path.join(DATA_DIR, 'enemies');
+const EVENTS_DIR = path.join(DATA_DIR, 'events');
+const KEYWORDS_DIR = path.join(DATA_DIR, 'keywords');
+
 const DEFAULT_RELATIONSHIPS_FILE = path.join(TEMPLATES_DIR, 'defaultRelationships.json');
+const DEFAULT_CHARACTER_LOCATIONS_FILE = path.join(TEMPLATES_DIR, 'defaultCharacterLocations.json');
 const DEFAULT_WEIGHTS_FILE = path.join(TEMPLATES_DIR, 'defaultCharacterStrategies.json');
 
-// Keywords file
-const TOWN_KEYWORDS_FILE = path.join(__dirname, 'data', 'keywords', 'default.json');
+const TOWN_KEYWORDS_FILE = path.join(KEYWORDS_DIR, 'default.json');
 
 // Required character templates (e.g., initial party)
-const REQUIRED_CHARACTER_TEMPLATES = ['crusader', 'highwayman', 'heiress', 'kheir'];
+const REQUIRED_CHARACTER_TEMPLATES = ['crusader', 'highwayman', 'heiress', 'kheir'] as const;
 
 /* -------------------------------------------------------------------
- *  Character Templates
+ *  Helpers
+ * ------------------------------------------------------------------- */
+
+/**
+ * Recursively collects all .json files under a given directory.
+ * This allows subfolders like "town", "dungeon", etc.
+ */
+async function collectJsonFilesRecursively(dirPath: string, fileList: string[] = []): Promise<string[]> {
+  const entries = await readdir(dirPath, { withFileTypes: true });
+
+  for (const entry of entries) {
+    const fullPath = path.join(dirPath, entry.name);
+
+    if (entry.isDirectory()) {
+      await collectJsonFilesRecursively(fullPath, fileList);
+      continue;
+    }
+
+    if (entry.isFile() && entry.name.endsWith('.json')) {
+      fileList.push(fullPath);
+    }
+  }
+
+  return fileList;
+}
+
+/* -------------------------------------------------------------------
+ *  Characters
  * ------------------------------------------------------------------- */
 
 export async function loadCharacterTemplates(): Promise<CharacterTemplateRecord> {
@@ -40,19 +83,15 @@ export async function loadCharacterTemplates(): Promise<CharacterTemplateRecord>
     const files = await readdir(CHARACTER_DIR);
     const templates: CharacterTemplateRecord = {};
 
-    // Load all template files
     for (const file of files) {
-      if (file.endsWith('.json')) {
-        const content = await readFile(path.join(CHARACTER_DIR, file), 'utf-8');
-        const character: CharacterTemplate = JSON.parse(content);
-        templates[character.identifier] = character;
-      }
+      if (!file.endsWith('.json')) continue;
+
+      const content = await readFile(path.join(CHARACTER_DIR, file), 'utf-8');
+      const character: CharacterTemplate = JSON.parse(content);
+      templates[character.identifier] = character;
     }
 
-    // Verify all required templates are present
-    const missingTemplates = REQUIRED_CHARACTER_TEMPLATES.filter(
-      id => !templates[id]
-    );
+    const missingTemplates = REQUIRED_CHARACTER_TEMPLATES.filter((id) => !templates[id]);
     if (missingTemplates.length > 0) {
       throw new Error(`Missing required character templates: ${missingTemplates.join(', ')}`);
     }
@@ -68,8 +107,15 @@ export async function loadCharacterTemplates(): Promise<CharacterTemplateRecord>
 export async function validateTemplate(templatePath: string): Promise<boolean> {
   try {
     const content = await readFile(templatePath, 'utf-8');
-    const character: CharacterTemplate = JSON.parse(content);
-    
+    const parsed = JSON.parse(content) as unknown;
+
+    if (typeof parsed !== 'object' || parsed === null) {
+      console.error(`Template ${templatePath} is not an object`);
+      return false;
+    }
+
+    const character = parsed as Record<string, unknown>;
+
     const requiredFields = ['identifier', 'title', 'name', 'stats', 'traits'];
     for (const field of requiredFields) {
       if (!(field in character)) {
@@ -86,15 +132,15 @@ export async function validateTemplate(templatePath: string): Promise<boolean> {
 }
 
 /* -------------------------------------------------------------------
- *  Default Relationships
+ *  Relationships
  * ------------------------------------------------------------------- */
+
 export type DefaultRelationshipsMap = Record<string, Record<string, CharacterRelationship>>;
 
 export async function loadDefaultRelationships(): Promise<DefaultRelationshipsMap> {
   try {
     const content = await readFile(DEFAULT_RELATIONSHIPS_FILE, 'utf-8');
-    const parsed: DefaultRelationshipsMap = JSON.parse(content);
-    return parsed;
+    return JSON.parse(content) as DefaultRelationshipsMap;
   } catch (error) {
     console.error('Error loading default relationships:', error);
     throw error;
@@ -102,16 +148,21 @@ export async function loadDefaultRelationships(): Promise<DefaultRelationshipsMa
 }
 
 /* -------------------------------------------------------------------
- *  Default Character Locations
+ *  Character meta (non-template)
  * ------------------------------------------------------------------- */
 
-export async function loadDefaultCharacterLocations(): Promise<Record<string, {
-  residence: string[],
-  workplaces: string[],
-  frequents: string[]
-}>> {
+export async function loadDefaultCharacterLocations(): Promise<
+  Record<
+    string,
+    {
+      residence: string[];
+      workplaces: string[];
+      frequents: string[];
+    }
+  >
+> {
   try {
-    const content = await readFile(path.join(TEMPLATES_DIR, 'defaultCharacterLocations.json'), 'utf-8');
+    const content = await readFile(DEFAULT_CHARACTER_LOCATIONS_FILE, 'utf-8');
     return JSON.parse(content);
   } catch (error) {
     console.error('Error loading default character locations:', error);
@@ -119,131 +170,46 @@ export async function loadDefaultCharacterLocations(): Promise<Record<string, {
   }
 }
 
-/* -------------------------------------------------------------------
- *  Event Templates
- * ------------------------------------------------------------------- */
-
-/**
- * Recursively collects all .json files under a given directory.
- * This allows subfolders like "town", "dungeon", etc.
- */
-async function collectJsonFilesRecursively(
-  dirPath: string,
-  fileList: string[] = []
-): Promise<string[]> {
-  const entries = await readdir(dirPath, { withFileTypes: true });
-  for (const entry of entries) {
-    const fullPath = path.join(dirPath, entry.name);
-    if (entry.isDirectory()) {
-      // Recurse into subdirectory
-      await collectJsonFilesRecursively(fullPath, fileList);
-    } else if (entry.isFile() && entry.name.endsWith('.json')) {
-      fileList.push(fullPath);
-    }
-  }
-  return fileList;
-}
-
-/**
- * Loads event templates ONLY from a given category folder inside `data/events`.
- * E.g., "town", "dungeon", etc. (and any subfolders in that category).
- */
-export async function loadEventTemplatesForCategory(category: string): Promise<EventRecord> {
+// Loads character-specific strategy overrides.
+export async function loadDefaultCharacterWeights(): Promise<Record<string, Record<string, number>>> {
   try {
-    const categoryPath = path.join(EVENTS_DIR, category);
-
-    // Validate that categoryPath is a directory
-    const stats = await stat(categoryPath);
-    if (!stats.isDirectory()) {
-      throw new Error(`Category path ${categoryPath} is not a directory`);
-    }
-
-    const files = await collectJsonFilesRecursively(categoryPath);
-    const events: EventRecord = {};
-
-    for (const file of files) {
-      const content = await readFile(file, 'utf-8');
-      let eventDataArray: EventData[];
-      
-      try {
-        const parsed = JSON.parse(content);
-        // Handle both single objects and arrays
-        eventDataArray = Array.isArray(parsed) ? parsed : [parsed];
-      } catch (parseError) {
-        console.error(`Error parsing JSON file ${file}:`, parseError);
-        continue;
-      }
-
-      // Process each event in the array
-      for (const eventData of eventDataArray) {
-        if (!eventData.identifier) {
-          console.warn(`Event in file ${file} missing 'identifier' field. Skipping...`);
-          continue;
-        }
-
-        // Check for duplicate identifiers
-        if (events[eventData.identifier]) {
-          console.warn(`Duplicate event identifier "${eventData.identifier}" found in ${file}. Later definition will override earlier one.`);
-        }
-
-        events[eventData.identifier] = eventData;
-      }
-    }
-    return events;
+    const content = await readFile(DEFAULT_WEIGHTS_FILE, 'utf-8');
+    return JSON.parse(content);
   } catch (error) {
-    console.error(`Error loading event templates for category "${category}":`, error);
+    console.error('Error loading default character weights:', error);
     throw error;
   }
 }
 
 /* -------------------------------------------------------------------
- *  Town Keywords
+ *  World: Locations
  * ------------------------------------------------------------------- */
-
-export async function loadTownKeywords(): Promise<string[]> {
-  try {
-    const content = await readFile(TOWN_KEYWORDS_FILE, 'utf-8');
-    const keywords: string[] = JSON.parse(content);
-    return keywords;
-  } catch (err) {
-    console.error('Error loading town keywords:', err);
-    throw err;
-  }
-}
-
-/* -------------------------------------------------------------------
- *  Locations
- * ------------------------------------------------------------------- */
-
-const LOCATIONS_DIR = path.join(__dirname, 'data', 'locations');
 
 export async function loadAllLocations(): Promise<LocationData[]> {
   try {
-      // Read all location JSON files
-      const files = await readdir(LOCATIONS_DIR);
-      const locationFiles = files.filter(file => file.endsWith('.json'));
-      
-      let allLocations: LocationData[] = [];
-      
-      for (const file of locationFiles) {
-          const content = await readFile(path.join(LOCATIONS_DIR, file), 'utf-8');
-          const locations = JSON.parse(content);
-          
-          // Each file contains an array of locations
-          allLocations = allLocations.concat(locations);
-      }
-      
-      return allLocations;
+    const files = await readdir(LOCATIONS_DIR);
+    const locationFiles = files.filter((file) => file.endsWith('.json'));
+
+    let allLocations: LocationData[] = [];
+
+    for (const file of locationFiles) {
+      const content = await readFile(path.join(LOCATIONS_DIR, file), 'utf-8');
+      const locations = JSON.parse(content);
+      // Each file contains an array of locations
+      allLocations = allLocations.concat(locations);
+    }
+
+    return allLocations;
   } catch (error) {
-      console.error('Error loading locations:', error);
-      throw error;
+    console.error('Error loading locations:', error);
+    throw error;
   }
 }
 
 export async function loadLocation(locationId: string): Promise<LocationData | null> {
   try {
     const allLocations = await loadAllLocations();
-    return allLocations.find(loc => loc.identifier === locationId) || null;
+    return allLocations.find((loc) => loc.identifier === locationId) || null;
   } catch (error) {
     console.error(`Error loading location ${locationId}:`, error);
     throw error;
@@ -251,47 +217,64 @@ export async function loadLocation(locationId: string): Promise<LocationData | n
 }
 
 /* -------------------------------------------------------------------
- *  NPCs
+ *  World: NPCs
  * ------------------------------------------------------------------- */
 
 /**
- * Loads all NPC data files into a record indexed by their identifier.
+ * Loads NPC templates ONLY from a given category folder inside `data/npcs`.
+ * E.g., "town", "dungeon", etc. (and any subfolders in that category).
  */
-export async function loadAllNPCs(): Promise<Record<string, NPC>> {
+export async function loadNPCTemplatesForCategory(category: string): Promise<NPCRecord> {
   try {
-    const files = await readdir(NPCS_DIR);
-    const npcFiles = files.filter(file => file.endsWith('.json'));
+    const categoryPath = path.join(NPCS_DIR, category);
 
-    const allNPCs: Record<string, NPC> = {};
-
-    for (const file of npcFiles) {
-      const content = await readFile(path.join(NPCS_DIR, file), 'utf-8');
-      const npcData: NPC = JSON.parse(content);
-
-      allNPCs[npcData.identifier] = npcData;
+    const stats = await stat(categoryPath);
+    if (!stats.isDirectory()) {
+      throw new Error(`Category path ${categoryPath} is not a directory`);
     }
 
-    return allNPCs;
+    const files = await collectJsonFilesRecursively(categoryPath);
+    const npcs: NPCRecord = {};
+
+    for (const file of files) {
+      const content = await readFile(file, 'utf-8');
+
+      let npcArray: NPC[];
+      try {
+        const parsed = JSON.parse(content);
+        npcArray = Array.isArray(parsed) ? parsed : [parsed];
+      } catch (parseError) {
+        console.error(`Error parsing NPC JSON file ${file}:`, parseError);
+        continue;
+      }
+
+      for (const npc of npcArray) {
+        if (!npc.identifier) {
+          console.warn(`NPC in file ${file} missing 'identifier'. Skipping...`);
+          continue;
+        }
+
+        if (npcs[npc.identifier]) {
+          console.warn(
+            `Duplicate NPC identifier "${npc.identifier}" found in ${file}. ` +
+              `Later definition will override earlier one.`
+          );
+        }
+
+        npcs[npc.identifier] = npc;
+      }
+    }
+
+    return npcs;
   } catch (error) {
-    console.error('Error loading NPCs:', error);
+    console.error(`Error loading NPC templates for category "${category}":`, error);
     throw error;
   }
 }
 
-/**
- * Loads specific NPCs by their identifiers.
- */
-export async function loadNPCsByIds(npcIds: string[]): Promise<NPC[]> {
-  const allNPCs = await loadAllNPCs();
-
-  return npcIds
-    .map(id => allNPCs[id])
-    .filter((npc): npc is NPC => !!npc); // Filter out undefined entries
-}
-
 /* -------------------------------------------------------------------
- *  Enemies
-* ------------------------------------------------------------------- */
+ *  World: Enemies
+ * ------------------------------------------------------------------- */
 
 export async function loadAllEnemies(): Promise<EnemyRecord> {
   try {
@@ -319,7 +302,7 @@ export async function loadAllEnemies(): Promise<EnemyRecord> {
         if (enemies[enemy.identifier]) {
           console.warn(
             `Duplicate enemy identifier "${enemy.identifier}" found in ${file}. ` +
-            `Later definition will override earlier one.`
+              `Later definition will override earlier one.`
           );
         }
 
@@ -335,16 +318,99 @@ export async function loadAllEnemies(): Promise<EnemyRecord> {
 }
 
 /* -------------------------------------------------------------------
- *  Default Character Strategy Weights
+ *  Events
  * ------------------------------------------------------------------- */
 
-// This function loads the character-specific overrides.
-export async function loadDefaultCharacterWeights(): Promise<Record<string, Record<string, number>>> {
+/**
+ * Loads event templates ONLY from a given category folder inside `data/events`.
+ * E.g., "town", "dungeon", etc. (and any subfolders in that category).
+ */
+export async function loadEventTemplatesForCategory(category: string): Promise<EventRecord> {
   try {
-    const content = await readFile(DEFAULT_WEIGHTS_FILE, 'utf-8');
-    return JSON.parse(content);
+    const categoryPath = path.join(EVENTS_DIR, category);
+
+    const stats = await stat(categoryPath);
+    if (!stats.isDirectory()) {
+      throw new Error(`Category path ${categoryPath} is not a directory`);
+    }
+
+    const files = await collectJsonFilesRecursively(categoryPath);
+    const events: EventRecord = {};
+
+    for (const file of files) {
+      const content = await readFile(file, 'utf-8');
+
+      let eventDataArray: EventData[];
+      try {
+        const parsed = JSON.parse(content);
+        eventDataArray = Array.isArray(parsed) ? parsed : [parsed];
+      } catch (parseError) {
+        console.error(`Error parsing JSON file ${file}:`, parseError);
+        continue;
+      }
+
+      for (const eventData of eventDataArray) {
+        if (!eventData.identifier) {
+          console.warn(`Event in file ${file} missing 'identifier' field. Skipping...`);
+          continue;
+        }
+
+        if (eventData.type && eventData.type !== category) {
+          console.warn(
+            `Event '${eventData.identifier}' has type '${eventData.type}' but is in '${category}' folder (${file}).`
+          );
+        }
+
+        // Validate characterCount
+        if (!Array.isArray(eventData.characterCount) || eventData.characterCount.length !== 2) {
+          throw new Error(
+            `Event '${eventData.identifier}' has invalid characterCount format; expected [min, max]`
+          );
+        }
+        assertValidCharacterCountRange(eventData.characterCount, eventData.identifier);
+
+        if (events[eventData.identifier]) {
+          console.warn(`Duplicate event identifier "${eventData.identifier}" found in ${file}. Later definition will override earlier one.`);
+        }
+
+        events[eventData.identifier] = eventData;
+      }
+    }
+
+    return events;
   } catch (error) {
-    console.error('Error loading default character weights:', error);
+    console.error(`Error loading event templates for category "${category}":`, error);
     throw error;
+  }
+}
+
+function assertValidCharacterCountRange(
+  range: [number, number],
+  eventId: string
+): void {
+  const [min, max] = range;
+
+  if (!Number.isInteger(min) || !Number.isInteger(max)) {
+    throw new Error(`Event '${eventId}' has non-integer characterCount: [${min}, ${max}]`);
+  }
+  if (min < 1 || max < 1) {
+    throw new Error(`Event '${eventId}' has characterCount < 1: [${min}, ${max}]`);
+  }
+  if (min > max) {
+    throw new Error(`Event '${eventId}' has invalid characterCount range: [${min}, ${max}]`);
+  }
+}
+
+/* -------------------------------------------------------------------
+ *  Keywords / Modifiers
+ * ------------------------------------------------------------------- */
+
+export async function loadTownKeywords(): Promise<string[]> {
+  try {
+    const content = await readFile(TOWN_KEYWORDS_FILE, 'utf-8');
+    return JSON.parse(content) as string[];
+  } catch (err) {
+    console.error('Error loading town keywords:', err);
+    throw err;
   }
 }

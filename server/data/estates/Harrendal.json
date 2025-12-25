@@ -139,9 +139,9 @@
       ],
       "status": {
         "physical": 100,
-        "mental": 85,
+        "mental": 88,
         "affliction": "",
-        "description": "Overwhelmed by profound guilt and unease, the Charnel House intensifying his inner torment and the weight of his past actions.",
+        "description": "Finding unexpected kinship in recognizing another man fighting his own demons.",
         "wounds": [],
         "diseases": []
       },
@@ -202,9 +202,9 @@
           "description": "Despite the Heir's distrust, the highwayman is resolute in his role as a guard, seeing their safety as his path to absolution."
         },
         "crusader": {
-          "affinity": 7,
-          "dynamic": "Comrade",
-          "description": "Despite their differences, the highwayman and the crusader swiftly bonded over the mistakes of their respective pasts and their shared quest for redemption."
+          "affinity": 8,
+          "dynamic": "Kindred spirits",
+          "description": "The Highwayman sees his own struggle for redemption mirrored in the Crusader's contradictions, deepening their bond as men haunted by what they've become."
         },
         "antiquarian": {
           "affinity": 4,
@@ -299,7 +299,8 @@
       "notes": [
         "Turns to wine when overwhelmed by stress",
         "Attracted to, and can't help staring at, women with ample breasts",
-        "Scared of losing her authority, she meets those challenging it by becoming more commanding and inflexible."
+        "Scared of losing her authority, she meets those challenging it by becoming more commanding and inflexible.",
+        "Quietly observes her companions' private habits and struggles."
       ],
       "relationships": {
         "kheir": {
@@ -308,9 +309,9 @@
           "description": "Despite a cold exterior and a lifetime of bickering, the heiress loves and will not let harm come upon the Heir."
         },
         "crusader": {
-          "affinity": 5,
-          "dynamic": "Professional",
-          "description": "The heiress maintains a reserved, professional demeanor towards the crusader, her latest recruit."
+          "affinity": 6,
+          "dynamic": "Curious regard",
+          "description": "The Heiress sees the Crusader as more than just a sword arm, intrigued by the unsent letters and the contradictions between his discipline and his compulsions."
         },
         "highwayman": {
           "affinity": 3,
@@ -376,9 +377,9 @@
       ],
       "status": {
         "physical": 100,
-        "mental": 72,
+        "mental": 77,
         "affliction": "",
-        "description": "Overwhelmed by the dust, suffocating heat, and Bigby's horrifying revelation, his anxiety has escalated to an intense level of physical and mental discomfort.",
+        "description": "Still frustrated by the theft but somewhat mollified by revelations of the Crusader's inner struggle.",
         "wounds": [],
         "diseases": []
       },
@@ -434,9 +435,9 @@
           "description": "The Heir admires, and is deeply jealous of, his sister's strength and ability to take initiative. Despite their fierce bickering, the Heir loves his sister."
         },
         "crusader": {
-          "affinity": 4,
-          "dynamic": "Cautious respect",
-          "description": "Though he recognizes the crusader's potential, the Heir is dubious over the trustworthiness of this new guard."
+          "affinity": 5,
+          "dynamic": "Grudging understanding",
+          "description": "Though still irritated by the Crusader's thefts, the Heir has glimpsed the man's internal battle and finds it harder to condemn him outright."
         },
         "highwayman": {
           "affinity": 2,
@@ -1907,5 +1908,12 @@
         "expiryMonth": 8
       }
     ]
-  }
+  },
+  "estateLogs": [
+    {
+      "month": 5,
+      "entry": "The Yellowfingers discussed the Crusader's kleptomania at The Keening Well, with Dismas and Persephone revealing observations that suggest inner conflict and remorse behind his thefts.",
+      "expiryMonth": 6
+    }
+  ]
 }

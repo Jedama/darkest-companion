@@ -3,7 +3,7 @@
   "title": "Chance Encounter",
   "type": "town",
   "description": "[Characters] cross paths unexpectedly while going about their daily affairs.",
-  "nrChars": [2, 3],
+  "characterCount": [2, 3],
   "keywords": [
     "Tension",
     "Nostalgia",

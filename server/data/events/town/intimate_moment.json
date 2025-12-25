@@ -3,7 +3,7 @@
   "title": "Intimate Moment",
   "type": "town",
   "description": "[Character 1] and [Character 2] share a quiet, intimate moment together.",
-  "nrChars": [2, 2],
+  "characterCount": [2, 2],
   "keywords": [
     "Admittance",
     "Affection",

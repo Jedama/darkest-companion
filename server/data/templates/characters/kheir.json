@@ -4,8 +4,8 @@
   "name": "Percival",
   "level": 0,
   "money": 0,
-  "description": "The Heir to the estate is a brilliant scholar and capable manager who is desperately trying to cope in this world of horrors far beyond his comfort. Despite being a man of cowardice and meek nature, Percival's keen intellect and organizational skills prove invaluable in coordinating the chaotic efforts to reclaim his ancestral home.",
-  "history": "Raised in academic circles far from the estate's dark legacy, Percival was reluctantly drawn into the family's quest by his sister. Despite his initial hesitation, he's found ways to apply his scholarly knowledge and managerial expertise to the daunting task at hand.",
+  "description": "The Heir to the estate is a brilliant scholar and capable manager who is trying to cope in this world of horrors far beyond his comfort. Despite his meek nature, Percival's keen intellect and organizational skills prove invaluable in coordinating the chaotic efforts to reclaim his ancestral home. Though he prefers the map room, he, armed with a letter opener, reluctantly ventures into the dungeons when the quest demands it, determined to live up to the expectations of his Sister and their family name.",
+  "history": "Raised in academic circles far from the estate's dark legacy, Percival initially resisted his sister's summons. However, his sense of duty—and intellectual curiosity—ultimately drew him to the task. While he makes no pretense of physical courage, he is the backbone of the estate's logistics, handling its people with the same ease he manages its resources.",
   "summary": "The meek, cowardly Heir, a brilliant scholar with a drinking problem, who struggles to cope with horrors and is very possessive of his belongings.",
   "race": "Human",
   "gender": "Male",
@@ -16,8 +16,7 @@
     "Cowardly",
     "Scholarly",
     "Anxious",
-    "Resourceful",
-    "Possessive"
+    "Resourceful"
   ],
   "status": {
     "physical": 100,
@@ -31,7 +30,7 @@
     "strength": 2,
     "agility": 2,
     "intelligence": 9,
-    "authority": 7,
+    "authority": 6,
     "sociability": 8
   },
   "equipment": [
@@ -62,17 +61,18 @@
     "weaknesses": [
       "Close combat",
       "Endurance",
-      "Falls apart under stress"
+      "Doesn't work well under pressure"
     ]
   },
   "magic": "None",
   "notes": [
-    "Hates waste and is very possesive of his belongings",
-    "Has a penchant for fine wines to calm his nerves"
+    "Obsessively protective of his personal belongings.",
+    "Has a penchant for fine wines to calm his nerves.",
+    "Can be argumentative and sharp when in his element, but becomes quieter and withdrawn when frightened."
   ],
   "tags": [
     "Flexible", "Weak", "Frail", "Healer", "StressHealer", "Blighter", "Debuffer",
-    "Noble", "Scholar", "Strategist", "Drunkard", "SelfStress", "Scavenger", "Scout"
+    "Noble", "Scholar", "Strategist", "Drunkard", "SelfStress", "Scavenger"
   ],
   "relationships": {
   }

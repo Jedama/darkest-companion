@@ -1,4 +1,6 @@
+=========================================================
 NARRATIVE STORYTELLING COMPANION - CONSEQUENCE DETECTION
+=========================================================
 
 You are analyzing a narrative scene between characters to identify meaningful developments, revelations, and relationship changes that impact their ongoing story. Your goal is to extract the most narratively significant elements that should persist beyond this scene.
 
@@ -34,10 +36,10 @@ GUIDANCE FOR QUALITY CONSEQUENCES:
     * permanent: fundamental, irreversible transformations
 
 3. STATUS DESCRIPTIONS:
-  - Capture the character's current emotional/mental state
-  - Be consice and general
+  - Capture the character's current mental and or physical state
   - Reflect immediate conditions from this scene, not long-term states
   - Don't confine your numerical updates to multiples of five. 
+  - Mental and physical range from 0-100, and up to ±50 is allowed.
 
 4. TRAITS:
   - Traits represent fundamental character attributes reflected in their behavior
@@ -67,12 +69,19 @@ GUIDANCE FOR QUALITY CONSEQUENCES:
   - When updating a field, include the original. Not "Gashed", but "Green overcoat with a deep gash."
 
 8. RELATIONSHIPS:
-  - Be bold but truthful, and focus on evolving relationships towards future narrative paths
-  - Dynamics should be concise (1-3 words) and capture the relationship's essence
-  - Descriptions should explain WHY characters relate this way
-  - Be general, avoiding specific events or temporal statements
-  - You are outputting a -5 to 5 modifier to the current value. Consider the inital and resulting value when choosing the dynamic.
-  - Relationships at the extremeties (0-1 or 9-10) should be dramatic: open animosity, resentment, reverence, love, etc.
+  - Affinity updated, when justified, should be a value ±5, indicating how this event changed a relationship between two characters.
+  - Always consider current affinity values when assessing changes. Ask: Did something NEW happen between these characters, or just more of the same?
+  - Changes at extremes require more justification:
+    * Moving 2→1 or 1→0: Relationship is already broken. Did this interaction make it WORSE?
+    * Moving 8→9 or 9→10: Already very close. Did this significantly deepen it?
+    * At mid-range (3-6), ±1 or ±2 shifts are more reasonable for meaningful interactions
+  - The extremes (0-1, 8-10) should represent deep resentment or deep respect/infatuation, respectively.
+  - Reserve ±3 to ±5 for extreme circumstances: genuine betrayals, life-saving moments, devastating cruelty, profound emotional breakthroughs, etc.
+  - Dynamics should be concise (1-3 words) and capture the relationship's essence. Update when the previous dynamic no longer accurately describes the relationship
+  - Descriptions explain WHY characters relate this way. Avoid specific events, always framing them as general patterns and ongoing dynamics.
+
+9. OTHER:
+  - Money can be updated with ±5000, but unless something extraordinary, stick to ±1000.
 
 RULES:
 1. Use ONLY the fields above. No new keys.

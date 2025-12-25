@@ -3,7 +3,7 @@
   "title": "Study",
   "type": "town",
   "description": "[Characters] spend time reading, experimenting, or simply passing the time.",
-  "nrChars": [2, 4],
+  "characterCount": [2, 4],
   "keywords": [
     "Clashing opinions",
     "Humorous",

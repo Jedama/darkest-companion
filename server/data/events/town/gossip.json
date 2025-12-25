@@ -4,7 +4,7 @@
     "title": "Gossip",
     "type": "town",
     "description": "[Character 1] and [Character 2] talk about [Character 3].",
-    "nrChars": [3, 3],
+    "characterCount": [3, 3],
     "keywords": ["Shared anecdote", "Longing", "Looks", "Praise", "Disparagement", "Rumors", "History", "Secrets"],
     "location": {
       "default": ["town_square", "inn", "tavern"],
@@ -20,7 +20,7 @@
     "title": "Gossip",
     "type": "town",
     "description": "[Character 1], [Character 2], and [Character 3] talk about [Character 4].",
-    "nrChars": [4, 4],
+    "characterCount": [4, 4],
     "keywords": ["Shared anecdote", "Longing", "Looks", "Praise", "Disparagement", "Rumors", "History", "Secrets"],
     "location": {
       "default": ["town_square", "inn", "tavern"],
@@ -36,7 +36,7 @@
     "title": "Story",
     "type": "town",
     "description": "[Character 1] tells [Character 2] and [Character 3] a story about [Character 4].",
-    "nrChars": [4, 4],
+    "characterCount": [4, 4],
     "keywords": ["Longing", "Looks", "Praise", "Disparagement", "Rumors", "History", "Secrets"],
     "location": {
       "default": ["town_square", "inn", "tavern"],

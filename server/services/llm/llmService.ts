@@ -33,7 +33,7 @@ export async function callClaude({
 
   // Build and send the request using the Messages API
   const response = await anthropic.messages.create({
-    model: model || 'claude-3-5-sonnet-20241022',  // fallback model if not provided
+    model: model || 'claude-opus-4-5-20251101',  // fallback model if not provided
     max_tokens: maxTokens ?? 1024,
     temperature: temperature ?? 1.0,
     system: system,  // optional system prompt
