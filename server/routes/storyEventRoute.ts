@@ -3,9 +3,9 @@ import { Router, Request, Response } from 'express';
 import { compileStoryPrompt } from '../services/storyEventService';
 import { separateStoryTitle } from '../services/llmResponseProcessor.js';
 import { loadEstate } from '../fileOps';
-import { callClaude, callGemini, callGrok } from '../services/llm/llmService.js';
-import type { Estate, EventData } from '../../shared/types/types.ts';
-import { Console } from 'console';
+import { callLLM } from '../services/llm/llmService.js';
+import type { Estate } from '../../shared/types/types.ts';
+
 
 const router = Router();
 
@@ -30,26 +30,18 @@ router.post('/estates/:estateName/events/story', async (req: Request, res: Respo
     // 2. Build the prompt using your storyEventService
     const prompt = await compileStoryPrompt(estate, event, chosenCharacterIds, locations, npcIds, enemyIds, bystanders);
 
-    // 3. Call Claude with the prompt
-    //    (You can pass a custom model name if you like.)
-    /*const response = await callGrok({
-      prompt,
-      model: 'grok-3-beta',
-      maxTokens: 1024
-    });*/
+    // 3. Call LLM with the prompt
+    const provider = estate.preferences?.llmProvider ?? "anthropic";
+    const model = estate.preferences?.llmModel; // if undefined, provider default in callLLM will apply
 
-    const response = await callClaude({
+    const response = await callLLM({
+      provider,
+      model,
       prompt,
-      model: 'claude-opus-4-5-20251101',
-      maxTokens: 1024
-    });
-
-    /*const response = await callGemini({
-      prompt,
-      model: 'gemini-3-pro-preview',
       maxTokens: 1024,
-      temperature: 1
-    });*/
+      temperature: 1.0,
+      // system: estate.preferences?.guidance ?? undefined, // NOT USED per your request
+    });
 
     // 4. Extract title from response
     const { title, body } = separateStoryTitle(response);

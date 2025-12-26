@@ -2,7 +2,7 @@
 import type { Estate } from '../../shared/types/types.js';
 import { Router, Request, Response } from 'express';
 import { loadEstate, saveEstate } from '../fileOps.js';
-import { callClaude, callGemini, callGrok } from '../services/llm/llmService.js';
+import { callLLM } from '../services/llm/llmService.js';
 import { compileConsequencesPrompt } from '../services/consequencesEventService.js';
 import { validateConsequenceUpdate, formatConsequenceUpdate } from '../services/promptService.js';
 import type { ConsequencePrompt } from '../services/promptService.js';
@@ -50,24 +50,16 @@ router.post('/estates/:estateName/events/consequences', async (req: Request<{est
     console.log('Consequences prompt:', prompt);
 
     // 3. Call LLM
-    /*const response = await callGemini({
+    const provider = estate.preferences?.llmProvider ?? "anthropic";
+    const model = estate.preferences?.llmModel; // if undefined, provider default in callLLM will apply
+
+    const response = await callLLM({
+      provider,
+      model,
       prompt,
-      model: 'gemini-3-pro-preview',
       maxTokens: 1024,
-      temperature: 1
-    });*/
-
-    const response = await callClaude({
-      prompt,
-      model: 'claude-opus-4-5-20251101',
-      maxTokens: 2048
+      temperature: 0.7,
     });
-
-    /*const response = await callGrok({
-      prompt,
-      model: 'grok-3-beta',
-      maxTokens: 2048
-    });*/
 
     // 4. Clean and parse the response
     const cleanResponse = (text: string): string => {

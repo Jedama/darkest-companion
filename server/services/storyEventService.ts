@@ -15,6 +15,8 @@ import type {
 import { compileNarrativeContext } from './promptService.js';
 import StaticGameDataManager from '../staticGameDataManager.js';
 
+const MAX_GUIDANCE_LENGTH = 1000;
+
 /* -------------------------------------------------------------------
  *  Small helpers
  * ------------------------------------------------------------------- */
@@ -71,6 +73,17 @@ function replaceEnemyPlaceholders(description: string, enemies: Enemy[]): string
   }
 
   return updated;
+}
+
+/**
+ * Sanitizes user guidance input by removing control characters and limiting length.
+ */
+function sanitizeGuidance(input: string): string {
+  return input
+    .replace(/\0/g, '')                    // null bytes
+    .replace(/[\x01-\x08\x0B\x0C\x0E-\x1F]/g, '') // other control chars
+    .trim()
+    .slice(0, MAX_GUIDANCE_LENGTH);
 }
 
 /* -------------------------------------------------------------------
@@ -292,6 +305,19 @@ function buildModifiersSection(event: EventData): string {
   return `[Modifiers]\n${event.keywords.join(', ')}\n\n`;
 }
 
+function buildUserGuidanceSection(guidance?: string): string {
+  if (!guidance) return '';
+
+  const cleaned = sanitizeGuidance(guidance);
+  if (!cleaned) return '';
+
+  return (
+    `[User Guidance]\n` +
+    `The following is the player's custom request for how you should write/respond:\n` +
+    `${cleaned}\n\n`
+  );
+}
+
 /* -------------------------------------------------------------------
  *  Main export
  * ------------------------------------------------------------------- */
@@ -341,7 +367,8 @@ export async function compileStoryPrompt(
     buildNPCSection(npcs) +
     buildBystandersSection(estate, bystanders, chosenCharacterIds) +
     buildEnemiesSection(enemies) +
-    buildModifiersSection(event);
+    buildModifiersSection(event) +
+    buildUserGuidanceSection(estate.preferences?.guidance);
 
   console.log(fullPrompt);
   return fullPrompt;

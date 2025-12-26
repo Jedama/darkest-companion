@@ -12,6 +12,11 @@ export function getCharacter(characters: CharacterRecord, id: string): Character
 export function createNewEstate(estateName: string): Estate {
   return {
     estateName,
+    preferences: {
+      llmProvider: 'anthropic',
+      llmModel: '',
+      guidance: '',
+    },
     money: 0,
     month: 0,
     roles: {

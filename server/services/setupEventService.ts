@@ -77,6 +77,32 @@ function pickRandomSubset<T>(items: T[], count: number): T[] {
   return copy.slice(0, Math.min(count, copy.length));
 }
 
+function getRequiredCharacterIdsFromRoles(estate: Estate, event: EventData): string[] {
+  const requiredRoles = Array.isArray(event.roles) ? event.roles : [];
+  if (requiredRoles.length === 0) return [];
+
+  const ids: string[] = [];
+
+  for (const role of requiredRoles) {
+    const value = (estate.roles as any)[role];
+
+    if (!value) {
+      throw new Error(`Event '${event.identifier}' requires role '${role}', but estate.roles.${role} is missing.`);
+    }
+
+    if (Array.isArray(value)) {
+      // e.g. council: string[]
+      ids.push(...value);
+    } else if (typeof value === 'string') {
+      ids.push(value);
+    } else {
+      throw new Error(`Estate role '${role}' has unexpected type.`);
+    }
+  }
+
+  return dedupePreserveOrder(ids);
+}
+
 /* -------------------------------------------------------------------
  *  Resolvers
  * ------------------------------------------------------------------- */
@@ -142,50 +168,59 @@ function resolveCharacters(
   const allEstateCharIds = Object.keys(estate.characters);
   
   // 1. Determine Event Range
-  const characterCountRange = event.characterCount;
+  const [minRequired, maxAllowed] = event.characterCount;
 
-  const minRequired = characterCountRange[0];
-  const maxAllowed = characterCountRange[1];
+  const requiredByRoleIds = getRequiredCharacterIdsFromRoles(estate, event);
 
   // 2. Start with User Selections
-  let selected: string[] = [];
+  let selected: string[] = [...requiredByRoleIds];
   let overflowCharacterIds: string[] = [];
+
+  // If roles already exceed max, this event is impossible
+  if (selected.length > maxAllowed) {
+    throw new Error(
+      `Event '${event.identifier}' requires ${selected.length} role characters, but maxAllowed is ${maxAllowed}.`
+    );
+  }
   
+  // 3. Add user selections (if any)
   if (options.characterIds && options.characterIds.length > 0) {
     // Validate they exist
-    const missing = options.characterIds.filter(id => !allEstateCharIds.includes(id));
+    const missing = options.characterIds.filter((id) => !allEstateCharIds.includes(id));
     if (missing.length > 0) {
       throw new Error(`Requested character IDs not found in estate: ${missing.join(', ')}`);
     }
-    selected = [...options.characterIds];
+
+    // Add user IDs after required, preserving order and avoiding duplicates
+    selected = dedupePreserveOrder([...selected, ...options.characterIds]);
   }
 
-  // 3. Truncate if User provided too many for this specific event
+  // 4. Truncate if User provided too many for this specific event
   if (selected.length > maxAllowed) {
     overflowCharacterIds = selected.slice(maxAllowed);   // capture extras
     selected = selected.slice(0, maxAllowed);            // keep participants
   }
 
-  // 4. Determine Target Count
-  let targetCount = Math.floor(
+  // 5. Determine finalCharacterCount
+  let finalCharacterCount = Math.floor(
     Math.random() * (maxAllowed - minRequired + 1)
   ) + minRequired;
 
-  // Ensure target count isn't smaller than what the user explicitly asked for
+  // Ensure finalCharacterCount isn't smaller than what the user explicitly asked for
   // (e.g. range 1-4, user provided 3, random rolled 2 -> force it to 3)
-  if (selected.length > targetCount) {
-    targetCount = selected.length;
+  if (selected.length > finalCharacterCount) {
+    finalCharacterCount = selected.length;
   }
 
-  // 5. Fill with Random Characters
-  const needed = targetCount - selected.length;
+  // 6. Fill with Random Characters
+  const remainingSlots = finalCharacterCount - selected.length;
 
-  if (needed > 0) {
+  if (remainingSlots > 0) {
     // Filter out characters already selected
     const pool = allEstateCharIds.filter(id => !selected.includes(id));
 
-    if (pool.length < needed) {
-      throw new Error(`Not enough spare characters in estate to fill event. Needed ${needed}, have ${pool.length}.`);
+    if (pool.length < remainingSlots) {
+      throw new Error(`Not enough spare characters in estate to fill event. Needed ${remainingSlots}, have ${pool.length}.`);
     }
 
     // Shuffle pool
@@ -195,7 +230,7 @@ function resolveCharacters(
     }
 
     // Add the top N from the pool
-    const fillers = pool.slice(0, needed);
+    const fillers = pool.slice(0, remainingSlots);
     selected = [...selected, ...fillers];
   }
 
@@ -241,6 +276,9 @@ function resolveEventNpcs(params: {
     const randomPicks = pickRandomSubset(pool, randomSlots);
     final = [...final, ...randomPicks];
   }
+
+  // Validate final NPC IDs
+  validateNpcIds(final);
 
   return final;
 }

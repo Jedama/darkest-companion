@@ -6,6 +6,8 @@
  *  Estate (primary runtime state)
  * ------------------------------------------------------------------- */
 
+export type LlmProvider = "openai" | "anthropic" | "google" | "xai";
+
 export type EstateRoles = {
   margrave: string; // The character identifier of the Margrave
   bursar: string; // The character identifier of the Bursar
@@ -14,8 +16,15 @@ export type EstateRoles = {
   council?: string[]; // Optional: A list of character identifiers for the council
 };
 
+export interface EstatePreferences {
+  llmProvider: LlmProvider; // Which provider family to use (ChatGPT/OpenAI, Claude/Anthropic, Gemini/Google, Grok/xAI, etc.)
+  llmModel: string; // Specific model to use within the provider family
+  guidance: string; // Freeform system-level guidance / style constraints
+}
+
 export interface Estate {
   estateName: string;
+  preferences?: EstatePreferences;
   money: number;
   month: number;
   roles: EstateRoles; // Roles within the estate
@@ -28,6 +37,7 @@ export interface Estate {
   //eventLogs?: { [eventIdentifier: string]: LogEntry[] };
   //locationLogs?: { [locationIdentifier: string]: LogEntry[] };
   //npcLogs?: { [npcIdentifier: string]: LogEntry[] };
+
 }
 
 /* -------------------------------------------------------------------

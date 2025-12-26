@@ -23,5 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 
+# Save games
+server/data/estates/*.json
+
 # Asset processing
 src/assets/characters/card/processing/*/

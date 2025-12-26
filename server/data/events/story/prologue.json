@@ -2,7 +2,7 @@
   {
     "identifier": "prologue_0",
     "title": "The Old Road",
-    "type": "town",
+    "type": "story",
     "description": "[Characters] sit inside the stagecoach, travelling down the old road towards the Hamlet for the first time, about to start their long quest. The party should still be in the stagecoach, surrounded by the old grizzled trees of the old road, the Hamlet still not in sight. This is the prologue, and the characters aren't yet fully aware of the horrors that await them.",
     "characterCount": [4, 4],
     "keywords": [
@@ -29,7 +29,7 @@
     "identifier": "prologue_1",
     "title": "Crash",
     "type": "story",
-    "description": "Travelling down the old road, the stagecoach crashes, abruptly ending the journey. The Caretaker, who was driving, mysteriously disappears. [Characters] assess their injuries and begin making their way to the Hamlet by foot. This is the prologue, and the characters aren't yet fully aware of the horrors that await them.",
+    "description": "Travelling down the old road, the stagecoach crashes, abruptly ending the journey. The Caretaker, who was driving, and the horses disappear. [Characters] assess their injuries and begin making their way to the Hamlet by foot. This is the prologue, and the characters aren't yet fully aware of the horrors that await them.",
     "characterCount": [4, 4],
     "keywords": [
       "Disorientation",
@@ -53,7 +53,7 @@
     "identifier": "prologue_2",
     "title": "Send these vermin a message",
     "type": "story",
-    "description": "On their way to the Hamlet on foot, after the Stagecoach crashed and the Caretaker vanished, [Characters] encounter [Enemies] and prepare for attack. Set the stage for the battle, but don't start it yet.",
+    "description": "The party has trudged down the old road for some distance when [Enemies] emerge from the shadows ahead. Fatigued but alert, [Characters] prepare for their first real fight. Set the stage for the battle, but don't start it yet.",
     "characterCount": [4, 4],
     "keywords": [
       "Threats",
@@ -77,7 +77,7 @@
   {
     "identifier": "prologue_3",
     "title": "Vanquished",
-    "type": "town",
+    "type": "story",
     "description": "After defeating [Enemies] encountered on the old road, [Characters] pause to assess the situation. Narrate their post-battle conversation—whether relieved, hostile, or weary—and their actions as they continue their journey towards the Hamlet on foot.",
     "characterCount": [4, 4],
     "keywords": [
@@ -87,9 +87,7 @@
       "Discomfort",
       "Second thoughts",
       "Professional detachment",
-      "Tension",
-      "Quiet pride",
-      "Unease"
+      "Quiet pride"
     ],
     "location": {
       "default": ["prologue__old_road"],
@@ -127,8 +125,8 @@
   {
     "identifier": "prologue_5",
     "title": "The Hamlet",
-    "type": "town",
-    "description": "Having overcome the perils of the old road on foot, [Characters] finally arrive at the Hamlet's edge, where the stagecoach clearing marks the boundary between wilderness and civilization. The Caretaker is inexplicably here, his explanations for his disappearance incoherent and unsettling. The tangle of narrow streets and leaning buildings sprawls before them - their quest truly begins here.",
+    "type": "story",
+    "description": "After the grueling trek down the old road on foot, battered and weary, [Characters] finally stumble into the Hamlet. The Caretaker stands waiting at the edge of town, impossibly present despite his disappearance. His incoherent explanations only deepen the unsettling strangeness. The tangle of narrow streets and leaning buildings sprawls before them - their quest truly begins here.",
     "characterCount": [4, 4],
     "keywords": [
       "Relief",
@@ -136,7 +134,7 @@
       "New Beginnings",
       "Nostalgia from scarce childhood visits",
       "The family crest...",
-      "Stagecoach suspicion"
+      "Stagecoach accusations"
     ],
     "location": {
       "default": ["stagecoach"],
@@ -150,15 +148,15 @@
   {
     "identifier": "prologue_6",
     "title": "The Announcement",
-    "type": "town",
-    "description": "In the town square beneath the Ancestor's weathered statue, [Characters] gather as the Town Crier rings the bell to summon what remains of the Hamlet's population. The Ancestor's stone gaze watches from above as the twin heirs step forward to claim their inheritance and announce their intent to reclaim the estate.",
-    "characterCount": [2, 2],
+    "type": "story",
+    "description": "In the town square, the Town Crier's bell summons what remains of the Hamlet's population. Beneath the Ancestor's weathered statue, [Character 1] and [Character 2] step forward and, despite not yet having seen their enemies, appoint themselves Margrave and Bursar of this afflicted borderland against corruption, which will stand fast against the horrors the Ancestor brought forth. The stone gaze above bears silent witness as they vow to drive back the darkness and reclaim what was lost. [Character 3] and [Character 4] watch from the side. This is the prologue, and the characters aren't yet fully aware of the horrors that await them.",
+    "characterCount": [4, 4],
     "keywords": [
       "Lighthearted embarrassment",
       "The Ancestor's shadow",
       "Despised heritage",
       "Any help is welcome",
-      "Narrator acknowledges himself"
+      "Narrator acknowledges himself at the end"
     ],
     "location": {
       "default": ["town_square"],
@@ -169,7 +167,7 @@
       "allowParentLocations": false
     },
     "npcs": ["caretaker"],
-    "randomNPCs": 3,
+    "randomNPCs": 0,
     "roles": ["margrave", "bursar"]
   }
 ]

@@ -26,8 +26,12 @@ GUIDANCE FOR QUALITY CONSEQUENCES:
     * permanent: fundamental world or setting changes
 
 2. CHARACTER LOGS:
-  - Character logs are optional. Add one if relevant
-  - Focus only on the core development or revelation
+  - Character logs capture what the character DID or EXPERIENCED in this specific scene
+  - Use these to record event-specific actions, reactions, and experiences that provide context for status changes
+  - Status describes their CONDITION; character logs describe their ACTIONS
+  - Examples:
+    * Status: "Trembling with fear" → Log: "Froze when confronted by supernatural horror"
+    * Status: "Bleeding from a head wound" → Log: "Took a brass knuckle to the forehead defending a the Plague Doctor"
   - Use timeframes appropriately:
     * transient: fleeting emotions or minor developments
     * short_term: events with impact over next few interactions
@@ -36,7 +40,8 @@ GUIDANCE FOR QUALITY CONSEQUENCES:
     * permanent: fundamental, irreversible transformations
 
 3. STATUS DESCRIPTIONS:
-  - Capture the character's current mental and or physical state
+  - Capture the character's current CONDITION (physical/mental state)
+  - Focus on how they ARE, not what they're DOING
   - Reflect immediate conditions from this scene, not long-term states
   - Don't confine your numerical updates to multiples of five. 
   - Mental and physical range from 0-100, and up to ±50 is allowed.
@@ -46,15 +51,19 @@ GUIDANCE FOR QUALITY CONSEQUENCES:
   - One or two words maximum
 
 5. NOTES:
-  - Notes should be specific and capture:
-    * Unique abilities or skills
-    * Persistent habits or behaviors
-    * Established beliefs, values, or fears
-  - Format notes as timeless attributes rather than developments in progress
-  - Bad example: "Becoming suspicious of authority" (transitional)
-  - Good example: "Scrutinizes authority figures' motives" (established behavior)
-  - Be consice and general
-  - Avoid adding duplicate notes that merely restate information already present elsewhere
+  - Notes capture OBSERVABLE, REPEATABLE behaviors and habits that define how a character acts:
+  - Format as concrete actions or patterns, not internal states or temporary conditions:
+    * Bad: "Feels guilty about past sins" (internal, belongs in description)
+    * Good: "Avoids eye contact when lying"
+    * Bad: "Broke and physically hurt" (temporary state, belongs in status)
+    * Good: "Sleeps with a candle lit"
+    * Bad: "Uses physical intimacy as a tool to control and motivate her brother." (relationship-specific, belongs in relationship description)
+    * Good: "Uses physical intimacy as a tool for dominance"
+  - Notes should be:
+    * Observable from outside (not thoughts/feelings)
+    * Applicable across situations (not tied to one person/event)
+    * Ongoing patterns (not temporary states)
+  - Avoid duplicate notes that merely restate information already present in other notes or elsewhere
    
 6. STATS:
   - Only update when a significant change is demonstrated

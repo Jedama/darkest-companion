@@ -10,7 +10,7 @@
   {
     "identifier": "stagecoach",
     "title": "Stagecoach",
-    "description": "A black, dignified conveyance bears the Estate's crest upon its door, brass fittings gleaming dully in the lantern light. A simpler wagon draped in weathered cloth stands tucked behind it, ready for when the Caretaker's maddened driving leaves the sturdier one collapsed in some distant ditch. Fresh horses stamp nervously in their traces, sensing what their predecessors learned too late about the Estate's paths.",
+    "description": "A black, dignified conveyance bears the Estate's crest upon its door, brass fittings gleaming dully in the lantern light. A replacement for the one the Caretaker's maddened driving left collapsed in a roadside ditch. Fresh horses stamp nervously in their traces, sensing what their predecessors learned too late about the Estate's paths.",
     "summary": "stagecoach (Stagecoach) -- A dignified conveyance bearing the Estate's crest, used for travel and transport to and from the hamlet.",
     "parent": "southwest_district",
     "children": [],
