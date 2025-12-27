@@ -1,12 +1,12 @@
 STRICT JSON FORMAT REQUIREMENTS:
-- Output contains "event_log" array and "characters" array as root keys.
-- All character changes must relate to characters in the CHARACTERS list above.
-- Use only the commands and fields below:
+- Output contains "event_log" object and "characters" array as root keys
+- All character changes must relate to characters in the CHARACTERS list above
+- Use only the commands and fields below
 
-GLOBAL EVENT LOG FORMAT:
+ROOT LEVEL FORMAT:
 {
   "event_log": {
-    "entry": "string describing the most significant plot event or development of the scene",
+    "entry": "string - objective summary of what transpired (REQUIRED)",
     "timeframe": "transient" | "short_term" | "mid_term" | "long_term" | "permanent"
   },
   "characters": [...]
@@ -16,8 +16,9 @@ ALLOWED COMMANDS PER CHARACTER:
 {
   "identifier": "string (MUST match character identifiers)",
   "add_log?": { "entry": "string", "timeframe": "string" },
+  "add_relationship_log?": { "target": "string", "entry": "string", "timeframe": "string" },
   "update_stats?": { "strength?": ±number, "agility?": ±number, "intelligence?": ±number, "authority?": ±number, "sociability?": ±number },
-  "update_status?": { "physical?": ±number, "mental?": ±number, "description?": "string" },
+  "update_status?": { "physical?": ±number (±50), "mental?": ±number (±50), "description?": "string" },
   "gain_traits?": ["string"],
   "lose_traits?": ["string"],
   "update_relationships?": [{ "target": "string", "affinity?": ±number, "dynamic?": "string", "description?": "string" }],
@@ -29,7 +30,7 @@ ALLOWED COMMANDS PER CHARACTER:
   "lose_disease?": "string",
   "gain_note?": "string",
   "lose_note?": "string",
-  "update_money?": ±number,
+  "update_money?": ±number (±5000),
   "update_religion?": "string",
   "death?": "string"
 }

@@ -10,11 +10,13 @@
       "Passing the bottle",
       "Gear check",
       "Argument",
-      "Story",
+      "Tells a long story",
       "No dialogue",
       "Confidence",
       "Hubris",
-      "Anxiety"
+      "Lighthearted bickering",
+      "Passing wine",
+      "Stereotyping on clothes"
     ],
     "location": {
       "default": ["prologue__stagecoach"],

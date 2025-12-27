@@ -84,7 +84,7 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ 
             eventId: userPrompt, // For debugging
-            characterIds: [],
+            characterIds: ["kheir", "heiress"],
             enemyIds: [],
             description: userPrompt
           }),

@@ -14,70 +14,88 @@ GUIDANCE FOR QUALITY CONSEQUENCES:
   - Always remember: This is a game of managing broken, horrible people and difficulty, dysfunctional relationships, and those few moments of true redemption are our primary selling points. 
   Make the characters hate and love and despise and long for each other. Extreme character dynamics are the core of our stories.
 
-1. EVENT LOG:
-  - Add a single story log entry detailing the core of what transpired
-  - Keep entries factual and focused on what happened, not character reactions
-  - Entry should be brief and summarize the scene
+1. LOGS:
+  - Be objective and brief while capturing details
+  - Only add logs when something noteworthy actually happened
   - Use timeframes to indicate story impact:
-    * transient: minor plot developments and character interactions
-    * short_term: events that influence the hamlet as a whole for a short while
-    * mid_term: significant developments with broader implications for the whole reclamation effort
-    * long_term: major plot points that shape the quest
-    * permanent: fundamental world or setting changes
+    * transient: Only for continuity into the next event
+    * short_term: Minor events affecting next few interactions
+    * mid_term: Significant developments with lasting consequences
+    * long_term: Major events reshaping the quest or characters
+    * permanent: Irreversible changes to world, characters, or relationships
 
-2. CHARACTER LOGS:
-  - Character logs capture what the character DID or EXPERIENCED in this specific scene
-  - Use these to record event-specific actions, reactions, and experiences that provide context for status changes
-  - Status describes their CONDITION; character logs describe their ACTIONS
-  - Examples:
-    * Status: "Trembling with fear" → Log: "Froze when confronted by supernatural horror"
-    * Status: "Bleeding from a head wound" → Log: "Took a brass knuckle to the forehead defending a the Plague Doctor"
-  - Use timeframes appropriately:
-    * transient: fleeting emotions or minor developments
-    * short_term: events with impact over next few interactions
-    * mid_term: significant changes with lasting implications
-    * long_term: major life events that reshape a character
-    * permanent: fundamental, irreversible transformations
+  A. ESTATE LOG (REQUIRED):
+    * Objective summary of what transpired in this scene
+    * Focus on events affecting the hamlet, quest, or world
+    * Examples:
+      - "A dungeoning party returned alive after defeating the Necromancer" (short_term)
+      - "Margaret the Musketeer was skewered by the horns of a corrupted stag" (long_term)
+      - "A schism divided the hamlet's adventurers into opposing factions" (long_term)
 
-3. STATUS DESCRIPTIONS:
+  B. CHARACTER LOGS (Optional - only if noteworthy):
+    * Record significant actions or experiences specific to a character
+    * What the character DID or what HAPPENED to them
+    * DO NOT mention other characters here - if an action involves another character, use a relationship log instead
+    * Mention the character by title
+    * Examples:
+      - "The Heir was shot in the upper leg by a blunderbuss" (short_term)
+      - "The Highwayman suffered terrible nightmares" (transient)
+      - "The Abomination saved a stray cat" (transient)
+    * Skip if character's involvement was routine or minor
+
+  C. RELATIONSHIP LOGS (Optional - only if noteworthy):
+    * Record significant developments between two specific characters
+    * When you add a relationship log, it automatically appears for BOTH characters involved - only specify it once
+    * State what happened between the two characters - actions, words, and visible reactions. (Feelings belong in the relationship section)
+    * Each relationship log involves exactly two characters, but a character may have multiple logs with different people
+    * Mention the characters by title
+    * Examples: 
+      - "The Heir and Heiress' argument escalated into a fistfight" (transient)
+      - "In a moment of blinded instability, the Thorn slashed the Lamia's' belly" (mid_term)
+      - "The Bounty Hunter got the Grave Robber pregnant" (permanent)
+    * Skip if interaction was consistent with existing dynamic
+
+2. STATUS DESCRIPTIONS:
   - Capture the character's current CONDITION (physical/mental state)
   - Focus on how they ARE, not what they're DOING
   - Reflect immediate conditions from this scene, not long-term states
   - Don't confine your numerical updates to multiples of five. 
-  - Mental and physical range from 0-100, and up to ±50 is allowed.
+  - Physical and mental are UPDATES (±values), not absolute settings. Range ±1 to ±50.
 
-4. TRAITS:
+3. TRAITS:
   - Traits represent fundamental character attributes reflected in their behavior
   - One or two words maximum
 
-5. NOTES:
+4. NOTES:
   - Notes capture OBSERVABLE, REPEATABLE behaviors and habits that define how a character acts:
   - Format as concrete actions or patterns, not internal states or temporary conditions:
-    * Bad: "Feels guilty about past sins" (internal, belongs in description)
+    * Bad: "Feels guilty about past sins" (vague and boring, probably restating core character traits)
     * Good: "Avoids eye contact when lying"
     * Bad: "Broke and physically hurt" (temporary state, belongs in status)
     * Good: "Sleeps with a candle lit"
     * Bad: "Uses physical intimacy as a tool to control and motivate her brother." (relationship-specific, belongs in relationship description)
     * Good: "Uses physical intimacy as a tool for dominance"
+    * Bad: "Rereads important documents obsessively, searching for hidden meanings" (Too vague/conditional and speculative)
+    * Good: "Rereads all documents at least once." (Changing from "important" to "all" removes all unwanted ambiguity)
   - Notes should be:
     * Observable from outside (not thoughts/feelings)
     * Applicable across situations (not tied to one person/event)
     * Ongoing patterns (not temporary states)
-  - Avoid duplicate notes that merely restate information already present in other notes or elsewhere
+  - Avoid duplicate notes that merely restate information already present elsewhere
    
-6. STATS:
+5. STATS:
   - Only update when a significant change is demonstrated
   - Strength/Agility: physical capabilities displayed
   - Intelligence: knowledge or mental acuity revealed
   - Authority: command presence or leadership shown
   - Sociability: social skills or connection demonstrated
 
-7. CLOTHES & APPEARANCE
+6. CLOTHES & APPEARANCE
   - Only include long-term or permanent changes. For temporary changes, (e.g. Sodden with filth) use the status field.
   - Focus on persistent physical markers: scars, brandings, missing limbs.
   - When updating a field, include the original. Not "Gashed", but "Green overcoat with a deep gash."
 
-8. RELATIONSHIPS:
+7. RELATIONSHIPS:
   - Affinity updated, when justified, should be a value ±5, indicating how this event changed a relationship between two characters.
   - Always consider current affinity values when assessing changes. Ask: Did something NEW happen between these characters, or just more of the same?
   - Changes at extremes require more justification:
@@ -86,11 +104,18 @@ GUIDANCE FOR QUALITY CONSEQUENCES:
     * At mid-range (3-6), ±1 or ±2 shifts are more reasonable for meaningful interactions
   - The extremes (0-1, 8-10) should represent deep resentment or deep respect/infatuation, respectively.
   - Reserve ±3 to ±5 for extreme circumstances: genuine betrayals, life-saving moments, devastating cruelty, profound emotional breakthroughs, etc.
-  - Dynamics should be concise (1-3 words) and capture the relationship's essence. Update when the previous dynamic no longer accurately describes the relationship
-  - Descriptions explain WHY characters relate this way. Avoid specific events, always framing them as general patterns and ongoing dynamics.
+  - Dynamics should describe the TYPE OF RELATIONSHIP between two people (1-3 words). Update when the previous dynamic no longer accurately describes the relationship
+  - Descriptions explain the ONGOING PATTERN of how characters view each other. NEVER mention what just happened in this scene - that's what relationship logs are for. Descriptions should still make sense weeks or months from now.
+    * Bad: "his blunt insult revealing contempt he usually keeps hidden beneath nervous politeness" (References specific event)
+    * Good: "The Heir's contempt for the Leper sometimes breaks through his usual nervous politeness..." (Describes a repeatable pattern - contempt that emerges in unguarded moments, not tied to one insult)
+    * Bad: "tempered by witnessing her dishonesty firsthand, even in trivial matters" (References specific event)
+    * Good: "The Plague Doctor's initial hope for understanding with the Grave Robber is troubled by the woman's casual dishonesty, making trust difficult to build." (Focuses on the character trait - casual dishonesty - not the specific instance of witnessing it)
+    * Bad: "complicated by the knight's immediate defense of the Duchess' secrecy, a reminder that holy men often choose propriety over solidarity" (References a specific event and a third character)
+    * Good: "The Man-at-Arms' hope for understanding from the Crusader is tempered by the knight's instinct to side with authority and propriety over a fellow soldier's concerns." (Describes the Crusader's general tendency, not a specific intervention)
 
-9. OTHER:
-  - Money can be updated with ±5000, but unless something extraordinary, stick to ±1000.
+8. OTHER:
+  - Money updates typically range from ±100 to ±1000, with larger amounts reserved for extraordinary windfalls or losses.
+  - Equipment is necessary for gameplay purposes and should not be permanently lost or broken.
 
 RULES:
 1. Use ONLY the fields above. No new keys.

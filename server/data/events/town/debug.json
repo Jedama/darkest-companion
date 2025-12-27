@@ -62,5 +62,21 @@
       "allowAll": true,
       "allowParentLocations": true
     }
+  },
+  {
+    "identifier": "debug_4",
+    "title": "Sexual assault",
+    "type": "town",
+    "description": "His urge repressed for too long, [Character 1] finally rapes the naked, peacefully sleeping [Character 2].",
+    "characterCount": [2, 2],
+    "keywords": ["Glee", "Dominance", "Pathetic", "Breaks free"],
+    "location": {
+      "default": [],
+      "residence": [2],
+      "workplaces": [],
+      "frequents": [],
+      "allowAll": false,
+      "allowParentLocations": false
+    }
   }
 ]

@@ -3,7 +3,7 @@
 // Imports → Domain constants → Types → Public API (parsing/display/mutation)
 // → Internal processors → Internal utilities
 
-import type { Character, Estate, LogEntry } from '../../shared/types/types.ts';
+import type { Character, Estate, LogEntry, RelationshipLogEntry } from '../../shared/types/types.ts';
 
 /* -------------------------------------------------------------------
  *  Domain constants
@@ -24,7 +24,7 @@ export type ConsequenceTimeframe = typeof CONSEQUENCE_TIMEFRAMES[number];
  * ------------------------------------------------------------------- */
 
 interface ConsequenceLogEntry {
-  entry: string
+  entry: string;
   timeframe: ConsequenceTimeframe;
 }
 
@@ -32,6 +32,7 @@ interface ConsequenceLogEntry {
 export interface CharacterConsequence {
   identifier: string;
   add_log?: ConsequenceLogEntry;
+  add_relationship_log?: ConsequenceLogEntry & { target: string };
   update_stats?: {
     strength?: number;
     agility?: number;
@@ -126,6 +127,45 @@ const consequenceColorMap: Record<string, string> = {
 };
 
 /* -------------------------------------------------------------------
+ * Helper functions
+ * ------------------------------------------------------------------- */
+
+/**
+ * Deduplicates relationship logs within the LLM response.
+ * Handles:
+ * 1. Exact duplicates for the same character.
+ * 2. Mirrored duplicates (A reports bonding with B, B reports bonding with A).
+ */
+export function deduplicateRelationshipLogs(consequences: ConsequencesResult): ConsequencesResult {
+  const seenLogs = new Set<string>();
+
+  consequences.characters.forEach(char => {
+    const relLog = char.add_relationship_log;
+    if (!relLog) return;
+
+    // 1. Create a normalized pair identifier (alphabetical order)
+    // This ensures [A, B] and [B, A] produce the same key.
+    const pairKey = [char.identifier, relLog.target].sort().join(':');
+
+    // 2. Create a unique hash for this specific event
+    // We trim to prevent whitespace differences from bypassing the check.
+    const logHash = `${pairKey}|${relLog.entry.trim()}|${relLog.timeframe}`;
+
+    if (seenLogs.has(logHash)) {
+      // We've already processed this relationship beat in this response.
+      // Remove it from this character consequence object.
+      delete char.add_relationship_log;
+      console.log(`[Deduplicator] Removed duplicate relationship log for ${char.identifier} regarding ${relLog.target}`);
+    } else {
+      // First time seeing this beat, mark it as seen.
+      seenLogs.add(logHash);
+    }
+  });
+
+  return consequences;
+}
+
+/* -------------------------------------------------------------------
  *  Public API: story parsing
  * ------------------------------------------------------------------- */
 
@@ -155,14 +195,6 @@ export function prepareConsequenceDisplay(consequences: ConsequencesResult): Con
         personalChanges: [] as Array<{ text: string; color: string }>,
         relationshipChanges: {} as Record<string, Array<{ text: string; color: string; affinity?: number }>>
       };
-
-      // Process add_log (just for debugging if needed)
-      // if (char.add_log) {
-      //   display.personalChanges.push({
-      //     text: `Log entry added`,
-      //     color: 'white'
-      //   });
-      // }
 
       // Process stats
       if (char.update_stats) {
@@ -341,7 +373,7 @@ export function prepareConsequenceDisplay(consequences: ConsequencesResult): Con
  *  Public API: state mutation
  * ------------------------------------------------------------------- */
 
-export function applyConsequences(estate: Estate, consequences: ConsequencesResult): Estate {
+export function applyConsequences(estate: Estate, rawConsequences: ConsequencesResult): Estate {
   // Create a deep copy of the estate to avoid mutating the original
   const updatedEstate: Estate = structuredClone(estate);
   
@@ -350,9 +382,11 @@ export function applyConsequences(estate: Estate, consequences: ConsequencesResu
     updatedEstate.characterLogs = {} as { [charIdentifier: string]: LogEntry[] };
   }
 
-  if (consequences.event_log){
-    processEstateLog(updatedEstate, consequences.event_log);
+  if (rawConsequences.event_log){
+    processEstateLog(updatedEstate, rawConsequences.event_log);
   }
+
+  const consequences = deduplicateRelationshipLogs(rawConsequences);
 
   // Process each character's consequences
   for (const characterConsequence of consequences.characters) {
@@ -369,6 +403,7 @@ export function applyConsequences(estate: Estate, consequences: ConsequencesResu
 
     // Process each consequence type
     processAddLog(updatedEstate, character, characterConsequence);
+    processAddRelationshipLog(updatedEstate, character, characterConsequence);
     processUpdateStats(character, characterConsequence);
     processUpdateStatus(character, characterConsequence);
     processTraits(character, characterConsequence);
@@ -457,6 +492,58 @@ function processAddLog(estate: Estate, character: Character, consequence: Charac
   
   // Add the log entry to the character's logs
   estate.characterLogs[character.identifier].push(logEntry);
+}
+
+/**
+ * Process and add a relationship log entry to both characters' logs
+ */
+function processAddRelationshipLog(
+  estate: Estate, 
+  character: Character, 
+  consequence: CharacterConsequence
+): void {
+  if (!consequence.add_relationship_log) return;
+  
+  const { target, entry, timeframe } = consequence.add_relationship_log;
+
+  if (!estate.characters[target]) {
+    console.warn(`Relationship target ${target} not found, skipping relationship log`);
+    return;
+  }
+  
+  // Ensure relationshipLogs exists on the estate
+  if (!estate.relationshipLogs) {
+    estate.relationshipLogs = {};
+  }
+  
+  // Initialize relationship logs arrays if they don't exist
+  if (!estate.relationshipLogs[character.identifier]) {
+    estate.relationshipLogs[character.identifier] = [];
+  }
+  
+  if (!estate.relationshipLogs[target]) {
+    estate.relationshipLogs[target] = [];
+  }
+  
+  // Create the log entry
+  const logEntry: RelationshipLogEntry = {
+    month: estate.month,
+    entry: entry,
+    target: target, // From source character's perspective
+    expiryMonth: calculateExpiryMonth(estate.month, timeframe)
+  };
+  
+  // Create mirror log for target character
+  const mirrorLogEntry: RelationshipLogEntry = {
+    month: estate.month,
+    entry: entry,
+    target: character.identifier, // From target's perspective
+    expiryMonth: calculateExpiryMonth(estate.month, timeframe)
+  };
+  
+  // Add to both characters' relationship logs
+  estate.relationshipLogs[character.identifier].push(logEntry);
+  estate.relationshipLogs[target].push(mirrorLogEntry);
 }
 
 /**
@@ -708,11 +795,11 @@ function clamp(value: number, min: number, max: number): number {
 
 function calculateExpiryMonth(currentMonth: number, timeframe: ConsequenceTimeframe): number {
   const timeframeToMonths: Record<ConsequenceTimeframe, number> = {
-    'transient': 1,
-    'short_term': 3,
-    'mid_term': 7, 
-    'long_term': 12,
-    'permanent': 1000
+    'transient': 0,
+    'short_term': 1,
+    'mid_term': 3, 
+    'long_term': 7,
+    'permanent': 12
   };
 
   const months = timeframeToMonths[timeframe];

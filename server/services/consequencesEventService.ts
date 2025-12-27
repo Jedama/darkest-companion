@@ -27,13 +27,14 @@ export async function compileConsequencesPrompt(options: {
   for (const char of involvedCharacters) {
     charactersSection += `  - [${char.identifier}] ${char.name} (${char.title}):\n`;
     charactersSection += `  - Description: ${char.description}\n`;
-    charactersSection += `  - History: ${char.history}\n`;
     charactersSection += `  - Stats: strength: ${char.stats.strength}, agility: ${char.stats.agility}, intelligence: ${char.stats.intelligence}, authority: ${char.stats.authority}, sociability: ${char.stats.sociability}\n`;
     charactersSection += `  - Traits: ${char.traits.join(', ')}\n`;
-    charactersSection += `  - Status: ${char.status.description}\n`;
+    charactersSection += `  - Status: Physical: ${char.status.physical}, Mental: ${char.status.mental}, Description: ${char.status.description}\n`;
     charactersSection += `  - Appearance: height: ${char.appearance.height}, build: ${char.appearance.build} skinTone: ${char.appearance.skinTone}, hairStyle: ${char.appearance.hairStyle}, hairColor: ${char.appearance.hairColor}, features: ${char.appearance.features}.\n`;
     charactersSection += `  - Clothing: headwear: ${char.clothing.head}, top: ${char.clothing.body}, pants: ${char.clothing.legs}, accesories: ${char.clothing.accessories}.\n`;
     
+    // Maybe add affliction here? If present
+
     if (char.notes.length > 0) {
       charactersSection += `  - Notes: ${char.notes.join(', ')}\n`;
     }
@@ -66,11 +67,6 @@ export async function compileConsequencesPrompt(options: {
 
     ${consequenceInstructions}
     ${consequenceFormat}
-
-    EXAMPLE CONSEQUENCES:
-    Below are examples demonstrating well-formatted consequences. Note how:
-    - Log entries are self-contained.
-    - Relationship descriptions focus on ongoing dynamics, not specific events.
     ${consequenceExamples}
   `.trim();
 

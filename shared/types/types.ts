@@ -8,6 +8,16 @@
 
 export type LlmProvider = "openai" | "anthropic" | "google" | "xai";
 
+export interface LogEntry {
+  month: number; // in-game month the log occurred during
+  entry: string; // short description of what happened
+  expiryMonth: number; // month when this log should expire
+}
+
+export interface RelationshipLogEntry extends LogEntry {
+  target: string; // the other character's identifier
+}
+
 export type EstateRoles = {
   margrave: string; // The character identifier of the Margrave
   bursar: string; // The character identifier of the Bursar
@@ -34,6 +44,7 @@ export interface Estate {
 
   // Optional logs per entity type
   characterLogs?: { [charIdentifier: string]: LogEntry[] };
+  relationshipLogs?: { [charIdentifier: string]: RelationshipLogEntry[] };
   //eventLogs?: { [eventIdentifier: string]: LogEntry[] };
   //locationLogs?: { [locationIdentifier: string]: LogEntry[] };
   //npcLogs?: { [npcIdentifier: string]: LogEntry[] };
@@ -235,16 +246,6 @@ export interface EventData {
  * -------------------------------------------------------------------
  *  (No dedicated keyword types yet; using string[] in EventData.)
  * ------------------------------------------------------------------- */
-
-/* -------------------------------------------------------------------
- *  State / Logs
- * ------------------------------------------------------------------- */
-
-export interface LogEntry {
-  month: number; // in-game month the log occurred during
-  entry: string; // short description of what happened
-  expiryMonth: number; // month when this log should expire
-}
 
 /* -------------------------------------------------------------------
  *  Bystanders (state / runtime helpers)
