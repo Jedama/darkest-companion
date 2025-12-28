@@ -165,6 +165,81 @@ export function deduplicateRelationshipLogs(consequences: ConsequencesResult): C
   return consequences;
 }
 
+/**
+ * Removes obvious no-op deltas from an LLM consequence payload.
+ * This prevents UI noise like "Physical +0" and avoids pointless processing.
+ */
+export function stripNoOpConsequences(raw: ConsequencesResult): ConsequencesResult {
+  const consequences: ConsequencesResult = structuredClone(raw);
+
+  for (const char of consequences.characters) {
+    // --- update_stats: remove 0 deltas ---
+    if (char.update_stats) {
+      for (const key of Object.keys(char.update_stats) as Array<keyof typeof char.update_stats>) {
+        if (char.update_stats[key] === 0) delete char.update_stats[key];
+      }
+      if (Object.keys(char.update_stats).length === 0) delete char.update_stats;
+    }
+
+    // --- update_status: remove 0 deltas (keep description if present) ---
+    if (char.update_status) {
+      if (char.update_status.physical === 0) delete char.update_status.physical;
+      if (char.update_status.mental === 0) delete char.update_status.mental;
+
+      // Optionally strip empty description
+      if (char.update_status.description !== undefined && char.update_status.description.trim() === '') {
+        delete char.update_status.description;
+      }
+
+      if (Object.keys(char.update_status).length === 0) delete char.update_status;
+    }
+
+    // --- money delta ---
+    if (char.update_money === 0) delete char.update_money;
+
+    // --- relationship affinity deltas ---
+    if (char.update_relationships) {
+      char.update_relationships = char.update_relationships
+        .map(rel => {
+          const cleaned = { ...rel };
+
+          if (cleaned.affinity === 0) delete cleaned.affinity;
+          if (cleaned.dynamic !== undefined && cleaned.dynamic.trim() === '') delete cleaned.dynamic;
+          if (cleaned.description !== undefined && cleaned.description.trim() === '') delete cleaned.description;
+
+          return cleaned;
+        })
+        // drop entries that now do nothing (target-only)
+        .filter(rel =>
+          rel.affinity !== undefined || rel.dynamic !== undefined || rel.description !== undefined
+        );
+
+      if (char.update_relationships.length === 0) delete char.update_relationships;
+    }
+
+    // --- traits arrays ---
+    if (char.gain_traits && char.gain_traits.length === 0) delete char.gain_traits;
+    if (char.lose_traits && char.lose_traits.length === 0) delete char.lose_traits;
+
+    // --- optional: clean appearance/clothing if all fields empty/undefined ---
+    if (char.update_appearance) {
+      for (const [k, v] of Object.entries(char.update_appearance)) {
+        if (typeof v === 'string' && v.trim() === '') delete (char.update_appearance as any)[k];
+      }
+      if (Object.keys(char.update_appearance).length === 0) delete char.update_appearance;
+    }
+
+    if (char.update_clothing) {
+      for (const [k, v] of Object.entries(char.update_clothing)) {
+        if (typeof v === 'string' && v.trim() === '') delete (char.update_clothing as any)[k];
+      }
+      if (Object.keys(char.update_clothing).length === 0) delete char.update_clothing;
+    }
+  }
+
+  return consequences;
+}
+
 /* -------------------------------------------------------------------
  *  Public API: story parsing
  * ------------------------------------------------------------------- */
@@ -382,11 +457,13 @@ export function applyConsequences(estate: Estate, rawConsequences: ConsequencesR
     updatedEstate.characterLogs = {} as { [charIdentifier: string]: LogEntry[] };
   }
 
-  if (rawConsequences.event_log){
-    processEstateLog(updatedEstate, rawConsequences.event_log);
+  const cleaned = stripNoOpConsequences(rawConsequences);
+
+  if (cleaned.event_log) {
+    processEstateLog(updatedEstate, cleaned.event_log);
   }
 
-  const consequences = deduplicateRelationshipLogs(rawConsequences);
+  const consequences = deduplicateRelationshipLogs(cleaned);
 
   // Process each character's consequences
   for (const characterConsequence of consequences.characters) {
@@ -414,6 +491,8 @@ export function applyConsequences(estate: Estate, rawConsequences: ConsequencesR
     processNotes(character, characterConsequence);
     processMiscUpdates(character, characterConsequence);
   }
+
+  updatedEstate.beat += 1; // Increment beat after applying consequences
 
   return updatedEstate;
 }
@@ -455,6 +534,7 @@ function processEstateLog(estate: Estate, consequence: ConsequenceLogEntry): voi
   // Create a new log entry
   const logEntry: LogEntry = {
     month: estate.month, // Current month from estate
+    beat: estate.beat, // Current beat from estate
     entry: consequence.entry,
     expiryMonth: calculateExpiryMonth(estate.month, consequence.timeframe)
   };
@@ -486,6 +566,7 @@ function processAddLog(estate: Estate, character: Character, consequence: Charac
   // Create a new log entry
   const logEntry: LogEntry = {
     month: estate.month, // Current month from estate
+    beat: estate.beat, // Current beat from estate
     entry: consequence.add_log.entry,
     expiryMonth: calculateExpiryMonth(estate.month, consequence.add_log.timeframe)
   };
@@ -528,6 +609,7 @@ function processAddRelationshipLog(
   // Create the log entry
   const logEntry: RelationshipLogEntry = {
     month: estate.month,
+    beat: estate.beat,
     entry: entry,
     target: target, // From source character's perspective
     expiryMonth: calculateExpiryMonth(estate.month, timeframe)
@@ -536,6 +618,7 @@ function processAddRelationshipLog(
   // Create mirror log for target character
   const mirrorLogEntry: RelationshipLogEntry = {
     month: estate.month,
+    beat: estate.beat,
     entry: entry,
     target: character.identifier, // From target's perspective
     expiryMonth: calculateExpiryMonth(estate.month, timeframe)

@@ -13,6 +13,7 @@ import type {
 } from '../../shared/types/types.ts';
 
 import { compileNarrativeContext } from './promptService.js';
+import { filterLogs } from './logService.js';
 import StaticGameDataManager from '../staticGameDataManager.js';
 
 const MAX_GUIDANCE_LENGTH = 1000;
@@ -300,6 +301,24 @@ Description: ${desc}
 `;
 }
 
+function buildLogsSection(logs: string[]): string {
+  if (!logs || logs.length === 0) return '';
+
+  const lines: string[] = [];
+  lines.push(`[Recent Events]\n`);
+  lines.push(
+    `The following are notable past events involving the characters. ` +
+    `They are provided for narrative continuity and context.\n\n`
+  );
+
+  for (const log of logs) {
+    lines.push(`- ${log}\n`);
+  }
+
+  lines.push('\n');
+  return lines.join('');
+}
+
 function buildModifiersSection(event: EventData): string {
   if (!event.keywords?.length) return '';
   return `[Modifiers]\n${event.keywords.join(', ')}\n\n`;
@@ -355,6 +374,9 @@ export async function compileStoryPrompt(
     .map((id) => gameData.getEnemyById(id))
     .filter((e): e is Enemy => !!e);
 
+  // Filter logs to only those involving chosen characters
+  const filteredLogs = filterLogs(estate, involvedCharacters);
+
   // Build sections (order is narrative-driven)
   const charactersSection =
     buildCharactersSection(involvedCharacters) + buildRelationshipLines(involvedCharacters);
@@ -367,6 +389,7 @@ export async function compileStoryPrompt(
     buildNPCSection(npcs) +
     buildBystandersSection(estate, bystanders, chosenCharacterIds) +
     buildEnemiesSection(enemies) +
+    buildLogsSection(filteredLogs) +
     buildModifiersSection(event) +
     buildUserGuidanceSection(estate.preferences?.guidance);
 

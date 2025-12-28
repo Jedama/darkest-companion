@@ -17,12 +17,13 @@ export function createNewEstate(estateName: string): Estate {
       llmModel: '',
       guidance: '',
     },
-    money: 0,
     month: 0,
+    beat: 0,
     roles: {
       margrave: 'heiress',
       bursar: 'kheir',
     },
+    money: 0,
     characters: {}
   };
 }

@@ -60,7 +60,7 @@ GUIDANCE FOR QUALITY CONSEQUENCES:
   - Focus on how they ARE, not what they're DOING
   - Reflect immediate conditions from this scene, not long-term states
   - Don't confine your numerical updates to multiples of five. 
-  - Physical and mental are UPDATES (±values), not absolute settings. Range ±1 to ±50.
+  - Physical and mental are UPDATES (±values), not absolute settings. Range ±1 to ±50. Don't include 0.
 
 3. TRAITS:
   - Traits represent fundamental character attributes reflected in their behavior
@@ -70,7 +70,8 @@ GUIDANCE FOR QUALITY CONSEQUENCES:
   - Notes capture OBSERVABLE, REPEATABLE behaviors and habits that define how a character acts:
   - Format as concrete actions or patterns, not internal states or temporary conditions:
     * Bad: "Feels guilty about past sins" (vague and boring, probably restating core character traits)
-    * Good: "Avoids eye contact when lying"
+    * Bad: "Eyebrow twitches when bluffing at cards" (Way too niche)
+    * Good: "Eyebrow twitches when lying"
     * Bad: "Broke and physically hurt" (temporary state, belongs in status)
     * Good: "Sleeps with a candle lit"
     * Bad: "Uses physical intimacy as a tool to control and motivate her brother." (relationship-specific, belongs in relationship description)

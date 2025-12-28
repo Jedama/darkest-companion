@@ -10,6 +10,7 @@ export type LlmProvider = "openai" | "anthropic" | "google" | "xai";
 
 export interface LogEntry {
   month: number; // in-game month the log occurred during
+  beat: number; // a counter to order logs within the same month
   entry: string; // short description of what happened
   expiryMonth: number; // month when this log should expire
 }
@@ -35,9 +36,10 @@ export interface EstatePreferences {
 export interface Estate {
   estateName: string;
   preferences?: EstatePreferences;
-  money: number;
   month: number;
+  beat: number;
   roles: EstateRoles; // Roles within the estate
+  money: number;
   characters: CharacterRecord;
   restoredLocations?: string[]; // list of location identifiers that have been restored
   estateLogs?: LogEntry[];
