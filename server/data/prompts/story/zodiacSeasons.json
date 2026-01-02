@@ -1,50 +1,110 @@
 [
   {
     "name": "Pisces",
-    "text": "The last frost reluctantly retreats from the hamlet's cobblestones, leaving dark stains that seep into the stone. Warmer winds stir from across the harbor, carrying the first salt-tanged breaths of spring over the thawing hills."
+    "text": "The last frost reluctantly retreats from the hamlet's cobblestones, leaving dark stains that seep into the stone. Warmer winds stir from across the harbor, carrying the first salt-tanged breaths of spring over the thawing hills.",
+    "weather": {
+      "heat": { "mean": 3.6, "variance": 2.8 },
+      "rain": { "mean": 4.9, "variance": 4 },
+      "wind": { "mean": 5.5, "variance": 2.5 }
+    }
   },
   {
     "name": "Aries",
-    "text": "Wild violets push through cracks in the hamlet's walls, while the Old Road's edges blur with new growth. The Weald's stark branches have cloaked themselves in tender leaves, their thorns hidden behind spring's deceptive softness."
+    "text": "Wild violets push through cracks in the hamlet's walls, while the Old Road's edges blur with new growth. The Weald's stark branches have cloaked themselves in tender leaves, their thorns hidden behind spring's deceptive softness.",
+    "weather": {
+      "heat": { "mean": 4.3, "variance": 2.8 },
+      "rain": { "mean": 5.0, "variance": 4 },
+      "wind": { "mean": 5.8, "variance": 2.75 }
+    }
   },
   {
     "name": "Taurus",
-    "text": "Morning mists cling to the hamlet's lower streets until noon, while beyond the walls, the few untainted fields burst with meager but defiant vitality. Each dawn brings more green to chase away winter's lingering browns."
+    "text": "Morning mists cling to the hamlet's lower streets until noon, while beyond the walls, the few untainted fields burst with meager but defiant vitality. Each dawn brings more green to chase away winter's lingering browns.",
+    "weather": {
+      "heat": { "mean": 5.0, "variance": 2.5 },
+      "rain": { "mean": 4.8, "variance": 3.25 },
+      "wind": { "mean": 5.2, "variance": 2.4 }
+    }
   },
   {
     "name": "Gemini",
-    "text": "Birdsong echoes from crumbling window sills and broken eaves, the air sweet with spring rain. Light and shadow dance through scudding clouds, and swallows circle the abbey's bell tower."
+    "text": "Birdsong echoes from crumbling window sills and broken eaves, the air sweet with spring rain. Light and shadow dance through scudding clouds, and swallows circle the abbey's bell tower.",
+    "weather": {
+      "heat": { "mean": 5.7, "variance": 2.1 },
+      "rain": { "mean": 4.8, "variance": 3.25 },
+      "wind": { "mean": 4.8, "variance": 2.5 }
+    }
   },
   {
     "name": "Cancer",
-    "text": "Midsummer heat bakes the hamlet's stones, releasing strange vapors from the earth below. In stagnant corners, moisture beads like sweat on walls, while the noon sun burns away all shadows save the deepest black."
+    "text": "Midsummer heat bakes the hamlet's stones, releasing strange vapors from the earth below. In stagnant corners, moisture beads like sweat on walls, while the noon sun burns away all shadows save the deepest black.",
+    "weather": {
+      "heat": { "mean": 6.0, "variance": 1.7 },
+      "rain": { "mean": 4.3, "variance": 3.1 },
+      "wind": { "mean": 4.5, "variance": 2 }
+    }
   },
   {
     "name": "Leo",
-    "text": "The summer air hangs heavy over the hamlet, stone and timber alike radiating heat long into evening. Shadows pool beneath eaves and awnings while the sun's relentless gaze bears down on empty streets."
+    "text": "The summer air hangs heavy over the hamlet, stone and timber alike radiating heat long into evening. Shadows pool beneath eaves and awnings while the sun's relentless gaze bears down on empty streets.",
+    "weather": {
+      "heat": { "mean": 6.4, "variance": 1.55 },
+      "rain": { "mean": 4.2, "variance": 2.4 },
+      "wind": { "mean": 4.5, "variance": 2 }
+    }
   },
   {
     "name": "Virgo",
-    "text": "Late summer winds carry the scent of ripening fruit and freshly turned earth through the hamlet's narrow lanes. Vines climb ever higher on weathered walls, their flowers opening only in twilight's uncertain hour."
+    "text": "Late summer winds carry the scent of ripening fruit and freshly turned earth through the hamlet's narrow lanes. Vines climb ever higher on weathered walls, their flowers opening only in twilight's uncertain hour.",
+    "weather": {
+      "heat": { "mean": 5.7, "variance": 2.2 },
+      "rain": { "mean": 4.4, "variance": 2.4 },
+      "wind": { "mean": 4.5, "variance": 2.1 }
+    }
   },
   {
     "name": "Libra",
-    "text": "The first autumn leaves spiral down from darkening branches, gathering in corners and doorways. Shadows stretch longer with each passing day, while evening mists rise early from the cooling earth."
+    "text": "The first autumn leaves spiral down from darkening branches, gathering in corners and doorways. Shadows stretch longer with each passing day, while evening mists rise early from the cooling earth.",
+    "weather": {
+      "heat": { "mean": 5.0, "variance": 2.3 },
+      "rain": { "mean": 4.7, "variance": 3.25 },
+      "wind": { "mean": 5, "variance": 2.25 }
+    }
   },
   {
     "name": "Scorpio",
-    "text": "Dead leaves skitter through empty streets, stirred by winds that bite with winter's approaching teeth. The air grows thin and sharp, each breath carrying the promise of frost."
+    "text": "Dead leaves skitter through empty streets, stirred by winds that bite with winter's approaching teeth. The air grows thin and sharp, each breath carrying the promise of frost.",
+    "weather": {
+      "heat": { "mean": 4.3, "variance": 2.8 },
+      "rain": { "mean": 4.5, "variance": 3.5 },
+      "wind": { "mean": 4.5, "variance": 2 }
+    }
   },
   {
     "name": "Sagittarius",
-    "text": "A thin, uneven blanket of snow masks the hamlet's streets, its pristine surface broken only by the wind's artistry. Icicles hang from the Ancestor's statue, catching the pale winter light like crystalline prisms."
+    "text": "A thin, uneven blanket of snow masks the hamlet's streets, its pristine surface broken only by the wind's artistry. Icicles hang from the Ancestor's statue, catching the pale winter light like crystalline prisms.",
+    "weather": {
+      "heat": { "mean": 3.6, "variance": 2.8 },
+      "rain": { "mean": 4.8, "variance": 3.1 },
+      "wind": { "mean": 5.6, "variance": 2.5 }
+    }
   },
   {
     "name": "Capricorn",
-    "text": "The harbor's waters lie frozen in unnatural patterns, the ice's surface unmarred and mirror-black. Through the long nights, even the stars seem dimmer, as if retreating from the deep winter's grip."
+    "text": "The harbor's waters lie frozen in unnatural patterns, the ice's surface unmarred and mirror-black. Through the long nights, even the stars seem dimmer, as if retreating from the deep winter's grip.",
+    "weather": {
+      "heat": { "mean": 2.9, "variance": 2.4 },
+      "rain": { "mean": 4.7, "variance": 3 },
+      "wind": { "mean": 5.8, "variance": 2.75 }
+    }
   },
   {
     "name": "Aquarius",
-    "text": "Winter winds howl through the hamlet's empty spaces, driving needles of ice before them. The streets gleam treacherous with black ice, while snow piles in steep drifts against every wall and doorway."
+    "text": "Winter winds howl through the hamlet's empty spaces, driving needles of ice before them. The streets gleam treacherous with black ice, while snow piles in steep drifts against every wall and doorway.",
+    "weather": {
+      "heat":  { "mean": 2.9, "variance": 2.1 },
+      "rain": { "mean": 4.5, "variance": 3 },
+      "wind": { "mean": 6, "variance": 2.5 }
+    }
   }
 ]

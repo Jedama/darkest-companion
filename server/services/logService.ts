@@ -100,7 +100,7 @@ type SelectionState = {
  *   - Stakes: expiryMonth >= currentMonth+2; pick STAKES_BUCKET_SIZE via importance-heavy scoring.
  */
 export function filterLogs(estate: Estate, characters: Character[]): string[] {
-  const currentMonth = estate.month;
+  const currentMonth = estate.time.month;
   const includedIds = new Set(characters.map((c) => c.identifier));
 
   // 1) Normalize all logs into a single list

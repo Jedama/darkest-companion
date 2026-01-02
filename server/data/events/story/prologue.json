@@ -3,7 +3,7 @@
     "identifier": "prologue_0",
     "title": "The Old Road",
     "type": "story",
-    "description": "[Characters] sit inside the stagecoach, travelling down the old road towards the Hamlet for the first time, about to start their long quest. The party should still be in the stagecoach, surrounded by the old grizzled trees of the old road, the Hamlet still not in sight. This is the prologue, and the characters aren't yet fully aware of the horrors that await them.",
+    "description": "'Return home; claim your birthright, and deliver our family from the ravenous, clutching shadows of the Darkest Dungeon,' reads the final sentence of the Ancestor's letter. [Characters] sit inside the stagecoach, travelling down the old road towards the Hamlet for the first time, about to start their long quest. This is the prologue, and the characters aren't yet fully aware of the horrors that await them. Start your story with the line from the letter.",
     "characterCount": [4, 4],
     "keywords": [
       "Game of cards",
@@ -128,7 +128,7 @@
     "identifier": "prologue_5",
     "title": "The Hamlet",
     "type": "story",
-    "description": "After the grueling trek down the old road on foot, battered and weary, [Characters] finally stumble into the Hamlet. The Caretaker stands waiting at the edge of town, impossibly present despite his disappearance. His incoherent explanations only deepen the unsettling strangeness. The tangle of narrow streets and leaning buildings sprawls before them - their quest truly begins here.",
+    "description": "After the grueling trek down the old road on foot, battered and weary, [Characters] finally stumble into the Hamlet. The Caretaker stands waiting at the edge of town, impossibly present despite his disappearance in the stagecoach crash. His incoherent explanations only deepen the unsettling strangeness. The tangle of narrow streets and leaning buildings sprawls before them - their quest truly begins here.",
     "characterCount": [4, 4],
     "keywords": [
       "Relief",
@@ -151,7 +151,7 @@
     "identifier": "prologue_6",
     "title": "The Announcement",
     "type": "story",
-    "description": "In the town square, the Town Crier's bell summons what remains of the Hamlet's population. Beneath the Ancestor's weathered statue, [Character 1] and [Character 2] step forward and, despite not yet having seen their enemies, appoint themselves Margrave and Bursar of this afflicted borderland against corruption, which will stand fast against the horrors the Ancestor brought forth. The stone gaze above bears silent witness as they vow to drive back the darkness and reclaim what was lost. [Character 3] and [Character 4] watch from the side. This is the prologue, and the characters aren't yet fully aware of the horrors that await them.",
+    "description": "In the town square, the Town Crier's bell summons what remains of the Hamlet's population. Beneath the Ancestor's weathered statue, [Character 1] and [Character 2] step forward and, despite not yet having seen their enemies, appoint themselves Margrave and Bursar of this afflicted borderland against corruption, promising to cleanse the horrors the Ancestor brought forth. [Character 3] and [Character 4] watch from the side. This is the prologue, and the characters aren't yet fully aware of the horrors that await them.",
     "characterCount": [4, 4],
     "keywords": [
       "Lighthearted embarrassment",
@@ -170,6 +170,60 @@
     },
     "npcs": ["caretaker"],
     "randomNPCs": 0,
+    "roles": ["margrave", "bursar"]
+  },
+  {
+    "identifier": "prologue_7",
+    "title": "The Dower House",
+    "type": "story",
+    "description": "[Characters] arrive at the Hamlet's Dower House, their new residence. They explore the abandoned manor, discovering its layout and history. In the Portrait Room, the likeness of all four has already been rendered in oil and framed in wood. This is the prologue, and the characters aren't yet fully aware of the horrors that await them. Ensure the reader gets a good understanding of the house's layout.",
+    "characterCount": [4, 4],
+    "keywords": [
+      "Unease at the house",
+      "Exploring every room",
+      "Moving furniture",
+      "Music",
+      "Rich vs poor dissent"
+    ],
+    "location": {
+      "default": ["dower_house__grand_hall"],
+      "residence": [],
+      "workplaces": [],
+      "frequents": [],
+      "allowAll": false,
+      "allowParentLocations": false
+    },
+    "npcs": []
+  },
+  {
+    "identifier": "prologue_8",
+    "title": "The First Night",
+    "type": "story",
+    "description": "Having explored the Dower House, [Characters] explore, undress, and settle in their respective bedrooms for their first night. Go back and forth and contrast the two scenes as the characters chat with their new roommates. This is the prologue, and the characters aren't yet fully aware of the horrors that await them.",
+    "characterCount": [4, 4],
+    "keywords": [
+      "Claiming beds and arranging belongings",
+      "Uncaring vs awkward nudity",
+      "Reminiscing about the past",
+      "Bickering versus camaraderie",
+      "Trading jokes and laughs",
+      "Establishing boundaries",
+      "Unexpected attraction",
+      "Habits and quirks",
+      "Mutual distrust and suspicion",
+      "Pointless arguments",
+      "Nervousness and discomfort"
+    ],
+    "location": {
+      "default": [],
+      "residence": [1, 2, 3, 4],
+      "workplaces": [],
+      "frequents": [],
+      "allowAll": false,
+      "allowParentLocations": false,
+      "multipleLocations": 2
+    },
+    "npcs": [],
     "roles": ["margrave", "bursar"]
   }
 ]

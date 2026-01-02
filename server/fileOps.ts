@@ -41,10 +41,10 @@ export async function loadEstate(estateName: string): Promise<Estate> {
 
 export async function saveEstate(estate: Estate): Promise<void> {
   try {
-    const filePath = path.join(ESTATES_DIR, `${estate.estateName}.json`);
+    const filePath = path.join(ESTATES_DIR, `${estate.name}.json`);
     await writeFile(filePath, JSON.stringify(estate, null, 2));
   } catch (error) {
-    console.error(`Error saving estate ${estate.estateName}:`, error);
+    console.error(`Error saving estate ${estate.name}:`, error);
     throw error;
   }
 }

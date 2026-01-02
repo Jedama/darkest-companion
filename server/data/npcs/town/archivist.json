@@ -2,8 +2,8 @@
   "identifier": "archivist",
   "title": "Archivist",
   "name": "Edwin",
-  "description": "A meticulous keeper of records who survived the initial chaos following the Ancestor's suicide. Though outwardly dedicated to preserving knowledge, his careful movements and quiet intensity suggest deeper preoccupations. Burn scars peek from beneath his high collar - a reminder of narrowly escaping the initial horrors, though some notice how his fingers often trace these marks when he thinks no one is watching.",
-  "history": "Originally served as assistant to the previous Librarian, maintaining the Estate's vast archives. When his mentor perished in the post-Ancestor chaos, Edwin assumed all duties of the institution. The burns he sustained while saving precious texts awakened something in him - a fascination first with pain, then with purification.",
+  "description": "A meticulous keeper of records who survived the initial chaos following the Ancestor's suicide, now serving as head librarian. Though outwardly dedicated to preserving knowledge, his careful movements and quiet intensity suggest deeper preoccupations. Burn scars peek from beneath his high collar. He traces them with candle flame when he thinks himself alone, still regretting not following the previous Abbot into banishment.",
+  "history": "Originally served as assistant to the previous librarian, whom he quietly revered. Before the courtyard was sealed, the cursed sycophants broke into the hamlet. The Archivist would have died alongside his mentor, if not for the previous Abbot arriving with torch and fury. Nightmares still haunt him, visions of becoming one of the courtyard's droning horrors, and one night that fear overruled reason, and he unleashed the purifying flame upon his own flesh.",
   "summary": "archivist (Edwin) -- A meticulous and obsessive Archivist, scarred by fire, who is dedicated to preserving knowledge while harboring an unsettling fascination with purification.",
   "traits": [
     "Methodical",
@@ -25,8 +25,9 @@
     "accessories": "Wide belt"
   },
   "notes": [
-    "Frequently loses himself in thought while holding pages close to candle flames",
-    "Often caught staring at the abbey's distant bell tower"
+    "Frequently loses himself in thought, holding pages close to candles",
+    "Often caught staring at the abbey's distant bell tower",
+    "Secretly loves rolling around on the library's moving ladder",
+    "Insists on recategorizing the library at least once a year"
   ]
 }
-  

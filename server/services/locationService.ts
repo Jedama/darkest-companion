@@ -2,10 +2,21 @@ import { Estate, Character, EventData, LocationData, Bystander } from '../../sha
 import StaticGameDataManager from '../staticGameDataManager.js';
 
 const TOWN_SCOPE_ROOT = "hamlet";
+const STOP_ROOTS = new Set(["hamlet", "estate", "kingdom"]);
 
 interface ProcessedLocation {
   baseScore: number;
   sharedCount: number;
+}
+
+/**
+ * In-place Fisher–Yates shuffle to randomize an array.
+ */
+function shuffleInPlace<T>(array: T[]): void {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
 }
 
 /**
@@ -59,7 +70,7 @@ function getLocationParents(
   const parents: LocationData[] = [];
 
   let current = location;
-  while (current?.parent && current.parent !== 'hamlet') {
+  while (current?.parent && !STOP_ROOTS.has(current.parent)) {
     const parentLoc = locationMap.get(current.parent);
     if (!parentLoc) {
       console.warn(`Parent location "${current.parent}" not found`);
@@ -130,6 +141,57 @@ function getCharacterLocations(
     `Final locations for ${char.name}: ${result.map(l => l.identifier).join(', ')}`
   );
   return result;
+}
+
+/**
+ * Pick up to `count` unique locations from the given score map, weighted by score.
+ * The first pick is considered the "main" pick by the caller.
+ *
+ * Throws if it cannot produce `count` unique picks.
+ */
+function pickMultipleWeightedLocations(
+  scores: Map<LocationData, number>,
+  count: number
+): LocationData[] {
+  // Normalize weird input: treat <= 1 as "just pick one"
+  if (count <= 1) {
+    return [pickWeightedLocation(scores)];
+  }
+
+  // We'll build picks here
+  const picks: LocationData[] = [];
+  const pickedIds = new Set<string>();
+
+  // Make a mutable copy we can remove from between picks
+  const remaining = new Map(scores);
+
+  while (picks.length < count) {
+    // If we've run out of candidates before hitting the target, fail loudly
+    if (remaining.size === 0) {
+      throw new Error(
+        `multipleLocations=${count} but only ${picks.length} unique eligible location(s) were available`
+      );
+    }
+
+    // Pick one from what's left
+    const next = pickWeightedLocation(remaining);
+
+    // Defensive: even though we remove picks, keep this guard in case of future edits
+    if (pickedIds.has(next.identifier)) {
+      // If we somehow picked a duplicate, remove it and try again
+      remaining.delete(next);
+      continue;
+    }
+
+    // Record pick
+    picks.push(next);
+    pickedIds.add(next.identifier);
+
+    // Remove from remaining so we cannot pick it again
+    remaining.delete(next);
+  }
+
+  return picks;
 }
 
 /**
@@ -271,11 +333,15 @@ export function pickWeightedLocation(scores: Map<LocationData, number>): Locatio
 /**
  * Gather up to `limit` random children for the given location.
  */
-function getRandomChildren(location: LocationData, locationMap: Map<string, LocationData>, limit: number): LocationData[] {
+function getRandomChildren(location: LocationData, locationMap: Map<string, LocationData>, limit: number, excludeId?: string): LocationData[] {
   if (!location.children || location.children.length === 0) return [];
   const children = location.children
+    .filter(childId => childId !== excludeId)
     .map(childId => locationMap.get(childId))
     .filter((child): child is LocationData => !!child);
+
+  shuffleInPlace(children);
+
   return children.sort(() => Math.random() - 0.5).slice(0, limit);
 }
 
@@ -304,9 +370,9 @@ function getSurroundingLocationsAndNPCs(
     pickedLocation.npcs.forEach((npc) => npcSet.add(npc));
   }
 
-  // Add parents up to "hamlet"
+  // Add parents up to "hamlet" (or other stop roots if outside town)
   let current = pickedLocation;
-  while (current?.parent && current.parent !== "hamlet") {
+  while (current?.parent && !STOP_ROOTS.has(current.parent)) {
     const parent = locationMap.get(current.parent);
     if (!parent || addedIds.has(parent.identifier)) break;
 
@@ -334,7 +400,7 @@ function getSurroundingLocationsAndNPCs(
   if (result.length < 6 && pickedLocation.parent) {
     const parent = locationMap.get(pickedLocation.parent);
     if (parent) {
-      const parentChildren = getRandomChildren(parent, locationMap, 6 - result.length);
+      const parentChildren = getRandomChildren(parent, locationMap, 6 - result.length, pickedLocation.identifier);
       parentChildren.forEach((child) => {
         if (!addedIds.has(child.identifier)) {
           result.push(child);
@@ -345,6 +411,113 @@ function getSurroundingLocationsAndNPCs(
   }
 
   return { locations: result.slice(0, 6), npcs: Array.from(npcSet) }; // Ensure at most 6 locations
+}
+
+/**
+ * Picks multiple locations for an event based on scoring.
+ */
+function pickMultipleLocations(event: EventData, characters: Character[]): LocationData[] {
+  const scores = scoreLocations(event, characters);
+  const desiredCount = Math.max(1, event.location.multipleLocations ?? 1);
+  return pickMultipleWeightedLocations(scores, desiredCount);
+}
+
+/**
+ * Merges extra picked locations into the surrounding locations list,
+ * ensuring no duplicates and preserving order.
+ */
+function mergeExtraPickedLocations(
+  surroundingLocations: LocationData[],
+  pickedLocations: LocationData[]
+): LocationData[] {
+  const eventLocations: LocationData[] = [...surroundingLocations];
+  const seen = new Set(eventLocations.map(l => l.identifier));
+
+  // Keep the main location + normal surrounding list as-is, then append extras if missing
+  for (let i = 1; i < pickedLocations.length; i++) {
+    const extra = pickedLocations[i];
+    if (!seen.has(extra.identifier)) {
+      eventLocations.push(extra);
+      seen.add(extra.identifier);
+    }
+  }
+  return eventLocations;
+}
+
+/**
+ * Builds a list of bystanders for the event location.
+ * Prioritizes participants first, then fills with overflow (client-supplied ids above event character limit) and locals.
+ */
+function buildBystanders(
+  mainLocationId: string,
+  participants: Character[],
+  overflowCharacters: Character[],
+  estate: Estate,
+  locations: LocationData[]
+): Bystander[] {
+  const participantIdSet = new Set(participants.map(c => c.identifier));
+
+  const participantBystanders = getParticipantBystanders(participants, mainLocationId);
+  const nonParticipantBystanders = getNonParticipantBystanders(
+    mainLocationId,
+    overflowCharacters,
+    estate,
+    locations,
+    participantIdSet
+  );
+
+  return [...participantBystanders, ...nonParticipantBystanders];
+}
+
+function getParticipantBystanders(participants: Character[], mainLocationId: string): Bystander[] {
+  const result: Bystander[] = [];
+  for (const p of participants) {
+    const conn = getConnectionToLocation(p, mainLocationId);
+    if (conn) result.push({ identifier: p.identifier, connectionType: conn });
+  }
+  return result;
+}
+
+/**
+ * Gathers non-participant bystanders from overflow characters and locals.
+ */
+function getNonParticipantBystanders(
+  mainLocationId: string,
+  overflowCharacters: Character[],
+  estate: Estate,
+  locations: LocationData[],
+  participantIdSet: Set<string>
+): Bystander[] {
+  const MAX = 4;
+  const result: Bystander[] = [];
+  const added = new Set<string>();
+
+  // Overflow first
+  for (const oc of overflowCharacters) {
+    if (result.length >= MAX) break;
+    const id = oc.identifier;
+    if (participantIdSet.has(id) || added.has(id)) continue;
+
+    const conn = getConnectionToLocation(oc, mainLocationId);
+    result.push({ identifier: id, connectionType: conn ?? "present" });
+    added.add(id);
+  }
+
+  // Then locals (random order)
+  if (result.length < MAX) {
+    const connected = findCharactersConnectedToLocations(estate, locations)
+      .filter(b => !participantIdSet.has(b.identifier) && !added.has(b.identifier));
+
+    shuffleInPlace(connected);
+
+    for (const c of connected) {
+      if (result.length >= MAX) break;
+      result.push(c);
+      added.add(c.identifier);
+    }
+  }
+
+  return result;
 }
 
 /**
@@ -361,103 +534,24 @@ export function pickEventLocation(
   npcs: string[]; 
   bystanders: Bystander[];
 }> {
-  // Get the location map from our static data manager
   const locationMap = StaticGameDataManager.getInstance().getLocationMap();
-  
-  // 1) Score all possible locations
-  const scores = scoreLocations(event, characters);
-  
-  // 2) Pick one location with a weighted random approach
-  const pickedLocation = pickWeightedLocation(scores);
-  
-  // 3) Gather surrounding locations and NPCs
-  const { locations: surroundingLocations, npcs } = getSurroundingLocationsAndNPCs(
-    pickedLocation, 
+
+  const pickedLocations = pickMultipleLocations(event, characters);
+  const mainLocation = pickedLocations[0];
+
+  const { locations: baseLocations, npcs } = getSurroundingLocationsAndNPCs(
+    mainLocation,
     locationMap
   );
 
-  // 4) Find characters connected to these locations
-  const pickedLocationId = surroundingLocations.length > 0 ? surroundingLocations[0].identifier : null;
+  const locations = mergeExtraPickedLocations(baseLocations, pickedLocations);
+  const mainLocationId = locations[0]?.identifier;
 
-  // If somehow we have no picked location, fall back to no bystanders
-  if (!pickedLocationId) {
-    return Promise.resolve({
-      locations: surroundingLocations,
-      npcs,
-      bystanders: []
-    });
-  }
+  const bystanders = mainLocationId
+    ? buildBystanders(mainLocationId, characters, overflowCharacters, estate, locations)
+    : [];
 
-  // Fast lookup to distinguish participants from non-participants later
-  const participantIdSet = new Set(characters.map(c => c.identifier));
-
-  // 1) Participant connection metadata (does NOT count toward cap)
-  const participantBystanders: Bystander[] = [];
-  for (const p of characters) {
-    // Determine how (if at all) this participant is tied to the location
-    const conn = getConnectionToLocation(p, pickedLocationId);
-    // Only include participants who actually have a connection
-    if (conn) {
-      participantBystanders.push({ identifier: p.identifier, connectionType: conn });
-    }
-  }
-
-  // 2) Fill non-participant bystanders up to cap (overflow first, then locals)
-  const MAX_NONPARTICIPANT_BYSTANDERS = 4;
-  const nonParticipantBystanders: Bystander[] = [];
-  const addedNonParticipant = new Set<string>();
-
-  // 2a) Add overflow first (upgrading present -> residence/workplace/frequent if applicable)
-  for (const oc of overflowCharacters) {
-
-    // Stop once we've hit the hard cap
-    if (nonParticipantBystanders.length >= MAX_NONPARTICIPANT_BYSTANDERS) break;
-
-    // Defensive checks — overflow should never override participants
-    const id = oc.identifier;
-    if (participantIdSet.has(id)) continue;
-    if (addedNonParticipant.has(id)) continue;
-
-    // Attempt to upgrade from generic presence
-    const conn = getConnectionToLocation(oc, pickedLocationId);
-    nonParticipantBystanders.push({ identifier: id, connectionType: conn ?? 'present' });
-    addedNonParticipant.add(id);
-  }
-
-  // 2b) Fill remaining slots with location-connected non-participants
-  if (nonParticipantBystanders.length < MAX_NONPARTICIPANT_BYSTANDERS) {
-    // Precomputed list of characters tied to the location (only the main location, despite the plural name)
-    const connected = findCharactersConnectedToLocations(estate, surroundingLocations);
-
-    // Filter out participants and already-added overflow characters
-    const candidates = connected.filter((b) =>
-      !participantIdSet.has(b.identifier) && !addedNonParticipant.has(b.identifier)
-    );
-
-    // Shuffle to keep randomness (Fisher–Yates shuffle)
-    for (let i = candidates.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [candidates[i], candidates[j]] = [candidates[j], candidates[i]];
-    }
-
-    // Add shuffled candidates until we hit the cap
-    for (const c of candidates) {
-      if (nonParticipantBystanders.length >= MAX_NONPARTICIPANT_BYSTANDERS) break;
-      nonParticipantBystanders.push(c);
-      addedNonParticipant.add(c.identifier);
-    }
-  }
-
-  // Final bystander list:
-  // - Participants (metadata, uncapped) first
-  // - Non-participants (capped) second
-  const bystanders = [...participantBystanders, ...nonParticipantBystanders];
-
-  return Promise.resolve({
-    locations: surroundingLocations,
-    npcs,
-    bystanders
-  });
+  return Promise.resolve({ locations, npcs, bystanders });
 }
 
 /**

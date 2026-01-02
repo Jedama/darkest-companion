@@ -1,70 +1,73 @@
 {
   "heiress": {
-    "residence": ["dower_house__master_bedroom"],
+    "residence": [
+      "dower_house__master_bedroom"
+    ],
     "workplaces": [
+      "dower_house__study",
       "town_hall__strategy_room",
       "town_hall__meeting_hall",
       "town_hall__council_chamber",
-      "dower_house__study"
+      "library__archive"
     ],
     "frequents": [
-      "tavern",
-      "dower_house__portrait_room",
       "dower_house__wine_cellar",
-      "dower_house__dining_hall",
-      "dower_house__garden",
+      "dower_house__portrait_room",
       "dower_house__red_hook",
-      "town_square"
+      "ancestor_statue",
+      "town_square",
+      "dower_house__parlor",
+      "sanguine_vintners",
+      "dower_house__garden"
     ]
   },
   "kheir": {
-    "residence": ["dower_house__master_bedroom"],
+    "residence": [
+      "dower_house__master_bedroom"
+    ],
     "workplaces": [
+      "dower_house__study",
       "library__map_room",
-      "library__archive",
       "town_hall__record_archives",
+      "town_hall__council_chamber",
       "town_hall__strong_room",
-      "warehouse_district",
       "provisioner"
     ],
     "frequents": [
-      "tavern",
-      "dower_house__portrait_room",
       "dower_house__wine_cellar",
-      "dower_house__astronomy_room",
-      "dower_house__garden",
-      "library__main"
+      "library__main",
+      "library__common_room",
+      "dower_house__garden"
     ]
   },
   "crusader": {
     "residence": ["dower_house__barracks_room_east"],
     "workplaces": [
-      "guild_hall",
       "training_ring",
-      "abbey__grounds",
+      "training_yard",
+      "guild_hall",
       "palisade_wall"
     ],
     "frequents": [
-      "abbey",
+      "abbey__transept",
+      "abbey__altar",
       "mill_grounds",
-      "town_square",
-      "dower_house__garden",
-      "tavern"
+      "blacksmith",
+      "wainwright"
     ]
   },
   "highwayman": {
     "residence": ["dower_house__barracks_room_east"],
     "workplaces": [
-      "guild_hall",
-      "training_ring",
-      "palisade_wall"
+      "palisade_wall",
+      "weald_edge"
     ],
     "frequents": [
+      "dower_house",
       "tavern",
-      "yellow_hand",
-      "inn",
-      "town_square",
-      "alley"
+      "stumbling_corpse",
+      "alley",
+      "yellow_hand"
     ]
   },
   "abomination": {

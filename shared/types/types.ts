@@ -33,11 +33,42 @@ export interface EstatePreferences {
   guidance: string; // Freeform system-level guidance / style constraints
 }
 
-export interface Estate {
-  estateName: string;
-  preferences?: EstatePreferences;
+export interface EstateTime {
   month: number;
+  day: number;
   beat: number;
+}
+
+// Estate seasonality and weather patterns
+export interface WeatherDistribution {
+  mean: number;
+  variance: number;
+}
+
+export interface ZodiacSeason {
+  name: string;
+  text: string;
+  weather: {
+    heat: WeatherDistribution;
+    rain: WeatherDistribution;
+    wind: WeatherDistribution;
+  };
+}
+
+export interface Weather {
+  heat: number; // float (0.5-9.5), converted to integer tier (1-9) for descriptions
+  rain: number; // float (0.5-9.5), converted to integer tier (1-9) for descriptions
+  wind: number; // float (0.5-9.5), converted to integer tier (1-9) for descriptions
+}
+
+export interface Estate {
+  name: string;
+  preferences?: EstatePreferences;
+  time: EstateTime;
+  weather: {
+    current: Weather;
+    previous: Weather;
+  }
   roles: EstateRoles; // Roles within the estate
   money: number;
   characters: CharacterRecord;
@@ -225,6 +256,7 @@ export interface EventLocationRequirements {
   frequents: number[]; // Character indices (1-based)
   allowParentLocations?: boolean; // Controls whether parent locations are considered
   allowAll?: boolean; // Allows any location to be used
+  multipleLocations?: number; // Number of different locations required
 }
 
 export interface EventData {

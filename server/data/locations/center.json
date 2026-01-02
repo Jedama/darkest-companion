@@ -5,7 +5,7 @@
     "description": "The beating heart of what remains of the hamlet, where cobblestone streets converge from all cardinal directions. Once a bustling center of commerce and governance, now a hollow reminder of faded prosperity. The town square dominates the district's core, surrounded by the most essential establishments that stubbornly endure despite the Estate's shadow. Leaning buildings crowd together as if for mutual support, their weathered facades bearing silent witness to both the glory and folly of generations past. By day, residents hurry through on necessary business; by night, only the bravest or most foolish linger where lamplight fails to reach the deeper shadows.",
     "summary": "center_district (Central District) -- The bustling, yet faded, heart of the hamlet with cobblestone streets, town square, and essential enduring establishments.",
     "parent": "hamlet",
-    "children": ["town_square", "coaching_inn", "old_church", "blacksmith", "apothecary", "cloth_merchant"]
+    "children": ["town_square", "constabulary", "seamstress"]
   },
   {
     "identifier": "town_square",
@@ -98,6 +98,15 @@
     "restored": "A quaint puppet booth stands ready for performance, its window frame neatly bordered to create a proper stage for the puppeteer's art. Fresh paint brightens the panels, while new shutters and warm lamplight promise simple entertainments to come.",
     "summary": "A wooden booth in the town square designed for entertaining audiences with puppet shows, a source of simple fun and distraction.",
     "parent": "town_square",
+    "children": []
+  },
+  {
+    "identifier": "seamstress",
+    "title": "Seamstress Shop",
+    "description": "A narrow three-story building on a side street where the hamlet's seamstress and her family worked before the invasion took them all. The shop window stands empty, its wooden mannequins now serve as practice dummies in the Training Yard. The workbench bears tailor's chalk dust and a few tools: shears, thread spools, a measuring tape. At its center sits a tomato-shaped pincushion, the one thing no one had the heart to scavenge.",
+    "summary": "seamstress (Seamstress Shop) -- A narrow three-story building where the hamlet's seamstress worked, now offering shelter, with basic mending tools and a lonely pincushion.",
+    "parent": "center_district",
+    "capacity": 3,
     "children": []
   }
 ]

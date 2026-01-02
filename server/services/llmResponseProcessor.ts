@@ -4,6 +4,7 @@
 // → Internal processors → Internal utilities
 
 import type { Character, Estate, LogEntry, RelationshipLogEntry } from '../../shared/types/types.ts';
+import { updateBeat } from './estateService.js';
 
 /* -------------------------------------------------------------------
  *  Domain constants
@@ -262,7 +263,10 @@ export function separateStoryTitle(storyText: string): { title: string; body: st
  *  Public API: display formatting
  * ------------------------------------------------------------------- */
 
-export function prepareConsequenceDisplay(consequences: ConsequencesResult): ConsequenceDisplay {
+export function prepareConsequenceDisplay(rawConsequences: ConsequencesResult): ConsequenceDisplay {
+
+  const consequences = stripNoOpConsequences(rawConsequences);
+
   return {
     characters: consequences.characters.map(char => {
       const display = {
@@ -448,7 +452,7 @@ export function prepareConsequenceDisplay(consequences: ConsequencesResult): Con
  *  Public API: state mutation
  * ------------------------------------------------------------------- */
 
-export function applyConsequences(estate: Estate, rawConsequences: ConsequencesResult): Estate {
+export function applyConsequences(estate: Estate, consequences: ConsequencesResult): Estate {
   // Create a deep copy of the estate to avoid mutating the original
   const updatedEstate: Estate = structuredClone(estate);
   
@@ -457,13 +461,11 @@ export function applyConsequences(estate: Estate, rawConsequences: ConsequencesR
     updatedEstate.characterLogs = {} as { [charIdentifier: string]: LogEntry[] };
   }
 
-  const cleaned = stripNoOpConsequences(rawConsequences);
-
-  if (cleaned.event_log) {
-    processEstateLog(updatedEstate, cleaned.event_log);
+  if (consequences.event_log) {
+    processEstateLog(updatedEstate, consequences.event_log);
   }
 
-  const consequences = deduplicateRelationshipLogs(cleaned);
+  consequences = deduplicateRelationshipLogs(consequences);
 
   // Process each character's consequences
   for (const characterConsequence of consequences.characters) {
@@ -492,7 +494,7 @@ export function applyConsequences(estate: Estate, rawConsequences: ConsequencesR
     processMiscUpdates(character, characterConsequence);
   }
 
-  updatedEstate.beat += 1; // Increment beat after applying consequences
+  updateBeat(updatedEstate, 1); // Advance estate beat by 1 after applying consequences
 
   return updatedEstate;
 }
@@ -533,10 +535,10 @@ function processEstateLog(estate: Estate, consequence: ConsequenceLogEntry): voi
 
   // Create a new log entry
   const logEntry: LogEntry = {
-    month: estate.month, // Current month from estate
-    beat: estate.beat, // Current beat from estate
+    month: estate.time.month, // Current month from estate
+    beat: estate.time.beat, // Current beat from estate
     entry: consequence.entry,
-    expiryMonth: calculateExpiryMonth(estate.month, consequence.timeframe)
+    expiryMonth: calculateExpiryMonth(estate.time.month, consequence.timeframe)
   };
 
   if (!estate.estateLogs) {
@@ -565,10 +567,10 @@ function processAddLog(estate: Estate, character: Character, consequence: Charac
   
   // Create a new log entry
   const logEntry: LogEntry = {
-    month: estate.month, // Current month from estate
-    beat: estate.beat, // Current beat from estate
+    month: estate.time.month, // Current month from estate
+    beat: estate.time.beat, // Current beat from estate
     entry: consequence.add_log.entry,
-    expiryMonth: calculateExpiryMonth(estate.month, consequence.add_log.timeframe)
+    expiryMonth: calculateExpiryMonth(estate.time.month, consequence.add_log.timeframe)
   };
   
   // Add the log entry to the character's logs
@@ -608,20 +610,20 @@ function processAddRelationshipLog(
   
   // Create the log entry
   const logEntry: RelationshipLogEntry = {
-    month: estate.month,
-    beat: estate.beat,
+    month: estate.time.month,
+    beat: estate.time.beat,
     entry: entry,
     target: target, // From source character's perspective
-    expiryMonth: calculateExpiryMonth(estate.month, timeframe)
+    expiryMonth: calculateExpiryMonth(estate.time.month, timeframe)
   };
   
   // Create mirror log for target character
   const mirrorLogEntry: RelationshipLogEntry = {
-    month: estate.month,
-    beat: estate.beat,
+    month: estate.time.month,
+    beat: estate.time.beat,
     entry: entry,
     target: character.identifier, // From target's perspective
-    expiryMonth: calculateExpiryMonth(estate.month, timeframe)
+    expiryMonth: calculateExpiryMonth(estate.time.month, timeframe)
   };
   
   // Add to both characters' relationship logs

@@ -356,16 +356,7 @@ export async function compileStoryPrompt(
 ): Promise<string> {
   const gameData = StaticGameDataManager.getInstance();
 
-  const narrativeContextPayload = {
-    month: estate.month,
-    estateName: estate.estateName,
-    instructions: gameData.getPromptStoryInstructions(),
-    backstory: gameData.getPromptStoryBackstory(),
-    zodiacs: gameData.getPromptZodiacSeasons(),
-    scenarios: gameData.getPromptElapsedMonthText(),
-  };
-
-  const narrativeContext = compileNarrativeContext(narrativeContextPayload);
+  const narrativeContext = compileNarrativeContext(estate, gameData);
 
   // Gather data
   const involvedCharacters: Character[] = chosenCharacterIds.map((id) => estate.characters[id]);

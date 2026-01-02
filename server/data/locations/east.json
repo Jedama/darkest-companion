@@ -5,7 +5,7 @@
     "description": "A maze of salt-worn buildings and creaking boardwalks stretching along the hamlet's waterfront. The harbor's docks extend like broken fingers into the unnaturally dark waters, while abandoned warehouses stand sentinel behind them.",
     "summary": "east_district (Eastern District) -- A maze of salt-worn buildings and creaking boardwalks along the hamlet's waterfront, with docks extending into dark waters and abandoned warehouses.",
     "parent": "hamlet",
-    "children": ["harbor", "warehouse_district", "tritonis_house", "yellow_hand", "yellowfinger_house", "kraken_society", "stumbling_corpse"]
+    "children": ["harbor", "warehouse_district", "tritonis_house", "yellow_hand", "yellowfinger_house", "kraken_society", "stumbling_corpse", "bathhouse"]
   },
   {
     "identifier": "harbor",
@@ -80,6 +80,14 @@
     "description": "A wraparound veranda suspended over the lapping waters, its railings decorated with intricate nautical knotwork. Weathered chairs face the harbor's expanse, positioned as if their occupants might still watch for returning ships.",
     "summary": "tritonis_house__porch (Harbor Porch) -- A wraparound veranda at Tritonis House, suspended over the waters with nautical knotwork railings, ideal for watching the harbor.",
     "parent": "tritonis_house",
+    "children": []
+  },
+  {
+    "identifier": "bathhouse",
+    "title": "Bathhouse",
+    "description": "A sturdy stone building whose twin chimneys once billowed steam across the harbor. Three large pools occupy the main chamber--one for bathing, two for laundry--their waters now cold and still. The furnace room's copper boilers remain intact but silent. Drainage channels lead to iron grates descending into the sewers below, their edges deeply scored with claw marks. Rats scurry between the torn changing stalls and around the pools.",
+    "summary": "bathhouse (Bathhouse) -- A sturdy stone building with three cold pools and silent boilers, its drainage grates leading to rat-infested sewers below.",
+    "parent": "east_district",
     "children": []
   },
   {

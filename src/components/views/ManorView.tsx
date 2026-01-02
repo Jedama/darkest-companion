@@ -92,7 +92,7 @@ export function ManorView({
   selectedCharacterId,
 }: ManorViewProps) {
   const { currentEstate } = useEstateContext();
-  const estateName = currentEstate?.estateName || 'no-estate-selected';
+  const estateName = currentEstate?.name || 'no-estate-selected';
 
   const { show, hide } = useModalContext();
 

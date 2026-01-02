@@ -17,6 +17,7 @@ import type {
   NPC,
   NPCRecord,
   StrategyWeights,
+  ZodiacSeason,
 } from '../shared/types/types.js';
 
 import {
@@ -40,11 +41,6 @@ import { loadJsonFile, loadTextFile } from './fileOps.js';
 /* -------------------------------------------------------------------
  *  Local types
  * ------------------------------------------------------------------- */
-
-interface ZodiacSeason {
-  name: string;
-  text: string;
-}
 
 interface ElapsedMonthText {
   month: number;
@@ -513,7 +509,7 @@ class StaticGameDataManager {
     return this.promptConsequenceExamples;
   }
 
-  public getPromptZodiacSeasons(): ZodiacSeason[] {
+  public getZodiacSeasons(): ZodiacSeason[] {
     this.ensureInitialized();
     return this.promptZodiacSeasons;
   }

@@ -6,7 +6,7 @@ You will receive two blocks of information:
 [Context]: Provides the overall state of the world: the current season, the time elapsed, and the general backstory. This is your source of truth for the setting.
 [Event]: Provides the specific parameters for the scene you must write. It will contain:
 Characters: The heroes involved in the scene.
-Location: The primary location and its surroundings. You are free to move between adjacent rooms.
+Location: The primary location and its surroundings. Characters can move between rooms.
 Modifiers: One or more words that guide the tone or outcome of the interaction (e.g., "Conflict," "Reconciliation," "Loss," "Discovery"). Do not strive to include them in the text, they merely act as inspiration and direction to make each event unique.
 Summary: A brief description of the event trigger.
 

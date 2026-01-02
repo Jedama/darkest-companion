@@ -63,7 +63,7 @@ export function EstateProvider({ children }: { children: ReactNode }) {
   // Delete estate; if it's the currently loaded one, reset
   const handleDeleteEstate = useCallback(async (estateName: string) => {
     await deleteEstateApi(estateName);
-    if (currentEstate?.estateName === estateName) {
+    if (currentEstate?.name === estateName) {
       setCurrentEstate(null);
     }
   }, [currentEstate]);

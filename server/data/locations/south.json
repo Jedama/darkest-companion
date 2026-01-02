@@ -5,7 +5,7 @@
     "description": "Agricultural land stretches from the hamlet's edge toward the distant Weald. At its heart, the Mill Grounds stand in uneasy balance between salvation and corruption, where townspeople's courage drew new ward lines closer to the comet's impact site. Beyond the wards' protection, the old Apple Yard marks where cultivation gives way to fungal wilderness.",
     "summary": "south_district (Southern District) -- Agricultural land stretching toward the Weald, balancing between the Mill Grounds' salvation and the Apple Yard's fungal wilderness.",
     "parent": "hamlet",
-    "children": ["granary", "mill_grounds", "apple_yard", "sanguine_vintners"]
+    "children": ["granary", "mill_grounds", "apple_yard", "sanguine_vintners", "root_cellar"]
   },
   {
     "identifier": "granary",
@@ -22,6 +22,14 @@
     "description": "A collapsed winery whose ruined vats still bear the sickly-sweet smell of fermented harvests past. Broken glass and splintered oak barrels litter the loading dock, while the pressing room's rusted machinery sits frozen in decay. In the cellar, shattered bottles tell tales of desperate looters who found only vinegar and regret.",
     "restored": "An unsettling yet vital facility risen from the old winery's bones. Dark timbers and fresh stonework frame a building that resembles a proper vintner's operation, though its true purpose is betrayed by the corpses of the Courtyard's bloodsuckers visible through leaded windows. Inside, modern distillation apparatus and cooling systems ensure a steady supply of processed blood for the hamlet's cursed residents, while the cellar holds rows of carefully labeled vials rather than wine bottles.",
     "summary": "sanguine_vintners (Sanguine Vintners) -- A collapsed winery reeking of fermentation and decay, now serving darker needs with its ruined vats and shattered bottles.",
+    "parent": "south_district",
+    "children": []
+  },
+  {
+    "identifier": "root_cellar",
+    "title": "Root Cellar",
+    "description": "A stone chamber accessed by wooden stairs, its door frame bearing the marks of the same axe that ended the desperate farmhand who barricaded himself inside when the invasion came. Now the shelves hold community stores: root vegetables, salted meat, preserves. The earthen floor stays cool, and the air smells of onions and earth.",
+    "summary": "root_cellar (Root Cellar) -- A stone storage chamber with a dark history from the invasion, now holding the community's preserved food stores.",
     "parent": "south_district",
     "children": []
   },

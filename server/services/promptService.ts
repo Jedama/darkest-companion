@@ -1,73 +1,39 @@
 // server/services/promptService.ts
-import type { CharacterRecord } from '../../shared/types/types.js';
-
-// Define the types again for clarity, or import them from a shared location.
-interface ZodiacSeason { name: string; text: string; }
-interface PresentDayScenario { month?: number; text: string; }
-
-// --- Pure Helper Functions ---
-export function getZodiacForMonth(month: number, zodiacs: ZodiacSeason[]): ZodiacSeason {
-  // This function now requires the zodiac data to be passed in.
-  const seasonIndex = month % 12;
-  return zodiacs[seasonIndex];
-}
-
-export function getPresentDayText(month: number, scenarios: PresentDayScenario[]): string {
-  // This function now requires the scenario data to be passed in.
-  if (month >= scenarios.length) {
-    month = scenarios.length - 1; // Clamp to the last scenario if month exceeds available scenarios
-  }
-  let scenario = scenarios.find(s => s.month === month);
-  return scenario ? scenario.text : "Time has passed, and the struggle continues.";
-}
-
-function formatTimeSinceEvent(months: number): string {
-  const years = Math.floor(months / 12);
-  const remainingMonths = months % 12;
-  if (years === 0) {
-    return `${remainingMonths} months`;
-  } else {
-    return `${years} years and ${remainingMonths} months`;
-  }
-}
-
-
-// --- The Main Assembler Function ---
-
-interface NarrativeContextPayload {
-  month: number;
-  estateName: string;
-  instructions: string;
-  backstory: string;
-  zodiacs: ZodiacSeason[];
-  scenarios: PresentDayScenario[];
-}
+import type { CharacterRecord, Estate } from '../../shared/types/types.js';
+import StaticGameDataManager from '../staticGameDataManager.js';
+import { getZodiacForMonth, formatTimeSinceEvent } from './calendarService.js';
+import { generateWeatherDescription, generateWeatherChangeDescription } from './weatherService.js';
 
 /**
  * Compiles the full context prompt for the LLM from pre-loaded data.
  */
-export function compileNarrativeContext(payload: NarrativeContextPayload): string {
-  const { month, estateName, instructions, backstory, zodiacs, scenarios } = payload;
+export function compileNarrativeContext(estate: Estate, gameData: StaticGameDataManager): string {
   
-  const zodiac = getZodiacForMonth(month, zodiacs);
-  const presentDayText = getPresentDayText(month, scenarios);
+  const zodiac = getZodiacForMonth(estate.time.month);
+
+  // Weather descriptions
+  const weatherDesc = generateWeatherDescription(estate.weather.current);
+  const weatherChange = generateWeatherChangeDescription(estate.weather.previous, estate.weather.current);
+  const timeFrame = estate.time.beat === 0 ? 'Since yesterday, ' : 'Since the last story (log event), ';
 
   // Use a simple template literal with placeholders
   let contextTemplate = `
     [Instructions]
-    ${instructions}
+${gameData.getPromptStoryInstructions()}
 
     [Context]
-    ${backstory}
+${gameData.getPromptStoryBackstory()}
 
-    PRESENT DAY:
-    It is the month of ${zodiac.name}. ${zodiac.text}
-    ${formatTimeSinceEvent(month)} have passed since the Ancestor's suicide and invasion of the hamlet. 
-    ${presentDayText}
+PRESENT DAY:
+It is the month of ${zodiac.name}. ${zodiac.text}
+The current weather is ${weatherDesc}. ${weatherChange ? timeFrame + weatherChange : ''}
+${formatTimeSinceEvent(estate.time.month + 1)} have passed since the Ancestor's suicide and monsters attacked the Hamlet. 
+
+    
   `;
 
   // Replace all placeholders like ${estateName} at the very end
-  return contextTemplate.replace(/\$\{estateName\}/g, estateName);
+  return contextTemplate.replace(/\$\{estateName\}/g, estate.name);
 }
 
 export interface ConsequencePrompt {

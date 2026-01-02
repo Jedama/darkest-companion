@@ -3,6 +3,9 @@ import type { Estate, Character, CharacterRecord } from '../../shared/types/type
 import { saveEstate, listEstates } from '../fileOps.js';
 import StaticGameDataManager from '../staticGameDataManager.js';
 import { createCharacterFromTemplate } from './characterService.js';
+import { generateInitialWeather } from './weatherService.js';
+import { getZodiacForMonth } from './calendarService.js';
+import { updateWeatherForBeat } from './weatherService.js';
 
 export function getCharacter(characters: CharacterRecord, id: string): Character | undefined {
   return characters[id];
@@ -10,15 +13,26 @@ export function getCharacter(characters: CharacterRecord, id: string): Character
 
 // Helper function to create a new estate
 export function createNewEstate(estateName: string): Estate {
+
+  const zodiac = getZodiacForMonth(0);
+  const weather = generateInitialWeather(zodiac);
+
   return {
-    estateName,
+    name: estateName,
     preferences: {
       llmProvider: 'anthropic',
       llmModel: '',
       guidance: '',
     },
-    month: 0,
-    beat: 0,
+    time: {
+      month: 0,
+      day: 0,
+      beat: 0,
+    },
+    weather: {
+      current: weather,
+      previous: weather, // Same as current initially
+    },
     roles: {
       margrave: 'heiress',
       bursar: 'kheir',
@@ -104,3 +118,16 @@ export async function createNewEstateAndSave(
   return newEstate;
 }
 
+export function updateBeat(estate: Estate, beatsToAdd: number): void {
+  estate.time.beat += beatsToAdd;
+  
+  // Update weather for each beat
+  for (let i = 0; i < beatsToAdd; i++) {
+    const currentZodiac = getZodiacForMonth(estate.time.month);
+    estate.weather = updateWeatherForBeat(
+      estate.weather.current,
+      estate.weather.previous,
+      currentZodiac
+    );
+  }
+}

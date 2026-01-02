@@ -1,6 +1,3 @@
-ALLOW parent locations false does not work. Or yes it does but maybe don't add up to world?
-
-
 Two-Event Structure:
 Event A: "Dungeon Complete - Return" (narrative)
 

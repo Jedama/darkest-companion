@@ -290,23 +290,42 @@ export function pickKeywords(
   eventKeywords: string[],
   townKeywords: string[]
 ): string[] {
-  const combined = Array.from(new Set([...eventKeywords, ...townKeywords]));
+  // Create weighted pool: event keywords appear 3x each
+  const weightedPool: string[] = [
+    ...eventKeywords,
+    ...eventKeywords,
+    ...eventKeywords, // Event keywords 3x more likely
+    ...townKeywords
+  ];
   
+  // Remove duplicates while preserving weight effect
+  const combined = Array.from(new Set(weightedPool));
+  
+  // Shuffle
   for (let i = combined.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [combined[i], combined[j]] = [combined[j], combined[i]];
   }
   
-  let chosen = combined.slice(0, 4);
+  // Take first 4 unique keywords
+  const chosen: string[] = [];
+  const seen = new Set<string>();
   
-  const eventKeywordsSet = new Set(eventKeywords);
-  if (eventKeywords.length > 0) {
-    const hasEventKeyword = chosen.some((kw) => eventKeywordsSet.has(kw));
-    if (!hasEventKeyword) {
-      const randomEventKeyword =
-      eventKeywords[Math.floor(Math.random() * eventKeywords.length)];
-      chosen[chosen.length - 1] = randomEventKeyword;
+  for (const kw of combined) {
+    if (!seen.has(kw)) {
+      chosen.push(kw);
+      seen.add(kw);
+      if (chosen.length === 4) break;
     }
+  }
+  
+  // Still guarantee at least one event keyword
+  const eventKeywordsSet = new Set(eventKeywords);
+  const hasEventKeyword = chosen.some((kw) => eventKeywordsSet.has(kw));
+  if (!hasEventKeyword && eventKeywords.length > 0) {
+    const randomEventKeyword =
+      eventKeywords[Math.floor(Math.random() * eventKeywords.length)];
+    chosen[chosen.length - 1] = randomEventKeyword;
   }
   
   return chosen;
