@@ -9,6 +9,7 @@ ROOT LEVEL FORMAT:
     "entry": "string - objective summary of what transpired (REQUIRED)",
     "timeframe": "transient" | "short_term" | "mid_term" | "long_term" | "permanent"
   },
+  "end_day?": boolean,
   "characters": [...]
 }
 

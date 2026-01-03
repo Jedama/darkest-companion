@@ -3,7 +3,7 @@ import type { Estate, Character, CharacterRecord } from '../../shared/types/type
 import { saveEstate, listEstates } from '../fileOps.js';
 import StaticGameDataManager from '../staticGameDataManager.js';
 import { createCharacterFromTemplate } from './characterService.js';
-import { generateInitialWeather } from './weatherService.js';
+import { generateInitialWeather, updateWeatherForDay } from './weatherService.js';
 import { getZodiacForMonth } from './calendarService.js';
 import { updateWeatherForBeat } from './weatherService.js';
 
@@ -127,6 +127,20 @@ export function updateBeat(estate: Estate, beatsToAdd: number): void {
     estate.weather = updateWeatherForBeat(
       estate.weather.current,
       estate.weather.previous,
+      currentZodiac
+    );
+  }
+}
+
+export function updateDay(estate: Estate, daysToAdd: number): void {
+  estate.time.beat += daysToAdd;
+  
+  // Update weather for each beat
+  for (let i = 0; i < daysToAdd; i++) {
+    const currentZodiac = getZodiacForMonth(estate.time.month);
+    estate.weather.previous = estate.weather.current;
+    estate.weather.current = updateWeatherForDay(
+      estate.weather.current,
       currentZodiac
     );
   }

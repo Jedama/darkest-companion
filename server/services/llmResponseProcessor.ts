@@ -4,7 +4,7 @@
 // → Internal processors → Internal utilities
 
 import type { Character, Estate, LogEntry, RelationshipLogEntry } from '../../shared/types/types.ts';
-import { updateBeat } from './estateService.js';
+import { updateBeat, updateDay } from './estateService.js';
 
 /* -------------------------------------------------------------------
  *  Domain constants
@@ -81,6 +81,7 @@ export interface CharacterConsequence {
 
 export interface ConsequencesResult {
   event_log?: ConsequenceLogEntry;
+  end_day?: boolean;
   characters: CharacterConsequence[];
 }
 
@@ -463,7 +464,7 @@ export function applyConsequences(estate: Estate, consequences: ConsequencesResu
 
   if (consequences.event_log) {
     processEstateLog(updatedEstate, consequences.event_log);
-  }
+  }  
 
   consequences = deduplicateRelationshipLogs(consequences);
 
@@ -494,7 +495,7 @@ export function applyConsequences(estate: Estate, consequences: ConsequencesResu
     processMiscUpdates(character, characterConsequence);
   }
 
-  updateBeat(updatedEstate, 1); // Advance estate beat by 1 after applying consequences
+  processEstateCalendar(updatedEstate, consequences);
 
   return updatedEstate;
 }
@@ -547,6 +548,16 @@ function processEstateLog(estate: Estate, consequence: ConsequenceLogEntry): voi
   
   // Add the log entry to the character's logs
   estate.estateLogs.push(logEntry);
+}
+
+function processEstateCalendar(estate: Estate, consequences: ConsequencesResult): void {
+
+  // If the consequences indicate the day should end and it isn't the first beat of a new day already, advance the day
+  if (consequences.end_day && estate.time.beat != 0) {
+    updateDay(estate, 1);
+  } else {
+    updateBeat(estate, 1);
+  }
 }
 
 /**

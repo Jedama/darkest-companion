@@ -14,7 +14,8 @@ export function compileNarrativeContext(estate: Estate, gameData: StaticGameData
   // Weather descriptions
   const weatherDesc = generateWeatherDescription(estate.weather.current);
   const weatherChange = generateWeatherChangeDescription(estate.weather.previous, estate.weather.current);
-  const timeFrame = estate.time.beat === 0 ? 'Since yesterday, ' : 'Since the last story (log event), ';
+  const timeFrame = estate.time.beat === 0 ? 'Since yesterday, ' : 'Since the last story, ';
+  const dayOpener = estate.time.beat === 0 ? 'This is the first event of the day, set the stage with the season, weather, and location.' : '';
 
   // Use a simple template literal with placeholders
   let contextTemplate = `
@@ -26,8 +27,9 @@ ${gameData.getPromptStoryBackstory()}
 
 PRESENT DAY:
 It is the month of ${zodiac.name}. ${zodiac.text}
-The current weather is ${weatherDesc}. ${weatherChange ? timeFrame + weatherChange : ''}
-${formatTimeSinceEvent(estate.time.month + 1)} have passed since the Ancestor's suicide and monsters attacked the Hamlet. 
+The current weather is ${weatherDesc}. ${weatherChange ? timeFrame + weatherChange : ''}.
+${dayOpener}
+${formatTimeSinceEvent(estate.time.month + 1)} have passed since the Ancestor's suicide and monsters assailed the Hamlet. 
 
     
   `;

@@ -117,6 +117,7 @@ GUIDANCE FOR QUALITY CONSEQUENCES:
 8. OTHER:
   - Money updates typically range from ±100 to ±1000, with larger amounts reserved for extraordinary windfalls or losses.
   - Equipment is necessary for gameplay purposes and should not be permanently lost or broken.
+  - If characters are sleeping or going to bed, end the day.
 
 RULES:
 1. Use ONLY the fields above. No new keys.

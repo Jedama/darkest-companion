@@ -54,6 +54,7 @@
       "entry": "The Highwayman suffered nightmares about the Heiress's death.",
       "timeframe": "transient"
     },
+    "end_day": true,
     "characters": [
       {
         "identifier": "highwayman",
