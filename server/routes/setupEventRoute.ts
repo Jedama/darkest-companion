@@ -1,6 +1,7 @@
 // server/routes/setupEventRoute.ts
 import { Router, Request, Response } from 'express';
 import { setupEvent } from '../services/setupEventService.js';
+import { loadEstate } from '../fileOps.js';
 
 const router = Router();
 
@@ -19,8 +20,14 @@ router.post('/estates/:estateName/events/setup', async (req: Request, res: Respo
     const { estateName } = req.params;
     const { eventId, characterIds, enemyIds, description } = req.body;
 
+    // 1. Load the estate so we can fetch character data
+    const estate = await loadEstate(estateName);
+    if (!estate) {
+      return res.status(404).json({ error: `Estate '${estateName}' not found` });
+    }
+
     // Call the service to pick random event + characters
-    const result = await setupEvent(estateName, {
+    const result = await setupEvent(estate, {
       eventId,
       characterIds,
       enemyIds,

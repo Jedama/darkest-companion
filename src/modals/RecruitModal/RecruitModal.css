@@ -1,0 +1,158 @@
+/* src/components/modals/RecruitModal/RecruitModal.css */
+
+.recruit-modal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* Let clicks pass through to backdrop if needed, but content re-enables it */
+}
+
+.recruit-content {
+  pointer-events: auto;
+  position: relative;
+  width: 600px;
+  height: 900px;
+  max-width: 90vw;
+  max-height: 90vh;
+  
+  /* Background Image */
+  background-image: url('../../assets/ui/modals/recruitmodal/background.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  box-sizing: border-box;
+  color: #000;
+}
+
+/* --- Typography --- */
+
+.recruit-title {
+  font-family: 'DwarvenAxe', serif;
+  font-size: 3.5rem;
+  margin: 10px 0 20px 0;
+  text-transform: uppercase;
+  color: #111;
+  text-shadow: 1px 1px 0px rgba(255,255,255,0.3);
+}
+
+/* --- Inputs --- */
+
+.recruit-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 320px;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 10;
+}
+
+.recruit-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+  font-family: 'DwarvenAxe', sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  color: #111;
+  outline: none;
+  padding: 5px;
+  transition: border-color 0.2s;
+}
+
+.recruit-input:focus {
+  border-bottom: 2px solid #000;
+}
+
+.recruit-input::placeholder {
+  color: rgba(0,0,0,0.3);
+}
+
+/* Customizing the dropdown arrow is tricky in pure CSS, keeping it simple for now */
+select.recruit-input {
+  cursor: pointer;
+  appearance: none; /* Remove default arrow */
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+/* --- Character Image --- */
+
+.recruit-image-container {
+  flex: 1;
+  width: 100%;
+  max-width: 400px;
+  position: relative; /* For seal positioning */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.recruit-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0px 5px 10px rgba(0,0,0,0.3));
+}
+
+/* --- The Seal --- */
+
+.seal-overlay {
+  position: absolute;
+  font-family: 'Mythshire', cursive; /* Ensure you have this font loaded */
+  font-size: 3rem;
+  font-weight: bold;
+  color: #5a0000; /* Dark Red */
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 20;
+  
+  /* Stamp animation */
+  animation: stampIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes stampIn {
+  from { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+  to { opacity: 1; } /* Transform is handled inline for rotation */
+}
+
+/* --- Modifier Input Area --- */
+
+.modifier-section {
+  width: 100%;
+  max-width: 320px;
+  margin-top: 10px;
+  margin-bottom: 60px; /* Space for the hire button */
+  position: relative;
+  z-index: 10;
+}
+
+/* --- Hire Button --- */
+
+.recruit-hire-btn {
+  position: absolute;
+  bottom: 25px;
+  right: 40px;
+  z-index: 15;
+  
+  /* We still rotate the CONTAINER (-10deg). 
+     The ImageButton inside will scale up (1.05) relative to this rotation. 
+     They compose perfectly. */
+  transform: rotate(-10deg);
+  transition: transform 0.2s ease; /* Adds a nice swing if you want to animate the container too */
+}
+
+.recruit-hire-btn:not(.disabled):hover {
+  transform: rotate(-13deg); /* Slight scale on container + rotation */
+}

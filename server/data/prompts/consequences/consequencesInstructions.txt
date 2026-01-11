@@ -12,7 +12,7 @@ WHAT TO LOOK FOR:
 
 GUIDANCE FOR QUALITY CONSEQUENCES:
   - Always remember: This is a game of managing broken, horrible people and difficulty, dysfunctional relationships, and those few moments of true redemption are our primary selling points. 
-  Make the characters hate and love and despise and long for each other. Extreme character dynamics are the core of our stories.
+  - Make the characters hate and love and despise and long for each other. Extreme character dynamics are the core of our stories.
 
 1. LOGS:
   - Be objective and brief while capturing details
@@ -28,7 +28,7 @@ GUIDANCE FOR QUALITY CONSEQUENCES:
     * Objective summary of what transpired in this scene
     * Focus on events affecting the hamlet, quest, or world
     * Examples:
-      - "A dungeoning party returned alive after defeating the Necromancer" (short_term)
+      - "The Krakenslayer, a " (short_term)
       - "Margaret the Musketeer was skewered by the horns of a corrupted stag" (long_term)
       - "A schism divided the hamlet's adventurers into opposing factions" (long_term)
 
@@ -60,7 +60,7 @@ GUIDANCE FOR QUALITY CONSEQUENCES:
   - Focus on how they ARE, not what they're DOING
   - Reflect immediate conditions from this scene, not long-term states
   - Don't confine your numerical updates to multiples of five. 
-  - Physical and mental are UPDATES (±values), not absolute settings. Range ±1 to ±50. Don't include 0.
+  - Physical and mental are UPDATES (±values), not absolute settings. Range ±1 to ±50.
 
 3. TRAITS:
   - Traits represent fundamental character attributes reflected in their behavior
@@ -122,7 +122,7 @@ GUIDANCE FOR QUALITY CONSEQUENCES:
 RULES:
 1. Use ONLY the fields above. No new keys.
 2. For removals (lose_trait, lose_note, etc.), values MUST match existing entries exactly.
-3. Omit fields entirely if no changes (don't include empty arrays/objects).
+3. Omit fields entirely if no changes (don't include empty arrays/objects/±0).
 4. If an event character is absent (merely talked or dreamt about), do NOT list any consequences for them, ONLY for the speakers/dreamers.
 5. Use the characers' identifiers, labeled with [identifier] above. Be extra attentive as some characters don't use their exact title as identifier (Heir is kheir, for example)
 6. In text, such as descriptions, refer to the characters by their titles, not names. ("the Heir", not "Percival").

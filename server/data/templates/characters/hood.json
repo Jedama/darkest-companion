@@ -4,8 +4,8 @@
     "name": "Tilly",
     "level": 0,
     "money": 0,
-    "description": "The Hood is a strange and enigmatic child who, stumlbing, chases around her imaginary-or are they real?-cat and butterfly companions and talking nonsense to herself. She is unsettling in her childish ways and soft nonsensical words, but she has an unnatural sense of finding lost things and ability to convenient dodge out of danger at the perfect moment.",
-    "history": "The Hood was seen as unnerving by those around her, talking to herself with a complete disregard for anyone else, save for the occasional unnerving comment. Voluptuous yet cherubic for her young age and unwanted by her family, she was sent to serve at the Hamlet's brothel. Due to her total lack of reaction, she was kicked out and now again roams the streets following her ethereal friends.",
+    "description": "The Hood is a strange and enigmatic child who stumbles around, lost in her own imaginary world, chasing her cat and butterfly companions she thinks are real, all while talking nonsense to herself. She is unsettling in her childish demeanor and soft words. Unaware to herself, she possesses an unnatural sense for finding lost things and an ability to stumble out of danger at the perfect moment.",
+    "history": "The Hood was seen as unnerving by those around her, talking to herself with a complete disregard for her surroundings. Voluptuous yet cherubic for her young age and unwanted by her family, she was sent off to her local brothel. She was eventually kicked out due to her lack of reaction as the men took me. Roaming the world, her ethereal friends eventually brought her to the Hamlet.",
     "race": "Human",
     "gender": "Female",
     "religion": "None",
@@ -42,30 +42,34 @@
       "skinTone": "Fair",
       "hairColor": "Orange",
       "hairStyle": "Shoulder length and curly",
-      "features": "Soft, cherubic features, smooth skin, full chest, freckles"
+      "features": "Soft and cherubic features, smooth skin, full chest with freckles"
     },
     "clothing": {
       "head": "Red hood",
       "body": "Skimpy, frilly top",
       "legs": "Short white skirt",
-      "accessories": "Satchel, bridal garter"
+      "accessories": "Bridal garter"
     },
     "combat": {
       "role": "Collector",
       "strengths": [
         "Finding things",
-        "Unnatural luck",
-        "Confusion"
+        "Uncanny dodges",
+        "Disruption"
       ],
       "weaknesses": [
-        "Close combat",
+        "Stumbles allies",
         "Frail"
       ]
     },
     "magic": "None",
     "notes": [
       "Her nonsensical monologues often seems to circle back to her grandmother",
-      "Rarely says anything even remotely relevant to what she responds to"
+      "Rarely says anything even remotely relevant to what she responds to",
+      "Wildly flails her arms when she stumbles",
+      "Habitually lifts her skirt, flashing what's beneath",
+      "Her bag seems to hold an endless supplies of pies, from her grandmother",
+      "Whacks enemies with her satchel bag"
     ],
     "tags": [
       "Dancer", "Weak", "Frail", "Healer", "Bleeder", "Disruptor", "Hider", 

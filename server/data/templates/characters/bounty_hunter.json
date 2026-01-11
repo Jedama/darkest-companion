@@ -4,8 +4,8 @@
   "name": "Tardif",
   "level": 0,
   "money": 0,
-  "description": "A ruthless and professional bounty hunter who takes pride in his work. The Bounty Hunter is a skilled fighter, motivated primarily by profit and self-interest. His cynical worldview and loner tendencies suggest a dark past that he refuses to talk about.",
-  "history": "While his past is a well-guarded secret, The Bounty Hunter has clearly lived a life of violence and danger. He's honed his skills as a bounty hunter, becoming a calculated and efficient killer who specializes in identifying weak points and executing targets.",
+  "description": "A ruthless and professional bounty hunter who takes pride in his work. The Bounty Hunter is a skilled fighter, motivated primarily by profit and self-interest. His cynical worldview and loner tendencies stem from a dark past that he refuses to talk about.",
+  "history": "While his past is a well-guarded secret, The Bounty Hunter has lived a life of violence and danger. He's honed his skills as a bounty hunter, becoming a calculated and efficient killer who specializes in identifying weak points and executing targets.",
   "race": "Human",
   "gender": "Male",
   "religion": "None",
@@ -13,7 +13,7 @@
   "traits": [
     "Professional",
     "Ruthless",
-    "Cynical",
+    "Laconic",
     "Loner",
     "Taciturn"
   ],
@@ -58,20 +58,21 @@
       "Targeting weak points",
       "Single combat",
       "Adaptability",
-      "Follows orders (when paid to)"
+      "Follows orders",
+      "Excellent strategist",
+      "Tracking"
     ],
     "weaknesses": [
-      "Difficulty working in teams",
       "Demands high pay"
     ]
   },
   "magic": "None",
   "notes": [
-    "Responds with a dismissive snort to questions he deems unworthy of verbal answers",
+    "Responds with dismissive snorts instead of verbal answers",
     "Refuses to remove his mask in any circumstance",
-    "Speaks in terse, short sentences",
-    "Records debts and favors in a small, weathered notebook, crossing them off with satisfaction when settled",
-    "Keeps meticulous tallies of kills, contracts, and earnings"
+    "Speaks in terse fragments, often just '...' or single words",
+    "Frequently gambles with cards and dice between jobs",
+    "Spits to show contempt or dismissal"
   ],
   "tags": [
     "Flexible", "Mercenary", "Warrior", "MarkApplier", "HumanHunter", "GiantHunter", "HeavyHitter",

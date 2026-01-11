@@ -1,82 +1,80 @@
 {
-    "identifier": "hqclaimants",
-    "title": "Claimants",
-    "name": "Genevive & Claude",
-    "level": 0,
-    "money": 0,
-    "description": "The Claimants, are a pair of ambitious siblings seeking to reclaim their lost lineage in a distant land. Adept in both combat and sorcery, they combine their varied skills to support allies and vanquish foes. Their unique tactics allow them to act as both a single unit and individuals, making them unpredictable and versatile on the battlefield.",
-    "history": "Driven from their ancestral home in a far-off land, the Claimants have journeyed to the Ancestor's estate seeking forbidden knowledge and eldritch secrets. Their ultimate goal is to amass enough power and uncover crucial information that will enable them to reclaim their own lost birthright and restore their family's glory in their homeland. The mysteries left behind by the Ancestor are but stepping stones in their ambitious quest.",
-    "race": "Human",
-    "gender": "Female & Male",
-    "religion": "Occultism/The Light",
-    "zodiac": "Gemini",
-    "traits": [
-      "Ambitious",
-      "Versatile",
-      "Commanding",
-      "Scornful",
-      "Synergistic",
-      "Power-hungry"
+  "identifier": "hqclaimants",
+  "title": "Claimants",
+  "name": "Genevive & Claude",
+  "level": 0,
+  "money": 0,
+  "description": "The Claimants are twin siblings bound by ambition and an unshakeable conviction that their own stolen birthright will be reclaimed. Both are brilliant strategists who operate as a single unit with unerring coordination. They carry themselves with the imperious certainty of those born to command, treating all others as provincials. No cost is too great, no moral line uncrossable, as long as they have each other.",
+  "history": "Driven from their ancestral home in a far-off land by a succession dispute they refuse to accept as valid, the Claimants have journeyed to the Ancestor's estate seeking forbidden knowledge and eldritch secrets to reclaim their own lost birthright, offering their aid to the cause, their thinly veiled lies framing their presence as an act of largesse.",
+  "race": "Human",
+  "gender": "Female & Male",
+  "religion": "Occultism/The Light",
+  "zodiac": "Gemini",
+  "traits": [
+    "Ambitious",
+    "Commanding",
+    "Contemptuous",
+    "Synergistic",
+    "Power-hungry"
+  ],
+  "status": {
+    "physical": 100,
+    "mental": 100,
+    "affliction": "",
+    "description": "In good health and high spirits",
+    "wounds": [],
+    "diseases": []
+  },
+  "stats": {
+    "strength": 7,
+    "agility": 3,
+    "intelligence": 10,
+    "authority": 9,
+    "sociability": 5
+  },
+  "equipment": [
+    "Tome",
+    "Polearm",
+    "Shield"
+  ],
+  "appearance": {
+    "height": "Average/Tall",
+    "build": "Elegant/Muscular",
+    "skinTone": "Fair/Fair",
+    "hairColor": "Dark brown/Dark brown",
+    "hairStyle": "Single hair bun with swept-back sides/Well-groomed but receding hairline",
+    "features": "Striking blue eyes, sharp cheekbones/Full, well-groomed beard"
+  },
+  "clothing": {
+    "head": "Ornate earrings/None",
+    "body": "Elegant red dress with high collar/Steel plate armor over doublet",
+    "legs": "Flowing red skirt/Dark trousers with leather boots",
+    "accessories": "Earrings/None"
+  },
+  "combat": {
+    "role": "Versatile Support/Damage",
+    "strengths": [
+      "Adaptable tactics",
+      "Synergistic abilities",
+      "Crowd control",
+      "Ally protection",
+      "Healing"
     ],
-    "status": {
-      "physical": 100,
-      "mental": 100,
-      "affliction": "",
-      "description": "In good health and high spirits",
-      "wounds": [],
-      "diseases": []
-    },
-    "stats": {
-      "strength": 7,
-      "agility": 3,
-      "intelligence": 10,
-      "authority": 9,
-      "sociability": 5
-    },
-    "equipment": [
-      "Tome",
-      "Polearm",
-      "Shield"
-    ],
-    "appearance": {
-        "height": "Average/Tall",
-        "build": "Elegant/Muscular",
-        "skinTone": "Fair/Fair",
-        "hairColor": "Dark with blue streaks/Dark",
-        "hairStyle": "Single hair bun/Well groomed",
-        "features": "Striking blue eyes, bold red lips/Full well-groomed beard"
-    },
-    "clothing": {
-        "head": "Ornate earrings/None",
-        "body": "Elegant blouse/Fitted doublet",
-        "legs": "Flowing skirt/Sturdy trousers"
-    },
-    "combat": {
-      "role": "Versatile Support/Damage",
-      "strengths": [
-        "Adaptable tactics",
-        "Synergistic abilities",
-        "Crowd control",
-        "Ally protection"
-      ],
-      "weaknesses": [
-        "Reliance on each other",
-        "Vulnerable when separated"
-      ]
-    },
-    "magic": "Forbidden knowledge and sorcery",
-    "notes": [
-      "Instinctively position themselves back-to-back during tense situations",
-      "Very vocal and commanding both each other and the other heroes in combat",
-      "The siblings communicate in verbal volleys, each setting up clauses for the other to complete",
-      "Agree unanimously on important matters but argue endlessly over trivial details, but only in private",
-      "The Brother struggles hopelessly with maps and directions, while the Sister has a natural talent for painting landscapes",
-      "The Sister often quotes classical literature and formal poetry and the brother is more militaristic and terse",
-      "Shamelessly steal things they desire, such as plans and the book the Sister carries"
-    ],
-    "tags": [
-      "Flexible", "Stanceshifter", "Tank", "Healer", "StressHealer", "Guarder", "Riposter", "Disruptor", "Immoral", "Abrasive",
-      "ArmorPiercer", "Cleanser", "Companion", "Noble", "Leader", "Strategist", "Eldritch", "Religious", "Scout"
-    ],
-    "relationships": {}
-  }
+    "weaknesses": [
+      "Reliance on each other",
+      "Low Damage"
+    ]
+  },
+  "magic": "Sorcery",
+  "notes": [
+    "Sister quotes classical literature and formal poetry; Brother speaks in direct military terms",
+    "Both are intelligent, commanding, and aristocratic in their own unique ways",
+    "Treats each other lovingly, and everyone else with contempt",
+    "Extremely protective of each other, would rather die together than separate"
+  ],
+  "tags": [
+    "Flexible", "Stanceshifter", "Tank", "Healer", "StressHealer", "Guarder", "Riposter", "Disruptor", "Immoral", "Abrasive",
+    "ArmorPiercer", "Cleanser", "Companion", "Noble", "Leader", "Strategist", "Eldritch", "Religious", "Scout"
+  ],
+  "relationships": {}
+}

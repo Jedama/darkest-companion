@@ -1,0 +1,110 @@
+[
+  {
+    "name": "Pisces",
+    "text": "Early spring settles over the land. Mud replaces ice underfoot, and the air carries the scent of thawing earth, though cold still lingers in the shadows.",
+    "weather": {
+      "heat": { "mean": 3.6, "variance": 2.8 },
+      "rain": { "mean": 4.9, "variance": 4 },
+      "wind": { "mean": 5.5, "variance": 2.5 }
+    }
+  },
+  {
+    "name": "Aries",
+    "text": "Spring is in full bloom. New growth pushes through cracks in the stone, and the air turns sweet with fresh vegetation.",
+    "weather": {
+      "heat": { "mean": 4.3, "variance": 2.8 },
+      "rain": { "mean": 5.0, "variance": 4 },
+      "wind": { "mean": 5.8, "variance": 2.75 }
+    }
+  },
+  {
+    "name": "Taurus",
+    "text": "Late spring warmth spreads through the land. Morning mists cling to low places until noon, and each dawn brings more green to chase away the last browns of winter.",
+    "weather": {
+      "heat": { "mean": 5.0, "variance": 2.5 },
+      "rain": { "mean": 4.8, "variance": 3.25 },
+      "wind": { "mean": 5.2, "variance": 2.4 }
+    }
+  },
+  {
+    "name": "Gemini",
+    "text": "Early summer arrives with longer days and sweet air. Birdsong echoes from weathered walls, and the last spring flowers bloom in forgotten corners.",
+    "weather": {
+      "heat": { "mean": 5.7, "variance": 2.1 },
+      "rain": { "mean": 4.8, "variance": 3.25 },
+      "wind": { "mean": 4.8, "variance": 2.5 }
+    }
+  },
+  {
+    "name": "Cancer",
+    "text": "Midsummer heat bakes stone and timber alike, its warmth lasting long into evening. The sun's relentless gaze drives the shadows from the streets.",
+    "weather": {
+      "heat": { "mean": 6.0, "variance": 1.7 },
+      "rain": { "mean": 4.3, "variance": 3.1 },
+      "wind": { "mean": 4.5, "variance": 2 }
+    }
+  },
+  {
+    "name": "Leo",
+    "text": "High summer's peak. The air hangs heavy, heat persisting through the night. Even shade offers little refuge from the season's intensity.",
+    "weather": {
+      "heat": { "mean": 6.4, "variance": 1.55 },
+      "rain": { "mean": 4.2, "variance": 2.4 },
+      "wind": { "mean": 4.5, "variance": 2 }
+    }
+  },
+  {
+    "name": "Virgo",
+    "text": "Late summer brings the scent of ripening fruit and turned earth. Twilight arrives earlier each day, the light taking on amber tones.",
+    "weather": {
+      "heat": { "mean": 5.7, "variance": 2.2 },
+      "rain": { "mean": 4.4, "variance": 2.4 },
+      "wind": { "mean": 4.5, "variance": 2.1 }
+    }
+  },
+  {
+    "name": "Libra",
+    "text": "Early autumn rolls in. The first leaves spiral down from darkening branches, gathering in corners and doorways. Shadows stretch longer with each passing day.",
+    "weather": {
+      "heat": { "mean": 5.0, "variance": 2.3 },
+      "rain": { "mean": 4.7, "variance": 3.25 },
+      "wind": { "mean": 5, "variance": 2.25 }
+    }
+  },
+  {
+    "name": "Scorpio",
+    "text": "Autumn deepens its hold. Dead leaves skitter across the ground, and the air grows thin and sharp, each breath visible in the morning cold.",
+    "weather": {
+      "heat": { "mean": 4.3, "variance": 2.8 },
+      "rain": { "mean": 4.5, "variance": 3.5 },
+      "wind": { "mean": 4.5, "variance": 2 }
+    }
+  },
+  {
+    "name": "Sagittarius",
+    "text": "Early winter settles in. Snow masks the streets in an uneven blanket, and ice catches the pale winter light like crystalline glass.",
+    "weather": {
+      "heat": { "mean": 3.6, "variance": 2.8 },
+      "rain": { "mean": 4.8, "variance": 3.1 },
+      "wind": { "mean": 5.6, "variance": 2.5 }
+    }
+  },
+  {
+    "name": "Capricorn",
+    "text": "Deep winter's grip tightens. Ice coats standing water, and the long nights feel darker, cold penetrating walls and foundations.",
+    "weather": {
+      "heat": { "mean": 2.9, "variance": 2.4 },
+      "rain": { "mean": 4.7, "variance": 3 },
+      "wind": { "mean": 5.8, "variance": 2.75 }
+    }
+  },
+  {
+    "name": "Aquarius",
+    "text": "Late winter's final cruelty. Though the worst cold has passed, bitter winds and treacherous ice remain. Winter fights its retreat stubbornly.",  
+    "weather": {
+      "heat":  { "mean": 2.9, "variance": 2.1 },
+      "rain": { "mean": 4.5, "variance": 3 },
+      "wind": { "mean": 6, "variance": 2.5 }
+    }
+  }
+]

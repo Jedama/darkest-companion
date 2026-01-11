@@ -14,7 +14,8 @@
     "Altered Ruleset",
     "Betting clothes",
     "Unexpected Card",
-    "Unexpected Winner"
+    "Unexpected Winner",
+    "Refusal to participate"
   ],
   "location": {
     "default": ["gambling_hall", "tavern"],

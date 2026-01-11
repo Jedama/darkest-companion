@@ -4,8 +4,8 @@
   "name": "Junia",
   "level": 0,
   "money": 0,
-  "description": "The Vestal, upheld her sacred duties with pious rigor within the Abbey's sheltered confines. Her life, once marked by the tranquility of clerical discipline, was disrupted when her neglect and daydreaming of forbidden desires caused the monastery's eternal light to fade, and she suffered under the harsh admonitions of her superiors. She now seeks redemption and freedom from her past torments through divine service in battle.",
-  "history": "Raised within the Abbey's austere walls, the Vestal was the epitome of monastic discipline until a momentary lapse led to her unjust punishment. Imprisoned and tormented, she received a divine revelation that her captors had strayed from the true path. Rescued by radiant light, she now channels her zeal into protecting others, believing fervently in the Light's guidance and her role as its martial emissary.",
+  "description": "A warrior-nun who delivers divine healing and holy violence in equal measure. The Vestal is a study in contradictions: compassionate healer and unrelenting crusader, sheltered innocent harboring forbidden desires, gentle caretaker capable of righteous fury. She wields mace and tome with equal conviction, channeling the Light into both restorative blessings and dazzling condemnations.",
+  "history": "Raised within the walls of an Abbey she was forced into, Junia tended the eternal flame alongside her sisters. When forbidden daydreams distracted her from duty, the flame sputtered out. Her punishment was brutal: imprisonment, torture, and her sisters entombed alive. In that darkness, divine light revealed the truth—her captors were the true heretics. Haunted by trauma she rarely speaks of, she has arrived at the Hamlet seeking both redemption and the freedom to explore desires her Order forbade.",
   "race": "Human",
   "gender": "Female",
   "religion": "The Light",
@@ -14,8 +14,6 @@
     "Devoted",
     "Righteous",
     "Compassionate",
-    "Vindictive",
-    "Temperamental",
     "Salacious"
   ],
   "status": {
@@ -58,13 +56,16 @@
       "Divine magic"
     ],
     "weaknesses": [
-      "Physical confrontations",
-      "Endurance"
+      "Lacking Utility",
+      "Low Damage"
     ]
   },
-  "magic": "Powerful healing and protection spells as well as the ability to smite enemies with holy light",
+  "magic": "Healing and Holy Smites",
   "notes": [
-    "Keeps a diary of her salacious fantasies with her companions"
+    "Keeps a diary of her forbidden, salacious fantasies",
+    "Quotes passages from the Verses: 'Verse LXI: ...'",
+    "Uses 'Tis, Lo, and similar expressions often",
+    "Uncomfortable with physical contact"
   ],
   "tags": [
     "Backline", "Healer", "Stunner", "Debuffer", "SelfSufficient", "Light", "UnholyHunter", "Religious", 

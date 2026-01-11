@@ -1,5 +1,6 @@
 // src/components/characterpanel/CharacterPanel.tsx
 import { useMemo } from 'react';
+import { useEstateContext } from '../../contexts/EstateContext'; // Import this
 import type { Character } from '../../../shared/types/types.ts';
 import type { StatName } from '../../types/statTypes.ts';
 import './CharacterPanel.css';
@@ -37,8 +38,14 @@ const STAT_GEMS: Record<StatName, string> = {
 };
 
 export function CharacterPanel({ character }: CharacterPanelProps) {
+  // 1. Get the full roster so we can pre-render everyone's portrait
+  const { currentEstate } = useEstateContext();
+  
+  const allCharacters = useMemo(() => {
+    return currentEstate ? Object.values(currentEstate.characters) : [];
+  }, [currentEstate]);
+
   const getGemLevel = (stat: number) => {
-    // Convert stat to gem level (0-10)
     return Math.min(Math.floor(stat), 10);
   };
 
@@ -54,59 +61,72 @@ export function CharacterPanel({ character }: CharacterPanelProps) {
     ];
   }, [character]);
 
-  if (!character) return null;
+  // We remove the early return "if (!character) return null;" 
+  // so the images can sit in the DOM waiting for selection.
+  // Instead, we just hide the container if there is no estate data yet.
+  if (!currentEstate) return null;
 
   return (
     <div className="character-info">
       <div className="panel-content">
-        <div id="character-name">{character.name}</div>
-        <div id="character-title">{`The ${character.title}`}</div>
+        
+        {/* --- THE FIX: Image Stack --- */}
+        {/* We render an image for EVERY character the player owns. */}
+        {allCharacters.map((c) => (
+            <img
+              key={c.identifier}
+              className="character-picture"
+              src={ASSETS.paths.portrait(c.identifier)}
+              alt={c.name}
+              // Only display the one that matches the current prop
+              style={{ 
+                display: character?.identifier === c.identifier ? 'block' : 'none' 
+              }}
+            />
+        ))}
 
-        {/* Character Picture */}
-        <img
-          className="character-picture"
-          src={ASSETS.paths.portrait(character.identifier)}
-          alt={character.name}
-        />
+        {/* --- DYNAMIC CONTENT --- */}
+        {/* The text/stats are lightweight, so we only render them if a character is selected. 
+            They render instantly, unlike images. */}
+        {character && (
+          <>
+            <div id="character-name">{character.name}</div>
+            <div id="character-title">{`The ${character.title}`}</div>
 
-        {/* Traits */}
-        <div className="trait-list">
-          <ul id="character-traits">
-            {character.traits.map((trait, index) => (
-              <li key={index}>{trait}</li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Health and Mental Bookmarks */}
-        <div 
-          className="health-bookmark"
-          style={{
-            backgroundImage: `url(${ASSETS.paths.bookmarks.health()})`
-          }}
-        />
-        <div 
-          className="mental-bookmark"
-          style={{
-            backgroundImage: `url(${ASSETS.paths.bookmarks.mental()})`
-          }}
-        />
-
-        {/* Stats */}
-        <div className="stats-container">
-          {statItems.map(({ name, value }) => (
-            <div key={name} className="stat-item" data-stat={name}>
-              <div className="gem-wrapper">
-                <img
-                  src={STAT_GEMS[name as StatName]}
-                  alt={name}
-                  className={`gem gem-level-${getGemLevel(value)}`}
-                />
-              </div>
-              <span className="stat-number">{value}</span>
+            <div className="trait-list">
+              <ul id="character-traits">
+                {character.traits.map((trait, index) => (
+                  <li key={index}>{trait}</li>
+                ))}
+              </ul>
             </div>
-          ))}
-        </div>
+
+            <div 
+              className="health-bookmark"
+              style={{ backgroundImage: `url(${ASSETS.paths.bookmarks.health()})` }}
+            />
+            <div 
+              className="mental-bookmark"
+              style={{ backgroundImage: `url(${ASSETS.paths.bookmarks.mental()})` }}
+            />
+
+            <div className="stats-container">
+              {statItems.map(({ name, value }) => (
+                <div key={name} className="stat-item" data-stat={name}>
+                  <div className="gem-wrapper">
+                    <img
+                      src={STAT_GEMS[name as StatName]}
+                      alt={name}
+                      className={`gem gem-level-${getGemLevel(value)}`}
+                    />
+                  </div>
+                  <span className="stat-number">{value}</span>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+        
       </div>
     </div>
   );

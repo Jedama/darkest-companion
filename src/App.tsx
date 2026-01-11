@@ -7,48 +7,33 @@ import { ModalProvider } from './modals/ModalProvider';
 import { LoadEstateModal } from './modals/LoadEstateModal/LoadEstateModal';
 import type { Character } from '../shared/types/types';
 import type { ViewType } from './types/viewTypes';
+import { GameProvider, useGameData } from './contexts/GameDataContext';
 import './styles/fonts.css';
 
-function App() {
-  // We'll still track selectedCharacter and currentView in here.
+// Create a wrapper component to handle the Inner Logic
+function GameContent() {
   const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
-  const [currentView, setCurrentView] = useState<ViewType>('manor');
-
-  // Grab the current estate from context
+  const [currentView] = useState<ViewType>('manor');
+  
   const { currentEstate } = useEstateContext();
-
-  // Boot gate (fonts)
-  // NOTE: When you build a proper main menu/splash screen, you can move this gating there
-  // and show an actual loading screen/progress bar instead of this minimal placeholder.
+  const { characterDefinitions, isGameDataReady } = useGameData();
+  
   const [bootReady, setBootReady] = useState(false);
-
-  useEffect(() => {
-    let cancelled = false;
-
-    async function prepareBootAssets() {
-      try {
-        // Wait for all @font-face fonts declared in CSS to be ready.
-        // This reduces FOUT (flash of unstyled text) when CharacterPanel mounts.
-        if (document.fonts?.ready) {
-          await document.fonts.ready;
-        }
-      } catch {
-        // If anything goes wrong, don't block the app; just continue.
-      } finally {
-        if (!cancelled) setBootReady(true);
-      }
-    }
-
-    prepareBootAssets();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  // Estate assets gate (UI + roster assets)
-  // This runs only after an estate has been loaded/created, because we need the roster identifiers.
   const [estateAssetsReady, setEstateAssetsReady] = useState(false);
 
+  // 1. Initial Boot (Fonts + Static Game Data)
+  useEffect(() => {
+    let cancelled = false;
+    async function prepareBoot() {
+       // Wait for fonts
+       if (document.fonts?.ready) await document.fonts.ready;
+       if (!cancelled) setBootReady(true);
+    }
+    prepareBoot();
+    return () => { cancelled = true; };
+  }, []);
+
+  // 2. Estate Asset Preloading (Kept your existing logic here)
   useEffect(() => {
     let cancelled = false;
 
@@ -69,7 +54,7 @@ function App() {
         new URL('./assets/ui/backgrounds/strategy.png', import.meta.url).href,
 
         // Default portrait
-        new URL('./assets/ui/defaultportrait_190x278.png', import.meta.url).href,
+        new URL('./assets/characters/portrait/small/placeholder_190x278.png', import.meta.url).href,
 
         // Manor buttons
         new URL('./assets/ui/views/manor/button_event.png', import.meta.url).href,
@@ -84,6 +69,10 @@ function App() {
         new URL('./assets/ui/panels/characterpanel/gems/sociability.png', import.meta.url).href,
         new URL('./assets/ui/panels/characterpanel/bookmarks/health_10.png', import.meta.url).href,
         new URL('./assets/ui/panels/characterpanel/bookmarks/mental_10.png', import.meta.url).href,
+
+        // Recuit modal assets
+        new URL('./assets/ui/modals/recruit/background.png', import.meta.url).href, 
+        new URL('./assets/characters/recruit/placeholder.png', import.meta.url).href, 
       ];
 
       // Manor frames 0..6
@@ -117,6 +106,12 @@ function App() {
         );
       }
 
+      Object.values(characterDefinitions).forEach(def => {
+        characterUrls.push(
+          new URL(`./assets/characters/recruit/${def.identifier}.png`, import.meta.url).href
+        );
+      });
+
       // Preload + decode everything. Errors won't hard-fail the whole preload.
       await preloadImages([...uiUrls, ...characterUrls]);
 
@@ -130,15 +125,27 @@ function App() {
     };
   }, [currentEstate]);
 
-  // --- Rendering gates ---
 
-  if (!bootReady) {
-    // Minimal boot loading screen (temporary).
-    return <div style={{ padding: 16 }}>Loading...</div>;
+  // --- RENDER GATES ---
+
+  // Gate 1: App Boot (Fonts & Static Data)
+  if (!bootReady || !isGameDataReady) {
+    return (
+      <div style={{ 
+        height: '100vh', 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center',
+        background: '#000',
+        color: '#666',
+        fontFamily: 'monospace'
+      }}>
+        {"Waiting for server..."}
+      </div>
+    );
   }
 
-  // If no estate loaded, show the load/create modal.
-  // (In the future this can become your real main menu screen.)
+  // Gate 2: No Estate Loaded
   if (!currentEstate) {
     return (
       <ModalProvider>
@@ -147,17 +154,16 @@ function App() {
     );
   }
 
-  // Estate exists, but assets aren't ready yet.
-  // This prevents portraits/panels from popping in piece-by-piece.
+  // Gate 3: Estate Assets
   if (!estateAssetsReady) {
     return (
       <ModalProvider>
-        <div style={{ padding: 16 }}>Loading estate assets…</div>
+        <div style={{ padding: 16 }}>Loading Estate Assets...</div>
       </ModalProvider>
     );
   }
 
-  // Fully ready: render the actual game layout.
+  // Ready
   return (
     <ModalProvider>
       <MainLayout
@@ -170,4 +176,11 @@ function App() {
   );
 }
 
+function App() {
+  return (
+    <GameProvider>
+      <GameContent />
+    </GameProvider>
+  );
+}
 export default App;

@@ -51,7 +51,7 @@ interface ElapsedMonthText {
  *  Category lists (single source of truth)
  * ------------------------------------------------------------------- */
 
-const EVENT_CATEGORIES = ['town', 'story'] as const;
+const EVENT_CATEGORIES = ['town', 'story', 'recruit'] as const;
 type EventCategory = (typeof EVENT_CATEGORIES)[number];
 
 const NPC_CATEGORIES = ['town', 'kingdom'] as const;
@@ -182,7 +182,7 @@ class StaticGameDataManager {
   private eventsByCategory: Partial<Record<EventCategory, EventRecord>> = {};
 
   /* -------------------------------------------------------------------
-   *  Keywords / Modifiers
+   *  Keywords 
    * ------------------------------------------------------------------- */
 
   private townKeywords: string[] = [];
@@ -191,13 +191,18 @@ class StaticGameDataManager {
    *  Prompts
    * ------------------------------------------------------------------- */
 
+  private promptMonthText: ElapsedMonthText[] = [];
   private promptStoryInstructions = '';
   private promptStoryBackstory = '';
   private promptConsequenceInstructions = '';
   private promptConsequenceFormat = '';
   private promptConsequenceExamples = '';
+  private promptRecruitInstructions = '';
+  private promptRecruitBackstory = '';
+  private promptRecruitConsequenceInstructions = '';
+  private promptRecruitConsequenceFormat = '';
+  private promptRecruitConsequenceExamples = '';
   private promptZodiacSeasons: ZodiacSeason[] = [];
-  private promptMonthText: ElapsedMonthText[] = [];
 
   private constructor() {}
 
@@ -233,13 +238,18 @@ class StaticGameDataManager {
         enemies,
         eventsByCategory,
         townKeywords,
+        elapsedMonthText,
         promptStoryInstructions,
         promptStoryBackstory,
         promptConsequenceInstructions,
         promptConsequenceFormat,
         promptConsequenceExamples,
+        promptRecruitInstructions,
+        promptRecruitBackstory,
+        promptRecruitConsequenceInstructions,
+        promptRecruitConsequenceFormat,
+        promptRecruitConsequenceExamples,
         zodiacSeasons,
-        elapsedMonthText,
       ] = await Promise.all([
         // Characters / relationships / meta
         loadCharacterTemplates(),
@@ -252,18 +262,23 @@ class StaticGameDataManager {
         loadRecordByCategory(NPC_CATEGORIES, loadNPCTemplatesForCategory),
         loadAllEnemies(),
 
-        // Events + modifiers
+        // Events + Keywords
         loadRecordByCategory(EVENT_CATEGORIES, loadEventTemplatesForCategory),
         loadTownKeywords(),
 
         // Prompts
+        loadJsonFile<ElapsedMonthText[]>(`${promptsBasePath}/game/elapsedMonthText.json`),
         loadTextFile(`${promptsBasePath}/story/storyInstructions.txt`),
         loadTextFile(`${promptsBasePath}/story/storyBackstory.txt`),
         loadTextFile(`${promptsBasePath}/consequences/consequencesInstructions.txt`),
         loadTextFile(`${promptsBasePath}/consequences/consequencesFormat.txt`),
         loadTextFile(`${promptsBasePath}/consequences/consequencesExamples.txt`),
-        loadJsonFile<ZodiacSeason[]>(`${promptsBasePath}/story/zodiacSeasons.json`),
-        loadJsonFile<ElapsedMonthText[]>(`${promptsBasePath}/story/elapsedMonthText.json`),
+        loadTextFile(`${promptsBasePath}/recruit/recruitInstructions.txt`),
+        loadTextFile(`${promptsBasePath}/recruit/recruitBackstory.txt`),
+        loadTextFile(`${promptsBasePath}/recruit/recruitConsequenceInstructions.txt`),
+        loadTextFile(`${promptsBasePath}/recruit/recruitConsequenceFormat.txt`),
+        loadTextFile(`${promptsBasePath}/recruit/recruitConsequenceExamples.txt`),
+        loadJsonFile<ZodiacSeason[]>(`${promptsBasePath}/game/zodiacSeasons.json`),
       ]);
 
       // Characters / relationships / meta
@@ -279,18 +294,23 @@ class StaticGameDataManager {
       this.npcsByCategory = npcsByCategory;
       this.enemies = enemies;
 
-      // Events + modifiers
+      // Events + keywords
       this.eventsByCategory = eventsByCategory;
       this.townKeywords = townKeywords;
 
       // Prompts
+      this.promptMonthText = elapsedMonthText;
       this.promptStoryInstructions = promptStoryInstructions;
       this.promptStoryBackstory = promptStoryBackstory;
       this.promptConsequenceInstructions = promptConsequenceInstructions;
       this.promptConsequenceFormat = promptConsequenceFormat;
       this.promptConsequenceExamples = promptConsequenceExamples;
+      this.promptRecruitInstructions = promptRecruitInstructions;
+      this.promptRecruitBackstory = promptRecruitBackstory;
+      this.promptRecruitConsequenceInstructions = promptRecruitConsequenceInstructions;
+      this.promptRecruitConsequenceFormat = promptRecruitConsequenceFormat;
+      this.promptRecruitConsequenceExamples = promptRecruitConsequenceExamples;
       this.promptZodiacSeasons = zodiacSeasons;
-      this.promptMonthText = elapsedMonthText;
 
       // Build lookup maps
       this.buildLocationMap();
@@ -472,7 +492,7 @@ class StaticGameDataManager {
   }
 
   /* -------------------------------------------------------------------
-   *  Keywords / Modifiers
+   *  Keywords
    * ------------------------------------------------------------------- */
 
   public getTownKeywords(): string[] {
@@ -483,6 +503,11 @@ class StaticGameDataManager {
   /* -------------------------------------------------------------------
    *  Prompts
    * ------------------------------------------------------------------- */
+
+  public getPromptElapsedMonthText(): ElapsedMonthText[] {
+    this.ensureInitialized();
+    return this.promptMonthText;
+  }
 
   public getPromptStoryInstructions(): string {
     this.ensureInitialized();
@@ -498,25 +523,45 @@ class StaticGameDataManager {
     this.ensureInitialized();
     return this.promptConsequenceInstructions;
   }
-
+  
   public getPromptConsequenceFormat(): string {
     this.ensureInitialized();
     return this.promptConsequenceFormat;
   }
-
+  
   public getPromptConsequenceExamples(): string {
     this.ensureInitialized();
     return this.promptConsequenceExamples;
   }
 
+  public getPromptRecruitInstructions(): string {
+    this.ensureInitialized();
+    return this.promptRecruitInstructions;
+  }
+
+  public getPromptRecruitBackstory(): string {
+    this.ensureInitialized();
+    return this.promptRecruitBackstory;
+  }
+
+  public getPromptRecruitConsequenceInstructions(): string {
+    this.ensureInitialized();
+    return this.promptRecruitConsequenceInstructions;
+  }
+  
+  public getPromptRecruitConsequenceFormat(): string {
+    this.ensureInitialized();
+    return this.promptRecruitConsequenceFormat;
+  }
+  
+  public getPromptRecruitConsequenceExamples(): string {
+    this.ensureInitialized();
+    return this.promptRecruitConsequenceExamples;
+  }
+  
   public getZodiacSeasons(): ZodiacSeason[] {
     this.ensureInitialized();
     return this.promptZodiacSeasons;
-  }
-
-  public getPromptElapsedMonthText(): ElapsedMonthText[] {
-    this.ensureInitialized();
-    return this.promptMonthText;
   }
 }
 

@@ -4,18 +4,18 @@
   "name": "Sirena",
   "level": 0,
   "money": 0,
-  "description": "A seasoned and fearless monster hunter of the seas, the Krakenslayer is known for her unparalleled skill in slaying krakens and other maritime beasts. Her rugged demeanor and battle-hardened experience make her a formidable ally in any nautical adventure.",
-  "history": "The Krakenslayer has spent years hunting dangerous sea creatures, accumulating a wealth of experience and numerous scars. Her body is adorned with tattoos commemorating her most significant kills, each one a testament to her prowess as a hunter.",
+  "description": "The Krakenslayer is a patient, methodical hunter who has made her name slaying massive sea beasts. She fights with chained-together twin harpoons, bleeding her prey and waiting with calculated patience for weakness to set in. Every legendary kill is commemorated with a new tattoo, each one a story she'll tell with boastful embellishment. Superstitious and territorial, she's the kind of hunter who claims first pick of any prize and leaves others to fight for scraps.",
+  "history": "The Krakenslayer earned her title hunting the ocean's deadliest predators. Each tattoo tells a story: the wyrm that took three days to bleed out, the hydra whose five heads she severed one by one, the baby kraken whose mother she still seeks. She learned early that glory shared is glory wasted—other hunters slow you down, steal your kill, or die screaming when things go wrong. Better to work alone. When word of the Estate's corrupted depths and the massive creatures lurking within reached her ears she immediately started swimming.",
   "race": "Human",
   "gender": "Female",
-  "religion": "None",
+  "religion": "The Sea Mother",
   "zodiac": "Pisces",
   "traits": [
     "Confident",
     "Tough",
     "Superstitious",
     "Boastful",
-    "Resilient"
+    "Patient"
   ],
   "status": {
     "physical": 100,
@@ -33,8 +33,7 @@
     "sociability": 4
   },
   "equipment": [
-    "Twin harpoons attached to chains",
-    "Chains"
+    "Twin harpoons attached to chains"
   ],
   "appearance": {
     "height": "Average",
@@ -48,7 +47,7 @@
     "head": "Red bandana",
     "body": "White, sleeveless shirt",
     "legs": "Leather pants",
-    "accessories": "Gold ring earring, chain necklace with shark teeth"
+    "accessories": "Gold ring earring, shark tooth necklace"
   },
   "combat": {
     "role": "Versatile Hunter",
@@ -64,8 +63,11 @@
   },
   "magic": "None",
   "notes": [
-      "Has numerous tattoos commemorating her kills",
-      "Known for her accent and occasional nautical idioms"
+    "Drinks rum constantly and uses it as disinfectant",
+    "Extremely superstitious about sea omens, curses, and the Sea Mother",
+    "Carves scrimshaw from monster bones during downtime",
+    "Heavy use of nautical slang: keelhaul, landlubbers, bilge, shark bait, lily-liver, galley slaves",
+    "Her signature phrase is 'Blood in the water'"
   ],
   "tags": [
     "Dancer", "Tank", "Bleeder", "BleedSynergy", "Marker", "MarkSynergy", "Debuffer", "HeavyHitter",

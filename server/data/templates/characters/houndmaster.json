@@ -4,19 +4,19 @@
   "name": "William & Fergus",
   "level": 0,
   "money": 0,
-  "description": "The Houndmaster is a former lawman who now fights alongside his faithful wolfhound, Fergus. Together they form a formidable team, using their skills to track down enemies and protect their allies.",
-  "history": "Once a dedicated member of law enforcement, the Houndmaster uncovered corruption within his ranks. This discovery led him to leave his post and seek justice in his own way, with Fergus as his loyal companion.",
+  "description": "An uncommonly compassionate ex-lawman who works in equal partnership with his faithful wolfhound Fergus. Now they hunt together as they always have: Fergus reads the world through scent and instinct, William through experience and deduction. He trusts her judgment absolutely, treating her reactions as intelligence reports. Protective of the innocent and merciless toward the corrupt, he sees little difference between human evil and supernatural horror—both must be hunted down and stopped.",
+  "history": "William was once a dedicated Gendarme, but when searching for a missing woman he stumbled onto corruption within his own ranks, discovering his fellow lawmen had murdered her to cover up their involvement in criminal enterprise. When he reported it through proper channels, he learned the rot extended throughout the command structure. Rather than become complicit, he walked away with Fergus, his wolfhound partner. Now he hunts monsters instead of men, though he's learned the distinction isn't as clear as he once believed.",
   "race": "Human",
   "gender": "Male",
   "religion": "None",
   "zodiac": "Aries",
   "traits": [
     "Vigilant",
-    "Protective",
+    "Compassionate",
     "Just",
-    "Resourceful",
-    "Fond of animals",
-    "Brash"
+    "Protective",
+    "Cautious",
+    "Loyal"
   ],
   "status": {
     "physical": 100,
@@ -67,10 +67,11 @@
   },
   "magic": "None",
   "notes": [
-    "Always carries dog treats",
-    "Habitually checks the wind direction",
-    "Signals his hound with subtle hand gestures that others rarely notice",
-    "Hugs his hound for comfort when stressed or hurt"
+    "Hugs his hound for comfort, and always carries dog treats",
+    "His hound is female; he calls her 'girl' and 'princess' affectionately",
+    "Signals his hound gestures, whistles, and commands",
+    "Openly talks compassionately to his hound, 'What do you say, girl?', etc.",
+    "Uses law enforcement jargon: miscreants, conspirators, apprehend"
   ],
   "tags": [
     "Flexible", "StressHealer", "Guarder", "Marker", "MarkSynergy", "Bleeder", "BeastHunter", "Stunner", 

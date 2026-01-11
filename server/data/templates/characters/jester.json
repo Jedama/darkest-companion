@@ -4,15 +4,15 @@
   "name": "Sarmenti",
   "level": 0,
   "money": 0,
-  "description": "Once a wandering street musician who fell prey to an otherworldly melody, the Jester now combines deadly precision with musical talent. Though appearing as a mere entertainer, he harbors dark experiences from his past that fuel both his performances and his combat prowess. His versatile skills allow him to support allies with inspiring tunes or inflict bleeding wounds with his sickle, all while maintaining an unsettling air of manic glee.",
-  "history": "Originally a directionless street performer, Sarmenti discovered a mysterious melody in a cemetery that awakened his ambition. His newfound talent led him to perform at the royal court, where he faced cruel mockery and humiliation. In revenge, he performed the demonic melody, resulting in death and dismemberment of the whole court, after which he severed his own finger to rid himself of the cursed talent. He now wanders, haunted by fragments of that forgotten tune.",
+  "description": "Once a wandering street musician who fell prey to an otherworldly melody, the Jester now combines deadly precision with musical talent. Though appearing as a mere entertainer, he harbors dark experiences from his past that fuel both his performances and his combat prowess. Mildly unhinged, people often find his mask and theatrical demeanor unsettling, but the music his lute plays is genuinely inspiring and calming.",
+  "history": "Originally a directionless street performer, Sarmenti discovered a mysterious melody in a cemetery that awakened his ambition. His newfound talent led him to perform at the royal court, where he faced cruel mockery and humiliation. In revenge, he performed the demonic melody, resulting in death and dismemberment of the whole court. Regretting his mistakes, he severed his own finger to rid himself of ability to ever again play the cursed melody. He now wanders, hoping to do better for the world, haunted by fragments of that forgotten tune.",
   "race": "Human",
   "gender": "Male",
   "religion": "None",
   "zodiac": "Pisces",
   "traits": [
     "Maniacal",
-    "Versatile",
+    "Unserious",
     "Theatrical",
     "Quipster"
   ],
@@ -65,8 +65,9 @@
   },
   "magic": "None",
   "notes": [
-    "Never removes his mask",
-    "Often talks in jokes and rhymes",
+    "Never removes his mask, and his presence is accompanied by the jingling bells on his attire",
+    "Treats even dire situations theatrically, always talking in rhymes or jokes",
+    "Laughs loudly when overtaken by emotion, good or bad",
     "Carries and plays his lute around the hamlet"
   ],
   "tags": [

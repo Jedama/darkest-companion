@@ -6,6 +6,7 @@ import { useEstateContext } from '../../contexts/EstateContext';
 import type { Character } from '../../../shared/types/types.ts';
 import { useModalContext } from '../../modals/ModalProvider';
 import { StoryModal } from '../../modals/StoryModal/StoryModal';
+import { RecruitModal } from '../../modals/RecruitModal/RecruitModal';
 import { ImageButton } from '../ui/buttons/ImageButton.tsx';
 
 import townEventButton from '../../assets/ui/views/manor/button_event.png';
@@ -103,8 +104,8 @@ export function ManorView({
   useInertiaScroll(gridRef);
 
   // Default fallback URLs (immediately available)
-  const defaultPortraitUrl = new URL(
-    '../../assets/ui/views/manor/defaultportrait_190x278.png',
+  const placeholderPortraitUrl = new URL(
+    '../../assets/characters/portrait/small/placeholder_190x278.png',
     import.meta.url
   ).href;
 
@@ -151,11 +152,7 @@ export function ManorView({
 
   function handleRecruitClick() {
     show(
-      <div style={{ padding: 20 }}>
-        <h2>New Recruit</h2>
-        <p>Recruit modal goes here.</p>
-        <button onClick={hide}>Close</button>
-      </div>
+      <RecruitModal onClose={hide} />
     );
   }
 
@@ -163,8 +160,8 @@ export function ManorView({
   function handlePortraitError(characterId: string) {
     setPortraits((prev) => {
       // avoid extra state updates if already default
-      if (prev[characterId] === defaultPortraitUrl) return prev;
-      return { ...prev, [characterId]: defaultPortraitUrl };
+      if (prev[characterId] === placeholderPortraitUrl) return prev;
+      return { ...prev, [characterId]: placeholderPortraitUrl };
     });
   }
 
@@ -175,7 +172,7 @@ export function ManorView({
           const frameIndex = Math.min(character.level, 6);
           const frameSrc = frameImages[frameIndex] ?? defaultFrameUrl;
 
-          const portraitSrc = portraits[character.identifier] ?? defaultPortraitUrl;
+          const portraitSrc = portraits[character.identifier] ?? placeholderPortraitUrl;
 
           return (
             <div
@@ -197,7 +194,7 @@ export function ManorView({
                   className="character-portrait"
                   onError={(e) => {
                     // DOM immediate fallback to stop broken-image icon
-                    (e.currentTarget as HTMLImageElement).src = defaultPortraitUrl;
+                    (e.currentTarget as HTMLImageElement).src = placeholderPortraitUrl;
                     handlePortraitError(character.identifier);
                   }}
                 />

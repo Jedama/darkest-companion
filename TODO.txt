@@ -1,3 +1,12 @@
+Share types (setupresponse) between front and backend
+Reset beat on day end and use days in logs
+Readd relationship lines to recruit if existing
+Order log chronologically, not importance
+
+
+
+
+
 Two-Event Structure:
 Event A: "Dungeon Complete - Return" (narrative)
 

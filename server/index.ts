@@ -5,10 +5,11 @@ import { loadEstate, listEstates, deleteEstate } from './fileOps.js';
 import type { Estate } from '../shared/types/types.js';
 
 import { createNewEstateAndSave } from './services/estateService.js';
-import logRoutes from './logs/logRoutes.js';
+import staticDataRoute from './routes/staticDataRoute.js';
 import setupEventRoute from './routes/setupEventRoute.js';
 import storyEventRoute from './routes/storyEventRoute.js';
 import consequencesEventRoute from './routes/consequencesEventRoute.js';
+import recruitEventRoute from './routes/recruitEventRoute.js';
 import StaticGameDataManager from './staticGameDataManager.js';
 
 const DEFAULT_CHARACTER_IDS = ['crusader', 'highwayman', 'heiress', 'kheir'];
@@ -19,10 +20,11 @@ const port = 3000;
 app.use(cors());
 app.use(express.json());
 
-app.use(logRoutes);
+app.use(staticDataRoute);
 app.use(setupEventRoute);
 app.use(storyEventRoute);
 app.use(consequencesEventRoute);
+app.use(recruitEventRoute);
 
 // Type for request params
 interface EstateParams {

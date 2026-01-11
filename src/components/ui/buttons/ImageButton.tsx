@@ -21,6 +21,8 @@ import {
     style?: CSSProperties;
     /** Optional CSS class name to apply to the button's root div */
     className?: string;
+    /** Disables interaction and applies grayscale */
+    disabled?: boolean;
   }
   
   /**
@@ -35,6 +37,7 @@ import {
     onClick,
     style,
     className,
+    disabled = false,
   }) => {
     const [isHovered, setIsHovered] = useState(false);
   
@@ -84,6 +87,12 @@ import {
      * Then we map the mouse's local (x, y) to those coordinates.
      */
     const handleMouseEvent = (evt: MouseEvent<HTMLDivElement>) => {
+      // If disabled, never hover or click
+      if (disabled) {
+        if (isHovered) setIsHovered(false);
+        return;
+      }
+      
       if (!imgLoaded) {
         // If the image isn’t loaded, can’t do alpha checks
         setIsHovered(false);
@@ -146,6 +155,7 @@ import {
           ...(height !== undefined && { height: height }),
           display: 'inline-block',
           pointerEvents: 'auto', // Ensure this div always receives events
+          cursor: disabled ? 'default' : undefined, // Show default cursor if disabled
           ...style,
         }}
         onMouseMove={handleMouseEvent}
@@ -166,8 +176,10 @@ import {
             pointerEvents: 'none',
             transition: 'transform 0.2s ease, filter 0.2s ease',
             // Example "grow/glow" if hovered
-            transform: isHovered ? 'scale(1.05)' : undefined,
-            filter: isHovered ? 'drop-shadow(0 0 6px white)' : undefined,
+            transform: (!disabled && isHovered) ? 'scale(1.05)' : undefined,
+            filter: disabled 
+              ? 'grayscale(100%) opacity(0.6)' 
+              : (isHovered ? 'drop-shadow(0 0 6px white)' : undefined),
           }}
           draggable={false}
         />

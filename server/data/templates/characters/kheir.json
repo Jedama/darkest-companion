@@ -4,9 +4,9 @@
   "name": "Percival",
   "level": 0,
   "money": 0,
-  "description": "The Heir to the estate is a brilliant scholar and capable manager who is trying to cope in this world of horrors far beyond his comfort. Despite his meek nature, Percival's keen intellect and organizational skills prove invaluable in coordinating the chaotic efforts to reclaim his ancestral home. Though he prefers the study, he reluctantly ventures into the dungeons when the quest demands it, determined to live up to the expectations of his Sister and their family name.",
-  "history": "Raised in academic circles far from the estate's dark legacy, Percival initially resisted his sister's summons. However, his sense of duty—and intellectual curiosity—ultimately drew him to the task. While he makes no pretense of physical courage, he is the backbone of the estate's logistics, handling its people with the same ease he manages its resources.",
-  "summary": "The meek, cowardly Heir, a brilliant scholar with a drinking problem, who struggles to cope with horrors and is very possessive of his belongings.",
+  "description": "A brilliant scholar and the estate's organizational backbone, the Heir manages logistics, resources, and personnel with sharp efficiency. He's argumentative when challenged on his expertise and surprisingly adept at organizing people like resources. However, he has no illusions about his courage, quickly falling to pieces when faced with the unexplainable, and relying on wine to steady his nerves.",
+  "history": "Raised in academic circles far from the estate's dark legacy, Percival was comfortable in libraries and lecture halls. When his sister initially received the Ancestor's letter he dismissed her summons, but family duty and a persistent goading drew him to the task.",
+  "summary": "The meek Heir, a brilliant scholar with a drinking problem, who struggles to cope with horrors and is very possessive of his belongings.",
   "race": "Human",
   "gender": "Male",
   "religion": "None",
@@ -66,9 +66,10 @@
   },
   "magic": "None",
   "notes": [
-    "Obsessively protective of his personal belongings.",
-    "Has a penchant for fine wines to calm his nerves.",
-    "Can be argumentative and sharp when in his element, but becomes quieter and withdrawn when frightened."
+    "Obsessively protective of his personal belongings",
+    "Has a penchant for fine wines to calm his nerves",
+    "Enjoys numbers and having control over everything",
+    "Dislikes public speaking"
   ],
   "tags": [
     "Flexible", "Weak", "Frail", "Healer", "StressHealer", "Blighter", "Debuffer",

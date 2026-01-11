@@ -4,8 +4,8 @@
   "name": "Gertrude",
   "level": 0,
   "money": 0,
-  "description": "The Itinerant Cook is an elderly, but strong woman. She is an experienced and world-wise traveling cook. Pragmatic and sometimes cynical, she excels in her culinary skills and firmly believes in the power of good food. She's resourceful, adaptable, and has faced numerous challenges in her long life.",
-  "history": "The Itinerant Cook has spent her life working across a wide range of settings from high-end kitchens to makeshift camp setups. Her travels have exposed her to diverse and often dangerous situations, which she has consistently survived. She has a dark side to her expertise, including knowledge of luring and slaughtering both beasts and people.",
+  "description": "An elderly traveling cook who hauls an enormous backpack filled with provisions, cooking gear, and ingredients she refuses to abandon despite the burden. Pragmatic and world-weary, she's survived decades through one philosophy: good food keeps you alive. She scavenges ingredients from even the most horrifying sources—monster corpses, toxic fungi, unidentifiable viscera—and transforms them into surprisingly effective meals. Her back aches, her pace is slow, but her experience is unmatched. She commands respect through age and competence, gruff in a matter-of-fact way.",
+  "history": "Gertrude has cooked in high-end kitchens and battlefield camps, fed nobles and refugees, and learned that survival comes down to one thing: never go hungry. After decades of feeding others, she took to the roads with an enormous pack of supplies, traveling wherever her skills were needed. Her knowledge extends beyond cooking; she knows how to lure, trap, and butcher anything that moves. Now she's arrived at the Estate, where she is needed most.",
   "race": "Human",
   "gender": "Female",
   "religion": "None",
@@ -35,8 +35,7 @@
   },
   "equipment": [
     "Chef's knife",
-    "Spoon",
-    "Vial of secret ingredient"
+    "Spoon"
   ],
   "appearance": {
     "height": "Short",
@@ -50,7 +49,7 @@
     "head": "Goggles",
     "body": "Apron over a tan tunic",
     "legs": "Dark trousers",
-    "accessories": "Red sash, Necklace with pendant, Enormous backpack"
+    "accessories": "Red sash, Necklace with pendant, enormous backpack"
   },
   "combat": {
     "role": "Support",
@@ -67,11 +66,9 @@
   },
   "magic": "None",
   "notes": [
-    "Has developed a disturbing taste, casually consuming raw specimens that make others retch",
-    "Refuses to reveal the contents of her 'secret ingredient' vial",
+    "The backpack she hauls everywhere is truly enormous, far larger than her, a full portable kitchen",
     "Insists companions eat more than they want, firmly believing undereating is more dangerous than overeating",
-    "Age has dulled her eyesight, requiring her to work primarily by touch and smell when preparing food",
-    "Always talks of surviving hardships, but quietly harbors a deep fear of dying alone"
+    "Talks of surviving hardships, but quietly harbors a deep fear of dying alone"
   ],
   "tags": [
     "Backline", "Immobile", "Healer", "Buffer", "MarkApplier", "Hider", "Debuffer", 

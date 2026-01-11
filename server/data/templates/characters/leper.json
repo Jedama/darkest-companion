@@ -4,13 +4,14 @@
   "name": "Baldwin",
   "level": 0,
   "money": 0,
-  "description": "A ruined man, warrior, and poet, the Leper is a former king who abandoned his throne after succumbing to a wasting disease. He wields a massive blade with raw power but lacking precision, channeling his life of trauma into devastating attacks or protective strength. Though his body is ravaged, he endures with unshakable resolve and a sense of quiet purpose.",
-  "history": "The Leper was a compassionate king known for his humility and kindness, often visiting the sick and dying against the protests of his advisors. It was during these visits that he contracted leprosy, sealing his fate as a cursed and broken man. When symptoms began to show, his advisors sought to exploit his vulnerability, plotting to usurp his throne and strip his kingdom of its wealth. Despite his declining health, Baldwin uncovered their treachery and took up his ceremonial, gold-plated sword—a symbol of his authority that had never been used in battle. Driven by fury and betrayal, he slaughtered the scheming advisors in a single night of bloody vengeance, before abdicating the throne and exiling himself. He now wanders the land as a warrior-poet, his body ravaged but his spirit unbroken, seeking redemption and solace in the beauty of the world.",
+  "description": "The Leper is a former king undone by disease and duty. Leprosy has ravaged his body, stealing his sight, his grace, and the face beneath his bronze mask—but not his strength. He swings his massive blade with the weight of his lost kingdom behind it, each strike devastating when it lands, though precision has long since abandoned him. His condition is advanced and visible, yet he neither hides nor apologizes—his mask a courtesy to others. Shunned by fear of contagion, he fills his isolation with poetry and quiet observation of the world's beauty.",
+  "history": "The Leper was a compassionate king who contracted leprosy while visiting the sick. When symptoms began to show, his advisors sought to exploit his vulnerability, plotting to usurp the throne. He uncovered their treachery, took up his ceremonial sword, slaughtered them all, and exiled himself before the disease could spread. Aware his time grows short, he has come to the Estate to spend his remaining strength in service—not of his lost kingdom, but of all humankind.",
   "race": "Human",
   "gender": "Male",
   "religion": "The Light",
   "zodiac": "Capricorn",
   "traits": [
+    "Humble",
     "Resolute",
     "Stoic",
     "Compassionate",
@@ -32,15 +33,15 @@
     "sociability": 3
   },
   "equipment": [
-    "Greatsword"
+    "Broken ceremonial greatsword"
   ],
   "appearance": {
     "height": "Tall",
-    "build": "Broad and muscular, before wasting",
+    "build": "Broad",
     "skinTone": "Dark",
     "hairColor": "Black",
     "hairStyle": "Lost to disease",
-    "features": "Scarred and disfigured skin, always concealed by a bronze mask."
+    "features": "Scarred and disfigured skin"
   },
   "clothing": {
     "head": "Bronze mask with narrow eye slits and a tattered hood",
@@ -52,20 +53,22 @@
     "role": "Frontliner",
     "strengths": [
       "High damage output",
-      "Armored",
+      "High durability",
       "Calm under pressure"
     ],
     "weaknesses": [
       "Inaccurate",
       "Slow",
-      "Long-range alternatives"
+      "Short range"
     ]
   },
   "magic": "None",
   "notes": [
-    "Always wears his mask, rarely revealing his disfigurement",
-    "Speaks in poetic, cryptic phrases",
-    "Despite his condition, he carries himself with quiet dignity and compassion for others"
+    "Speaks in brief, contemplative observations drawn from nature—snow, rain, petals, the changing seasons",
+    "Openly acknowledges his leprosy without shame or apology",
+    "Expects fear and revulsion from others and accepts it without bitterness",
+    "Leprosy has damaged his vision; the mask's narrow slits help him focus",
+    "Ruler of a great kingdom, some might know his reputation or enigmatic abdication"
   ],
   "tags": [
     "Frontline", "Immobile", "ShortReach", "Tank", "SelfSufficient", "Debuffer", "Disruptor", "Setup", 

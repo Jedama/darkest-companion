@@ -1,6 +1,6 @@
 // shared/types/types.ts
 // Domain order:
-// Estate → Character primitives → Character runtime/template → World (Locations/NPCs/Enemies) → Events → Modifiers → Logs → Helpers → Record types
+// Estate → Character primitives → Character runtime/template → World (Locations/NPCs/Enemies) → Events → Keywords → Logs → Helpers → Record types
 
 /* -------------------------------------------------------------------
  *  Estate (primary runtime state)
@@ -10,6 +10,7 @@ export type LlmProvider = "openai" | "anthropic" | "google" | "xai";
 
 export interface LogEntry {
   month: number; // in-game month the log occurred during
+  day: number; // in-game day the log occurred on
   beat: number; // a counter to order logs within the same month
   entry: string; // short description of what happened
   expiryMonth: number; // month when this log should expire
@@ -276,7 +277,7 @@ export interface EventData {
 }
 
 /* -------------------------------------------------------------------
- *  Keywords / Modifiers
+ *  Keywords
  * -------------------------------------------------------------------
  *  (No dedicated keyword types yet; using string[] in EventData.)
  * ------------------------------------------------------------------- */

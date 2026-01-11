@@ -1,0 +1,36 @@
+STRICT JSON FORMAT REQUIREMENTS:
+- Output contains "event_log" object and "characters" array as root keys
+- All character changes must relate to characters in the CHARACTERS list above
+- Use only the commands and fields below
+
+ROOT LEVEL FORMAT:
+{
+  "event_log": {
+    "entry": "string - objective summary of what transpired (REQUIRED)",
+    "timeframe": "transient" | "short_term" | "mid_term" | "long_term" | "permanent"
+  },
+  "characters": [...]
+}
+
+ALLOWED COMMANDS PER CHARACTER:
+{
+  "identifier": "string (MUST match character identifiers)",
+  "add_log?": { "entry": "string", "timeframe": "string" },
+  "update_description": "string",
+  "update_history": "string",
+  "update_stats?": { "strength?": ±number, "agility?": ±number, "intelligence?": ±number, "authority?": ±number, "sociability?": ±number },
+  "update_status?": { "description?": "string" },
+  "gain_traits?": ["string"],
+  "lose_traits?": ["string"],
+  "update_relationships?": [{ "target": "string", "affinity?": ±number, "dynamic?": "string", "description?": "string" }],
+  "update_appearance?": { "height?": "string", "build?": "string", "skinTone?": "string", "hairColor?": "string", "hairStyle?": "string", "features?": "string" },
+  "update_clothing?": { "head?": "string", "body?": "string", "legs?": "string", "other?": "string" },
+  "gain_wound?": "string",
+  "lose_wound?": "string",
+  "gain_disease?": "string",
+  "lose_disease?": "string",
+  "gain_note?": "string",
+  "lose_note?": "string",
+  "update_religion?": "string",
+  "death?": "string"
+}

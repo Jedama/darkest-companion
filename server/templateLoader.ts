@@ -402,7 +402,7 @@ function assertValidCharacterCountRange(
 }
 
 /* -------------------------------------------------------------------
- *  Keywords / Modifiers
+ *  Keywords
  * ------------------------------------------------------------------- */
 
 export async function loadTownKeywords(): Promise<string[]> {

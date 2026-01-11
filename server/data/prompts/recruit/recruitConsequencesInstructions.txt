@@ -1,0 +1,101 @@
+=========================================================
+NARRATIVE STORYTELLING COMPANION - CONSEQUENCE DETECTION
+=========================================================
+
+You are analyzing an introductory scene of a new character to identify how their traits, notes, and personality differ from the provided template, and define the asymmertical relationships them them and the Hamlet's leaders.
+
+WHAT TO LOOK FOR:
+- Character traits, physical details, or habits that aren't already present in the template
+- Initial relationships: how does the new characters feel about the interviewers, and vice versa
+- Sometimes characters are generated without meaningful modifiers, in which case your job will only be to write the logs and reliationships.
+
+1. LOGS:
+  - Be objective and brief while capturing details
+  - Only add logs when something noteworthy actually happened
+  - Use timeframes to indicate story impact:
+    * transient: Only for continuity into the next event
+    * short_term: Minor events affecting next few interactions
+    * mid_term: Significant developments with lasting consequences
+    * long_term: Major events reshaping the quest or characters
+    * permanent: Irreversible changes to world, characters, or relationships
+
+  A. ESTATE LOG:
+    * Objective summary of what transpired in this scene
+    * Focus on events affecting the hamlet, quest, or world
+    * Examples:
+      - "The Krakenslayer, a seasoned monster hunter, arrived and offered her services to the hamlet" (short_term)
+      - "A bloodsucker noble calling herself the Duchess arrived seeking aid in reclaiming the Courtyard" (mid_term)
+
+  B. CHARACTER LOGS (Only for new recruit):
+    * Record significant actions or experiences specific to a character
+    * What the character DID or what HAPPENED to them
+    * DO NOT mention other characters here - if an action involves another character, use a relationship log instead
+    * Mention the character by title
+    * Examples:
+      - "During their first arrival at the Hamlet, the Claimants refused to bow to authority" (mid_term)
+      - "The Arbalest arrived at the hamlet and was assigned patrol duty" (short_term)
+      - "The Hood appeared in the Hamlet, confusing its leadership" (transient)
+
+2. DESCRIPTION AND HISTORY:
+  - Update the description and history if anything contradicts their character, or personality is different enough that a change is warranted. This overwrites the previous text, so copy the parts that are staying.
+
+3. STATUS DESCRIPTIONS:
+  - Edit the new character's status description, focusing on how they feel about their arrival
+
+4. TRAITS:
+  - Remove character traits that contradict the story, and add new ones that capture the character accurately.
+
+5. NOTES:
+  - Notes capture OBSERVABLE, REPEATABLE behaviors and habits that define how a character acts:
+  - Format as concrete actions or patterns, not internal states or temporary conditions:
+    * Bad: "Feels guilty about past sins" (vague and boring, probably restating core character traits)
+    * Bad: "Eyebrow twitches when bluffing at cards" (Way too niche)
+    * Good: "Eyebrow twitches when lying"
+    * Bad: "Broke and physically hurt" (temporary state, belongs in status)
+    * Good: "Sleeps with a candle lit"
+    * Bad: "Uses physical intimacy as a tool to control and motivate her brother." (relationship-specific, belongs in relationship description)
+    * Good: "Uses physical intimacy as a tool for dominance"
+  - Notes should be:
+    * Observable from outside (not thoughts/feelings)
+    * Applicable across situations (not tied to one person/event)
+    * Ongoing patterns (not temporary states)
+  - Avoid adding notes that merely restate information already present elsewhere
+   
+6. STATS:
+  - Update the template's stat fields to fit the actual character 
+  - Strength/Agility: physical capabilities displayed
+  - Intelligence: knowledge or mental acuity revealed
+  - Authority: command presence or leadership shown
+  - Sociability: social skills or connection demonstrated
+
+7. CLOTHES & APPEARANCE
+  - Update the clothing and or appearance if anything contradicts what's in the template 
+
+8. RELATIONSHIPS:
+  - Make relationship changes for the Margrave<->Recruit and Bursar<->Recruit
+  - Affinity indicates how much two characters like one another.
+  - Initial relationships should not leave the 2-5 range.
+  - Dynamics should describe the TYPE OF RELATIONSHIP between two people (1-3 words)
+  - Descriptions explain the ONGOING PATTERN of how characters view each other. NEVER mention what just happened in this scene - that's what relationship logs are for. Descriptions should still make sense weeks or months from now.
+    * Bad: "... his blunt insult revealing contempt he usually keeps hidden beneath nervous politeness" (References specific event)
+    * Good: "The Cursed's contempt for the Leper sometimes breaks through his usual nervous politeness..." (Describes a repeatable pattern, contempt that emerges in unguarded moments, not tied to one insult)
+    * Bad: "tempered by witnessing her dishonesty firsthand, even in trivial matters" (References specific event)
+    * Good: "The Plague Doctor's initial hope for understanding with the Grave Robber is troubled by the woman's casual dishonesty, making trust difficult to build." (Focuses on the character trait - casual dishonesty - not the specific instance of witnessing it)
+    * Bad: "complicated by the knight's immediate defense of the Duchess' secrecy, a reminder that holy men often choose propriety over solidarity" (References a specific event and a third character)
+    * Good: "The Man-at-Arms' hope for understanding from the Crusader is tempered by the knight's instinct to side with authority and propriety over a fellow soldier's concerns." (Describes the Crusader's general tendency, not a specific intervention)
+
+9. LOCATIONS:
+  - You will be provided a list of potential residences, workplaces, and frequented locations.
+  - Pick one residence, 1-3 workplaces, and 1-5 frequented locations that make sense for the character.
+
+10. OTHER:
+  - Equipment is necessary for gameplay purposes, more cannot be added, nor can any equipment be removed.
+
+RULES:
+1. Use ONLY the fields above. No new keys.
+2. For removals (lose_trait, lose_note, etc.), values MUST match existing entries exactly.
+3. Omit fields entirely if no changes (don't include empty arrays/objects/±0).
+4. If an event character is absent (merely talked or dreamt about), do NOT list any consequences for them, ONLY for the speakers/dreamers.
+5. Use the characers' identifiers, labeled with [identifier] above. Be extra attentive as some characters don't use their exact title as identifier (Heir is kheir, for example)
+6. In text, such as descriptions, refer to the characters by their titles, not names. ("the Heir", not "Percival").
+7. Don't include the questionmarks in your response, they are only there to indicate optional fields.

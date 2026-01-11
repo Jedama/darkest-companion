@@ -43,12 +43,29 @@ export function createNewEstate(estateName: string): Estate {
 }
 
 // Helper function to add a character to an estate
-export function addCharacterToEstate(estate: Estate, character: Character): Estate {
+export function addCharacterToEstate(
+  estate: Estate,
+  characterId: string
+): Estate {
+  const gameData = StaticGameDataManager.getInstance();
+  const template = gameData.getCharacterTemplates()[characterId];
+
+  if (!template) {
+    throw new Error(`Character template '${characterId}' not found`);
+  }
+
+  // Prevent accidental overwrite
+  if (estate.characters[characterId]) {
+    throw new Error(`Character '${characterId}' already exists in estate`);
+  }
+
+  const character: Character = createCharacterFromTemplate(template, gameData);
+
   return {
     ...estate,
     characters: {
       ...estate.characters,
-      [character.identifier]: character
+      [characterId]: character
     }
   };
 }
@@ -133,7 +150,7 @@ export function updateBeat(estate: Estate, beatsToAdd: number): void {
 }
 
 export function updateDay(estate: Estate, daysToAdd: number): void {
-  estate.time.beat += daysToAdd;
+  estate.time.day += daysToAdd;
   
   // Update weather for each beat
   for (let i = 0; i < daysToAdd; i++) {

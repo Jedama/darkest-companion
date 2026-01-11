@@ -1,0 +1,138 @@
+  EXAMPLE CONSEQUENCES:
+
+  Below are examples demonstrating well-formatted consequences. Note how:
+  - Event log captures the main plot development (always required)
+  - Character and Relationship logs always mention the involved character(s) by Title
+  - Status descriptions are general and focus on CONDITION, not actions
+  - Relationship descriptions explain ongoing dynamics, not specific events
+  - How the relationship log in example 3 is only added once
+
+============================================================
+EXAMPLE 1: No modifiers (Base template Krakenslayer arrives)
+============================================================
+In this examples, the Heiress serves as Margrave and the Heir as Bursar.
+
+{
+  "event_log": {
+    "entry": "The Krakenslayer, a professional monster hunter, arrived and negotiated terms for her services",
+    "timeframe": "short_term"
+  },
+  "characters": [
+    {
+      "identifier": "krakenslayer",
+      "add_log": { "entry": "The Krakenslayer claimed first rights to any trophy from her kills during negotiations", "timeframe": "transient" },
+      "update_status": { "description": "In good health and eager for worthy prey" },
+      "update_relationships": [
+        { "target": "heiress", "affinity": 1, "dynamic": "Professional Respect", "description": "The Krakenslayer recognizes the Heiress as a competent leader worth working for, though she maintains her independence and cares little for command." },
+        { "target": "kheir", "dynamic": "Dismissive Tolerance", "description": "The Krakenslayer views the Heir as a necessary functionary but pays little attention to his concerns or nervousness." }
+      ]
+    },
+    {
+      "identifier": "margrave",
+      "update_relationships": [
+        { "target": "krakenslayer", "dynamic": "Pragmatic Alliance", "description": "The Margrave sees the Krakenslayer as a valuable but potentially difficult asset—skilled enough to overlook her territorial attitude and condescension." }
+      ]
+    },
+    {
+      "identifier": "bursar",
+      "update_relationships": [
+        { "target": "krakenslayer", "affinity": -1, "dynamic": "Wary Acceptance", "description": "The Bursar finds the Krakenslayer's aggressive confidence unsettling but recognizes the hamlet's need for her skills." }
+      ]
+    }
+  ]
+}
+
+====================================================================
+EXAMPLE 2: Larger changes from the template (Short, haughty, and temperamental)
+====================================================================
+In this examples, the Duchess serves as Margrave and the Curator as Bursar.
+
+{
+  "event_log": {
+    "entry": "The Leper, a former king afflicted with advanced leprosy and anger issues, arrived offering his service",
+    "timeframe": "short_term"
+  },
+  "characters": [
+    {
+      "identifier": "leper",
+      "update_description": "The Leper is a former king ruined by disease. Leprosy has ravaged his body, stealing his sight, his grace, and the face beneath his bronze mask—but not his strength. He swings his massive blade with the weight of his lost monarchy, each strike devastating when it lands, though precision has long since abandoned him. His condition is advanced and visible, something he despises when others treat him worse for. Shunned by fear of contagion, he qiuckly loses his temper and let's his strengh speak for itself."
+      "update_history": "The Leper was a haughty king who contracted leprosy while visiting the sick. When symptoms began to show, his advisors sought to exploit his vulnerability, plotting to usurp the throne. He uncovered their treachery, took up his ceremonial sword, and slaughtered them all. The aftermath led him to be exiled. Aware his time grows short, he has come to the Estate to spend his remaining strength venting out his frustration on the Estate's eldritch enemies."
+      "add_log": { "entry": "The Leper wrecked the Council Chamber desk upon arriving at the hamlet", "timeframe": "mid_term" },
+      "gain_traits": ["Temperamental", "Irritable"],
+      "lose_traits": ["Stoic", "Unbreakable", "Compassionate"]
+      "gain_notes": [
+        "Speaks with cynicism and fond memories of his memories as king.
+        "Expects respects form others, and gets frustrated when his condition is met with revulsion instead"
+      ],
+      "lose_notes": [
+        "Speaks in brief, contemplative observations drawn from nature—snow, rain, petals, the changing seasons",
+        "Expects fear and revulsion from others and accepts it without bitterness"
+      ]
+      "update_stats": { "strength": 1, "intelligence": -1, "authority": 1, "sociability": 1 },
+      "update_status": { "description": "Tempestous and fuming" },
+      "update_appearance": { "height": "Short", "build": "Muscular" },
+      "update_relationships": [
+        { "target": "duchess", "affinity": -2, "dynamic": "Building hatred", "description": "The Leper despises the Duchess' incessant questioning undermining his own authority." },
+        { "target": "curator", "affinity": -1, "dynamic": "Dismissive dislike", "description": "The Leper sees the Curator as someone weak, pathetic, an undeserving of leadership." }
+      ],
+      "update_locations": {
+        residence: ["abbey_pri"]
+      }
+    },
+    {
+      "identifier": "duchess",
+      "update_relationships": [
+        { "target": "leper", "affinity": 1, "dynamic": "Scheming facsination", "description": "The Duchess sees the Leper's anger and power as something to be controlled, and a powerful asset necessary for their quest." }
+      ]
+    },
+    {
+      "identifier": "curator",
+      "update_relationships": [
+        { "target": "leper", "affinity": -2, "dynamic": "Abject Fear", "description": "The Curator is terrified of the Leper's anger, staying away from him as best he can." }
+      ]
+    }
+  ]
+}
+
+========================================
+EXAMPLE 3: Unsettling Zealot Offers Service
+========================================
+{
+  "event_log": {
+    "entry": "A vagrant flagellant arrived bearing extensive self-inflicted wounds and claiming divine purpose",
+    "timeframe": "short_term"
+  },
+  "characters": [
+    {
+      "identifier": "flagellant",
+      "add_log": { "entry": "The Flagellant revealed his scarred torso, which he calls 'The Testament'", "timeframe": "transient" },
+      "add_relationship_log": { "target": "bursar", "entry": "The Flagellant's display of his scars caused the Bursar to look away in discomfort", "timeframe": "transient" },
+      "gain_traits": ["Zealous", "Masochistic", "Devout", "Fervent", "Unsettling"],
+      "gain_notes": [
+        "Speaks in improvised religious doctrine mixed with scripture fragments",
+        "Denies himself comfort—turns his back to fires, walks barefoot",
+        "Views his scars as 'The Testament,' a living document of devotion",
+        "Experiences visible ecstasy when wounded",
+        "Treats near-death experiences as rapturous religious moments"
+      ],
+      "update_stats": { "strength": 7, "intelligence": 4, "authority": 5 },
+      "update_status": { "physical": 80, "mental": 90, "description": "Covered in fresh and old wounds, but radiating fervent energy" },
+      "update_relationships": [
+        { "target": "margrave", "affinity": 6, "dynamic": "Divine Mission", "description": "The Flagellant sees the Margrave as an instrument of divine will, a shepherd chosen by the Light to guide him toward holy suffering." },
+        { "target": "bursar", "affinity": 4, "dynamic": "Pitying Concern", "description": "The Flagellant views the Bursar's fear and wine-dependence as spiritual weakness requiring salvation through pain." }
+      ]
+    },
+    {
+      "identifier": "margrave",
+      "update_relationships": [
+        { "target": "flagellant", "affinity": 3, "dynamic": "Disturbed Pragmatism", "description": "The Margrave finds the Flagellant deeply unsettling but recognizes that someone who welcomes pain may prove invaluable against horrors." }
+      ]
+    },
+    {
+      "identifier": "bursar",
+      "update_relationships": [
+        { "target": "flagellant", "affinity": 1, "dynamic": "Visceral Revulsion", "description": "The Bursar is disturbed by the Flagellant's self-mutilation and religious fervor, finding his presence genuinely difficult to tolerate." }
+      ]
+    }
+  ]
+}

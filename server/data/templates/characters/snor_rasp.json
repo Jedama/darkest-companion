@@ -4,11 +4,11 @@
   "name": "Anastasia",
   "level": 0,
   "money": 0,
-  "description": "The Martyr, is a devout follower of a pain-worshipping sect. Guarded by Yuzupov, she has near-immortality and uses a thorn whip in combat. Her presence is both an asset and liability, enduring suffering to protect others while seeking danger for her faith.",
-  "history": "The Martyr's extreme devotion caught Yuzupov's attention, granting her near-immortality. She now views the estate's horrors as a pilgrimage to test her faith and endurance.",
+  "description": "A devotee of pain-worship accompanied by Yuzupov, a shadowy spirit who grants her near-immortality. The Martyr eagerly throws herself into danger to shield others, viewing suffering as both religious devotion and genuine pleasure. She wields a thorn whip used more for self-discipline than combat",
+  "history": "Raised in chambers dedicated to pain-worship, Anastasia's devotion attracted Yuzupov, a spirit who bound itself to her and granted immortality in exchange for endless suffering. Now she wanders seeking greater trials, viewing the Estate's horrors as the perfect pilgrimage to test her faith's limits and protect those too weak to endure what she craves.",
   "race": "Human",
   "gender": "Female",
-  "religion": "Yuzupov's",
+  "religion": "The Light",
   "zodiac": "Pisces",
   "traits": [
     "Devoted",
@@ -53,18 +53,18 @@
   "combat": {
     "role": "Frontliner",
     "strengths": [
-      "High pain tolerance",
-      "Morale booster"
+      "High pain tolerance"
     ],
     "weaknesses": [
-      "Weak",
+      "Physically weak",
       "Single-minded"
     ]
   },
   "magic": "Spirit-granted near-immortality",
   "notes": [
-    "Constantly seeks out pain and dangerous situations",
-    "Finds pleasure in cutting, entangling, and strangling herself with her thorn whip"
+    "Punctuates speech, pain especially, with enthusiastic gasps: 'Hiii!', 'Ahh!'",
+    "Speaks encouragingly to others about pain in an unsettling, casual manner",
+    "Finds pleasure in strangling herself with her thorn whip"
   ],
   "tags": [
     "Frontline", "Immobile", "Tank", "Guarder", "Healer", "Disruptor", "Debuffer", "Executor", 

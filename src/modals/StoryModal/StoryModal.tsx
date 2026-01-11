@@ -3,8 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import { DeckComponent } from './DeckComponent';
 import { CardComponent } from './CardComponent';  
-import { ImageButton } from '../../components/ui/buttons/ImageButton.tsx';
 import { ActivityLog } from './ActivityLog.tsx';
+import { ImageButton } from '../../components/ui/buttons/ImageButton.tsx';
+import { parseFormattedText } from '../../utils/textUtils';
 import './StoryModal.css';
 import './ActivityLog.css';
 
@@ -21,9 +22,10 @@ interface SetupResponse {
   npcs: string[];
   bystanders: Array<{
     characterId: string;
-    connectionType: 'residence' | 'workplace' | 'frequent';
+    connectionType: string;
   }>;
   enemies: string[];
+  keywords: string[];
 }
 
 interface StoryResponse {
@@ -118,7 +120,8 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
             locations: setupData.locations,
             npcIds: setupData.npcs,
             enemyIds: setupData.enemies,
-            bystanders: setupData.bystanders
+            bystanders: setupData.bystanders,
+            keywords: setupData.keywords
           }),
           signal,
         }
@@ -272,7 +275,9 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
           <h1 className="story-title">{storyTitle}</h1>
           <div className="story-body">
             {storyBody.split('\n').map((line, idx) => (
-              <p key={idx}>{line}</p>
+              <p key={idx}>
+                {parseFormattedText(line)}
+              </p>
             ))}
           </div>
 

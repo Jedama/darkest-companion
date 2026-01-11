@@ -14,6 +14,7 @@ export interface SetupEventOptions {
   characterIds?: string[];
   enemyIds?: string[];
   description?: string; // Currently unused, but prepared for future usage
+  modifiers?: string[]; // For recruitment quirks (if provided: ONLY keywords used)
 }
 
 export interface ResolvedCharacters {
@@ -103,16 +104,23 @@ function getRequiredCharacterIdsFromRoles(estate: Estate, event: EventData): str
   return dedupePreserveOrder(ids);
 }
 
+// NEW: normalize modifiers into keywords (dedupe + trim + drop empties)
+function resolveKeywordsFromModifiers(modifiers?: string[]): string[] | null {
+  if (!Array.isArray(modifiers)) return null;
+  const cleaned = dedupePreserveOrder(modifiers);
+  return cleaned.length > 0 ? cleaned : null;
+}
+
 /* -------------------------------------------------------------------
  *  Resolvers
  * ------------------------------------------------------------------- */
 
 function resolveEvent(options: SetupEventOptions): EventData {
   const gameData = StaticGameDataManager.getInstance();
-  
+
   const requestedCount = options.characterIds?.length ?? 0;
   const filterCount = Math.min(requestedCount, 4);
-  
+
   // 1. Specific Event Requested
   if (options.eventId) {
     const event = gameData.getEventById(options.eventId);
@@ -138,16 +146,12 @@ function resolveEvent(options: SetupEventOptions): EventData {
       return maxAllowed >= filterCount;
     });
 
-    // If no events that support the requested count of characters was found, throw error
     if (compatible.length === 0) {
-      throw new Error(
-        `No compatible town events found for requested character count ${filterCount}.`
-      );
+      throw new Error(`No compatible town events found for requested character count ${filterCount}.`);
     }
 
     eventIds = compatible;
   }
-
 
   const randomId = eventIds[Math.floor(Math.random() * eventIds.length)];
   console.log(`Picked random event: ${townEvents[randomId].identifier}`);
@@ -166,7 +170,7 @@ function resolveCharacters(
   options: SetupEventOptions
 ): ResolvedCharacters {
   const allEstateCharIds = Object.keys(estate.characters);
-  
+
   // 1. Determine Event Range
   const [minRequired, maxAllowed] = event.characterCount;
 
@@ -176,13 +180,12 @@ function resolveCharacters(
   let selected: string[] = [...requiredByRoleIds];
   let overflowCharacterIds: string[] = [];
 
-  // If roles already exceed max, this event is impossible
+  // If roles already exceed max, overflow extras
   if (selected.length > maxAllowed) {
-    throw new Error(
-      `Event '${event.identifier}' requires ${selected.length} role characters, but maxAllowed is ${maxAllowed}.`
-    );
+    overflowCharacterIds = selected.slice(maxAllowed);
+    selected = selected.slice(0, maxAllowed);
   }
-  
+
   // 3. Add user selections (if any)
   if (options.characterIds && options.characterIds.length > 0) {
     // Validate they exist
@@ -195,19 +198,18 @@ function resolveCharacters(
     selected = dedupePreserveOrder([...selected, ...options.characterIds]);
   }
 
-  // 4. Truncate if User provided too many for this specific event
+   // 4. Truncate if too many for this specific event
   if (selected.length > maxAllowed) {
-    overflowCharacterIds = selected.slice(maxAllowed);   // capture extras
-    selected = selected.slice(0, maxAllowed);            // keep participants
+    const extras = selected.slice(maxAllowed);
+    overflowCharacterIds = dedupePreserveOrder([...overflowCharacterIds, ...extras]);
+    selected = selected.slice(0, maxAllowed);
   }
 
   // 5. Determine finalCharacterCount
-  let finalCharacterCount = Math.floor(
-    Math.random() * (maxAllowed - minRequired + 1)
-  ) + minRequired;
+  let finalCharacterCount =
+    Math.floor(Math.random() * (maxAllowed - minRequired + 1)) + minRequired;
 
   // Ensure finalCharacterCount isn't smaller than what the user explicitly asked for
-  // (e.g. range 1-4, user provided 3, random rolled 2 -> force it to 3)
   if (selected.length > finalCharacterCount) {
     finalCharacterCount = selected.length;
   }
@@ -217,10 +219,12 @@ function resolveCharacters(
 
   if (remainingSlots > 0) {
     // Filter out characters already selected
-    const pool = allEstateCharIds.filter(id => !selected.includes(id));
+    const pool = allEstateCharIds.filter((id) => !selected.includes(id));
 
     if (pool.length < remainingSlots) {
-      throw new Error(`Not enough spare characters in estate to fill event. Needed ${remainingSlots}, have ${pool.length}.`);
+      throw new Error(
+        `Not enough spare characters in estate to fill event. Needed ${remainingSlots}, have ${pool.length}.`
+      );
     }
 
     // Shuffle pool
@@ -286,10 +290,7 @@ function resolveEventNpcs(params: {
 /**
  * Combines event and town keywords.
  */
-export function pickKeywords(
-  eventKeywords: string[],
-  townKeywords: string[]
-): string[] {
+export function pickKeywords(eventKeywords: string[], townKeywords: string[]): string[] {
   // Create weighted pool: event keywords appear 3x each
   const weightedPool: string[] = [
     ...eventKeywords,
@@ -297,20 +298,20 @@ export function pickKeywords(
     ...eventKeywords, // Event keywords 3x more likely
     ...townKeywords
   ];
-  
+
   // Remove duplicates while preserving weight effect
   const combined = Array.from(new Set(weightedPool));
-  
+
   // Shuffle
   for (let i = combined.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [combined[i], combined[j]] = [combined[j], combined[i]];
   }
-  
+
   // Take first 4 unique keywords
   const chosen: string[] = [];
   const seen = new Set<string>();
-  
+
   for (const kw of combined) {
     if (!seen.has(kw)) {
       chosen.push(kw);
@@ -318,16 +319,15 @@ export function pickKeywords(
       if (chosen.length === 4) break;
     }
   }
-  
+
   // Still guarantee at least one event keyword
   const eventKeywordsSet = new Set(eventKeywords);
   const hasEventKeyword = chosen.some((kw) => eventKeywordsSet.has(kw));
   if (!hasEventKeyword && eventKeywords.length > 0) {
-    const randomEventKeyword =
-      eventKeywords[Math.floor(Math.random() * eventKeywords.length)];
+    const randomEventKeyword = eventKeywords[Math.floor(Math.random() * eventKeywords.length)];
     chosen[chosen.length - 1] = randomEventKeyword;
   }
-  
+
   return chosen;
 }
 
@@ -336,63 +336,54 @@ export function pickKeywords(
  * ------------------------------------------------------------------- */
 
 export async function setupEvent(
-  estateName: string, 
+  estate: Estate,
   options: SetupEventOptions = {}
 ): Promise<{
-  event: EventData;
+  event: EventData;                 // template, unmodified
   chosenCharacterIds: string[];
   locations: LocationData[];
   npcs: string[];
   enemies: string[];
   bystanders: Bystander[];
+  keywords: string[];
 }> {
   const gameData = StaticGameDataManager.getInstance();
 
-  // Dedup characterIds (order-preserving)
   const dedupedCharacterIds = options.characterIds
     ? dedupePreserveOrder(options.characterIds)
     : undefined;
 
-  const userEnemyIds = options.enemyIds
-    ? dedupePreserveOrder(options.enemyIds)
-    : [];
+  const userEnemyIds = options.enemyIds ? dedupePreserveOrder(options.enemyIds) : [];
+
+  const dedupedModifiers = options.modifiers ? dedupePreserveOrder(options.modifiers) : undefined;
 
   const normalizedOptions: SetupEventOptions = {
     ...options,
-    characterIds: dedupedCharacterIds
+    characterIds: dedupedCharacterIds,
+    modifiers: dedupedModifiers
   };
 
-  // 1. Load Estate
-  const estate = await loadEstate(estateName);
-  if (!estate) {
-    throw new Error(`Estate '${estateName}' not found`);
-  }
+  // 2. Resolve Event Template (Specific or Random)
+  const event = resolveEvent(normalizedOptions); // <-- NO CLONE, NO MUTATION
 
-  // 2. Resolve Event (Specific or Random)
-  const template = resolveEvent(normalizedOptions);
-
-  // Clone to avoid mutating shared data
-  const event: EventData = typeof structuredClone === 'function'
-    ? structuredClone(template)
-    : JSON.parse(JSON.stringify(template));
-
-  // 2a. Validate Enemy IDs if provided
+  // 2a. Enemies (already separate)
   const eventEnemyIds = Array.isArray(event.enemies)
     ? dedupePreserveOrder(event.enemies)
     : [];
 
-    // Use event enemies if specified, so user doesn't overwrite important story elements (bosses, etc)
-    const enemies = eventEnemyIds.length > 0 ? eventEnemyIds : userEnemyIds;
-
+  const enemies = eventEnemyIds.length > 0 ? eventEnemyIds : userEnemyIds;
   validateEnemyIds(enemies);
-  
-  // 3. Resolve Keywords
-  const townKeywords = gameData.getTownKeywords();
-  event.keywords = pickKeywords(event.keywords || [], townKeywords);
 
-  // 4. Resolve Characters (Specific or Random)
+  // 3. Resolve Keywords (NOW separate)
+  const modifierKeywords = resolveKeywordsFromModifiers(normalizedOptions.modifiers);
+
+  const keywords = modifierKeywords
+    ? modifierKeywords
+    : pickKeywords(event.keywords || [], gameData.getTownKeywords());
+
+  // 4. Resolve Characters
   const { chosenCharacterIds, overflowCharacterIds } =
-  resolveCharacters(estate, event, normalizedOptions);
+    resolveCharacters(estate, event, normalizedOptions);
 
   // 5. Resolve Location & Context
   let locations: LocationData[] = [];
@@ -409,12 +400,11 @@ export async function setupEvent(
 
     locations = result.locations;
     bystanders = result.bystanders;
-    
+
     const eventNpcIds = Array.isArray(event.npcs) ? dedupePreserveOrder(event.npcs) : [];
     const locationNpcIds = Array.isArray(result.npcs) ? dedupePreserveOrder(result.npcs) : [];
     const randomCount = Number.isInteger(event.randomNPCs) ? Math.max(0, event.randomNPCs!) : 0;
 
-    // Pull random NPCs from ALL town NPCs
     const townNpcPoolIds = Object.keys(gameData.getNPCsByCategory('town'));
 
     npcs = resolveEventNpcs({
@@ -425,5 +415,5 @@ export async function setupEvent(
     });
   }
 
-  return { event, chosenCharacterIds, locations, npcs, enemies, bystanders };
+  return { event, chosenCharacterIds, locations, npcs, enemies, bystanders, keywords };
 }

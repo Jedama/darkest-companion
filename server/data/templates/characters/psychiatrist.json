@@ -4,8 +4,8 @@
   "name": "Charles",
   "level": 0,
   "money": 0,
-  "description": "An urbane and sophisticated psychiatrist whose reassuring demeanor conceals a sinister purpose. The Therapist uses a twisted blend of medical science and eldritch power to create codependency, offering temporary relief at the cost of his patients' free will. He views the broken souls of the Estate not as people to be healed, but as subjects to be 'fixed' and bound to his service, all while battling his own addictions and the whispers of his abyssal patron.",
-  "history": "Once a brilliant but frustrated doctor, the Therapist sought a true cure for the plagues of the mind. His ambition led him to a pact with a sinister entity he calls 'Father,' granting him profound power to manipulate the psyche. His philosophy warped: why cure illness when you can control it? Now, he preys on the desperate, creating a cycle of reliance that serves both his god-complex and the unknowable agenda of the being he serves.",
+  "description": "A brilliant psychiatrist who made a pact with an eldritch entity to gain power over the human mind. The Therapist treats his patients not to heal them, but to bind them in cycles of dependency and control. He presents himself with urbane sophistication, offering sedatives and therapy that provide temporary relief while ensuring long-term reliance.",
+  "history": "Once a successful psychiatrist, Charles grew frustrated with the slow progress of traditional treatment. His search for better methods led him to contact with an otherworldly entity called 'Father', gaining abilities to directly alter minds and emotions. Rather than seeking cures, he now focuses on managing symptoms and establishing dependence.",
   "summary": "A sophisticated but manipulative Therapist who uses eldritch power disguised as science to create codependent patients, all while battling his own addictions and fear of losing control.",
   "race": "Human",
   "gender": "Male",
@@ -35,8 +35,7 @@
     "sociability": 5
   },
   "equipment": [
-    "Outdated Pistol",
-    "Suspicious Sedative"
+    "Dueling Pistol"
   ],
   "appearance": {
     "height": "Average",
@@ -56,21 +55,22 @@
     "role": "Backline Controller",
     "strengths": [
       "Stress manipulation",
-      "Powerful debuffs and buffs",
-      "Disrupting enemy formations"
+      "Buffs and debuffs",
+      "Disruption"
     ],
     "weaknesses": [
-      "Physically fragile",
-      "Low direct damage output",
+      "Fragile",
+      "Low damage",
       "Dangerous side-effects"
     ]
   },
-  "magic": "A pact with an eldritch entity he calls 'Father'. He channels its power through twisted psychiatric methods, allowing him to alter minds, bestow boons with insidious costs, and commune with the abyss.",
+  "magic": "An eldritch pact allowing him to alter minds, bestow boons, and commune with the abyss",
   "notes": [
-    "Refers to his otherworldly patron simply as 'Father'.",
-    "Uses alcohol and gambling as vices to cope with the mental strain of his pact.",
-    "Meticulous about his appearance, especially his pocket watch and suit, to maintain an illusion of control.",
-    "Sees his 'patients' less as people and more as experiments in his grand, twisted philosophy."
+    "Uses alcohol, cocaine, and gambling as vices",
+    "Meticulous about his appearance",
+    "Uses clinical terminology and speaks in therapeutic language",
+    "Checks his pocket watch frequently",
+    "Calls his fountain pen 'Devil's Reach'"
   ],
   "tags": [
     "Backline", "StressHealer", "Buffer", "Debuffer", "Stunner", "Disruptor", "GuardBreaker", "Abrasive",

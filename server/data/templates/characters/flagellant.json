@@ -4,8 +4,8 @@
   "name": "Damien",
   "level": 0,
   "money": 0,
-  "description": "A zealous devotee who finds power and religious ecstasy through self-inflicted pain. Once a vagrant, Damien discovered his calling after a violent encounter, leading him to dedicate his life to suffering as a form of worship and atonement.",
-  "history": "Formerly a destitute wanderer in the city, Damien's life changed when he was attacked by drunks. The pain awakened a fervent religious conviction within him, leading him to join the clergy and later seek out suffering as a form of spiritual enlightenment.",
+  "description": "The Flagellant is a religious extremist who discovered divine power through self-inflicted suffering. Now he wanders, seeking fresh torments and offering to consume others' sins by accepting their violence upon his flesh. His scarred body is a living document of devotion.",
+  "history": "Damien was a listless vagrant until drunks beat him bloody in an alley. As his tooth cracked and vision went crimson, he discovered something profound: pain was power, suffering was sacrament. He joined the clergy and worked in the church's dungeons, administering punishment with such zealous fervor that his brethren grew frightened and cast him out. Each wound fueled his rapture. When Death came for him with her scythe, he defied her through sheer ecstasy in suffering.",
   "race": "Human",
   "gender": "Male",
   "religion": "The Light",
@@ -65,10 +65,9 @@
   },
   "magic": "None",
   "notes": [
-    "Speaks in a mix of improvised religious doctrine and fragments of actual scripture",
-    "Views his scarred flesh as 'The Testament' - a living document of his devotion to the Light",
-    "Refers to his flail as 'The Burden'",
-    "Becomes more powerful the closer he is to death"
+    "Denies himself comfort: turning his back to fires, walks barefoot",
+    "His visible ecstasy when wounded is unsettling to most",
+    "Becomes raptorous when stressed, joyously dispensing pain on himself, enemies, and allies alike"
   ],
   "tags": [
     "Frontline", "ShortReach", "Tank", "Healer", "StressHealer", "Bleeder", "Cleanser", 

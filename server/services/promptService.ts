@@ -38,6 +38,29 @@ ${formatTimeSinceEvent(estate.time.month + 1)} have passed since the Ancestor's 
   return contextTemplate.replace(/\$\{estateName\}/g, estate.name);
 }
 
+export function compileRecruitContext(estate: Estate, gameData: StaticGameDataManager): string {
+  
+  const zodiac = getZodiacForMonth(estate.time.month);
+
+  // Use a simple template literal with placeholders
+  let contextTemplate = `
+    [Instructions]
+${gameData.getPromptRecruitInstructions()}
+
+    [Context]
+${gameData.getPromptRecruitBackstory()}
+
+PRESENT DAY:
+It is the month of ${zodiac.name}. ${zodiac.text}
+${formatTimeSinceEvent(estate.time.month)} have passed since the Heir and Heiress begun the quest to reclaim the Estate.
+
+    
+  `;
+
+  // Replace all placeholders like ${estateName} at the very end
+  return contextTemplate.replace(/\$\{estateName\}/g, estate.name);
+}
+
 export interface ConsequencePrompt {
   event_log: EventLog;  // Required single event log entry
   characters: CharacterConsequence[];

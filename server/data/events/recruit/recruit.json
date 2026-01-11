@@ -1,0 +1,19 @@
+[
+  {
+    "identifier": "recruit_0",
+    "title": "Introduction",
+    "type": "recruit",
+    "description": "[Character 3] has arrived to the Hamlet, by the Caretaker's stagecoach along the southwestern 'old road', by other means, or simply showing up, and now stands before its Margrave ([Character 1]) and Bursar ([Character 2]) in the strategy room, surrounded by maps of corrupted territories. The two introduce themselves and ask [Character 3] about their background and motivations.",
+    "characterCount": [3, 3],
+    "keywords": [],
+    "location": {
+        "default": ["town_hall__council_chamber", "dower_house__parlor", "dower_house__study", "inn__common"],
+        "residence": [],
+        "workplaces": [],
+        "frequents": [],
+        "allowAll": false,
+        "allowParentLocations": false
+    },
+    "roles": ["margrave", "bursar"]
+  }
+]

@@ -537,6 +537,7 @@ function processEstateLog(estate: Estate, consequence: ConsequenceLogEntry): voi
   // Create a new log entry
   const logEntry: LogEntry = {
     month: estate.time.month, // Current month from estate
+    day: estate.time.day,     // Current day from estate
     beat: estate.time.beat, // Current beat from estate
     entry: consequence.entry,
     expiryMonth: calculateExpiryMonth(estate.time.month, consequence.timeframe)
@@ -579,6 +580,7 @@ function processAddLog(estate: Estate, character: Character, consequence: Charac
   // Create a new log entry
   const logEntry: LogEntry = {
     month: estate.time.month, // Current month from estate
+    day: estate.time.day,     // Current day from estate
     beat: estate.time.beat, // Current beat from estate
     entry: consequence.add_log.entry,
     expiryMonth: calculateExpiryMonth(estate.time.month, consequence.add_log.timeframe)
@@ -622,6 +624,7 @@ function processAddRelationshipLog(
   // Create the log entry
   const logEntry: RelationshipLogEntry = {
     month: estate.time.month,
+    day: estate.time.day,
     beat: estate.time.beat,
     entry: entry,
     target: target, // From source character's perspective
@@ -631,6 +634,7 @@ function processAddRelationshipLog(
   // Create mirror log for target character
   const mirrorLogEntry: RelationshipLogEntry = {
     month: estate.time.month,
+    day: estate.time.day,
     beat: estate.time.beat,
     entry: entry,
     target: character.identifier, // From target's perspective
