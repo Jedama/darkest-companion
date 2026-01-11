@@ -1,6 +1,6 @@
 // server/services/characterService.ts
-import type { Character, CharacterTemplate, CharacterStatus } from '../../shared/types/types.js';
-import StaticGameDataManager from '../staticGameDataManager.js';
+import type { Character, CharacterTemplate, CharacterStatus } from '../../../shared/types/types.js';
+import StaticGameDataManager from '../../staticGameDataManager.js';
 
 /**
  * Creates a full Character instance from a template, adding default dynamic data.

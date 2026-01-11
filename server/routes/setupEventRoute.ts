@@ -1,6 +1,6 @@
 // server/routes/setupEventRoute.ts
 import { Router, Request, Response } from 'express';
-import { setupEvent } from '../services/setupEventService.js';
+import { setupEvent } from '../services/story/setupEventService.js';
 import { loadEstate } from '../fileOps.js';
 
 const router = Router();

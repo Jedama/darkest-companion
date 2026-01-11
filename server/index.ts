@@ -4,7 +4,7 @@ import cors from 'cors';
 import { loadEstate, listEstates, deleteEstate } from './fileOps.js';
 import type { Estate } from '../shared/types/types.js';
 
-import { createNewEstateAndSave } from './services/estateService.js';
+import { createNewEstateAndSave } from './services/game/estateService.js';
 import staticDataRoute from './routes/staticDataRoute.js';
 import setupEventRoute from './routes/setupEventRoute.js';
 import storyEventRoute from './routes/storyEventRoute.js';

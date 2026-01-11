@@ -159,6 +159,7 @@ export interface CharacterTemplate {
   title: string;
   name: string;
   description: string;
+  summary: string;
   history: string;
   race: string;
   gender: string;

@@ -1,7 +1,7 @@
 // server/services/estateService.ts
-import type { Estate, Character, CharacterRecord } from '../../shared/types/types.js';
-import { saveEstate, listEstates } from '../fileOps.js';
-import StaticGameDataManager from '../staticGameDataManager.js';
+import type { Estate, EstateRoles, Character, CharacterRecord } from '../../../shared/types/types.js';
+import { saveEstate, listEstates } from '../../fileOps.js';
+import StaticGameDataManager from '../../staticGameDataManager.js';
 import { createCharacterFromTemplate } from './characterService.js';
 import { generateInitialWeather, updateWeatherForDay } from './weatherService.js';
 import { getZodiacForMonth } from './calendarService.js';
@@ -133,6 +133,25 @@ export async function createNewEstateAndSave(
 
   // 6. Return the successful result
   return newEstate;
+}
+
+// Get a character by role
+export function getCharacterByRole(
+  estate: Estate, 
+  role: keyof EstateRoles
+): Character | undefined {
+  const characterId = estate.roles[role];
+  
+  if (!characterId) {
+    return undefined;
+  }
+  
+  if (Array.isArray(characterId)) {
+    // Handle the 'council' case which is an array
+    return undefined; // or throw an error, or return the first council member
+  }
+  
+  return estate.characters[characterId];
 }
 
 export function updateBeat(estate: Estate, beatsToAdd: number): void {

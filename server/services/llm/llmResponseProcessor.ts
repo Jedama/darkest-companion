@@ -3,8 +3,8 @@
 // Imports → Domain constants → Types → Public API (parsing/display/mutation)
 // → Internal processors → Internal utilities
 
-import type { Character, Estate, LogEntry, RelationshipLogEntry } from '../../shared/types/types.ts';
-import { updateBeat, updateDay } from './estateService.js';
+import type { Character, Estate, LogEntry, RelationshipLogEntry } from '../../../shared/types/types.ts';
+import { updateBeat, updateDay } from '../game/estateService.js';
 
 /* -------------------------------------------------------------------
  *  Domain constants
@@ -34,6 +34,8 @@ export interface CharacterConsequence {
   identifier: string;
   add_log?: ConsequenceLogEntry;
   add_relationship_log?: ConsequenceLogEntry & { target: string };
+  update_description?: string;
+  update_history?: string;
   update_stats?: {
     strength?: number;
     agility?: number;
@@ -484,6 +486,8 @@ export function applyConsequences(estate: Estate, consequences: ConsequencesResu
     // Process each consequence type
     processAddLog(updatedEstate, character, characterConsequence);
     processAddRelationshipLog(updatedEstate, character, characterConsequence);
+    processUpdateDescription(character, characterConsequence);
+    processUpdateHistory(character, characterConsequence);
     processUpdateStats(character, characterConsequence);
     processUpdateStatus(character, characterConsequence);
     processTraits(character, characterConsequence);
@@ -645,6 +649,21 @@ function processAddRelationshipLog(
   estate.relationshipLogs[character.identifier].push(logEntry);
   estate.relationshipLogs[target].push(mirrorLogEntry);
 }
+
+/**
+ * Update a character's description or history
+ */
+
+function processUpdateDescription(character: Character, consequence: CharacterConsequence): void {
+  if (!consequence.update_description?.trim()) return;
+  character.description = consequence.update_description;
+}
+
+function processUpdateHistory(character: Character, consequence: CharacterConsequence): void {
+  if (!consequence.update_history?.trim()) return;
+  character.history = consequence.update_history;
+}
+
 
 /**
  * Update a character's stats based on consequences

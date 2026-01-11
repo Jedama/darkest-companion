@@ -7,11 +7,7 @@ import type {
   EventData,
   LocationData,
   NPC,
-} from '../../shared/types/types.ts';
-
-import { compileRecruitContext } from './promptService.js';
-import { filterLogs } from './logService.js';
-import StaticGameDataManager from '../staticGameDataManager.js';
+} from '../../../shared/types/types.js';
 
 const MAX_GUIDANCE_LENGTH = 1000;
 
@@ -123,8 +119,9 @@ export function buildCharactersSection(involvedCharacters: Character[]): string 
   return lines.join('');
 }
 
-export function buildRelationshipLines(involvedCharacters: Character[]): string {
+export function buildRelationshipSection(involvedCharacters: Character[]): string {
   const lines: string[] = [];
+  lines.push(`\n[Relationships]\n`);
 
   for (const charA of involvedCharacters) {
     for (const charB of involvedCharacters) {

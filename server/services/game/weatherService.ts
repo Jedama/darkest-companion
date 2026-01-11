@@ -1,5 +1,5 @@
 // server/services/weatherService.ts
-import type { Weather, ZodiacSeason } from '../../shared/types/types.js';
+import type { Weather, ZodiacSeason } from '../../../shared/types/types.js';
 
 /**
  * Convert a float weather value to an integer tier (1-9) for description generation

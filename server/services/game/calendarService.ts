@@ -1,6 +1,6 @@
 // server/services/calendarService.ts
-import type { ZodiacSeason, Estate } from '../../shared/types/types.js';
-import StaticGameDataManager from '../staticGameDataManager.js';
+import type { ZodiacSeason, Estate } from '../../../shared/types/types.js';
+import StaticGameDataManager from '../../staticGameDataManager.js';
 
 export function getZodiacForMonth(month: number): ZodiacSeason {
   const zodiacs: ZodiacSeason[] = StaticGameDataManager.getInstance().getZodiacSeasons();

@@ -3,10 +3,10 @@ import type { Estate } from '../../shared/types/types.js';
 import { Router, Request, Response } from 'express';
 import { loadEstate, saveEstate } from '../fileOps.js';
 import { callLLM } from '../services/llm/llmService.js';
-import { compileConsequencesPrompt } from '../services/consequencesEventService.js';
-import { validateConsequenceUpdate, formatConsequenceUpdate } from '../services/promptService.js';
-import type { ConsequencePrompt } from '../services/promptService.js';
-import { applyConsequences, ConsequencesResult, prepareConsequenceDisplay, ensureAllCharactersHaveConsequences } from '../services/llmResponseProcessor.js';
+import { validateConsequenceUpdate, formatConsequenceUpdate } from '../services/llm/promptService.js';
+import type { ConsequencePrompt } from '../services/llm/promptService.js';
+import { compileConsequencesPrompt } from '../services/story/consequencesEventService.js';
+import { applyConsequences, ConsequencesResult, prepareConsequenceDisplay, ensureAllCharactersHaveConsequences } from '../services/llm/llmResponseProcessor.js';
 
 const router = Router();
 

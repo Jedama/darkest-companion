@@ -32,6 +32,8 @@ import {
   loadTownKeywords,
 } from './templateLoader.js';
 
+import { loadPromptsFromIndex } from './promptRegistry.js';
+
 // Import from the strategy registry. The registry is the ultimate source of truth
 // for all available strategies and their default values.
 import { generateDefaultWeights } from './services/townHall/expeditionStrategies/strategyRegistry.js';
@@ -191,18 +193,14 @@ class StaticGameDataManager {
    *  Prompts
    * ------------------------------------------------------------------- */
 
-  private promptMonthText: ElapsedMonthText[] = [];
-  private promptStoryInstructions = '';
-  private promptStoryBackstory = '';
-  private promptConsequenceInstructions = '';
-  private promptConsequenceFormat = '';
-  private promptConsequenceExamples = '';
-  private promptRecruitInstructions = '';
-  private promptRecruitBackstory = '';
-  private promptRecruitConsequenceInstructions = '';
-  private promptRecruitConsequenceFormat = '';
-  private promptRecruitConsequenceExamples = '';
+  private prompts: Record<string, string> = {};
+
   private promptZodiacSeasons: ZodiacSeason[] = [];
+  private promptMonthText: ElapsedMonthText[] = [];
+
+  /* -------------------------------------------------------------------
+   *  Initialization
+   * ------------------------------------------------------------------- */
 
   private constructor() {}
 
@@ -212,10 +210,6 @@ class StaticGameDataManager {
     }
     return StaticGameDataManager.instance;
   }
-
-  /* -------------------------------------------------------------------
-   *  Initialization
-   * ------------------------------------------------------------------- */
 
   public async initialize(): Promise<void> {
     if (this.initialized) {
@@ -239,17 +233,8 @@ class StaticGameDataManager {
         eventsByCategory,
         townKeywords,
         elapsedMonthText,
-        promptStoryInstructions,
-        promptStoryBackstory,
-        promptConsequenceInstructions,
-        promptConsequenceFormat,
-        promptConsequenceExamples,
-        promptRecruitInstructions,
-        promptRecruitBackstory,
-        promptRecruitConsequenceInstructions,
-        promptRecruitConsequenceFormat,
-        promptRecruitConsequenceExamples,
         zodiacSeasons,
+        prompts
       ] = await Promise.all([
         // Characters / relationships / meta
         loadCharacterTemplates(),
@@ -268,17 +253,9 @@ class StaticGameDataManager {
 
         // Prompts
         loadJsonFile<ElapsedMonthText[]>(`${promptsBasePath}/game/elapsedMonthText.json`),
-        loadTextFile(`${promptsBasePath}/story/storyInstructions.txt`),
-        loadTextFile(`${promptsBasePath}/story/storyBackstory.txt`),
-        loadTextFile(`${promptsBasePath}/consequences/consequencesInstructions.txt`),
-        loadTextFile(`${promptsBasePath}/consequences/consequencesFormat.txt`),
-        loadTextFile(`${promptsBasePath}/consequences/consequencesExamples.txt`),
-        loadTextFile(`${promptsBasePath}/recruit/recruitInstructions.txt`),
-        loadTextFile(`${promptsBasePath}/recruit/recruitBackstory.txt`),
-        loadTextFile(`${promptsBasePath}/recruit/recruitConsequenceInstructions.txt`),
-        loadTextFile(`${promptsBasePath}/recruit/recruitConsequenceFormat.txt`),
-        loadTextFile(`${promptsBasePath}/recruit/recruitConsequenceExamples.txt`),
         loadJsonFile<ZodiacSeason[]>(`${promptsBasePath}/game/zodiacSeasons.json`),
+
+        loadPromptsFromIndex(promptsBasePath),
       ]);
 
       // Characters / relationships / meta
@@ -300,17 +277,8 @@ class StaticGameDataManager {
 
       // Prompts
       this.promptMonthText = elapsedMonthText;
-      this.promptStoryInstructions = promptStoryInstructions;
-      this.promptStoryBackstory = promptStoryBackstory;
-      this.promptConsequenceInstructions = promptConsequenceInstructions;
-      this.promptConsequenceFormat = promptConsequenceFormat;
-      this.promptConsequenceExamples = promptConsequenceExamples;
-      this.promptRecruitInstructions = promptRecruitInstructions;
-      this.promptRecruitBackstory = promptRecruitBackstory;
-      this.promptRecruitConsequenceInstructions = promptRecruitConsequenceInstructions;
-      this.promptRecruitConsequenceFormat = promptRecruitConsequenceFormat;
-      this.promptRecruitConsequenceExamples = promptRecruitConsequenceExamples;
       this.promptZodiacSeasons = zodiacSeasons;
+      this.prompts = prompts;
 
       // Build lookup maps
       this.buildLocationMap();
@@ -334,6 +302,7 @@ class StaticGameDataManager {
       console.log(`- ${totalEvents} total events across categories`);
       console.log(`- ${totalNpcs} total NPCs across categories`);
       console.log(`- ${Object.keys(this.enemies).length} enemies`);
+      console.log(`- ${Object.keys(this.prompts).length} prompts`);
     } catch (error) {
       console.error('Failed to initialize StaticGameDataManager:', error);
       throw error;
@@ -509,59 +478,18 @@ class StaticGameDataManager {
     return this.promptMonthText;
   }
 
-  public getPromptStoryInstructions(): string {
-    this.ensureInitialized();
-    return this.promptStoryInstructions;
-  }
-
-  public getPromptStoryBackstory(): string {
-    this.ensureInitialized();
-    return this.promptStoryBackstory;
-  }
-
-  public getPromptConsequenceInstructions(): string {
-    this.ensureInitialized();
-    return this.promptConsequenceInstructions;
-  }
-  
-  public getPromptConsequenceFormat(): string {
-    this.ensureInitialized();
-    return this.promptConsequenceFormat;
-  }
-  
-  public getPromptConsequenceExamples(): string {
-    this.ensureInitialized();
-    return this.promptConsequenceExamples;
-  }
-
-  public getPromptRecruitInstructions(): string {
-    this.ensureInitialized();
-    return this.promptRecruitInstructions;
-  }
-
-  public getPromptRecruitBackstory(): string {
-    this.ensureInitialized();
-    return this.promptRecruitBackstory;
-  }
-
-  public getPromptRecruitConsequenceInstructions(): string {
-    this.ensureInitialized();
-    return this.promptRecruitConsequenceInstructions;
-  }
-  
-  public getPromptRecruitConsequenceFormat(): string {
-    this.ensureInitialized();
-    return this.promptRecruitConsequenceFormat;
-  }
-  
-  public getPromptRecruitConsequenceExamples(): string {
-    this.ensureInitialized();
-    return this.promptRecruitConsequenceExamples;
-  }
-  
   public getZodiacSeasons(): ZodiacSeason[] {
     this.ensureInitialized();
     return this.promptZodiacSeasons;
+  }
+
+  public getPrompt(key: string): string {
+    this.ensureInitialized();
+    const text = this.prompts[key];
+    if (!text) {
+      throw new Error(`Missing prompt for key "${key}". Check ./data/prompts/index.json`);
+    }
+    return text;
   }
 }
 

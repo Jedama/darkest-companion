@@ -1,5 +1,5 @@
-import { Estate, Character, EventData, LocationData, Bystander } from '../../shared/types/types';
-import StaticGameDataManager from '../staticGameDataManager.js';
+import { Estate, Character, EventData, LocationData, Bystander } from '../../../shared/types/types';
+import StaticGameDataManager from '../../staticGameDataManager.js';
 
 const TOWN_SCOPE_ROOT = "hamlet";
 const STOP_ROOTS = new Set(["hamlet", "estate", "kingdom"]);

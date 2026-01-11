@@ -1,9 +1,8 @@
 // server/services/setupEventService.ts
-import { loadEstate } from '../fileOps';
-import StaticGameDataManager from '../staticGameDataManager.js';
-import { pickEventLocation } from './locationService';
+import StaticGameDataManager from '../../staticGameDataManager.js';
+import { pickEventLocation } from '../game/locationService';
 
-import type { Estate, EventData, LocationData, Bystander } from '../../shared/types/types.ts';
+import type { Estate, EventData, LocationData, Bystander } from '../../../shared/types/types';
 
 // Constants
 const MAX_SCENE_NPCS = 6;

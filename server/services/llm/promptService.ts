@@ -1,8 +1,8 @@
 // server/services/promptService.ts
-import type { CharacterRecord, Estate } from '../../shared/types/types.js';
-import StaticGameDataManager from '../staticGameDataManager.js';
-import { getZodiacForMonth, formatTimeSinceEvent } from './calendarService.js';
-import { generateWeatherDescription, generateWeatherChangeDescription } from './weatherService.js';
+import type { CharacterRecord, Estate } from '../../../shared/types/types.js';
+import StaticGameDataManager from '../../staticGameDataManager.js';
+import { getZodiacForMonth, formatTimeSinceEvent } from '../game/calendarService.js';
+import { generateWeatherDescription, generateWeatherChangeDescription } from '../game/weatherService.js';
 
 /**
  * Compiles the full context prompt for the LLM from pre-loaded data.
@@ -20,10 +20,10 @@ export function compileNarrativeContext(estate: Estate, gameData: StaticGameData
   // Use a simple template literal with placeholders
   let contextTemplate = `
     [Instructions]
-${gameData.getPromptStoryInstructions()}
+${gameData.getPrompt('story.instructions')}
 
     [Context]
-${gameData.getPromptStoryBackstory()}
+${gameData.getPrompt('story.backstory')}
 
 PRESENT DAY:
 It is the month of ${zodiac.name}. ${zodiac.text}
@@ -45,10 +45,10 @@ export function compileRecruitContext(estate: Estate, gameData: StaticGameDataMa
   // Use a simple template literal with placeholders
   let contextTemplate = `
     [Instructions]
-${gameData.getPromptRecruitInstructions()}
+${gameData.getPrompt('recruit.instructions')}
 
     [Context]
-${gameData.getPromptRecruitBackstory()}
+${gameData.getPrompt('recruit.backstory')}
 
 PRESENT DAY:
 It is the month of ${zodiac.name}. ${zodiac.text}

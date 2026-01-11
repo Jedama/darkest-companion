@@ -1,6 +1,6 @@
 // services/consequencesEventService.ts
-import type { Estate, Character } from '../../shared/types/types';
-import StaticGameDataManager from '../staticGameDataManager.js';
+import type { Estate, Character } from '../../../shared/types/types';
+import StaticGameDataManager from '../../staticGameDataManager.js';
 
 /**
  * compileConsequencesPrompt
@@ -15,9 +15,9 @@ export async function compileConsequencesPrompt(options: {
   const { estate, story, chosenCharacterIds } = options;
 
   const gameData = StaticGameDataManager.getInstance();
-  const consequenceInstructions = gameData.getPromptConsequenceInstructions();
-  const consequenceFormat = gameData.getPromptConsequenceFormat();
-  const consequenceExamples = gameData.getPromptConsequenceExamples();
+  const consequenceInstructions = gameData.getPrompt('story.consequence.instructions');
+  const consequenceFormat = gameData.getPrompt('story.consequence.format');
+  const consequenceExamples = gameData.getPrompt('story.consequence.examples');
 
   // 1. Gather characters
   const involvedCharacters: Character[] = chosenCharacterIds.map((id) => estate.characters[id]);

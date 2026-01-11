@@ -55,16 +55,15 @@
     "role": "Healer & Controller",
     "strengths": [
       "Powerful spells",
-      "Knowledge of the unknown",
-      "Ability to weaken enemies"
+      "Knowledge",
+      "Debuffs"
     ],
     "weaknesses": [
-      "Physically vulnerable",
-      "Mentally strained",
-      "Dependent on magical abilities"
+      "Weak",
+      "Unreliable"
     ]
   },
-  "magic": "Eldritch tenacle summoning",
+  "magic": "Eldritch tenacle summoning and curses",
   "notes": [
     "Constantly hears whispers from eldritch entities",
     "Has sacrificed parts of himself for power"

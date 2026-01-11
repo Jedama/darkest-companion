@@ -1,7 +1,7 @@
 // server/routes/storyEventRoute.ts
 import { Router, Request, Response } from 'express';
-import { compileStoryPrompt } from '../services/storyEventService';
-import { separateStoryTitle } from '../services/llmResponseProcessor.js';
+import { compileStoryPrompt } from '../services/story/storyEventService';
+import { separateStoryTitle } from '../services/llm/llmResponseProcessor.js';
 import { loadEstate } from '../fileOps';
 import { callLLM } from '../services/llm/llmService.js';
 import type { Estate } from '../../shared/types/types.ts';

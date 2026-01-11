@@ -1,0 +1,15 @@
+{
+  "story.instructions": "story/instructions.txt",
+  "story.backstory": "story/backstory.txt",
+
+  "story.consequence.instructions": "story/consequenceInstructions.txt",
+  "story.consequence.format": "story/consequenceFormat.txt",
+  "story.consequence.examples": "story/consequenceExamples.txt",
+
+  "recruit.instructions": "recruit/instructions.txt",
+  "recruit.backstory": "recruit/backstory.txt",
+
+  "recruit.consequence.instructions": "recruit/consequenceInstructions.txt",
+  "recruit.consequence.format": "recruit/consequenceFormat.txt",
+  "recruit.consequence.examples": "recruit/consequenceExamples.txt"
+}

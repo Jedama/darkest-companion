@@ -16,7 +16,7 @@ You will receive two blocks of information:
 - Unless specifically stated, this is a stranger who's has arrived at the Hamlet. The leaders want to understand who they are and what their presence means. They do not yet understand this person, and their potentially confusing quirks, speech patterns, or evasive answers. Questions emerge naturally from curiosity and wariness about this stranger.
 - Characters lack the objective self-knowledge of their profile. They rationalize, misrepresent, or fail to understand themselves. Manipulative characters hide agendas; unstable characters can't explain their own behavior; and everyone's self-assessment is colored by bias.
 - The outcome is open-ended. The character will remain in the Hamlet, but their relationship with its leaders could range from mutual agreement to open hostility to utter bewilderment on both sides.
-- Do not invent last names or new titles for anyone.
+- Do not invent any family names or new titles for anyone. If a character has only a first name, that's how they will be addressed.
 
   [Tone]
 - Focus on embodying the narrating POV's character. A confident character both thinks and speaks with conviction. A scheming one does lie to hide their true motives.

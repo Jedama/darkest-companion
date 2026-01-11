@@ -1,19 +1,17 @@
 // server/routes/recruitEventRoute.ts
 import { Router, Request, Response } from 'express';
-import { setupEvent } from '../services/setupEventService.js';
-import { compileRecruitPrompt } from '../services/recruitEventService';
-import { separateStoryTitle } from '../services/llmResponseProcessor.js';
 import { saveEstate, loadEstate } from '../fileOps';
 import { callLLM } from '../services/llm/llmService.js';
-import { compileConsequencesPrompt } from '../services/consequencesEventService.js';
-import { validateConsequenceUpdate, formatConsequenceUpdate } from '../services/promptService.js';
-import { applyConsequences, prepareConsequenceDisplay, ensureAllCharactersHaveConsequences } from '../services/llmResponseProcessor.js';
+import { setupEvent } from '../services/story/setupEventService.js';
+import { compileRecruitPrompt, compileRecruitConsequencesPrompt } from '../services/recruit/recruitEventService.js';
+import { validateConsequenceUpdate, formatConsequenceUpdate } from '../services/llm/promptService.js';
+import { applyConsequences, separateStoryTitle, ensureAllCharactersHaveConsequences } from '../services/llm/llmResponseProcessor.js';
 
 import type { Estate } from '../../shared/types/types.ts';
 import type { LLMRequest } from "../services/llm/llmService.js";
-import type { ConsequencePrompt } from '../services/promptService.js';
-import type { ConsequencesResult } from '../services/llmResponseProcessor.js';
-import { addCharacterToEstate } from '../services/estateService.js';
+import type { ConsequencePrompt } from '../services/llm/promptService.js';
+import type { ConsequencesResult } from '../services/llm/llmResponseProcessor.js';
+import { addCharacterToEstate } from '../services/game/estateService.js';
 
 
 const router = Router();
@@ -73,15 +71,16 @@ router.post('/estates/:estateName/events/recruit', async (req: Request, res: Res
 
     // 6. Extract title from response
     const { title, body } = separateStoryTitle(recruitResponse);
-    const consequencesPrompt = await compileConsequencesPrompt({
+    const consequencesPrompt = await compileRecruitConsequencesPrompt({
       estate,
       story: body,
-      chosenCharacterIds: setupResult.chosenCharacterIds
+      chosenCharacterIds: setupResult.chosenCharacterIds,
+      keywords: setupResult.keywords
     });
 
     console.log('Story:', body);
 
-    /*const response = await callLLM({
+    const response = await callLLM({
       provider,
       model,
       prompt: consequencesPrompt,

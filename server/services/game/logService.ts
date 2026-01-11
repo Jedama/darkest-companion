@@ -7,7 +7,7 @@ import type {
   Estate,
   LogEntry,
   RelationshipLogEntry,
-} from '../../shared/types/types.ts';
+} from '../../../shared/types/types.ts';
 
 /* -------------------------------------------------------------------
  *  Constants (tune here)
@@ -38,7 +38,7 @@ const STAKES_PENALTY_REPEAT_CHARACTER_LOG_OWNER = 50;
 const STAKES_PENALTY_OWNER_ALREADY_IN_SELECTED_REL = 15;
 const STAKES_PENALTY_REL_USES_ALREADY_USED_REL_CHAR = 80;
 
-// Optional: prevent returning the same exact log twice if it appears in multiple stores
+// Prevent returning the same exact log twice if it appears in multiple stores
 const DEDUPE_ENABLED = true;
 
 /* -------------------------------------------------------------------
@@ -49,6 +49,7 @@ type UnifiedLog =
   | {
       kind: 'estate';
       month: number;
+      day: number;
       beat: number;
       expiryMonth: number;
       entry: string;
@@ -60,6 +61,7 @@ type UnifiedLog =
       kind: 'character';
       ownerId: string;
       month: number;
+      day: number;
       beat: number;
       expiryMonth: number;
       entry: string;
@@ -71,6 +73,7 @@ type UnifiedLog =
       a: string; // sorted id
       b: string; // sorted id
       month: number;
+      day: number;
       beat: number;
       expiryMonth: number;
       entry: string;
@@ -91,7 +94,7 @@ type SelectionState = {
 /**
  * filterLogs
  * Returns ordered strings like:
- * "3 months ago: [log text]"
+ * "3 months, 5 days ago: [log text]"
  *
  * Rules:
  * - Includes estate logs, character logs, and relationship logs where BOTH characters are among `characters`.
@@ -101,6 +104,7 @@ type SelectionState = {
  */
 export function filterLogs(estate: Estate, characters: Character[]): string[] {
   const currentMonth = estate.time.month;
+  const currentDay = estate.time.day ?? 0;
   const includedIds = new Set(characters.map((c) => c.identifier));
 
   // 1) Normalize all logs into a single list
@@ -139,7 +143,7 @@ export function filterLogs(estate: Estate, characters: Character[]): string[] {
 
   // 6) Format (no headings; caller can add headings if desired)
   const lines = [...glueOrdered, ...stakesOrdered].map((l) =>
-    formatLogLine(currentMonth, l)
+    formatLogLine(currentMonth, currentDay, l)
   );
 
   return lines;
@@ -156,15 +160,17 @@ function normalizeLogs(estate: Estate, includedIds: Set<string>): UnifiedLog[] {
   if (estate.estateLogs?.length) {
     for (const e of estate.estateLogs) {
       const beat = (e as any).beat ?? 0;
+      const day = (e as any).day ?? 0;
 
       out.push({
         kind: 'estate',
         month: e.month,
+        day,
         beat,
         expiryMonth: e.expiryMonth,
         entry: e.entry,
         involvedCharacterIds: [],
-        key: makeEstateKey(e, beat),
+        key: makeEstateKey(e, beat, day),
       });
     }
   }
@@ -177,16 +183,18 @@ function normalizeLogs(estate: Estate, includedIds: Set<string>): UnifiedLog[] {
 
       for (const l of logs) {
         const beat = (l as any).beat ?? 0;
+        const day = (l as any).day ?? 0;
 
         out.push({
           kind: 'character',
           ownerId,
           month: l.month,
+          day,
           beat,
           expiryMonth: l.expiryMonth,
           entry: l.entry,
           involvedCharacterIds: [ownerId],
-          key: makeCharacterKey(ownerId, l, beat),
+          key: makeCharacterKey(ownerId, l, beat, day),
         });
       }
     }
@@ -207,17 +215,19 @@ function normalizeLogs(estate: Estate, includedIds: Set<string>): UnifiedLog[] {
         const [a, b] = sortPair(ownerId, targetId);
 
         const beat = (r as any).beat ?? 0;
+        const day = (r as any).day ?? 0;
 
         out.push({
           kind: 'relationship',
           a,
           b,
           month: r.month,
+          day,
           beat,
           expiryMonth: r.expiryMonth,
           entry: r.entry,
           involvedCharacterIds: [a, b],
-          key: makeRelationshipKey(a, b, r, beat),
+          key: makeRelationshipKey(a, b, r, beat, day),
         });
       }
     }
@@ -350,14 +360,31 @@ function computeBreadthPenalty(
  * ------------------------------------------------------------------- */
 
 function recencyKey(log: UnifiedLog): number {
-  // Month dominates; beat breaks ties within month.
-  // Assumes beat increments monotonically with story generation.
-  return log.month * 1000 + log.beat;
+  // Month and day both contribute to recency; beat breaks ties within the same day.
+  // Assumes ~30 days per month for scaling.
+  return log.month * 30000 + log.day * 1000 + log.beat;
 }
 
-function formatLogLine(currentMonth: number, log: UnifiedLog): string {
-  const monthsAgo = Math.max(0, currentMonth - log.month);
-  return `${monthsAgo} months ago: ${log.entry}`;
+function formatLogLine(currentMonth: number, currentDay: number, log: UnifiedLog): string {
+  const totalCurrentDays = currentMonth * 30 + currentDay;
+  const totalLogDays = log.month * 30 + log.day;
+  const daysAgo = Math.max(0, totalCurrentDays - totalLogDays);
+  
+  const monthsAgo = Math.floor(daysAgo / 30);
+  const remainingDays = daysAgo % 30;
+  
+  let timeStr = '';
+  if (monthsAgo > 0 && remainingDays > 0) {
+    timeStr = `${monthsAgo} months, ${remainingDays} days ago`;
+  } else if (monthsAgo > 0) {
+    timeStr = `${monthsAgo} months ago`;
+  } else if (remainingDays > 0) {
+    timeStr = `${remainingDays} days ago`;
+  } else {
+    timeStr = 'today';
+  }
+  
+  return `${timeStr}: ${log.entry}`;
 }
 
 function dedupeUnifiedLogs(logs: UnifiedLog[]): UnifiedLog[] {
@@ -378,15 +405,15 @@ function sortPair(a: string, b: string): [string, string] {
 }
 
 // Stable-ish keys (structure-only; avoids reading/modifying entry text)
-function makeEstateKey(e: LogEntry, beat: number): string {
-  return `estate|m:${e.month}|b:${beat}|x:${e.expiryMonth}|t:${e.entry}`;
+function makeEstateKey(e: LogEntry, beat: number, day: number): string {
+  return `estate|m:${e.month}|d:${day}|b:${beat}|x:${e.expiryMonth}|t:${e.entry}`;
 }
 
-function makeCharacterKey(ownerId: string, l: LogEntry, beat: number): string {
-  return `char|o:${ownerId}|m:${l.month}|b:${beat}|x:${l.expiryMonth}|t:${l.entry}`;
+function makeCharacterKey(ownerId: string, l: LogEntry, beat: number, day: number): string {
+  return `char|o:${ownerId}|m:${l.month}|d:${day}|b:${beat}|x:${l.expiryMonth}|t:${l.entry}`;
 }
 
-function makeRelationshipKey(a: string, b: string, r: RelationshipLogEntry, beat: number): string {
+function makeRelationshipKey(a: string, b: string, r: RelationshipLogEntry, beat: number, day: number): string {
   // Pair is sorted already; target/origin don't matter.
-  return `rel|p:${a}:${b}|m:${r.month}|b:${beat}|x:${r.expiryMonth}|t:${r.entry}`;
+  return `rel|p:${a}:${b}|m:${r.month}|d:${day}|b:${beat}|x:${r.expiryMonth}|t:${r.entry}`;
 }
