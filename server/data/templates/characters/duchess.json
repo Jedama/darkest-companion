@@ -5,7 +5,7 @@
   "level": 0,
   "money": 0,
   "description": "The Duchess is a bloodsucker noble who wears her curse with aristocratic pride. Once a refined noblewoman and the court's finest fencer, she was transformed when she unknowingly drank wine laced with the Countess's blood at one of the Ancestor's parties. The curse crystallized her defining trait—an unshakeable conviction of her own superiority and her rivalry with the Countess. Exiled from the Crimson Court while her rival sits on the throne, she now seeks to use the Hamlet's forces as pawns in her vendetta. She wields an enormous greatsword and can transform into a massive, bestial form when her hunger overwhelms her control. The hunger never leaves, but she refuses to let something so vulgar compromise her dignity.",
-  "history": "The Duchess and the Countess were bitter rivals whose competition was the stuff of legend. At the Ancestor's final debauch, the guests unwittingly drank wine laced with the Countess's blood, transforming into monsters that reflected their truest natures. For the Duchess, this manifestation was one of crystallized pride. While the court fell into mindless hedonism, the Duchess—along with the Baron, Viscount, and Countess—retained her cunning, vying for dominion over their festering domain. Ultimately outmaneuvered and cast out to the adjacent Hamlet, she saw opportunity in their feeble quest to cleanse the Estate, Courtyard included. She would pretend to assist them, maneuvering them pawns toward her true goal: not to cleanse, but to usurp the Countess.",
+  "history": "The Duchess and the Countess were bitter rivals whose competition was the stuff of legend. At the Ancestor's final debauch, the guests unwittingly drank wine laced with the Countess's blood, transforming into monsters that reflected their truest natures. For the Duchess, this manifestation was one of crystallized pride. While the court fell into mindless hedonism, the Duchess—along with the Baron, Viscount, and Countess—retained her cunning, vying for dominion over their festering domain. Ultimately outmaneuvered and cast out to the connected Hamlet, she immediately found opportunity in their feeble quest to cleanse the Estate, Courtyard included. She would pretend to assist them, maneuvering them pawns toward her true goal: not to cleanse, but to usurp the Countess.",
   "race": "Bloodsucker",
   "gender": "Female",
   "religion": "None",
@@ -42,7 +42,7 @@
     "skinTone": "Pale gray",
     "hairColor": "Dark red (hidden)",
     "hairStyle": "Short and messy (hidden)",
-    "features": "Huge breasts barely contained by corset"
+    "features": "Huge breasts"
   },
   "clothing": {
     "head": "Large, angular helmet that hides everything but her toothy mouth",
@@ -54,7 +54,7 @@
     "role": "Melee Fighter",
     "strengths": [
       "Peerless fencer",
-      "Transformation into a powerful beast",
+      "Beast transformation",
       "Resilient"
     ],
     "weaknesses": [
@@ -68,7 +68,8 @@
     "Maintains an aristocratic air, insisting on comforts befitting her station",
     "Treats her hunger with dark humor, often joking about eating her allies",
     "Calls people 'dear' condescendingly and uses very formal language",
-    "Loses all control when her hunger becomes overwhelming, speaking in furious screams and attacking indiscriminately"
+    "Loses all control when her hunger becomes overwhelming, speaking in furious screams and attacking indiscriminately",
+    "Her helmet is unremovable and covers her eyes, yet she can still perceive the world"
   ],
   "tags": [
     "Frontline", "Riposter", "Shapeshifter", "SelfSufficient", "Debuffer", "Stunner", "HeavyHitter", "Duchess",

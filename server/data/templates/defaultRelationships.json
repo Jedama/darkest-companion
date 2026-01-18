@@ -17,13 +17,13 @@
     },
     "hqclaimants": {
       "affinity": 2,
-      "dynamic": "Contemptuous Competitors",
-      "description": "The Heiress saw the Claimants as vain and insufferable during their fleeting courtly encounters. Their thinly veiled insults ensured no love was lost between them."
+      "dynamic": "Faded Impression",
+      "description": "The Heiress vaguely recalls the Claimants from years ago—a pair of nobles who spent the Ancestor's parties ingratiating themselves to her father. They said something dismissive to her once, she thinks, but she can barely remember their faces now."
     },
     "duchess": {
       "affinity": 3,
       "dynamic": "Cautious Disdain",
-      "description": "The Heiress remembers the Duchess as aloof and self-absorbed during the few balls they attended together. Though she barely knew her, the Duchess's pride left a sour impression."
+      "description": "The Heiress remembers the Duchess as aloof and self-absorbed during the few balls they attended together before the woman disappeared from court. Years and a bloodsucker transformation later, the Heiress doesn't recognise her."
     }
   },
   "crusader": {
@@ -83,39 +83,59 @@
     },
     "hqclaimants": {
       "affinity": 2,
-      "dynamic": "Aristocratic Rivalry",
-      "description": "The Claimants' constant disdain and biting remarks left a lasting impression on the Heir during the balls and duels of their youth. The Heir remains embittered but grudgingly acknowledges The Claimant brother's skill with a spear."
+      "dynamic": "Youthful Resentment",
+      "description": "The Heir met the Claimants at the Ancestor's parties—they were always hovering around his father, flattering him with talk of lineage and legacy. When they deigned to notice the Heir himself, their remarks were cutting and condescending. Sometimes he wonders if they remain as insufferable as he remembers."
     },
     "duchess": {
       "affinity": 5,
-      "dynamic": "Infatuation",
-      "description": "As a young man, the Heir was captivated by the Duchess' elegance and fencing prowess. Though their interactions were brief and unreciprocated, her image lingered in his mind for years."
+      "dynamic": "Haunted Infatuation",
+      "description": "As a young man, the Heir was captivated by the Duchess's elegance and fencing prowess at court, back when she was human. Their interactions were brief and unreciprocated, but her image lingered in his mind for years. He worried for her when she, along with the others who attended the Ancestor's final debauch, vanished from society."
+    },
+    "leper": {
+      "affinity": 4,
+      "dynamic": "Academic Curiosity",
+      "description": "The Heir read of the Leper and the kingdom he once ruled, though the accounts of his abdication were frustratingly vague. He wonders what truly happened."
+    },
+      "cursed": {
+      "affinity": 2,
+      "dynamic": "Historical Scorn",
+      "description": "The Heir heard tales of the Cursed and the cursed kingdom of Gilneas—a king who unleashed something terrible and betrayed his people. For power, presumably."
+    },
+      "musketeer": {
+      "affinity": 4,
+      "dynamic": "Genealogical Connection",
+      "description": "The Heir is aware through family records that the Musketeer's bloodline and his own share distant ancestry, though the connection is generations removed."
     }
   },
   "vestal": {
     "flagellant": {
       "affinity": 2,
       "dynamic": "Righteous Fury",
-      "description": "The Vestal cannot forget the tortures inflicted by the Flagellant in the name of faith. To her, he represents the cruelty of blind devotion\u2014a symbol of what she has overcome and now stands against."
+      "description": "The Vestal remembers the tortures the Flagellant inflicted in the Abbey's dungeons, the punisher for her failures. To her, he represented the cruelty of blind devotion—a symbol of what she overcame and now stands against."
+    },
+    "seraph": {
+      "affinity": 7,
+      "dynamic": "Awe",
+      "description": "Even within the Abbey's walls, Junia heard whispered legends of the Seraph—a warrior-saint burned at the stake who rose transformed by divine fire. Her divine purpose shows the Light's true path."
     }
   },
   "flagellant": {
     "vestal": {
       "affinity": 2,
       "dynamic": "Disdainful Reverence",
-      "description": "The Flagellant sees the Vestal as someone who fled her divine retribution, rejecting the sacred suffering he holds dear. Her strength intrigues him, but her defiance fills him with scorn and pity."
+      "description": "The Flagellant remembers the Vestal from his time in the Abbey—one who fled her divine retribution rather than embracing sacred suffering. Her strength intrigued him then, but her defiance filled him with scorn and pity."
     }
   },
   "hqclaimants": {
     "kheir": {
       "affinity": 1,
       "dynamic": "Dismissive Scorn",
-      "description": "The Claimants regarded the young Heir as a naive, overeager boy who aspired to noble grandeur but lacked the maturity or intellect to achieve it."
+      "description": "The Claimants cultivated connections with the Heir's father during the Ancestor's gatherings, finding the bloodline useful for their ambitions. The boy himself was hardly worth acknowledging—naive and eager, forever trailing in his father's (and sister's) shadow."
     },
     "heiress": {
       "affinity": 3,
       "dynamic": "Arrogant Derision",
-      "description": "The Claimants found the Heiress' sharp wit grating and her ambitions laughable. To them, she was little more than a pretender to aristocratic sophistication."
+      "description": "The Claimants remember the Heiress as an afterthought at her father's side during courtly functions—sharp-tongued but provincial, a minor irritation easily dismissed while they pursued more valuable connections."
     },
     "duchess": {
       "affinity": 3,
@@ -125,7 +145,7 @@
     "wretch": {
       "affinity": 2,
       "dynamic": "Cruel Satisfaction",
-      "description": "The Wretch is a relic of a forgotten triumph, a living reminder of the The Claimants' ruthless success. They feel a cold satisfaction in his fall, tempered by fleeting amusement at the absurdity of his new life."
+      "description": "The Claimants witnessed the Wretch's fall, finding amusement at the minor noble family's spectacular disgrace. His new life in the sewers only heightens their amusement."
     },
       "psychiatrist": {
       "affinity": 2,
@@ -135,26 +155,26 @@
   },
   "duchess": {
     "kheir": {
-      "affinity": 4,
+      "affinity": 3,
       "dynamic": "Indifference",
-      "description": "In her brief early encounters with the Heir, the Duchess found his adoration amusing but ultimately inconsequential. His fumbling attempts to court her were quickly forgotten."
+      "description": "In her brief early encounters with the Heir, the Duchess found his adoration amusing but ultimately inconsequential. She does not remember him."
     },
     "heiress": {
-      "affinity": 3,
+      "affinity": 2,
       "dynamic": "Distant Contempt",
-      "description": "The Duchess barely remembers the Heiress, save for the latter's penchant for lurking at the edges of courtly gatherings. To the Duchess, the young Heiress was an unremarkable presence."
+      "description": "To the Duchess, the young Heiress was an unremarkable presence, noteworthy only because of her name and connection to the Ancestor. The Duchess has forgotten her."
     },
     "hqclaimants": {
-      "affinity": 3,
-      "dynamic": "Rivalrous Disdain",
-      "description": "The Duchess saw the Claimants as scheming upstarts beneath her station, their fading influence barely worth acknowledging amid her greater rivalry with the Countess."
+      "affinity": 2,
+      "dynamic": "Disdain",
+      "description": "The Duchess saw the Claimants as scheming has-beens beneath her station, their fading influence barely worth acknowledging amid her greater rivalry with the Countess."
     }
   },
   "wretch": {
     "hqclaimants": {
       "affinity": 2,
       "dynamic": "Faded Bitterness",
-      "description": "The Wretch has long since resigned himself to the ruin of his once-noble family, finding solace among his rats. Though the bitterness lingers faintly, he sees the Claimants as remnants of a life he left behind; distant, self-congratulatory specters of his disgrace."
+      "description": "The Wretch remembered the Claimants from his days at court—ambitious nobles who embodied everything he once aspired to be. Though the bitterness had long since faded among his rats, their presence is be an uncomfortable reminder of the life he abandoned."
     }
   },
   "seraph": {

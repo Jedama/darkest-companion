@@ -132,19 +132,24 @@ export function filterLogs(estate: Estate, characters: Character[]): string[] {
     (log, state) => scoreStakes(log, state)
   );
 
-  // 5) Order output
-  // Glue should read like "what just happened": newest -> older.
-  const glueOrdered = [...glue].sort((a, b) => recencyKey(b) - recencyKey(a));
+  // 5) Order output (chronological: oldest -> newest)
+  const selected = [...glue, ...stakes];
 
-  // Stakes should read like "what matters": longest-lasting -> then recency.
-  const stakesOrdered = [...stakes].sort((a, b) =>
-    (b.expiryMonth - a.expiryMonth) || (recencyKey(b) - recencyKey(a))
-  );
+  const ordered = selected.sort((a, b) => {
+    // primary: time
+    const byTime = recencyKey(a) - recencyKey(b);
+    if (byTime) return byTime;
 
-  // 6) Format (no headings; caller can add headings if desired)
-  const lines = [...glueOrdered, ...stakesOrdered].map((l) =>
-    formatLogLine(currentMonth, currentDay, l)
-  );
+    // tie-breakers
+    const byExpiry = a.expiryMonth - b.expiryMonth;
+    if (byExpiry) return byExpiry;
+
+    return a.key.localeCompare(b.key);
+  });
+
+  // 6) Format
+  const lines = ordered.map((l) => formatLogLine(currentMonth, currentDay, l));
+  return lines;
 
   return lines;
 }
