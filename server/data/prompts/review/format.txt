@@ -1,0 +1,31 @@
+STRICT JSON FORMAT REQUIREMENTS:
+- Output contains "estate_log" object, "narratives" array, and "follow_up_events" array as root keys
+- No extra text, no markdown
+
+RULES:
+1. Narratives are plain strings. No structure, no metadata. Each must stand alone as self-contained context.
+2. The narratives array is the COMPLETE list of active narratives after this review. Omitted narratives are considered resolved.
+3. Maximum 8 narratives. Empty slots are fine.
+4. Follow-up event characters MUST use identifiers from the character roster.
+5. Follow-up event descriptions should be specific — name what happened, reference injuries, objects, locations, and character dynamics. Do not write generic setups.
+6. Aim for around 3-5 follow-up events.
+
+ROOT LEVEL FORMAT:
+{
+  "estate_log": {
+    "entry": "string — 2-4 sentence summary of key developments and any resolved narratives (REQUIRED)",
+    "timeframe": "short_term" | "mid_term" | "long_term"
+  },
+  "narratives": [
+    "string — 2-4 sentence narrative description"
+  ],
+  "follow_up_events": [...]
+}
+
+FOLLOW-UP EVENT FORMAT:
+{
+  "title": "string — event title",
+  "description": "string — the situation to be narrated, with specific details about characters, motivations, and setting",
+  "characters": ["identifier", "identifier"],
+  "location": "string — location identifier, or 'any'"
+}

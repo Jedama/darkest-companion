@@ -1,0 +1,30 @@
+{
+  "estate_log": {
+    "entry": "The Highwayman was killed by brigands on the Old Road during the party's first journey to the Hamlet. The Crusader, the only capable fighter remaining, carried the body the final mile. The heirs arrived at their ancestral estate with one dead, one wounded, and a growing question about the cost of their inheritance.",
+    "timeframe": "long_term"
+  },
+  "narratives": [
+    "The Heir froze while the Highwayman bled out on the Old Road, and everyone present knows it. The Crusader saw a man with a letter opener hiding behind a tree while his companion died. The Heiress has deflected blame onto the sabotaged stagecoach and the brigands, but her brother's uselessness is no longer an abstract concern — it has a corpse attached to it. The Heir's position in the estate now depends entirely on proving his worth behind a desk, because the road has already judged him.",
+    "The Heiress dismissed the Highwayman's death with pragmatic composure, and her brother followed her lead — the man was a hired criminal, after all. But the Crusader carried the body. He dug the ground. He said the words. If the heirs treat every recruit as a disposable asset, the Crusader may be the first to ask what that makes him. As more fighters arrive at the Hamlet, how the heirs value the lives they spend will define whether anyone trusts their leadership."
+  ],
+  "follow_up_events": [
+    {
+      "title": "A Mound of Stones",
+      "description": "The Crusader has insisted on burying the Highwayman properly despite the frozen ground. He is alone with a shovel and the silence. The earth is half-ice and barely yields. He didn't know the Highwayman long — a few hours on a bad road — but the man shared his bread without being asked, and that means something to a farmer's son. He has no headstone, so he stacks rocks and recites the rites of the Light over a man who probably never prayed a day in his life.",
+      "characters": ["crusader"],
+      "location": "graveyard"
+    },
+    {
+      "title": "Needle and Thread",
+      "description": "The Heiress sits in the seamstress shop mending her marine blue robe, which was torn across the shoulder by a brigand's barbed whip during the ambush on the Old Road. Beneath the torn fabric, a welt has risen and split — she hasn't shown it to anyone, and won't. She chose the robe over the sanitarium because a leader doesn't bleed in public. The shop is empty, the seamstress long gone, and for the first time since receiving the Ancestor's letter she has nothing to command and no one to command it to.",
+      "characters": ["heiress"],
+      "location": "seamstress"
+    },
+    {
+      "title": "The Bottom of the Bottle",
+      "description": "The Heir has retreated to the parlor with his wine. His sister joins him — not to grieve, but to make sure he doesn't fall apart where others can see. She assured him on the road that the Highwayman was expendable — a fugitive, a killer, hired muscle and nothing more. The Heir repeats this to himself. But the man had shared their ride here, been willing to aid their desperate cause, and the Heir can still see the exact way he fell. He drinks to make the image stop. His sister watches him do it and does not drink herself.",
+      "characters": ["kheir", "heiress"],
+      "location": "dower_house__parlor"
+    }
+  ]
+}

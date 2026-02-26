@@ -38,6 +38,7 @@ export function createNewEstate(estateName: string): Estate {
       bursar: 'kheir',
     },
     money: 0,
+    narratives: [],
     characters: {}
   };
 }

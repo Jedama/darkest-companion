@@ -9,6 +9,9 @@ import type {
   NPC,
 } from '../../../shared/types/types.js';
 
+import StaticGameDataManager from '../../staticGameDataManager.js';
+import { isDescendantOf } from '../game/locationService.js';
+
 const MAX_GUIDANCE_LENGTH = 1000;
 
 /* -------------------------------------------------------------------
@@ -340,4 +343,103 @@ export function buildUserGuidanceSection(guidance?: string): string {
     `The following is the player's custom request for how you should write/respond:\n` +
     `${cleaned}\n\n`
   );
+}
+
+
+// Add these to server/services/llm/buildPromptService.ts
+
+/* -------------------------------------------------------------------
+ *  Review prompt builders
+ * ------------------------------------------------------------------- */
+
+export function buildCharacterRosterSection(estate: Estate): string {
+  const lines: string[] = [];
+
+  for (const [id, char] of Object.entries(estate.characters)) {
+    lines.push(`- ${char.title} (${id}), ${char.name}: ${char.summary}`);
+  }
+
+  return lines.length ? lines.join('\n') : 'No characters in the hamlet.';
+}
+
+export function buildNarrativesSection(estate: Estate): string {
+  const narratives = estate.narratives;
+
+  if (!narratives?.length) return 'No active narratives.';
+
+  return narratives
+    .map((narrative, i) => `${i + 1}. ${narrative}`)
+    .join('\n\n');
+}
+
+export function buildAllLogsSection(estate: Estate): string {
+  const sections: string[] = [];
+
+  // Estate logs
+  if (estate.estateLogs?.length) {
+    const lines = estate.estateLogs
+      .map(log => `- [Month ${log.month}, Day ${log.day}]: ${log.entry}`);
+    sections.push(`Estate Logs:\n${lines.join('\n')}`);
+  }
+
+  // Character logs
+  if (estate.characterLogs) {
+    const charSections: string[] = [];
+
+    for (const [charId, logs] of Object.entries(estate.characterLogs)) {
+      if (!logs.length) continue;
+      const char = estate.characters[charId];
+      if (!char) continue;
+
+      const logLines = logs.map(log => `  - [Month ${log.month}, Day ${log.day}]: ${log.entry}`);
+      charSections.push(`${char.title} (${charId}):\n${logLines.join('\n')}`);
+    }
+
+    if (charSections.length) {
+      sections.push(`Character Logs:\n${charSections.join('\n\n')}`);
+    }
+  }
+
+  // Relationship logs
+  if (estate.relationshipLogs) {
+    const relSections: string[] = [];
+
+    for (const [charId, logs] of Object.entries(estate.relationshipLogs)) {
+      if (!logs.length) continue;
+      const char = estate.characters[charId];
+      if (!char) continue;
+
+      const logLines = logs.map(log => {
+        const targetChar = estate.characters[log.target];
+        const targetName = targetChar ? targetChar.title : log.target;
+        return `  - [Month ${log.month}, Day ${log.day}] (with ${targetName}): ${log.entry}`;
+      });
+      relSections.push(`${char.title} (${charId}):\n${logLines.join('\n')}`);
+    }
+
+    if (relSections.length) {
+      sections.push(`Relationship Logs:\n${relSections.join('\n\n')}`);
+    }
+  }
+
+  return sections.length ? sections.join('\n\n') : 'No logs for this period.';
+}
+
+export function buildLocationSummarySection(): string {
+  const gameData = StaticGameDataManager.getInstance();
+  const allLocations = gameData.getAllLocations();
+  const locationMap = gameData.getLocationMap();
+
+  const TOWN_SCOPE_ROOT = "hamlet";
+
+  const lines = allLocations
+    .filter(loc => {
+      if (!loc.summary) return false;
+      if (loc.identifier === TOWN_SCOPE_ROOT) return false;
+      if (loc.parent === TOWN_SCOPE_ROOT) return false;
+      return isDescendantOf(loc.identifier, TOWN_SCOPE_ROOT, locationMap);
+    })
+    .map(loc => `- ${loc.summary}`);
+
+  return lines.length ? lines.join('\n') : 'No locations available.';
 }

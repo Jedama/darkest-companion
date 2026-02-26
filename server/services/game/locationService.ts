@@ -38,7 +38,7 @@ function getConnectionToLocation(
  * True if `locationId` is a descendant of `ancestorId` (ancestor can be parent, grandparent, etc).
  * Returns false if the chain breaks (missing parent in map).
  */
-function isDescendantOf(
+export function isDescendantOf(
   locationId: string,
   ancestorId: string,
   locationMap: Map<string, LocationData>

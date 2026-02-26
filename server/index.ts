@@ -10,6 +10,7 @@ import setupEventRoute from './routes/setupEventRoute.js';
 import storyEventRoute from './routes/storyEventRoute.js';
 import consequencesEventRoute from './routes/consequencesEventRoute.js';
 import recruitEventRoute from './routes/recruitEventRoute.js';
+import reviewRoute from './routes/reviewRoute.js';
 import StaticGameDataManager from './staticGameDataManager.js';
 
 const DEFAULT_CHARACTER_IDS = ['crusader', 'highwayman', 'heiress', 'kheir'];
@@ -25,6 +26,7 @@ app.use(setupEventRoute);
 app.use(storyEventRoute);
 app.use(consequencesEventRoute);
 app.use(recruitEventRoute);
+app.use(reviewRoute);
 
 // Type for request params
 interface EstateParams {

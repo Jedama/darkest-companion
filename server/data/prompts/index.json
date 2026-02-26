@@ -11,5 +11,9 @@
 
   "recruit.consequence.instructions": "recruit/consequenceInstructions.txt",
   "recruit.consequence.format": "recruit/consequenceFormat.txt",
-  "recruit.consequence.examples": "recruit/consequenceExamples.txt"
+  "recruit.consequence.examples": "recruit/consequenceExamples.txt",
+
+  "review.instructions": "review/instructions.txt",
+  "review.formats": "review/formats.txt",
+  "review.examples": "review/examples.txt"
 }

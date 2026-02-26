@@ -72,6 +72,7 @@ export interface Estate {
   }
   roles: EstateRoles; // Roles within the estate
   money: number;
+  narratives: string[];
   characters: CharacterRecord;
   restoredLocations?: string[]; // list of location identifiers that have been restored
   estateLogs?: LogEntry[];
