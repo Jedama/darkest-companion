@@ -249,7 +249,7 @@ export function stripNoOpConsequences(raw: ConsequencesResult): ConsequencesResu
  * ------------------------------------------------------------------- */
 
 export function separateStoryTitle(storyText: string): { title: string; body: string } {
-  const titleMatch = storyText.match(/^\[(.*?)\]/);
+  const titleMatch = storyText.trimStart().match(/^\[(.*?)\]/);
 
   if (!titleMatch) {
     return { title: '', body: storyText.trim() };

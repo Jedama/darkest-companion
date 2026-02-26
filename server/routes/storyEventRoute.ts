@@ -43,6 +43,8 @@ router.post('/estates/:estateName/events/story', async (req: Request, res: Respo
       // system: estate.preferences?.guidance ?? undefined, // NOT USED per your request
     });
 
+    console.log('LLM Response for Story Event:\n', response);
+
     // 4. Extract title from response
     const { title, body } = separateStoryTitle(response);
 

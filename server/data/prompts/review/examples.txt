@@ -1,6 +1,10 @@
+EXAMPLE REVIEW:
+
+Below is an example demonstrating well-formatted consequences for a scenario where Dismas died during the tutorial. Note how:
+
 {
   "estate_log": {
-    "entry": "The Highwayman was killed by brigands on the Old Road during the party's first journey to the Hamlet. The Crusader, the only capable fighter remaining, carried the body the final mile. The heirs arrived at their ancestral estate with one dead, one wounded, and a growing question about the cost of their inheritance.",
+    "entry": "The Highwayman was killed during the party's first expedition down the Old Road. The remaining three arrived at the Hamlet battered but alive.",
     "timeframe": "long_term"
   },
   "narratives": [

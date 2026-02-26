@@ -14,6 +14,6 @@
   "recruit.consequence.examples": "recruit/consequenceExamples.txt",
 
   "review.instructions": "review/instructions.txt",
-  "review.formats": "review/formats.txt",
+  "review.format": "review/format.txt",
   "review.examples": "review/examples.txt"
 }

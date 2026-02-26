@@ -1,6 +1,9 @@
 // src/components/layout/MainLayout.tsx
 import { ViewPanel } from '../ViewPanel.tsx';
-import { CharacterPanel } from '../characterpanel/CharacterPanel.tsx';
+import { CharacterPanel } from '../CharacterPanel/CharacterPanel.tsx';
+import { DebugPanel } from '../debug/DebugPanel';
+import { useEstateContext } from '../../contexts/EstateContext';
+
 import type { ViewType } from '../../types/viewTypes.ts';
 import type { Character } from '../../../shared/types/types.ts';
 import './MainLayout.css';
@@ -29,6 +32,7 @@ export function MainLayout({
   onCharacterSelect,
   currentView 
 }: MainLayoutProps) {
+  const { currentEstate } = useEstateContext();
 
   return (
     <div className="main-layout"
@@ -59,6 +63,7 @@ export function MainLayout({
           selectedCharacterId={selectedCharacter?.identifier}
         />
       </div>
+      {currentEstate && <DebugPanel estateName={currentEstate.name} />}
     </div>
   );
 }

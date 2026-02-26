@@ -1,16 +1,20 @@
 // server/fileOps.ts
-import { readFile, writeFile, readdir, unlink } from 'fs/promises';
+import { readFile, writeFile, readdir, unlink, mkdir } from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
 import type { Estate } from '../shared/types/types.ts';
 
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const ESTATES_DIR = path.join(__dirname, 'data', 'estates');
+
+// Ensure the estates directory exists when the server starts
+async function ensureEstatesDir() {
+  await mkdir(ESTATES_DIR, { recursive: true });
+}
 
 // A simple utility to load raw text files.
 export async function loadTextFile(filePath: string): Promise<string> {
@@ -51,6 +55,7 @@ export async function saveEstate(estate: Estate): Promise<void> {
 
 export async function listEstates(): Promise<string[]> {
   try {
+    await ensureEstatesDir();
     const files = await readdir(ESTATES_DIR);
     return files
       .filter(file => file.endsWith('.json'))

@@ -372,17 +372,30 @@ export function buildNarrativesSection(estate: Estate): string {
     .join('\n\n');
 }
 
+function formatTimeAgo(currentMonth: number, currentDay: number, logMonth: number, logDay: number): string {
+  const totalCurrentDays = currentMonth * 30 + currentDay;
+  const totalLogDays = logMonth * 30 + logDay;
+  const daysAgo = Math.max(0, totalCurrentDays - totalLogDays);
+  
+  const monthsAgo = Math.floor(daysAgo / 30);
+  const remainingDays = daysAgo % 30;
+  
+  if (monthsAgo > 0 && remainingDays > 0) return `${monthsAgo} months, ${remainingDays} days ago`;
+  if (monthsAgo > 0) return `${monthsAgo} months ago`;
+  if (remainingDays > 0) return `${remainingDays} days ago`;
+  return 'today';
+}
+
 export function buildAllLogsSection(estate: Estate): string {
   const sections: string[] = [];
+  const { month: curMonth, day: curDay } = estate.time;
 
-  // Estate logs
   if (estate.estateLogs?.length) {
     const lines = estate.estateLogs
-      .map(log => `- [Month ${log.month}, Day ${log.day}]: ${log.entry}`);
+      .map(log => `- ${formatTimeAgo(curMonth, curDay, log.month, log.day)}: ${log.entry}`);
     sections.push(`Estate Logs:\n${lines.join('\n')}`);
   }
 
-  // Character logs
   if (estate.characterLogs) {
     const charSections: string[] = [];
 
@@ -391,7 +404,7 @@ export function buildAllLogsSection(estate: Estate): string {
       const char = estate.characters[charId];
       if (!char) continue;
 
-      const logLines = logs.map(log => `  - [Month ${log.month}, Day ${log.day}]: ${log.entry}`);
+      const logLines = logs.map(log => `  - ${formatTimeAgo(curMonth, curDay, log.month, log.day)}: ${log.entry}`);
       charSections.push(`${char.title} (${charId}):\n${logLines.join('\n')}`);
     }
 
@@ -400,7 +413,6 @@ export function buildAllLogsSection(estate: Estate): string {
     }
   }
 
-  // Relationship logs
   if (estate.relationshipLogs) {
     const relSections: string[] = [];
 
@@ -412,7 +424,7 @@ export function buildAllLogsSection(estate: Estate): string {
       const logLines = logs.map(log => {
         const targetChar = estate.characters[log.target];
         const targetName = targetChar ? targetChar.title : log.target;
-        return `  - [Month ${log.month}, Day ${log.day}] (with ${targetName}): ${log.entry}`;
+        return `  - ${formatTimeAgo(curMonth, curDay, log.month, log.day)} (with ${targetName}): ${log.entry}`;
       });
       relSections.push(`${char.title} (${charId}):\n${logLines.join('\n')}`);
     }

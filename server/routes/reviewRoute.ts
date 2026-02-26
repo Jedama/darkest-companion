@@ -29,6 +29,8 @@ router.post('/estates/:estateName/review', async (req: Request, res: Response) =
     // 2. Compile the review prompt
     const reviewPrompt = compileReviewPrompt(estate);
 
+    console.log('Compiled review prompt:\n', reviewPrompt);
+
     // 3. Call LLM
     const provider = estate.preferences?.llmProvider ?? 'anthropic';
     const model = estate.preferences?.llmModel;
