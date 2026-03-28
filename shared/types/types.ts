@@ -62,9 +62,16 @@ export interface Weather {
   wind: number; // float (0.5-9.5), converted to integer tier (1-9) for descriptions
 }
 
+export interface DungeonState {
+  region: string;           // e.g. "ruins", "warrens", "weald"
+  roster: string[];         // character identifiers
+  startDay: number;         // for knowing which logs belong to this dungeon run
+}
+
 export interface Estate {
   name: string;
   preferences?: EstatePreferences;
+  dungeon?: DungeonState;
   time: EstateTime;
   weather: {
     current: Weather;

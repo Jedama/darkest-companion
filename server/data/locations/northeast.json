@@ -5,7 +5,7 @@
     "description": "The Hamlet's most ruined quarter, where its streets meet the sea. Buildings list precariously on the eroding cliffs, while the shore path winds treacherously toward the cove. This district bore the brunt of horrors emerging from the manor, its once-proud institutions now standing as hollow shells.",
     "summary": "north_east_district (North-eastern District) -- The most ruined quarter where the hamlet meets the sea, with buildings on cliffs and a treacherous shore path.",
     "parent": "hamlet",
-    "children": ["ravens_row", "athenaeum", "geological_study_hall", "sewer_entrance", "shore_path", "schoolhouse", "manor_staircase"]
+    "children": ["ravens_row", "athenaeum", "geological_study_hall", "sewer_entrance", "shore_path", "schoolhouse", "manor_staircase", "aqueduct"]
   },
   {
     "identifier": "shore_path",
@@ -125,6 +125,14 @@
     "title": "Manor Staircase",
     "description": "The foot of a long, winding stone staircase ascending directly from the northeast district to the manor far above. While nobility would arrive through the Courtyard path by the Dower House, this more practical path served the manor's staff and, later, the endless stream of workers and miners hired for the Ancestor's excavations. Iron lantern brackets still line the way, though their lights no longer guide workers home in the evening dark.",
     "summary": "manor_staircase (Manor Staircase) -- A long, winding stone staircase ascending from the district to the manor above, primarily used by staff and workers.",
+    "parent": "north_east_district",
+    "children": []
+  },
+  {
+    "identifier": "aqueduct",
+    "title": "The Aqueduct",
+    "description": "Crumbling stone arches march through the district's ruins before driving directly into the bedrock of the manor's hill. Once carrying fresh water to the hamlet, the channel is now stained with a foul, rust-colored sludge. A massive wooden portcullis, reinforced with heavy iron bands, blocks the cavernous tunnel entrance where the structure breaches the hillside. Standing near the rotting timbers, one can feel a hot, fetid draft and hear the echoing, guttural squeals of the things that now claim the tunnels beyond.",
+    "summary": "aqueduct (The Aqueduct) -- A ruined stone watercourse entering the manor's hill, blocked by a heavy wooden portcullis that barely muffles the squealing horrors within.",
     "parent": "north_east_district",
     "children": []
   }

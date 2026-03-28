@@ -24,7 +24,7 @@ const router = Router();
 router.post('/estates/:estateName/events/recruit', async (req: Request, res: Response) => {
   try {
     const { estateName } = req.params;
-    const { eventId, characterId, name, modifiers } = req.body;
+    const { eventId, characterId, name, context  } = req.body;
 
     // 1. Load the estate so we can fetch character data
     let estate: Estate | undefined = await loadEstate(estateName);
@@ -42,7 +42,6 @@ router.post('/estates/:estateName/events/recruit', async (req: Request, res: Res
     const setupResult = await setupEvent(estate, {
       eventId,
       characterIds: characterId ? [characterId] : [],
-      modifiers, // Passed through, though currently unused logic-wise
     });
     
     // 4. Build the prompt using your storyEventService
@@ -52,7 +51,8 @@ router.post('/estates/:estateName/events/recruit', async (req: Request, res: Res
       setupResult.chosenCharacterIds, 
       setupResult.locations, 
       setupResult.bystanders, 
-      setupResult.keywords
+      setupResult.keywords,
+      context,
     );
 
     // 5. Call LLM with the prompt

@@ -18,7 +18,8 @@ import {
     buildLogsSection,
     buildRecruitKeywordsSection,
     buildRelationshipSection,
-    buildUserGuidanceSection 
+    buildUserGuidanceSection,
+    buildUserInputSection
 } from '../llm/buildPromptService.js';
 
 import { compileRecruitContext } from '../llm/promptService.js';
@@ -39,7 +40,8 @@ export async function compileRecruitPrompt(
   chosenCharacterIds: string[],
   locations: LocationData[],
   bystanders: Bystander[] = [],
-  keywords: string[] = []
+  keywords: string[] = [],
+  context: string
 ): Promise<string> {
   const gameData = StaticGameDataManager.getInstance();
 
@@ -60,8 +62,8 @@ export async function compileRecruitPrompt(
     buildLocationSection(estate, locations) +
     buildBystandersSection(estate, bystanders, chosenCharacterIds) +
     buildLogsSection(filteredLogs) +
-    buildRecruitKeywordsSection(keywords) +
-    buildUserGuidanceSection(estate.preferences?.guidance);
+    buildUserGuidanceSection(estate.preferences?.guidance) +
+    buildUserInputSection(context, undefined);
 
   console.log(fullPrompt);
   return fullPrompt;

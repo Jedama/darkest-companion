@@ -88,7 +88,6 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
             eventId: userPrompt, // For debugging
             characterIds: [],
             enemyIds: [],
-            description: userPrompt
           }),
           signal,
         }
@@ -121,7 +120,9 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
             npcIds: setupData.npcs,
             enemyIds: setupData.enemies,
             bystanders: setupData.bystanders,
-            keywords: setupData.keywords
+            keywords: setupData.keywords,
+            context: "",
+            description: userPrompt
           }),
           signal,
         }

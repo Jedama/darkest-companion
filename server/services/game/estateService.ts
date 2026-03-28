@@ -125,8 +125,13 @@ export async function createNewEstateAndSave(
 
   // 4. Assembly Logic
   const newEstate = {
-    ...createNewEstate(estateName), // Uses the other service function
-    characters: defaultCharacters
+    ...createNewEstate(estateName),
+    characters: defaultCharacters,
+    dungeon: {
+      region: 'oldroad',
+      roster: characterIds,
+      startDay: 0,
+    },
   };
 
   // 5. Persistence

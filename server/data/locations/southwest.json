@@ -5,14 +5,22 @@
     "description": "A tangle of narrow streets and leaning buildings where travelers first enter the hamlet. The Old Road meets civilized streets near the stagecoach's clearing, while various establishments - from respectable inn to questionable tavern - cater to those seeking rest or distraction. The district grew organically around the original waypoint, its architecture reflecting generations of hasty additions and repairs.",
     "summary": "southwest_district (South-western District) -- A tangle of narrow streets where travelers enter the hamlet, offering various establishments for rest and distraction near the Old Road.",
     "parent": "hamlet",
-    "children": ["stagecoach", "omen_seeker_wagon", "carpenter", "wainwright", "alley", "inn", "tavern", "brothel", "butchers_circus"]
+    "children": ["clearing", "carpenter", "wainwright", "alley", "inn", "tavern", "brothel"]
+  },
+  {
+    "identifier": "clearing",
+    "title": "Old Road Clearing",
+    "description": "A wide, trampled expanse of scrub-grass where the deeply rutted mud of the Old Road widens before bottlenecking into the hamlet proper. The area serves as a makeshift staging ground for transient arrivals who prefer—or are forced—to remain just outside the town's borders. Strange wagons park along the road's muddy shoulders, while the towering crimson and black pavilion tents of the Butcher's Circus dominate the adjacent fields, casting long, imposing shadows over the path.",
+    "summary": "old_road_clearing (Old Road Clearing) -- A wide, trampled field along the Old Road serving as a staging ground for transient wagons and the sprawling tents of the Butcher's Circus.",
+    "parent": "southwest_district",
+    "children": ["stagecoach", "omen_seeker_wagon", "butchers_circus"]
   },
   {
     "identifier": "stagecoach",
     "title": "Stagecoach",
     "description": "A black, dignified conveyance bears the Estate's crest upon its door, brass fittings gleaming dully in the lantern light. A replacement for the one the Caretaker's maddened driving left collapsed in a roadside ditch. Fresh horses stamp nervously in their traces, sensing what their predecessors learned too late about the Estate's paths.",
     "summary": "stagecoach (Stagecoach) -- A dignified conveyance bearing the Estate's crest, used for travel and transport to and from the hamlet.",
-    "parent": "southwest_district",
+    "parent": "clearing",
     "children": [],
     "npcs": ["caretaker"]
   },
@@ -21,7 +29,7 @@
     "title": "Omen Seeker's Wagon",
     "description": "A peculiar carriage perched high on tall wheels, crowned by a brass circular cross that catches what little light reaches it. The wagon stands perpetually empty, save for those times when its small window blazes with blinding white radiance. Dark cloth decorated with a painted eye drapes its sides, while a black lantern swings from the curved roof, marking a fortune-teller's domain.",
     "summary": "omen_seeker_wagon (Omen Seeker's Wagon) -- A peculiar, high-wheeled carriage used by a fortune-teller, known for its dark cloth, painted eye, and occasional blinding radiance.",
-    "parent": "southwest_district",
+    "parent": "clearing",
     "children": [],
     "capacity": 1
   },
@@ -371,7 +379,7 @@
     "title": "Butcher's Circus",
     "description": "A blood-sport arena that sprawls across the hamlet's southwestern edge, its crimson and black pavilion tents rising like dark sails against the sky. Iron chains link the various structures, strung with flags bearing the marks of fallen champions. The metallic scent of blood mingles with sawdust and torch smoke, while the Ringmaster's laughter carries across the grounds.",
     "summary": "butchers_circus (Butcher's Circus) -- A blood-sport arena with crimson and black pavilion tents, where champions rise and fall for entertainment.",
-    "parent": "southwest_district",
+    "parent": "clearing",
     "children": ["butchers_circus__arena", "butchers_circus__twins_post", "butchers_circus__banner_workshop", "butchers_circus__ringmaster_wagon", "butchers_circus__performers_quarter"],
     "npcs": ["circus_twins"]
   },

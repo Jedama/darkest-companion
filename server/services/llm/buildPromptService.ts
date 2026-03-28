@@ -12,7 +12,7 @@ import type {
 import StaticGameDataManager from '../../staticGameDataManager.js';
 import { isDescendantOf } from '../game/locationService.js';
 
-const MAX_GUIDANCE_LENGTH = 1000;
+const MAX_USER_INPUT_LENGTH = 10000;
 
 /* -------------------------------------------------------------------
  *  Small helpers
@@ -75,12 +75,12 @@ function replaceEnemyPlaceholders(description: string, enemies: Enemy[]): string
 /**
  * Sanitizes user guidance input by removing control characters and limiting length.
  */
-export function sanitizeGuidance(input: string): string {
+export function sanitizeUserInput(input: string): string {
   return input
-    .replace(/\0/g, '')                    // null bytes
-    .replace(/[\x01-\x08\x0B\x0C\x0E-\x1F]/g, '') // other control chars
+    .replace(/\0/g, '')
+    .replace(/[\x01-\x08\x0B\x0C\x0E-\x1F]/g, '')
     .trim()
-    .slice(0, MAX_GUIDANCE_LENGTH);
+    .slice(0, MAX_USER_INPUT_LENGTH);
 }
 
 /* -------------------------------------------------------------------
@@ -335,7 +335,7 @@ export function buildRecruitKeywordsSection(keywords: string[]): string {
 export function buildUserGuidanceSection(guidance?: string): string {
   if (!guidance) return '';
 
-  const cleaned = sanitizeGuidance(guidance);
+  const cleaned = sanitizeUserInput(guidance);
   if (!cleaned) return '';
 
   return (
@@ -343,6 +343,30 @@ export function buildUserGuidanceSection(guidance?: string): string {
     `The following is the player's custom request for how you should write/respond:\n` +
     `${cleaned}\n\n`
   );
+}
+
+export function buildUserInputSection(context?: string, description?: string): string {
+  const parts: string[] = [];
+
+  if (context) {
+    parts.push(
+      `[Event Information]\n` +
+      `The following is additional information specific to this type of event:\n` +
+      `${sanitizeUserInput(context)}\n`
+    );
+  }
+
+  if (description) {
+    parts.push(
+      `[Player Description]\n` +
+      `The following is the player's account of what happened or how they want the scene to unfold. ` +
+      `Use it as the basis for your narration, but maintain character consistency and tone.\n` +
+      `${sanitizeUserInput(description)}\n`
+    );
+  }
+
+  if (parts.length === 0) return '';
+  return parts.join('\n') + '\n';
 }
 
 

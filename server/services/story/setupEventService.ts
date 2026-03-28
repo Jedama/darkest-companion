@@ -12,8 +12,8 @@ export interface SetupEventOptions {
   eventId?: string;
   characterIds?: string[];
   enemyIds?: string[];
+  context?: string; // Event-specific context
   description?: string; // Currently unused, but prepared for future usage
-  modifiers?: string[]; // For recruitment quirks (if provided: ONLY keywords used)
 }
 
 export interface ResolvedCharacters {
@@ -103,13 +103,6 @@ function getRequiredCharacterIdsFromRoles(estate: Estate, event: EventData): str
   return dedupePreserveOrder(ids);
 }
 
-// NEW: normalize modifiers into keywords (dedupe + trim + drop empties)
-function resolveKeywordsFromModifiers(modifiers?: string[]): string[] | null {
-  if (!Array.isArray(modifiers)) return null;
-  const cleaned = dedupePreserveOrder(modifiers);
-  return cleaned.length > 0 ? cleaned : null;
-}
-
 /* -------------------------------------------------------------------
  *  Resolvers
  * ------------------------------------------------------------------- */
@@ -168,6 +161,16 @@ function resolveCharacters(
   event: EventData,
   options: SetupEventOptions
 ): ResolvedCharacters {
+
+  // If event doesn't specify characterCount, just use user input (if any) without random filling
+  if (!event.characterCount?.length) {
+    const ids = options.characterIds ?? [];
+    if (ids.length === 0) {
+      throw new Error(`Event '${event.identifier}' has no characterCount and no characters were provided.`);
+    }
+    return { chosenCharacterIds: ids, overflowCharacterIds: [] };
+  }
+
   const allEstateCharIds = Object.keys(estate.characters);
 
   // 1. Determine Event Range
@@ -290,6 +293,11 @@ function resolveEventNpcs(params: {
  * Combines event and town keywords.
  */
 export function pickKeywords(eventKeywords: string[], townKeywords: string[]): string[] {
+
+  // If event has no keywords, don't pick anything
+  if (eventKeywords.length === 0)
+    return [];
+
   // Create weighted pool: event keywords appear 3x each
   const weightedPool: string[] = [
     ...eventKeywords,
@@ -354,12 +362,9 @@ export async function setupEvent(
 
   const userEnemyIds = options.enemyIds ? dedupePreserveOrder(options.enemyIds) : [];
 
-  const dedupedModifiers = options.modifiers ? dedupePreserveOrder(options.modifiers) : undefined;
-
   const normalizedOptions: SetupEventOptions = {
     ...options,
     characterIds: dedupedCharacterIds,
-    modifiers: dedupedModifiers
   };
 
   // 2. Resolve Event Template (Specific or Random)
@@ -373,12 +378,8 @@ export async function setupEvent(
   const enemies = eventEnemyIds.length > 0 ? eventEnemyIds : userEnemyIds;
   validateEnemyIds(enemies);
 
-  // 3. Resolve Keywords (NOW separate)
-  const modifierKeywords = resolveKeywordsFromModifiers(normalizedOptions.modifiers);
-
-  const keywords = modifierKeywords
-    ? modifierKeywords
-    : pickKeywords(event.keywords || [], gameData.getTownKeywords());
+  // 3. Resolve Keywords
+  const keywords = pickKeywords(event.keywords || [], gameData.getTownKeywords());
 
   // 4. Resolve Characters
   const { chosenCharacterIds, overflowCharacterIds } =

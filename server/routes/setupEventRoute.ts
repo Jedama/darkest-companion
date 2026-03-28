@@ -12,13 +12,13 @@ const router = Router();
  *   eventId?: string,
  *   characterIds?: string[],
  *   enemyIds?: string[],
- *   description?: string
+ *   context?: string
  * }
  */
 router.post('/estates/:estateName/events/setup', async (req: Request, res: Response) => {
   try {
     const { estateName } = req.params;
-    const { eventId, characterIds, enemyIds, description } = req.body;
+    const { eventId, characterIds, enemyIds, context } = req.body;
 
     // 1. Load the estate so we can fetch character data
     const estate = await loadEstate(estateName);
@@ -31,7 +31,7 @@ router.post('/estates/:estateName/events/setup', async (req: Request, res: Respo
       eventId,
       characterIds,
       enemyIds,
-      description // Passed through, though currently unused logic-wise
+      context
     });
 
     // Return them to the frontend

@@ -22,7 +22,8 @@ import {
   buildLogsSection,
   buildNPCSection,
   buildRelationshipSection,
-  buildUserGuidanceSection 
+  buildUserGuidanceSection, 
+  buildUserInputSection
 } from '../llm/buildPromptService.js';
 
 import { compileNarrativeContext } from '../llm/promptService.js';
@@ -45,7 +46,9 @@ export async function compileStoryPrompt(
   npcIds: string[],
   enemyIds: string[],
   bystanders: Bystander[] = [],
-  keywords: string[] = []
+  keywords: string[] = [],
+  context: string,
+  description: string
 ): Promise<string> {
   const gameData = StaticGameDataManager.getInstance();
 
@@ -75,7 +78,8 @@ export async function compileStoryPrompt(
     buildEnemiesSection(enemies) +
     buildLogsSection(filteredLogs) +
     buildKeywordsSection(keywords) +
-    buildUserGuidanceSection(estate.preferences?.guidance);
+    buildUserGuidanceSection(estate.preferences?.guidance) +
+    buildUserInputSection(context, description);
 
   console.log(fullPrompt);
   return fullPrompt;

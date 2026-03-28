@@ -26,9 +26,9 @@ export interface LLMRequest {
  */
 const DEFAULT_MODEL: Record<LlmProvider, string> = {
   openai: "gpt-4o-mini",
-  xai: "grok-4-1-fast-reasoning",
+  xai: "grok-4.20-0309-reasoning",
   anthropic: "claude-opus-4-6",
-  google: "gemini-3-pro-preview",
+  google: "gemini-3.1-pro-preview",
 };
 
 function requireEnv(name: string): string {

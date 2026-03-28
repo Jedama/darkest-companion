@@ -101,6 +101,10 @@ export function RecruitModal({ onClose }: RecruitModalProps) {
     if (seals.length === 0 || !selectedClassId) return;
     setIsSubmitting(true);
     try {
+      const context = seals.length > 0
+        ? `Personality modifiers for the new recruit: ${seals.map(s => s.text).join(', ')}`
+        : `New recruit with no personality modifiers.`;
+
       const res = await fetch(`http://localhost:3000/estates/${estateName}/events/recruit`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -108,7 +112,7 @@ export function RecruitModal({ onClose }: RecruitModalProps) {
           eventId: "recruit_0",
           characterId: selectedClassId,
           name: name,
-          modifiers: seals.map(s => s.text),
+          context,
         }),
       });
 
