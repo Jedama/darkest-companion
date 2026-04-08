@@ -362,12 +362,14 @@ export async function loadEventTemplatesForCategory(category: string): Promise<E
         }
 
         // Validate characterCount
-        if (!Array.isArray(eventData.characterCount) || eventData.characterCount.length !== 2) {
-          throw new Error(
-            `Event '${eventData.identifier}' has invalid characterCount format; expected [min, max]`
-          );
+        if (eventData.characterCount?.length) {
+          if (eventData.characterCount.length !== 2) {
+            throw new Error(
+              `Event '${eventData.identifier}' has invalid characterCount format; expected [min, max]`
+            );
+          }
+          assertValidCharacterCountRange(eventData.characterCount, eventData.identifier);
         }
-        assertValidCharacterCountRange(eventData.characterCount, eventData.identifier);
 
         if (events[eventData.identifier]) {
           console.warn(`Duplicate event identifier "${eventData.identifier}" found in ${file}. Later definition will override earlier one.`);

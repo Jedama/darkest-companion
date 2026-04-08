@@ -12,7 +12,6 @@ export interface SetupEventOptions {
   eventId?: string;
   characterIds?: string[];
   enemyIds?: string[];
-  context?: string; // Event-specific context
   description?: string; // Currently unused, but prepared for future usage
 }
 
@@ -385,7 +384,7 @@ export async function setupEvent(
   const { chosenCharacterIds, overflowCharacterIds } =
     resolveCharacters(estate, event, normalizedOptions);
 
-  // 5. Resolve Location & Context
+  // 5. Resolve Location + NPCs + Bystanders
   let locations: LocationData[] = [];
   let npcs: string[] = [];
   let bystanders: Bystander[] = [];

@@ -53,7 +53,7 @@ interface ElapsedMonthText {
  *  Category lists (single source of truth)
  * ------------------------------------------------------------------- */
 
-const EVENT_CATEGORIES = ['town', 'story', 'recruit'] as const;
+const EVENT_CATEGORIES = ['gameplay', 'town', 'dungeon', 'story', 'recruit'] as const;
 type EventCategory = (typeof EVENT_CATEGORIES)[number];
 
 const NPC_CATEGORIES = ['town', 'kingdom'] as const;

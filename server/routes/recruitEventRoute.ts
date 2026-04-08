@@ -89,12 +89,12 @@ router.post('/estates/:estateName/events/recruit', async (req: Request, res: Res
     });
 
     // 7. Clean and parse the response
-    const cleanResponse = (text: string): string => {
-      // Remove markdown code block indicators and language tag
-      return text.replace(/^```(json)?\n/, '')  // Remove opening ```json or ``` 
-      .replace('+', '')              // Remove any potential +1s
-      .replace(/```/, '')            // Remove closing ``` 
-      .trim();                       // Clean up any extra whitespace
+     const cleanResponse = (text: string): string => {
+      return text
+        .replace(/^```(json)?\n/, '')
+        .replace(/```/, '')
+        .replace(/:\s*\+(\d)/g, ': $1')  // "+6" → "6" only after colons (JSON values)
+        .trim();
     };
     
     const cleanedText = cleanResponse(response);

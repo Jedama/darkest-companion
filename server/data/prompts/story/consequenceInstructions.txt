@@ -16,7 +16,7 @@ GUIDANCE FOR QUALITY CONSEQUENCES:
 
 1. LOGS:
   - Be objective and brief while capturing details
-  - Only add logs when something noteworthy actually happened
+  - Add logs for anything noteworthy that occured
   - Use timeframes to indicate story impact:
     * transient: Only for continuity into the next event
     * short_term: Minor events affecting next few interactions

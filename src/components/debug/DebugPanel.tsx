@@ -41,16 +41,6 @@ export function DebugPanel() {
       return res.json();
     });
 
-  const triggerEvent = (eventId: string) =>
-    runAction(`Event: ${eventId}`, async () => {
-      const setupRes = await fetch(`http://localhost:3000/estates/${estateName}/events/setup`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ eventId }),
-      });
-      return setupRes.json();
-    });
-
   if (!open) {
     return (
       <button
@@ -122,12 +112,12 @@ export function DebugPanel() {
       </div>
 
       {activeTab === 'events' && (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 12 }}>
-          <button onClick={triggerReview} disabled={loading} style={btnStyle}>
-            Run Narrative Review
-          </button>
-          <EventIdInput onSubmit={(id) => triggerEvent(id)} disabled={loading} />
-        </div>
+        <EventsPanel
+          estateName={estateName}
+          disabled={loading}
+          onRun={(label, fn) => runAction(label, fn)}
+          onTriggerReview={triggerReview}
+        />
       )}
 
       {activeTab === 'dungeon' && (
@@ -208,20 +198,53 @@ function DungeonEndPanel({
     const loot = parseInt(totalLoot) || 0;
 
     onRun('Dungeon End', async () => {
+      // 1. Setup
       const setupRes = await fetch(`http://localhost:3000/estates/${estateName}/events/setup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          eventId: 'gameplay__return',
+          eventId: 'dungeon_end',
           characterIds: roster,
+        }),
+      });
+      if (!setupRes.ok) throw new Error(`Setup failed: ${setupRes.status}`);
+      const setupData = await setupRes.json();
+      if (!setupData.success) throw new Error('Setup returned success=false');
+
+      // 2. Story
+      const storyRes = await fetch(`http://localhost:3000/estates/${estateName}/events/story`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          event: setupData.event,
+          chosenCharacterIds: setupData.chosenCharacterIds,
+          locations: setupData.locations,
+          npcIds: setupData.npcs,
+          enemyIds: setupData.enemies,
+          bystanders: setupData.bystanders,
+          keywords: setupData.keywords,
           context: context || undefined,
         }),
       });
-      const setupData = await setupRes.json();
+      if (!storyRes.ok) throw new Error(`Story failed: ${storyRes.status}`);
+      const storyData = await storyRes.json();
+      if (!storyData.success) throw new Error('Story returned success=false');
+
+      // 3. Consequences
+      const consequenceRes = await fetch(`http://localhost:3000/estates/${estateName}/events/consequences`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          story: storyData.story.body,
+          chosenCharacterIds: setupData.chosenCharacterIds,
+        }),
+      });
+      if (!consequenceRes.ok) throw new Error(`Consequences failed: ${consequenceRes.status}`);
+      const consequenceData = await consequenceRes.json();
 
       return {
-        setup: setupData,
-        context,
+        story: storyData.story,
+        consequences: consequenceData,
         totalLoot: loot,
         region: estate.dungeon.region,
       };
@@ -304,29 +327,116 @@ function DungeonEndPanel({
 }
 
 /* -------------------------------------------------------------------
- *  Event ID Input
+ *  Events Panel
  * ------------------------------------------------------------------- */
 
-function EventIdInput({ onSubmit, disabled }: { onSubmit: (id: string) => void; disabled: boolean }) {
-  const [value, setValue] = useState('');
+function EventsPanel({
+  estateName,
+  disabled,
+  onRun,
+  onTriggerReview,
+}: {
+  estateName: string;
+  disabled: boolean;
+  onRun: (label: string, fn: () => Promise<any>) => void;
+  onTriggerReview: () => void;
+}) {
+  const [eventId, setEventId] = useState('');
+  const [description, setDescription] = useState('');
+
+  const handleRun = () => {
+    if (!eventId.trim()) return;
+    const desc = description.trim() || undefined;
+
+    onRun(`Story: ${eventId}`, async () => {
+      // 1. Setup
+      const setupRes = await fetch(`http://localhost:3000/estates/${estateName}/events/setup`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          eventId: eventId.trim(),
+          characterIds: [],
+          enemyIds: [],
+          description: desc,
+        }),
+      });
+      if (!setupRes.ok) throw new Error(`Setup failed: ${setupRes.status}`);
+      const setupData = await setupRes.json();
+      if (!setupData.success) throw new Error('Setup returned success=false');
+
+      // 2. Story
+      const storyRes = await fetch(`http://localhost:3000/estates/${estateName}/events/story`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          event: setupData.event,
+          chosenCharacterIds: setupData.chosenCharacterIds,
+          locations: setupData.locations,
+          npcIds: setupData.npcs,
+          enemyIds: setupData.enemies,
+          bystanders: setupData.bystanders,
+          keywords: setupData.keywords,
+          context: setupData.context,
+          description: desc,
+        }),
+      });
+      if (!storyRes.ok) throw new Error(`Story failed: ${storyRes.status}`);
+      const storyData = await storyRes.json();
+      if (!storyData.success) throw new Error('Story returned success=false');
+
+      // 3. Consequences
+      const consequenceRes = await fetch(`http://localhost:3000/estates/${estateName}/events/consequences`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          story: storyData.story.body,
+          chosenCharacterIds: setupData.chosenCharacterIds,
+        }),
+      });
+      if (!consequenceRes.ok) throw new Error(`Consequences failed: ${consequenceRes.status}`);
+      const consequenceData = await consequenceRes.json();
+
+      return {
+        story: storyData.story,
+        consequences: consequenceData,
+      };
+    });
+  };
 
   return (
-    <div style={{ display: 'flex', gap: 4 }}>
-      <input
-        type="text"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        placeholder="Event ID (e.g. prologue_0)"
-        disabled={disabled}
-        style={inputStyle}
-      />
-      <button
-        onClick={() => value.trim() && onSubmit(value.trim())}
-        disabled={disabled || !value.trim()}
-        style={btnStyle}
-      >
-        Run
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 12 }}>
+      <button onClick={onTriggerReview} disabled={disabled} style={btnStyle}>
+        Run Narrative Review
       </button>
+      <div style={{ display: 'flex', gap: 4 }}>
+        <input
+          type="text"
+          value={eventId}
+          onChange={(e) => setEventId(e.target.value)}
+          placeholder="Event ID (e.g. prologue_0)"
+          disabled={disabled}
+          style={{ ...inputStyle, flex: 1 }}
+        />
+        <button
+          onClick={handleRun}
+          disabled={disabled || !eventId.trim()}
+          style={btnStyle}
+        >
+          Run
+        </button>
+      </div>
+      <textarea
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+        placeholder="Description (what happened, wishes for the scene...)"
+        disabled={disabled}
+        rows={3}
+        style={{
+          ...inputStyle,
+          resize: 'vertical',
+          minHeight: 50,
+        }}
+      />
     </div>
   );
 }

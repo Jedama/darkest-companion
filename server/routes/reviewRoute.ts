@@ -46,11 +46,11 @@ router.post('/estates/:estateName/review', async (req: Request, res: Response) =
     const response = await callLLM(reviewRequest);
 
     // 4. Clean and parse the response
-    const cleanResponse = (text: string): string => {
+     const cleanResponse = (text: string): string => {
       return text
         .replace(/^```(json)?\n/, '')
-        .replace('+', '')
         .replace(/```/, '')
+        .replace(/:\s*\+(\d)/g, ': $1')  // "+6" → "6" only after colons (JSON values)
         .trim();
     };
 

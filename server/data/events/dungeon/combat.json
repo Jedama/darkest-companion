@@ -1,0 +1,17 @@
+{
+  "identifier": "combat_aftermath",
+  "title": "Combat Aftermath",
+  "type": "dungeon",
+  "description": "[Characters] have just defeated [Enemies].",
+  "characterCount": [4, 4],
+  "keywords": [],
+  "location": {
+    "default": ["prologue__old_road"],
+    "residence": [],
+    "workplaces": [],
+    "frequents": [],
+    "allowAll": false,
+    "allowParentLocations": false
+  },
+  "enemies": ["brigand_blood", "brigand_fusilier"]
+}
