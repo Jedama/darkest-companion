@@ -1,5 +1,5 @@
 // server/services/estateService.ts
-import type { Estate, EstateRoles, Character, CharacterRecord } from '../../../shared/types/types.js';
+import type { Estate, EstateLeadership, Character, CharacterRecord } from '../../../shared/types/types.js';
 import { saveEstate, listEstates } from '../../fileOps.js';
 import StaticGameDataManager from '../../staticGameDataManager.js';
 import { createCharacterFromTemplate } from './characterService.js';
@@ -33,9 +33,11 @@ export function createNewEstate(estateName: string): Estate {
       current: weather,
       previous: weather, // Same as current initially
     },
-    roles: {
+    leadership: {
+      description: 'The Hamlet is governed by the twin heirs to the estate, who answered the Ancestor\'s letter and claimed joint ownership. They preside over a small council that advises on expeditions, resources, and hamlet affairs.',
       margrave: 'heiress',
       bursar: 'kheir',
+      council: ['crusader', 'highwayman'],
     },
     money: 0,
     narratives: [],
@@ -141,20 +143,15 @@ export async function createNewEstateAndSave(
   return newEstate;
 }
 
-// Get a character by role
+// Get a character by leadership role
 export function getCharacterByRole(
   estate: Estate, 
-  role: keyof EstateRoles
+  role: keyof Omit<EstateLeadership, 'description' | 'council'>
 ): Character | undefined {
-  const characterId = estate.roles[role];
+  const characterId = estate.leadership[role];
   
-  if (!characterId) {
+  if (!characterId || typeof characterId !== 'string') {
     return undefined;
-  }
-  
-  if (Array.isArray(characterId)) {
-    // Handle the 'council' case which is an array
-    return undefined; // or throw an error, or return the first council member
   }
   
   return estate.characters[characterId];

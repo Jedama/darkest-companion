@@ -30,13 +30,13 @@
     "description": "A sturdy two-story building of fitted stone anchoring the square's northern edge. Here, the late Captain made both his fateful stands - first refusing the Ancestor's bribes to suppress the townspeople's protests, and years later organizing the hamlet's final defense against the horrors that followed. Though the building bears scars from both the Brigade's retribution and supernatural assaults, it stands as a testament to principles that proved stronger than gold.",
     "summary": "constabulary (Constabulary) -- A sturdy stone building at the square's edge, scarred by past conflicts, serving as the former center of town defense.",
     "parent": "center_district",
-    "children": ["constabulary__basement", "constabulary__main", "constabulary__upper"]
+    "children": ["constabulary__cells", "constabulary__main", "constabulary__upper"]
   },
   {
-    "identifier": "constabulary__basement",
+    "identifier": "constabulary__cells",
     "title": "Holding Cells",
     "description": "Three iron-barred cells line the stone walls, their heavy doors hanging askew on rusted hinges. Iron rings and chains remain mounted at intervals, anchored deep in the masonry. The ventilation shafts show signs of hasty modification, while dried ink stains mark where the record-keeper's desk once stood, the final entries in a peculiarly gentle hand.",
-    "summary": "constabulary__basement (Holding Cells) -- Iron-barred cells with rusted doors and chains, located in the constabulary basement, bearing signs of past occupancy.",
+    "summary": "constabulary__cells (Holding Cells) -- Iron-barred cells with rusted doors and chains, located in the constabulary basement, bearing signs of past occupancy.",
     "parent": "constabulary",
     "children": []
   },

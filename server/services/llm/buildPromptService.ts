@@ -479,3 +479,38 @@ export function buildLocationSummarySection(): string {
 
   return lines.length ? lines.join('\n') : 'No locations available.';
 }
+
+export function buildLeadershipSection(estate: Estate): string {
+  const lines: string[] = [];
+
+  const roles = ['margrave', 'bursar'] as const;
+  const roleDescriptions: Record<string, string> = {
+    margrave: 'Commander of the estate\'s military efforts. Decides expedition rosters, marching orders, and tactical priorities. First authority in any crisis.',
+    bursar: 'Manager of the estate\'s finances. Decides pay, compensation, and how much of the expedition spoils the hamlet keeps.',
+  };
+  
+  lines.push(estate.leadership.description);
+  lines.push('');
+
+  for (const roleId of roles) {
+    const holderId = estate.leadership[roleId];
+    const holder = estate.characters[holderId];
+    const holderName = holder ? `${holder.title} (${holderId})` : holderId;
+    const title = roleId.charAt(0).toUpperCase() + roleId.slice(1);
+
+    lines.push(`${title}: ${holderName}`);
+    lines.push(`  ${roleDescriptions[roleId]}`);
+  }
+
+  if (estate.leadership.council?.length) {
+    const councilNames = estate.leadership.council
+      .map(id => {
+        const char = estate.characters[id];
+        return char ? `${char.title} (${id})` : id;
+      });
+    lines.push(`Council: ${councilNames.join(', ')}`);
+  }
+
+  lines.push('');
+  return lines.join('\n');
+}

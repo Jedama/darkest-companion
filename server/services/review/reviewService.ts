@@ -2,10 +2,11 @@
 import type { Estate } from '../../../shared/types/types.js';
 
 import {
-  buildCharacterRosterSection,
-  buildNarrativesSection,
   buildAllLogsSection,
+  buildCharacterRosterSection,
+  buildLeadershipSection,
   buildLocationSummarySection,
+  buildNarrativesSection,
 } from '../llm/buildPromptService.js';
 
 import StaticGameDataManager from '../../staticGameDataManager.js';
@@ -30,6 +31,9 @@ export function compileReviewPrompt(estate: Estate): string {
 
     [Character Roster]
     ${buildCharacterRosterSection(estate)}
+
+    [Leadership]
+    ${buildLeadershipSection(estate)}
 
     [Active Narratives]
     ${buildNarrativesSection(estate)}

@@ -1,6 +1,32 @@
-EXAMPLE REVIEW:
+NARRATIVE GUIDELINES:
 
-Below is an example demonstrating well-formatted consequences for a scenario where Dismas died during the tutorial. Note how:
+Narratives are engine-facing directives, not prose. They steer future scenes. The logs record what happened. The roster describes who people are. The narrative says what tension is active and where it is heading.
+
+NOT THIS (retrospective summary, personality essay, hedging):
+"The Heiress and the Highwayman have developed a charged mutual respect forged under fire. She outplayed him at cards without gloating, killed a brigand gunner while he bled, tore her own shirt to bandage his wound, and bore his weight to the sanitarium — all without asking permission or expecting gratitude. Dismas is a man who trusts no one and owes nothing; Persephone is a woman who commands everything and needs no one. The tension between them — obligation, pride, attraction, and the dangerous equality of people who refuse to be vulnerable — is building toward something neither of them will be able to control."
+
+BUT THIS (directive, concrete tension, committed direction):
+"The Heiress is building her authority around the Highwayman — he was the only one besides her who performed on the Old Road, and she has made that preference visible. As the hamlet grows, this favoritism will shape how new arrivals align themselves."
+
+NOT THIS (individual character study, recapping events):
+"The Heir froze during the ambush and fumbled a letter opener while others fought. He narrated the Highwayman's blood loss clinically and was rebuked for it. His intellect is real but his body and nerves betray him. Whether the hamlet finds a role for his mind or the road breaks him remains to be seen."
+
+BUT THIS (connective, directional, faction-aware):
+"The Heir is useless in the field and knows it. The Crusader is the only one who has shown him kindness rather than contempt. If the Heiress continues to sideline Reynauld, Percival may be the first to push back against his sister — not out of strength, but out of loyalty to the one person who didn't write him off."
+
+Key principles:
+- Commit to a direction. Do not hedge. The next review cycle can change course.
+- Connect characters into shared tensions rather than tracking individuals separately.
+- Do not recap events — the logs already have them.
+- Do not describe personalities — the roster already has them.
+- 2-3 sentences maximum.
+- Follow-up events should not simply mirror the narratives. Narratives reflect tensions that already exist. Follow-up events push the story into new territory — adjacent threads, next steps, or consequences the narratives haven't reached yet.
+
+---
+
+EXAMPLE 1: Death on the Old Road
+
+Scenario: Dismas (Highwayman) was killed during the tutorial expedition. The remaining three characters arrived at the Hamlet.
 
 {
   "estate_log": {
@@ -8,27 +34,64 @@ Below is an example demonstrating well-formatted consequences for a scenario whe
     "timeframe": "long_term"
   },
   "narratives": [
-    "The Heir froze while the Highwayman bled out on the Old Road, and everyone present knows it. The Crusader saw a man with a letter opener hiding behind a tree while his companion died. The Heiress has deflected blame onto the sabotaged stagecoach and the brigands, but her brother's uselessness is no longer an abstract concern — it has a corpse attached to it. The Heir's position in the estate now depends entirely on proving his worth behind a desk, because the road has already judged him.",
-    "The Heiress dismissed the Highwayman's death with pragmatic composure, and her brother followed her lead — the man was a hired criminal, after all. But the Crusader carried the body. He dug the ground. He said the words. If the heirs treat every recruit as a disposable asset, the Crusader may be the first to ask what that makes him. As more fighters arrive at the Hamlet, how the heirs value the lives they spend will define whether anyone trusts their leadership."
+    "The Heir froze while the Highwayman died and everyone saw it. The Heiress has deflected blame onto the brigands, but her brother's uselessness now has a corpse attached to it. She is moving to confine him to desk work and strip him of any field authority.",
+    "The Crusader carried the Highwayman's body, dug the grave, and said the rites. The heirs treated the death as acceptable losses. If more recruits arrive and the heirs spend lives like coin, the Crusader will be the first to question their right to lead."
   ],
   "follow_up_events": [
     {
       "title": "A Mound of Stones",
-      "description": "The Crusader has insisted on burying the Highwayman properly despite the frozen ground. He is alone with a shovel and the silence. The earth is half-ice and barely yields. He didn't know the Highwayman long — a few hours on a bad road — but the man shared his bread without being asked, and that means something to a farmer's son. He has no headstone, so he stacks rocks and recites the rites of the Light over a man who probably never prayed a day in his life.",
+      "description": "The Crusader has insisted on burying the Highwayman properly despite the frozen ground. The earth is half-ice and barely yields. He didn't know the man long — a few hours on a bad road — but the man shared his bread without being asked, and that means something to a farmer's son. He stacks rocks and recites the rites of the Light over a man who probably never prayed a day in his life.",
       "characters": ["crusader"],
       "location": "graveyard"
     },
     {
       "title": "Needle and Thread",
-      "description": "The Heiress sits in the seamstress shop mending her marine blue robe, which was torn across the shoulder by a brigand's barbed whip during the ambush on the Old Road. Beneath the torn fabric, a welt has risen and split — she hasn't shown it to anyone, and won't. She chose the robe over the sanitarium because a leader doesn't bleed in public. The shop is empty, the seamstress long gone, and for the first time since receiving the Ancestor's letter she has nothing to command and no one to command it to.",
+      "description": "The Heiress sits in the seamstress shop mending her marine blue robe, torn across the shoulder by a brigand's barbed whip on the Old Road. Beneath the fabric, a welt has risen and split — she hasn't shown it to anyone, and won't. She chose the robe over the sanitarium because a leader doesn't bleed in public.",
       "characters": ["heiress"],
       "location": "seamstress"
     },
     {
       "title": "The Bottom of the Bottle",
-      "description": "The Heir has retreated to the parlor with his wine. His sister joins him — not to grieve, but to make sure he doesn't fall apart where others can see. She assured him on the road that the Highwayman was expendable — a fugitive, a killer, hired muscle and nothing more. The Heir repeats this to himself. But the man had shared their ride here, been willing to aid their desperate cause, and the Heir can still see the exact way he fell. He drinks to make the image stop. His sister watches him do it and does not drink herself.",
+      "description": "The Heir has retreated to the parlor with his wine. His sister joins him — not to grieve, but to make sure he doesn't fall apart where others can see. The Heir can still see the exact way the Highwayman fell. He drinks to make the image stop. His sister watches him and does not drink herself.",
       "characters": ["kheir", "heiress"],
       "location": "dower_house__parlor"
+    }
+  ]
+}
+
+---
+
+EXAMPLE 2: A Quiet Month in the Hamlet
+
+A month has passed. The Vestal has been publicly challenging the Heiress's expedition decisions in council meetings. The Plague Doctor was caught stealing medical supplies.
+
+{
+  "estate_log": {
+    "entry": "A fractious month. The Vestal openly challenged the Margrave's authority in two council sessions. The Plague Doctor was caught stealing sanitarium supplies and has been locked in the constabulary cells pending judgment.",
+    "timeframe": "short_term"
+  },
+  "narratives": [
+    "The Vestal is positioning herself as an alternative to the Heiress's leadership. She has challenged expedition decisions publicly twice and is framing it as moral duty. This is heading toward a formal demand for a leadership vote or an attempt to split the council.",
+    "The Man-at-Arms and the Crusader are becoming a political bloc. Their nightly drinking has made them visibly allied, and both are old soldiers skeptical of civilian authority. If the Vestal forces a leadership crisis, these two will be the votes that decide it."
+  ],
+  "follow_up_events": [
+    {
+      "title": "A Locked Door and a Ledger",
+      "description": "The Plague Doctor has been in the constabulary cells for two days. The Heir must visit her to decide her punishment — it falls under his authority as Bursar. He knows his sister wants an example made. He also knows the hamlet cannot easily replace a medical expert. The Plague Doctor knows this too, and she is not above saying so.",
+      "characters": ["plague_doctor", "kheir"],
+      "location": "constabulary__cells"
+    },
+    {
+      "title": "Old Soldiers",
+      "description": "The Man-at-Arms and the Crusader are drinking in the tavern after another long day of repairs. The conversation has drifted from war stories to the hamlet's leadership — specifically, whether two civilians with no military experience should be sending soldiers into dungeons. Neither man has said anything disloyal yet. Tonight that line may get closer.",
+      "characters": ["man_at_arms", "crusader"],
+      "location": "tavern"
+    },
+    {
+      "title": "The Olive Branch",
+      "description": "The Heiress has asked the Crusader to walk the hamlet perimeter with her — a patrol, she says, though there is nothing to patrol for. She has noticed his growing closeness with the Man-at-Arms and the Vestal's attempts to court allies. This is not a conversation about security. It is an attempt to pull him back before he drifts into the other camp.",
+      "characters": ["heiress", "crusader"],
+      "location": "palisade_wall"
     }
   ]
 }

@@ -20,13 +20,12 @@ export interface RelationshipLogEntry extends LogEntry {
   target: string; // the other character's identifier
 }
 
-export type EstateRoles = {
-  margrave: string; // The character identifier of the Margrave
-  bursar: string; // The character identifier of the Bursar
-  sheriff?: string; // Optional: The character identifier of the Sheriff
-  judge?: string; // Optional: The character identifier of the Judge
-  council?: string[]; // Optional: A list of character identifiers for the council
-};
+export interface EstateLeadership {
+  description: string;
+  margrave: string;
+  bursar: string;
+  council?: string[];
+}
 
 export interface EstatePreferences {
   llmProvider: LlmProvider; // Which provider family to use (ChatGPT/OpenAI, Claude/Anthropic, Gemini/Google, Grok/xAI, etc.)
@@ -77,7 +76,7 @@ export interface Estate {
     current: Weather;
     previous: Weather;
   }
-  roles: EstateRoles; // Roles within the estate
+  leadership: EstateLeadership; // Roles within the estate
   money: number;
   narratives: string[];
   characters: CharacterRecord;

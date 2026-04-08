@@ -8,6 +8,7 @@
     "strict": true,
     "skipLibCheck": true,
     "outDir": "dist",
+    "rootDir": ".",
     "types": ["node", "express"],
     "noImplicitAny": true
   },
