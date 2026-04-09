@@ -2,7 +2,7 @@
   "identifier": "dungeon_end",
   "title": "The Return",
   "type": "gameplay",
-  "description": "[Characters] return from the expedition to the hamlet. Some may be wounded and or afflicted, and some may be dead — carried back by their companions or left where they fell. Each character has developed new behavioral quirks during the expedition (provided in the Event Information below). These quirks are the primary focus of this scene and should be visibly demonstrated through action, gesture, dialogue, or habit.",
+  "description": "[Characters] return from the expedition to the hamlet. Some may be wounded and or afflicted, and some may be dead — carried back by their companions or left where they fell. Each character has developed new behavioral quirks during or as a consequence of the expedition (provided in the Event Information below). These quirks are the primary focus of this scene and should be visibly and clearly demonstrated through action, gesture, dialogue, or habit. They are randomly chosen and could be illogical, yet they should be embraced and portrayed regardless. Unless someone died, these quirks are the sole purpose of this event.",
   "characterCount": [],
   "keywords": [],
   "location": {

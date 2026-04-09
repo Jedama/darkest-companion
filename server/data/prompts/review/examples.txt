@@ -1,60 +1,34 @@
-NARRATIVE GUIDELINES:
+EXAMPLE 1: Two Days in the Weald
 
-Narratives are engine-facing directives, not prose. They steer future scenes. The logs record what happened. The roster describes who people are. The narrative says what tension is active and where it is heading.
-
-NOT THIS (retrospective summary, personality essay, hedging):
-"The Heiress and the Highwayman have developed a charged mutual respect forged under fire. She outplayed him at cards without gloating, killed a brigand gunner while he bled, tore her own shirt to bandage his wound, and bore his weight to the sanitarium — all without asking permission or expecting gratitude. Dismas is a man who trusts no one and owes nothing; Persephone is a woman who commands everything and needs no one. The tension between them — obligation, pride, attraction, and the dangerous equality of people who refuse to be vulnerable — is building toward something neither of them will be able to control."
-
-BUT THIS (directive, concrete tension, committed direction):
-"The Heiress is building her authority around the Highwayman — he was the only one besides her who performed on the Old Road, and she has made that preference visible. As the hamlet grows, this favoritism will shape how new arrivals align themselves."
-
-NOT THIS (individual character study, recapping events):
-"The Heir froze during the ambush and fumbled a letter opener while others fought. He narrated the Highwayman's blood loss clinically and was rebuked for it. His intellect is real but his body and nerves betray him. Whether the hamlet finds a role for his mind or the road breaks him remains to be seen."
-
-BUT THIS (connective, directional, faction-aware):
-"The Heir is useless in the field and knows it. The Crusader is the only one who has shown him kindness rather than contempt. If the Heiress continues to sideline Reynauld, Percival may be the first to push back against his sister — not out of strength, but out of loyalty to the one person who didn't write him off."
-
-Key principles:
-- Commit to a direction. Do not hedge. The next review cycle can change course.
-- Connect characters into shared tensions rather than tracking individuals separately.
-- Do not recap events — the logs already have them.
-- Do not describe personalities — the roster already has them.
-- 2-3 sentences maximum.
-- Follow-up events should not simply mirror the narratives. Narratives reflect tensions that already exist. Follow-up events push the story into new territory — adjacent threads, next steps, or consequences the narratives haven't reached yet.
-
----
-
-EXAMPLE 1: Death on the Old Road
-
-Scenario: Dismas (Highwayman) was killed during the tutorial expedition. The remaining three characters arrived at the Hamlet.
+Scenario: A two-day expedition into the Weald with Tardif (Bounty Hunter), Dismas (Highwayman), Marlene (Thorn), and William & Fergus (Houndmaster).
 
 {
   "estate_log": {
-    "entry": "The Highwayman was killed during the party's first expedition down the Old Road. The remaining three arrived at the Hamlet battered but alive.",
-    "timeframe": "long_term"
+    "entry": "A successful two-day expedition into the Weald. No casualties, but Dismas returned with Hashimoto's disease — a condition tied to the Sunward Isles — and is now quarantined in the sanitarium. Fergus took a wound shielding the Houndmaster from a fungal beast.",
+    "timeframe": "mid_term"
   },
   "narratives": [
-    "The Heir froze while the Highwayman died and everyone saw it. The Heiress has deflected blame onto the brigands, but her brother's uselessness now has a corpse attached to it. She is moving to confine him to desk work and strip him of any field authority.",
-    "The Crusader carried the Highwayman's body, dug the grave, and said the rites. The heirs treated the death as acceptable losses. If more recruits arrive and the heirs spend lives like coin, the Crusader will be the first to question their right to lead."
+    "Marlene and Tardif have become a combat pair that functions on instinct rather than command. This partnership is bypassing the normal chain of command — they don't need orders and they don't wait for them. The Margrave will need to decide whether to encourage this or break it up before it becomes a unit that answers only to itself.",
+    "Dismas's Hashimoto's disease has no treatment in the hamlet. Pressure to mount an unsanctioned expedition to the Sunward Isles is building. His condition will worsen, and the question of who authorizes the voyage — or who goes without authorization — will force the council's hand."
   ],
   "follow_up_events": [
     {
-      "title": "A Mound of Stones",
-      "description": "The Crusader has insisted on burying the Highwayman properly despite the frozen ground. The earth is half-ice and barely yields. He didn't know the man long — a few hours on a bad road — but the man shared his bread without being asked, and that means something to a farmer's son. He stacks rocks and recites the rites of the Light over a man who probably never prayed a day in his life.",
-      "characters": ["crusader"],
-      "location": "graveyard"
+      "title": "The Quarantine",
+      "description": "Dismas is confined to the sanitarium medical ward, sweating through his sheets, while the Plague Doctor studies his symptoms with undisguised academic interest. She has never seen Hashimoto's in person. William visits with Fergus — the dog's side is bandaged where the fungal beast caught him, and he limps to Dismas's cot and rests his head on the blanket. Dismas, who trusts no one, hasn't pushed the dog away. William watches from the doorway and tries to decide whether to tell Dismas what he overheard the Plague Doctor muttering about survival rates.",
+      "characters": ["highwayman", "plague_doctor", "houndmaster"],
+      "location": "sanitarium__medical_ward"
     },
     {
-      "title": "Needle and Thread",
-      "description": "The Heiress sits in the seamstress shop mending her marine blue robe, torn across the shoulder by a brigand's barbed whip on the Old Road. Beneath the fabric, a welt has risen and split — she hasn't shown it to anyone, and won't. She chose the robe over the sanitarium because a leader doesn't bleed in public.",
-      "characters": ["heiress"],
-      "location": "seamstress"
+      "title": "The Silent Conversation",
+      "description": "Marlene finds Tardif cleaning his weapons at the guild hall workbench after the debrief. They haven't spoken about what happened in the Weald — the way they moved together, the way she turned before he struck because she could hear his weight shift, the way he adjusted his kills to be quieter once he realized she was tracking him by sound. She is blind and he barely speaks. Neither of them has the tools for this conversation. She sits down across from him and begins maintaining her own blade, and the silence between them is not the same silence as before the expedition.",
+      "characters": ["thorn", "bounty_hunter"],
+      "location": "guild_hall"
     },
     {
-      "title": "The Bottom of the Bottle",
-      "description": "The Heir has retreated to the parlor with his wine. His sister joins him — not to grieve, but to make sure he doesn't fall apart where others can see. The Heir can still see the exact way the Highwayman fell. He drinks to make the image stop. His sister watches him and does not drink herself.",
-      "characters": ["kheir", "heiress"],
-      "location": "dower_house__parlor"
+      "title": "The Isles Question",
+      "description": "The Crusader corners the Heir in the town hall after the expedition report is filed. Reynauld served in the Sunward Isles during the crusades and knows the disease — he has seen men die of it, slowly, over weeks. He is pushing for an immediate expedition to retrieve a cure. The Heir controls the purse and is weighing the cost of a speculative voyage against the certainty of losing one highwayman. Reynauld is not asking for permission. He is telling the Bursar what needs to happen and expecting the money to follow.",
+      "characters": ["crusader", "kheir"],
+      "location": "town_hall__council_chamber"
     }
   ]
 }
@@ -63,7 +37,7 @@ Scenario: Dismas (Highwayman) was killed during the tutorial expedition. The rem
 
 EXAMPLE 2: A Quiet Month in the Hamlet
 
-A month has passed. The Vestal has been publicly challenging the Heiress's expedition decisions in council meetings. The Plague Doctor was caught stealing medical supplies.
+Scenario: A month has passed. The Vestal has been publicly challenging the Heiress's expedition decisions in council meetings. The Plague Doctor was caught stealing medical supplies.
 
 {
   "estate_log": {
@@ -71,13 +45,13 @@ A month has passed. The Vestal has been publicly challenging the Heiress's exped
     "timeframe": "short_term"
   },
   "narratives": [
-    "The Vestal is positioning herself as an alternative to the Heiress's leadership. She has challenged expedition decisions publicly twice and is framing it as moral duty. This is heading toward a formal demand for a leadership vote or an attempt to split the council.",
-    "The Man-at-Arms and the Crusader are becoming a political bloc. Their nightly drinking has made them visibly allied, and both are old soldiers skeptical of civilian authority. If the Vestal forces a leadership crisis, these two will be the votes that decide it."
+    "The Vestal is positioning herself as the Heiress's rival for hamlet leadership, framing her challenges as moral duty. This is heading toward a formal demand for a leadership vote or an attempt to split the council.",
+    "The Man-at-Arms and the Crusader are forming a political bloc — old soldiers skeptical of civilian authority, visibly allied through nightly drinking. If the Vestal forces a leadership crisis, these two are the votes that decide it."
   ],
   "follow_up_events": [
     {
       "title": "A Locked Door and a Ledger",
-      "description": "The Plague Doctor has been in the constabulary cells for two days. The Heir must visit her to decide her punishment — it falls under his authority as Bursar. He knows his sister wants an example made. He also knows the hamlet cannot easily replace a medical expert. The Plague Doctor knows this too, and she is not above saying so.",
+      "description": "The Plague Doctor has been in the constabulary cells for two days. The Heir must visit her to decide her punishment — it falls under his authority as Bursar. He knows his sister wants an example made. He also knows the hamlet cannot easily replace its only medical expert. The Plague Doctor knows this too, and she is not above saying so.",
       "characters": ["plague_doctor", "kheir"],
       "location": "constabulary__cells"
     },
