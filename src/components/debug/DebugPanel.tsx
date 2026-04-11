@@ -242,11 +242,21 @@ function DungeonEndPanel({
       if (!consequenceRes.ok) throw new Error(`Consequences failed: ${consequenceRes.status}`);
       const consequenceData = await consequenceRes.json();
 
+      // 4. Dungeon Summary (wage split)
+      const summaryRes = await fetch(`http://localhost:3000/estates/${estateName}/dungeon/summary`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          totalLoot: loot,
+        }),
+      });
+      if (!summaryRes.ok) throw new Error(`Summary failed: ${summaryRes.status}`);
+      const summaryData = await summaryRes.json();
+
       return {
         story: storyData.story,
         consequences: consequenceData,
-        totalLoot: loot,
-        region: estate.dungeon.region,
+        summary: summaryData.result,
       };
     });
   };

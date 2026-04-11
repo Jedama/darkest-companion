@@ -15,5 +15,9 @@
 
   "review.instructions": "review/instructions.txt",
   "review.format": "review/format.txt",
-  "review.examples": "review/examples.txt"
+  "review.examples": "review/examples.txt",
+
+  "dungeonsummary.instructions": "dungeonsummary/instructions.txt",
+  "dungeonsummary.format": "dungeonsummary/format.txt",
+  "dungeonsummary.examples": "dungeonsummary/examples.txt"
 }

@@ -1,0 +1,19 @@
+STRICT JSON FORMAT REQUIREMENTS:
+- Output contains "headline", "characters" array, "town" number, "bursar" number, and "justification" string as root keys
+- No extra text, no markdown
+- The sum of all character shares + town + bursar MUST equal the Total Loot exactly
+
+ROOT LEVEL FORMAT:
+{
+  "headline": "string — short, punchy, in the Bursar's voice",
+  "characters": [
+    {
+      "identifier": "string — character identifier from the roster",
+      "points": ["string", "string"],
+      "share": number
+    }
+  ],
+  "town": number,
+  "bursar": number,
+  "justification": "string — optional explanation for the bursar's cut. Empty string if none"
+}

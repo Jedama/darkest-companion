@@ -1,0 +1,116 @@
+# Bursar Examples
+
+## Example 1: Antiquarian as Bursar (Arrival Expedition)
+
+**Context:** Josephine the Antiquarian is Bursar. She was NOT on the expedition. The Heiress, Heir, Highwayman, and Crusader arrived at the Estate via stagecoach, surviving a crash, two brigand ambushes, and a grueling march. The Crusader sustained a serious gunshot wound. The Heir was concussed and froze during combat. The Heiress commanded throughout. The Highwayman spotted threats, killed, and carried the wounded. Total loot: 6020 gold.
+
+```json
+{
+  "headline": "The Heirs Arrive — Salvage Assessment",
+  "characters": [
+    {
+      "identifier": "heiress",
+      "points": ["Born to command", "Dangerous when crossed", "Controls the purse"],
+      "share": 1280
+    },
+    {
+      "identifier": "kheir",
+      "points": ["Fragile but useful", "Manageable"],
+      "share": 850
+    },
+    {
+      "identifier": "highwayman",
+      "points": ["Quiet", "Competent", "Professional"],
+      "share": 1150
+    },
+    {
+      "identifier": "crusader",
+      "points": ["Unimaginative but functional", "Durable", "Watch the pious ones"],
+      "share": 1100
+    }
+  ],
+  "town": 1420,
+  "bursar": 220,
+  "justification": ""
+}
+```
+
+**Notes:** The Heiress gets the largest share — not for bleeding the most, but because Josephine won't antagonize the person who controls her appointment. The Heir gets the smallest share but not conspicuously so — Intelligence 8 means she knows that halving someone's pay next to their sister creates enemies. Dismas edges out Reynauld because Josephine pays for usefulness, not suffering. She skims 220 — modest, early, defensible as administrative compensation. Town gets a healthy share because she's protecting the infrastructure that makes future profit possible.
+
+---
+
+## Example 2: Cursed (Genn Greymane) as Bursar (Same Arrival Expedition)
+
+**Context:** Same expedition as Scenario 1. Genn Greymane is Bursar. He was NOT on the expedition. Total loot: 6020 gold.
+
+```json
+{
+  "headline": "The Heirs' March",
+  "characters": [
+    {
+      "identifier": "heiress",
+      "points": ["Officer material", "Earned her name"],
+      "share": 1250
+    },
+    {
+      "identifier": "kheir",
+      "points": ["Soft", "Not yet tested"],
+      "share": 650
+    },
+    {
+      "identifier": "highwayman",
+      "points": ["Soldier without a banner", "Dependable"],
+      "share": 1200
+    },
+    {
+      "identifier": "crusader",
+      "points": ["Knows his duty", "Will not break", "Sticky fingers"],
+      "share": 1420
+    }
+  ],
+  "town": 1500,
+  "bursar": 0,
+  "justification": ""
+}
+```
+
+**Notes:** The Crusader gets the largest share — Genn rewards sacrifice and duty above all. The Heir gets openly the smallest — Sociability 3 means Genn doesn't soften the verdict, judging by merit, not bloodline. Contrast with Josephine: she's smarter but politically cautious, he's blunter but arguably more honest. Town gets the single largest allocation because a king thinks in collective infrastructure first. No bursar cut — a king does not skim from his people's coffers. "Sticky fingers" is blunt where Josephine's "Watch the pious ones" is subtle — Intelligence 6 vs her 8.
+
+---
+
+## Example 3: Zenith (Syndoriel) as Bursar (Weald Expedition)
+
+**Context:** Syndoriel the Zenith is Bursar. He WAS on the expedition. A four-person team (Zenith, Highwayman, Thorn, Bounty Hunter) completed a two-day expedition into the Weald. Combat was frequent and successful. Tardif the Bounty Hunter was brutally efficient throughout. Marlene the Thorn fought with precision using auditory cues. Dismas the Highwayman performed reliably but contracted Hashimoto's disease during the trip. Syndoriel kept morale high and fought with acrobatic flair. No serious injuries. Total loot: 13500 gold.
+
+```json
+{
+  "headline": "Weald Run: Good Fight, Bad Luck",
+  "characters": [
+    {
+      "identifier": "zenith",
+      "points": ["Kept morale up", "Inspiring spearwork", "Natural leader", "Everyone's favourite", "Heart of the team"],
+      "share": 3300
+    },
+    {
+      "identifier": "highwayman",
+      "points": ["Good company", "Get him a doctor"],
+      "share": 2950
+    },
+    {
+      "identifier": "thorn",
+      "points": ["Graceful", "Doesn't miss", "Think she likes my voice"],
+      "share": 2750
+    },
+    {
+      "identifier": "bounty_hunter",
+      "points": ["Effective", "Wish he'd talk more"],
+      "share": 2200
+    }
+  ],
+  "town": 2200,
+  "bursar": 100,
+  "justification": "Bought everyone drinks!"
+}
+```
+
+**Notes:** Five self-assessment points — all about how others perceive him rather than tactical contribution (If the Antiquarian self-assessed she'd probably only write "present"). That's Sociability 10 and Intelligence 4: he genuinely believes he was the star. "Everyone's favourite" is something no one else would write about themselves. Dismas gets the second-highest share — Syndoriel likes him AND feels sympathetic about the disease. Marlene gets a warm assessment; "Think she likes my voice" is unprofessional and revealing — no other Bursar would put that in an official document. Tardif gets the least despite arguably performing best — Syndoriel can't connect with silence, so his gut says Tardif deserves less. The bursar cut is 100 gold for a round of drinks — he doesn't see this as skimming, he sees it as generosity. The justification field is optional: present when the Bursar would explain themselves, empty when they wouldn't (Josephine would never, Genn would never).
