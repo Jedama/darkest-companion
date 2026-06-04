@@ -57,7 +57,7 @@ router.post('/estates/:estateName/events/consequences', async (req: Request<{est
       provider,
       model,
       prompt,
-      maxTokens: 2048,
+      maxTokens: estate.preferences?.maxTokens,
       temperature: 0.7,
     });
 

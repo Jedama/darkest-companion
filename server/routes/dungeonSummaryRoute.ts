@@ -42,9 +42,11 @@ router.post('/estates/:estateName/dungeon/summary', async (req: Request, res: Re
       provider,
       model,
       prompt: summaryPrompt,
-      maxTokens: 2048,
+      maxTokens: estate.preferences?.maxTokens,
       temperature: 0.7,
     };
+
+    console.log(summaryPrompt);
 
     const response = await callLLM(summaryRequest);
 
@@ -68,7 +70,7 @@ router.post('/estates/:estateName/dungeon/summary', async (req: Request, res: Re
     const characterTotal = parsedJson.characters.reduce(
       (sum: number, c: any) => sum + (c.share || 0), 0
     );
-    const totalDistributed = characterTotal + (parsedJson.town || 0);
+    const totalDistributed = characterTotal + (parsedJson.town || 0) + (parsedJson.burar || 0);
     const lootNum = parseInt(totalLoot) || 0;
 
     if (totalDistributed !== lootNum) {

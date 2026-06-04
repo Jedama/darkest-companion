@@ -63,7 +63,7 @@ router.post('/estates/:estateName/events/recruit', async (req: Request, res: Res
       provider,
       model,
       prompt: recruitPrompt,
-      maxTokens: 2048,
+      maxTokens: estate.preferences?.maxTokens,
       temperature: 0.7,
     };
 
@@ -84,7 +84,7 @@ router.post('/estates/:estateName/events/recruit', async (req: Request, res: Res
       provider,
       model,
       prompt: consequencesPrompt,
-      maxTokens: 2048,
+      maxTokens: estate.preferences?.maxTokens,
       temperature: 0.7,
     });
 

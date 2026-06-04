@@ -35,7 +35,7 @@
 }
 ```
 
-**Notes:** The Heiress gets the largest share — not for bleeding the most, but because Josephine won't antagonize the person who controls her appointment. The Heir gets the smallest share but not conspicuously so — Intelligence 8 means she knows that halving someone's pay next to their sister creates enemies. Dismas edges out Reynauld because Josephine pays for usefulness, not suffering. She skims 220 — modest, early, defensible as administrative compensation. Town gets a healthy share because she's protecting the infrastructure that makes future profit possible.
+**Explanation:** Josephine is calculating and politically cautious — she thinks several moves ahead and won't antagonize anyone who might damage her position. The Heiress gets the largest share not for bleeding the most, but because Josephine won't cross the person who controls her appointment. The Heir gets the smallest share but not conspicuously so — Josephine knows that halving someone's pay next to their sister creates an enemy, and she doesn't make enemies she doesn't have to. Dismas edges out Reynauld because Josephine pays for usefulness, not suffering. She skims 220 — modest, early, defensible as administrative compensation. Town gets a healthy share because she's protecting the infrastructure that makes future profit possible.
 
 ---
 
@@ -64,7 +64,7 @@
     },
     {
       "identifier": "crusader",
-      "points": ["Knows his duty", "Will not break", "Sticky fingers"],
+      "points": ["Knows his duty", "Will not break"],
       "share": 1420
     }
   ],
@@ -74,7 +74,7 @@
 }
 ```
 
-**Notes:** The Crusader gets the largest share — Genn rewards sacrifice and duty above all. The Heir gets openly the smallest — Sociability 3 means Genn doesn't soften the verdict, judging by merit, not bloodline. Contrast with Josephine: she's smarter but politically cautious, he's blunter but arguably more honest. Town gets the single largest allocation because a king thinks in collective infrastructure first. No bursar cut — a king does not skim from his people's coffers. "Sticky fingers" is blunt where Josephine's "Watch the pious ones" is subtle — Intelligence 6 vs her 8.
+**Explanation:** Genn is a king in exile — blunt, duty-bound, and constitutionally unable to soften a verdict to spare feelings. The Crusader gets the largest share because Genn rewards sacrifice and duty above all. The Heir gets openly the smallest — Genn judges by merit, not bloodline, and doesn't dress the judgment up. Contrast with Josephine: she's the more careful political operator, he's blunter but arguably more honest. Town gets the single largest allocation because a king thinks in collective infrastructure first. No bursar cut — a king does not skim from his people's coffers.
 
 ---
 
@@ -113,4 +113,4 @@
 }
 ```
 
-**Notes:** Five self-assessment points — all about how others perceive him rather than tactical contribution (If the Antiquarian self-assessed she'd probably only write "present"). That's Sociability 10 and Intelligence 4: he genuinely believes he was the star. "Everyone's favourite" is something no one else would write about themselves. Dismas gets the second-highest share — Syndoriel likes him AND feels sympathetic about the disease. Marlene gets a warm assessment; "Think she likes my voice" is unprofessional and revealing — no other Bursar would put that in an official document. Tardif gets the least despite arguably performing best — Syndoriel can't connect with silence, so his gut says Tardif deserves less. The bursar cut is 100 gold for a round of drinks — he doesn't see this as skimming, he sees it as generosity. The justification field is optional: present when the Bursar would explain themselves, empty when they wouldn't (Josephine would never, Genn would never).
+**Explanation:** Syndoriel is hedonistic and solipsistic — charming, charismatic, and genuinely convinced he is the heart of any room he walks into. Five self-assessment points, all about how others perceive him rather than tactical contribution — he genuinely believes he was the star. (If Josephine self-assessed she'd probably only write "present.") Dismas gets the second-highest share — Syndoriel likes him AND feels sympathetic about the disease. Marlene gets a warm assessment; "Think she likes my voice" is in-character. Tardif gets the least despite arguably performing best — Syndoriel can't connect with silence, so his gut says Tardif deserves less. The bursar cut is 100 gold for a round of drinks. The justification field is optional: present when the Bursar would explain themselves, empty when they wouldn't.

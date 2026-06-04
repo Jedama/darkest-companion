@@ -39,7 +39,7 @@ router.post('/estates/:estateName/review', async (req: Request, res: Response) =
       provider,
       model,
       prompt: reviewPrompt,
-      maxTokens: 4096,
+      maxTokens: estate.preferences?.maxTokens,
       temperature: 0.7,
     };
 

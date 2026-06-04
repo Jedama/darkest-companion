@@ -85,8 +85,8 @@ export async function compileRecruitConsequencesPrompt(options: {
   // 1. Gather characters
 const involvedCharacters: Character[] = chosenCharacterIds.map((id) => estate.characters[id]);
 
-const margraveId = estate.roles.margrave;
-const bursarId = estate.roles.bursar;
+const margraveId = estate.leadership.margrave;
+const bursarId = estate.leadership.bursar;
 
 const establishedCharacters: Character[] = involvedCharacters.filter(
   (char) => char.identifier === margraveId || char.identifier === bursarId

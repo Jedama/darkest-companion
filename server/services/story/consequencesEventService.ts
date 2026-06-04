@@ -36,7 +36,7 @@ export async function compileConsequencesPrompt(options: {
     // Maybe add affliction here? If present
 
     if (char.notes.length > 0) {
-      charactersSection += `  - Notes: ${char.notes.join(', ')}\n`;
+      charactersSection += `  - Notes: ${char.notes.join('; ')}\n`;
     }
   }
 

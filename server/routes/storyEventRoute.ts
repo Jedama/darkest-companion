@@ -38,7 +38,7 @@ router.post('/estates/:estateName/events/story', async (req: Request, res: Respo
       provider,
       model,
       prompt,
-      maxTokens: 2048,
+      maxTokens: estate.preferences?.maxTokens,
       temperature: 1.0,
       // system: estate.preferences?.guidance ?? undefined, // NOT USED per your request
     });

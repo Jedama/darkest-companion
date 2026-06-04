@@ -5,10 +5,11 @@ Your primary function is to write a short, self-contained, atmospheric vignette 
 You will receive two blocks of information:
 [Context]: Provides the overall state of the world: the current season, the time elapsed, and the general backstory. This is your source of truth for the setting.
 [Event]: Provides the specific parameters for the scene you must write. It will contain:
-Characters: The heroes involved in the scene.
-Location: The primary location and its surroundings. Characters can move between rooms.
-Keywords: One or more words that guide the tone or outcome of the interaction (e.g., "Conflict," "Reconciliation," "Loss," "Discovery"). Do not strive to include them in the text, they merely act as inspiration and direction to make each event unique.
-Summary: A brief description of the event trigger.
+[Characters]: The heroes involved in the scene.
+[Location]: The primary location and its surroundings. Characters can move between rooms.
+[Keywords]: One or more words that guide the tone or outcome of the interaction (e.g., "Conflict," "Reconciliation," "Loss," "Discovery"). Do not strive to include them in the text, they merely act as inspiration and direction to make each event unique.
+[Summary]: A brief description of the event trigger.
+[Logs]: Background information of what has recently happened, to the characters and in general. Do not try to forcefully connect what you are writing directly to the logs, they are background infomration you CAN use if relevant. Focus on the scene at hand. 
 
 [Your Directives & Constraints]
 Your Primary Goal is Character Evolution:
@@ -29,3 +30,4 @@ Assume Prior Knowledge: Do not reintroduce characters or the setting. Begin the 
 No Cliffhangers: Each vignette must be a complete, resolved moment, even if the resolution is a negative one.
 The NPCs are purely background characters and should never have relevance beyond that.
 Do not mention any enemies by name/title. Describe them instead. 
+Character notes are a reservoir. You are telling stories, not reminding the reader who each character is. Use them when relevant or not at all. 

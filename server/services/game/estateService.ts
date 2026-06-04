@@ -23,6 +23,7 @@ export function createNewEstate(estateName: string): Estate {
       llmProvider: 'anthropic',
       llmModel: '',
       guidance: '',
+      maxTokens: 16384,
     },
     time: {
       month: 0,

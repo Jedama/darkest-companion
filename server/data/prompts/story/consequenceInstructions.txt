@@ -67,7 +67,9 @@ GUIDANCE FOR QUALITY CONSEQUENCES:
   - One or two words maximum
 
 4. NOTES:
-  - Notes capture OBSERVABLE, REPEATABLE behaviors and habits that define how a character acts:
+  - Notes capture OBSERVABLE, REPEATABLE, and INTERESTING behaviors that define how a character acts, which could not be stated elsewhere. 
+  - The bar for adding a note is HIGH — most events should add zero notes. Notes accumulate over a character's lifetime, so each one must earn its place against years of future scenes.
+  - Reveals something not implied by the obvious traits. A cowardly character "flinches at loud noises" tells you nothing new. Don't add it.
   - Format as concrete actions or patterns, not internal states or temporary conditions:
     * Bad: "Feels guilty about past sins" (vague and boring, probably restating core character traits)
     * Bad: "Eyebrow twitches when bluffing at cards" (Way too niche)
@@ -76,13 +78,9 @@ GUIDANCE FOR QUALITY CONSEQUENCES:
     * Good: "Sleeps with a candle lit"
     * Bad: "Uses physical intimacy as a tool to control and motivate her brother." (relationship-specific, belongs in relationship description)
     * Good: "Uses physical intimacy as a tool for dominance"
-    * Bad: "Rereads important documents obsessively, searching for hidden meanings" (Too vague/conditional and speculative)
-    * Good: "Rereads all documents at least once." (Changing from "important" to "all" removes all unwanted ambiguity)
-  - Notes should be:
-    * Observable from outside (not thoughts/feelings)
-    * Applicable across situations (not tied to one person/event)
-    * Ongoing patterns (not temporary states)
   - Avoid duplicate notes that merely restate information already present elsewhere
+  - Enrich existing notes by replacing them (lose_note + gain_note) rather than stacking.
+  - Before adding a note, reread the character's traits, description, and existing notes. State to yourself what is already covered. A new note MUST describe a behavior that does NOT logically follow from what is already on the sheet.
    
 5. STATS:
   - Only update when a significant change is demonstrated

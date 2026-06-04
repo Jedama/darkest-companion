@@ -1,4 +1,5 @@
-import { Character, CharacterRecord, EstateRoles } from '../../../shared/types/types';
+//server/services/townHall/council.ts
+import { Character, CharacterRecord, EstateLeadership } from '../../../shared/types/types';
 import { isVirtue, isAffliction } from '../../../shared/constants/conditions';
 
 // ===================================================================
@@ -132,17 +133,17 @@ function calculateCouncilScore(
  * This function prioritizes fit leaders but will choose the "least unfit"
  * candidate if no one is fully qualified, preventing a power vacuum.
  */
-function handleSuccession(currentRoles: EstateRoles, roster: CharacterRecord): EstateRoles {
-    const activeRoles = { ...currentRoles };
+function handleSuccession(currentLeadership: EstateLeadership, roster: CharacterRecord): EstateLeadership {
+    const activeLeadership = { ...currentLeadership };
     const rosterAsArray = Object.values(roster);
 
     // --- Margrave Succession ---
-    const originalMargrave = roster[currentRoles.margrave];
+    const originalMargrave = roster[currentLeadership.margrave];
     if (originalMargrave && !isFitForDuty(originalMargrave)) {
         // Find candidates who are NOT the current leaders and ARE fit for duty.
         const fitCandidates = rosterAsArray.filter(h =>
             h.identifier !== originalMargrave.identifier &&
-            h.identifier !== currentRoles.bursar &&
+            h.identifier !== currentLeadership.bursar &&
             isFitForDuty(h)
         );
 
@@ -152,18 +153,18 @@ function handleSuccession(currentRoles: EstateRoles, roster: CharacterRecord): E
                 if (a.stats.authority !== b.stats.authority) return b.stats.authority - a.stats.authority;
                 return b.level - a.level;
             });
-            activeRoles.margrave = fitCandidates[0].identifier;
+            activeLeadership.margrave = fitCandidates[0].identifier;
         }
         // If fitCandidates is empty, this block is skipped. The unfit Margrave remains.
     }
 
     // --- Bursar Succession (runs *after* potential Margrave change) ---
-    const originalBursar = roster[currentRoles.bursar];
+    const originalBursar = roster[currentLeadership.bursar];
     if (originalBursar && !isFitForDuty(originalBursar)) {
         // Find candidates who are NOT the original bursar, NOT the CURRENT margrave, and ARE fit.
         const fitCandidates = rosterAsArray.filter(h =>
             h.identifier !== originalBursar.identifier &&
-            h.identifier !== activeRoles.margrave && // Uses the *new* margrave
+            h.identifier !== activeLeadership .margrave && // Uses the *new* margrave
             isFitForDuty(h)
         );
         
@@ -173,12 +174,12 @@ function handleSuccession(currentRoles: EstateRoles, roster: CharacterRecord): E
                 if (a.stats.intelligence !== b.stats.intelligence) return b.stats.intelligence - a.stats.intelligence;
                 return b.level - a.level;
             });
-            activeRoles.bursar = fitCandidates[0].identifier;
+            activeLeadership.bursar = fitCandidates[0].identifier;
         }
         // If fitCandidates is empty, this block is skipped. The unfit Bursar remains.
     }
   
-    return activeRoles;
+    return activeLeadership;
 }
   
 // ===================================================================
@@ -191,32 +192,32 @@ function handleSuccession(currentRoles: EstateRoles, roster: CharacterRecord): E
  * council members based on a robust scoring system. In cases of widespread
  * illness where no one is qualified, the council will be empty for the month.
  */
-export function electNewCouncil(currentRoles: EstateRoles, roster: CharacterRecord): EstateRoles {
+export function electNewCouncil(currentLeadership: EstateLeadership, roster: CharacterRecord): EstateLeadership {
   // Step 1: Handle emergency successions to determine the active leaders.
   // If no fit replacements are found, the original (unfit) leaders will remain.
-  const activeRoles = handleSuccession(currentRoles, roster);
-  const margrave = roster[activeRoles.margrave];
-  const bursar = roster[activeRoles.bursar];
+  const activeLeadership = handleSuccession(currentLeadership, roster);
+  const margrave = roster[activeLeadership.margrave];
+  const bursar = roster[activeLeadership.bursar];
 
   // Defend against a completely empty roster or missing leaders.
   if (!margrave || !bursar) {
       console.error("Cannot elect council: Margrave or Bursar is missing from the roster.");
-      activeRoles.council = [];
-      return activeRoles;
+      activeLeadership.council = [];
+      return activeLeadership;
   }
 
   // Step 2: Determine the base number of council seats.
   const rosterSize = Object.keys(roster).length;
   if (rosterSize < ELECTION_CONFIG.COUNCIL_SEATS.MIN_ROSTER_FOR_COUNCIL) {
       // The community is too small and informal. The leaders rule by decree.
-      activeRoles.council = [];
-      return activeRoles;
+      activeLeadership.council = [];
+      return activeLeadership;
   }
   const baseSeats = ELECTION_CONFIG.COUNCIL_SEATS.BASE_SEATS + Math.floor(rosterSize / ELECTION_CONFIG.COUNCIL_SEATS.SEATS_PER_ROSTER_MEMBER);
   let finalSeats = Math.min(baseSeats, ELECTION_CONFIG.COUNCIL_SEATS.MAX_SEATS);
 
   // Step 3: Score all potential candidates.
-  const originalLeaderIds = [currentRoles.margrave, currentRoles.bursar];
+  const originalLeaderIds = [currentLeadership.margrave, currentLeadership.bursar];
 
   const potentialCandidates = Object.values(roster)
   .filter(h => 
@@ -236,8 +237,8 @@ export function electNewCouncil(currentRoles: EstateRoles, roster: CharacterReco
 
   // If there are no qualified candidates, the council is empty for the month. This is the intended outcome.
   if (qualifiedCandidates.length === 0) {
-    activeRoles.council = [];
-    return activeRoles;
+    activeLeadership.council = [];
+    return activeLeadership;
   }
   
   // The number of seats cannot exceed the number of available, qualified candidates.
@@ -279,7 +280,7 @@ export function electNewCouncil(currentRoles: EstateRoles, roster: CharacterReco
   }
   
   // Step 6: Appoint the final council members from the qualified list.
-  activeRoles.council = qualifiedCandidates.slice(0, finalSeats).map(c => c.id);
+  activeLeadership.council = qualifiedCandidates.slice(0, finalSeats).map(c => c.id);
   
-  return activeRoles;
+  return activeLeadership;
 }

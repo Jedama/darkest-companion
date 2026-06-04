@@ -83,10 +83,10 @@ function getRequiredCharacterIdsFromRoles(estate: Estate, event: EventData): str
   const ids: string[] = [];
 
   for (const role of requiredRoles) {
-    const value = (estate.roles as any)[role];
+    const value = (estate.leadership as any)[role];
 
     if (!value) {
-      throw new Error(`Event '${event.identifier}' requires role '${role}', but estate.roles.${role} is missing.`);
+      throw new Error(`Event '${event.identifier}' requires role '${role}', but estate.leadership.${role} is missing.`);
     }
 
     if (Array.isArray(value)) {
