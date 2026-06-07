@@ -4,7 +4,7 @@
  * and can be used in any character's strategy profile.
  */
 
-import { CharacterRecord } from '../../../../shared/types/types';
+import { CharacterRecord, Character } from '../../../../shared/types/types';
 import { AfflictionType, VirtueType, isAffliction, isVirtue } from '../../../../shared/constants/conditions.js';
 import { Party, Composition } from '../expeditionPlanner';
 import {
@@ -208,6 +208,7 @@ export function scorePartyByCommandClarity(party: Party, roster: CharacterRecord
 
   const partyWithEAS = party.map(id => {
     const hero = roster[id];
+    if (!hero) return { id, eas: -Infinity, hero: null }; // safeguard against stale ids
     let bonus = 0;
     if (hero.tags.includes('Leader')) bonus += 3;
     if (hero.tags.includes('Strategist')) bonus += 2;
@@ -221,6 +222,7 @@ export function scorePartyByCommandClarity(party: Party, roster: CharacterRecord
 
   const leader1 = partyWithEAS[0];
   const leader2 = partyWithEAS[1];
+  if (!leader1?.hero || !leader2?.hero) return 0;
 
   const scoreA = leader1.eas * 2;
   const primaryGap = leader1.eas - leader2.eas;
@@ -230,6 +232,7 @@ export function scorePartyByCommandClarity(party: Party, roster: CharacterRecord
   let totalPressureScore = 0;
   for (let i = 1; i < partyWithEAS.length; i++) {
     const subordinate = partyWithEAS[i];
+    if (!subordinate.hero) continue;
     const gap_to_leader = leader1.eas - subordinate.eas;
     const riskFactor = 1 / (gap_to_leader + 0.5);
     const affinity_to_leader = subordinate.hero.relationships[leader1.id]?.affinity ?? 3;
@@ -365,11 +368,13 @@ export function scorePartyByTacticalNonsense(party: Party, roster: CharacterReco
  * @returns A score representing the party's defensive synergy. Higher is better.
  */
 export function scorePartyByDedicatedProtector(party: Party, roster: CharacterRecord): number {
-  if (party.length !== 4) {
+  // Generalized off a hardcoded size of 4: this "one bulwark, everyone else is a ward"
+  // model works for any party of >= 2. The filter also drops any stale/missing ids.
+  const partyHeroes = party.map(id => roster[id]).filter((h): h is Character => !!h);
+  if (partyHeroes.length < 2) {
     return 0;
   }
 
-  const partyHeroes = party.map(id => roster[id]);
   const averagePartyLevel = partyHeroes.reduce((sum, h) => sum + h.level, 0) / partyHeroes.length;
 
   // ===================================================================
@@ -537,11 +542,11 @@ export function scoreCompositionByConditionBalance(composition: Composition, ros
       .reduce((sum, squaredDiff) => sum + squaredDiff, 0) / partyLiabilityScores.length;
     const imbalancePenalty = Math.sqrt(variance);
 
-    // Instead of adding them, make the penalty a *small multiplier* on the main score.
-    // e.g., add 0.1% of the imbalance penalty value to the average liability.
-    // This gives a tiny nudge towards balance without corrupting the main metric.
-    // The '0.1' here is a tuning factor.
-    return averagePartyLiability + (imbalancePenalty * 0.1);
+    // Add a small, fixed fraction of the inter-party liability std-dev as a nudge toward
+    // balance, without letting imbalance dominate the (primary) average-liability metric.
+    // IMBALANCE_WEIGHT is 0.1 = 10% of the std-dev (the old comment mis-stated this as 0.1%).
+    const IMBALANCE_WEIGHT = 0.1;
+    return averagePartyLiability + (imbalancePenalty * IMBALANCE_WEIGHT);
   }
 
   // If only one party, just return the average liability.

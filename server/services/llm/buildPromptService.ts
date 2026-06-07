@@ -11,6 +11,8 @@ import type {
 
 import StaticGameDataManager from '../../staticGameDataManager.js';
 import { isDescendantOf } from '../game/locationService.js';
+import { getZodiacForMonth, formatTimeSinceEvent } from '../game/calendarService.js';
+import { generateWeatherDescription, generateWeatherChangeDescription } from '../game/weatherService.js';
 
 const MAX_USER_INPUT_LENGTH = 10000;
 
@@ -513,4 +515,61 @@ export function buildLeadershipSection(estate: Estate): string {
 
   lines.push('');
   return lines.join('\n');
+}
+
+/**
+ * Compiles the full context prompt for the LLM from pre-loaded data.
+ */
+export function compileNarrativeContext(estate: Estate, gameData: StaticGameDataManager): string {
+  
+  const zodiac = getZodiacForMonth(estate.time.month);
+
+  // Weather descriptions
+  const weatherDesc = generateWeatherDescription(estate.weather.current);
+  const weatherChange = generateWeatherChangeDescription(estate.weather.previous, estate.weather.current);
+  const timeFrame = estate.time.beat === 0 ? 'Since yesterday, ' : 'Since the last story, ';
+  const dayOpener = estate.time.beat === 0 ? 'This is the first event of the day, set the stage with the season, weather, and location.' : '';
+
+  // Use a simple template literal with placeholders
+  let contextTemplate = `
+    [Instructions]
+${gameData.getPrompt('story.instructions')}
+
+    [Context]
+${gameData.getPrompt('story.backstory')}
+
+PRESENT DAY:
+It is the month of ${zodiac.name}. ${zodiac.text}
+The current weather is ${weatherDesc}. ${weatherChange ? timeFrame + weatherChange : ''}.
+${dayOpener}
+${formatTimeSinceEvent(estate.time.month + 1)} have passed since the Ancestor's suicide and monsters assailed the Hamlet. 
+
+    
+  `;
+
+  // Replace all placeholders like ${estateName} at the very end
+  return contextTemplate.replace(/\$\{estateName\}/g, estate.name);
+}
+
+export function compileRecruitContext(estate: Estate, gameData: StaticGameDataManager): string {
+  
+  const zodiac = getZodiacForMonth(estate.time.month);
+
+  // Use a simple template literal with placeholders
+  let contextTemplate = `
+    [Instructions]
+${gameData.getPrompt('recruit.instructions')}
+
+    [Context]
+${gameData.getPrompt('recruit.backstory')}
+
+PRESENT DAY:
+It is the month of ${zodiac.name}. ${zodiac.text}
+${formatTimeSinceEvent(estate.time.month)} have passed since the Heir and Heiress begun the quest to reclaim the Estate.
+
+    
+  `;
+
+  // Replace all placeholders like ${estateName} at the very end
+  return contextTemplate.replace(/\$\{estateName\}/g, estate.name);
 }

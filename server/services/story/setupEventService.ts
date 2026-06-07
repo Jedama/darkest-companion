@@ -1,8 +1,9 @@
 // server/services/setupEventService.ts
 import StaticGameDataManager from '../../staticGameDataManager.js';
-import { pickEventLocation } from '../game/locationService';
+import { pickEventLocation } from '../game/locationService.js';
+import { EVENTS_DIR } from '../../paths.js';
 
-import type { Estate, EventData, LocationData, Bystander } from '../../../shared/types/types';
+import type { Estate, EventData, EventLocationRequirements, LocationData, Bystander, FollowUpEvent } from '../../../shared/types/types';
 
 // Constants
 const MAX_SCENE_NPCS = 6;
@@ -126,7 +127,7 @@ function resolveEvent(options: SetupEventOptions): EventData {
   const townEvents = gameData.getEventsByCategory('town');
   let eventIds = Object.keys(townEvents);
   if (eventIds.length === 0) {
-    throw new Error('No event templates found in data/events.');
+    throw new Error(`No event templates found in ${EVENTS_DIR}.`);
   }
 
   // Filter by Compatibility with Requested Character Count
@@ -415,4 +416,94 @@ export async function setupEvent(
   }
 
   return { event, chosenCharacterIds, locations, npcs, enemies, bystanders, keywords };
+}
+
+/* -------------------------------------------------------------------
+ *  Follow-up events
+ * ------------------------------------------------------------------- */
+
+/**
+ * Translates a follow-up's single `location` field into the EventLocationRequirements
+ * that pickEventLocation expects.
+ * - A named location is seeded as the sole default candidate, so it's picked as-is.
+ * - "any" lets the participants' own residences/workplaces/haunts drive the pick;
+ *   shared spots score highest. Characters always receive locations at creation, so
+ *   the score map can't come back empty — no allowAll backstop needed.
+ */
+function buildFollowUpLocation(followUp: FollowUpEvent): EventLocationRequirements {
+  if (followUp.location && followUp.location !== 'any') {
+    return { default: [followUp.location], residence: [], workplaces: [], frequents: [] };
+  }
+
+  const allIndices = followUp.characters.map((_, i) => i + 1);
+  return { default: [], residence: allIndices, workplaces: allIndices, frequents: allIndices };
+}
+
+/**
+ * Wraps a follow-up in a minimal synthetic EventData. compileStoryPrompt is typed on
+ * EventData and reads title/description, so this is the bridge. characterCount pins to
+ * the exact participant count (no fill), and there are no keywords/enemies/roles.
+ */
+function buildFollowUpEventData(followUp: FollowUpEvent): EventData {
+  const count = followUp.characters.length;
+  const slug = followUp.title.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+
+  return {
+    identifier: `followup__${slug || 'untitled'}`,
+    title: followUp.title,
+    type: 'town',
+    description: followUp.description,
+    characterCount: [count, count],
+    keywords: [],
+    location: buildFollowUpLocation(followUp),
+  };
+}
+
+/**
+ * setupFollowUpEvent
+ * Sibling to setupEvent for a fully-specified follow-up. Skips event/character
+ * resolution (both are already decided) and reuses pickEventLocation for the
+ * location, bystanders, and surrounding NPCs. Returns the same shape as setupEvent
+ * so the route and compileStoryPrompt downstream are unchanged.
+ */
+export async function setupFollowUpEvent(
+  estate: Estate,
+  followUp: FollowUpEvent
+): Promise<{
+  event: EventData;
+  chosenCharacterIds: string[];
+  locations: LocationData[];
+  npcs: string[];
+  enemies: string[];
+  bystanders: Bystander[];
+  keywords: string[];
+}> {
+  const chosenCharacterIds = [...followUp.characters];
+
+  // takeFollowUpEvent prunes follow-ups with missing characters before this is
+  // ever called, but guard anyway since this is exported.
+  const missing = chosenCharacterIds.filter((id) => !estate.characters[id]);
+  if (missing.length > 0) {
+    throw new Error(`Follow-up "${followUp.title}" references missing characters: ${missing.join(', ')}`);
+  }
+
+  const event = buildFollowUpEventData(followUp);
+  const characters = chosenCharacterIds.map((id) => estate.characters[id]);
+
+  const { locations, npcs, bystanders } = await pickEventLocation(
+    event,
+    characters,
+    [], // no overflow for follow-ups
+    estate
+  );
+
+  return {
+    event,
+    chosenCharacterIds,
+    locations,
+    npcs: npcs.slice(0, MAX_SCENE_NPCS),
+    enemies: [],
+    bystanders,
+    keywords: [],
+  };
 }

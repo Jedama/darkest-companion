@@ -1,14 +1,15 @@
-// _test_setup.ts
-import { saveEstate } from './server/fileOps.js';
-import StaticGameDataManager from './server/staticGameDataManager.js';
+// server/tests/_test_setup.ts
+import { saveEstate } from '../fileOps.js';
+import StaticGameDataManager from '../staticGameDataManager.js';
+import { ESTATES_DIR } from '../paths.js';
 import { 
   Estate,  
   Character,
   CharacterRecord,
   CharacterTemplate,
   CharacterStatus
-} from './shared/types/types.js';
-import { AFFLICTIONS, VIRTUES, ConditionType } from './shared/constants/conditions.js';
+} from '../../shared/types/types.js';
+import { AFFLICTIONS, VIRTUES, ConditionType } from '../../shared/constants/conditions.js';
 
 const TEST_ESTATE_NAME = '_test_estate';
 
@@ -190,18 +191,25 @@ async function createTestEstate() {
 
   // --- Final Assembly and Save ---
   const testEstate: Estate = {
-    estateName: TEST_ESTATE_NAME,
-    money: 10000,
-    month: 1,
-    roles: {
+    name: TEST_ESTATE_NAME,
+    time: { month: 1, day: 1, beat: 0 },
+    weather: {
+      current: { heat: 5, rain: 5, wind: 5 },
+      previous: { heat: 5, rain: 5, wind: 5 },
+    },
+    leadership: {
+      description: 'Initial leadership: Margrave and Bursar, no council yet.',
       margrave: 'heiress',
       bursar: 'kheir',
+      council: [],
     },
+    money: 10000,
+    narratives: [],
     characters: testRoster,
   };
 
   await saveEstate(testEstate);
-  console.log(`\nSUCCESS: Randomized test estate saved to 'data/estates/${TEST_ESTATE_NAME}.json'`);
+  console.log(`\nSUCCESS: Randomized test estate saved to '${ESTATES_DIR}/${TEST_ESTATE_NAME}.json'`);
 }
 
 // Run the setup function

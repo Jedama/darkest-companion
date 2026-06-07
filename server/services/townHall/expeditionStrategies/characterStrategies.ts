@@ -6,6 +6,7 @@
  */
 
 import { CharacterRecord, Character } from '../../../../shared/types/types';
+import { PARTY_SIZE } from '../../../../shared/constants/expedition';
 import { Party, Composition } from '../expeditionPlanner';
 import { countTag, calculateSimplePairSynergy } from './strategyUtils';
 
@@ -103,7 +104,7 @@ export function scorePartyByChildGuardianship_Cook(party: Party, roster: Charact
     return 0;
   }
   score += calculateSimplePairSynergy(party, roster, 'Child', 'Guarder', 8);
-  if (score == 0) {
+  if (score === 0) {
     score += calculateSimplePairSynergy(party, roster, 'Child', 'Tank', 3);
   }
   score += calculateSimplePairSynergy(party, roster, 'Child', 'Healer', 2);
@@ -114,8 +115,8 @@ export function scorePartyBySocialVitality_Zenith(party: Party, roster: Characte
   const zenithId = 'zenith'; // Assuming the Zenith has a fixed identifier.
   const zenithIsInParty = party.includes(zenithId);
   
-  // Party size must be 4 for the 2-and-2 logic to be meaningful.
-  if (party.length !== 4) {
+  // The 2-and-2 gender logic only makes sense at the standard party size.
+  if (party.length !== PARTY_SIZE) {
     return 0; // Not applicable for other party sizes.
   }
   
@@ -296,11 +297,13 @@ export function scoreCompositionBySufferingDisparity_Flagellant(party: Party, ro
  * clause grants the Martyr herself a super-maximal affinity to reflect her divine conviction.
  */
 export function scorePartyByDedicatedProtector_Martyr(party: Party, roster: CharacterRecord): number {
-  if (party.length !== 4) {
+  // Generalized off a hardcoded size of 4: one bulwark + the rest as wards works for any
+  // party of >= 2. The filter also drops any stale/missing ids.
+  const partyHeroes = party.map(id => roster[id]).filter((h): h is Character => !!h);
+  if (partyHeroes.length < 2) {
     return 0;
   }
 
-  const partyHeroes = party.map(id => roster[id]);
   const averagePartyLevel = partyHeroes.reduce((sum, h) => sum + h.level, 0) / partyHeroes.length;
 
   // Step 1: Identify the Bulwark (best protector).
@@ -354,11 +357,13 @@ export function scorePartyByDedicatedProtector_Martyr(party: Party, roster: Char
  * party members. It actively rewards a protector who is alienated from their team.
  */
 export function scorePartyByDedicatedProtector_Offering(party: Party, roster: CharacterRecord): number {
-  if (party.length !== 4) {
+  // Generalized off a hardcoded size of 4: one bulwark + the rest as wards works for any
+  // party of >= 2. The filter also drops any stale/missing ids.
+  const partyHeroes = party.map(id => roster[id]).filter((h): h is Character => !!h);
+  if (partyHeroes.length < 2) {
     return 0;
   }
 
-  const partyHeroes = party.map(id => roster[id]);
   const averagePartyLevel = partyHeroes.reduce((sum, h) => sum + h.level, 0) / partyHeroes.length;
 
   // Step 1: Identify the Bulwark (best protector). (Same logic as Martyr's)

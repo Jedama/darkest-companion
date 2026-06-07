@@ -134,52 +134,52 @@ function calculateCouncilScore(
  * candidate if no one is fully qualified, preventing a power vacuum.
  */
 function handleSuccession(currentLeadership: EstateLeadership, roster: CharacterRecord): EstateLeadership {
-    const activeLeadership = { ...currentLeadership };
-    const rosterAsArray = Object.values(roster);
+  const activeLeadership = { ...currentLeadership };
+  const rosterAsArray = Object.values(roster);
 
-    // --- Margrave Succession ---
-    const originalMargrave = roster[currentLeadership.margrave];
-    if (originalMargrave && !isFitForDuty(originalMargrave)) {
-        // Find candidates who are NOT the current leaders and ARE fit for duty.
-        const fitCandidates = rosterAsArray.filter(h =>
-            h.identifier !== originalMargrave.identifier &&
-            h.identifier !== currentLeadership.bursar &&
-            isFitForDuty(h)
-        );
+  // --- Margrave Succession ---
+  const originalMargrave = roster[currentLeadership.margrave];
+  if (originalMargrave && !isFitForDuty(originalMargrave)) {
+    // Find candidates who are NOT the current leaders and ARE fit for duty.
+    const fitCandidates = rosterAsArray.filter(h =>
+      h.identifier !== originalMargrave.identifier &&
+      h.identifier !== currentLeadership.bursar &&
+      isFitForDuty(h)
+    );
 
-        if (fitCandidates.length > 0) {
-            // A fit successor exists. Appoint the best one.
-            fitCandidates.sort((a, b) => {
-                if (a.stats.authority !== b.stats.authority) return b.stats.authority - a.stats.authority;
-                return b.level - a.level;
-            });
-            activeLeadership.margrave = fitCandidates[0].identifier;
-        }
-        // If fitCandidates is empty, this block is skipped. The unfit Margrave remains.
+    if (fitCandidates.length > 0) {
+        // A fit successor exists. Appoint the best one.
+      fitCandidates.sort((a, b) => {
+        if (a.stats.authority !== b.stats.authority) return b.stats.authority - a.stats.authority;
+        return b.level - a.level;
+      });
+      activeLeadership.margrave = fitCandidates[0].identifier;
     }
+    // If fitCandidates is empty, this block is skipped. The unfit Margrave remains.
+  }
 
-    // --- Bursar Succession (runs *after* potential Margrave change) ---
-    const originalBursar = roster[currentLeadership.bursar];
-    if (originalBursar && !isFitForDuty(originalBursar)) {
-        // Find candidates who are NOT the original bursar, NOT the CURRENT margrave, and ARE fit.
-        const fitCandidates = rosterAsArray.filter(h =>
-            h.identifier !== originalBursar.identifier &&
-            h.identifier !== activeLeadership .margrave && // Uses the *new* margrave
-            isFitForDuty(h)
-        );
-        
-        if (fitCandidates.length > 0) {
-            // A fit successor exists. Appoint the best one.
-            fitCandidates.sort((a, b) => {
-                if (a.stats.intelligence !== b.stats.intelligence) return b.stats.intelligence - a.stats.intelligence;
-                return b.level - a.level;
-            });
-            activeLeadership.bursar = fitCandidates[0].identifier;
-        }
-        // If fitCandidates is empty, this block is skipped. The unfit Bursar remains.
+  // --- Bursar Succession (runs *after* potential Margrave change) ---
+  const originalBursar = roster[currentLeadership.bursar];
+  if (originalBursar && !isFitForDuty(originalBursar)) {
+    // Find candidates who are NOT the original bursar, NOT the CURRENT margrave, and ARE fit.
+    const fitCandidates = rosterAsArray.filter(h =>
+      h.identifier !== originalBursar.identifier &&
+      h.identifier !== activeLeadership .margrave && // Uses the *new* margrave
+      isFitForDuty(h)
+    );
+    
+    if (fitCandidates.length > 0) {
+      // A fit successor exists. Appoint the best one.
+      fitCandidates.sort((a, b) => {
+        if (a.stats.intelligence !== b.stats.intelligence) return b.stats.intelligence - a.stats.intelligence;
+        return b.level - a.level;
+      });
+      activeLeadership.bursar = fitCandidates[0].identifier;
     }
-  
-    return activeLeadership;
+    // If fitCandidates is empty, this block is skipped. The unfit Bursar remains.
+  }
+
+  return activeLeadership;
 }
   
 // ===================================================================

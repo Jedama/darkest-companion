@@ -20,6 +20,32 @@ export function countTag(party: Party, roster: CharacterRecord, tag: string): nu
 }
 
 /**
+ * Returns the maximum number of valid (A, B) pairs that can be formed from two
+ * hero lists, where a hero may never be paired with itself (the case that arises
+ * when one hero carries both tags).
+ *
+ * This is a maximum bipartite matching on a complete bipartite graph minus the
+ * "diagonal" edges between shared heroes. It has a clean closed form:
+ *   - unequal counts  -> min(countA, countB)   (the surplus side always covers the diagonal)
+ *   - equal counts >= 2 -> countA              (a perfect matching always exists; removing a
+ *                                                partial matching from K(n,n) leaves one intact)
+ *   - equal counts == 1 -> 1 unless it's the same single shared hero, in which case 0
+ *
+ * The old greedy matcher was order-dependent (it could consume a shared hero's only
+ * legal partner first), and the old closed form `countA - heroesWithBothTags`
+ * under-counted whenever counts were equal and >= 2.
+ */
+export function countMaxCrossPairs(heroesA: string[], heroesB: string[]): number {
+  const countA = heroesA.length;
+  const countB = heroesB.length;
+
+  if (countA === 0 || countB === 0) return 0;
+  if (countA !== countB) return Math.min(countA, countB);
+  if (countA === 1) return heroesA[0] === heroesB[0] ? 0 : 1;
+  return countA;
+}
+
+/**
  * Scores "A+B" synergies that stack. Rewards having a base pair, with additional
  * bonuses for more of each tag. Ideal for "enabler + keystone" combos.
  * (e.g., Marker + MarkSynergy)
@@ -71,29 +97,10 @@ export function calculateExactPairsSynergy(
     return 0;
   }
 
-  // 2. Use a Set for the pool of "B" partners for efficient lookup and deletion.
-  const availablePartnersB = new Set(heroesB);
-  let successfulPairs = 0;
-
-  // 3. Iterate through each "A" hero and try to find a valid, unused partner.
-  for (const heroA of heroesA) {
-    let foundPartner = null;
-    for (const partnerB of availablePartnersB) {
-      // The crucial check: A hero cannot be paired with themself.
-      if (heroA !== partnerB) {
-        foundPartner = partnerB;
-        break; // Found a valid partner, stop searching for this heroA.
-      }
-    }
-
-    if (foundPartner) {
-      successfulPairs++;
-      // Remove the used partner from the pool so they can't be paired again.
-      availablePartnersB.delete(foundPartner);
-    }
-  }
-
-  return successfulPairs * scorePerPair;
+  // The maximum number of valid A-B pairs has a clean closed form (see
+  // countMaxCrossPairs). The old greedy match was order-dependent and could
+  // undercount when a shared hero's only legal partner was taken first.
+  return countMaxCrossPairs(heroesA, heroesB) * scorePerPair;
 }
 
 /**
@@ -128,24 +135,9 @@ export function calculateSimplePairSynergy(
     return 0;
   }
 
-  let successfulPairs: number;
-
-  if (countA !== countB) {
-    // If one group is larger, there is a "surplus" of potential partners.
-    // This surplus guarantees that every hero in the smaller group can find
-    // a unique partner that is not themself.
-    // Therefore, the number of pairs is simply the size of the smaller group.
-    successfulPairs = Math.min(countA, countB);
-  } else {
-    // The ONLY problematic case is when counts are equal.
-    // Count heroes that exist in both lists. These are the ones who can't self-pair.
-    const heroesWithBothTags = heroesA.filter(id => heroesB.includes(id)).length;
-    
-    // When counts are equal, each hero with both tags effectively prevents one pair from forming.
-    successfulPairs = countA - heroesWithBothTags;
-  }
-
-  return successfulPairs * scorePerPair;
+  // Correct maximum matching (the equal-count branch used to subtract one pair per
+  // shared hero, which under-counts: for equal counts >= 2 a full matching always exists).
+  return countMaxCrossPairs(heroesA, heroesB) * scorePerPair;
 }
 
 /**

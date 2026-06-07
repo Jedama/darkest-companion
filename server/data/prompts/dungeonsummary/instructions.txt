@@ -22,7 +22,7 @@ The Bursar's affinity and dynamic with each party member influences their share,
 Review the expedition logs to evaluate each character's contribution. The Bursar assesses performance through their own lens:
 - A scholar-Bursar might value logistics and planning over raw combat.
 - A fighter-Bursar might value kills and frontline bravery.
-- Any Bursar should recognize who got hurt, who protected others, who led, and who froze.
+- Any Bursar should recognize who got hurt, who protected others, who led, and who contributed through non-combat expertise.
 
 [The Headline]
 The headline labels the expedition in the Bursar's voice. It should describe what happened but the phrasing, tone, and framing reflect who's writing it. A military one keeps it terse. A casual one editorializes. The headline recaps the expedition; the voice is the Bursar's. This is the only place with recaping, the rest of the points should be forward-looking.
@@ -35,7 +35,7 @@ Bad: "Took a bullet and kept standing" → Good: "Durable"
 Bad: "Froze when it counted" → Good: "Unreliable under pressure"
 Bad: "Spotted the ambush" → Good: "Sharp eyes"
 
-1-5 points per character. Aim for 1-3 words per point; go longer only when the phrasing demands it. Variation in point count matters — giving someone only 1-2 points IS an assessment. It means they barely register. Giving someone 5 points means they occupy a lot of the Bursar's mental space (for good or bad reasons).
+1-5 points per character. Aim for 1-3 words per point; go longer only when the phrasing demands it. Variation in point count matters — giving someone only 1 point IS an assessment. It means the Bursar does not have much to say. Giving someone 5 points means they occupy a lot of the Bursar's mental space (for good or bad reasons). Vary it between characters, never give all four the same number of points.
 
 The points should be punchy, blunt, and in the Bursar's voice. A cunning schemer writes differently than a blunt warrior writes differently than a charming fool. The vocabulary, the framing, the things they notice — all reflect who the Bursar is.
 

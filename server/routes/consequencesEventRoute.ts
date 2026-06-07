@@ -3,10 +3,8 @@ import type { Estate } from '../../shared/types/types.js';
 import { Router, Request, Response } from 'express';
 import { loadEstate, saveEstate } from '../fileOps.js';
 import { callLLM } from '../services/llm/llmService.js';
-import { validateConsequenceUpdate, formatConsequenceUpdate } from '../services/llm/promptService.js';
-import type { ConsequencePrompt } from '../services/llm/promptService.js';
 import { compileConsequencesPrompt } from '../services/story/consequencesEventService.js';
-import { applyConsequences, ConsequencesResult, prepareConsequenceDisplay, ensureAllCharactersHaveConsequences } from '../services/llm/llmResponseProcessor.js';
+import { applyConsequences, ConsequencesResult, prepareConsequenceDisplay, ensureAllCharactersHaveConsequences, validateConsequences, formatConsequences } from '../services/llm/llmResponseProcessor.js';
 
 const router = Router();
 
@@ -74,10 +72,10 @@ router.post('/estates/:estateName/events/consequences', async (req: Request<{est
     console.log('Cleaned response:', cleanedText);
 
     // 5. Parse and validate the response
-    let parsedJson: ConsequencePrompt;
+    let parsedJson: ConsequencesResult;
     try {
       // First try to parse as JSON
-      parsedJson = JSON.parse(cleanedText) as ConsequencePrompt;
+      parsedJson = JSON.parse(cleanedText) as ConsequencesResult;
       
       // Check if it has the required structure
       if (!parsedJson || !Array.isArray(parsedJson.characters)) {
@@ -85,12 +83,12 @@ router.post('/estates/:estateName/events/consequences', async (req: Request<{est
       }
 
       // Validate the content against our rules
-      if (!validateConsequenceUpdate(parsedJson, estate.characters)) {
+      if (!validateConsequences(parsedJson, estate.characters)) {
         throw new Error('Response failed consequence validation rules');
       }
 
       // Format the consequences to ensure consistent structure
-      const formattedConsequences = formatConsequenceUpdate(parsedJson);
+      const formattedConsequences = formatConsequences(parsedJson);
 
       const consequencesForProcessing: ConsequencesResult = ensureAllCharactersHaveConsequences(
         formattedConsequences,

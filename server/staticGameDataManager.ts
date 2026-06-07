@@ -39,6 +39,7 @@ import { loadPromptsFromIndex } from './promptRegistry.js';
 import { generateDefaultWeights } from './services/townHall/expeditionStrategies/strategyRegistry.js';
 
 import { loadJsonFile, loadTextFile } from './fileOps.js';
+import { PROMPTS_DIR } from './paths.js';
 
 /* -------------------------------------------------------------------
  *  Local types
@@ -220,8 +221,6 @@ class StaticGameDataManager {
     try {
       console.log('Initializing static game data...');
 
-      const promptsBasePath = './data/prompts';
-
       const [
         characterTemplates,
         defaultRelationships,
@@ -252,10 +251,10 @@ class StaticGameDataManager {
         loadTownKeywords(),
 
         // Prompts
-        loadJsonFile<ElapsedMonthText[]>(`${promptsBasePath}/game/elapsedMonthText.json`),
-        loadJsonFile<ZodiacSeason[]>(`${promptsBasePath}/game/zodiacSeasons.json`),
+        loadJsonFile<ElapsedMonthText[]>(`${PROMPTS_DIR}/game/elapsedMonthText.json`),
+        loadJsonFile<ZodiacSeason[]>(`${PROMPTS_DIR}/game/zodiacSeasons.json`),
 
-        loadPromptsFromIndex(promptsBasePath),
+        loadPromptsFromIndex(PROMPTS_DIR),
       ]);
 
       // Characters / relationships / meta

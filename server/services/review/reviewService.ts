@@ -1,4 +1,6 @@
 // server/services/review/reviewService.ts
+import { addFollowUpEvent } from '../game/followUpService.js';
+import { purgeLogs, addEstateLog } from '../game/logService.js';
 import type { Estate } from '../../../shared/types/types.js';
 
 import {
@@ -10,6 +12,12 @@ import {
 } from '../llm/buildPromptService.js';
 
 import StaticGameDataManager from '../../staticGameDataManager.js';
+
+interface ReviewResult {
+  estate_log: { entry: string; timeframe: 'short_term' | 'mid_term' | 'long_term' };
+  narratives: string[];
+  follow_up_events?: Array<{ title: string; description: string; characters: string[]; location: string }>;
+}
 
 /* -------------------------------------------------------------------
  *  Main export
@@ -49,4 +57,22 @@ export function compileReviewPrompt(estate: Estate): string {
   `.trim();
 
   return prompt;
+}
+
+/**
+ * applyReview
+ * Applies a parsed narrative review to the estate in place: replaces the active
+ * narratives (the review's array is the COMPLETE set), appends the period's estate
+ * log, queues follow-ups newest-first, and purges expired logs. Caller persists.
+ */
+export function applyReview(estate: Estate, result: ReviewResult): void {
+  estate.narratives = result.narratives;
+
+  addEstateLog(estate, result.estate_log.entry, result.estate_log.timeframe);
+
+  for (const followUp of result.follow_up_events ?? []) {
+    addFollowUpEvent(estate, followUp);
+  }
+
+  purgeLogs(estate);
 }

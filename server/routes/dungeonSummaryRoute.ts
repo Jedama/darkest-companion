@@ -1,6 +1,6 @@
 // server/routes/dungeonSummaryRoute.ts
 import { Router, Request, Response } from 'express';
-import { loadEstate } from '../fileOps.js';
+import { loadEstate, saveEstate } from '../fileOps.js';
 import { callLLM } from '../services/llm/llmService.js';
 import { compileDungeonSummaryPrompt } from '../services/dungeon/dungeonSummaryService.js';
 
@@ -70,19 +70,43 @@ router.post('/estates/:estateName/dungeon/summary', async (req: Request, res: Re
     const characterTotal = parsedJson.characters.reduce(
       (sum: number, c: any) => sum + (c.share || 0), 0
     );
-    const totalDistributed = characterTotal + (parsedJson.town || 0) + (parsedJson.burar || 0);
+    const totalDistributed = characterTotal + (parsedJson.town || 0) + (parsedJson.bursar || 0);
     const lootNum = parseInt(totalLoot) || 0;
 
     if (totalDistributed !== lootNum) {
       console.warn(`Wage total mismatch: distributed ${totalDistributed}, expected ${lootNum}. Adjusting town share.`);
-      parsedJson.town = lootNum - characterTotal;
+      parsedJson.town = lootNum - characterTotal - (parsedJson.bursar || 0);
     }
 
-    // 7. TODO: Apply results to estate
+    // 7. Apply results to estate
     // - Update character.money for each wage
+    parsedJson.characters.forEach((charShare: any) => {
+      const char = estate.characters[charShare.identifier];
+      if (char) {
+        char.money += (charShare.share || 0);
+      }
+    });
+
     // - Update estate.money with town share
+    estate.money += (parsedJson.town || 0);
+
+    // - Apply bursar cut
+    if (parsedJson.bursar > 0) {
+      const bursarId = estate.leadership.bursar;
+      const bursar = estate.characters[bursarId];
+      if (bursar) {
+        bursar.money += parsedJson.bursar;
+      } else {
+        console.warn(`Bursar cut of ${parsedJson.bursar} diverted to estate: Bursar '${bursarId}' not found.`);
+        estate.money += parsedJson.bursar;
+      }
+    }
+
     // - Clear estate.dungeon
+    estate.dungeon = undefined;
+
     // - Save estate
+    await saveEstate(estate);
 
     return res.json({
       success: true,

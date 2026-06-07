@@ -5,7 +5,19 @@
 
 import { readdir, readFile, stat } from 'fs/promises';
 import path from 'path';
-import { fileURLToPath } from 'url';
+
+import {
+  CHARACTER_DIR,
+  DEFAULT_CHARACTER_LOCATIONS_FILE,
+  DEFAULT_RELATIONSHIPS_FILE,
+  DEFAULT_WEIGHTS_FILE,
+  ENEMIES_DIR,
+  EVENTS_DIR,
+  KEYWORDS_DIR,
+  LOCATIONS_DIR,
+  NPCS_DIR,
+  TOWN_KEYWORDS_FILE,
+} from './paths.js';
 
 import type {
   CharacterRelationship,
@@ -21,28 +33,8 @@ import type {
 } from '../shared/types/types.js';
 
 /* -------------------------------------------------------------------
- *  Module paths
+ *  Module paths (Now imported from paths.ts)
  * ------------------------------------------------------------------- */
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const DATA_DIR = path.join(__dirname, 'data');
-
-const TEMPLATES_DIR = path.join(DATA_DIR, 'templates');
-const CHARACTER_DIR = path.join(TEMPLATES_DIR, 'characters');
-
-const LOCATIONS_DIR = path.join(DATA_DIR, 'locations');
-const NPCS_DIR = path.join(DATA_DIR, 'npcs');
-const ENEMIES_DIR = path.join(DATA_DIR, 'enemies');
-const EVENTS_DIR = path.join(DATA_DIR, 'events');
-const KEYWORDS_DIR = path.join(DATA_DIR, 'keywords');
-
-const DEFAULT_RELATIONSHIPS_FILE = path.join(TEMPLATES_DIR, 'defaultRelationships.json');
-const DEFAULT_CHARACTER_LOCATIONS_FILE = path.join(TEMPLATES_DIR, 'defaultCharacterLocations.json');
-const DEFAULT_WEIGHTS_FILE = path.join(TEMPLATES_DIR, 'defaultCharacterStrategies.json');
-
-const TOWN_KEYWORDS_FILE = path.join(KEYWORDS_DIR, 'default.json');
 
 // Required character templates (e.g., initial party)
 const REQUIRED_CHARACTER_TEMPLATES = ['crusader', 'highwayman', 'heiress', 'kheir'] as const;

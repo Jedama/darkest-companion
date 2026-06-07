@@ -1,8 +1,8 @@
 // server/routes/reviewRoute.ts
 import { Router, Request, Response } from 'express';
-import { loadEstate } from '../fileOps.js';
+import { loadEstate, saveEstate } from '../fileOps.js';
 import { callLLM } from '../services/llm/llmService.js';
-import { compileReviewPrompt } from '../services/review/reviewService.js';
+import { applyReview, compileReviewPrompt } from '../services/review/reviewService.js';
 
 import type { Estate } from '../../shared/types/types.js';
 import type { LLMRequest } from '../services/llm/llmService.js';
@@ -68,11 +68,9 @@ router.post('/estates/:estateName/review', async (req: Request, res: Response) =
       throw new Error(`Review returned ${parsedJson.narratives.length} narratives, maximum is 8`);
     }
 
-    // 6. TODO: Apply results to estate
-    // - estate.narratives = parsedJson.narratives
-    // - Apply estate_log entry to estate.estateLogs
-    // - Store follow_up_events in estate event queue
-    // - Save estate
+    // 6. Apply results to estate and persist
+    applyReview(estate, parsedJson);
+    await saveEstate(estate); 
 
     return res.json({
       success: true,

@@ -332,6 +332,24 @@ function DungeonEndPanel({
       <button onClick={handleRun} disabled={disabled} style={btnStyle}>
         Run Dungeon End
       </button>
+      <button
+        onClick={() => {
+          const loot = parseInt(totalLoot) || 0;
+          onRun('Summary Only', async () => {
+            const summaryRes = await fetch(`http://localhost:3000/estates/${estateName}/dungeon/summary`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ totalLoot: loot }),
+            });
+            if (!summaryRes.ok) throw new Error(`Summary failed: ${summaryRes.status}`);
+            return summaryRes.json();
+          });
+        }}
+        disabled={disabled}
+        style={btnStyle}
+      >
+        Summary Only
+      </button>
     </div>
   );
 }

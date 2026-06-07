@@ -21,7 +21,7 @@ export interface RelationshipLogEntry extends LogEntry {
 }
 
 export interface EstateLeadership {
-  description: string;
+  description: string;    // freeform text describing the current leadership structure and dynamics
   margrave: string;
   bursar: string;
   council?: string[];
@@ -31,6 +31,7 @@ export interface EstatePreferences {
   llmProvider: LlmProvider; // Which provider family to use (ChatGPT/OpenAI, Claude/Anthropic, Gemini/Google, Grok/xAI, etc.)
   llmModel: string; // Specific model to use within the provider family
   guidance: string; // Freeform system-level guidance / style constraints
+  maxTokens?: number; // Optional maximum response tokens (defaults to 16384)
 }
 
 export interface EstateTime {
@@ -67,6 +68,18 @@ export interface DungeonState {
   startDay: number;         // for knowing which logs belong to this dungeon run
 }
 
+export interface FollowUpEvent {
+  title: string;
+  description: string;
+  characters: string[]; // roster identifiers
+  location: string;     // location identifier, or "any"
+}
+
+export interface FollowUpQueue {
+  events: FollowUpEvent[];   // newest first — front-inserted on ingestion
+  consecutiveServed: number; // follow-ups fired in a row; resets when a random event fires
+}
+
 export interface Estate {
   name: string;
   preferences?: EstatePreferences;
@@ -79,6 +92,7 @@ export interface Estate {
   leadership: EstateLeadership; // Roles within the estate
   money: number;
   narratives: string[];
+  followUps?: FollowUpQueue;
   characters: CharacterRecord;
   restoredLocations?: string[]; // list of location identifiers that have been restored
   estateLogs?: LogEntry[];

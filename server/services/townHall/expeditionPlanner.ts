@@ -1,5 +1,6 @@
 //server/services/townHall/expeditionPlanner.ts
 import { CharacterRecord } from '../../../shared/types/types';
+import { PARTY_SIZE } from '../../../shared/constants/expedition';
 import { 
   STRATEGY_REGISTRY, 
   StrategyWeights, 
@@ -65,6 +66,18 @@ export interface BestCompositionResult {
     scoringStats: PartyScoringStatistics; // Optional stats for further analysis
 }
 
+/**
+ * Return shape of the meta-optimizer. debugInfo/scoringStats are null only in the
+ * degenerate path where there aren't enough heroes to form a single party.
+ */
+export interface OptimalArrangementResult {
+    composition: Composition;
+    debugInfo: CompositionDebugInfo | null;
+    score: number;
+    activePartiesCount: number;
+    scoringStats: PartyScoringStatistics | null;
+}
+
 // ==================================
 // TYPE DEFINITIONS
 // ==================================
@@ -120,6 +133,96 @@ const calculateStats = (scores: number[]): NormalizationStats => {
 /**
  * Pre-computes stats for each registered strategy.
  */
+// ==================================
+// LOW-LEVEL HELPERS (shuffling & moves)
+// ==================================
+
+/**
+ * Uniform in-place Fisher–Yates shuffle. Returns the same array for convenience.
+ * Replaces the old `sort(() => Math.random() - 0.5)` idiom, which is NOT a uniform
+ * shuffle and was biasing the normalization sampling.
+ */
+function shuffleInPlace<T>(arr: T[]): T[] {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+/**
+ * Picks `k` distinct indices in [0, n) uniformly at random via a partial
+ * Fisher–Yates shuffle. If k >= n, returns all indices in shuffled order.
+ */
+function pickDistinctIndices(n: number, k: number): number[] {
+  const pool = Array.from({ length: n }, (_, idx) => idx);
+  const count = Math.min(k, n);
+  for (let i = 0; i < count; i++) {
+    const j = i + Math.floor(Math.random() * (n - i));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+  return pool.slice(0, count);
+}
+
+/**
+ * Applies one random neighbourhood move to `comp` IN PLACE and returns an `undo()`
+ * closure that exactly reverts it. Only the touched cells are snapshotted, so both
+ * applying and undoing are O(move size) rather than O(roster). This is what lets the
+ * annealing loop avoid deep-cloning the whole composition on every iteration.
+ *
+ * Distribution: ~25% double swap, ~15% chain reaction (needs >=3 parties), the rest
+ * simple swaps. Complex moves fall back to a simple swap if the structure can't
+ * support them. Callers must ensure `comp.length >= 2` (guaranteed by the loop guard).
+ */
+function applyRandomMove(comp: Composition): () => void {
+  const numParties = comp.length;
+  const touched: { p: number; i: number; v: string }[] = [];
+  const record = (p: number, i: number) => { touched.push({ p, i, v: comp[p][i] }); };
+  const restore = () => { for (const c of touched) comp[c.p][c.i] = c.v; };
+
+  const moveChoice = Math.random();
+
+  // --- Double swap (2-for-2 between two parties) ---
+  if (moveChoice < 0.25 && numParties >= 2) {
+    const [p1, p2] = pickDistinctIndices(numParties, 2);
+    if (comp[p1].length >= 2 && comp[p2].length >= 2) {
+      const [h1a, h1b] = pickDistinctIndices(comp[p1].length, 2);
+      const [h2a, h2b] = pickDistinctIndices(comp[p2].length, 2);
+      record(p1, h1a); record(p1, h1b); record(p2, h2a); record(p2, h2b);
+      const t1 = comp[p1][h1a], t2 = comp[p1][h1b];
+      comp[p1][h1a] = comp[p2][h2a];
+      comp[p1][h1b] = comp[p2][h2b];
+      comp[p2][h2a] = t1;
+      comp[p2][h2b] = t2;
+      return restore;
+    }
+    // party too small: fall through to a simple swap
+  }
+  // --- Chain reaction (rotate one hero through >=3 parties) ---
+  else if (moveChoice < 0.40 && numParties >= 3) {
+    const chainLength = Math.floor(Math.random() * (numParties - 2)) + 3;
+    const chainParties = pickDistinctIndices(numParties, chainLength);
+    const heroIdx = chainParties.map(p => Math.floor(Math.random() * comp[p].length));
+    const originals = chainParties.map((p, k) => comp[p][heroIdx[k]]);
+    const len = chainParties.length;
+    for (let k = 0; k < len; k++) record(chainParties[k], heroIdx[k]);
+    for (let k = 0; k < len; k++) {
+      comp[chainParties[k]][heroIdx[k]] = originals[(k + len - 1) % len];
+    }
+    return restore;
+  }
+
+  // --- Simple swap (1-for-1) — default and universal fallback ---
+  const [p1, p2] = pickDistinctIndices(numParties, 2);
+  const h1 = Math.floor(Math.random() * comp[p1].length);
+  const h2 = Math.floor(Math.random() * comp[p2].length);
+  record(p1, h1); record(p2, h2);
+  const tmp = comp[p1][h1];
+  comp[p1][h1] = comp[p2][h2];
+  comp[p2][h2] = tmp;
+  return restore;
+}
+
 export function generateScoringStatistics(
   availableHeroes: string[],
   roster: CharacterRecord,
@@ -136,7 +239,7 @@ export function generateScoringStatistics(
   const numHeroesToUse = partiesToCreate * partySize;  
   for (let i = 0; i < sampleSize; i++) {
     // We only need one shuffle per outer loop iteration.
-    const shuffled = [...availableHeroes].sort(() => Math.random() - 0.5);
+    const shuffled = shuffleInPlace([...availableHeroes]);
     
     for (const strategy of STRATEGY_REGISTRY) {
         
@@ -339,7 +442,7 @@ export function findBestComposition(
   availableHeroes: string[],
   roster: CharacterRecord,
   customWeights: StrategyWeights,
-  partySize: number = 4,
+  partySize: number = PARTY_SIZE,
   partiesToScore?: number
 ): BestCompositionResult {
   const numHeroes = availableHeroes.length;
@@ -374,109 +477,88 @@ export function findBestComposition(
     const debugInfo = analyzeComposition(composition, roster, weights, scoringStats);
     return { composition, debugInfo, scoringStats };
   }  
+  // --- Adaptive iteration & sampling budgets (heuristics unchanged) ---
   const MIN_ITERATIONS = 250, MAX_ITERATIONS = 50000, ITERATION_FACTOR = 200;
   const iterations = Math.min(MAX_ITERATIONS, Math.max(MIN_ITERATIONS, numHeroes * ITERATION_FACTOR));
   const MIN_SAMPLES = 500, MAX_SAMPLES = 40000, SAMPLE_FACTOR = 100;
   const sampleSize = Math.min(MAX_SAMPLES, Math.max(MIN_SAMPLES, numHeroes * SAMPLE_FACTOR));
-  
-  const scoringStats = generateScoringStatistics(availableHeroes, roster, partySize, sampleSize);
-  
+
+  // Align the normalization baseline with the number of parties we actually score.
+  // (Previously the stats sampled full-roster compositions even when only a subset was
+  //  scored, so composition-scope strategies were normalized against the wrong shape.)
+  const completeParties = Math.floor(numHeroes / partySize);
+  const partiesToSample = partiesToScore ?? completeParties;
+  const scoringStats = generateScoringStatistics(availableHeroes, roster, partySize, sampleSize, partiesToSample);
+
+  // --- Build the initial composition (level-sorted seed) ---
   const sortedHeroes = [...availableHeroes].sort((a, b) => (roster[b]?.level ?? 0) - (roster[a]?.level ?? 0));
-  let bestComposition: Composition = [];
+  let current: Composition = [];
   for (let i = 0; i < sortedHeroes.length; i += partySize) {
-    bestComposition.push(sortedHeroes.slice(i, i + partySize));
+    current.push(sortedHeroes.slice(i, i + partySize));
   }
-  bestComposition = bestComposition.filter(party => party.length > 0);
-  
-  let bestDebugInfo = analyzeComposition(bestComposition, roster, weights, scoringStats, partiesToScore);
-  let bestScore = bestDebugInfo.finalScore;  
-  // --- Main Optimization Loop with Multiple Move Types ---
+  current = current.filter(party => party.length > 0);
+
+  // `current` is the wandering incumbent; `best` is the best composition seen so far.
+  let currentScore = analyzeComposition(current, roster, weights, scoringStats, partiesToScore).finalScore;
+  let best: Composition = current.map(party => [...party]);
+  let bestScore = currentScore;
+  let bestDebugInfo = analyzeComposition(best, roster, weights, scoringStats, partiesToScore);
+
+  // With fewer than two parties there are no swaps to make.
+  if (current.length < 2) {
+    return { composition: best, debugInfo: bestDebugInfo, scoringStats };
+  }
+
+  // --- Auto-calibrate the initial temperature from the score landscape ---
+  // Probe a handful of random moves to learn the typical |delta|, then set the start
+  // temperature so a typical *worsening* move is accepted with probability
+  // TARGET_INITIAL_ACCEPTANCE. This keeps the schedule scale-invariant: it adapts to
+  // whatever magnitude the active weights / normalization happen to produce.
+  const TARGET_INITIAL_ACCEPTANCE = 0.8;
+  const COOLING_TARGET_RATIO = 1e-3; // end temperature ~= start * this
+  const BURN_IN = Math.min(200, Math.max(20, Math.floor(iterations * 0.02)));
+
+  let deltaSum = 0, deltaCount = 0;
+  for (let b = 0; b < BURN_IN; b++) {
+    const undo = applyRandomMove(current);
+    const probeScore = analyzeComposition(current, roster, weights, scoringStats, partiesToScore).finalScore;
+    const d = Math.abs(probeScore - currentScore);
+    if (d > 0) { deltaSum += d; deltaCount++; }
+    undo(); // a probe must not move the incumbent
+  }
+  const avgDelta = deltaCount > 0 ? deltaSum / deltaCount : 1;
+  let temperature = -avgDelta / Math.log(TARGET_INITIAL_ACCEPTANCE);
+  if (!isFinite(temperature) || temperature <= 0) temperature = 1; // degenerate landscape fallback
+  const coolingRate = Math.pow(COOLING_TARGET_RATIO, 1 / iterations);
+
+  // --- Simulated annealing main loop ---
   for (let i = 0; i < iterations; i++) {
-    const currentComposition = JSON.parse(JSON.stringify(bestComposition)) as Composition;
-    const numParties = currentComposition.length;  
-    if (numParties < 2) break; // Not enough parties to perform any swaps.  
-    const moveChoice = Math.random();  
-    // --- MOVE SELECTION ---
-    // We'll use a probability distribution to select a move.
-    // 60% chance for a Simple Swap (local fine-tuning)
-    // 25% chance for a Double Swap (breaking up pairs)
-    // 15% chance for a Chain Reaction Swap (major exploration)
-    
-    // ** Fallback Logic: If a complex move isn't possible (e.g., not enough parties),
-    // ** we'll default to a simple swap.  
-    // --- MOVE 1: Double Swap (25% chance) ---
-    if (moveChoice < 0.25 && numParties >= 2) {
-      const allPartyIndices = Array.from({ length: numParties }, (_, k) => k);
-      const shuffledIndices = allPartyIndices.sort(() => 0.5 - Math.random());
-      const [p1_idx, p2_idx] = shuffledIndices.slice(0, 2);  
-      // Ensure parties have at least 2 heroes for a double swap
-      if (currentComposition[p1_idx].length >= 2 && currentComposition[p2_idx].length >= 2) {
-        // Select two distinct heroes from party 1
-        const h1a_idx = Math.floor(Math.random() * currentComposition[p1_idx].length);
-        let h1b_idx = Math.floor(Math.random() * currentComposition[p1_idx].length);
-        while (h1b_idx === h1a_idx) {
-          h1b_idx = Math.floor(Math.random() * currentComposition[p1_idx].length);
-        }  
-        // Select two distinct heroes from party 2
-        const h2a_idx = Math.floor(Math.random() * currentComposition[p2_idx].length);
-        let h2b_idx = Math.floor(Math.random() * currentComposition[p2_idx].length);
-        while (h2b_idx === h2a_idx) {
-          h2b_idx = Math.floor(Math.random() * currentComposition[p2_idx].length);
-        }  
-        // Perform the 2-for-2 swap
-        const [hero1a, hero1b] = [currentComposition[p1_idx][h1a_idx], currentComposition[p1_idx][h1b_idx]];
-        const [hero2a, hero2b] = [currentComposition[p2_idx][h2a_idx], currentComposition[p2_idx][h2b_idx]];
-        
-        currentComposition[p1_idx][h1a_idx] = hero2a;
-        currentComposition[p1_idx][h1b_idx] = hero2b;
-        currentComposition[p2_idx][h2a_idx] = hero1a;
-        currentComposition[p2_idx][h2b_idx] = hero1b;
-      }  
-    // --- MOVE 2: Chain Reaction Swap (15% chance) ---
-    } else if (moveChoice < 0.40 && numParties >= 3) {
-      // Determine the length of the chain, from 3 up to all parties
-      const chainLength = Math.floor(Math.random() * (numParties - 2)) + 3;  
-      // Get N unique party indices for the chain
-      const allPartyIndices = Array.from({ length: numParties }, (_, k) => k);
-      const shuffledIndices = allPartyIndices.sort(() => 0.5 - Math.random());
-      const chainIndices = shuffledIndices.slice(0, chainLength);  
-      // Select one random hero from each party in the chain
-      const heroIndices = chainIndices.map(p_idx => Math.floor(Math.random() * currentComposition[p_idx].length));
-      const heroesToCycle = chainIndices.map((p_idx, k) => currentComposition[p_idx][heroIndices[k]]);
-      
-      // Perform the cycle swap (last hero moves to first party, others move forward)
-      for (let k = 0; k < chainLength; k++) {
-        const sourceHero = heroesToCycle[(k + chainLength - 1) % chainLength]; // Get hero from previous party in the cycle
-        const targetPartyIdx = chainIndices[k];
-        const targetHeroIdx = heroIndices[k];
-        currentComposition[targetPartyIdx][targetHeroIdx] = sourceHero;
-      }  
-    // --- MOVE 3: Simple Swap (60% chance or fallback) ---
-    } else {
-      const p1_idx = Math.floor(Math.random() * numParties);
-      let p2_idx = Math.floor(Math.random() * numParties);
-      while (p1_idx === p2_idx) {
-        p2_idx = Math.floor(Math.random() * numParties);
+    const undo = applyRandomMove(current);                 // mutate in place
+    const candidateInfo = analyzeComposition(current, roster, weights, scoringStats, partiesToScore);
+    const candidateScore = candidateInfo.finalScore;
+    const delta = candidateScore - currentScore;           // > 0 means improvement (we maximize)
+
+    // Metropolis acceptance: always take improvements, sometimes step downhill to escape local optima.
+    const accept = delta > 0 || Math.random() < Math.exp(delta / temperature);
+
+    if (accept) {
+      currentScore = candidateScore;
+      if (candidateScore > bestScore) {
+        // New global best. Cloning here is cheap (only happens on improvement). We recompute
+        // the debug info against the *clone* so later mutations of `current` can never alias
+        // into the stored best.
+        bestScore = candidateScore;
+        best = current.map(party => [...party]);
+        bestDebugInfo = analyzeComposition(best, roster, weights, scoringStats, partiesToScore);
       }
-      const h1_idx = Math.floor(Math.random() * currentComposition[p1_idx].length);
-      const h2_idx = Math.floor(Math.random() * currentComposition[p2_idx].length);
-      
-      // Perform the simple 1-for-1 swap
-      const hero1 = currentComposition[p1_idx][h1_idx];
-      const hero2 = currentComposition[p2_idx][h2_idx];
-      currentComposition[p1_idx][h1_idx] = hero2;
-      currentComposition[p2_idx][h2_idx] = hero1;
-    }  
-    // --- Score the new composition and check for improvement ---
-    const currentDebugInfo = analyzeComposition(currentComposition, roster, weights, scoringStats, partiesToScore);
-    const newScore = currentDebugInfo.finalScore;  
-    if (newScore > bestScore) {
-      bestScore = newScore;
-      bestComposition = currentComposition;
-      bestDebugInfo = currentDebugInfo;
+    } else {
+      undo(); // reject: revert the in-place move, no fresh allocation
     }
-  }  
-  return { composition: bestComposition, debugInfo: bestDebugInfo, scoringStats };
+
+    temperature *= coolingRate;
+  }
+
+  return { composition: best, debugInfo: bestDebugInfo, scoringStats };
 }
 
 
@@ -567,8 +649,8 @@ export async function findOptimalArrangement(
     availableHeroes: string[],
     roster: CharacterRecord,
     customWeights: StrategyWeights,
-    partySize: number = 4
-) {
+    partySize: number = PARTY_SIZE
+): Promise<OptimalArrangementResult> {
     // Tunable constant for the benching penalty ---
     // A value of 0.95 means each benched team makes the total score worth 5% less.
     // Raise this value (e.g., to 0.98) to be MORE willing to bench teams.

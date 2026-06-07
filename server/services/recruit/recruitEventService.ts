@@ -19,10 +19,9 @@ import {
     buildRecruitKeywordsSection,
     buildRelationshipSection,
     buildUserGuidanceSection,
-    buildUserInputSection
+    buildUserInputSection,
+    compileRecruitContext
 } from '../llm/buildPromptService.js';
-
-import { compileRecruitContext } from '../llm/promptService.js';
 import { filterLogs } from '../game/logService.js';
 import StaticGameDataManager from '../../staticGameDataManager.js';
 

@@ -23,10 +23,9 @@ import {
   buildNPCSection,
   buildRelationshipSection,
   buildUserGuidanceSection, 
-  buildUserInputSection
+  buildUserInputSection,
+  compileNarrativeContext
 } from '../llm/buildPromptService.js';
-
-import { compileNarrativeContext } from '../llm/promptService.js';
 import { filterLogs } from '../game/logService.js';
 import StaticGameDataManager from '../../staticGameDataManager.js';
 

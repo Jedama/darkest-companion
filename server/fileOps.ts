@@ -1,15 +1,9 @@
 // server/fileOps.ts
 import { readFile, writeFile, readdir, unlink, mkdir } from 'fs/promises';
 import path from 'path';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
 
 import type { Estate } from '../shared/types/types.js';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const ESTATES_DIR = path.join(__dirname, 'data', 'estates');
+import { ESTATES_DIR } from './paths.js';
 
 // Ensure the estates directory exists when the server starts
 async function ensureEstatesDir() {

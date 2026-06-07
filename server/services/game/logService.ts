@@ -7,7 +7,21 @@ import type {
   Estate,
   LogEntry,
   RelationshipLogEntry,
-} from '../../../shared/types/types.ts';
+} from '../../../shared/types/types.js';
+
+/* -------------------------------------------------------------------
+ *  Domain constants
+ * ------------------------------------------------------------------- */
+
+export const LOG_TIMEFRAMES = [
+  'transient',
+  'short_term',
+  'mid_term',
+  'long_term',
+  'permanent'
+] as const;
+
+export type LogTimeframe = typeof LOG_TIMEFRAMES[number];
 
 /* -------------------------------------------------------------------
  *  Constants (tune here)
@@ -421,4 +435,158 @@ function makeCharacterKey(ownerId: string, l: LogEntry, beat: number, day: numbe
 function makeRelationshipKey(a: string, b: string, r: RelationshipLogEntry, beat: number, day: number): string {
   // Pair is sorted already; target/origin don't matter.
   return `rel|p:${a}:${b}|m:${r.month}|d:${day}|b:${beat}|x:${r.expiryMonth}|t:${r.entry}`;
+}
+
+/**
+ * addEstateLog
+ * Creates and adds a log entry to the global estate logs.
+ */
+export function addEstateLog(estate: Estate, entry: string, timeframe: LogTimeframe): void {
+  const logEntry: LogEntry = {
+    month: estate.time.month,
+    day: estate.time.day,
+    beat: estate.time.beat,
+    entry,
+    expiryMonth: calculateExpiryMonth(estate.time.month, timeframe)
+  };
+
+  if (!estate.estateLogs) {
+    estate.estateLogs = [];
+  }
+  
+  estate.estateLogs.push(logEntry);
+}
+
+/**
+ * addCharacterLog
+ * Creates and adds a log entry to a specific character's logs.
+ */
+export function addCharacterLog(estate: Estate, characterId: string, entry: string, timeframe: LogTimeframe): void {
+  const logEntry: LogEntry = {
+    month: estate.time.month,
+    day: estate.time.day,
+    beat: estate.time.beat,
+    entry,
+    expiryMonth: calculateExpiryMonth(estate.time.month, timeframe)
+  };
+
+  if (!estate.characterLogs) {
+    estate.characterLogs = {};
+  }
+  
+  if (!estate.characterLogs[characterId]) {
+    estate.characterLogs[characterId] = [];
+  }
+  
+  estate.characterLogs[characterId].push(logEntry);
+}
+
+/**
+ * addRelationshipLog
+ * Creates and adds mirrored relationship log entries for two characters.
+ */
+export function addRelationshipLog(
+  estate: Estate, 
+  charId: string, 
+  targetId: string, 
+  entry: string, 
+  timeframe: LogTimeframe
+): void {
+  if (!estate.characters[targetId]) {
+    console.warn(`Relationship target ${targetId} not found, skipping relationship log`);
+    return;
+  }
+  
+  if (!estate.relationshipLogs) {
+    estate.relationshipLogs = {};
+  }
+  
+  if (!estate.relationshipLogs[charId]) {
+    estate.relationshipLogs[charId] = [];
+  }
+  
+  if (!estate.relationshipLogs[targetId]) {
+    estate.relationshipLogs[targetId] = [];
+  }
+  
+  const expiryMonth = calculateExpiryMonth(estate.time.month, timeframe);
+
+  const logEntry: RelationshipLogEntry = {
+    month: estate.time.month,
+    day: estate.time.day,
+    beat: estate.time.beat,
+    entry,
+    target: targetId,
+    expiryMonth
+  };
+  
+  const mirrorLogEntry: RelationshipLogEntry = {
+    month: estate.time.month,
+    day: estate.time.day,
+    beat: estate.time.beat,
+    entry,
+    target: charId,
+    expiryMonth
+  };
+  
+  estate.relationshipLogs[charId].push(logEntry);
+  estate.relationshipLogs[targetId].push(mirrorLogEntry);
+}
+
+/**
+ * calculateExpiryMonth
+ * Determines the month a log should expire based on its timeframe.
+ */
+export function calculateExpiryMonth(currentMonth: number, timeframe: LogTimeframe): number {
+  const timeframeToMonths: Record<LogTimeframe, number> = {
+    'transient': 0,
+    'short_term': 1,
+    'mid_term': 3, 
+    'long_term': 7,
+    'permanent': 12
+  };
+
+  return currentMonth + timeframeToMonths[timeframe];
+}
+
+/**
+ * purgeLogs
+ * Permanently removes every log whose expiryMonth has reached or passed
+ * the current month (expiryMonth <= currentMonth). Mutates the estate in place.
+ */
+export function purgeLogs(estate: Estate): void {
+  const currentMonth = estate.time.month;
+  const isLive = (expiryMonth: number) => expiryMonth > currentMonth;
+
+  // Estate logs (global)
+  if (estate.estateLogs?.length) {
+    estate.estateLogs = estate.estateLogs.filter((e) => isLive(e.expiryMonth));
+  }
+
+  // Character logs (per owner)
+  if (estate.characterLogs) {
+    for (const [ownerId, logs] of Object.entries(estate.characterLogs)) {
+      if (!logs?.length) continue;
+      const kept = logs.filter((l) => isLive(l.expiryMonth));
+      if (kept.length) {
+        estate.characterLogs[ownerId] = kept;
+      } else {
+        delete estate.characterLogs[ownerId];
+      }
+    }
+  }
+
+  // Relationship logs (per owner; each mirror entry carries its own
+  // expiryMonth, so filtering each side independently is correct)
+  if (estate.relationshipLogs) {
+    for (const [ownerId, logs] of Object.entries(estate.relationshipLogs)) {
+      if (!logs?.length) continue;
+      const kept = logs.filter((r) => isLive(r.expiryMonth));
+      if (kept.length) {
+        estate.relationshipLogs[ownerId] = kept;
+      } else {
+        delete estate.relationshipLogs[ownerId];
+      }
+    }
+  }
 }

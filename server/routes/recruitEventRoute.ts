@@ -4,13 +4,10 @@ import { saveEstate, loadEstate } from '../fileOps';
 import { callLLM } from '../services/llm/llmService.js';
 import { setupEvent } from '../services/story/setupEventService.js';
 import { compileRecruitPrompt, compileRecruitConsequencesPrompt } from '../services/recruit/recruitEventService.js';
-import { validateConsequenceUpdate, formatConsequenceUpdate } from '../services/llm/promptService.js';
-import { applyConsequences, separateStoryTitle, ensureAllCharactersHaveConsequences } from '../services/llm/llmResponseProcessor.js';
+import { applyConsequences, separateStoryTitle, ensureAllCharactersHaveConsequences, validateConsequences, formatConsequences, ConsequencesResult } from '../services/llm/llmResponseProcessor.js';
 
 import type { Estate } from '../../shared/types/types.ts';
 import type { LLMRequest } from "../services/llm/llmService.js";
-import type { ConsequencePrompt } from '../services/llm/promptService.js';
-import type { ConsequencesResult } from '../services/llm/llmResponseProcessor.js';
 import { addCharacterToEstate } from '../services/game/estateService.js';
 
 
@@ -101,18 +98,18 @@ router.post('/estates/:estateName/events/recruit', async (req: Request, res: Res
     console.log('Cleaned response:\n', cleanedText);
 
     // 8. Parse and validate the response
-    let parsedJson: ConsequencePrompt;
-    parsedJson = JSON.parse(cleanedText) as ConsequencePrompt;
+    let parsedJson: ConsequencesResult;
+    parsedJson = JSON.parse(cleanedText) as ConsequencesResult;
 
     if (!parsedJson || !Array.isArray(parsedJson.characters)) {
       throw new Error('Response missing required "characters" array');
     }
 
-    if (!validateConsequenceUpdate(parsedJson, estate.characters)) {
+    if (!validateConsequences(parsedJson, estate.characters)) {
       throw new Error('Response failed consequence validation rules');
     }
 
-    const formattedConsequences = formatConsequenceUpdate(parsedJson);
+    const formattedConsequences = formatConsequences(parsedJson);
 
     const consequencesForProcessing: ConsequencesResult =
       ensureAllCharactersHaveConsequences(formattedConsequences, setupResult.chosenCharacterIds);

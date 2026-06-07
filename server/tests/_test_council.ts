@@ -1,9 +1,9 @@
-// _test_council.ts
+// server/tests/_test_council.ts
 
 // Adjust the import path to match your project structure
-import { electNewCouncil } from './server/services/townHall/council.js';
-import { Character, CharacterRecord, EstateRoles, Stats, Status, Estate } from './shared/types/types.js';
-import { loadEstate } from './server/fileOps.js';
+import { electNewCouncil } from '../services/townHall/council.js';
+import { Character, CharacterRecord, EstateLeadership, CharacterStats, CharacterStatus, Estate } from '../../shared/types/types.js';
+import { loadEstate } from '../fileOps.js';
 
 const TEST_ESTATE_NAME = '_test_estate';
 
@@ -28,7 +28,6 @@ function createBaseCharacter(
   const partialCharacter = {
     identifier: id,
     name: name,
-    heroClass: id, // Using id as a placeholder
     level: level,
     stats: {
       authority: authority,
@@ -37,7 +36,7 @@ function createBaseCharacter(
       // --- FIX: Added missing required properties for the Stats type ---
       strength: 5,
       agility: 5,
-    } as Stats,
+    } as CharacterStats,
     status: {
       physical: 100,
       mental: 100,
@@ -46,8 +45,11 @@ function createBaseCharacter(
       diseases: [],
       // --- FIX: Added missing required property for the Status type ---
       description: 'In good health.',
-    } as Status,
+    } as CharacterStatus,
     relationships: {},
+    // Runtime fields now required on Character
+    strategyWeights: {},
+    equipment: [],
     // Add other required top-level properties from Character with default values
     title: name,
     money: 0,
@@ -98,8 +100,8 @@ function createHealthyRoster(): CharacterRecord {
  */
 function displayElectionResults(
     title: string,
-    initialRoles: EstateRoles,
-    finalRoles: EstateRoles,
+    initialRoles: EstateLeadership,
+    finalRoles: EstateLeadership,
     roster: CharacterRecord
 ) {
     console.group(title);
@@ -142,7 +144,8 @@ async function runTests() {
   console.log("==    RUNNING COUNCIL ELECTION TEST   ==");
   console.log("========================================");
 
-  const initialRoles: EstateRoles = {
+  const initialRoles: EstateLeadership = {
+      description: 'Initial leadership structure with Margrave and Bursar, no council.',
       margrave: 'heiress',
       bursar: 'kheir',
       council: [],
@@ -201,7 +204,7 @@ async function runTests() {
     console.log(`\nSuccessfully loaded '${TEST_ESTATE_NAME}.json' with ${Object.keys(liveEstate.characters).length} heroes for live test.`);
     
     const liveRoster = liveEstate.characters;
-    const liveInitialRoles = liveEstate.roles;
+    const liveInitialRoles = liveEstate.leadership;
 
     const liveResult = electNewCouncil({ ...liveInitialRoles }, liveRoster);
     displayElectionResults("✅ TEST 6: Live Roster from `_test_estate.json`", liveInitialRoles, liveResult, liveRoster);
