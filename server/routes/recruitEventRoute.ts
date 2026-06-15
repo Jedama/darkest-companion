@@ -114,9 +114,9 @@ router.post('/estates/:estateName/events/recruit', async (req: Request, res: Res
     const consequencesForProcessing: ConsequencesResult =
       ensureAllCharactersHaveConsequences(formattedConsequences, setupResult.chosenCharacterIds);
 
-    // const updatedEstate = applyConsequences(estate, consequencesForProcessing);
+    const updatedEstate = applyConsequences(estate, consequencesForProcessing);
 
-    // await saveEstate(updatedEstate);*/
+    await saveEstate(updatedEstate);
 
     return res.json({
       success: true,

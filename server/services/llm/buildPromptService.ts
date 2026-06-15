@@ -149,25 +149,42 @@ export function buildRelationshipSection(involvedCharacters: Character[]): strin
   return lines.length ? lines.join('') : '';
 }
 
-export function buildLocationSection(estate: Estate, locations: LocationData[]): string {
+export function buildLocationSection(
+  estate: Estate,
+  locations: LocationData[],
+  mainLocationIds: string[] = []
+): string {
   if (!locations?.length) return '';
 
-  const primary = locations[0];
-  const isPrimaryRestored = primary.restored && estate.restoredLocations?.includes(primary.identifier);
-  const primaryDescription = isPrimaryRestored ? primary.restored : primary.description;
+  const descFor = (loc: LocationData) =>
+    loc.restored && estate.restoredLocations?.includes(loc.identifier)
+      ? loc.restored
+      : loc.description;
 
-  const lines: string[] = [];
-  lines.push(`[Location]\n`);
-  lines.push(`Title: ${primary.title}\n`);
-  lines.push(`Description: ${primaryDescription}\n\n`);
+  // Fall back to "first location is the main one" if no ids are supplied,
+  // so any existing callers keep working unchanged.
+  const mainIds = new Set(mainLocationIds.length ? mainLocationIds : [locations[0].identifier]);
 
-  if (locations.length > 1) {
+  const mains = locations.filter(l => mainIds.has(l.identifier));
+  const surrounding = locations.filter(l => !mainIds.has(l.identifier));
+
+  const lines: string[] = [`[Location]\n`];
+
+  if (mains.length > 1) {
+    lines.push(`This scene unfolds across ${mains.length} locations at once — cut between them.\n\n`);
+    mains.forEach((loc, i) => {
+      lines.push(`Main Location ${i + 1}: ${loc.title}\n`);
+      lines.push(`Description: ${descFor(loc)}\n\n`);
+    });
+  } else {
+    lines.push(`Title: ${mains[0].title}\n`);
+    lines.push(`Description: ${descFor(mains[0])}\n\n`);
+  }
+
+  if (surrounding.length) {
     lines.push(`Surrounding Locations:\n`);
-    for (let i = 1; i < locations.length; i++) {
-      const loc = locations[i];
-      const isRestored = loc.restored && estate.restoredLocations?.includes(loc.identifier);
-      const desc = isRestored ? loc.restored : loc.description;
-      lines.push(`- ${loc.title}: ${desc}\n`);
+    for (const loc of surrounding) {
+      lines.push(`- ${loc.title}: ${descFor(loc)}\n`);
     }
   }
 

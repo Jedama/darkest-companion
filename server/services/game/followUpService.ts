@@ -14,7 +14,7 @@ const MONTH_END_KEEP = 5;
 // Follow-up vs. random: chance = BASE_FOLLOWUP_CHANCE * STREAK_DECAY^consecutiveServed.
 // e.g. 0.9, 0.45, 0.225, ...  Serving a random event resets the streak to 0.
 const BASE_FOLLOWUP_CHANCE = 0.9;
-const STREAK_DECAY = 0.5;
+const STREAK_DECAY = 0.65;
 
 // In-queue position weighting: weight(i) = max(TAIL_FLOOR, FRONT_DECAY^i), index 0 = newest.
 // FRONT_DECAY sets how sharply the freshest entries are favored. TAIL_FLOOR stops the deep

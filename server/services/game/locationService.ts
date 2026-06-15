@@ -342,7 +342,7 @@ function getRandomChildren(location: LocationData, locationMap: Map<string, Loca
 
   shuffleInPlace(children);
 
-  return children.sort(() => Math.random() - 0.5).slice(0, limit);
+  return children.slice(0, limit);
 }
 
 /**
@@ -420,28 +420,6 @@ function pickMultipleLocations(event: EventData, characters: Character[]): Locat
   const scores = scoreLocations(event, characters);
   const desiredCount = Math.max(1, event.location.multipleLocations ?? 1);
   return pickMultipleWeightedLocations(scores, desiredCount);
-}
-
-/**
- * Merges extra picked locations into the surrounding locations list,
- * ensuring no duplicates and preserving order.
- */
-function mergeExtraPickedLocations(
-  surroundingLocations: LocationData[],
-  pickedLocations: LocationData[]
-): LocationData[] {
-  const eventLocations: LocationData[] = [...surroundingLocations];
-  const seen = new Set(eventLocations.map(l => l.identifier));
-
-  // Keep the main location + normal surrounding list as-is, then append extras if missing
-  for (let i = 1; i < pickedLocations.length; i++) {
-    const extra = pickedLocations[i];
-    if (!seen.has(extra.identifier)) {
-      eventLocations.push(extra);
-      seen.add(extra.identifier);
-    }
-  }
-  return eventLocations;
 }
 
 /**
@@ -529,29 +507,34 @@ export function pickEventLocation(
   characters: Character[],
   overflowCharacters: Character[],
   estate: Estate
-): Promise<{ 
-  locations: LocationData[]; 
-  npcs: string[]; 
+): Promise<{
+  locations: LocationData[];
+  npcs: string[];
   bystanders: Bystander[];
+  mainLocationIds: string[];
 }> {
   const locationMap = StaticGameDataManager.getInstance().getLocationMap();
 
-  const pickedLocations = pickMultipleLocations(event, characters);
-  const mainLocation = pickedLocations[0];
+  const mainLocations = pickMultipleLocations(event, characters);
+  const mainLocationIds = mainLocations.map(l => l.identifier);
 
-  const { locations: baseLocations, npcs } = getSurroundingLocationsAndNPCs(
-    mainLocation,
-    locationMap
-  );
+  // Multiple explicit locations: present them as-is. No surrounding context or
+  // bystanders — a two-scene event isn't short on material to draw from.
+  if (mainLocations.length > 1) {
+    const npcs = [...new Set(mainLocations.flatMap(l => l.npcs ?? []))];
+    return Promise.resolve({ locations: mainLocations, npcs, bystanders: [], mainLocationIds });
+  }
 
-  const locations = mergeExtraPickedLocations(baseLocations, pickedLocations);
+  // Single main location: gather context, NPCs, and bystanders as before.
+  const mainLocation = mainLocations[0];
+  const { locations, npcs } = getSurroundingLocationsAndNPCs(mainLocation, locationMap);
   const mainLocationId = locations[0]?.identifier;
 
   const bystanders = mainLocationId
     ? buildBystanders(mainLocationId, characters, overflowCharacters, estate, locations)
     : [];
 
-  return Promise.resolve({ locations, npcs, bystanders });
+  return Promise.resolve({ locations, npcs, bystanders, mainLocationIds });
 }
 
 /**
