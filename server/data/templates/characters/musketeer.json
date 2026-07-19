@@ -2,8 +2,6 @@
   "identifier": "musketeer",
   "title": "Musketeer",
   "name": "Margaret",
-  "level": 0,
-  "money": 0,
   "description": "The Musketeer is a skilled sharpshooter from a noble family that is related to the Ancestor's family. Her encounter with an eldritch eye during a crucial competition has left her both traumatized, humiliated, and driven to seek out revenge among the otherworldly prey of the Estate.",
   "history": "Born into wealth, Margaret learned hunting and shooting from her father, a survivor of 'the lost jungle'. After a traumatic experience during a shooting competition where she saw an eldritch eye, she began seeking more dangerous prey, eventually coming to the Estate to hunt otherworldly creatures.",
   "race": "Human",
@@ -18,14 +16,6 @@
     "Taciturn",
     "Resourceful"
   ],
-  "status": {
-    "physical": 100,
-    "mental": 100,
-    "affliction": "",
-    "description": "In good health and high spirits",
-    "wounds": [],
-    "diseases": []
-  },
   "stats": {
     "strength": 4,
     "agility": 7,
@@ -71,8 +61,18 @@
     "Proficient in first aid"
   ],
   "tags": [
-    "Backline", "Healer", "Cleanser", "Buffer", "Marker", "MarkSynergy", "Bleeder", "ArmorPiercer", 
-    "Riposter", "GuardBreaker", "Cycler", "Noble", "HeavyHitter"
-  ],
-  "relationships": {}
+    "Backline",
+    "Healer",
+    "Cleanser",
+    "Buffer",
+    "Marker",
+    "MarkSynergy",
+    "Bleeder",
+    "ArmorPiercer",
+    "Riposter",
+    "GuardBreaker",
+    "Cycler",
+    "Noble",
+    "HeavyHitter"
+  ]
 }

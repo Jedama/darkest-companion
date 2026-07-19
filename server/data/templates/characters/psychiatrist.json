@@ -2,8 +2,6 @@
   "identifier": "psychiatrist",
   "title": "Therapist",
   "name": "Charles",
-  "level": 0,
-  "money": 0,
   "description": "A brilliant psychiatrist who made a pact with an eldritch entity to gain power over the human mind. The Therapist treats his patients not to heal them, but to bind them in cycles of dependency and control. He presents himself with urbane sophistication, offering sedatives and therapy that provide temporary relief while ensuring long-term reliance.",
   "history": "Once a successful psychiatrist, Charles grew frustrated with the slow progress of traditional treatment. His search for better methods led him to contact with an otherworldly entity called 'Father', gaining abilities to directly alter minds and emotions. Rather than seeking cures, he now focuses on managing symptoms and establishing dependence.",
   "summary": "A sophisticated but manipulative Therapist who uses eldritch power disguised as science to create codependent patients, all while battling his own addictions and fear of losing control.",
@@ -19,14 +17,6 @@
     "Pragmatic",
     "Addictive"
   ],
-  "status": {
-    "physical": 100,
-    "mental": 100,
-    "affliction": "",
-    "description": "In good health and high spitits",
-    "wounds": [],
-    "diseases": []
-  },
   "stats": {
     "strength": 2,
     "agility": 4,
@@ -73,8 +63,21 @@
     "Calls his fountain pen 'Devil's Reach'"
   ],
   "tags": [
-    "Backline", "StressHealer", "Buffer", "Debuffer", "Stunner", "Disruptor", "GuardBreaker", "Abrasive",
-    "Marker", "Weak", "Frail", "Unstable", "Eldritch", "Scholarly", "Drunkard", "Outcast"
-  ],
-  "relationships": {}
+    "Backline",
+    "StressHealer",
+    "Buffer",
+    "Debuffer",
+    "Stunner",
+    "Disruptor",
+    "GuardBreaker",
+    "Abrasive",
+    "Marker",
+    "Weak",
+    "Frail",
+    "Unstable",
+    "Eldritch",
+    "Scholarly",
+    "Drunkard",
+    "Outcast"
+  ]
 }

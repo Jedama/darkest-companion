@@ -2,8 +2,6 @@
   "identifier": "houndmaster",
   "title": "Houndmaster",
   "name": "William & Fergus",
-  "level": 0,
-  "money": 0,
   "description": "An uncommonly compassionate ex-lawman who works in equal partnership with his faithful wolfhound Fergus. Now they hunt together as they always have: Fergus reads the world through scent and instinct, William through experience and deduction. He trusts her judgment absolutely, treating her reactions as intelligence reports. Protective of the innocent and merciless toward the corrupt, he sees little difference between human evil and supernatural horror—both must be hunted down and stopped.",
   "history": "William was once a dedicated Gendarme, but when searching for a missing woman he stumbled onto corruption within his own ranks, discovering his fellow lawmen had murdered her to cover up their involvement in criminal enterprise. When he reported it through proper channels, he learned the rot extended throughout the command structure. Rather than become complicit, he walked away with Fergus, his wolfhound partner. Now he hunts monsters instead of men, though he's learned the distinction isn't as clear as he once believed.",
   "race": "Human",
@@ -18,25 +16,16 @@
     "Cautious",
     "Loyal"
   ],
-  "status": {
-    "physical": 100,
-    "mental": 100,
-    "affliction": "",
-    "description": "In good health and high spirits",
-    "wounds": [],
-    "diseases": []
-  },
   "stats": {
-      "strength": 8,
-      "agility": 7,
-      "intelligence": 8,
-      "authority": 9,
-      "sociability": 6
+    "strength": 8,
+    "agility": 7,
+    "intelligence": 8,
+    "authority": 9,
+    "sociability": 6
   },
   "equipment": [
     "Cudgel",
-    "Dog whistle",
-    "Leather vest"
+    "Dog whistle"
   ],
   "appearance": {
     "height": "Average",
@@ -74,9 +63,21 @@
     "Uses law enforcement jargon: miscreants, conspirators, apprehend"
   ],
   "tags": [
-    "Flexible", "StressHealer", "Guarder", "Marker", "MarkSynergy", "Bleeder", "BeastHunter", "Stunner", 
-    "Debuffer", "SelfSufficient", "Companion", "Leader", "Strategist", "Vigilant", "Scout", "Just"
-  ],
-  "relationships": {
-  }
+    "Flexible",
+    "StressHealer",
+    "Guarder",
+    "Marker",
+    "MarkSynergy",
+    "Bleeder",
+    "BeastHunter",
+    "Stunner",
+    "Debuffer",
+    "SelfSufficient",
+    "Companion",
+    "Leader",
+    "Strategist",
+    "Vigilant",
+    "Scout",
+    "Just"
+  ]
 }

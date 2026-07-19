@@ -24,12 +24,8 @@ router.post('/estates/:estateName/review', async (req: Request, res: Response) =
       return res.status(404).json({ error: `Estate '${estateName}' not found` });
     }
 
-    console.log('Review route - loaded estate:', estateName);
-
     // 2. Compile the review prompt
     const reviewPrompt = compileReviewPrompt(estate);
-
-    console.log('Compiled review prompt:\n', reviewPrompt);
 
     // 3. Call LLM
     const provider = estate.preferences?.llmProvider ?? 'anthropic';
@@ -55,7 +51,10 @@ router.post('/estates/:estateName/review', async (req: Request, res: Response) =
     };
 
     const cleanedText = cleanResponse(response);
-    console.log('Review response:\n', cleanedText);
+
+    console.log(`Review Results`);
+    console.log(cleanedText);
+    console.log('');
 
     const parsedJson = JSON.parse(cleanedText);
 
@@ -74,7 +73,6 @@ router.post('/estates/:estateName/review', async (req: Request, res: Response) =
 
     return res.json({
       success: true,
-      prompt: reviewPrompt,
       result: parsedJson,
     });
 

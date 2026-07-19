@@ -24,6 +24,16 @@
       "affinity": 3,
       "dynamic": "Cautious Disdain",
       "description": "The Heiress remembers the Duchess as aloof and self-absorbed during the few balls they attended together before the woman disappeared from court. Years and a bloodsucker transformation later, the Heiress doesn't recognise her."
+    },
+    "thorn": {
+      "affinity": 4,
+      "dynamic": "No Impression",
+      "description": "Swordplay as entertainment never interested the Heiress, and celebrated champions belonged to her father's social world, not hers. If she ever shared a room with the famous duelist, no memory of it survives."
+    },
+    "thrall": {
+      "affinity": 4,
+      "dynamic": "Unwitting Ownership",
+      "description": "Thanks to the machinations of her eminent Ancestor, this monster is hers—though she does not know it yet. The papers bearing her Estate's seal will arrive with him."
     }
   },
   "crusader": {
@@ -105,6 +115,11 @@
       "affinity": 4,
       "dynamic": "Genealogical Connection",
       "description": "The Heir is aware through family records that the Musketeer's bloodline and his own share distant ancestry, though the connection is generations removed."
+    },
+    "thorn": {
+      "affinity": 5,
+      "dynamic": "Spectator's Memory",
+      "description": "The Heir attended the famed duelist's exhibitions during his courtly years, admiring the spectacle the way bookish young men admire any effortless mastery. He remembers the scandal of her blinding—how quickly the court's delight curdled into gossip—and that she vanished from society afterward. He assumed, like everyone, that her story had ended there."
     }
   },
   "vestal": {
@@ -116,7 +131,7 @@
     "seraph": {
       "affinity": 7,
       "dynamic": "Awe",
-      "description": "Even within the Abbey's walls, Junia heard whispered legends of the Seraph—a warrior-saint burned at the stake who rose transformed by divine fire. Her divine purpose shows the Light's true path."
+      "description": "Even within the Abbey's walls, the Vestal heard whispered legends of the Seraph—a warrior-saint burned at the stake who rose transformed by divine fire. Her divine purpose shows the Light's true path."
     }
   },
   "flagellant": {
@@ -151,6 +166,11 @@
       "affinity": 2,
       "dynamic": "Condescending Patronage",
       "description": "The Claimants recall the Therapist as a prestigious but forgettable court employee. His true value was the curious tome they stole from his collection—the very book that guided them to the Estate. To them, the man was merely a means to a much grander end."
+    },
+    "thorn": {
+      "affinity": 2,
+      "dynamic": "Parlour Steel",
+      "description": "The sister found the celebrated court champion beneath notice—a commoner performer, however decorated. The brother paid closer attention, in his way: he rated her skill honestly and dismissed her discipline entirely, dueling being play-war for spectators while real wars are won with polearms and formations. Her maiming struck them both as an unremarkable end to an unserious pursuit."
     }
   },
   "duchess": {
@@ -168,6 +188,11 @@
       "affinity": 2,
       "dynamic": "Disdain",
       "description": "The Duchess saw the Claimants as scheming has-beens beneath her station, their fading influence barely worth acknowledging amid her greater rivalry with the Countess."
+    },
+    "thorn": {
+      "affinity": 3,
+      "dynamic": "The Loser",
+      "description": "The Duchess remembers the celebrated Rose—the one blade at court worth measuring against her own. A grand tournament was to settle it at last, in a final all of society anticipated; instead the Rose fell to an unremarkable blade in an earlier bout, blinded, and the Duchess claimed her championship by walkover. Her pride has never forgiven the debt that can no longer be collected."
     }
   },
   "wretch": {
@@ -189,6 +214,32 @@
       "affinity": 2,
       "dynamic": "Analytical Disdain",
       "description": "The Psychiatrist holds a unique contempt for his former employers, whom he found insufferably vain. This professional disdain turned to cold fury when they stole a dangerous tome from his library, and he now sees them as reckless thieves meddling with forces they cannot comprehend."
+    }
+  },
+  "thorn": {
+    "duchess": {
+      "affinity": 4,
+      "dynamic": "A Familiar Cadence",
+      "description": "The Thorn once knew the court's finest fencer—her great rival, their match forever anticipated and never fought. Beneath curse-wrought armor, a changed voice, and a monstrous blade no fencer would carry, there would be nothing left for a blind woman to recognize. Though perhaps something in the cadence of the footwork might nag at her, like a name on the tip of the tongue."
+    },
+    "hqclaimants": {
+      "affinity": 2,
+      "dynamic": "One Voice From the Blur",
+      "description": "A hundred noble voices flattered or sneered from beyond the piste, long since run together. One she does remember: a military man who lectured her, uninvited, that fencing was a game and real wars were won with pikes. She recalls composing several retorts she was never permitted to deliver."
+    }
+  },
+  "lamia": {
+    "thrall": {
+      "affinity": 4,
+      "dynamic": "The Final Match",
+      "description": "She sat among the spectators at the pit-fighter's last match, and watched the beloved champion crushed to pulp—watched the adoring crowd turn, in a breath, into a mob. She knows better than most how quickly worship curdles, though that day she watched as one of the crowd."
+    }
+  },
+  "thrall": {
+    "heiress": {
+      "affinity": 3,
+      "dynamic": "Another Master",
+      "description": "He knows the name of the house that owns him now, and came to serve it. Another master among the many; no closer to freedom than the day he was branded."
     }
   }
 }

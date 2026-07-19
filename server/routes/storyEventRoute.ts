@@ -25,10 +25,12 @@ router.post('/estates/:estateName/events/story', async (req: Request, res: Respo
       return res.status(404).json({ error: `Estate '${estateName}' not found` });
     }
 
-    console.log('Story Route Body:', JSON.stringify(req.body, null, 2));
-
-    // 2. Build the prompt using your storyEventService
+    // 2. Build the prompt
     const prompt = await compileStoryPrompt(estate, event, chosenCharacterIds, locations, npcIds, enemyIds, bystanders, keywords, context, description);
+
+    console.log(`Generating story:`);
+    console.log(`${event.title} (${event.identifier})`);
+    console.log(`Keywords: ${keywords?.join(', ') || 'none'}\n`);
 
     // 3. Call LLM with the prompt
     const provider = estate.preferences?.llmProvider ?? "anthropic";
@@ -43,15 +45,16 @@ router.post('/estates/:estateName/events/story', async (req: Request, res: Respo
       // system: estate.preferences?.guidance ?? undefined, // NOT USED per your request
     });
 
-    console.log('LLM Response for Story Event:\n', response);
-
     // 4. Extract title from response
     const { title, body } = separateStoryTitle(response);
+
+    console.log(`Story:`);
+    console.log(`[${title}]`);
+    console.log(`${body}\n`);
 
     // 5. Return both the prompt and the LLM's response
     return res.json({
       success: true,
-      prompt,
       story: {
         title,
         body

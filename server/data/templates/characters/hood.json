@@ -1,81 +1,77 @@
 {
-    "identifier": "hood",
-    "title": "Hood",
-    "name": "Tilly",
-    "level": 0,
-    "money": 0,
-    "description": "The Hood is a strange and enigmatic child who stumbles around, lost in her own imaginary world, chasing her cat and butterfly companions she thinks are real, all while talking nonsense to herself. She is unsettling in her childish demeanor and soft words. Unaware to herself, she possesses an unnatural sense for finding lost things and an ability to stumble out of danger at the perfect moment.",
-    "history": "The Hood was seen as unnerving by those around her, talking to herself with a complete disregard for her surroundings. Voluptuous yet cherubic for her young age and unwanted by her family, she was sent off to her local brothel. She was eventually kicked out due to her lack of reaction as the men took me. Roaming the world, her ethereal friends eventually brought her to the Hamlet.",
-    "race": "Human",
-    "gender": "Female",
-    "religion": "None",
-    "zodiac": "Pisces",
-    "traits": [
-      "Enigmatic",
-      "Soft",
-      "Uncaring",
-      "Enticing",
-      "Daydreaming",
-      "Absent"
+  "identifier": "hood",
+  "title": "Hood",
+  "name": "Tilly",
+  "description": "The Hood is a strange and enigmatic child who stumbles around, lost in her own imaginary world, chasing her cat and butterfly companions she thinks are real, all while talking nonsense to herself. She is unsettling in her childish demeanor and soft words. Unaware to herself, she possesses an unnatural sense for finding lost things and an ability to stumble out of danger at the perfect moment.",
+  "history": "The Hood was seen as unnerving by those around her, talking to herself with a complete disregard for her surroundings. Voluptuous yet cherubic for her young age and unwanted by her family, she was sent off to her local brothel. She was eventually kicked out due to her lack of reaction as the men took me. Roaming the world, her ethereal friends eventually brought her to the Hamlet.",
+  "race": "Human",
+  "gender": "Female",
+  "religion": "None",
+  "zodiac": "Pisces",
+  "traits": [
+    "Enigmatic",
+    "Soft",
+    "Uncaring",
+    "Enticing",
+    "Daydreaming",
+    "Absent"
+  ],
+  "stats": {
+    "strength": 1,
+    "agility": 7,
+    "intelligence": 2,
+    "authority": 1,
+    "sociability": 4
+  },
+  "equipment": [
+    "Satchel bag"
+  ],
+  "appearance": {
+    "height": "Short",
+    "build": "Buxom",
+    "skinTone": "Fair",
+    "hairColor": "Orange",
+    "hairStyle": "Shoulder length and curly",
+    "features": "Soft and cherubic features, smooth skin, full chest with freckles"
+  },
+  "clothing": {
+    "head": "Red hood",
+    "body": "Skimpy, frilly top",
+    "legs": "Short white skirt",
+    "accessories": "Bridal garter"
+  },
+  "combat": {
+    "role": "Collector",
+    "strengths": [
+      "Finding things",
+      "Uncanny dodges",
+      "Disruption"
     ],
-    "status": {
-      "physical": 100,
-      "mental": 100,
-      "affliction": "",
-      "description": "In good health and high spirits",
-      "wounds": [],
-      "diseases": []
-    },
-    "stats": {
-      "strength": 1,
-      "agility": 7,
-      "intelligence": 3,
-      "authority": 2,
-      "sociability": 4
-    },
-    "equipment": [
-      "Satchel bag"
-    ],
-    "appearance": {
-      "height": "Short",
-      "build": "Buxom",
-      "skinTone": "Fair",
-      "hairColor": "Orange",
-      "hairStyle": "Shoulder length and curly",
-      "features": "Soft and cherubic features, smooth skin, full chest with freckles"
-    },
-    "clothing": {
-      "head": "Red hood",
-      "body": "Skimpy, frilly top",
-      "legs": "Short white skirt",
-      "accessories": "Bridal garter"
-    },
-    "combat": {
-      "role": "Collector",
-      "strengths": [
-        "Finding things",
-        "Uncanny dodges",
-        "Disruption"
-      ],
-      "weaknesses": [
-        "Stumbles allies",
-        "Frail"
-      ]
-    },
-    "magic": "None",
-    "notes": [
-      "Her nonsensical monologues often seems to circle back to her grandmother",
-      "Rarely says anything even remotely relevant to what she responds to",
-      "Wildly flails her arms when she stumbles",
-      "Habitually lifts her skirt, flashing what's beneath",
-      "Her bag seems to hold an endless supplies of pies, from her grandmother",
-      "Whacks enemies with her satchel bag"
-    ],
-    "tags": [
-      "Dancer", "Weak", "Frail", "Healer", "Bleeder", "Disruptor", "Hider", 
-      "Scavenger", "Child", "Outcast", "Unstable"
-    ],
-    "relationships": {
-    }
-  }
-  
+    "weaknesses": [
+      "Stumbles allies",
+      "Frail"
+    ]
+  },
+  "magic": "None",
+  "notes": [
+    "Her nonsensical monologues often seems to circle back to her grandmother",
+    "Rarely says anything even remotely relevant to what she responds to",
+    "Wildly flails her arms when she stumbles",
+    "Habitually lifts her skirt, flashing what's beneath",
+    "Her bag seems to hold an endless supplies of pies, from her grandmother",
+    "Whacks enemies with her satchel bag"
+  ],
+  "tags": [
+    "Dancer",
+    "Weak",
+    "Frail",
+    "Healer",
+    "Bleeder",
+    "Disruptor",
+    "Hider",
+    "Scavenger",
+    "Child",
+    "Outcast",
+    "Unstable"
+  ]
+}

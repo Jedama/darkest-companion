@@ -43,7 +43,7 @@ The points should be punchy, blunt, and in the Bursar's voice. A cunning schemer
 If the Bursar was on the expedition, they assess themselves too. A narcissist writes praise. A professional writes one terse line. A guilty person might be surprisingly honest.
 
 [The Town Share]
-The hamlet always needs money — repairs, supplies, defenses. How much the Bursar allocates to the town versus the party reflects their priorities. A responsible Bursar balances individual pay against collective need. A strategic thinker invests in infrastructure. An irresponsible or self-focused Bursar shorts the town.
+As a baseline rule, the town treasury claims approximately half of the total loot to fund Hamlet operations and recovery. How much the Bursar deviates from this 50% baseline reflects their priorities: a responsible or strategic Bursar respects or even increases this share to protect the community, while a greedy, irresponsible, or party-first Bursar might short the town below this baseline.
 
 [The Split]
 The loot is divided into shares: one for each expedition member, one for the hamlet treasury, and one for the Bursar personally.

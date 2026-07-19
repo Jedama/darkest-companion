@@ -2,8 +2,6 @@
   "identifier": "greymane",
   "title": "Cursed",
   "name": "Genn Greymane",
-  "level": 0,
-  "money": 0,
   "description": "The proud and tragic King of Gilneas, the Cursed is a man defined by his failures and his unbreakable will to atone. He wields the very lycanthropic curse that ruined his kingdom as a weapon, shifting between a pragmatic human commander and a ferocious Worgen beast. Driven by the ghosts of his past, he has come to the Estate to prove that even a fallen king can still protect his people and carve out a future from ruin.",
   "history": "Once an arrogant and isolationist ruler, the Cursed's pride led to the downfall of his kingdom, Gilneas. In a desperate act to defend his walled-off nation, he unleashed the Worgen curse, only to see it infect him and his people, costing him his son and his throne. Now a king without a country, he is haunted by his choices and seeks not conquest, but redemption, fighting to restore the honor of his name and the future of the Gilnean people.",
   "summary": "A proud and tragic cursed king who wields his monstrous form as a weapon, haunted by past failures and driven by a desperate need for atonement.",
@@ -18,14 +16,6 @@
     "Regretful",
     "Authoritative"
   ],
-  "status": {
-    "physical": 100,
-    "mental": 100,
-    "affliction": "",
-    "description": "In good health and high spitits",
-    "wounds": [],
-    "diseases": []
-  },
   "stats": {
     "strength": 8,
     "agility": 7,
@@ -72,8 +62,23 @@
     "Has a grim, cynical sense of humor, often joking about his own curse."
   ],
   "tags": [
-    "Dancer", "Shapeshifter", "Bleeder", "BleedSynergy", "MarkSynergy", "Riposter", "Buffer", "HeavyHitter", "Just",
-    "Crit", "GuardBreaker", "Executor", "Noble", "Leader", "Warrior", "Outcast", "Eldritch", "Religious"
-  ],
-  "relationships": {}
+    "Dancer",
+    "Shapeshifter",
+    "Bleeder",
+    "BleedSynergy",
+    "MarkSynergy",
+    "Riposter",
+    "Buffer",
+    "HeavyHitter",
+    "Just",
+    "Crit",
+    "GuardBreaker",
+    "Executor",
+    "Noble",
+    "Leader",
+    "Warrior",
+    "Outcast",
+    "Eldritch",
+    "Religious"
+  ]
 }

@@ -2,8 +2,6 @@
   "identifier": "kheir",
   "title": "Heir",
   "name": "Percival",
-  "level": 0,
-  "money": 0,
   "description": "A brilliant scholar and the estate's organizational backbone, the Heir manages logistics, resources, and personnel with sharp efficiency. He's argumentative when challenged on his expertise and surprisingly adept at organizing people like resources. However, he has no illusions about his courage, quickly falling to pieces when faced with the unexplainable, and relying on wine to steady his nerves.",
   "history": "Raised in academic circles far from the estate's dark legacy, Percival was comfortable in libraries and lecture halls. When his sister initially received the Ancestor's letter he dismissed her summons, but family duty and a persistent goading drew him to the task.",
   "summary": "The meek Heir, a brilliant scholar with a drinking problem, who acts usually timidly yet steps up under extreme pressure.",
@@ -19,14 +17,6 @@
     "Resourceful",
     "Clumsy"
   ],
-  "status": {
-    "physical": 100,
-    "mental": 100,
-    "affliction": "",
-    "description": "In good health and high spitits",
-    "wounds": [],
-    "diseases": []
-  },
   "stats": {
     "strength": 2,
     "agility": 2,
@@ -70,9 +60,18 @@
     "Under extreme pressure, something defiant kicks in, where he often perseveres rather than crumbles"
   ],
   "tags": [
-    "Flexible", "Weak", "Frail", "Healer", "StressHealer", "Blighter", "Debuffer",
-    "Noble", "Scholar", "Strategist", "Drunkard", "SelfStress", "Scavenger"
-  ],
-  "relationships": {
-  }
+    "Flexible",
+    "Weak",
+    "Frail",
+    "Healer",
+    "StressHealer",
+    "Blighter",
+    "Debuffer",
+    "Noble",
+    "Scholar",
+    "Strategist",
+    "Drunkard",
+    "SelfStress",
+    "Scavenger"
+  ]
 }

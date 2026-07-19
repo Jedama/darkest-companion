@@ -45,8 +45,6 @@ router.post('/estates/:estateName/events/consequences', async (req: Request<{est
       chosenCharacterIds
     });
 
-    console.log('Consequences prompt:', prompt);
-
     // 3. Call LLM
     const provider = estate.preferences?.llmProvider ?? "anthropic";
     const model = estate.preferences?.llmModel; // if undefined, provider default in callLLM will apply
@@ -69,7 +67,6 @@ router.post('/estates/:estateName/events/consequences', async (req: Request<{est
     };
     
     const cleanedText = cleanResponse(response);
-    console.log('Cleaned response:', cleanedText);
 
     // 5. Parse and validate the response
     let parsedJson: ConsequencesResult;
@@ -101,6 +98,10 @@ router.post('/estates/:estateName/events/consequences', async (req: Request<{est
       
       // 7. Generate display-friendly data for the frontend
       const displayData = prepareConsequenceDisplay(consequencesForProcessing);
+
+      console.log(`Consequences`);
+      console.log(JSON.stringify(consequencesForProcessing, null, 2));
+      console.log('');
 
       // 8. Save the updated estate
       await saveEstate(updatedEstate);

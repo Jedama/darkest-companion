@@ -43,29 +43,29 @@
     "children": []
   },
   {
-    "identifier": "training_ring",
+    "identifier": "guild_hall__training_ring",
     "title": "Training Ring",
     "description": "A proper practice arena reduced to debris and splintered timber. The collapsed viewing stands and broken practice dummies speak to the intensity of use rather than poor construction. Iron fixtures and solid foundation stones wait amid the wreckage, ready for restoration.",
     "restored": "A proper training arena rebuilt to withstand even the Guild Trainer's most demanding drills. Tiered wooden stands encircle a packed-earth ring, while reinforced practice dummies stand ready for abuse. Brass hooks hold torches for evening practice, though few remain after dark despite the ring's robust reconstruction.",
-    "summary": "training_ring (Training Ring) -- A proper practice arena with tiered stands and practice dummies, used for intensive combat drills and training.",
+    "summary": "guild_hall__training_ring (Training Ring) -- A proper practice arena with tiered stands and practice dummies, used for intensive combat drills and training.",
     "parent": "guild_hall",
     "children": [],
     "npcs": ["guild_trainer"]
   },
   {
-    "identifier": "training_yard",
+    "identifier": "guild_hall__training_yard",
     "title": "Training Yard",
     "description": "A cleared space behind the Guild Hall where the Guild Trainer now drills recruits. Wooden posts serve for weapons practice, while straw targets line the far wall. Though functional, it serves as a constant reminder of the ruined Training Ring's absence.",
-    "summary": "training_yard (Training Yard) -- A cleared space behind the Guild Hall, used for weapons practice and drilling recruits with posts and straw targets.",
+    "summary": "guild_hall__training_yard (Training Yard) -- A cleared space behind the Guild Hall, used for weapons practice and drilling recruits with posts and straw targets.",
     "parent": "guild_hall",
     "children": [],
     "npcs": ["guild_trainer"]
   },
   {
     "identifier": "inlet",
-    "title": "The Inlet",
+    "title": "Inlet",
     "description": "A sheltered cove nestled between weathered rocks, reached by worn steps cut into the cliff face. Unlike the harbor's murky expanse, these waters remain clear enough to see the sandy bottom. Ancient mooring rings suggest it once served fisher-folk, though now it offers only quiet solitude.",
-    "summary": "inlet (The Inlet) -- A sheltered cove nestled between weathered rocks, with clear waters and ancient mooring rings, once used by fisher-folk.",
+    "summary": "inlet (Inlet) -- A sheltered cove nestled between weathered rocks, with clear waters and ancient mooring rings, once used by fisher-folk.",
     "parent": "southeast_district",
     "children": []
   },

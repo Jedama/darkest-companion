@@ -11,7 +11,7 @@
     "identifier": "clearing",
     "title": "Old Road Clearing",
     "description": "A wide, trampled expanse of scrub-grass where the deeply rutted mud of the Old Road widens before bottlenecking into the hamlet proper. The area serves as a makeshift staging ground for transient arrivals who prefer—or are forced—to remain just outside the town's borders. Strange wagons park along the road's muddy shoulders, while the towering crimson and black pavilion tents of the Butcher's Circus dominate the adjacent fields, casting long, imposing shadows over the path.",
-    "summary": "old_road_clearing (Old Road Clearing) -- A wide, trampled field along the Old Road serving as a staging ground for transient wagons and the sprawling tents of the Butcher's Circus.",
+    "summary": "clearing (Old Road Clearing) -- A wide, trampled field along the Old Road serving as a staging ground for transient wagons and the sprawling tents of the Butcher's Circus.",
     "parent": "southwest_district",
     "children": ["stagecoach", "omen_seeker_wagon", "butchers_circus"]
   },
@@ -53,9 +53,9 @@
   },
   {
     "identifier": "alley",
-    "title": "The Alley",
+    "title": "Alley",
     "description": "A narrow passage between tavern and brothel where shadows seem to linger past sunrise. Local storytellers claim it earned the name \"Gaunts' Walk\" when an entire family - made skeletal by poverty - died here during a harsh winter. Whether their ghosts still pace these cobbles matters little to those who stumble through after dark, finding more immediate dangers in its depths.",
-    "summary": "alley (The Alley) -- A narrow passage between the tavern and brothel, known for its lingering shadows and past tragedies.",
+    "summary": "alley (Alley) -- A narrow passage between the tavern and brothel, known for its lingering shadows and past tragedies.",
     "parent": "southwest_district",
     "children": []
   },
@@ -224,7 +224,7 @@
   },
   {
     "identifier": "brothel",
-    "title": "The Brothel",
+    "title": "Brothel",
     "description": "A tall, narrow building whose respectable facade belies its nature, marked only by a simple sign bearing an inverted cross and its name The Vestal's Secret. Glazed windows catch lamplight without revealing the activities within. The upper floors lean slightly over the alley, their weathered shutters perpetually closed against prying eyes.",
     "summary": "brothel (The Brothel) -- A tall, narrow building with a discreet facade and an inverted cross sign, offering private rooms for illicit activities.",
     "parent": "southwest_district",

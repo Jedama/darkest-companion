@@ -2,8 +2,6 @@
   "identifier": "vestal",
   "title": "Vestal",
   "name": "Junia",
-  "level": 0,
-  "money": 0,
   "description": "A warrior-nun who delivers divine healing and holy violence in equal measure. The Vestal is a study in contradictions: compassionate healer and unrelenting crusader, sheltered innocent harboring forbidden desires, gentle caretaker capable of righteous fury. She wields mace and tome with equal conviction, channeling the Light into both restorative blessings and dazzling condemnations.",
   "history": "Raised within the walls of an Abbey she was forced into, Junia tended the eternal flame alongside her sisters. When forbidden daydreams distracted her from duty, the flame sputtered out. Her punishment was brutal: imprisonment, torture, and her sisters entombed alive. In that darkness, divine light revealed the truth—her captors were the true heretics. Haunted by trauma she rarely speaks of, she has arrived at the Hamlet seeking both redemption and the freedom to explore desires her Order forbade.",
   "race": "Human",
@@ -16,14 +14,6 @@
     "Compassionate",
     "Salacious"
   ],
-  "status": {
-    "physical": 100,
-    "mental": 100,
-    "affliction": "",
-    "description": "In good health and decent spirits",
-    "wounds": [],
-    "diseases": []
-  },
   "stats": {
     "strength": 4,
     "agility": 3,
@@ -68,8 +58,15 @@
     "Uncomfortable with physical contact"
   ],
   "tags": [
-    "Backline", "Healer", "Stunner", "Debuffer", "SelfSufficient", "Light", "UnholyHunter", "Religious", 
-    "Vigilant", "Just"
-  ],
-  "relationships": {}
+    "Backline",
+    "Healer",
+    "Stunner",
+    "Debuffer",
+    "SelfSufficient",
+    "Light",
+    "UnholyHunter",
+    "Religious",
+    "Vigilant",
+    "Just"
+  ]
 }

@@ -2,8 +2,6 @@
   "identifier": "wretch",
   "title": "Wretch",
   "name": "Yersin",
-  "level": 0,
-  "money": 0,
   "description": "A disgraced aristocrat turned pauper, the Wretch has become a walking plague after years of hardship. He spreads blight and commands hordes of rats, using disease as his weapon. Though dangerous, the Wretch is unpredictable and cowardly, prone to fleeing or sacrificing allies to save himself.",
   "history": "Once a nobleman, the Wretch fell from grace and has since lived a life of poverty and disease. His years on the streets have taught him to survive by any means necessary, including embracing the very filth and pestilence that society shuns.",
   "race": "Human",
@@ -16,14 +14,6 @@
     "Manipulative",
     "Survivalist"
   ],
-  "status": {
-    "physical": 100,
-    "mental": 100,
-    "affliction": "",
-    "description": "In good health and high spirits",
-    "wounds": [],
-    "diseases": []
-  },
   "stats": {
     "strength": 2,
     "agility": 1,
@@ -32,7 +22,7 @@
     "sociability": 2
   },
   "equipment": [
-      "Cane with concealed stiletto"
+    "Cane with concealed stiletto"
   ],
   "appearance": {
     "height": "Average",
@@ -66,8 +56,23 @@
     "His favorite rat, who rides on his shoulder, is named Nicodemus"
   ],
   "tags": [
-    "Flexible", "Tank", "Blighter", "Hider", "Bleeder", "ArmorPiercer", "BlightSynergy", "Riposter", "Weak",
-    "Disruptor", "SelfSufficient", "Setup", "Noble", "Companion", "Outcast", "Scavenger", "Immoral", "Elder"
-  ],
-  "relationships": {}
+    "Flexible",
+    "Tank",
+    "Blighter",
+    "Hider",
+    "Bleeder",
+    "ArmorPiercer",
+    "BlightSynergy",
+    "Riposter",
+    "Weak",
+    "Disruptor",
+    "SelfSufficient",
+    "Setup",
+    "Noble",
+    "Companion",
+    "Outcast",
+    "Scavenger",
+    "Immoral",
+    "Elder"
+  ]
 }

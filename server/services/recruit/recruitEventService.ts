@@ -44,10 +44,16 @@ export async function compileRecruitPrompt(
 ): Promise<string> {
   const gameData = StaticGameDataManager.getInstance();
 
-  const narrativeContext = compileRecruitContext(estate, gameData);
-
   // Gather data
   const involvedCharacters: Character[] = chosenCharacterIds.map((id) => estate.characters[id]);
+
+  const margraveId = estate.leadership.margrave;
+  const bursarId = estate.leadership.bursar;
+  const recruit = involvedCharacters.find(
+    (char) => char.identifier !== margraveId && char.identifier !== bursarId
+  );
+
+  const narrativeContext = compileRecruitContext(estate, gameData, recruit?.title);
 
   // Filter logs to only those involving chosen characters
   const filteredLogs = filterLogs(estate, involvedCharacters);
@@ -64,7 +70,6 @@ export async function compileRecruitPrompt(
     buildUserGuidanceSection(estate.preferences?.guidance) +
     buildUserInputSection(context, undefined);
 
-  console.log(fullPrompt);
   return fullPrompt;
 }
 
@@ -149,6 +154,8 @@ const recruitedCharacter: Character = remainingCharacters[0];
   // 4. Construct the final prompt using the template from consequenceData
   const prompt = `
     You are a system that outputs consequences in valid JSON. No extra text, no markdown.
+
+    ${compileRecruitContext(estate, gameData, recruitedCharacter.title)}
 
     [Story Context]
     ${story}

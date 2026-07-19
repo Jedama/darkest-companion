@@ -126,10 +126,10 @@
     "children": []
   },
   {
-    "identifier": "mass_grave",
+    "identifier": "apple_yard__mass_grave",
     "title": "Mass Grave",
-    "description": "A suspiciously regular mound beyond the orchard's edge, where three bodies were said to be buried after the miasma took them. The conscript's sword sticks out of the earth at an odd angle, alongside gifts left by others who pretended to mourn them.",
-    "summary": "mass_grave (Mass Grave) -- A suspiciously regular mound marked by a conscript's sword, burying the bodies taken by the miasma.",
+    "description": "A suspiciously regular mound beyond the orchard's edge, where three bodies were said to be buried after the miasma took them. The Conscript's sword sticks out of the earth at an odd angle, alongside gifts left by others who pretended to mourn them.",
+    "summary": "apple_yard__mass_grave (Mass Grave) -- A suspiciously regular mound marked by a conscript's sword, burying the bodies taken by the miasma.",
     "parent": "apple_yard",
     "children": []
   }

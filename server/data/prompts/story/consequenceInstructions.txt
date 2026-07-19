@@ -67,20 +67,28 @@ GUIDANCE FOR QUALITY CONSEQUENCES:
   - One or two words maximum
 
 4. NOTES:
-  - Notes capture OBSERVABLE, REPEATABLE, and INTERESTING behaviors that define how a character acts, which could not be stated elsewhere. 
-  - The bar for adding a note is HIGH — most events should add zero notes. Notes accumulate over a character's lifetime, so each one must earn its place against years of future scenes.
-  - Reveals something not implied by the obvious traits. A cowardly character "flinches at loud noises" tells you nothing new. Don't add it.
-  - Format as concrete actions or patterns, not internal states or temporary conditions:
-    * Bad: "Feels guilty about past sins" (vague and boring, probably restating core character traits)
-    * Bad: "Eyebrow twitches when bluffing at cards" (Way too niche)
-    * Good: "Eyebrow twitches when lying"
-    * Bad: "Broke and physically hurt" (temporary state, belongs in status)
-    * Good: "Sleeps with a candle lit"
-    * Bad: "Uses physical intimacy as a tool to control and motivate her brother." (relationship-specific, belongs in relationship description)
-    * Good: "Uses physical intimacy as a tool for dominance"
-  - Avoid duplicate notes that merely restate information already present elsewhere
-  - Enrich existing notes by replacing them (lose_note + gain_note) rather than stacking.
-  - Before adding a note, reread the character's traits, description, and existing notes. State to yourself what is already covered. A new note MUST describe a behavior that does NOT logically follow from what is already on the sheet.
+  - Notes capture OBSERVABLE, REPEATABLE, and HIGH-UTILITY behaviors, physical tics, or fears. They define how a character acts across many different situations.
+  - The bar for adding a note is EXTREMELY HIGH. Most scenes should add zero notes. Notes accumulate over a character's lifetime, so each must earn its place against years of future scenes.
+  - **The "Tavern vs Dungeon" Test (Broad Applicability):** Before writing a note, ask: *Could this behavior naturally manifest in a completely different setting, like bickering around a campfire, drinking in a tavern, or facing monsters in a dungeon?* If it is locked to the current event's specific context, do not write it.
+  - **Avoid "Context-Locked" Notes:** Do not write notes that sound good but are too niche to ever trigger again. Ensure actions are translated into general behavioral patterns.
+  - **Avoid Generic Human Reactions:** Do not write down ordinary behaviors that apply to almost anyone (e.g., "Sighs when tired," "Gets quiet when sad," or "Fidgets when nervous"). A note must describe a habit, reaction, or quirk that is distinct, slightly peculiar, or uniquely telling of *this* character.
+
+- **Examples of Niche/Passive vs. High-Utility Notes:**
+    * *Bad (Too Niche):* "Conceals unsettling discoveries from the group." (Only useful during rare scouting, tracking, or investigation scenes).
+    * *Good (High Utility):* "Keeps doubts and worries to himself." (Triggers easily during bickering, camping, town visits, or dungeon crawls).
+
+    * *Bad (Too Niche):* "Sleeps with a candle lit." (Only triggers when the characters are actively going to bed).
+    * *Good (High Utility):* "Terrified of the dark." (Triggers constantly during dungeon crawls, night watches, or sleeping scenes).
+
+    * *Bad (Too Niche):* "Eyebrow twitches when lying." (Too micro-specific to naturally emerge in general storytelling, and a boring, generic tell that anyone could have).
+    * *Good (High Utility):* "Unable to lie convincingly." (Immediately impacts card games, arguments, and excuses. Could also be covered by a "Poor liar" trait instead).
+
+    * *Bad (Too Boring/Vague):* "Feels guilty about his past sins." (Vague, purely internal, and likely already covered by their core traits).
+    * *Also Bad (Still Boring/Passive):* "Fidgets with personal items during moments of guilt." (A passive, physical stage direction that does not drive drama or dialogue).
+    * *Good (Active Lens):* "Refuses comfort, soft beds, or warm food." (An active, self-deprecating behavioral lens that directly impacts camp, tavern, and survival decisions).
+
+    * *Bad (Relationship-Locked):* "Uses physical intimacy to manipulate her lover's decisions." (Relationship-specific, belongs in the relationship description).
+    * *Good (High Utility):* "Uses physical intimacy as a tool for dominance." (A general, observable behavioral pattern applicable to multiple companions).
    
 5. STATS:
   - Only update when a significant change is demonstrated
@@ -95,14 +103,20 @@ GUIDANCE FOR QUALITY CONSEQUENCES:
   - When updating a field, include the original. Not "Gashed", but "Green overcoat with a deep gash."
 
 7. RELATIONSHIPS:
-  - Affinity updated, when justified, should be a value ±5, indicating how this event changed a relationship between two characters.
-  - Always consider current affinity values when assessing changes. Ask: Did something NEW happen between these characters, or just more of the same?
-  - Changes at extremes require more justification:
-    * Moving 2→1 or 1→0: Relationship is already broken. Did this interaction make it WORSE?
-    * Moving 8→9 or 9→10: Already very close. Did this significantly deepen it?
-    * At mid-range (3-6), ±1 or ±2 shifts are more reasonable for meaningful interactions
-  - The extremes (0-1, 8-10) should represent deep resentment or deep respect/infatuation, respectively.
-  - Reserve ±3 to ±5 for extreme circumstances: genuine betrayals, life-saving moments, devastating cruelty, profound emotional breakthroughs, etc.
+  - Affinity updates must be within a range of up to ±5, indicating how this event shifted the bond between two characters.
+  - Always consider current affinity values when assessing changes. Ask: Did something NEW happen, or is this just more of the same? 
+  - Apply "Reversion to the Mean" asymmetry: It must be significantly easier for a high relationship to decay (e.g., decaying from 7→6) than it is to build it further (e.g., climbing from 7→8). The mean is 3.5. 
+    * High Barrier for Trust (Relational Inertia): True trust is exceptionally difficult to build. Routine cooperation, shared activities, or casual banter should rarely increase affinity. Reserve affinity increases (+1 or more) strictly for moments of genuine vulnerability, shared trauma, or life-saving actions.
+    * High Sensitivity to Friction (Relational Fragility): In this hostile environment, trust is brittle. Minor friction—such as blaming others under stress, sharp-tongued remarks, or passive selfishness—should easily damage relationships. When characters clash, express resentment, or bicker, default to lowering their affinity.
+    * The Default is No Change: Most scenes should result in an affinity shift of 0. Do not adjust affinity values unless a significant, emotionally impactful shift in trust or resentment was actively demonstrated in the narrative.
+  - Changes at the extremes require heavy justification:
+    * Moving 2→1 or 1→0: The relationship is already broken. Did this specific interaction make it actively worse, or is it just a continuation of their mutual disdain?
+    * Moving 8→9 or 9→10: They are already very close. Did this moment profoundly deepen their bond, or is it just more of the same?
+    * Mid-range shifts (3-6): Subtle shifts of ±1 or ±2 are appropriate for meaningful interactions that either build minor trust or introduce minor doubts.
+  - The extremes (0-1, 8-10) represent deep, defining resentment or profound respect/infatuation, respectively.
+  - Reserve major shifts (±3 to ±5) strictly for life-altering events: genuine betrayals, life-saving acts, devastating cruelty, or profound emotional breakthroughs.
+  - **The Ideological Friction Filter:** If a character expresses beliefs, doubts, or worldviews that fundamentally clash with another character's core identity, notes, or high stats, they will drift apart. Even if no outward argument occurs in the story, discovering a fundamental mismatch in worldviews can result a shift toward a colder, more wary dynamic and lower affinity. (e.g., A commander with high Authority will quietly lose respect for a subordinate who openly muses that obedience is just a bad habit).
+
   - Dynamics should describe the TYPE OF RELATIONSHIP between two people (1-3 words). Update when the previous dynamic no longer accurately describes the relationship
   - Descriptions explain the ONGOING PATTERN of how characters view each other. NEVER mention what just happened in this scene - that's what relationship logs are for. Descriptions should still make sense weeks or months from now.
     * Bad: "his blunt insult revealing contempt he usually keeps hidden beneath nervous politeness" (References specific event)

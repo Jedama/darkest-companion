@@ -568,7 +568,7 @@ ${formatTimeSinceEvent(estate.time.month + 1)} have passed since the Ancestor's 
   return contextTemplate.replace(/\$\{estateName\}/g, estate.name);
 }
 
-export function compileRecruitContext(estate: Estate, gameData: StaticGameDataManager): string {
+export function compileRecruitContext(estate: Estate, gameData: StaticGameDataManager, recruitTitle?: string): string {
   
   const zodiac = getZodiacForMonth(estate.time.month);
 
@@ -588,5 +588,10 @@ ${formatTimeSinceEvent(estate.time.month)} have passed since the Heir and Heires
   `;
 
   // Replace all placeholders like ${estateName} at the very end
-  return contextTemplate.replace(/\$\{estateName\}/g, estate.name);
+  let result = contextTemplate.replace(/\$\{estateName\}/g, estate.name);
+  if (recruitTitle) {
+    result = result.replace(/\$\{characterTitle\}/g, recruitTitle);
+  }
+  
+  return result;
 }

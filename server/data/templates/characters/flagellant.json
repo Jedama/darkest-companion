@@ -2,8 +2,6 @@
   "identifier": "flagellant",
   "title": "Flagellant",
   "name": "Damien",
-  "level": 0,
-  "money": 0,
   "description": "The Flagellant is a religious extremist who discovered divine power through self-inflicted suffering. Now he wanders, seeking fresh torments and offering to consume others' sins by accepting their violence upon his flesh. His scarred body is a living document of devotion.",
   "history": "Damien was a listless vagrant until drunks beat him bloody in an alley. As his tooth cracked and vision went crimson, he discovered something profound: pain was power, suffering was sacrament. He joined the clergy and worked in the church's dungeons, administering punishment with such zealous fervor that his brethren grew frightened and cast him out. Each wound fueled his rapture. When Death came for him with her scythe, he defied her through sheer ecstasy in suffering.",
   "race": "Human",
@@ -18,14 +16,6 @@
     "Fervent",
     "Determined"
   ],
-  "status": {
-    "physical": 100,
-    "mental": 100,
-    "affliction": "",
-    "description": "In good health and high spirits",
-    "wounds": [],
-    "diseases": []
-  },
   "stats": {
     "strength": 7,
     "agility": 2,
@@ -70,8 +60,17 @@
     "Becomes raptorous when stressed, joyously dispensing pain on himself, enemies, and allies alike"
   ],
   "tags": [
-    "Frontline", "ShortReach", "Tank", "Healer", "StressHealer", "Bleeder", "Cleanser", 
-    "SelfSufficient", "SelfStress", "Religious", "Unstable", "Brink"
-  ],
-  "relationships": {}
+    "Frontline",
+    "ShortReach",
+    "Tank",
+    "Healer",
+    "StressHealer",
+    "Bleeder",
+    "Cleanser",
+    "SelfSufficient",
+    "SelfStress",
+    "Religious",
+    "Unstable",
+    "Brink"
+  ]
 }

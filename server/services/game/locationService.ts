@@ -66,7 +66,6 @@ function getLocationParents(
   location: LocationData, 
   locationMap: Map<string, LocationData>
 ): LocationData[] {
-  console.log(`\nFinding parents for location: ${location.identifier}`);
   const parents: LocationData[] = [];
 
   let current = location;
@@ -76,7 +75,6 @@ function getLocationParents(
       console.warn(`Parent location "${current.parent}" not found`);
       break;
     }
-    console.log(`Found parent: ${parentLoc.identifier}`);
     parents.push(parentLoc);
     current = parentLoc;
   }
@@ -94,12 +92,10 @@ function getCharacterLocations(
   event: EventData,
   locationMap: Map<string, LocationData>
 ): LocationData[] {
-  console.log(`\nGetting locations for ${char.name} (index: ${charIndex})`);
   const locationSet = new Set<LocationData>();
 
   // If this character is included among 'residence' participants, add residence locations
   if (event.location.residence.includes(charIndex + 1)) {
-    console.log(`Adding residence locations: ${char.locations.residence.join(', ')}`);
     char.locations.residence.forEach(locId => {
       const locObj = locationMap.get(locId);
       if (locObj) {
@@ -112,7 +108,6 @@ function getCharacterLocations(
 
   // If this character is included among 'workplaces' participants, add workplace locations
   if (event.location.workplaces.includes(charIndex + 1)) {
-    console.log(`Adding workplace locations: ${char.locations.workplaces.join(', ')}`);
     char.locations.workplaces.forEach(locId => {
       const locObj = locationMap.get(locId);
       if (locObj) {
@@ -125,7 +120,6 @@ function getCharacterLocations(
 
   // If this character is included among 'frequents' participants, add frequented locations
   if (event.location.frequents.includes(charIndex + 1)) {
-    console.log(`Adding frequented locations: ${char.locations.frequents.join(', ')}`);
     char.locations.frequents.forEach(locId => {
       const locObj = locationMap.get(locId);
       if (locObj) {
@@ -137,9 +131,6 @@ function getCharacterLocations(
   }
 
   const result = Array.from(locationSet);
-  console.log(
-    `Final locations for ${char.name}: ${result.map(l => l.identifier).join(', ')}`
-  );
   return result;
 }
 
@@ -202,8 +193,6 @@ export function scoreLocations(
   event: EventData,
   characters: Character[]
 ): Map<LocationData, number> {
-  console.log('\n=== Starting Location Scoring ===');
-
   const gameData = StaticGameDataManager.getInstance();
   const allLocations = gameData.getAllLocations();
   const locationMap = gameData.getLocationMap();
@@ -216,10 +205,6 @@ export function scoreLocations(
   const DEFAULT_SCORE = 40;
   const SHARED_MULTIPLIER = 2.25;
   const PARENT_MULTIPLIER = 0.3;
-
-  console.log(`Constants: BASE_SCORE=${BASE_SCORE}, SHARED_MULTIPLIER=${SHARED_MULTIPLIER}, PARENT_MULTIPLIER=${PARENT_MULTIPLIER}`);
-  console.log(`Parent locations ${event.location.allowParentLocations ? 'are' : 'are not'} allowed`);
-  console.log(`Allow all locations: ${event.location.allowAll ? 'Yes' : 'No'}`);
 
   // If allowAll is set, treat every location as part of the default
   let defaultLocations: LocationData[] = [];
@@ -280,12 +265,8 @@ export function scoreLocations(
               }
 
               processedForChar.add(parentLoc);
-            } else {
-              console.log(`Parent ${parentLoc.identifier}: Already processed for this character`);
             }
           }
-        } else {
-          // console.log('Skipping parent locations as they are not allowed for this event');
         }
       }
     }
@@ -320,13 +301,11 @@ export function pickWeightedLocation(scores: Map<LocationData, number>): Locatio
   for (const [location, score] of entries) {
     random -= score;
     if (random <= 0) {
-      console.log(`Selected location: ${location.identifier}`);
       return location;
     }
   }
 
   // Fallback if something goes off (unlikely)
-  console.log(`Falling back to first location: ${entries[0][0].identifier}`);
   return entries[0][0];
 }
 

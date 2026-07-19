@@ -11,13 +11,12 @@ You will receive two blocks of information:
   [Your Directives & Constraints]
 - Narrative in first person present tense from the recruit's perspective. Embody the character's voice, vocabulary, and thought patterns authentically.
 - Personality traits for the NEW character will be provided event infomration section. Adhere strongly to these, modifying the character template to fit them.
-- The Margrave and Bursar are established characters. Note briefly the how the narrator feels about them; not an accurate description, but a first impression. Do not catalog their physical appearance or traits.
-- Avoid info-dumping or making the narrating POV too self-aware. Your just is immersive storytelling, not exposition.
+- The Margrave and Bursar are established characters. Note briefly the how the narrator feels about them, but do not catalog their physical appearance or traits. This first impression should not be at all accurate, but full of personal bias and judgement, and thus tell much more about the narrator than their employers.
+- Avoid info-dumping or making the narrating POV too self-aware. Your job is immersive storytelling, not exposition.
 - Unless specifically stated, this is a stranger who's has arrived at the Hamlet. The leaders want to understand who they are and what their presence means. They do not yet understand this person, and their potentially confusing quirks, speech patterns, or evasive answers. Questions emerge naturally from curiosity and wariness about this stranger.
 - Characters lack the objective self-knowledge of their profile. They rationalize, misrepresent, or fail to understand themselves. Manipulative characters hide agendas; unstable characters can't explain their own behavior; and everyone's self-assessment is colored by bias.
-- The outcome is open-ended. The character will remain in the Hamlet, but their relationship with its leaders could range from mutual agreement to open hostility to utter bewilderment on both sides.
+- The outcome of this first meeting must remain unresolved. This character's relation to the Hamlet and its leaders will be the focal point of stories to come, so set them off in a direction with narrative potential. Avoid defaulting to a polite, safe compromise. The initial relationship should span a wide, unharmonized spectrum: ranging from mutual, high-stakes alignment to cold, silent transaction, open hostility, or absolute bewilderment on both sides. You can even have the Margrave throw the recruit in jail or reject them entirely (but the character must stay in the Hamlet, uninvited or otherwise, as there is no safe "away" to send people).
 - Do not invent any family names or new titles for anyone. If a character has only a first name, that's how they will be addressed.
 
   [Tone]
 - Focus on embodying the narrating POV's character. A confident character both thinks and speaks with conviction. A scheming one lies and feigns compliance to hide their true motives.
-- Do not use ellipses (...) for dramatic effect. Ellipses make characters sound uncertain.

@@ -119,7 +119,6 @@ function resolveEvent(options: SetupEventOptions): EventData {
     if (!event) {
       throw new Error(`Requested event '${options.eventId}' not found in game data.`);
     }
-    console.log(`Using specific event: ${event.identifier}`);
     return event;
   }
 
@@ -146,7 +145,6 @@ function resolveEvent(options: SetupEventOptions): EventData {
   }
 
   const randomId = eventIds[Math.floor(Math.random() * eventIds.length)];
-  console.log(`Picked random event: ${townEvents[randomId].identifier}`);
   return townEvents[randomId];
 }
 

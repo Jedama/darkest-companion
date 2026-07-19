@@ -29,8 +29,6 @@ router.post('/estates/:estateName/events/recruit', async (req: Request, res: Res
       return res.status(404).json({ error: `Estate '${estateName}' not found` });
     }
 
-    console.log('Recruit route - loaded estate:', estateName, 'with requested character:', characterId);
-
     // 2. Add the new character to the estate
     estate = addCharacterToEstate(estate, characterId);
     estate.characters[characterId].name = name;
@@ -40,6 +38,12 @@ router.post('/estates/:estateName/events/recruit', async (req: Request, res: Res
       eventId,
       characterIds: characterId ? [characterId] : [],
     });
+
+    console.log(`Generating story:`);
+    console.log(`${setupResult.event.title} (${setupResult.event.identifier})`);
+    console.log(`Keywords: ${setupResult.keywords?.join(', ') || 'none'}`);
+    console.log(`Recruiting: ${name} (${characterId})`);
+    console.log(`Modifiers: ${context || 'none'}\n`);
     
     // 4. Build the prompt using your storyEventService
     const recruitPrompt = await compileRecruitPrompt(
@@ -75,7 +79,9 @@ router.post('/estates/:estateName/events/recruit', async (req: Request, res: Res
       keywords: setupResult.keywords
     });
 
-    console.log('Story:', body);
+    console.log(`Story:`);
+    console.log(`[${title}]`);
+    console.log(`${body}\n`);
 
     const response = await callLLM({
       provider,
@@ -95,7 +101,6 @@ router.post('/estates/:estateName/events/recruit', async (req: Request, res: Res
     };
     
     const cleanedText = cleanResponse(response);
-    console.log('Cleaned response:\n', cleanedText);
 
     // 8. Parse and validate the response
     let parsedJson: ConsequencesResult;
@@ -116,11 +121,14 @@ router.post('/estates/:estateName/events/recruit', async (req: Request, res: Res
 
     const updatedEstate = applyConsequences(estate, consequencesForProcessing);
 
+    console.log(`Consequences`);
+    console.log(JSON.stringify(consequencesForProcessing, null, 2));
+    console.log('');
+
     await saveEstate(updatedEstate);
 
     return res.json({
       success: true,
-      prompt: recruitPrompt,
       story: { title, body },
     });
     

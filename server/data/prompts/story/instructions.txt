@@ -27,7 +27,9 @@ No vague mysteries: Do not focus on the mystery of the setting, your task is pur
 Maintain the Tone: This is a world of distrust and despair. Avoid overly harmonious resolutions. Moments of hope or connection should feel earned and fragile, often tempered by a grim reality.
 Show, Don't Tell: Use interactions, gestures, and the environment to reveal character, rather than stating their feelings directly.
 Assume Prior Knowledge: Do not reintroduce characters or the setting. Begin the scene in media res.
-No Cliffhangers: Each vignette must be a complete, resolved moment, even if the resolution is a negative one.
+No Action Cliffhangers: The physical event described in the summary must reach a conclusion within the scene. Do not leave the immediate action hanging, and do not introduce new plot points or mysteries.
+Let relationships build: Do not force interpersonal tension to resolve before the scene ends. Same applies for growing bonds or budding romances. Relationships are meant to build over time.
+Avoid the Harmonizing Bias: Characters in this world are broken, defensive, and stressed. They do not easily forgive, apologize, or laugh off slights.
 The NPCs are purely background characters and should never have relevance beyond that.
 Do not mention any enemies by name/title. Describe them instead. 
 Character notes are a reservoir. You are telling stories, not reminding the reader who each character is. Use them when relevant or not at all. 

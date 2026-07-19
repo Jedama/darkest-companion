@@ -11,25 +11,25 @@
     {
       "identifier": "heiress",
       "points": ["Born to command", "Dangerous when crossed", "Controls the purse"],
-      "share": 1280
+      "share": 1060
     },
     {
       "identifier": "kheir",
       "points": ["Fragile but useful", "Manageable"],
-      "share": 850
+      "share": 590
     },
     {
       "identifier": "highwayman",
       "points": ["Quiet", "Competent", "Professional"],
-      "share": 1150
+      "share": 600
     },
     {
       "identifier": "crusader",
       "points": ["Unimaginative but functional", "Durable", "Watch the pious ones"],
-      "share": 1100
+      "share": 480
     }
   ],
-  "town": 1420,
+  "town": 3170,
   "bursar": 220,
   "justification": ""
 }
@@ -50,25 +50,25 @@
     {
       "identifier": "heiress",
       "points": ["Officer material", "Earned her name"],
-      "share": 1250
+      "share": 950
     },
     {
       "identifier": "kheir",
       "points": ["Soft", "Not yet tested"],
-      "share": 650
+      "share": 450
     },
     {
       "identifier": "highwayman",
       "points": ["Soldier without a banner", "Dependable"],
-      "share": 1200
+      "share": 710
     },
     {
       "identifier": "crusader",
       "points": ["Knows his duty", "Will not break"],
-      "share": 1420
+      "share": 900
     }
   ],
-  "town": 1500,
+  "town": 3010,
   "bursar": 0,
   "justification": ""
 }
@@ -89,25 +89,25 @@
     {
       "identifier": "zenith",
       "points": ["Kept morale up", "Inspiring spearwork", "Natural leader", "Everyone's favourite", "Heart of the team"],
-      "share": 3300
+      "share": 2250
     },
     {
       "identifier": "highwayman",
       "points": ["Good company", "Get him a doctor"],
-      "share": 2950
+      "share": 2100
     },
     {
       "identifier": "thorn",
       "points": ["Graceful", "Doesn't miss", "Think she likes my voice"],
-      "share": 2750
+      "share": 2050
     },
     {
       "identifier": "bounty_hunter",
       "points": ["Effective", "Wish he'd talk more"],
-      "share": 2200
+      "share": 1250
     }
   ],
-  "town": 2200,
+  "town": 5750,
   "bursar": 100,
   "justification": "Bought everyone drinks!"
 }

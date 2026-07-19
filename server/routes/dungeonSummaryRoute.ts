@@ -29,8 +29,6 @@ router.post('/estates/:estateName/dungeon/summary', async (req: Request, res: Re
       return res.status(400).json({ error: 'No active dungeon on this estate' });
     }
 
-    console.log('Dungeon summary route - loaded estate:', estateName, 'loot:', totalLoot);
-
     // 2. Compile the summary prompt
     const summaryPrompt = compileDungeonSummaryPrompt(estate, totalLoot);
 
@@ -46,8 +44,6 @@ router.post('/estates/:estateName/dungeon/summary', async (req: Request, res: Re
       temperature: 0.7,
     };
 
-    console.log(summaryPrompt);
-
     const response = await callLLM(summaryRequest);
 
     // 4. Clean and parse the response
@@ -57,7 +53,9 @@ router.post('/estates/:estateName/dungeon/summary', async (req: Request, res: Re
       .replace(/```/, '')
       .trim();
 
-    console.log('Dungeon summary response:\n', cleanedText);
+    console.log(`Total money: ${totalLoot}`);
+    console.log(cleanedText);
+    console.log('');
 
     const parsedJson = JSON.parse(cleanedText);
 
@@ -110,7 +108,6 @@ router.post('/estates/:estateName/dungeon/summary', async (req: Request, res: Re
 
     return res.json({
       success: true,
-      prompt: summaryPrompt,
       result: parsedJson,
     });
 

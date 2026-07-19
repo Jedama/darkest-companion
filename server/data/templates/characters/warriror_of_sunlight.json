@@ -1,0 +1,68 @@
+{
+  "identifier": "warrior_of_sunlight",
+  "title": "Sunlight Warrior",
+  "name": "Oswin",
+  "description": "A knight of the wandering Order of Sunlight, sworn to protect the meek in the name of the sun god. the Sunlight Warrior fights as a mobile guardian—parrying, stunning, and hurling spears of light—while keeping his companions' spirits lifted with relentless, booming good cheer. That jollity is not naivety but discipline: beneath his armor he bears the black brand of the undead curse, which denies him death at the price of slowly hollowing into a mindless husk. Only his faith in the magnificent sun and his sworn duty to others hold the erosion at bay, and so he practices both the way other men draw breath.",
+  "history": "Many lifetimes ago, the Sunlight Warrior's order swore their covenant and took up the search for a long-forgotten prophecy. He has died more times than he cares to admit, and each return has cost him a sliver of mind and faith—an arithmetic he knows cannot run forever. The tolling of distant bells and the words of a blind prophetess drew his order across the old road to the Hamlet, where the Sunlight Warrior now stands at dawn upon the cliffs, gazing at the rising sun, certain that his destiny and the estate's are intertwined.",
+  "summary": "A jolly, devout undead knight whose relentless good cheer is the discipline holding his cursed mind together.",
+  "race": "Undead human",
+  "gender": "Male",
+  "religion": "The Sun",
+  "zodiac": "Leo",
+  "traits": [
+    "Devout",
+    "Jolly",
+    "Protective",
+    "Steadfast",
+    "Secretive",
+    "Haunted"
+  ],
+  "stats": {
+    "strength": 7,
+    "agility": 6,
+    "intelligence": 5,
+    "authority": 6,
+    "sociability": 7
+  },
+  "equipment": [
+    "Straight sword",
+    "Sun-emblazoned round shield",
+    "Emberflask (healing draught)"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Sturdy",
+    "skinTone": "Unknown (never removes his armor)",
+    "hairColor": "Unknown (never removes his helmet)",
+    "hairStyle": "Unknown (never removes his helmet)",
+    "features": "The black brand of the undead curse lies somewhere beneath the armor"
+  },
+  "clothing": {
+    "head": "Iron bucket helm",
+    "body": "Chainmail under a sun-emblazoned surcoat",
+    "legs": "Mail chausses and plated boots",
+    "accessories": "Green feathered mantle, rope cord around the shoulders"
+  },
+  "combat": {
+    "role": "Mobile tank",
+    "strengths": [
+      "Guarding allies",
+      "Stuns and battlefield control",
+      "Rallying the party"
+    ],
+    "weaknesses": [
+      "Modest damage",
+      "Falters in darkness"
+    ]
+  },
+  "magic": "Miracles of sunlight",
+  "notes": [
+    "Relentlessly warm and encouraging, calling everyone 'friend' and speaking in earnest, booming exclamations—'Praise the Sun!'",
+    "His cheer is discipline, not innocence: despair hastens his hollowing, so he starves it in himself and others alike",
+    "Hides his curse beneath armor he never removes, and does not speak of it to anyone, even his order"
+  ],
+  "tags": [
+    "Flexible", "Tank", "Guarder", "Riposter", "Stunner", "Disruptor",
+    "StressHealer", "Warrior", "Religious", "Light"
+  ]
+}

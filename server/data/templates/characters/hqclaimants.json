@@ -2,8 +2,6 @@
   "identifier": "hqclaimants",
   "title": "Claimants",
   "name": "Genevive & Claude",
-  "level": 0,
-  "money": 0,
   "description": "The Claimants are twin siblings bound by ambition and an unshakeable conviction that their own stolen birthright will be reclaimed. Both are brilliant strategists who operate as a single unit with unerring coordination. They carry themselves with the imperious certainty of those born to command, treating all others as provincials. No cost is too great, no moral line uncrossable, as long as they have each other.",
   "history": "Driven from their ancestral home in a far-off land by a succession dispute they refuse to accept as valid, the Claimants have journeyed to the Ancestor's estate seeking forbidden knowledge and eldritch secrets to reclaim their own lost birthright, offering their aid to the cause, their thinly veiled lies framing their presence as an act of largesse.",
   "race": "Human",
@@ -17,14 +15,6 @@
     "Synergistic",
     "Power-hungry"
   ],
-  "status": {
-    "physical": 100,
-    "mental": 100,
-    "affliction": "",
-    "description": "In good health and high spirits",
-    "wounds": [],
-    "diseases": []
-  },
   "stats": {
     "strength": 7,
     "agility": 3,
@@ -73,8 +63,24 @@
     "Extremely protective of each other, would rather die together than separate"
   ],
   "tags": [
-    "Flexible", "Stanceshifter", "Tank", "Healer", "StressHealer", "Guarder", "Riposter", "Disruptor", "Immoral", "Abrasive",
-    "ArmorPiercer", "Cleanser", "Companion", "Noble", "Leader", "Strategist", "Eldritch", "Religious", "Scout"
-  ],
-  "relationships": {}
+    "Flexible",
+    "Stanceshifter",
+    "Tank",
+    "Healer",
+    "StressHealer",
+    "Guarder",
+    "Riposter",
+    "Disruptor",
+    "Immoral",
+    "Abrasive",
+    "ArmorPiercer",
+    "Cleanser",
+    "Companion",
+    "Noble",
+    "Leader",
+    "Strategist",
+    "Eldritch",
+    "Religious",
+    "Scout"
+  ]
 }

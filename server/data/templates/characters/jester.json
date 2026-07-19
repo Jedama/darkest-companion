@@ -2,8 +2,6 @@
   "identifier": "jester",
   "title": "Jester",
   "name": "Sarmenti",
-  "level": 0,
-  "money": 0,
   "description": "Once a wandering street musician who fell prey to an otherworldly melody, the Jester now combines deadly precision with musical talent. Though appearing as a mere entertainer, he harbors dark experiences from his past that fuel both his performances and his combat prowess. Mildly unhinged, people often find his mask and theatrical demeanor unsettling, but the music his lute plays is genuinely inspiring and calming.",
   "history": "Originally a directionless street performer, Sarmenti discovered a mysterious melody in a cemetery that awakened his ambition. His newfound talent led him to perform at the royal court, where he faced cruel mockery and humiliation. In revenge, he performed the demonic melody, resulting in death and dismemberment of the whole court. Regretting his mistakes, he severed his own finger to rid himself of ability to ever again play the cursed melody. He now wanders, hoping to do better for the world, haunted by fragments of that forgotten tune.",
   "race": "Human",
@@ -16,14 +14,6 @@
     "Theatrical",
     "Quipster"
   ],
-  "status": {
-    "physical": 100,
-    "mental": 100,
-    "affliction": "",
-    "description": "In good health and high spirits",
-    "wounds": [],
-    "diseases": []
-  },
   "stats": {
     "strength": 4,
     "agility": 7,
@@ -71,7 +61,15 @@
     "Carries and plays his lute around the hamlet"
   ],
   "tags": [
-    "Dancer", "StressHealer", "Frail", "Bleeder", "Buffer", "Executor", "Setup", "Crit", "Unstable", "Entertainer"
-  ],
-  "relationships": {}
+    "Dancer",
+    "StressHealer",
+    "Frail",
+    "Bleeder",
+    "Buffer",
+    "Executor",
+    "Setup",
+    "Crit",
+    "Unstable",
+    "Entertainer"
+  ]
 }

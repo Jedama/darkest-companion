@@ -2,8 +2,6 @@
   "identifier": "omenseeker",
   "title": "Omen Seeker",
   "name": "Mesmira",
-  "level": 0,
-  "money": 0,
   "description": "The Omen Seeker is a nomadic inquisitor and monster hunter from the Levantine Sultanate, devoted to 'the Flame.' She's a complex individual, balancing unwavering conviction with deep-seated guilt over past actions. Stern and disciplined, she wields an arsenal of specialized weapons to combat supernatural threats.",
   "history": "The Omen Seeker's past involves violent acts against communities, which continue to haunt her. She travels with a well-stocked wagon, serving as both her mobile home and a base of operations. While dedicated to her mission of purging evil, she grapples with the morality of her methods and the weight of lives taken in the name of her faith.",
   "race": "Human",
@@ -18,20 +16,12 @@
     "Judgmental",
     "Experienced"
   ],
-  "status": {
-    "physical": 100,
-    "mental": 100,
-    "affliction": "",
-    "description": "In good health and high spirits",
-    "wounds": [],
-    "diseases": []
-  },
   "stats": {
-      "strength": 7,
-      "agility": 8,
-      "intelligence": 8,
-      "authority": 6,
-      "sociability": 5
+    "strength": 7,
+    "agility": 8,
+    "intelligence": 8,
+    "authority": 6,
+    "sociability": 5
   },
   "equipment": [
     "Whip",
@@ -72,8 +62,21 @@
     "Speaks the with thick Levantine accent and flair"
   ],
   "tags": [
-    "Flexible", "Debuffer", "Stunner", "Disruptor", "Bleeder", "ArmorPiercer", "BleedSynergy", "Just", "Abrasive",
-    "BlightSynergy", "Crit", "Warrior", "Religious", "Scholarly", "Vigilant", "Scavenger"
-  ],
-  "relationships": {}
+    "Flexible",
+    "Debuffer",
+    "Stunner",
+    "Disruptor",
+    "Bleeder",
+    "ArmorPiercer",
+    "BleedSynergy",
+    "Just",
+    "Abrasive",
+    "BlightSynergy",
+    "Crit",
+    "Warrior",
+    "Religious",
+    "Scholarly",
+    "Vigilant",
+    "Scavenger"
+  ]
 }

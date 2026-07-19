@@ -41,7 +41,9 @@ export function createNewEstate(estateName: string): Estate {
       council: ['crusader', 'highwayman'],
     },
     money: 0,
-    narratives: [],
+    narratives: [
+      "The company is still innocent of the Estate's true nature. The heirs and their hired blades have faced mud, brigands, and unease—but no undead, no eldritch things, none of the horrors that haunt these lands (unless recent log entries say otherwise). When the first such encounter comes, write it as a threshold: horrifying, wrong, and unforgettable—the moment the world's rules visibly break. Afterward, retire this narrative entirely, or rewrite it to track their hardening understanding of what the Estate truly is."
+    ],
     characters: {}
   };
 }

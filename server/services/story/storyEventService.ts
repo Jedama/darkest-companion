@@ -80,6 +80,5 @@ export async function compileStoryPrompt(
     buildUserGuidanceSection(estate.preferences?.guidance) +
     buildUserInputSection(context, description);
 
-  console.log(fullPrompt);
   return fullPrompt;
 }

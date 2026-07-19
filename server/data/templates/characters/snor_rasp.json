@@ -2,8 +2,6 @@
   "identifier": "snor_rasp",
   "title": "Martyr",
   "name": "Anastasia",
-  "level": 0,
-  "money": 0,
   "description": "A devotee of pain-worship accompanied by Yuzupov, a shadowy spirit who grants her near-immortality. The Martyr eagerly throws herself into danger to shield others, viewing suffering as both religious devotion and genuine pleasure. She wields a thorn whip used more for self-discipline than combat",
   "history": "Raised in chambers dedicated to pain-worship, Anastasia's devotion attracted Yuzupov, a spirit who bound itself to her and granted immortality in exchange for endless suffering. Now she wanders seeking greater trials, viewing the Estate's horrors as the perfect pilgrimage to test her faith's limits and protect those too weak to endure what she craves.",
   "race": "Human",
@@ -18,14 +16,6 @@
     "Reckless",
     "Enigmatic"
   ],
-  "status": {
-    "physical": 100,
-    "mental": 100,
-    "affliction": "",
-    "description": "In good health and high spirits",
-    "wounds": [],
-    "diseases": []
-  },
   "stats": {
     "strength": 3,
     "agility": 3,
@@ -67,9 +57,21 @@
     "Finds pleasure in strangling herself with her thorn whip"
   ],
   "tags": [
-    "Frontline", "Immobile", "Tank", "Guarder", "Healer", "Disruptor", "Debuffer", "Executor", 
-    "Setup", "Brink", "Riposter", "SelfSufficient", "Vigilant", "Weak", "Religious", "Child"
-  ],
-  "relationships": {
-  }
+    "Frontline",
+    "Immobile",
+    "Tank",
+    "Guarder",
+    "Healer",
+    "Disruptor",
+    "Debuffer",
+    "Executor",
+    "Setup",
+    "Brink",
+    "Riposter",
+    "SelfSufficient",
+    "Vigilant",
+    "Weak",
+    "Religious",
+    "Child"
+  ]
 }

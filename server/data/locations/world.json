@@ -5,6 +5,54 @@
     "description": "A vast and varied land of distinct nations and uneasy alliances. From the isolated traditions of the Sunward Isles to the militarized, industrial expanse of Ostvengr, civilization asserts itself through commerce and conquest. The Levantine Empire and the City of a Thousand Temples stand as monuments to human ambition, maintaining order and trade across the continents. A kingdom stands at its center, and on its rugged coastline, a neglected Ancestral Estate sits apart from these geopolitical machinations, harboring secrets that will soon draw eyes away from the concerns of the wider world.",
     "summary": "world (Known World) -- A vast land of nations like Ostvengr and the Sunward Isles, functioning through trade and war while ancient secrets linger in the margins.",
     "parent": null,
-    "children": ["kingdom", "sunward_isles", "levantine_empire", "city_of_thousand_temples", "ostvengr"]
+    "children": ["kingdom", "sunward_isles", "levantine_empire", "city_of_thousand_temples", "ostvengr", "pelagia"]
+  },
+  {
+    "identifier": "pelagia",
+    "title": "Pelagia",
+    "description": "A scattering of sun-bleached peninsulas and islands far across the sea, where marble city-states feud over the remnants of an older, greater civilization. Its decline was not conquest but fear: for generations, whispers of witch-cults in the hills and creatures in the waters—and worse, of both walking unmarked among common men—have set Pelagians against one another. The temples of the old gods stand quiet, and paranoia fills the silence.",
+    "summary": "pelagia (Pelagia) -- A fading archipelago of feuding marble city-states, brought low not by war but by generations of paranoia over hill-witches and sea-creatures said to walk among men.",
+    "parent": "world",
+    "children": ["pelagia__stheneia", "pelagia__weeping_shores"]
+  },
+  {
+    "identifier": "pelagia__stheneia",
+    "title": "Stheneia",
+    "description": "The greatest of the Pelagian cities, terraced in white stone above a wide harbor. A royal seat once, until rumor and envy put its last dynasty to the torch; magistrates now rule in the palace's shadow and keep the people fed on games. Stheneia is passionate, its love is loud and its hatred louder.",
+    "summary": "pelagia__stheneia (Stheneia) -- The greatest Pelagian city, a former royal seat that burned its own dynasty on rumor, now ruled by magistrates and pacified with games.",
+    "parent": "pelagia",
+    "children": ["pelagia__grand_arena", "pelagia__ashen_square"]
+  },
+  {
+    "identifier": "pelagia__grand_arena",
+    "title": "The Grand Arena",
+    "description": "A tiered marble bowl seating thousands, its sands raked fresh over stains that never fully leave. Here legends were made into gods between noon and dusk—until the Champion, last and most beloved of them all, died on the sands and the games lost their savor. The crowds still come, but they cheer as mourners do, for something already gone.",
+    "summary": "pelagia__grand_arena (The Grand Arena) -- Stheneia's vast marble arena, hollow since the death of the Champion, last and most beloved of its idols.",
+    "parent": "pelagia__stheneia",
+    "children": ["pelagia__arena_maze"]
+  },
+  {
+    "identifier": "pelagia__arena_maze",
+    "title": "The Maze",
+    "description": "The lightless warren of pens and chain-galleries beneath the arena sands, where beasts and condemned men wait between matches. Beastmasters navigate its turns by lamplight and memory. At its deepest turn stands the largest cell, its door torn from the hinges and never repaired.",
+    "summary": "pelagia__arena_maze (The Maze) -- The lightless warren of holding pens beneath the Grand Arena, its largest cell empty and doorless.",
+    "parent": "pelagia__grand_arena",
+    "children": []
+  },
+  {
+    "identifier": "pelagia__ashen_square",
+    "title": "The Ashen Square",
+    "description": "The old royal plaza before the shuttered palace, where Stheneia burns what it fears. Here, the most beloved and most hated of the royal daughters was burned alive. The flagstones remain scorched black.",
+    "summary": "pelagia__ashen_square (The Ashen Square) -- The royal plaza where Stheneia burned its most beloved and envied princess, its flagstones still scorched.",
+    "parent": "pelagia__stheneia",
+    "children": []
+  },
+  {
+    "identifier": "pelagia__weeping_shores",
+    "title": "The Weeping Shores",
+    "description": "The rural coasts and outer isles beyond the cities' reach—fishing villages, salt marshes, and hillside shrines to gods no magistrate would recognize. Fear rules here the way weather does: every bad catch and drowned son births fresh accusations, and the accused are weighted and walked into the shallows. The sea keeps what it is given, the villagers insist. On some shores, they whisper, it gives things back.",
+    "summary": "pelagia__weeping_shores (The Weeping Shores) -- Pelagia's rural coasts and hill-shrined outer isles, ruled by recurring witch-panics in which the accused are drowned as offerings.",
+    "parent": "pelagia",
+    "children": []
   }
 ]

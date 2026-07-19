@@ -130,9 +130,18 @@
   },
   {
     "identifier": "aqueduct",
-    "title": "The Aqueduct",
+    "title": "Aqueduct",
     "description": "Crumbling stone arches march through the district's ruins before driving directly into the bedrock of the manor's hill. Once carrying fresh water to the hamlet, the channel is now stained with a foul, rust-colored sludge. A massive wooden portcullis, reinforced with heavy iron bands, blocks the cavernous tunnel entrance where the structure breaches the hillside. Standing near the rotting timbers, one can feel a hot, fetid draft and hear the echoing, guttural squeals of the things that now claim the tunnels beyond.",
     "summary": "aqueduct (The Aqueduct) -- A ruined stone watercourse entering the manor's hill, blocked by a heavy wooden portcullis that barely muffles the squealing horrors within.",
+    "parent": "north_east_district",
+    "children": []
+  },
+  {
+    "identifier": "amphitheater",
+    "title": "Amphitheater",
+    "description": "Tiers of broken seating descend the cliffside at the district's edge, carved to face the open sea. The gallery that once crowned the uppermost row has collapsed entirely, its gothic arches reduced to heaps of rubble that spill down across the seating, while salt wind and frost have split the lower tiers into leaning slabs. Gulls nest in the gaps between fallen stones, and weeds push through what remains of the stage, which stands closest of all to the cliff's drop, its edge slick with spray. Whatever was once performed here, no playbill or plaque survives to say.",
+    "restored": "The amphitheater has been restored to its former glory. Tiers of grey stone seating descend the cliffside in orderly rows, carved to face the open sea, crowned at their highest point by a gothic gallery whose pointed arches shelter the topmost rows from the coastal wind. A narrow stair climbs alongside the seating from the stage below, where fresh-laid flagstones extend nearly to the cliff's drop. Humble performances have returned to the old venue - the Town Crier's long-deferred soliloquies, guild ceremonies, the rare traveling player brave enough to reach the hamlet.",
+    "summary": "amphitheater (Amphitheater) -- Cliffside tiers of stone seating facing the open sea, crowned by a gothic gallery, built for performances against the water's expanse.",
     "parent": "north_east_district",
     "children": []
   }

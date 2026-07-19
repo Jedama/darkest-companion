@@ -1,0 +1,83 @@
+{
+  "identifier": "falconer",
+  "title": "Falconer",
+  "name": "Quinn & her bird",
+  "description": "A defected Talon Brigand hunted by the flock she fled. The Falconer fights through cunning rather than force, harrying her prey with marked shots and coordinated strikes from her falcon while always keeping an escape at hand. She presents her service to the Hamlet as a pragmatic exchange—her bow for their numbers—but it is refuge in truth, and quietly becoming penance. Beneath the huntress's composed exterior lies a debt she believes she owes, and wherever she goes, the Talon Brigands follow, bringing her bounty down upon any who travel beside her.",
+  "history": "The Falconer was a gentle, bookish maiden of a noble house who fled a life of comfort and an arranged marriage, craving freedom, respect, and infamy. She found the Talon Brigands and became one of them, discovering too late that she had merely traded a shepherd for a master, complicit in the flock's trafficking and killings while justifying her silence as survival. Her end with them came in a single panicked instant: a captive woman glimpsed hesitation in her, begged for help, and the Falconer's desperate blow to silence her killed the girl—ruining the sale, humiliating the Talon Mother, and turning the entire flock against her. She fled with nothing but her bow and her bird, and has been hunted ever since.",
+  "summary": "A guilt-ridden fugitive huntress hiding a maiden's past behind a hunter's composure, hunted by the flock she betrayed.",
+  "race": "Human",
+  "gender": "Female",
+  "religion": "None",
+  "zodiac": "Cancer",
+  "traits": [
+    "Guarded",
+    "Guilt-ridden",
+    "Adaptable",
+    "Ambitious",
+    "Remorseful",
+    "Self-reliant"
+  ],
+  "stats": {
+    "strength": 4,
+    "agility": 9,
+    "intelligence": 7,
+    "authority": 3,
+    "sociability": 3
+  },
+  "equipment": [
+    "Hunting bow",
+    "Quiver of arrows"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Lithe",
+    "skinTone": "Weathered fair",
+    "hairColor": "Dark",
+    "hairStyle": "Swept to one side; the other side of her scalp is scarred bare where no hair grows (hidden by hood)",
+    "features": "Face habitually shadowed by her hood, tense set to her jaw"
+  },
+  "clothing": {
+    "head": "Patched green hood",
+    "body": "Stitched leathers under a weathered green cloak",
+    "legs": "Worn trousers and dark boots",
+    "accessories": "Leather bracer, Falcon-sigil medallion"
+  },
+  "combat": {
+    "role": "Skirmisher",
+    "strengths": [
+      "Coordinated falcon strikes",
+      "Marking and maiming targets",
+      "Hit-and-run mobility",
+      "Evasion and stealth",
+      "Adaptable tactics"
+    ],
+    "weaknesses": [
+      "Low direct damage",
+      "Her bounty endangers the party",
+      "Distrustful of relying on allies"
+    ]
+  },
+  "magic": "None",
+  "notes": [
+    "Speaks in formal, flat declaratives with prey, avian, and cycle-of-death flair, but becomes animated in triumph or despair",
+    "Hides her past from everyone",
+    "Quietly resents those from comfortable lives",
+    "Cannot bear to watch violence against helpless women",
+    "Only ever calls her falcon 'the bird'"
+  ],
+  "tags": [
+    "Backline",
+    "Frail",
+    "Marker",
+    "MarkSynergy",
+    "Stealther",
+    "Disruptor",
+    "Debuffer",
+    "Stanceshifter",
+    "Companion",
+    "Criminal",
+    "Outcast",
+    "Scout",
+    "Vigilant"
+  ]
+}

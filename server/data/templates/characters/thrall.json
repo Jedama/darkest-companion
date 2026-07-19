@@ -1,0 +1,66 @@
+{
+  "identifier": "thrall",
+  "title": "Thrall",
+  "name": "Asterion",
+  "description": "A mountain of scarred muscle bred for the fighting pits, the Thrall crushes whatever stands before him and punishes any who dare strike back. His body is nearly unbreakable, but his mind is not. When he feels his life threatened, rage swallows him whole—friend and foe blur into one mass, and only his own survival matters. Between battles he keeps to himself, a quiet, watchful presence who knows how to serve and little else.",
+  "history": "Born a slave in a far-off land, he was branded, gelded, and thrown into the gladiatorial ring, where the crowds jeered him as a monster and his masters kept him as one—the vile beast for champions to vanquish. In his final match the people's beloved champion felled him and stood posing over the corpse, but the corpse was alive; he dragged the hero down and beat him to death before the silent thousands. What followed—riot, chains, flight—is unclear. He arrived at the Hamlet to repay a debt owed to the ancestral house, seeking the one thing he knows: a master to serve.",
+  "summary": "A hulking pit-slave of unbreakable body and fragile mind, servile in calm and unstoppable in rage, for whom freedom comes only as frenzy.",
+  "race": "Human",
+  "gender": "Male",
+  "religion": "None",
+  "zodiac": "Taurus",
+  "traits": [
+    "Volatile",
+    "Obedient",
+    "Enduring",
+    "Solitary",
+    "Contemplative"
+  ],
+  "stats": {
+    "strength": 10,
+    "agility": 3,
+    "intelligence": 4,
+    "authority": 2,
+    "sociability": 1
+  },
+  "equipment": [
+    "Twin cestuses"
+  ],
+  "appearance": {
+    "height": "Towering",
+    "build": "Hulking mass of muscle",
+    "skinTone": "Weathered, latticed with scars and an old brand",
+    "hairColor": "None",
+    "hairStyle": "Bald (hidden by helm)",
+    "features": "An iron crown tattooed across the back of his scalp"
+  },
+  "clothing": {
+    "head": "Riveted iron helm that doubles as his collar",
+    "body": "Spiked pauldrons over a bare, scarred torso",
+    "legs": "Red loincloth and leg wraps",
+    "accessories": "Broken chains at wrists and shoulders"
+  },
+  "combat": {
+    "role": "Pit fighter",
+    "strengths": [
+      "Crushing blows",
+      "Brutal counterattacks",
+      "Inexhaustible"
+    ],
+    "weaknesses": [
+      "Fragile mind",
+      "Uncontrollable rage",
+      "Danger to allies"
+    ]
+  },
+  "magic": "None",
+  "notes": [
+    "Normally speaks in terse, formal declaratives, but when rage inevitably takes him, erupts in deafening roars",
+    "Feels calmest when alone and unobserved",
+    "Submits with quiet resignation to being chained"
+  ],
+  "tags": [
+    "Frontline", "ShortReach", "Tank", "HeavyHitter", "Riposter",
+    "SelfStress", "Unstable", "Outcast", "Warrior"
+  ]
+}

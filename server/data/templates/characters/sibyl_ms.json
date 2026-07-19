@@ -2,8 +2,6 @@
   "identifier": "sibyl_ms",
   "title": "Sibyl",
   "name": "Elara",
-  "level": 0,
-  "money": 0,
   "description": "The last known survivor of a massacred sylvan coven, the Sibyl is a traumatized vagrant whose meek demeanor conceals a volatile connection to her goddess, The Radiance. While she can channel this divine power to mend wounds, her profound grief and simmering hatred can transform her into a conduit for a destructive, hateful light that scorches the earth and twists life into unnatural forms.",
   "history": "Born an outcast and branded a 'half-breed', the Sibyl found sanctuary in a secluded coven. This peace was shattered when crusaders destroyed her home, forcing her to hide while her kin were slaughtered. Now, she wanders in a desperate search for other survivors, her journey fueled by a deep survivor's guilt and a growing hatred for the cruel world that took everything from her. Her faith is her only comfort, but her goddess's power is as dangerous as it is divine.",
   "summary": "A traumatized, vagrant priestess whose grief twists her connection to a dangerous goddess, making her a volatile and unpredictable force of both healing and destruction.",
@@ -19,14 +17,6 @@
     "Vengeful",
     "Resilient"
   ],
-  "status": {
-    "physical": 100,
-    "mental": 100,
-    "affliction": "",
-    "description": "In good health and high spitits",
-    "wounds": [],
-    "diseases": []
-  },
   "stats": {
     "strength": 2,
     "agility": 4,
@@ -88,6 +78,5 @@
     "Unstable",
     "Frail",
     "Scout"
-  ],
-  "relationships": {}
+  ]
 }
