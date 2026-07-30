@@ -13,7 +13,7 @@ export function DebugPanel() {
   const [open, setOpen] = useState(false);
   const [output, setOutput] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  const [activeTab, setActiveTab] = useState<'events' | 'dungeon'>('events');
+  const [activeTab, setActiveTab] = useState<'events' | 'dungeon' | 'planning'>('events');
 
   if (!currentEstate) return null;
 
@@ -109,6 +109,12 @@ export function DebugPanel() {
         >
           Dungeon End
         </button>
+        <button
+          onClick={() => setActiveTab('planning')}
+          style={{ ...btnStyle, borderColor: activeTab === 'planning' ? '#ff6b35' : '#555' }}
+        >
+          Planning
+        </button>
       </div>
 
       {activeTab === 'events' && (
@@ -124,6 +130,14 @@ export function DebugPanel() {
         <DungeonEndPanel
           estateName={estateName}
           estate={currentEstate}
+          disabled={loading}
+          onRun={(label, fn) => runAction(label, fn)}
+        />
+      )}
+
+      {activeTab === 'planning' && (
+        <PlanningPanel
+          estateName={estateName}
           disabled={loading}
           onRun={(label, fn) => runAction(label, fn)}
         />
@@ -493,3 +507,109 @@ const inputStyle: React.CSSProperties = {
   fontFamily: 'monospace',
   fontSize: 12,
 };
+
+/* -------------------------------------------------------------------
+ *  Planning Panel
+ * ------------------------------------------------------------------- */
+
+interface PlanningLine {
+  speaker: string;
+  text: string;
+}
+
+interface PlanningAttendee {
+  identifier: string;
+  name: string;
+  title: string;
+  seat: string;
+}
+
+function PlanningPanel({
+  estateName,
+  disabled,
+  onRun,
+}: {
+  estateName: string;
+  disabled: boolean;
+  onRun: (label: string, fn: () => Promise<any>) => void;
+}) {
+  const [lines, setLines] = useState<PlanningLine[]>([]);
+  const [attendees, setAttendees] = useState<PlanningAttendee[]>([]);
+
+  const nameFor = (id: string) => attendees.find(a => a.identifier === id)?.name ?? id;
+
+  const handleRun = () => {
+    setLines([]);
+    setAttendees([]);
+
+    onRun('Planning Meeting', async () => {
+      const res = await fetch(`http://localhost:3000/estates/${estateName}/planning/deliberate`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({}),
+      });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({ error: `HTTP ${res.status}` }));
+        throw new Error(err.error || `Deliberation failed: ${res.status}`);
+      }
+
+      const data = await res.json();
+      if (!data.success) throw new Error('Deliberation returned success=false');
+
+      setAttendees(data.attendees ?? []);
+      setLines(data.lines ?? []);
+
+      return { attendees: data.attendees?.length ?? 0, lines: data.lines?.length ?? 0 };
+    });
+  };
+
+  const transcript = lines.map(l => `${nameFor(l.speaker)}: ${l.text}`).join('\n');
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 12, minHeight: 0 }}>
+      <div style={{ display: 'flex', gap: 4 }}>
+        <button onClick={handleRun} disabled={disabled} style={{ ...btnStyle, flex: 1 }}>
+          Run Planning Meeting
+        </button>
+        <button
+          onClick={() => navigator.clipboard.writeText(transcript)}
+          disabled={disabled || !lines.length}
+          style={btnStyle}
+        >
+          Copy
+        </button>
+      </div>
+
+      {attendees.length > 0 && (
+        <div style={{ color: '#888', fontSize: 11 }}>
+          Attending:{' '}
+          {attendees.map(a => `${a.name} (${a.seat})`).join(', ')}
+        </div>
+      )}
+
+      {lines.length > 0 && (
+        <div
+          style={{
+            overflow: 'auto',
+            maxHeight: 400,
+            background: '#0a0a0a',
+            border: '1px solid #333',
+            borderRadius: 4,
+            padding: 10,
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 6,
+          }}
+        >
+          {lines.map((line, i) => (
+            <div key={i} style={{ fontSize: 12, lineHeight: 1.5 }}>
+              <span style={{ color: '#ff6b35' }}>{nameFor(line.speaker)}:</span>{' '}
+              <span style={{ color: '#ddd' }}>{line.text}</span>
+            </div>
+          ))}
+          <div style={{ color: '#555', fontSize: 10, marginTop: 4 }}>{lines.length} lines</div>
+        </div>
+      )}
+    </div>
+  );
+}

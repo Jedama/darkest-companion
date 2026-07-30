@@ -2,81 +2,69 @@
   "identifier": "omenseeker",
   "title": "Omen Seeker",
   "name": "Mesmira",
-  "description": "The Omen Seeker is a nomadic inquisitor and monster hunter from the Levantine Sultanate, devoted to 'the Flame.' She's a complex individual, balancing unwavering conviction with deep-seated guilt over past actions. Stern and disciplined, she wields an arsenal of specialized weapons to combat supernatural threats.",
-  "history": "The Omen Seeker's past involves violent acts against communities, which continue to haunt her. She travels with a well-stocked wagon, serving as both her mobile home and a base of operations. While dedicated to her mission of purging evil, she grapples with the morality of her methods and the weight of lives taken in the name of her faith.",
+  "description": "The Omen Seeker is a nomad inquisitor of the Flame, an officer of a purging order and an expert in what monsters are and how they die. She is exacting with everyone, herself worst of all, and the only softness in her comes out as instruction.",
+  "history": "Born to a nomad people of the Levantine Sultanate, the Omen Seeker was at a travelling show as a girl on the night a performer turned on his audience and left almost none of it alive. She joined the Inquisition of the Flame, which promised such things could be found and stopped, and rose to hold a rosette and command soldiers. The purges she led have not stopped, and neither has the doubt she began to feel somewhere among them.",
+  "summary": "A stern and exacting Omen Seeker of the Flame, a nomad monster hunter weighed down by the villages she burned on the order's word.",
   "race": "Human",
   "gender": "Female",
   "religion": "The Flame",
   "zodiac": "Sagittarius",
   "traits": [
-    "Devout",
-    "Stern",
-    "Disciplined",
-    "Confident",
-    "Judgmental",
-    "Experienced"
+    "Exacting",
+    "Instructive",
+    "Authoritative",
+    "Guilt-ridden",
+    "Doubting"
   ],
   "stats": {
-    "strength": 7,
+    "strength": 6,
     "agility": 8,
     "intelligence": 8,
-    "authority": 6,
+    "authority": 8,
     "sociability": 5
   },
   "equipment": [
     "Whip",
-    "Throwing axe",
-    "Bladed boomerang",
-    "Holy water"
+    "Chakram",
+    "Daggers",
+    "Holy water",
+    "Tarot deck"
   ],
   "appearance": {
     "height": "Average",
     "build": "Curvy",
     "skinTone": "Dark",
     "hairColor": "Black",
-    "hairStyle": "Long, wavy",
-    "features": "Enormous breasts"
+    "hairStyle": "Long and wavy, held back by a beaded headband",
+    "features": "Enormous chest, heavy kohl"
   },
   "clothing": {
-    "head": "Ornate, flowing headpiece",
-    "body": "Low-cut, off-shoulder dark top",
-    "legs": "Flowing skirt with high slit and thighhighs",
-    "accessories": "Multiple necklaces, large earrings, arm bracers"
+    "head": "Beaded headband hung with coins",
+    "body": "Ribbed corset over a low-cut, off-shoulder top",
+    "legs": "Patterned skirt, slit high, over dark hose",
+    "accessories": "Turquoise necklaces, large hoop earrings, a ring on every finger, inquisitor's rosette"
   },
   "combat": {
-    "role": "Combatant",
+    "role": "Monster hunter",
     "strengths": [
-      "Debilitation",
-      "Quick thinking",
-      "Versatility"
+      "Versatility",
+      "Disruption",
+      "Experience"
     ],
     "weaknesses": [
-      "Light armor"
+      "Low damage"
     ]
   },
   "magic": "None",
   "notes": [
-    "Travels with a well-stocked wagon",
-    "Skilled in divination",
-    "Possesses extensive knowledge of monsters",
-    "Speaks the with thick Levantine accent and flair"
+    "Instructs constantly—stance, grip, footing—and talks like a schoolmistress",
+    "Reads palms and cards for anyone who asks, but reports gentler fortunes than what she sees",
+    "Scourges and fasts as penance",
+    "Averse to song and merriment, and grows watchful when others are laughing"
   ],
   "tags": [
-    "Flexible",
-    "Debuffer",
-    "Stunner",
-    "Disruptor",
-    "Bleeder",
-    "ArmorPiercer",
-    "BleedSynergy",
-    "Just",
-    "Abrasive",
-    "BlightSynergy",
-    "Crit",
-    "Warrior",
-    "Religious",
-    "Scholarly",
-    "Vigilant",
-    "Scavenger"
+    "Flexible", "Debuffer", "Stunner", "Disruptor", "Bleeder", "BleedSynergy",
+    "BlightSynergy", "Crit", "Just", "Religious", "Warrior",
+    "Scholarly", "Vigilant", "Scavenger"
   ]
 }

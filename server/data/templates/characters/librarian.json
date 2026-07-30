@@ -1,0 +1,69 @@
+{
+  "identifier": "librarian",
+  "title": "Librarian",
+  "name": "Nemien",
+  "description": "A small, soft-spoken scholar returned to the Hamlet of her childhood, armed with a battered tome and an alarming quantity of secondhand knowledge. She would far rather sit by a hearth with a book than march into a dungeon, and says so, at length, before going anyway.",
+  "history": "A daughter of the Hamlet, raised in a household that measured its women by the children they might bear and found her wanting, she escaped into scholarship and spent years studying in distant lands. Abroad she came upon a flawed and dangerous manuscript of local origin, and in reading it saw things she has told no one. She came home to a town far worse than she left it, carrying the book she will not let out of her hands.",
+  "summary": "A timid, endlessly polite scholar of the Hamlet, returned from abroad with a dangerous book and the visions it gave her.",
+  "race": "Human",
+  "gender": "Female",
+  "religion": "None",
+  "zodiac": "Virgo",
+  "traits": [
+    "Deferential",
+    "Curious",
+    "Timid",
+    "Clingy",
+    "Fussy",
+    "Kind"
+  ],
+  "stats": {
+    "strength": 1,
+    "agility": 3,
+    "intelligence": 9,
+    "authority": 2,
+    "sociability": 6
+  },
+  "equipment": [
+    "Tome",
+    "Tonics and tinctures"
+  ],
+  "appearance": {
+    "height": "Short",
+    "build": "Slight",
+    "skinTone": "Fair",
+    "hairColor": "Brown",
+    "hairStyle": "Chin-length and practical",
+    "features": "Ink-stained fingers"
+  },
+  "clothing": {
+    "head": "None",
+    "body": "Purple scholar's robe over a high-collared shirt",
+    "legs": "Long skirts",
+    "accessories": "Red sash, fingerless gloves, book-satchel at the hip"
+  },
+  "combat": {
+    "role": "Support",
+    "strengths": [
+      "Reading enemy weaknesses",
+      "Steadying frayed nerves",
+      "Tending wounds"
+    ],
+    "weaknesses": [
+      "Feeble",
+      "Frail",
+      "Reluctant"
+    ]
+  },
+  "magic": "None",
+  "notes": [
+    "Endlessly polite, with 'sir' and 'ma'am', apologizing before, during, and after everything",
+    "Grew up in the Hamlet and left only a few years ago; she knows its people, and they will recognize her",
+    "Vegetarian; refuses to eat anything that had a face",
+    "Deadly scared of dogs"
+  ],
+  "tags": [
+    "Backline", "Weak", "Frail", "Healer", "StressHealer", "Cleanser", "Marker",
+    "Buffer", "Debuffer", "Hider", "Scholarly", "Scavenger", "Eldritch"
+  ]
+}

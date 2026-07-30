@@ -22,8 +22,18 @@ export function createNewEstate(estateName: string): Estate {
     preferences: {
       llmProvider: 'anthropic',
       llmModel: '',
-      guidance: '',
       maxTokens: 16384,
+      guidance: '',
+      content: {
+        gore: 'permitted',
+        nudity: 'permitted',
+        sexualContent: 'permitted',
+        infidelity: 'permitted',
+        animalHarm: 'permitted',
+        romanceMM: 'permitted',
+        romanceFF: 'permitted',
+        romanceMF: 'permitted',
+      }
     },
     time: {
       month: 0,

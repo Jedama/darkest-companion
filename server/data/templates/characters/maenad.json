@@ -1,0 +1,72 @@
+{
+  "identifier": "maenad",
+  "title": "Maenad",
+  "name": "Paculla",
+  "description": "A barefoot missionary of ecstasy, come across the sea preaching a nameless god of wine and liberation. She promises the miserable that anguish can be danced into joy—and she means it: she is genuinely, radiantly happy, and it is the most unsettling thing about her. Behind the warmth waits the frenzy of her god, rending and wild and holy, never far beneath the dance.",
+  "history": "An initiate of the Orphic mysteries that haunt Pelagia's hills, she rose to priestess and then to missionary, carrying the cult's rites across the sea of her own free will. She chose the Hamlet deliberately—where despair pools deepest, her god's promise shines brightest. What she has paid for her ecstasies, she no longer remembers; that is rather the point.",
+  "summary": "A joyous, mad missionary of a nameless wine-god, dancing anguish into ecstasy at the price of her memories.",
+  "race": "Human",
+  "gender": "Female",
+  "religion": "Orphic",
+  "zodiac": "Sagittarius",
+  "traits": [
+    "Ecstatic",
+    "Devout",
+    "Nurturing",
+    "Restless",
+    "Uninhibited",
+    "Forgetful"
+  ],
+  "stats": {
+    "strength": 4,
+    "agility": 7,
+    "intelligence": 3,
+    "authority": 5,
+    "sociability": 8
+  },
+  "equipment": [
+    "Kylix (ritual wine-cup)",
+    "Flask of kykeon",
+    "Pouches of sacred herbs"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Lithe dancer's frame",
+    "skinTone": "Sun-browned, marked with ritual scars and painted sigils",
+    "hairColor": "Auburn",
+    "hairStyle": "Long and wild",
+    "features": "A deer-skull half-mask crowned with antlers and ivy, her eyes lost in its shadow"
+  },
+  "clothing": {
+    "head": "Deer-skull crown with antlers and ivy wreath",
+    "body": "A single torn chiton pinned at one shoulder, leaving the other shoulder and breast ritually bare",
+    "legs": "None; always barefoot",
+    "accessories": "Bone-and-fang necklaces, bangles, vials of red powder at her hip"
+  },
+  "combat": {
+    "role": "Support",
+    "strengths": [
+      "Rending frenzy",
+      "Intoxicating draughts",
+      "Easing companions' anguish",
+      "Thrives on her own suffering"
+    ],
+    "weaknesses": [
+      "Fragile",
+      "Cannot hold still",
+      "Madness rises as she fights"
+    ]
+  },
+  "magic": "Orphic mysteries—sacred intoxicants, ecstatic trance, communion with spirits",
+  "notes": [
+    "Speaks in warm, rushing exhortations; everyone is 'beloved', every stranger a convert-to-be",
+    "Genuinely happy—despair simply does not take root in her",
+    "Always in motion: swaying, humming, dancing in place",
+    "Drinks constantly from her kylix, and offers it to all",
+    "Her memories dissolve at the heights of her ecstasies"
+  ],
+  "tags": [
+    "Flexible", "Dancer", "Frail", "StressHealer", "Cleanser", "Buffer", "Bleeder",
+    "SelfStress", "Unstable", "Religious", "Outcast", "Charmer"
+  ]
+}

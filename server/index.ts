@@ -12,6 +12,7 @@ import consequencesEventRoute from './routes/consequencesEventRoute.js';
 import recruitEventRoute from './routes/recruitEventRoute.js';
 import reviewRoute from './routes/reviewRoute.js';
 import dungeonSummaryRoute from './routes/dungeonSummaryRoute.js';
+import planningRoute from './routes/planningRoute.js';
 import StaticGameDataManager from './staticGameDataManager.js';
 
 const DEFAULT_CHARACTER_IDS = ['crusader', 'highwayman', 'heiress', 'kheir'];
@@ -28,7 +29,8 @@ app.use(storyEventRoute);
 app.use(consequencesEventRoute);
 app.use(recruitEventRoute);
 app.use(reviewRoute);
-app.use(dungeonSummaryRoute)
+app.use(dungeonSummaryRoute);
+app.use(planningRoute);
 
 // Type for request params
 interface EstateParams {

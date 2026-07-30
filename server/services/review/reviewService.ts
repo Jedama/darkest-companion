@@ -6,6 +6,7 @@ import type { Estate } from '../../../shared/types/types.js';
 import {
   buildAllLogsSection,
   buildCharacterRosterSection,
+  buildContentPreferencesSection,
   buildLeadershipSection,
   buildLocationSummarySection,
   buildNarrativesSection,
@@ -51,6 +52,9 @@ export function compileReviewPrompt(estate: Estate): string {
 
     [Locations]
     ${buildLocationSummarySection()}
+
+    [Content Preferences]
+    ${buildContentPreferencesSection(estate.preferences)}
 
     ${format}
     ${examples}

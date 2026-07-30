@@ -2,12 +2,16 @@
 import type {
   Bystander,
   Character,
+  ContentLevel,
+  ContentTag,
   Enemy,
   Estate,
+  EstatePreferences,
   EventData,
   LocationData,
   NPC,
 } from '../../../shared/types/types.js';
+import { CONTENT_TAGS } from '../../../shared/types/types.js';
 
 import StaticGameDataManager from '../../staticGameDataManager.js';
 import { isDescendantOf } from '../game/locationService.js';
@@ -15,6 +19,29 @@ import { getZodiacForMonth, formatTimeSinceEvent } from '../game/calendarService
 import { generateWeatherDescription, generateWeatherChangeDescription } from '../game/weatherService.js';
 
 const MAX_USER_INPUT_LENGTH = 10000;
+
+const CONTENT_LABELS: Record<ContentTag, string> = {
+  gore: 'Excessive gore',
+  nudity: 'Nudity',
+  sexualContent: 'Sexual content',
+  infidelity: 'Infidelity',
+  animalHarm: 'Animal harm',
+  romanceMM: 'Romance M/M',
+  romanceFF: 'Romance F/F',
+  romanceMF: 'Romance M/F',
+};
+
+const LEVEL_LABELS: Record<ContentLevel, string> = {
+  forbidden: 'Forbidden',
+  restricted: 'Restricted',
+  permitted: 'Permitted',
+  emphasized: 'Emphasized',
+};
+
+const PLANNING_NOTABLE = {
+  MENTAL_BELOW: 50,
+  PHYSICAL_BELOW: 25,
+};
 
 /* -------------------------------------------------------------------
  *  Small helpers
@@ -124,6 +151,44 @@ export function buildCharactersSection(involvedCharacters: Character[]): string 
   return lines.join('');
 }
 
+/**
+ * A dossier of the people at the planning meeting. Unlike buildCharactersSection,
+ * this omits appearance, clothing, and combat detail: nobody is being depicted
+ * here, only heard. What matters is how they speak, what they want, and what
+ * state they walked in with.
+ *
+ * `roles` maps identifier -> the seat they hold ('Margrave', 'Bursar', 'Council').
+ */
+export function buildCharactersSectionPlanning(
+  attendees: Character[],
+  roles: Record<string, string> = {}
+): string {
+  if (!attendees.length) return 'No one attends the meeting.';
+ 
+  const lines: string[] = [];
+ 
+  for (const char of attendees) {
+    const seat = roles[char.identifier] ? ` — ${roles[char.identifier]}` : '';
+    lines.push(`\n- [${char.identifier}] ${char.name}, the ${char.title}${seat}\n`);
+    lines.push(`  - Summary: ${char.summary}\n`);
+    lines.push(`  - Traits: ${char.traits.join(', ')}\n`);
+    lines.push(`  - Authority: ${char.stats.authority}, Sociability: ${char.stats.sociability}\n`);
+ 
+    const condition: string[] = [`Health ${char.status.physical}`, `Resolve ${char.status.mental}`];
+    if (char.status.affliction) condition.push(`Condition: ${char.status.affliction}`);
+    if (char.status.wounds.length) condition.push(`Wounds: ${char.status.wounds.join('; ')}`);
+    if (char.status.diseases.length) condition.push(`Diseases: ${char.status.diseases.join('; ')}`);
+ 
+    lines.push(`  - State: ${char.status.description} (${condition.join(', ')})\n`);
+ 
+    if (char.notes.length) {
+      lines.push(`  - Manner: ${char.notes.join(' ')}\n`);
+    }
+  }
+ 
+  return lines.join('');
+}
+
 export function buildRelationshipSection(involvedCharacters: Character[]): string {
   const lines: string[] = [];
   lines.push(`\n[Relationships]\n`);
@@ -147,6 +212,43 @@ export function buildRelationshipSection(involvedCharacters: Character[]): strin
   }
 
   return lines.length ? lines.join('') : '';
+}
+
+/**
+ * Everyone in the Hamlet who is NOT at the meeting. These are the people being
+ * discussed. Condition is only listed when it is notable — an unlisted hero is
+ * fit and unremarkable, which keeps the troubled ones visible in a long roster.
+ */
+export function buildAbsentRosterSection(estate: Estate, attendeeIds: string[]): string {
+  const present = new Set(attendeeIds);
+  const absent = Object.values(estate.characters).filter(c => !present.has(c.identifier));
+ 
+  if (!absent.length) return 'Every member of the Hamlet is present at the meeting.';
+ 
+  const lines: string[] = [];
+  lines.push(
+    'Only heroes in poor condition have their state listed. Any hero without one is hale and untroubled.\n'
+  );
+ 
+  for (const char of absent) {
+    lines.push(`\n- [${char.identifier}] ${char.name}, the ${char.title}: ${char.summary}`);
+ 
+    const flags: string[] = [];
+    const hurt =
+      char.status.mental < PLANNING_NOTABLE.MENTAL_BELOW ||
+      char.status.physical < PLANNING_NOTABLE.PHYSICAL_BELOW;
+ 
+    if (hurt) flags.push(`Health ${char.status.physical}, Resolve ${char.status.mental}`);
+    if (char.status.affliction) flags.push(`Condition: ${char.status.affliction}`);
+    if (char.status.wounds.length) flags.push(`Wounds: ${char.status.wounds.join('; ')}`);
+    if (char.status.diseases.length) flags.push(`Diseases: ${char.status.diseases.join('; ')}`);
+ 
+    if (flags.length) {
+      lines.push(`\n  - State: ${char.status.description} (${flags.join(', ')})`);
+    }
+  }
+ 
+  return lines.join('') + '\n';
 }
 
 export function buildLocationSection(
@@ -353,15 +455,21 @@ export function buildRecruitKeywordsSection(keywords: string[]): string {
 
 export function buildUserGuidanceSection(guidance?: string): string {
   if (!guidance) return '';
-
   const cleaned = sanitizeUserInput(guidance);
   if (!cleaned) return '';
-
   return (
     `[User Guidance]\n` +
     `The following is the player's custom request for how you should write/respond:\n` +
     `${cleaned}\n\n`
   );
+}
+
+export function buildContentPreferencesSection(prefs?: EstatePreferences): string {
+  if (!prefs?.content) return '';
+  const lines = CONTENT_TAGS.map(
+    (tag) => `${CONTENT_LABELS[tag]}: ${LEVEL_LABELS[prefs.content![tag] ?? 'permitted']}`
+  );
+  return `[Content Preferences]\n${lines.join('\n')}\n\n`;
 }
 
 export function buildUserInputSection(context?: string, description?: string): string {
@@ -547,13 +655,18 @@ export function compileNarrativeContext(estate: Estate, gameData: StaticGameData
   const timeFrame = estate.time.beat === 0 ? 'Since yesterday, ' : 'Since the last story, ';
   const dayOpener = estate.time.beat === 0 ? 'This is the first event of the day, set the stage with the season, weather, and location.' : '';
 
+  const backstory = gameData.getPrompt('game.backstory').replaceAll('${estateName}', estate.name);
+
   // Use a simple template literal with placeholders
-  let contextTemplate = `
+  return `
     [Instructions]
 ${gameData.getPrompt('story.instructions')}
 
     [Context]
-${gameData.getPrompt('story.backstory')}
+${backstory}
+
+NARRATOR'S ROLE:
+You are the malevolent ghost of Pandoros ${estate.name}, the Ancestor, now bound to the Heart of Darkness. You narrate the Descendants' seemingly hopeless quest to cleanse the Estate, knowing that their efforts may unwittingly serve your own dark purpose.
 
 PRESENT DAY:
 It is the month of ${zodiac.name}. ${zodiac.text}
@@ -564,21 +677,24 @@ ${formatTimeSinceEvent(estate.time.month + 1)} have passed since the Ancestor's 
     
   `;
 
-  // Replace all placeholders like ${estateName} at the very end
-  return contextTemplate.replace(/\$\{estateName\}/g, estate.name);
 }
 
 export function compileRecruitContext(estate: Estate, gameData: StaticGameDataManager, recruitTitle?: string): string {
   
   const zodiac = getZodiacForMonth(estate.time.month);
+  const backstory = gameData.getPrompt('game.backstory').replaceAll('${estateName}', estate.name);
+  const title = recruitTitle || '${characterTitle}';
 
   // Use a simple template literal with placeholders
-  let contextTemplate = `
+  return `
     [Instructions]
 ${gameData.getPrompt('recruit.instructions')}
 
     [Context]
-${gameData.getPrompt('recruit.backstory')}
+${backstory}
+
+NARRATOR'S ROLE:
+You are the ${title}. Narrate this scene from your first-person, present-time perspective, revealing your internal thoughts, impressions, and judgments as the event unfolds. Speak and think as ${title} would.
 
 PRESENT DAY:
 It is the month of ${zodiac.name}. ${zodiac.text}
@@ -587,11 +703,42 @@ ${formatTimeSinceEvent(estate.time.month)} have passed since the Heir and Heires
     
   `;
 
-  // Replace all placeholders like ${estateName} at the very end
-  let result = contextTemplate.replace(/\$\{estateName\}/g, estate.name);
-  if (recruitTitle) {
-    result = result.replace(/\$\{characterTitle\}/g, recruitTitle);
-  }
+}
+
+/**
+ * Context header for the planning meeting. Mirrors compileNarrativeContext, but
+ * pulls the planning instructions and backstory, and frames the passage of time
+ * around the meeting itself rather than a story beat.
+ */
+export function compilePlanningContext(estate: Estate, gameData: StaticGameDataManager): string {
+  const zodiac = getZodiacForMonth(estate.time.month);
+ 
+  const weatherDesc = generateWeatherDescription(estate.weather.current);
+  const weatherChange = generateWeatherChangeDescription(estate.weather.previous, estate.weather.current);
+ 
+  const backstory = gameData.getPrompt('game.backstory').replaceAll('${estateName}', estate.name);
+
+  const rosterSize = Object.keys(estate.characters).length;
+  const maxTeams = Math.max(1, Math.floor(rosterSize / 4));
+  const minTeams = 1;
   
-  return result;
+  return `
+    [Instructions]
+${gameData.getPrompt('planning.instructions')}
+ 
+    [Context]
+${backstory}
+
+NARRATOR'S ROLE:
+You are writing a scene of pure dialogue. There is no narrator and no prose. Everything the reader learns comes from what these people say to one another.
+ 
+PRESENT DAY:
+It is the month of ${zodiac.name}. ${zodiac.text}
+The current weather is ${weatherDesc}. ${weatherChange ? 'Since last month, ' + weatherChange : ''}.
+${formatTimeSinceEvent(estate.time.month)} have passed since the Heir and Heiress begun the quest to reclaim the Estate.
+The month has just turned, and the leadership has gathered as it does at the start of every month.
+Between ${minTeams} and ${maxTeams} teams of four will be sent out this month.
+ 
+  `;
+ 
 }

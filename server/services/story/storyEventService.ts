@@ -15,6 +15,7 @@ import type {
 import { 
   buildBystandersSection,
   buildCharactersSection,
+  buildContentPreferencesSection,
   buildEnemiesSection,
   buildEventSection,
   buildKeywordsSection,
@@ -78,6 +79,7 @@ export async function compileStoryPrompt(
     buildLogsSection(filteredLogs) +
     buildKeywordsSection(keywords) +
     buildUserGuidanceSection(estate.preferences?.guidance) +
+    buildContentPreferencesSection(estate.preferences) +
     buildUserInputSection(context, description);
 
   return fullPrompt;

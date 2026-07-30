@@ -34,45 +34,16 @@
       "affinity": 4,
       "dynamic": "Unwitting Ownership",
       "description": "Thanks to the machinations of her eminent Ancestor, this monster is hers—though she does not know it yet. The papers bearing her Estate's seal will arrive with him."
-    }
-  },
-  "crusader": {
-    "heiress": {
-      "affinity": 5,
-      "dynamic": "Professional",
-      "description": "The crusader maintains a professional relationship with the heiress, focusing on fulfilling his role as her protector with a devout sense of duty."
     },
-    "kheir": {
-      "affinity": 4,
-      "dynamic": "Skeptical",
-      "description": "The Crusader has pledged to protect the Heir despite obvious doubts about his fitness for the trials ahead. He sees a frightened scholar where leadership is needed, but duty demands he try."
-    },
-    "highwayman": {
-      "affinity": 6,
-      "dynamic": "Wary Recognition",
-      "description": "The Crusader recognizes something familiar in the Highwayman's bearing - another man haunted by his past. He wonders if they might find common ground, though trust must be earned."
-    },
-    "seraph": {
-      "affinity": 4,
-      "dynamic": "Devoted Lieutenant",
-      "description": "The Crusader served under the Seraph after her miraculous transformation, awed by her divine presence and inspired by her holy purpose. Her burned visage and manifest powers were proof of the Light's grace, making his role in her crusade feel truly righteous."
-    }
-  },
-  "highwayman": {
-    "heiress": {
-      "affinity": 4,
-      "dynamic": "Guardian",
-      "description": "The Highwayman is determined to prove his worth to the Heiress and earn a place in her service, seeing this quest as his path to redemption."
-    },
-    "kheir": {
+      "snake_charmer": {
       "affinity": 3,
-      "dynamic": "Guardian",
-      "description": "The Highwayman takes his role as the Heir's guard seriously, viewing the nervous scholar's safety as part of his quest for absolution."
+      "dynamic": "Diluted Inheritance",
+      "description": "The letter that dragged the Heiress from her studies and made her responsible for all of this was apparently not written to her alone. Her Ancestor sent the same appeal to some order of snake handlers in a desert she cannot place on a map, and one of them has now walked in and offered his help. Her claim to this place is supposed to be a matter of blood."
     },
-    "crusader": {
-      "affinity": 6,
-      "dynamic": "Hopeful Kinship",
-      "description": "The Highwayman sees in the Crusader another man seeking redemption through violence. He hopes this stern warrior might understand the weight of a violent past better than most."
+      "voivode": {
+      "affinity": 2,
+      "dynamic": "An Uninvited Guest",
+      "description": "A foreign lord will arrive claiming the Ancestor as a personal friend, though he appears far too young to have been one. He offers assistance the Heiress did not ask for and speaks fondly of the old chapel that now lies in ruins near the Dower House."
     }
   },
   "kheir": {
@@ -120,6 +91,50 @@
       "affinity": 5,
       "dynamic": "Spectator's Memory",
       "description": "The Heir attended the famed duelist's exhibitions during his courtly years, admiring the spectacle the way bookish young men admire any effortless mastery. He remembers the scandal of her blinding—how quickly the court's delight curdled into gossip—and that she vanished from society afterward. He assumed, like everyone, that her story had ended there."
+    },
+    "voivode": {
+      "affinity": 3,
+      "dynamic": "A Name in the Ledgers",
+      "description": "The Heir keeps the Estate's old records, and the Voivode's name appears in them—a guest of the house, entertained more than once. It also appears in ledgers far older than that, in the same hand and with the same title. He has assumed a family of foreign lords sharing a name, and will have to revise that assumption."
+    }
+  },
+  "crusader": {
+    "heiress": {
+      "affinity": 5,
+      "dynamic": "Professional",
+      "description": "The crusader maintains a professional relationship with the heiress, focusing on fulfilling his role as her protector with a devout sense of duty."
+    },
+    "kheir": {
+      "affinity": 4,
+      "dynamic": "Skeptical",
+      "description": "The Crusader has pledged to protect the Heir despite obvious doubts about his fitness for the trials ahead. He sees a frightened scholar where leadership is needed, but duty demands he try."
+    },
+    "highwayman": {
+      "affinity": 6,
+      "dynamic": "Wary Recognition",
+      "description": "The Crusader recognizes something familiar in the Highwayman's bearing - another man haunted by his past. He wonders if they might find common ground, though trust must be earned."
+    },
+    "seraph": {
+      "affinity": 4,
+      "dynamic": "Devoted Lieutenant",
+      "description": "The Crusader served under the Seraph after her miraculous transformation, awed by her divine presence and inspired by her holy purpose. Her burned visage and manifest powers were proof of the Light's grace, making his role in her crusade feel truly righteous."
+    }
+  },
+  "highwayman": {
+    "heiress": {
+      "affinity": 4,
+      "dynamic": "Guardian",
+      "description": "The Highwayman is determined to prove his worth to the Heiress and earn a place in her service, seeing this quest as his path to redemption."
+    },
+    "kheir": {
+      "affinity": 3,
+      "dynamic": "Guardian",
+      "description": "The Highwayman takes his role as the Heir's guard seriously, viewing the nervous scholar's safety as part of his quest for absolution."
+    },
+    "crusader": {
+      "affinity": 6,
+      "dynamic": "Hopeful Kinship",
+      "description": "The Highwayman sees in the Crusader another man seeking redemption through violence. He hopes this stern warrior might understand the weight of a violent past better than most."
     }
   },
   "vestal": {
@@ -199,7 +214,7 @@
     "hqclaimants": {
       "affinity": 2,
       "dynamic": "Faded Bitterness",
-      "description": "The Wretch remembered the Claimants from his days at court—ambitious nobles who embodied everything he once aspired to be. Though the bitterness had long since faded among his rats, their presence is be an uncomfortable reminder of the life he abandoned."
+      "description": "The Wretch remembered the Claimants from his days at court—ambitious nobles who embodied everything he once aspired to be. Though the bitterness had long since faded among his rats, their presence is an uncomfortable reminder of the life he abandoned."
     }
   },
   "seraph": {
@@ -232,14 +247,91 @@
     "thrall": {
       "affinity": 4,
       "dynamic": "The Final Match",
-      "description": "She sat among the spectators at the pit-fighter's last match, and watched the beloved champion crushed to pulp—watched the adoring crowd turn, in a breath, into a mob. She knows better than most how quickly worship curdles, though that day she watched as one of the crowd."
+      "description": "The Lamia sat among the spectators at the pit-fighter's last match, and watched the beloved champion crushed to pulp—watched the adoring crowd turn, in a breath, into a mob. She knows better than most how quickly worship curdles, though that day she watched as one of the crowd."
+    },
+      "succubus": {
+      "affinity": 5,
+      "dynamic": "Two Borrowed Faces",
+      "description": "The Lamia wears a borrowed face herself, and will recognise another glamour on sight. She will not be charmed by it."
     }
   },
   "thrall": {
     "heiress": {
       "affinity": 3,
       "dynamic": "Another Master",
-      "description": "He knows the name of the house that owns him now, and came to serve it. Another master among the many; no closer to freedom than the day he was branded."
+      "description": "The Thrall knows the name of the house that owns him now, and came to serve it. Another master among the many; no closer to freedom than the day he was branded."
+    }
+  },
+  "occultist": {
+    "succubus": {
+      "affinity": 3,
+      "dynamic": "Seen Through",
+      "description": "The Occultist has studied the infernal courts, and will see what is under the pilgrim's robe the first time he looks at her properly. The glamour will not hold against him."
+    }
+  },
+  "snake_charmer": {
+    "heiress": {
+      "affinity": 3,
+      "dynamic": "Untrained Correspondent",
+      "description": "The Snake Charmer's Master gave a lifetime to studying the thing beneath this house, and was written to as an equal. The same summons went to a young woman who inherited the address along with the furniture and has no training at all. That she gives the orders here strikes him as an error he intends to correct."
+    },
+    "kheir": {
+      "affinity": 6,
+      "dynamic": "A Promising Pupil",
+      "description": "The Snake Charmer will arrive at a hamlet the two heirs have run on very little preparation. Why these people received the same letter his Master did he will find unfathomable, but where the sister seems to think willpower solves everything, the brother appears competent, and could be a useful ally."
+    }
+  },
+  "succubus": {
+    "seraph": {
+      "affinity": 2,
+      "dynamic": "An Old Failure",
+      "description": "One of the Succubus' congregations came apart exactly as it was meant to: rumour, then suspicion, then schism, and a witch hunter named Mathis kept on a short leash. Burning the girl at the centre of it was supposed to end the work. It did not."
+    },
+    "psychiatrist": {
+      "affinity": 6,
+      "dynamic": "A Colleague's Scent",
+      "description": "The Succubus will recognise him at once: this man serves Paimon, a demonic king of the infernal court. She will offer him insights, and he who usually manipulates others will not realise he is the one being played."
+    },
+      "voivode": {
+      "affinity": 5,
+      "dynamic": "The Old Man",
+      "description": "The Succubus has known him for centuries and has never once been impressed. He was a provincial lord who bought immortality and has spent it since telling everyone about it. She likes him anyway, in the way one likes an old dog, and she will accept his protection without thanking him for it."
+    }
+  },
+    "voivode": {
+    "succubus": {
+      "affinity": 7,
+      "dynamic": "Old Acquaintance",
+      "description": "The Voivode has known the Succubus for centuries and remembers her fondly, from a time when they hunted the same courts and dined on the same souls. He serves a king and she a duke, which by his reckoning settles the matter of rank between them. He looks forward to good company and to being treated, for once, as what he is."
+    },
+    "psychiatrist": {
+      "affinity": 5,
+      "dynamic": "A Man Worth Cultivating",
+      "description": "The Voivode will place the Therapist quickly: a mortal in a bargain, doing careful work for a lord of the infernal court. He respects the craft and will attempt to invite him to dinner and eventually to the goblet. A man who understands contracts is a far better prospect than the frightened peasants he usually recruits."
+    },
+    "heiress": {
+      "affinity": 4,
+      "dynamic": "His Friend's Heir",
+      "description": "The Voivode came here on hearing that his old friend was dead, and expects to be received as the friend of the house. He has assistance, counsel, and protection to offer the Heiress, and considers all three a generous gift from a lord of his standing."
+    },
+    "kheir": {
+      "affinity": 5,
+      "dynamic": "His Friend's Heir",
+      "description": "The Voivode came here on hearing that his old friend was dead, and expects the Heir to receive him as such. He will not find the Ancestor's likeness in him, but a man with little apetite for ambition can be easier to invite for a drink."
+    }
+  },
+  "omenseeker": {
+    "jester": {
+      "affinity": 1,
+      "dynamic": "The Sound From That Night",
+      "description": "The Omen Seeker survived a performer whose music turned his audience to puppets, and she has never forgotten how it sounded. She will hear something of it in the Jester's ballad, even now that he no longer plays that melody itself, and be terrified."
+    }
+  },
+  "exorcist": {
+    "succbus": {
+      "affinity": 2,
+      "dynamic": "Get out of my MIND!",
+      "description": "The Exorcist will feel the Succubus working on him and will know precisely what she is, a demon who must be exorcised. Discipline and long practice will hold the door against her charms, but only barely."
     }
   }
 }

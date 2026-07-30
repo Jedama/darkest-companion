@@ -4,6 +4,7 @@
   "name": "Gertrude",
   "description": "An elderly traveling cook who hauls an enormous backpack filled with provisions, cooking gear, and ingredients she refuses to abandon despite the burden. Pragmatic and world-weary, she's survived decades through one philosophy: good food keeps you alive. She scavenges ingredients from even the most horrifying sources—monster corpses, toxic fungi, unidentifiable viscera—and transforms them into surprisingly effective meals. Her back aches, her pace is slow, but her experience is unmatched. She commands respect through age and competence, gruff in a matter-of-fact way.",
   "history": "Gertrude has cooked in high-end kitchens and battlefield camps, fed nobles and refugees, and learned that survival comes down to one thing: never go hungry. After decades of feeding others, she took to the roads with an enormous pack of supplies, traveling wherever her skills were needed. Her knowledge extends beyond cooking; she knows how to lure, trap, and butcher anything that moves. Now she's arrived at the Estate, where she is needed most.",
+  "summary": "An aging, gruff itinerant cook who feeds the desperate from a monstrous pack, hauling both her supplies and a private dread of dying alone.",
   "race": "Human",
   "gender": "Female",
   "religion": "None",
@@ -70,7 +71,7 @@
     "Debuffer",
     "Cleanser",
     "Frail",
-    "BlightDealer",
+    "Blighter",
     "Scavenger",
     "Setup"
   ]

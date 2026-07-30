@@ -7,6 +7,7 @@ cook: I've had a long life... but I don't want to go like this!
 crusader: Unholy foulness! I will take you with me!
 curator: So we were all doomed from the beginning...
 duchess: I expected this. I trusted you not to go through with it.
+exorcist: Dies irae...
 falconer: I have accepted my fate. I am ready.
 fawn: Is mean ? Me feel... very very empty~
 flagellant: I've waited long for this! DON'T TAKE IT FROM ME.
@@ -23,8 +24,11 @@ jester: Hah! The joke's on me then...?
 kheir: Hold my wine.
 krakenslayer: Not yet, I still have more heads to claim!
 lamia: I'd rather not keep up the second part of our bargain, if you don't mind.
+librarian: The visions I saw, it was you...
 leper: Spare the others, I am ready.
+maid: Will there ever be a place for the broken in the light?
 man_at_arms: I go with a clear conscience. I've given my all.
+monk: Then let it pass through me. (MISSING)
 musketeer: All for one, and one for all!
 occultist: Finally, the face of my tormentor. Come, then.
 offering: I will join Eternity, TRANSCENDENCE !
@@ -36,10 +40,13 @@ seraph: You may destroy my body, but the Light will never let me die!
 shieldbreaker: Another nightmare. A fitting audience for my last dance.
 sibyl: Is it true? There is no one left? Then let me be with them at last...
 sisters: No! This is not the fate I deserve! END US, GOD OF FLESH!
+snake_charmer: It's my destiny...I'm waiting for you, Devourer!
 snor_rasp: I will make just one request. Please, let me feel it.
+succubus: I thought we had a deal!!! / Am I dying? But... I was promised pleasure...
 thorn: I know eternal darkness. I'm ready...
 thrall: Come then, creature of creation! If I am to die, I will die free of my shackles!
 vestal: I-it's too horrible! Noooo!
+voivode: You are nothing compared to the darkness I return to !!!
 warrior_of_sunlight: Where is the Sun my magnificent Sun! Noooo!
 wretch: Huh. 'Bout bloody time.
 zenith: I burned too brightly!

@@ -27,11 +27,29 @@ export interface EstateLeadership {
   council?: string[];
 }
 
+export const CONTENT_TAGS = [
+  'gore',
+  'nudity',
+  'sexualContent',
+  'infidelity',
+  'animalHarm',
+  'romanceMM',
+  'romanceFF',
+  'romanceMF',
+] as const;
+
+export type ContentTag = (typeof CONTENT_TAGS)[number];
+
+export type ContentLevel = 'forbidden' | 'restricted' | 'permitted' | 'emphasized';
+
+export type ContentPreferences = Partial<Record<ContentTag, ContentLevel>>;
+
 export interface EstatePreferences {
   llmProvider: LlmProvider; // Which provider family to use (ChatGPT/OpenAI, Claude/Anthropic, Gemini/Google, Grok/xAI, etc.)
   llmModel: string; // Specific model to use within the provider family
-  guidance: string; // Freeform system-level guidance / style constraints
   maxTokens?: number; // Optional maximum response tokens (defaults to 16384)
+  guidance: string; // Freeform system-level guidance / style constraints
+  content?: ContentPreferences;
 }
 
 export interface EstateTime {

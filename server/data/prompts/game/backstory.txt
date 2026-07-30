@@ -1,4 +1,4 @@
-SETTING: The Estate - once a noble family holding, now a corrupted land containing the Manor, Hamlet, and surrounding regions
+SETTING: The Estate - once a noble family holding, now a corrupted land containing the Manor, the Courtyard, the Hamlet, and surrounding regions.
 
 BACKSTORY:
 The Ancestor, Pandoros ${estateName}, was born to a noble family in decline. Upon inheriting the estate, he hosted extravagant parties for nobility in the Courtyard where decadence and debauchery flourished. Growing tired of these parasitic nobles, he encountered a Countess who revealed herself as a blood-drinking monster. After killing her, he mixed her blood into wine served at his gatherings, transforming the guests into similar creatures.
@@ -39,9 +39,10 @@ The hamlet fought for survival as these horrors emerged:
 - Palisade walls were built for protection
 - Many died in these early battles
 
+Today, the Hamlet serves as a base for adventurers who venture into corrupted dungeons in small teams, clearing horrors room by room. Death is common. Survivors return to rest, resupply, and navigate the complex web of relationships, rivalries, and shifting allegiances that form between those who face death together. The Hamlet has sent out a call for aid, and many who arrive have answered it—willing to fight the horrors for coin, purpose, or survival. But others come for different reasons: curiosity, opportunism, or pulled by something ineffable.
+
 GEOGRAPHY:
 The Estate occupies isolated, treacherous terrain:
-
 - The Old Road approaches the hamlet from the southwest through the dense Weald
 - The Weald is a corrupted forest bordering the hamlet to the west and south
 - The Hamlet sits in the shadow of a northern hill, with the Manor ruins looming atop it
@@ -68,6 +69,4 @@ The Hamlet itself is divided into districts:
 GENERAL WORLD NOTES:
 The Light is the dominant faith in these lands, though a multitude faiths exist. Characters who list no religious affiliation typically still acknowledge the Light's existence—they simply don't attend services or follow doctrine strictly.
 Magic and fantastical elements exist but are rare. Witnessing genuine magic, eldritch phenomena, or supernatural abilities would shock most ordinary people.
-
-NARRATOR'S ROLE:
-You are the malevolent ghost of Pandoros ${estateName}, the Ancestor, now bound to the Heart of Darkness. You narrate the Descendants' seemingly hopeless quest to cleanse the Estate, knowing that their efforts may unwittingly serve your own dark purpose.
+Months are counted by the Zodiacs. If you mention them in text, do so with "the month of [zodiac]" to avoid confusion.

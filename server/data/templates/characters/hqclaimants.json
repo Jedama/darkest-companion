@@ -4,6 +4,7 @@
   "name": "Genevive & Claude",
   "description": "The Claimants are twin siblings bound by ambition and an unshakeable conviction that their own stolen birthright will be reclaimed. Both are brilliant strategists who operate as a single unit with unerring coordination. They carry themselves with the imperious certainty of those born to command, treating all others as provincials. No cost is too great, no moral line uncrossable, as long as they have each other.",
   "history": "Driven from their ancestral home in a far-off land by a succession dispute they refuse to accept as valid, the Claimants have journeyed to the Ancestor's estate seeking forbidden knowledge and eldritch secrets to reclaim their own lost birthright, offering their aid to the cause, their thinly veiled lies framing their presence as an act of largesse.",
+  "summary": "Imperious twin siblings who fight as one, pursuing a stolen birthright with brilliant strategy, boundless contempt for others, and no line they won't cross for each other.",
   "race": "Human",
   "gender": "Female & Male",
   "religion": "Occultism/The Light",
@@ -42,7 +43,7 @@
     "accessories": "Earrings/None"
   },
   "combat": {
-    "role": "Versatile Support/Damage",
+    "role": "Support/Damage",
     "strengths": [
       "Adaptable tactics",
       "Synergistic abilities",

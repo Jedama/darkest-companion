@@ -13,6 +13,7 @@ import type {
 import {
     buildBystandersSection,
     buildCharactersSection,
+    buildContentPreferencesSection,
     buildEventSection,
     buildLocationSection,
     buildLogsSection,
@@ -68,6 +69,7 @@ export async function compileRecruitPrompt(
     buildBystandersSection(estate, bystanders, chosenCharacterIds) +
     buildLogsSection(filteredLogs) +
     buildUserGuidanceSection(estate.preferences?.guidance) +
+    buildContentPreferencesSection(estate.preferences) +
     buildUserInputSection(context, undefined);
 
   return fullPrompt;

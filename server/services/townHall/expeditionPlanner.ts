@@ -1,5 +1,6 @@
 //server/services/townHall/expeditionPlanner.ts
 import { CharacterRecord } from '../../../shared/types/types';
+import { countViolations, repairComposition } from './incompatibility';
 import { PARTY_SIZE } from '../../../shared/constants/expedition';
 import { 
   STRATEGY_REGISTRY, 
@@ -462,6 +463,10 @@ export function findBestComposition(
     }
     defaultComposition = defaultComposition.filter(party => party.length > 0);
 
+    if (repairComposition(defaultComposition, partiesToScore) > 0) {
+      console.warn("[Optimizer] Default composition retains hero incompatibilities; roster is over-constrained.");
+    }
+
     // We still need to generate stats and analyze the composition once for a valid return object.
     const scoringStats = generateScoringStatistics(availableHeroes, roster, partySize, 500); // Small sample size is fine
     const debugInfo = analyzeComposition(defaultComposition, roster, weights, scoringStats, partiesToScore);
@@ -498,10 +503,19 @@ export function findBestComposition(
   }
   current = current.filter(party => party.length > 0);
 
+  // Hard constraints apply to the ACTIVE prefix only; parties beyond it are the reserve.
+  const activeCount = partiesToScore ?? current.length;
+  let currentViolations = repairComposition(current, activeCount);
+  if (currentViolations > 0) {
+    console.warn(`[Optimizer] Seed retains ${currentViolations} hero incompatibilities; annealing will minimize them.`);
+  }
+
   // `current` is the wandering incumbent; `best` is the best composition seen so far.
   let currentScore = analyzeComposition(current, roster, weights, scoringStats, partiesToScore).finalScore;
   let best: Composition = current.map(party => [...party]);
   let bestScore = currentScore;
+  let bestViolations = currentViolations;
+
   let bestDebugInfo = analyzeComposition(best, roster, weights, scoringStats, partiesToScore);
 
   // With fewer than two parties there are no swaps to make.
@@ -533,26 +547,36 @@ export function findBestComposition(
 
   // --- Simulated annealing main loop ---
   for (let i = 0; i < iterations; i++) {
-    const undo = applyRandomMove(current);                 // mutate in place
+    const undo = applyRandomMove(current);
+
+    // Constraint gate: reject before scoring. Cheap enough that this is a net win.
+    const candidateViolations = countViolations(current, activeCount);
+    if (candidateViolations > currentViolations) {
+      undo();
+      temperature *= coolingRate;
+      continue;
+    }
+
     const candidateInfo = analyzeComposition(current, roster, weights, scoringStats, partiesToScore);
     const candidateScore = candidateInfo.finalScore;
-    const delta = candidateScore - currentScore;           // > 0 means improvement (we maximize)
+    const delta = candidateScore - currentScore;
 
-    // Metropolis acceptance: always take improvements, sometimes step downhill to escape local optima.
     const accept = delta > 0 || Math.random() < Math.exp(delta / temperature);
 
     if (accept) {
       currentScore = candidateScore;
-      if (candidateScore > bestScore) {
-        // New global best. Cloning here is cheap (only happens on improvement). We recompute
-        // the debug info against the *clone* so later mutations of `current` can never alias
-        // into the stored best.
+      currentViolations = candidateViolations;
+
+      // Feasibility outranks score: never keep a cleaner-scoring but dirtier best.
+      if (candidateViolations < bestViolations ||
+          (candidateViolations === bestViolations && candidateScore > bestScore)) {
         bestScore = candidateScore;
+        bestViolations = candidateViolations;
         best = current.map(party => [...party]);
         bestDebugInfo = analyzeComposition(best, roster, weights, scoringStats, partiesToScore);
       }
     } else {
-      undo(); // reject: revert the in-place move, no fresh allocation
+      undo();
     }
 
     temperature *= coolingRate;
@@ -675,6 +699,10 @@ export async function findOptimalArrangement(
         defaultComposition.push(sortedHeroes.slice(i, i + partySize));
       }
       defaultComposition = defaultComposition.filter(party => party.length > 0);
+
+      if (repairComposition(defaultComposition, completeParties) > 0) {
+        console.warn("[Meta-Optimizer] Default composition retains hero incompatibilities; roster is over-constrained.");
+      }
       
       // We still need a valid report, so we run analysis once.
       const stats = generateScoringStatistics(availableHeroes, roster, partySize, 500, completeParties);

@@ -1,0 +1,67 @@
+{
+  "identifier": "voivode",
+  "title": "Voivode",
+  "name": "Radu",
+  "description": "The Voivode is an ancient lord in centuries-old finery, courteous to those he judges worthy and openly contemptuous of everyone else. He lost his lands long ago but has never stopped behaving as though he rules, gathering followers wherever he goes and offering them protection, communion, and freedom from the fear of death, at the cost of becoming one of his darkspawn. He is generous with them, treating them as the subjects he wishes he had never lost.",
+  "history": "Once a lord with a castle and a hamlet of his own, the Voivode was losing a siege when he turned to sealed-away knowledge, and struck a bargain with Belial, a king of the infernal court. He kept his walls, and gained an unending thirst and a monstrous second shape; his own people drove him out with torches and stakes soon after. Centuries later he came to the Estate, having heard that the Ancestor, whom he counted a friend, was dead.",
+  "summary": "An ancient and imperious Voivode, a fallen lord who bargained for immortality and gathers a flock wherever he goes.",
+  "race": "Strigoi shapeshifter",
+  "gender": "Male",
+  "religion": "The Dark (Belial)",
+  "zodiac": "Leo",
+  "traits": [
+    "Imperious",
+    "Charismatic",
+    "Paternal",
+    "Cruel",
+    "Vain"
+  ],
+  "stats": {
+    "strength": 7,
+    "agility": 6,
+    "intelligence": 8,
+    "authority": 9,
+    "sociability": 6
+  },
+  "equipment": [
+    "Goblet"
+  ],
+  "appearance": {
+    "height": "Tall/Towering",
+    "build": "Lean/Broad and winged",
+    "skinTone": "Fair/Sallow yellow",
+    "hairColor": "White",
+    "hairStyle": "Swept back, with a full moustache and thick sideburns/None",
+    "features": "Pointed ears and long fangs/A bat's snout and vast leathery wings"
+  },
+  "clothing": {
+    "head": "Red velvet cap set with a jewel",
+    "body": "Ornate red and gold doublet under a high-collared cloak",
+    "legs": "Dark trousers and tall boots",
+    "accessories": "Jewelled brooch, one large ringed jewel"
+  },
+  "combat": {
+    "role": "Commander/Predator",
+    "strengths": [
+      "Commanding",
+      "Hypnosis",
+      "Echolocation"
+    ],
+    "weaknesses": [
+      "Low damage",
+      "Bright light"
+    ]
+  },
+  "magic": "Command of shadows, bats, and weak minds",
+  "notes": [
+    "Speaks with formal, archaic courtesy, and addresses everyone as an inferior—peasants, sheep, mortals",
+    "Offers his own blood to those he has taken under his protection, and treats them afterward as both children and property",
+    "Visited the Hamlet on several occasions as the Ancestor's guest; anyone from that circle (characters, NPCS, or even Bosses) who still survives may recognise him, and he them",
+    "Old enough that he treats the present as a repetition, referring to dead men and defunct customs as though they were current"
+  ],
+  "tags": [
+    "Flexible", "Shapeshifter", "Dark", "Guarder", "Stunner", "Debuffer", "Bleeder",
+    "Scout", "SelfSufficient", "Leader", "Noble", "Strategist", "Elder", "Immoral",
+    "Abrasive", "Vigilant"
+  ]
+}

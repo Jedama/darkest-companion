@@ -1,0 +1,68 @@
+{
+  "identifier": "monk",
+  "title": "Monk",
+  "name": "Tolun",
+  "description": "An aging ascetic from a far-off mountain order, wrapped in tattered robes and the remains of good cloth, who walks toward whatever place is suffering most. He is outwardly still and unfailingly calm, forever instructing others to breathe, to close their eyes, to set their burdens down. What he carries himself he gives away by the handful, and asks for nothing back.",
+  "history": "In his youth he did a wrong with his own hands, and climbed into the mountains to be unmade and remade. Decades of harsh discipline in the order that took him in gave him mastery of his body and the beginnings of peace, but never absolution. He came down at last to walk where suffering is thickest, on the understanding that a debt like his is paid nowhere else.",
+  "summary": "An aging mountain ascetic of great discipline and hidden guilt, walking toward the worst places in the world to work off a debt.",
+  "race": "Human",
+  "gender": "Male",
+  "religion": "Monasticism",
+  "zodiac": "Taurus",
+  "traits": [
+    "Serene",
+    "Disciplined",
+    "Penitent",
+    "Generous",
+    "Detached"
+  ],
+  "stats": {
+    "strength": 8,
+    "agility": 7,
+    "intelligence": 6,
+    "authority": 5,
+    "sociability": 3
+  },
+  "equipment": [
+    "Vambraces",
+    "Prayer beads",
+    "Gourd bottle"
+  ],
+  "appearance": {
+    "height": "Tall",
+    "build": "Heavily muscled",
+    "skinTone": "Weathered brown",
+    "hairColor": "Grey",
+    "hairStyle": "Shaven",
+    "features": "Blue tattoos across one shoulder, hands and forearms always bound in wraps"
+  },
+  "clothing": {
+    "head": "Hooded wrap",
+    "body": "Tattered robes over bare chest, wolf pelt at the shoulder",
+    "legs": "Loose trousers and sandals",
+    "accessories": "Beaded cord, gourd bottle at the hip"
+  },
+  "combat": {
+    "role": "Brawler",
+    "strengths": [
+      "Unarmed mastery",
+      "Disruption",
+      "Healing",
+      "Calming"
+    ],
+    "weaknesses": [
+      "No armor",
+      "Sacrifices life energy for others"
+    ]
+  },
+  "magic": "Mastery of life energy",
+  "notes": [
+    "Keeps a rigid daily order whatever the circumstances—rising before dawn, eating only before dark, prostrations at fixed hours",
+    "Out of touch with the customs, manners, and famous names everyone else takes for granted",
+    "Refuses drink and other indulgence, save for measured mouthfuls from his gourd at set times"
+  ],
+  "tags": [
+    "Frontline", "Dancer", "Disruptor", "Healer", "StressHealer", "Cleanser",
+    "SelfSufficient", "Crit", "Religious", "Warrior", "Outcast"
+  ]
+}

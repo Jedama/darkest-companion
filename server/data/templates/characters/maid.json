@@ -1,0 +1,67 @@
+{
+  "identifier": "maid",
+  "title": "Maid",
+  "name": "Shizuka",
+  "description": "A servant of a noble house in the far east, immaculate in black and silver, who kills as neatly as she pours tea. She keeps her uniform spotless, her manners perfect, and her grief entirely to herself, tending the living out of habit while she waits for the one person she has ever served to be found. Her courtesy is absolute; her contempt for those who have not earned it sits just beneath.",
+  "history": "She served an eastern noblewoman as head of her household, and her devotion was total. When her Mistress travelled west to attend a great ball at the Ancestor's courtyard, the Maid was not permitted to accompany her, and her Mistress never returned. She has sought time-magic to undo that night ever since, and found only enough to steal a moment. She has come to the Estate to learn more—and to walk into the Courtyard and see whether her Mistress still lives, in any form.",
+  "summary": "An immaculate eastern servant who kills with thrown silverware, come to the Estate to undo the night she lost her Mistress.",
+  "race": "Human",
+  "gender": "Female",
+  "religion": "None",
+  "zodiac": "Capricorn",
+  "traits": [
+    "Punctual",
+    "Devoted",
+    "Haughty",
+    "Precise",
+    "Grieving"
+  ],
+  "stats": {
+    "strength": 4,
+    "agility": 9,
+    "intelligence": 7,
+    "authority": 5,
+    "sociability": 4
+  },
+  "equipment": [
+    "Throwing knives",
+    "Pocket watch"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Slender",
+    "skinTone": "Pale",
+    "hairColor": "Silver-blue",
+    "hairStyle": "Voluminous and shoulder-length",
+    "features": "A flat, unreadable expression"
+  },
+  "clothing": {
+    "head": "White lace headdress",
+    "body": "Pinstriped black bodice and blouse",
+    "legs": "Long black skirt and apron",
+    "accessories": "Fingerless gloves, pearl chains, pocket watch on a chain"
+  },
+  "combat": {
+    "role": "Assassin",
+    "strengths": [
+      "Unnaturally fast",
+      "Slipping between ranks",
+      "Precision"
+    ],
+    "weaknesses": [
+      "Fragile",
+      "Reckless"
+    ]
+  },
+  "magic": "Time-altering pocket watch",
+  "notes": [
+    "Obsessed with punctuality; arrives early, notes when others do not, and speaks in hours and minutes",
+    "Courteous and servile toward those she judges her betters, and contemptuously dismissive of the coarse and unwashed.",
+    "Playful and even ingenue among those she counts as equals, and smug whenever someone waits on her.",
+    "Cannot sit idle, and keeps herself busy at all hours."
+  ],
+  "tags": [
+    "Dancer", "Frail", "HeavyHitter", "Crit", "Stealther", "Disruptor", "Bleeder",
+    "Abrasive"
+  ]
+}
