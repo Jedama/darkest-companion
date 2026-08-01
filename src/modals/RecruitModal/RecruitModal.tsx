@@ -1,9 +1,11 @@
 // src/components/modals/RecruitModal/RecruitModal.tsx
 
 import React, { useState, useEffect, useMemo, useRef } from 'react';
+import type { CSSProperties } from 'react';
 import { useGameData } from '../../contexts/GameDataContext';
 import { useEstateContext } from '../../contexts/EstateContext';
 import { ImageButton } from '../../components/ui/buttons/ImageButton';
+import { recruitCharacter, isAbortError } from '../../utils/api';
 import './RecruitModal.css';
 
 interface RecruitModalProps {
@@ -26,6 +28,19 @@ const SEAL_POSITIONS = [
 
 const placeholderSrc = new URL('../../assets/characters/recruit/placeholder.png', import.meta.url).href;
 const hireButtonSrc = new URL('../../assets/ui/modals/recruitmodal/hire.png', import.meta.url).href;
+
+// Inline for now, matching CalendarDial's approach. Move to a .recruit-error
+// rule when you next touch RecruitModal.css.
+const errorStyle: CSSProperties = {
+  maxWidth: '28rem',
+  margin: '0.5rem auto 0',
+  padding: '0.5rem 1rem',
+  textAlign: 'center',
+  background: 'rgba(20, 16, 14, 0.92)',
+  border: '1px solid rgba(180, 150, 110, 0.45)',
+  color: '#e8ddc8',
+  font: '0.9rem/1.4 inherit',
+};
 
 export function RecruitModal({ onClose }: RecruitModalProps) {
   const { characterDefinitions } = useGameData();
@@ -59,6 +74,13 @@ export function RecruitModal({ onClose }: RecruitModalProps) {
   const [modifierInput, setModifierInput] = useState('');
   const [seals, setSeals] = useState<SealData[]>([]); 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  /** Recruitment is two chained LLM calls; closing the modal walks away. */
+  const abortRef = useRef<AbortController | null>(null);
+  useEffect(() => {
+    return () => abortRef.current?.abort();
+  }, []);
 
   useEffect(() => {
     if (availableClasses.length > 0 && !selectedClassId) {
@@ -77,6 +99,7 @@ export function RecruitModal({ onClose }: RecruitModalProps) {
     }
     setSeals([]);
     setModifierInput('');
+    setError(null);
   };
 
   const handleModifierKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -99,33 +122,35 @@ export function RecruitModal({ onClose }: RecruitModalProps) {
 
   const handleRecruit = async () => {
     if (seals.length === 0 || !selectedClassId) return;
+
+    abortRef.current?.abort();
+    const controller = new AbortController();
+    abortRef.current = controller;
+
+    setError(null);
     setIsSubmitting(true);
     try {
-      const context = seals.length > 0
-        ? `Personality modifiers for the new recruit: ${seals.map(s => s.text).join(', ')}`
-        : `New recruit with no personality modifiers.`;
+      const context = `Personality modifiers for the new recruit: ${seals
+        .map(s => s.text)
+        .join(', ')}`;
 
-      const res = await fetch(`http://localhost:3000/estates/${estateName}/events/recruit`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          eventId: "recruit_0",
+      await recruitCharacter(
+        estateName,
+        {
+          eventId: 'recruit_0',
           characterId: selectedClassId,
-          name: name,
+          name,
           context,
-        }),
-      });
+        },
+        controller.signal
+      );
 
-      const data = await res.json();
-      if (data.success) {
-        await handleLoadEstate(estateName);
-        onClose();
-      } else {
-        alert('Recruitment failed: ' + (data.error || 'Unknown error'));
-      }
+      await handleLoadEstate(estateName);
+      onClose();
     } catch (err) {
-      console.error(err);
-      alert('Network error recruiting character.');
+      if (isAbortError(err)) return; // modal closed mid-flight
+      console.error('Recruitment failed:', err);
+      setError(err instanceof Error ? err.message : 'Recruitment failed.');
     } finally {
       setIsSubmitting(false);
     }
@@ -174,7 +199,7 @@ export function RecruitModal({ onClose }: RecruitModalProps) {
           />
         </div>
 
-        {/* --- CHANGED: Image Area --- */}
+        {/* --- Image Area --- */}
         <div className="recruit-image-container">
           
           {/* Render ALL available images, but hide the non-selected ones.
@@ -194,7 +219,7 @@ export function RecruitModal({ onClose }: RecruitModalProps) {
             />
           ))}
 
-          {/* Seals Overlay (remains the same) */}
+          {/* Seals Overlay */}
           {seals.map((seal, index) => (
             <div 
               key={index}
@@ -221,6 +246,12 @@ export function RecruitModal({ onClose }: RecruitModalProps) {
             disabled={seals.length >= 9} 
           />
         </div>
+
+        {error && (
+          <div className="recruit-error" style={errorStyle} role="alert">
+            {error}
+          </div>
+        )}
 
         <div className={`recruit-hire-btn ${isDisabled ? 'disabled' : ''}`}>
           <ImageButton 

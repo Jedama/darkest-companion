@@ -11,12 +11,11 @@ Make the recruit less prone to +1's
 
 Fix the recruit housing. And not having a proper house must also be possible. Just roaming or hiding.
 
-Beat should reset between days
+
 Mention days being not linear and fill the gaps. I guess
 
-
+Make a proper frontend error handler.
 
 Add Scarlett Academy to the locations??? 
 Add nest to locations (restorable)
 
-Maybe make backstory one cohesive document and make narrator's role a field of its own somewhere?

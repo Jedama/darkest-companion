@@ -1,19 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './CardComponent.css';
 
-// TODO: Move these to a types file
-interface ConsequenceChange {
-  text: string;
-  color: string;
-  affinity?: number;
-}
-
-interface ConsequenceCharacterDisplay {
-  identifier: string;
-  personalChanges: ConsequenceChange[];
-  relationshipChanges: Record<string, ConsequenceChange[]>;
-}
-
+import type { ConsequenceCharacterDisplay } from '../../utils/api';
 interface CardComponentProps {
   characterId: string;    // To get front image
   cornerIndex: number;    // Which corner to place it in

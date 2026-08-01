@@ -24,7 +24,7 @@ export function LoadEstateModal() {
       setExistingEstates(estates);
       setError(null);
     } catch (err) {
-      setError('Failed to load estates');
+      setError(err instanceof Error ? err.message : 'Failed to load estate')
       console.error(err);
     } finally {
       setLoading(false);
@@ -40,7 +40,7 @@ export function LoadEstateModal() {
       // Reload list to see the newly created estate in the list
       await loadEstatesList();
     } catch (err) {
-      setError('Failed to create estate');
+      setError(err instanceof Error ? err.message : 'Failed to load estate')
       console.error(err);
     }
   };

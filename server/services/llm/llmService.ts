@@ -38,7 +38,7 @@ export interface LLMRequest {
  */
 const DEFAULT_MODEL: Record<LlmProvider, string> = {
   openai: "gpt-5.5",
-  xai: "grok-4.20-0309-reasoning",
+  xai: "grok-4.5",
   anthropic: "claude-fable-5",
   google: "gemini-3.1-pro-preview",
 };

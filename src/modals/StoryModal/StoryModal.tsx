@@ -1,59 +1,29 @@
 // src/components/storymodal/StoryModal.tsx
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { DeckComponent } from './DeckComponent';
-import { CardComponent } from './CardComponent';  
+import { CardComponent } from './CardComponent';
 import { ActivityLog } from './ActivityLog.tsx';
 import { ImageButton } from '../../components/ui/buttons/ImageButton.tsx';
 import { parseFormattedText } from '../../utils/textUtils';
+import {
+  setupStoryEvent,
+  generateStory,
+  generateConsequences,
+  isAbortError,
+} from '../../utils/api';
+import type { ConsequenceCharacterDisplay } from '../../utils/api';
+// Imported, not written as 'src/assets/...' strings: raw paths resolve in the
+// dev server but 404 after a production build. Same folder as ActivityLog's.
+import returnButtonSrc from '../../assets/ui/modals/storymodal/return.png';
+import continueButtonSrc from '../../assets/ui/modals/storymodal/continue.png';
+
 import './StoryModal.css';
 import './ActivityLog.css';
 
 interface StoryModalProps {
   estateName: string;
   onClose: () => void; // from the modal provider or a parent
-}
-
-interface SetupResponse {
-  success: boolean;
-  event: any;
-  chosenCharacterIds: string[];
-  locations: any[];
-  npcs: string[];
-  bystanders: Array<{
-    characterId: string;
-    connectionType: string;
-  }>;
-  enemies: string[];
-  keywords: string[];
-}
-
-interface StoryResponse {
-  success: boolean;
-  prompt: string;
-  story: {
-    title: string;
-    body: string;
-  };
-}
-
-interface ConsequenceChange {
-  text: string;
-  color: string;
-  affinity?: number;
-}
-
-interface ConsequenceCharacterDisplay {
-  identifier: string;
-  personalChanges: ConsequenceChange[];
-  relationshipChanges: Record<string, ConsequenceChange[]>;
-}
-
-interface ConsequenceResponse {
-  success: boolean;
-  display: {
-    characters: ConsequenceCharacterDisplay[];
-  };
 }
 
 type Phase = 'input' | 'loading' | 'deck' | 'deal' | 'text';
@@ -70,123 +40,96 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
 
   const [hoveredCharacterId, setHoveredCharacterId] = useState<string | null>(null);
 
-  const fetchStoryFlow = React.useCallback(async (userPrompt: string | null) => {
-    const controller = new AbortController();
-    const signal = controller.signal;
-    setError(null); // Clear previous errors
-  
-    setPhase('deck');
+  /**
+   * Cancels the in-flight chain. The story flow is three sequential LLM calls,
+   * so closing the modal has to be able to walk away from it — otherwise the
+   * later setState calls land on an unmounted tree.
+   */
+  const abortRef = useRef<AbortController | null>(null);
 
-    try {
-      // 1) Setup random event (now with optional userPrompt)
-      const setupRes = await fetch(
-        `http://localhost:3000/estates/${estateName}/events/setup`,
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ 
-            eventId: userPrompt, // For debugging
-            characterIds: [],
-            enemyIds: [],
-          }),
-          signal,
-        }
-      );
-      if (!setupRes.ok) {
-        throw new Error(`Setup route failed: ${setupRes.status}`);
-      }
-      const setupData: SetupResponse = await setupRes.json();
-      if (!setupData.success) {
-        throw new Error('Setup returned success=false');
-      }
-
-      console.log('setupData:', setupData);
-      setChosenCharacterIds(setupData.chosenCharacterIds);
-
-      // Transition to deck phase AFTER fetching setup data
-      // (This transition now happens from handleLogProceed, not directly in useEffect)
-      // setPhase('deck'); // This is handled by handleLogProceed
-
-      // 2) Story route
-      const storyRes = await fetch(
-        `http://localhost:3000/estates/${estateName}/events/story`,
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            event: setupData.event,
-            chosenCharacterIds: setupData.chosenCharacterIds,
-            locations: setupData.locations,
-            npcIds: setupData.npcs,
-            enemyIds: setupData.enemies,
-            bystanders: setupData.bystanders,
-            keywords: setupData.keywords,
-            context: "",
-            description: userPrompt
-          }),
-          signal,
-        }
-      );
-      if (!storyRes.ok) {
-        throw new Error(`Story route failed: ${storyRes.status}`);
-      }
-      const storyData: StoryResponse = await storyRes.json();
-      if (!storyData.success) {
-        throw new Error('Story route returned success=false');
-      }
-
-      setStoryTitle(storyData.story.title);
-      setStoryBody(storyData.story.body);
-
-      // 3) Consequences route
-      const consequenceRes = await fetch(
-        `http://localhost:3000/estates/${estateName}/events/consequences`,
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            story: storyData.story.body,
-            chosenCharacterIds: setupData.chosenCharacterIds,
-          }),
-          signal,
-        }
-      );
-      
-      if (!consequenceRes.ok) {
-        throw new Error(`Consequences route failed: ${consequenceRes.status}`);
-      }
-      
-      const consequenceData: ConsequenceResponse = await consequenceRes.json();
-      if (!consequenceData.success) {
-        throw new Error('Consequences route returned success=false');
-      }
-      
-      setConsequenceDisplay(consequenceData.display.characters);
-
-    } catch (err: any) {
-      if (signal.aborted) return;
-      console.error('Error in fetchStoryFlow:', err);
-      setError(err.message);
-      // If an error occurs, maybe reset phase or stay on logInput
-      setPhase('input'); // Allow user to try again
-    }
-  }, [estateName]);
-  
   useEffect(() => {
-    // We can potentially add some pre-loading logic here if needed,
-    // but the main data fetch is now user-triggered.
+    return () => abortRef.current?.abort();
   }, []);
 
-  const handleShuffleComplete = React.useCallback(() => {
-    console.log('Deck shuffle complete!');
-    setPhase('deal');
-  }, [setPhase]);
+  const fetchStoryFlow = React.useCallback(
+    async (userPrompt: string | null) => {
+      abortRef.current?.abort(); // drop any previous attempt
+      const controller = new AbortController();
+      abortRef.current = controller;
+      const { signal } = controller;
 
-   // Handler for when the user proceeds from the Activity Log
-  const handleLogProceed = React.useCallback(async (logContent: string | null) => {
-    setPhase('loading'); // Show loading screen while fetching
-    await fetchStoryFlow(logContent);
-  }, [fetchStoryFlow]);
+      setError(null);
+      setPhase('deck');
+
+      try {
+        // 1) Setup: pick the event, the cast and the scenery.
+        //
+        // eventId stays null here. It names a *specific* event to run, and a
+        // non-null value also tells the server this pull is "directed", which
+        // suppresses any queued follow-up event. The player's free text is
+        // narrative colour, so it belongs on the story call as `description`.
+        const setup = await setupStoryEvent(estateName, { eventId: null }, signal);
+
+        setChosenCharacterIds(setup.chosenCharacterIds);
+
+        // 2) Story
+        const story = await generateStory(
+          estateName,
+          {
+            event: setup.event,
+            chosenCharacterIds: setup.chosenCharacterIds,
+            locations: setup.locations,
+            npcIds: setup.npcs,
+            enemyIds: setup.enemies,
+            bystanders: setup.bystanders,
+            keywords: setup.keywords,
+            context: '',
+            description: userPrompt,
+          },
+          signal
+        );
+
+        setStoryTitle(story.title);
+        setStoryBody(story.body);
+
+        // 3) Consequences (also persists them server-side)
+        const characters = await generateConsequences(
+          estateName,
+          {
+            story: story.body,
+            chosenCharacterIds: setup.chosenCharacterIds,
+          },
+          signal
+        );
+
+        setConsequenceDisplay(characters);
+      } catch (err) {
+        if (isAbortError(err)) return; // we cancelled on purpose
+        console.error('Error in fetchStoryFlow:', err);
+        setError(err instanceof Error ? err.message : 'Something went wrong.');
+        setPhase('input');
+      }
+    },
+    [estateName]
+  );
+
+  const handleShuffleComplete = React.useCallback(() => {
+    setPhase('deal');
+  }, []);
+
+  // Handler for when the user proceeds from the Activity Log
+  const handleLogProceed = React.useCallback(
+    async (logContent: string | null) => {
+      setPhase('loading'); // Show loading screen while fetching
+      await fetchStoryFlow(logContent);
+    },
+    [fetchStoryFlow]
+  );
+
+  const handleRetry = React.useCallback(() => {
+    setError(null);
+    setPhase('input');
+  }, []);
 
   // Hover Handlers
   const handleCardHover = React.useCallback((id: string) => {
@@ -202,6 +145,7 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
     return (
       <div className="story-modal-content">
         <p className="error">{error}</p>
+        <button onClick={handleRetry}>Try again</button>
         <button onClick={onClose}>Close</button>
       </div>
     );
@@ -209,10 +153,7 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
 
   // If we're still waiting for the setup route to finish
   if (phase === 'loading') {
-    return (
-      <div className="story-modal-content">
-      </div>
-    );
+    return <div className="story-modal-content" />;
   }
 
   // ---- ACTUAL RENDER ----
@@ -221,24 +162,17 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
 
   return (
     <div className="story-modal-content">
-      {phase === 'input' && (
-        <ActivityLog onProceed={handleLogProceed} />
-      )}
-      
+      {phase === 'input' && <ActivityLog onProceed={handleLogProceed} />}
+
       {['deck', 'deal', 'text'].includes(phase) && (
-        <DeckComponent
-          phase={phase} 
-          onShuffleComplete={handleShuffleComplete}
-        />
+        <DeckComponent phase={phase} onShuffleComplete={handleShuffleComplete} />
       )}
 
       {['deal', 'text'].includes(phase) && (
         <>
           {chosenCharacterIds.map((id, i) => {
             // Find the consequences for this specific character
-            const charConsequences = consequenceDisplay.find(
-              (c) => c.identifier === id
-            );
+            const charConsequences = consequenceDisplay.find((c) => c.identifier === id);
             return (
               <CardComponent
                 key={id}
@@ -247,15 +181,14 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
                 // stagger by 1s
                 dealDelay={i * 1000}
                 onDealComplete={() => {
-                  console.log(`Card ${id} finished dealing.`);
-                  // If it’s the last card, we can move on to text phase,
-                  // but only if we’re still in 'deal' phase:
+                  // If it's the last card, we can move on to text phase,
+                  // but only if we're still in 'deal' phase.
                   if (i === chosenCharacterIds.length - 1 && phase === 'deal') {
                     setPhase('text');
                   }
                 }}
                 // Pass consequences only when phase is 'text'
-                consequences={phase === 'text' ? charConsequences : undefined} 
+                consequences={phase === 'text' ? charConsequences : undefined}
                 hoveredCharacterId={hoveredCharacterId}
                 onCardHover={handleCardHover}
                 onCardLeave={handleCardLeave}
@@ -266,9 +199,9 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
         </>
       )}
 
-      {/* 
+      {/*
         3) The STORY TEXT:
-           Shown if phase === 'text' (or you could do >= 'text' if 
+           Shown if phase === 'text' (or you could do >= 'text' if
            you want it visible once dealing starts, etc.)
       */}
       {phase === 'text' && storyTitle && storyBody && (
@@ -276,24 +209,23 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
           <h1 className="story-title">{storyTitle}</h1>
           <div className="story-body">
             {storyBody.split('\n').map((line, idx) => (
-              <p key={idx}>
-                {parseFormattedText(line)}
-              </p>
+              <p key={idx}>{parseFormattedText(line)}</p>
             ))}
           </div>
 
           {/* Buttons are inside the same container */}
           <div className="story-buttons">
             <ImageButton
-              textureUrl="src/assets/ui/modals/storymodal/return.png"
+              textureUrl={returnButtonSrc}
               width={192}
               height={192}
-              onClick={onClose} 
+              onClick={onClose}
             />
             <ImageButton
-              textureUrl="src/assets/ui/modals/storymodal/continue.png"
+              textureUrl={continueButtonSrc}
               width={192}
               height={192}
+              // TODO: this button still has no handler.
             />
           </div>
         </div>
