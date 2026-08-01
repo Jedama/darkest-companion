@@ -1,0 +1,67 @@
+{
+  "identifier": "resonant",
+  "title": "Resonant",
+  "name": "Isa",
+  "description": "The Resonant is a delusional bird-folk mystic who believes the world is a made thing, arranged in every detail by something above it, and that nobody inside it has ever chosen anything. She has seen the Design, and tries anything to get her blissful ignorance back.",
+  "history": "She was ordinary once, and then a pact showed her the shape of the world: that it was designed, that it runs to someone's preference, and that everything in it including herself is a figure being moved. The knowing cannot be undone. She has sought amnestics, restraints, and oblivion since, and found that none of them reach it.",
+  "summary": "A detached and unsettling Resonant, a mystic who believes the world is a design and everyone in it is being moved.",
+  "race": "Bird-folk",
+  "gender": "Female",
+  "religion": "The Design",
+  "zodiac": "Aquarius",
+  "traits": [
+    "Detached",
+    "Perceptive",
+    "Weary",
+    "Contemptuous",
+    "Envious"
+  ],
+  "stats": {
+    "strength": 3,
+    "agility": 5,
+    "intelligence": 9,
+    "authority": 6,
+    "sociability": 3
+  },
+  "equipment": [
+    "Ceremonial dagger"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Slight",
+    "skinTone": "Cream plumage",
+    "hairColor": "None",
+    "hairStyle": "None",
+    "features": "A long pale beak and a fan of straw-coloured crest feathers"
+  },
+  "clothing": {
+    "head": "Small gold mask covering one eye",
+    "body": "Layered ceremonial robe in green, gold and deep red",
+    "legs": "Long robes over bare talons",
+    "accessories": "Gold trim, banded collar"
+  },
+  "combat": {
+    "role": "Caster",
+    "strengths": [
+      "Calming others",
+      "High damage",
+      "No heart attacks"
+    ],
+    "weaknesses": [
+      "Frail",
+      "Must be stressed to be effective"
+    ]
+  },
+  "magic": "Prescience, and power drawn from the pact that showed her the Design",
+  "notes": [
+    "Often lets a snapped beak or a flat stare do the answering instead of words",
+    "Leads meditation for anyone who will sit for it, and is unexpectedly good at it",
+    "Says 'ignorance is bliss' constantly, and means it as envy rather than a maxim",
+    "Unlike the other heroes, the Resonant may acknowledge the narration itself, and question who is narrating and to whom"
+  ],
+  "tags": [
+    "Backline", "Frail", "Stanceshifter", "Cycler", "Guarder", "Riposter",
+    "Healer", "StressHealer", "SelfStress", "Debuffer", "Unstable", "Eldritch",
+    "Scholarly", "Animal"
+  ]
+}

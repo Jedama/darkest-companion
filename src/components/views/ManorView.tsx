@@ -8,6 +8,7 @@ import { useModalContext } from '../../modals/ModalProvider';
 import { StoryModal } from '../../modals/StoryModal/StoryModal';
 import { RecruitModal } from '../../modals/RecruitModal/RecruitModal';
 import { ImageButton } from '../ui/buttons/ImageButton.tsx';
+import { CalendarDial } from '../calendar/CalendarDial.tsx';
 
 import townEventButton from '../../assets/ui/views/manor/button_event.png';
 import recruitButton from '../../assets/ui/views/manor/button_recruit.png';
@@ -24,7 +25,7 @@ interface ManorViewProps {
  * Adds inertia-based scrolling to a container that would normally scroll with wheel events.
  */
 export function useInertiaScroll(
-  containerRef: React.RefObject<HTMLDivElement>,
+  containerRef: React.RefObject<HTMLDivElement | null>,
   {
     friction = 0.99,
     velocityThreshold = 0.1,
@@ -90,7 +91,8 @@ export function useInertiaScroll(
 export function ManorView({
   characters,
   onCharacterSelect,
-  selectedCharacterId,
+  // selectedCharacterId is still passed by ViewPanel and kept on the props
+  // interface — destructure it again when the selected-portrait styling lands.
 }: ManorViewProps) {
   const { currentEstate } = useEstateContext();
   const estateName = currentEstate?.name || 'no-estate-selected';
@@ -222,6 +224,10 @@ export function ManorView({
           onClick={handleTownEventClick}
         />
       </div>
+
+      {/* Rendered here so it lives and dies with the manor view,
+          but portals itself into #overlay-root to paint above everything. */}
+      <CalendarDial />
     </div>
   );
 }

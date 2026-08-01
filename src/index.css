@@ -19,3 +19,13 @@
     width: 100%;
     height: 100%;
   }
+
+  /* Overlay layer: sits above the whole app (#root) but below modals
+     (#modal-root, z-index 9999). Transparent to the mouse by default —
+     each child opts in with its own pointer-events. */
+  #overlay-root {
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+    pointer-events: none;
+  }

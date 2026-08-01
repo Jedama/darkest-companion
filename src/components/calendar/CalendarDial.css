@@ -1,0 +1,118 @@
+/* src/components/calendar/CalendarDial.css */
+
+.calendar-overlay {
+  /* ---- Tuning knobs. Change these, nothing else. ----
+     Note: the three CEREMONY durations are injected from TIMING in
+     CalendarDial.tsx, because the JS timers must match them exactly.
+     Change those in the TSX, not here. */
+  --cal-size: 13vw;          /* resting size of the whole 915x915 square */
+  --cal-right: 1vw;          /* distance from the right edge */
+  --cal-bottom: 4.5vh;       /* distance from the bottom edge */
+
+  --cal-hand-duration: 900ms;   /* everyday day-advance sweep */
+  --cal-hand-easing: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --cal-hover-scale: 1.04;
+  --cal-hover-duration: 200ms;
+  --cal-glow: drop-shadow(0 0 8px rgba(255, 226, 170, 0.85));
+
+  --cal-scrim-color: rgba(0, 0, 0, 0.7);
+  --cal-expand-easing: cubic-bezier(0.5, 0, 0.2, 1);  /* accelerate, decelerate */
+  --cal-return-easing: cubic-bezier(0.4, 0, 0.3, 1);
+  --cal-turn-easing: cubic-bezier(0.5, 0, 0.2, 1);
+
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* ---- Scrim ------------------------------------------------------- */
+
+.calendar-scrim {
+  position: absolute;
+  inset: 0;
+  background: var(--cal-scrim-color);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--cal-expand-duration) ease;
+}
+
+.calendar-overlay.is-lit .calendar-scrim {
+  opacity: 1;
+  /* Swallow clicks aimed at the scene while the ceremony runs. */
+  pointer-events: auto;
+}
+
+.calendar-overlay.phase-returning .calendar-scrim {
+  transition-duration: var(--cal-return-duration);
+}
+
+/* ---- Dial -------------------------------------------------------- */
+
+.calendar-dial {
+  position: absolute;
+  right: var(--cal-right);
+  bottom: var(--cal-bottom);
+  width: var(--cal-size);
+  height: var(--cal-size);
+
+  /* Positioning shell only — never transformed, so it stays a reliable
+     reference for measuring the travel to screen centre. */
+  pointer-events: none;
+  overflow: visible;
+}
+
+/*
+ * The stage carries the transform and filter for the WHOLE assembly, so the
+ * dial and both hands grow and glow as one silhouette rather than drifting
+ * apart. Hover scale and the ceremony transform both live here.
+ */
+.calendar-stage {
+  position: absolute;
+  inset: 0;
+  pointer-events: auto;
+  transform-origin: 50% 50%;
+  transition:
+    transform var(--cal-hover-duration) ease,
+    filter var(--cal-hover-duration) ease;
+}
+
+.calendar-stage.is-hot {
+  transform: scale(var(--cal-hover-scale));
+  filter: var(--cal-glow);
+  cursor: pointer;
+}
+
+/* Travelling out to centre, and coming home again. */
+.calendar-overlay.phase-expanding .calendar-stage {
+  transition: transform var(--cal-expand-duration) var(--cal-expand-easing);
+}
+
+.calendar-overlay.phase-returning .calendar-stage {
+  transition: transform var(--cal-return-duration) var(--cal-return-easing);
+}
+
+/* ---- Layers ------------------------------------------------------ */
+
+.calendar-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.calendar-hand {
+  /* All three assets share an identical canvas and a centred pivot,
+     so one shared origin is correct for both hands. */
+  transform-origin: 50% 50%;
+  transition: transform var(--cal-hand-duration) var(--cal-hand-easing);
+  will-change: transform;
+}
+
+/* The month-advance sweep is slower than an everyday day tick, because the
+   day hand has most of a full lap to unwind. */
+.calendar-overlay.phase-turning .calendar-hand {
+  transition: transform var(--cal-turn-duration) var(--cal-turn-easing);
+}

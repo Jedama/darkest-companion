@@ -5,7 +5,7 @@
     "description": "A vast and varied land of distinct nations and uneasy alliances. From the isolated traditions of the Sunward Isles to the militarized, industrial expanse of Ostvengr, civilization asserts itself through commerce and conquest. The Levantine Empire and the City of a Thousand Temples stand as monuments to human ambition, maintaining order and trade across the continents. A kingdom stands at its center, and on its rugged coastline, a neglected Ancestral Estate sits apart from these geopolitical machinations, harboring secrets that will soon draw eyes away from the concerns of the wider world.",
     "summary": "world (Known World) -- A vast land of nations like Ostvengr and the Sunward Isles, functioning through trade and war while ancient secrets linger in the margins.",
     "parent": null,
-    "children": ["kingdom", "sunward_isles", "levantine_empire", "city_of_thousand_temples", "ostvengr", "pelagia"]
+    "children": ["kingdom", "sunward_isles", "levantine_empire", "great_forks", "ostvengr", "pelagia", "haenara"]
   },
   {
     "identifier": "pelagia",
@@ -53,6 +53,67 @@
     "description": "The rural coasts and outer isles beyond the cities' reach—fishing villages, salt marshes, and hillside shrines to gods no magistrate would recognize. Fear rules here the way weather does: every bad catch and drowned son births fresh accusations, and the accused are weighted and walked into the shallows. The sea keeps what it is given, the villagers insist. On some shores, they whisper, it gives things back.",
     "summary": "pelagia__weeping_shores (The Weeping Shores) -- Pelagia's rural coasts and hill-shrined outer isles, ruled by recurring witch-panics in which the accused are drowned as offerings.",
     "parent": "pelagia",
+    "children": []
+  },
+  {
+    "identifier": "haenara",
+    "title": "Haenara",
+    "description": "A great island far to the east, mountainous and terraced, where an emperor reigns and warlords rule. The imperial court holds the mandate, the ceremonies, and the capital; the warlords hold the passes, the fields, and the men, and settle their disputes without troubling the throne. Haenara's craftsmen are its pride: clockwork, gunpowder, medicine, and star-charts pass west along the trade routes and fetch absurd prices from people who cannot make them. The Sunward Isles lie scattered off its coast.",
+    "summary": "haenara (Haenara) -- A mountainous island empire in the far east, famed for its craftsmen, where the emperor reigns and the warlords rule.",
+    "parent": "world",
+    "children": [
+      "haenara__haeseong",
+      "haenara__cheolseong"
+    ]
+  },
+  {
+    "identifier": "haenara__haeseong",
+    "title": "Haeseong",
+    "description": "The imperial capital, a walled city of tiled roofs stacked up a mountainside, with the palace at the top and the workshops and markets spreading below. Raiders came up from the harbour some years ago and cut their way to the palace before anyone understood they were not merchants; the city buried its dead, replaced its guard, and went on trading. A warlord holds it now, and the emperor's ceremonies continue much as before.",
+    "summary": "haenara__haeseong (Haeseong) -- The walled imperial capital of Haenara, sacked once and still standing, held now by a warlord.",
+    "parent": "haenara",
+    "children": ["haenara__bitgung"]
+  },
+  {
+    "identifier": "haenara__bitgung",
+    "title": "Bitgung",
+    "description": "The palace at the height of the capital, a compound of painted halls and courtyards behind three gates, where the emperor's court kept its records, its treasures, and its guardian relic. Raiders reached the innermost hall and killed everyone in it, and the relic went out through the harbour that same night. The halls were scrubbed and repainted for the next emperor, and the empty stand where the relic sat has never been filled.",
+    "summary": "haenara__bitgung (Bitgung) -- The imperial palace at the top of the capital, where the court was slaughtered and Haenara's guardian relic was stolen.",
+    "parent": "haenara_haeseong",
+    "children": ["haenara__byeoltap"]
+  },
+  {
+    "identifier": "haenara__byeoltap",
+    "title": "Byeoltap",
+    "description": "A tower of fitted stone on the ridge above the palace, half observatory and half workshop, where the court's technicians ground lenses, cast gears, mixed powders, and kept the almanacs that told the empire when to plant and when to fight. Its instruments are cleaned daily by men who no longer know what half of them measure. The apprentices' benches at the base of the tower are still marked with their owners' names.",
+    "summary": "haenara__byeoltap (Byeoltap) -- The star-tower above the capital, observatory and workshop both, where Haenara's technicians kept the almanacs.",
+    "parent": "haenara_bitgung",
+    "children": []
+  },
+  {
+    "identifier": "haenara__cheolseong",
+    "title": "Cheolseong",
+    "description": "A warlord's fortress inland, black-walled and built into a pass, holding more soldiers than the capital and answering to the throne only in writing. Its lord takes in orphans from the villages he burns and raises them as his own officers, which has produced both the finest tacticians in Haenara and a great many quiet murders among them. The victory feasts here are famous, and are held in a hall with the doors barred from outside.",
+    "summary": "haenara__cheolseong (Cheolseong) -- A warlord's black-walled fortress in the mountain passes, where captured orphans are raised into officers.",
+    "parent": "haenara",
+    "children": []
+  },
+  {
+    "identifier": "great_forks",
+    "title": "Great Forks",
+    "description": "A city-state where three rivers meet, holding the trade between the Kingdom and the Sultanate and taxing all of it. Its fields and orchards run for a day's ride in every direction and feed a population far larger than they should, the difference made up by barge. Great Forks has no state faith and suppresses none, which has made it a refuge for creeds beaten out of everywhere else, and a byword elsewhere for laxity.",
+    "summary": "great_forks (Great Forks) -- A wealthy river city-state on the trade road between the Kingdom and the Sultanate, which tolerates every faith and enforces none.",
+    "parent": "world",
+    "children": [
+      "great_forks__thousand_temples"
+    ]
+  },
+  {
+    "identifier": "great_forks__thousand_temples",
+    "title": "The Thousand Temples",
+    "description": "The heart of the city, where every faith that ever came upriver built a house and few have been pulled down since. Shrines stand shoulder to shoulder along the water, grand ones with priesthoods and painted domes beside single rooms with one attendant and a locked door. The festival calendar runs past three hundred days a year and several fall together, so the noise rarely stops; children of the quarter learn early which processions pay best to join.",
+    "summary": "great_forks__thousand_temples (The Thousand Temples) -- The temple quarter of Great Forks, packed with shrines of every faith and in festival most days of the year.",
+    "parent": "great_forks",
     "children": []
   }
 ]

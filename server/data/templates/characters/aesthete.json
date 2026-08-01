@@ -1,0 +1,70 @@
+{
+  "identifier": "aesthete",
+  "title": "Aesthete",
+  "name": "Oliver",
+  "description": "The Aesthete is a fat, balding, magnificently dressed churchman who believes himself the most beautiful thing in any room he enters. He is delighted by nearly everything—a good meal, a well-groomed companion, a bird on a branch—and generous to anyone he judges worthy of it. He does not distinguish between admiring a lovely thing and owning one, and has never been given a reason to.",
+  "history": "Born to wealth and raised into more of it, the Aesthete holds a senator's seat and a bishop's office and has spent both on his collection: paintings, jewels, and bird-people. He came to the Estate on hearing what the Ancestor had gathered there and what might still be buried under it. His feathery entourage arrived with him, and wait in the Hamlet in chains and livery while he is away.",
+  "summary": "A jovial and insufferable Aesthete of the Light, a senator-bishop who collects beautiful things and beautiful people alike.",
+  "race": "Human",
+  "gender": "Male",
+  "religion": "The Light",
+  "zodiac": "Taurus",
+  "traits": [
+    "Vain",
+    "Jovial",
+    "Generous",
+    "Possessive",
+    "Snobbish"
+  ],
+  "stats": {
+    "strength": 4,
+    "agility": 2,
+    "intelligence": 7,
+    "authority": 8,
+    "sociability": 8
+  },
+  "equipment": [
+    "Tome",
+    "Staff",
+    "Hand mirror"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Corpulent",
+    "skinTone": "Fair",
+    "hairColor": "Auburn",
+    "hairStyle": "Balding, the remainder grown long and tied back",
+    "features": "A large curled moustache"
+  },
+  "clothing": {
+    "head": "None",
+    "body": "Purple and gold vestments beneath an olive mantle",
+    "legs": "Long robes",
+    "accessories": "Jewelled belt clasp, rings, gold chains"
+  },
+  "combat": {
+    "role": "Support",
+    "strengths": [
+      "Light magic",
+      "Healing",
+      "Guarding"
+    ],
+    "weaknesses": [
+      "Ponderous",
+      "Fainthearted"
+    ]
+  },
+  "magic": "Light magic",
+  "notes": [
+    "Speaks in florid, exclamatory flourishes, and calls anyone he approves of 'my dear'",
+    "Appraises everyone he meets on looks and grooming within moments, and treats them accordingly ever after",
+    "Collects beautiful things and beautiful people alike",
+    "Fusses at his own appearance constantly, and takes any wound to the face as a personal catastrophe",
+    "Adores birds above all other creatures and will not tolerate harm to one, whichever side it is fighting on"
+  ],
+  "tags": [
+    "Flexible", "Healer", "StressHealer", "SelfSufficient", "Guarder", "Riposter",
+    "Buffer", "Debuffer", "Disruptor", "Cleanser", "Religious", "Noble",
+    "Scholarly", "Immoral"
+  ]
+}

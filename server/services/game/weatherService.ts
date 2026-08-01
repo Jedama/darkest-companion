@@ -53,19 +53,6 @@ export function updateWeatherForBeat(
   zodiac: ZodiacSeason
 ): { current: Weather; previous: Weather } {
   
-  function sampleFromDistribution(mean: number, variance: number): number {
-    // Box-Muller transform for normal distribution
-    const u1 = Math.random();
-    const u2 = Math.random();
-    const z = Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
-    
-    const stdDev = Math.sqrt(variance);
-    const value = mean + z * stdDev;
-    
-    // Clamp to valid range
-    return Math.max(0.5, Math.min(9.5, value));
-  }
-  
   function driftWithMomentum(
     currentValue: number, 
     previousValue: number,

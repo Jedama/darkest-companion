@@ -1,0 +1,67 @@
+{
+  "identifier": "eagle",
+  "title": "Arbiter",
+  "name": "Garrus",
+  "description": "The Arbiter is a bird-folk soldier in a decorated coat, career military, and better company than any of that suggests. He buys the drinks, tells stories about the squad he lost, and listens to anyone who needs it. He also knows exactly what the Coven came to this Estate for, and intends to be standing between them and it.",
+  "history": "He was raised from hatching in the Coven, a militia of bird-folk, and served as one of its line soldiers, until a human woman named Brynn gave him reason to start asking what he was fighting for. What he learned was that the Coven want the thing beneath the Estate. He and his squad defected; the Coven hunted them down, and Brynn and most of the others died for it. A stranger arrived just in time to save the Arbiter and one squadmate, but she did not follow him to the Hamlet.",
+  "summary": "A weathered and companionable Arbiter, a defector from a bird-folk militia, come to keep his old masters from what lies beneath the Estate.",
+  "race": "Bird-folk",
+  "gender": "Male",
+  "religion": "None",
+  "zodiac": "Scorpio",
+  "traits": [
+    "Disciplined",
+    "Convivial",
+    "Loyal",
+    "Steady",
+    "Guilt-ridden"
+  ],
+  "stats": {
+    "strength": 6,
+    "agility": 7,
+    "intelligence": 6,
+    "authority": 7,
+    "sociability": 8
+  },
+  "equipment": [
+    "Repeater rifle",
+    "Pistol",
+    "Blade"
+  ],
+  "appearance": {
+    "height": "Tall",
+    "build": "Broad",
+    "skinTone": "White head feathers over dark brown plumage",
+    "hairColor": "None",
+    "hairStyle": "None",
+    "features": "A hooked yellow beak with an old scar across it"
+  },
+  "clothing": {
+    "head": "None",
+    "body": "Dark blue military coat with gold epaulettes",
+    "legs": "Dark trousers over bare talons",
+    "accessories": "Bandolier, weapon straps, rifle sling"
+  },
+  "combat": {
+    "role": "Marksman",
+    "strengths": [
+      "Marksmanship",
+      "Close combat",
+      "Finishing the wounded",
+      "Discipline"
+    ],
+    "weaknesses": []
+  },
+  "magic": "None",
+  "notes": [
+    "Speaks in military vocabulary",
+    "Is a fantastic storyteller, and happily tells stories of his old friends",
+    "Buys the drinks, proposes wagers, and will listen to anyone's troubles without being asked twice",
+    "Named his rifle and pistol 'Romeo' and 'Juliet'"
+  ],
+  "tags": [
+    "Flexible", "Cycler", "MarkSynergy", "HeavyHitter", "Crit", "ArmorPiercer",
+    "Executor", "Stunner", "Disruptor", "Guarder", "Riposter", "HumanHunter",
+    "Warrior", "Animal"
+  ]
+}

@@ -71,3 +71,24 @@ export async function deleteEstate(estateName: string): Promise<void> {
     throw new ApiError(500, 'Failed to connect to server');
   }
 }
+/**
+ * Triggers the month-end narrative review.
+ *
+ * The server increments estate time and rewrites narratives/logs as part of
+ * applyReview, so callers should refetch the estate once this resolves.
+ * Runs one or more LLM calls, so it can take a long time.
+ */
+export async function runReview(estateName: string): Promise<unknown> {
+  try {
+    const response = await fetch(`${API_URL}/estates/${estateName}/review`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    return handleResponse<unknown>(response);
+  } catch (error) {
+    if (error instanceof ApiError) throw error;
+    throw new ApiError(500, 'Failed to connect to server');
+  }
+}

@@ -1,0 +1,277 @@
+[
+  {
+    "identifier": "p_crow",
+    "title": "Coven Primarch",
+    "faction": ["Coven"],
+    "description": "The Primarch commands a Coven band, a crow in an officer's coat who fights as a duellist and speaks as a preacher. He carries a pistol he barely needs, and prefers to work on the mind—naming aloud the thing a soldier has spent years not thinking about, and letting them carry it into the next round. Where a Primarch stands, the Coven do not break.",
+    "history": "The Primarchs are the Coven's officer caste, and they built the militia's present shape out of scattered bands that had spent a generation losing. Each is initiated on promotion into what the first of them traded, and to whom, and none has ever told the ranks below. They tell their people instead that the guns, the drill, and the doctors are the fruit of their own labour.",
+    "summary": "A Coven band commander, a crow who fights with pistol and rhetoric and unearths the private guilt of everyone facing him.",
+    "race": "Bird-folk",
+    "gender": "Male",
+    "religion": "None",
+    "traits": [
+      "Commanding",
+      "Deceitful",
+      "Perceptive",
+      "Composed"
+    ],
+    "stats": {
+      "strength": 5,
+      "agility": 7,
+      "intelligence": 9,
+      "authority": 10,
+      "sociability": 7
+    },
+    "equipment": [
+      "Ornamented pistol",
+      "Curved dagger"
+    ],
+    "appearance": {
+      "height": "Tall",
+      "build": "Lean",
+      "skinTone": "Slate-blue plumage",
+      "hairColor": "None",
+      "hairStyle": "None",
+      "features": "A long straight beak, and beaded cords braided into the crest feathers"
+    },
+    "clothing": {
+      "head": "Beaded headband",
+      "body": "Dark officer's coat with a mustard sash",
+      "legs": "Long dark skirted coat-tails",
+      "accessories": "Bandolier, trophy feathers, holstered pistol"
+    },
+    "combat": {
+      "role": "Commander",
+      "strengths": [
+        "Sowing doubt",
+        "Sapping morale",
+        "Accurate pistol work"
+      ],
+      "weaknesses": [
+        "Little physical strength",
+        "Depends on his band holding"
+      ]
+    },
+    "magic": "Whispers that surface what a listener most wants buried"
+  },
+  {
+    "identifier": "eagle",
+    "title": "Coven Arbiter",
+    "faction": ["Coven"],
+    "description": "The Arbiter is the Coven's line soldier, an eagle in a long coat who plants herself in front of whoever the band cannot afford to lose. She fires in disciplined bursts, closes without hesitation when the range collapses, and puts herself in the way of anything aimed at her people. She is the reason a Coven band does not scatter when the shooting starts.",
+    "history": "Arbiters are drawn from those who did the longest time in a household or a menagerie and came out of it able to take orders. Within the Coven they are the rank most likely to question an order and the most likely to obey it anyway. A good many of them carry doubts about what the militia has become, and carry them quietly.",
+    "summary": "A disciplined frontline soldier who guards her bandmates and lays down accurate suppressing fire.",
+    "race": "Bird-folk",
+    "gender": "Female",
+    "religion": "None",
+    "traits": [
+      "Steadfast",
+      "Disciplined",
+      "Protective",
+      "Doubting"
+    ],
+    "stats": {
+      "strength": 7,
+      "agility": 6,
+      "intelligence": 6,
+      "authority": 6,
+      "sociability": 4
+    },
+    "equipment": [
+      "Rifle",
+      "Bayonet"
+    ],
+    "appearance": {
+      "height": "Tall",
+      "build": "Broad",
+      "skinTone": "White head and dark body plumage",
+      "hairColor": "None",
+      "hairStyle": "None",
+      "features": "A hooked yellow beak and a heavy brow"
+    },
+    "clothing": {
+      "head": "None",
+      "body": "Long dark coat with a pale sash",
+      "legs": "Skirted coat over bare talons",
+      "accessories": "Cartridge belt, shoulder pauldron"
+    },
+    "combat": {
+      "role": "Frontline soldier",
+      "strengths": [
+        "Guarding allies",
+        "Sustained fire",
+        "Close quarters"
+      ],
+      "weaknesses": [
+        "Slow to reposition",
+        "Draws fire by design"
+      ]
+    },
+    "magic": "None"
+  },
+  {
+    "identifier": "owlman",
+    "title": "Coven Invigilator",
+    "faction": ["Coven"],
+    "description": "The Invigilator is the Coven's marksman and its executioner, an owl who works from the back with a heavy long-barrelled pistol that punches through plate. He is unnervingly quiet in a fight—no calls, no shouting, only the shot—and he selects his target early and does not change it. Whoever wounds one of his own gets the next round.",
+    "history": "Invigilators are recruited from among the best shots and kept apart from the rest of the band, which suits their temperament. They train relentlessly and speak little, and the Coven's other ranks treat them with a wariness that is not quite respect. They are said never to be found afterward, whatever the battle's outcome.",
+    "summary": "A silent marksman who fires armour-piercing shots from the rear and reliably avenges wounded allies.",
+    "race": "Bird-folk",
+    "gender": "Male",
+    "religion": "None",
+    "traits": [
+      "Silent",
+      "Patient",
+      "Vengeful",
+      "Elusive"
+    ],
+    "stats": {
+      "strength": 4,
+      "agility": 8,
+      "intelligence": 7,
+      "authority": 3,
+      "sociability": 1
+    },
+    "equipment": [
+      "Long-barrelled pistol",
+      "Light pistol"
+    ],
+    "appearance": {
+      "height": "Average",
+      "build": "Slight",
+      "skinTone": "Pale mottled plumage",
+      "hairColor": "None",
+      "hairStyle": "None",
+      "features": "A flat pale facial disc and enormous dark eyes"
+    },
+    "clothing": {
+      "head": "None",
+      "body": "Dark fur-collared greatcoat",
+      "legs": "Dark trousers over taloned feet",
+      "accessories": "Crossed leather straps, powder flask"
+    },
+    "combat": {
+      "role": "Marksman",
+      "strengths": [
+        "Armour-piercing shots",
+        "Retaliation",
+        "Slipping away"
+      ],
+      "weaknesses": [
+        "Fragile",
+        "Helpless up close"
+      ]
+    },
+    "magic": "None"
+  },
+  {
+    "identifier": "healer",
+    "title": "Coven Naturopath",
+    "faction": ["Coven"],
+    "description": "The Naturopath is the Coven's field physician, a secretary bird with a satchel of glass and a professional's contempt for everyone else's medicine. She keeps her band standing with concoctions that work faster than they have any right to, and clears out the enemy line with vapours that leave men coughing blood. She works with her sleeves rolled and her tone unbothered.",
+    "history": "Naturopaths trained where humans train—in lecture halls and dispensaries, under masters who took them for curiosities and taught them anyway—and then walked out with the knowledge. Their formulae are years ahead of anything sold in the Hamlet. More than one physician in the Kingdom would recognise a face under the feathers, if they were ever close enough to look.",
+    "summary": "A field physician who heals and cures her band efficiently and disperses caustic vapours across the enemy line.",
+    "race": "Bird-folk",
+    "gender": "Female",
+    "religion": "None",
+    "traits": [
+      "Clinical",
+      "Educated",
+      "Condescending",
+      "Unflappable"
+    ],
+    "stats": {
+      "strength": 4,
+      "agility": 7,
+      "intelligence": 9,
+      "authority": 5,
+      "sociability": 5
+    },
+    "equipment": [
+      "Satchel of vials",
+      "Throwing flasks"
+    ],
+    "appearance": {
+      "height": "Tall",
+      "build": "Long-limbed",
+      "skinTone": "Grey plumage with a pale face",
+      "hairColor": "None",
+      "hairStyle": "None",
+      "features": "A crest of long black quills at the back of the head, and orange skin around the eyes"
+    },
+    "clothing": {
+      "head": "None",
+      "body": "Dark buttoned tunic with rolled sleeves",
+      "legs": "Wrapped leggings over long talons",
+      "accessories": "Bandaged forearms, vial harness"
+    },
+    "combat": {
+      "role": "Field physician",
+      "strengths": [
+        "Rapid healing",
+        "Curing her band",
+        "Caustic vapours"
+      ],
+      "weaknesses": [
+        "Poor in a brawl",
+        "Priority target"
+      ]
+    },
+    "magic": "None"
+  },
+  {
+    "identifier": "vultman",
+    "title": "Coven Rogue",
+    "faction": ["Coven"],
+    "description": "The Rogue is the Coven's knifework, a vulture who goes around a shield rather than through it. He shoots past guards to reach whoever is being protected, and finishes anyone the band has already opened up. He grows bolder as the bodies accumulate, and he does not hurry over the ones that have stopped moving.",
+    "history": "Rogues are the least disciplined rank the Coven fields and the one their officers find most useful. They keep to the edges of a formation, take the work nobody volunteers for, and are tolerated rather than trusted. Whatever the militia's stated grievances, the Rogues seem to be in it for the work itself.",
+    "summary": "A vicious skirmisher who bypasses guards to strike protected targets and grows stronger among the dead.",
+    "race": "Bird-folk",
+    "gender": "Male",
+    "religion": "None",
+    "traits": [
+      "Opportunistic",
+      "Vicious",
+      "Undisciplined",
+      "Callous"
+    ],
+    "stats": {
+      "strength": 5,
+      "agility": 8,
+      "intelligence": 4,
+      "authority": 2,
+      "sociability": 3
+    },
+    "equipment": [
+      "Flintlock pistol",
+      "Knife"
+    ],
+    "appearance": {
+      "height": "Average",
+      "build": "Wiry",
+      "skinTone": "Brown plumage with a bare, wrinkled head",
+      "hairColor": "None",
+      "hairStyle": "None",
+      "features": "A ruff of dark feathers at the neck and a naked hooked face"
+    },
+    "clothing": {
+      "head": "None",
+      "body": "Dark jacket over a pale shirt",
+      "legs": "Brown trousers over scaled talons",
+      "accessories": "Wide belt, knife sheath"
+    },
+    "combat": {
+      "role": "Skirmisher",
+      "strengths": [
+        "Bypassing guards",
+        "Finishing the wounded",
+        "Fighting among corpses"
+      ],
+      "weaknesses": [
+        "Fragile",
+        "Ignores orders"
+      ]
+    },
+    "magic": "None"
+  }
+]

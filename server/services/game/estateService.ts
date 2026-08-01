@@ -186,8 +186,9 @@ export function updateBeat(estate: Estate, beatsToAdd: number): void {
 
 export function updateDay(estate: Estate, daysToAdd: number): void {
   estate.time.day += daysToAdd;
-  
-  // Update weather for each beat
+  estate.time.beat = 0;
+
+  // Update weather for each day
   for (let i = 0; i < daysToAdd; i++) {
     const currentZodiac = getZodiacForMonth(estate.time.month);
     estate.weather.previous = estate.weather.current;
@@ -196,4 +197,20 @@ export function updateDay(estate: Estate, daysToAdd: number): void {
       currentZodiac
     );
   }
+}
+
+export function updateMonth(estate: Estate): void {
+  const oldWeather = estate.weather.current;
+
+  estate.time.month += 1;
+  estate.time.day = 0;
+  estate.time.beat = 0;
+
+  // Clean break: a month boundary is a timeskip, so resample fresh
+  // from the new season rather than drifting from the old one.
+  const zodiac = getZodiacForMonth(estate.time.month);
+  estate.weather = {
+    current: generateInitialWeather(zodiac),
+    previous: oldWeather, // so the seasonal shift can be narrated
+  };
 }

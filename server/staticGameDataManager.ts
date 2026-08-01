@@ -27,6 +27,7 @@ import {
   loadDefaultCharacterLocations,
   loadDefaultCharacterWeights,
   loadDefaultRelationships,
+  loadEnemyRelationships,
   loadEventTemplatesForCategory,
   loadNPCTemplatesForCategory,
   loadTownKeywords,
@@ -141,6 +142,8 @@ class StaticGameDataManager {
 
   private defaultRelationships: Record<string, Record<string, CharacterRelationship>> = {};
 
+  private enemyRelationships: Record<string, Record<string, string>> = {};
+
   /* -------------------------------------------------------------------
    *  Character meta (non-template)
    * ------------------------------------------------------------------- */
@@ -224,6 +227,7 @@ class StaticGameDataManager {
       const [
         characterTemplates,
         defaultRelationships,
+        enemyRelationships,
         defaultCharacterLocations,
         characterWeightOverrides,
         locations,
@@ -238,6 +242,7 @@ class StaticGameDataManager {
         // Characters / relationships / meta
         loadCharacterTemplates(),
         loadDefaultRelationships(),
+        loadEnemyRelationships(),
         loadDefaultCharacterLocations(),
         loadDefaultCharacterWeights(),
 
@@ -260,6 +265,7 @@ class StaticGameDataManager {
       // Characters / relationships / meta
       this.characterTemplates = characterTemplates;
       this.defaultRelationships = defaultRelationships;
+      this.enemyRelationships = enemyRelationships;
       this.defaultCharacterLocations = defaultCharacterLocations;
       this.characterWeightOverrides = characterWeightOverrides;
 
@@ -350,6 +356,16 @@ class StaticGameDataManager {
 
   public getDefaultRelationshipsForCharacter(characterId: string): Record<string, CharacterRelationship> {
     return this.defaultRelationships[characterId] || {};
+  }
+
+  public getEnemyRelationships(): Record<string, Record<string, string>> {
+    this.ensureInitialized();
+    return this.enemyRelationships;
+  }
+
+  public getEnemyRelationshipsForCharacter(characterId: string): Record<string, string> {
+    this.ensureInitialized();
+    return this.enemyRelationships[characterId] || {};
   }
 
   /* -------------------------------------------------------------------

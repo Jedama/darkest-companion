@@ -16,6 +16,7 @@ import {
   buildBystandersSection,
   buildCharactersSection,
   buildContentPreferencesSection,
+  buildEnemyRelationshipSection,
   buildEnemiesSection,
   buildEventSection,
   buildKeywordsSection,
@@ -66,7 +67,9 @@ export async function compileStoryPrompt(
 
   // Build sections (order is narrative-driven)
   const charactersSection =
-    buildCharactersSection(involvedCharacters) + buildRelationshipSection(involvedCharacters);
+    buildCharactersSection(involvedCharacters) + 
+    buildRelationshipSection(involvedCharacters) +
+    buildEnemyRelationshipSection(involvedCharacters, enemies);
 
   const fullPrompt =
     narrativeContext +

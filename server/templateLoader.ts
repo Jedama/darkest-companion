@@ -11,6 +11,7 @@ import {
   DEFAULT_CHARACTER_LOCATIONS_FILE,
   DEFAULT_RELATIONSHIPS_FILE,
   DEFAULT_WEIGHTS_FILE,
+  ENEMY_RELATIONSHIPS_FILE,
   ENEMIES_DIR,
   EVENTS_DIR,
   KEYWORDS_DIR,
@@ -135,6 +136,18 @@ export async function loadDefaultRelationships(): Promise<DefaultRelationshipsMa
     return JSON.parse(content) as DefaultRelationshipsMap;
   } catch (error) {
     console.error('Error loading default relationships:', error);
+    throw error;
+  }
+}
+
+export type EnemyRelationshipsMap = Record<string, Record<string, string>>;
+
+export async function loadEnemyRelationships(): Promise<EnemyRelationshipsMap> {
+  try {
+    const content = await readFile(ENEMY_RELATIONSHIPS_FILE, 'utf-8');
+    return JSON.parse(content) as EnemyRelationshipsMap;
+  } catch (error) {
+    console.error('Error loading enemy relationships:', error);
     throw error;
   }
 }

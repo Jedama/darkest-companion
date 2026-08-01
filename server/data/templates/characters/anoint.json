@@ -1,0 +1,67 @@
+{
+  "identifier": "anoint",
+  "title": "Anointed",
+  "name": "Axel",
+  "description": "The Anointed is a bird-man in purple and steel who read the holy texts of the human church and found himself described in them. He preaches it to anyone who will hold still, and treats every companion as a member of his flock, warmly and without a trace of irony. Bird-folk are tolerated rather than embraced, and the churches of the Light will not accept one as their saviour, which he takes as a test rather than an answer.",
+  "history": "He was raised among humans and read their scriptures until he found himself in them, and has spent his life since trying to prove the claim by simply being it. Most of the clergy will not hear it from a bird, though a few have begun to wonder. He had wings once, and lost them fighting a cosmic thing in the dark (the Shambler), whose name he has never learned.",
+  "summary": "A zealous and warm-hearted Anointed, a bird-man who found himself described in the human church's scriptures and has been trying to prove it ever since.",
+  "race": "Bird-folk",
+  "gender": "Male",
+  "religion": "The Light",
+  "zodiac": "Aries",
+  "traits": [
+    "Zealous",
+    "Conciliatory",
+    "Warm",
+    "Grandiose",
+    "Doubting"
+  ],
+  "stats": {
+    "strength": 6,
+    "agility": 5,
+    "intelligence": 6,
+    "authority": 7,
+    "sociability": 6
+  },
+  "equipment": [
+    "Shortsword",
+    "Shield",
+    "Holy symbol"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Lean",
+    "skinTone": "Ashen head feathers over grey-brown plumage",
+    "hairColor": "None",
+    "hairStyle": "None",
+    "features": "A heavy golden beak"
+  },
+  "clothing": {
+    "head": "Purple headband with trailing ends",
+    "body": "Purple robes under steel plate at the shoulders and arms",
+    "legs": "Purple skirted robes over bare talons",
+    "accessories": "None"
+  },
+  "combat": {
+    "role": "Warrior-priest",
+    "strengths": [
+      "Healing",
+      "Guarding allies",
+      "Resilient"
+    ],
+    "weaknesses": [
+      "No ranged attacks"
+    ]
+  },
+  "magic": "Healing bestowed by the Light",
+  "notes": [
+    "Quotes chapter and verse constantly, and can produce a relevant one for any situation: 'Verse XXVI: ...'",
+    "Loud and fervent in public, but surprisingly quiet and gentle among trusted company",
+    "Understands the Coven — the bird-folk freedom militia — and rejects their methods, and will try to talk one down mid-fight",
+    "Lost his wings, and misses flying badly"
+  ],
+  "tags": [
+    "Frontline", "Tank", "Guarder", "Healer", "Buffer", "Marker", "GuardBreaker",
+    "Religious", "Warrior", "Leader", "Just", "Outcast", "Animal"
+  ]
+}

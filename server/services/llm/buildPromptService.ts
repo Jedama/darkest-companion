@@ -370,6 +370,30 @@ export function buildBystandersSection(
   return lines.join('');
 }
 
+export function buildEnemyRelationshipSection(
+  involvedCharacters: Character[],
+  enemies: Enemy[]
+): string {
+  const gameData = StaticGameDataManager.getInstance();
+  const enemyRelationships = gameData.getEnemyRelationships();
+  const lines: string[] = [];
+
+  for (const char of involvedCharacters) {
+    const heroRelMap = enemyRelationships[char.identifier];
+    if (!heroRelMap) continue;
+
+    for (const enemy of enemies) {
+      const relDesc = heroRelMap[enemy.identifier];
+      if (relDesc) {
+        lines.push(`- ${char.name} has met the ${enemy.title} before: ${relDesc}\n`);
+      }
+    }
+  }
+
+  if (lines.length === 0) return '';
+  return `[Enemy Relationships]\n` + lines.join('') + '\n';
+}
+
 export function buildEnemiesSection(enemies: Enemy[]): string {
   if (!enemies.length) return '';
 

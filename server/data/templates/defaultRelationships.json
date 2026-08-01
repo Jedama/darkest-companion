@@ -35,12 +35,12 @@
       "dynamic": "Unwitting Ownership",
       "description": "Thanks to the machinations of her eminent Ancestor, this monster is hers—though she does not know it yet. The papers bearing her Estate's seal will arrive with him."
     },
-      "snake_charmer": {
+    "snake_charmer": {
       "affinity": 3,
       "dynamic": "Diluted Inheritance",
       "description": "The letter that dragged the Heiress from her studies and made her responsible for all of this was apparently not written to her alone. Her Ancestor sent the same appeal to some order of snake handlers in a desert she cannot place on a map, and one of them has now walked in and offered his help. Her claim to this place is supposed to be a matter of blood."
     },
-      "voivode": {
+    "voivode": {
       "affinity": 2,
       "dynamic": "An Uninvited Guest",
       "description": "A foreign lord will arrive claiming the Ancestor as a personal friend, though he appears far too young to have been one. He offers assistance the Heiress did not ask for and speaks fondly of the old chapel that now lies in ruins near the Dower House."
@@ -310,14 +310,14 @@
       "description": "The Voivode will place the Therapist quickly: a mortal in a bargain, doing careful work for a lord of the infernal court. He respects the craft and will attempt to invite him to dinner and eventually to the goblet. A man who understands contracts is a far better prospect than the frightened peasants he usually recruits."
     },
     "heiress": {
-      "affinity": 4,
+      "affinity": 3,
       "dynamic": "His Friend's Heir",
-      "description": "The Voivode came here on hearing that his old friend was dead, and expects to be received as the friend of the house. He has assistance, counsel, and protection to offer the Heiress, and considers all three a generous gift from a lord of his standing."
+      "description": "The Voivode came here for the Ancestor, and his descendants are of small concern. He will indulge them out of respect for his old friend, and appraise them for his flock while he is at it. He will find a part of his friend's arrogance in the Heiress."
     },
     "kheir": {
-      "affinity": 5,
+      "affinity": 4,
       "dynamic": "His Friend's Heir",
-      "description": "The Voivode came here on hearing that his old friend was dead, and expects the Heir to receive him as such. He will not find the Ancestor's likeness in him, but a man with little apetite for ambition can be easier to invite for a drink."
+      "description": "The Voivode came here for the Ancestor, and his descendants are of small concern. He will indulge them out of respect for his old friend, and appraise them for his flock while he is at it. He will find a part of his friend's diligence in the Heir."
     }
   },
   "omenseeker": {

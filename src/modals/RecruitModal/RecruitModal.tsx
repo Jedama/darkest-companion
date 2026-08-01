@@ -29,7 +29,7 @@ const hireButtonSrc = new URL('../../assets/ui/modals/recruitmodal/hire.png', im
 
 export function RecruitModal({ onClose }: RecruitModalProps) {
   const { characterDefinitions } = useGameData();
-  const { currentEstate } = useEstateContext();
+  const { currentEstate, handleLoadEstate } = useEstateContext();
   const estateName = currentEstate?.name || '';
   const selectRef = useRef<HTMLSelectElement>(null);
 
@@ -118,8 +118,8 @@ export function RecruitModal({ onClose }: RecruitModalProps) {
 
       const data = await res.json();
       if (data.success) {
-        onClose(); 
-        window.location.reload(); 
+        await handleLoadEstate(estateName);
+        onClose();
       } else {
         alert('Recruitment failed: ' + (data.error || 'Unknown error'));
       }

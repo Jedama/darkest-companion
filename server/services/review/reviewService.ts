@@ -13,6 +13,7 @@ import {
 } from '../llm/buildPromptService.js';
 
 import StaticGameDataManager from '../../staticGameDataManager.js';
+import { updateMonth } from '../game/estateService.js';
 
 interface ReviewResult {
   estate_log: { entry: string; timeframe: 'short_term' | 'mid_term' | 'long_term' };
@@ -72,11 +73,12 @@ export function compileReviewPrompt(estate: Estate): string {
 export function applyReview(estate: Estate, result: ReviewResult): void {
   estate.narratives = result.narratives;
 
-  addEstateLog(estate, result.estate_log.entry, result.estate_log.timeframe);
-
   for (const followUp of result.follow_up_events ?? []) {
     addFollowUpEvent(estate, followUp);
   }
 
+  updateMonth(estate);
   purgeLogs(estate);
+
+  addEstateLog(estate, result.estate_log.entry, result.estate_log.timeframe);
 }

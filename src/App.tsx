@@ -1,5 +1,5 @@
 // src/App.tsx
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { preloadImages } from './utils/preload';
 import { useEstateContext } from './contexts/EstateContext';
 import { MainLayout } from './components/layout/MainLayout';
@@ -21,6 +21,11 @@ function GameContent() {
   const [bootReady, setBootReady] = useState(false);
   const [estateAssetsReady, setEstateAssetsReady] = useState(false);
 
+  // Tracks which estate we've already shown the blocking loading gate for.
+  // First load of an estate blocks; later refreshes of the SAME estate
+  // preload silently in the background so the scene never unmounts.
+  const gatedEstateRef = useRef<string | null>(null);
+
   // 1. Initial Boot (Fonts + Static Game Data)
   useEffect(() => {
     let cancelled = false;
@@ -39,11 +44,18 @@ function GameContent() {
 
     async function preloadEstateAssets() {
       if (!currentEstate) {
+        gatedEstateRef.current = null;
         setEstateAssetsReady(false);
         return;
       }
 
-      setEstateAssetsReady(false);
+      // Only show the blocking gate when we're entering a DIFFERENT estate.
+      // A refresh of the current estate (e.g. after recruiting) keeps the
+      // scene mounted and preloads new assets in the background.
+      const isNewEstate = gatedEstateRef.current !== currentEstate.name;
+      if (isNewEstate) {
+        setEstateAssetsReady(false);
+      }
 
       // --- UI assets needed for gameplay ---
       // IMPORTANT: Use new URL(..., import.meta.url) so it works in production builds.
@@ -59,6 +71,11 @@ function GameContent() {
         // Manor buttons
         new URL('./assets/ui/views/manor/button_event.png', import.meta.url).href,
         new URL('./assets/ui/views/manor/button_recruit.png', import.meta.url).href,
+
+        // Calendar dial
+        new URL('./assets/ui/views/manor/calendar_base.png', import.meta.url).href,
+        new URL('./assets/ui/views/manor/calendar_month.png', import.meta.url).href,
+        new URL('./assets/ui/views/manor/calendar_day.png', import.meta.url).href,
 
         // Character panel assets
         new URL('./assets/ui/panels/characterpanel/background.png', import.meta.url).href,
@@ -115,7 +132,10 @@ function GameContent() {
       // Preload + decode everything. Errors won't hard-fail the whole preload.
       await preloadImages([...uiUrls, ...characterUrls]);
 
-      if (!cancelled) setEstateAssetsReady(true);
+      if (!cancelled) {
+        gatedEstateRef.current = currentEstate.name;
+        setEstateAssetsReady(true);
+      }
     }
 
     preloadEstateAssets();

@@ -1,0 +1,17 @@
+[
+  {
+    "identifier": "coven",
+    "title": "The Coven",
+    "description": "A militia of bird-folk, better drilled than any brigand band and better armed than the Kingdom's own soldiery. They carry rifled guns where men carry muskets, treat their wounded with medicines nobody here can name, and move in bands with an order that suggests officers and doctrine. Nobody knows where they came from, who supplies them, or what they want, and the Coven have never explained themselves to anyone who survived meeting them.",
+    "history": "Bird-folk have been bought, gifted, and worn as ornaments by the wealthy for as long as anyone has kept records, and the first Coven bands formed to take their own people back. Those bands are decades gone. What replaced them does not distinguish between the households that kept slaves and the villages that merely tolerated it, and the killing stopped being about anyone's freedom a long while ago. Their officers traded something to make the militia what it is; the ranks below believe the strength is their own.",
+    "summary": "coven (The Coven) -- A disciplined, well-armed militia of bird-folk of unknown origin and unknown purpose, encountered anywhere in the Estate's lands.",
+    "territory": ["ruins", "warrens", "weald", "cove"],
+    "members": [
+      "coven_primarch",
+      "coven_arbiter",
+      "coven_invigilator",
+      "coven_naturopath",
+      "coven_rogue"
+    ]
+  }
+]

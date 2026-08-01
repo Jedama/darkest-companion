@@ -2,7 +2,7 @@
   "identifier": "voivode",
   "title": "Voivode",
   "name": "Radu",
-  "description": "The Voivode is an ancient lord in centuries-old finery, courteous to those he judges worthy and openly contemptuous of everyone else. He lost his lands long ago but has never stopped behaving as though he rules, gathering followers wherever he goes and offering them protection, communion, and freedom from the fear of death, at the cost of becoming one of his darkspawn. He is generous with them, treating them as the subjects he wishes he had never lost.",
+  "description": "The Voivode is an ancient lord in centuries-old finery, courteous to those he judges worthy and openly contemptuous of everyone else. He lost his lands long ago but has never stopped behaving as though he rules, gathering followers wherever he goes and offering them protection, communion, and freedom from the fear of death, at the cost of becoming one of his darkspawn. He treats his flock well, but a flock is livestock, and the Strigoi in him has to feed.",
   "history": "Once a lord with a castle and a hamlet of his own, the Voivode was losing a siege when he turned to sealed-away knowledge, and struck a bargain with Belial, a king of the infernal court. He kept his walls, and gained an unending thirst and a monstrous second shape; his own people drove him out with torches and stakes soon after. Centuries later he came to the Estate, having heard that the Ancestor, whom he counted a friend, was dead.",
   "summary": "An ancient and imperious Voivode, a fallen lord who bargained for immortality and gathers a flock wherever he goes.",
   "race": "Strigoi shapeshifter",
@@ -14,7 +14,7 @@
     "Charismatic",
     "Paternal",
     "Cruel",
-    "Vain"
+    "Insatiable"
   ],
   "stats": {
     "strength": 7,
@@ -55,9 +55,10 @@
   "magic": "Command of shadows, bats, and weak minds",
   "notes": [
     "Speaks with formal, archaic courtesy, and addresses everyone as an inferior—peasants, sheep, mortals",
-    "Offers his own blood to those he has taken under his protection, and treats them afterward as both children and property",
-    "Visited the Hamlet on several occasions as the Ancestor's guest; anyone from that circle (characters, NPCS, or even Bosses) who still survives may recognise him, and he them",
-    "Old enough that he treats the present as a repetition, referring to dead men and defunct customs as though they were current"
+    "Offers his own blood to those he has taken under his protection, and treats them as his flock",
+    "Visited the Hamlet on several occasions as the Ancestor's guest; anyone from that circle (characters, NPCs, or bosses) who still survives may recognise him, and he them",
+    "His courtly shape takes effort to hold, and hunger wears it thin; underneath is a screeching, barely controllable thing he would rather nobody saw",
+    "Speaks of the Ancestor as his only equal in centuries, a host whose piles of flesh meant he never went hungry, and of the Hamlet as a mess a friend left him to tidy"
   ],
   "tags": [
     "Flexible", "Shapeshifter", "Dark", "Guarder", "Stunner", "Debuffer", "Bleeder",

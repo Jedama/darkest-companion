@@ -1,0 +1,70 @@
+{
+  "identifier": "meister",
+  "title": "Meister",
+  "name": "Yi-Young",
+  "description": "The Meister is a boy of the eastern court, a savant who held three grown men's offices before his voice broke: machinist, physician, and reader of stars. He carries a code of virtue he holds to exactly, a mechanical beast he built himself, and a debt of revenge he has no intention of setting down.",
+  "history": "The Meister was a retainer of the emperor of Haenara, appointed absurdly young and trusted with the court's machines, medicines, and almanacs. A crew of raiders sponsored by the Ancestor (later, the Drowned Crew) came for his country's arcane relic and left the court dead, his emperor among them, and the boy short one arm. He built himself a new arm and a beast to carry his revenge, and followed them west.",
+  "summary": "A vengeful child of the eastern court, a master technician who fights beside the mechanical beast he built.",
+  "race": "Human",
+  "gender": "Male",
+  "religion": "None",
+  "zodiac": "Aquarius",
+  "traits": [
+    "Vengeful",
+    "Meticulous",
+    "Rational",
+    "Diligent",
+    "Precocious"
+  ],
+  "stats": {
+    "strength": 3,
+    "agility": 5,
+    "intelligence": 9,
+    "authority": 4,
+    "sociability": 6
+  },
+  "equipment": [
+    "Acupuncture needles",
+    "Medicine bag",
+    "Gunpowder"
+  ],
+  "appearance": {
+    "height": "Short",
+    "build": "Slight",
+    "skinTone": "Fair",
+    "hairColor": "Brown",
+    "hairStyle": "Shaggy and overgrown, with a braided tail",
+    "features": "A mechanical prosthetic in place of one arm"
+  },
+  "clothing": {
+    "head": "Wide-brimmed technician's cap",
+    "body": "Dark technician's garb over a patterned wrap",
+    "legs": "Dark trousers and heavy boots",
+    "accessories": "Tool straps, sash, satchel"
+  },
+  "combat": {
+    "role": "Gunner",
+    "strengths": [
+      "Heavy fire",
+      "Versatility",
+      "Smokescreens"
+    ],
+    "weaknesses": [
+      "Slow to start",
+      "Frail"
+    ]
+  },
+  "magic": "None",
+  "notes": [
+    "Speaks of bodies as machines that break and can be fixed, and only treats his Haetae as a person",
+    "Holds himself to the gunza's code, and refuses anything he judges beneath a man of virtue",
+    "Insists everything has an explanation, and sets out to expose the supernatural as trickery",
+    "Reads the stars for omens, and treats them as instruments rather than mysteries",
+    "Claims a child's excuses when they suit him, and takes offence at being called one when they don't"
+  ],
+  "tags": [
+    "Backline", "Setup", "Stanceshifter", "Frail", "Marker", "MarkSynergy",
+    "Stunner", "Debuffer", "Healer", "Cleanser", "ArmorPiercer", "Crit",
+    "Companion", "Scholarly", "Vigilant", "Child"
+  ]
+}

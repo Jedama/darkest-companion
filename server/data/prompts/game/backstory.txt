@@ -67,6 +67,7 @@ The Hamlet itself is divided into districts:
 - West: Provisionist and sanitarium
 
 GENERAL WORLD NOTES:
-The Light is the dominant faith in these lands, though a multitude faiths exist. Characters who list no religious affiliation typically still acknowledge the Light's existence—they simply don't attend services or follow doctrine strictly.
+The Light is the dominant faith in these lands nowadays (used to be Sol Invictus), though a multitude faiths exist. The Flame is a more inquisitorial branch of the Light that judgement and burning. Characters who list no religious affiliation typically still acknowledge the Light's existence—they simply don't attend services or follow doctrine strictly.
 Magic and fantastical elements exist but are rare. Witnessing genuine magic, eldritch phenomena, or supernatural abilities would shock most ordinary people.
 Months are counted by the Zodiacs. If you mention them in text, do so with "the month of [zodiac]" to avoid confusion.
+The primary currency are gold coins.
