@@ -1,10 +1,17 @@
 // server/routes/consequencesEventRoute.ts
-import type { Estate } from '../../shared/types/types.js';
 import { Router, Request, Response } from 'express';
-import { loadEstate, saveEstate } from '../fileOps.js';
-import { callLLM } from '../services/llm/llmService.js';
+import { withEstate } from '../estateLock.js';
+import { asyncHandler } from '../middleware/errorHandler.js';
+import { AppError } from '../errors.js';
+import { callEstateLLM, parseLlmJson } from '../services/llm/estateLlm.js';
+import { checkConsequences, reportUnhandledConsequences } from '../services/llm/consequenceChecks.js';
 import { compileConsequencesPrompt } from '../services/story/consequencesEventService.js';
-import { applyConsequences, ConsequencesResult, prepareConsequenceDisplay, ensureAllCharactersHaveConsequences, validateConsequences, formatConsequences } from '../services/llm/llmResponseProcessor.js';
+import {
+  applyConsequences,
+  prepareConsequenceDisplay,
+  ensureAllCharactersHaveConsequences,
+  type ConsequencesResult,
+} from '../services/llm/llmResponseProcessor.js';
 
 const router = Router();
 
@@ -16,134 +23,60 @@ interface ConsequencesRequest {
 /**
  * POST /estates/:estateName/events/consequences
  *
- * Expects JSON body with keys:
- * {
- *   story: "<the entire story text>",
- *   chosenCharacterIds: [...]
- * }
+ * Turns a finished story into state changes, applies them, and hands back the
+ * display data for the character cards.
  *
- * Returns validated JSON consequences output from the LLM.
+ * No try/catch: anything thrown here lands in errorHandler, which owns the
+ * response shape. Anything thrown inside withEstate leaves the save file
+ * untouched.
  */
-router.post('/estates/:estateName/events/consequences', async (req: Request<{estateName: string}, {}, ConsequencesRequest>, res: Response) => {
-  try {
+router.post(
+  '/estates/:estateName/events/consequences',
+  asyncHandler(async (req: Request<{ estateName: string }, {}, ConsequencesRequest>, res: Response) => {
     const { estateName } = req.params;
-    const { story, chosenCharacterIds } = req.body;
+    const { story, chosenCharacterIds } = req.body ?? {};
 
-    // 1. Load the Estate
-    const estate: Estate | undefined = await loadEstate(estateName);
-    if (!estate) {
-      return res.status(404).json({ 
-        error: 'Estate Not Found',
-        message: `Estate '${estateName}' not found` 
-      });
+    // Cheap request validation happens before we queue for the lock.
+    if (!story?.trim()) {
+      throw AppError.badRequest('No story text was supplied to draw consequences from.');
+    }
+    if (!Array.isArray(chosenCharacterIds) || chosenCharacterIds.length === 0) {
+      throw AppError.badRequest('No characters were supplied for consequences.');
     }
 
-    // 2. Build the prompt
-    const prompt = await compileConsequencesPrompt({
-      estate,
-      story,
-      chosenCharacterIds
-    });
+    const display = await withEstate(estateName, async (estate) => {
+      const prompt = await compileConsequencesPrompt({ estate, story, chosenCharacterIds });
+      const response = await callEstateLLM(estate, prompt, { temperature: 0.7 });
 
-    // 3. Call LLM
-    const provider = estate.preferences?.llmProvider ?? "anthropic";
-    const model = estate.preferences?.llmModel; // if undefined, provider default in callLLM will apply
+      const parsed = parseLlmJson<ConsequencesResult>(response, 'consequences');
 
-    const response = await callLLM({
-      provider,
-      model,
-      prompt,
-      maxTokens: estate.preferences?.maxTokens,
-      temperature: 0.7,
-    });
-
-    // 4. Clean and parse the response
-    const cleanResponse = (text: string): string => {
-      return text
-        .replace(/^```(json)?\n/, '')
-        .replace(/```/, '')
-        .replace(/:\s*\+(\d)/g, ': $1')  // "+6" → "6" only after colons (JSON values)
-        .trim();
-    };
-    
-    const cleanedText = cleanResponse(response);
-
-    // 5. Parse and validate the response
-    let parsedJson: ConsequencesResult;
-    try {
-      // First try to parse as JSON
-      parsedJson = JSON.parse(cleanedText) as ConsequencesResult;
-      
-      // Check if it has the required structure
-      if (!parsedJson || !Array.isArray(parsedJson.characters)) {
-        throw new Error('Response missing required "characters" array');
+      if (!Array.isArray(parsed.characters)) {
+        throw AppError.llmBadContent('consequences', ['response has no "characters" array'], parsed);
       }
 
-      // Validate the content against our rules
-      if (!validateConsequences(parsedJson, estate.characters)) {
-        throw new Error('Response failed consequence validation rules');
+      // Every problem at once, named — rather than "failed validation rules".
+      const problems = checkConsequences(parsed, estate.characters);
+      if (problems.length > 0) {
+        throw AppError.llmBadContent('consequences', problems, parsed);
       }
 
-      // Format the consequences to ensure consistent structure
-      const formattedConsequences = formatConsequences(parsedJson);
+      // Not a failure: fields the schema offers but nothing applies yet.
+      reportUnhandledConsequences(parsed, 'consequences');
 
-      const consequencesForProcessing: ConsequencesResult = ensureAllCharactersHaveConsequences(
-        formattedConsequences,
-        chosenCharacterIds
-      );
+      // structuredClone inside here is what keeps `parsed` unmutated — the old
+      // formatConsequences() shallow copy was redundant with it.
+      const consequences = ensureAllCharactersHaveConsequences(parsed, chosenCharacterIds);
 
-      // 6. Apply the consequences to the estate
-      
-      const updatedEstate = applyConsequences(estate, consequencesForProcessing);
-      
-      // 7. Generate display-friendly data for the frontend
-      const displayData = prepareConsequenceDisplay(consequencesForProcessing);
-
-      console.log(`Consequences`);
-      console.log(JSON.stringify(consequencesForProcessing, null, 2));
+      console.log('Consequences');
+      console.log(JSON.stringify(consequences, null, 2));
       console.log('');
 
-      // 8. Save the updated estate
-      await saveEstate(updatedEstate);
-
-      // 9. Return the display data and updated estate
-      return res.json({
-        success: true,
-        display: displayData
-      });
-
-    } catch (err) {
-      // Handle different types of validation failures
-      const error = err as Error;
-      
-      // Determine the specific type of error for better client feedback
-      let errorType = 'Unknown Error';
-      let errorDetails = error.message;
-      
-      if (error.message.includes('JSON')) {
-        errorType = 'JSON Parsing Error';
-      } else if (error.message.includes('characters')) {
-        errorType = 'Structure Error';
-      } else if (error.message.includes('validation')) {
-        errorType = 'Validation Error';
-      }
-
-      console.error('Failed to process LLM response:', error);
-      return res.status(400).json({
-        error: errorType,
-        message: errorDetails,
-        rawOutput: response
-      });
-    }
-
-  } catch (error: any) {
-    // Handle unexpected errors
-    console.error('Error generating consequences:', error);
-    return res.status(500).json({ 
-      error: 'Internal Server Error',
-      message: error.message 
+      applyConsequences(estate, consequences);
+      return prepareConsequenceDisplay(consequences);
     });
-  }
-});
+
+    res.json({ success: true, display });
+  })
+);
 
 export default router;

@@ -1,12 +1,46 @@
 import { Estate, Character, EventData, LocationData, Bystander } from '../../../shared/types/types';
 import StaticGameDataManager from '../../staticGameDataManager.js';
+import { AppError } from '../../errors.js';
 
 const TOWN_SCOPE_ROOT = "hamlet";
 const STOP_ROOTS = new Set(["hamlet", "estate", "kingdom"]);
 
+type LocationKind = 'residence' | 'workplaces' | 'frequents';
+
 interface ProcessedLocation {
   baseScore: number;
   sharedCount: number;
+}
+
+/** Characters already reported as missing location data, so we warn once each. */
+const warnedAboutLocations = new Set<string>();
+
+/**
+ * Reads one of a character's location lists, tolerating a character that has
+ * none — which happens for characters created before locations were assigned,
+ * and for any id that wasn't found on the roster (yielding undefined here).
+ *
+ * Returning an empty list rather than throwing keeps a single incomplete
+ * character from taking down the whole event.
+ */
+function locationIdsOf(character: Character | undefined, kind: LocationKind): string[] {
+  const ids = character?.locations?.[kind];
+  if (Array.isArray(ids)) return ids;
+
+  const who = character?.identifier ?? '(missing character)';
+  if (!warnedAboutLocations.has(who)) {
+    warnedAboutLocations.add(who);
+    console.warn(
+      `Character "${who}" has no ${kind} locations. Events will not be placed around them ` +
+        `until their location data is repaired.`
+    );
+  }
+  return [];
+}
+
+/** True when a character index is listed in one of an event's location groups. */
+function groupIncludes(group: number[] | undefined, charIndex: number): boolean {
+  return Array.isArray(group) && group.includes(charIndex + 1);
 }
 
 /**
@@ -28,9 +62,9 @@ function getConnectionToLocation(
   locationId: string
 ): Exclude<Bystander['connectionType'], 'present'> | null {
   // Priority: residence > workplace > frequent
-  if (character.locations.residence.includes(locationId)) return 'residence';
-  if (character.locations.workplaces.includes(locationId)) return 'workplace';
-  if (character.locations.frequents.includes(locationId)) return 'frequent';
+  if (locationIdsOf(character, 'residence').includes(locationId)) return 'residence';
+  if (locationIdsOf(character, 'workplaces').includes(locationId)) return 'workplace';
+  if (locationIdsOf(character, 'frequents').includes(locationId)) return 'frequent';
   return null;
 }
 
@@ -83,6 +117,22 @@ function getLocationParents(
 }
 
 /**
+ * Every location inside the town proper: not the hamlet root itself, not its
+ * immediate districts, but everything below those. Used both for allowAll
+ * events and as the last-resort pool when nothing else scores.
+ */
+function townLocationPool(
+  allLocations: LocationData[],
+  locationMap: Map<string, LocationData>
+): LocationData[] {
+  return allLocations.filter((loc) => {
+    if (loc.identifier === TOWN_SCOPE_ROOT) return false;          // exclude "hamlet"
+    if (loc.parent === TOWN_SCOPE_ROOT) return false;             // exclude districts (direct children)
+    return isDescendantOf(loc.identifier, TOWN_SCOPE_ROOT, locationMap); // include deeper descendants
+  });
+}
+
+/**
  * Returns the location objects a character might occupy (residence, workplace, frequents)
  * based on the event's character index rules.
  */
@@ -94,44 +144,22 @@ function getCharacterLocations(
 ): LocationData[] {
   const locationSet = new Set<LocationData>();
 
-  // If this character is included among 'residence' participants, add residence locations
-  if (event.location.residence.includes(charIndex + 1)) {
-    char.locations.residence.forEach(locId => {
+  const collect = (kind: LocationKind, label: string) => {
+    for (const locId of locationIdsOf(char, kind)) {
       const locObj = locationMap.get(locId);
       if (locObj) {
         locationSet.add(locObj);
       } else {
-        console.warn(`Residence location "${locId}" not found in location map`);
+        console.warn(`${label} location "${locId}" not found in location map`);
       }
-    });
-  }
+    }
+  };
 
-  // If this character is included among 'workplaces' participants, add workplace locations
-  if (event.location.workplaces.includes(charIndex + 1)) {
-    char.locations.workplaces.forEach(locId => {
-      const locObj = locationMap.get(locId);
-      if (locObj) {
-        locationSet.add(locObj);
-      } else {
-        console.warn(`Workplace location "${locId}" not found in location map`);
-      }
-    });
-  }
+  if (groupIncludes(event.location.residence, charIndex)) collect('residence', 'Residence');
+  if (groupIncludes(event.location.workplaces, charIndex)) collect('workplaces', 'Workplace');
+  if (groupIncludes(event.location.frequents, charIndex)) collect('frequents', 'Frequent');
 
-  // If this character is included among 'frequents' participants, add frequented locations
-  if (event.location.frequents.includes(charIndex + 1)) {
-    char.locations.frequents.forEach(locId => {
-      const locObj = locationMap.get(locId);
-      if (locObj) {
-        locationSet.add(locObj);
-      } else {
-        console.warn(`Frequent location "${locId}" not found in location map`);
-      }
-    });
-  }
-
-  const result = Array.from(locationSet);
-  return result;
+  return Array.from(locationSet);
 }
 
 /**
@@ -159,8 +187,10 @@ function pickMultipleWeightedLocations(
   while (picks.length < count) {
     // If we've run out of candidates before hitting the target, fail loudly
     if (remaining.size === 0) {
-      throw new Error(
-        `multipleLocations=${count} but only ${picks.length} unique eligible location(s) were available`
+      throw new AppError(
+        `This event asks for ${count} distinct locations but only ${picks.length} were eligible.`,
+        500,
+        'internal'
       );
     }
 
@@ -188,6 +218,10 @@ function pickMultipleWeightedLocations(
 /**
  * Score all possible locations for the given event and characters,
  * returning a Map of LocationData → final numeric score.
+ *
+ * Guaranteed non-empty unless the game has no town locations at all: if nothing
+ * scores — an event with no defaults whose cast has no location data — the town
+ * at large stands in, so the event still happens somewhere.
  */
 export function scoreLocations(
   event: EventData,
@@ -209,14 +243,10 @@ export function scoreLocations(
   // If allowAll is set, treat every location as part of the default
   let defaultLocations: LocationData[] = [];
   if (event.location.allowAll) {
-    defaultLocations = allLocations.filter((loc) => {
-      if (loc.identifier === TOWN_SCOPE_ROOT) return false;          // exclude "hamlet"
-      if (loc.parent === TOWN_SCOPE_ROOT) return false;             // exclude districts (direct children)
-      return isDescendantOf(loc.identifier, TOWN_SCOPE_ROOT, locationMap); // include deeper descendants
-    });
+    defaultLocations = townLocationPool(allLocations, locationMap);
   } else {
     // Otherwise, map event.location.default (which are IDs) to actual objects
-    defaultLocations = event.location.default
+    defaultLocations = (event.location.default ?? [])
       .map(locId => locationMap.get(locId))
       .filter((loc): loc is LocationData => !!loc); // ensure we remove undefined
   }
@@ -284,6 +314,22 @@ export function scoreLocations(
     finalScores.set(loc, finalScore);
   }
 
+  // 4) Last resort. An event with no explicit defaults, cast entirely from
+  // characters with no location data, would otherwise score nothing at all —
+  // and an empty map used to reach pickWeightedLocation's fallback and crash on
+  // entries[0][0]. Place it somewhere in town instead and say so.
+  if (finalScores.size === 0) {
+    const fallback = townLocationPool(allLocations, locationMap);
+    console.warn(
+      `No eligible locations for event "${event.identifier}" — no defaults, and none of ` +
+        `[${characters.map((c) => c?.identifier ?? '?').join(', ')}] have location data. ` +
+        `Falling back to ${fallback.length} location(s) in the town at large.`
+    );
+    for (const loc of fallback) {
+      finalScores.set(loc, DEFAULT_SCORE);
+    }
+  }
+
   return finalScores;
 }
 
@@ -294,7 +340,24 @@ export function scoreLocations(
 export function pickWeightedLocation(scores: Map<LocationData, number>): LocationData {
   // Convert the Map into arrays for iteration
   const entries = Array.from(scores.entries());
+
+  if (entries.length === 0) {
+    // Only reachable if the town itself has no locations, since scoreLocations
+    // falls back to the whole town. That means the static data failed to load.
+    throw new AppError(
+      'No locations are available to place this event. Check that town location data loaded.',
+      500,
+      'internal'
+    );
+  }
+
   const totalScore = entries.reduce((sum, [, score]) => sum + score, 0);
+
+  // All-zero (or negative) scores would make the weighted walk meaningless, so
+  // fall back to an even pick rather than always returning the first entry.
+  if (totalScore <= 0) {
+    return entries[Math.floor(Math.random() * entries.length)][0];
+  }
 
   let random = Math.random() * totalScore;
 
@@ -305,8 +368,8 @@ export function pickWeightedLocation(scores: Map<LocationData, number>): Locatio
     }
   }
 
-  // Fallback if something goes off (unlikely)
-  return entries[0][0];
+  // Floating-point safety net: entries is non-empty by the guard above.
+  return entries[entries.length - 1][0];
 }
 
 /**
@@ -494,7 +557,12 @@ export function pickEventLocation(
 }> {
   const locationMap = StaticGameDataManager.getInstance().getLocationMap();
 
-  const mainLocations = pickMultipleLocations(event, characters);
+  // An id that isn't on the roster would otherwise arrive here as a literal
+  // undefined and be treated as a character by everything downstream.
+  const cast = characters.filter(Boolean);
+  const overflow = overflowCharacters.filter(Boolean);
+
+  const mainLocations = pickMultipleLocations(event, cast);
   const mainLocationIds = mainLocations.map(l => l.identifier);
 
   // Multiple explicit locations: present them as-is. No surrounding context or
@@ -510,7 +578,7 @@ export function pickEventLocation(
   const mainLocationId = locations[0]?.identifier;
 
   const bystanders = mainLocationId
-    ? buildBystanders(mainLocationId, characters, overflowCharacters, estate, locations)
+    ? buildBystanders(mainLocationId, cast, overflow, estate, locations)
     : [];
 
   return Promise.resolve({ locations, npcs, bystanders, mainLocationIds });
@@ -533,17 +601,17 @@ export function findCharactersConnectedToLocations(
 
   for (const [characterId, character] of Object.entries(estate.characters)) {
     // Priority: residence > workplace > frequent
-    if (character.locations.residence.includes(locationId)) {
+    if (locationIdsOf(character, 'residence').includes(locationId)) {
       connections.push({ identifier: characterId, connectionType: "residence" });
       continue;
     }
 
-    if (character.locations.workplaces.includes(locationId)) {
+    if (locationIdsOf(character, 'workplaces').includes(locationId)) {
       connections.push({ identifier: characterId, connectionType: "workplace" });
       continue;
     }
 
-    if (character.locations.frequents.includes(locationId)) {
+    if (locationIdsOf(character, 'frequents').includes(locationId)) {
       connections.push({ identifier: characterId, connectionType: "frequent" });
       continue;
     }

@@ -19,3 +19,4 @@ Make a proper frontend error handler.
 Add Scarlett Academy to the locations??? 
 Add nest to locations (restorable)
 
+Remove default locations system.

@@ -3,10 +3,9 @@
 // Imports → Domain constants → Types → Public API (parsing/display/mutation)
 // → Internal processors → Internal utilities
 
-import type { Character, Estate, CharacterRecord, LogEntry } from '../../../shared/types/types.js';
+import type { Character, Estate, LogEntry } from '../../../shared/types/types.js';
 import { updateBeat, updateDay } from '../game/estateService.js';
 import { 
-  LOG_TIMEFRAMES, 
   type LogTimeframe, 
   addEstateLog, 
   addCharacterLog, 
@@ -230,102 +229,6 @@ export function stripNoOpConsequences(raw: ConsequencesResult): ConsequencesResu
   }
 
   return consequences;
-}
-
-/* -------------------------------------------------------------------
- *  Public API: response validation
- * ------------------------------------------------------------------- */
-
-export function validateConsequences(
-  update: ConsequencesResult, 
-  characters: CharacterRecord
-): boolean {
-  // Check if update has the required structure
-  if (!update || !Array.isArray(update.characters)) return false;
-  
-  // Validate event_log (optional in the base Result type, but expected by callers)
-  if (update.event_log) {
-    if (!update.event_log.entry || !update.event_log.timeframe) return false;
-    // Validate timeframe value
-    if (!LOG_TIMEFRAMES.includes(update.event_log.timeframe)) {
-      return false;
-    }
-  }
-  
-  // Validate each character's consequences
-  for (const char of update.characters) {
-    // Required fields
-    if (!char.identifier) return false;
-    
-    // Check if the character identifier exists in the record
-    if (!characters[char.identifier]) return false;
-    
-    // Validate log timeframe
-    if (char.add_log && !LOG_TIMEFRAMES.includes(char.add_log.timeframe)) {
-      return false;
-    }
-    
-    // Validate stat ranges (just the change values, not the result)
-    if (char.update_stats) {
-      for (const [key, value] of Object.entries(char.update_stats)) {
-        // Check if the key is valid
-        if (!["strength", "agility", "intelligence", "authority", "sociability"].includes(key)) return false;
-        
-        // Check if the value is within allowed range (-5 to +5)
-        if (typeof value === 'number' && (value < -5 || value > 5)) return false;
-      }
-    }
-    
-    // Validate status changes (not the resulting values)
-    if (char.update_status) {
-      if (char.update_status.physical !== undefined && 
-          (char.update_status.physical < -50 || char.update_status.physical > 50)) {
-        return false;
-      }
-      
-      if (char.update_status.mental !== undefined && 
-          (char.update_status.mental < -50 || char.update_status.mental > 50)) {
-        return false;
-      }
-    }
-    
-    // Validate relationship updates
-    if (char.update_relationships) {
-      for (const rel of char.update_relationships) {
-        // Check if target exists
-        if (!rel.target || !characters[rel.target]) return false;
-        
-        // Validate affinity range for the change
-        if (rel.affinity !== undefined && (rel.affinity < -5 || rel.affinity > 5)) {
-          return false;
-        }
-      }
-    }
-  }
-  
-  return true;
-}
-
-/**
- * Ensures consistent structure and cleans up potential issues in the consequence object.
- */
-export function formatConsequences(update: ConsequencesResult): ConsequencesResult {
-  // Creating a new object to avoid mutating the input
-  const formatted: ConsequencesResult = {
-    ...update,
-    characters: update.characters.map(character => ({
-      ...character,
-    }))
-  };
-  
-  if (update.event_log) {
-    formatted.event_log = {
-      entry: update.event_log.entry,
-      timeframe: update.event_log.timeframe
-    };
-  }
-  
-  return formatted;
 }
 
 /* -------------------------------------------------------------------

@@ -1,10 +1,11 @@
 // src/components/modals/RecruitModal/RecruitModal.tsx
 
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import type { CSSProperties } from 'react';
 import { useGameData } from '../../contexts/GameDataContext';
 import { useEstateContext } from '../../contexts/EstateContext';
 import { ImageButton } from '../../components/ui/buttons/ImageButton';
+import { LoadingIndicator } from '../../components/ui/LoadingIndicator';
+import { ErrorNotice } from '../../components/ui/ErrorNotice';
 import { recruitCharacter, isAbortError } from '../../utils/api';
 import './RecruitModal.css';
 
@@ -29,22 +30,10 @@ const SEAL_POSITIONS = [
 const placeholderSrc = new URL('../../assets/characters/recruit/placeholder.png', import.meta.url).href;
 const hireButtonSrc = new URL('../../assets/ui/modals/recruitmodal/hire.png', import.meta.url).href;
 
-// Inline for now, matching CalendarDial's approach. Move to a .recruit-error
-// rule when you next touch RecruitModal.css.
-const errorStyle: CSSProperties = {
-  maxWidth: '28rem',
-  margin: '0.5rem auto 0',
-  padding: '0.5rem 1rem',
-  textAlign: 'center',
-  background: 'rgba(20, 16, 14, 0.92)',
-  border: '1px solid rgba(180, 150, 110, 0.45)',
-  color: '#e8ddc8',
-  font: '0.9rem/1.4 inherit',
-};
 
 export function RecruitModal({ onClose }: RecruitModalProps) {
   const { characterDefinitions } = useGameData();
-  const { currentEstate, handleLoadEstate } = useEstateContext();
+  const { currentEstate, handleLoadEstate, runExclusive, activity } = useEstateContext();
   const estateName = currentEstate?.name || '';
   const selectRef = useRef<HTMLSelectElement>(null);
 
@@ -134,15 +123,19 @@ export function RecruitModal({ onClose }: RecruitModalProps) {
         .map(s => s.text)
         .join(', ')}`;
 
-      await recruitCharacter(
-        estateName,
-        {
-          eventId: 'recruit_0',
-          characterId: selectedClassId,
-          name,
-          context,
-        },
-        controller.signal
+      // Queued behind any other estate action; the overlay below covers both
+      // the wait and the two chained LLM calls.
+      await runExclusive('a recruitment', () =>
+        recruitCharacter(
+          estateName,
+          {
+            eventId: 'recruit_0',
+            characterId: selectedClassId,
+            name,
+            context,
+          },
+          controller.signal
+        )
       );
 
       await handleLoadEstate(estateName);
@@ -172,7 +165,9 @@ export function RecruitModal({ onClose }: RecruitModalProps) {
   return (
     <div className="recruit-modal-container">
       <div className="recruit-content">
-        
+
+        {isSubmitting && <LoadingIndicator waitingFor={activity?.label} />}
+
         <h2 className="recruit-title">Recruit</h2>
 
         <div className="recruit-input-group">
@@ -248,9 +243,12 @@ export function RecruitModal({ onClose }: RecruitModalProps) {
         </div>
 
         {error && (
-          <div className="recruit-error" style={errorStyle} role="alert">
-            {error}
-          </div>
+          <ErrorNotice
+            title="The recruit could not be hired."
+            message={error}
+            onDismiss={() => setError(null)}
+            dismissLabel="Dismiss"
+          />
         )}
 
         <div className={`recruit-hire-btn ${isDisabled ? 'disabled' : ''}`}>

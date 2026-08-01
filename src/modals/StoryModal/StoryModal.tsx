@@ -5,7 +5,10 @@ import { DeckComponent } from './DeckComponent';
 import { CardComponent } from './CardComponent';
 import { ActivityLog } from './ActivityLog.tsx';
 import { ImageButton } from '../../components/ui/buttons/ImageButton.tsx';
+import { LoadingIndicator } from '../../components/ui/LoadingIndicator.tsx';
+import { ErrorNotice } from '../../components/ui/ErrorNotice.tsx';
 import { parseFormattedText } from '../../utils/textUtils';
+import { useEstateContext } from '../../contexts/EstateContext';
 import {
   setupStoryEvent,
   generateStory,
@@ -13,6 +16,7 @@ import {
   isAbortError,
 } from '../../utils/api';
 import type { ConsequenceCharacterDisplay } from '../../utils/api';
+
 // Imported, not written as 'src/assets/...' strings: raw paths resolve in the
 // dev server but 404 after a production build. Same folder as ActivityLog's.
 import returnButtonSrc from '../../assets/ui/modals/storymodal/return.png';
@@ -29,6 +33,8 @@ interface StoryModalProps {
 type Phase = 'input' | 'loading' | 'deck' | 'deal' | 'text';
 
 export function StoryModal({ estateName, onClose }: StoryModalProps) {
+  const { runExclusive, activity } = useEstateContext();
+
   const [phase, setPhase] = useState<Phase>('input');
   const [error, setError] = useState<string | null>(null);
 
@@ -59,50 +65,67 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
       const { signal } = controller;
 
       setError(null);
-      setPhase('deck');
 
       try {
-        // 1) Setup: pick the event, the cast and the scenery.
-        //
-        // eventId stays null here. It names a *specific* event to run, and a
-        // non-null value also tells the server this pull is "directed", which
-        // suppresses any queued follow-up event. The player's free text is
-        // narrative colour, so it belongs on the story call as `description`.
-        const setup = await setupStoryEvent(estateName, { eventId: null }, signal);
+        // The whole three-call flow is one exclusive action. Phase stays on
+        // 'loading' — and the loading indicator stays up — until our turn comes
+        // round, so clicking the quill during a review shows the wait rather
+        // than starting a deck shuffle that then stalls.
+        await runExclusive('a town event', async () => {
+          if (signal.aborted) return;
 
-        setChosenCharacterIds(setup.chosenCharacterIds);
+          // Clear anything left over from a previous attempt, so a retry can't
+          // deal cards from the last run against results from this one.
+          setChosenCharacterIds([]);
+          setConsequenceDisplay([]);
+          setStoryTitle('');
+          setStoryBody('');
+          setHoveredCharacterId(null);
 
-        // 2) Story
-        const story = await generateStory(
-          estateName,
-          {
-            event: setup.event,
-            chosenCharacterIds: setup.chosenCharacterIds,
-            locations: setup.locations,
-            npcIds: setup.npcs,
-            enemyIds: setup.enemies,
-            bystanders: setup.bystanders,
-            keywords: setup.keywords,
-            context: '',
-            description: userPrompt,
-          },
-          signal
-        );
+          setPhase('deck');
 
-        setStoryTitle(story.title);
-        setStoryBody(story.body);
+          // 1) Setup: pick the event, the cast and the scenery.
+          //
+          // eventId stays null here. It names a *specific* event to run, and a
+          // non-null value also tells the server this pull is "directed", which
+          // suppresses any queued follow-up event. The player's free text is
+          // narrative colour, so it belongs on the story call as `description`.
+          const setup = await setupStoryEvent(estateName, { eventId: null }, signal);
 
-        // 3) Consequences (also persists them server-side)
-        const characters = await generateConsequences(
-          estateName,
-          {
-            story: story.body,
-            chosenCharacterIds: setup.chosenCharacterIds,
-          },
-          signal
-        );
+          setChosenCharacterIds(setup.chosenCharacterIds);
 
-        setConsequenceDisplay(characters);
+          // 2) Story
+          const story = await generateStory(
+            estateName,
+            {
+              event: setup.event,
+              chosenCharacterIds: setup.chosenCharacterIds,
+              locations: setup.locations,
+              npcIds: setup.npcs,
+              enemyIds: setup.enemies,
+              bystanders: setup.bystanders,
+              keywords: setup.keywords,
+              context: '',
+              description: userPrompt,
+            },
+            signal
+          );
+
+          setStoryTitle(story.title);
+          setStoryBody(story.body);
+
+          // 3) Consequences (also persists them server-side)
+          const characters = await generateConsequences(
+            estateName,
+            {
+              story: story.body,
+              chosenCharacterIds: setup.chosenCharacterIds,
+            },
+            signal
+          );
+
+          setConsequenceDisplay(characters);
+        });
       } catch (err) {
         if (isAbortError(err)) return; // we cancelled on purpose
         console.error('Error in fetchStoryFlow:', err);
@@ -110,7 +133,7 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
         setPhase('input');
       }
     },
-    [estateName]
+    [estateName, runExclusive]
   );
 
   const handleShuffleComplete = React.useCallback(() => {
@@ -120,7 +143,7 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
   // Handler for when the user proceeds from the Activity Log
   const handleLogProceed = React.useCallback(
     async (logContent: string | null) => {
-      setPhase('loading'); // Show loading screen while fetching
+      setPhase('loading'); // Show loading screen while queued and fetching
       await fetchStoryFlow(logContent);
     },
     [fetchStoryFlow]
@@ -144,16 +167,24 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
   if (error) {
     return (
       <div className="story-modal-content">
-        <p className="error">{error}</p>
-        <button onClick={handleRetry}>Try again</button>
-        <button onClick={onClose}>Close</button>
+        <ErrorNotice
+          variant="overlay"
+          title="The event could not be told."
+          message={error}
+          onRetry={handleRetry}
+          onDismiss={onClose}
+        />
       </div>
     );
   }
 
-  // If we're still waiting for the setup route to finish
+  // Queued behind another action, or waiting on the first response.
   if (phase === 'loading') {
-    return <div className="story-modal-content" />;
+    return (
+      <div className="story-modal-content">
+        <LoadingIndicator waitingFor={activity?.label} />
+      </div>
+    );
   }
 
   // ---- ACTUAL RENDER ----

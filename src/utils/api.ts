@@ -1,3 +1,4 @@
+/// <reference types="vite/client" />
 // src/utils/api.ts
 //
 // The single door between the frontend and the server.
@@ -21,6 +22,44 @@ const DEFAULT_TIMEOUT_MS = 20_000;
 
 /** Anything that waits on an LLM needs a much longer leash. */
 export const LLM_TIMEOUT_MS = 5 * 60_000;
+
+/* ------------------------------------------------------------------ *
+ *  Debug: stub out the server's LLM calls
+ * ------------------------------------------------------------------ */
+
+export type LlmDebugMode = 'live' | 'stub' | 'fail' | 'garbage';
+
+let llmDebugMode: LlmDebugMode | null = null;
+let llmDebugDelayMs = 0;
+
+/**
+ * Makes every subsequent request tell the server how to treat its LLM calls.
+ * Null hands control back to the server's own LLM_MODE default.
+ *
+ *   setLlmDebugMode('stub')          canned responses, no tokens
+ *   setLlmDebugMode('fail')          simulated provider outage (502)
+ *   setLlmDebugMode('garbage')       unparseable response (502)
+ *   setLlmDebugMode('stub', 3000)    canned, but three seconds slow
+ *
+ * Wire this to a debug panel toggle. It is deliberately module state rather
+ * than context: it applies to every call, including ones made outside React.
+ */
+export function setLlmDebugMode(mode: LlmDebugMode | null, delayMs = 0): void {
+  llmDebugMode = mode;
+  llmDebugDelayMs = delayMs;
+}
+
+export function getLlmDebugMode(): LlmDebugMode | null {
+  return llmDebugMode;
+}
+
+function debugHeaders(): Record<string, string> {
+  if (!llmDebugMode) return {};
+  return {
+    'X-LLM-Mode': llmDebugMode,
+    ...(llmDebugDelayMs > 0 && { 'X-LLM-Delay': String(llmDebugDelayMs) }),
+  };
+}
 
 /* ------------------------------------------------------------------ *
  *  Errors
@@ -88,9 +127,9 @@ async function toApiError(response: Response): Promise<ApiError> {
     (text ? text.slice(0, 200) : null) ??
     `Request failed (${response.status} ${response.statusText}).`;
 
-  const code = asString(payload?.error) ?? `http_${response.status}`;
+  const code = asString(payload?.code) ?? asString(payload?.error) ?? `http_${response.status}`;
 
-  return new ApiError(message, response.status, code, payload?.rawOutput);
+  return new ApiError(message, response.status, code, payload?.details ?? payload?.rawOutput);
 }
 
 /* ------------------------------------------------------------------ *
@@ -131,7 +170,10 @@ async function request<T>(path: string, options: RequestOptions = {}): Promise<T
   try {
     response = await fetch(`${API_URL}${path}`, {
       method,
-      headers: body === undefined ? undefined : { 'Content-Type': 'application/json' },
+      headers: {
+        ...(body === undefined ? {} : { 'Content-Type': 'application/json' }),
+        ...debugHeaders(),
+      },
       body: body === undefined ? undefined : JSON.stringify(body),
       signal: controller.signal,
     });

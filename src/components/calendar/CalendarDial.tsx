@@ -4,6 +4,7 @@ import type { CSSProperties } from 'react';
 import { createPortal } from 'react-dom';
 import { useEstateContext } from '../../contexts/EstateContext';
 import { runReview } from '../../utils/api';
+import { ErrorNotice } from '../ui/ErrorNotice';
 
 import baseSrc from '../../assets/ui/views/manor/calendar_base.png';
 import monthHandSrc from '../../assets/ui/views/manor/calendar_month.png';
@@ -207,7 +208,7 @@ function useCompositeHitMask(monthRotation: number, dayRotation: number) {
 }
 
 export function CalendarDial() {
-  const { currentEstate, handleLoadEstate } = useEstateContext();
+  const { currentEstate, handleLoadEstate, runExclusive } = useEstateContext();
 
   const [phase, setPhase] = useState<Phase>('idle');
   const [stageTransform, setStageTransform] = useState<string | null>(null);
@@ -338,7 +339,10 @@ export function CalendarDial() {
       // failure reaches back in to stop it.
       void (async () => {
         try {
-          await runReview(estateName);
+          // Queued behind any town event or recruitment already in flight. The
+          // ceremony runs on its own clock either way — the dial does not wait
+          // for its turn, only the request does.
+          await runExclusive('the month-end review', () => runReview(estateName));
         } catch (err: any) {
           console.error('[calendar] review failed:', err);
           abortCeremony(err?.message ?? 'Unknown error');
@@ -388,7 +392,7 @@ export function CalendarDial() {
         timersRef.current = [];
       });
     },
-    [phase, currentEstate, isOverArtwork, month, handleLoadEstate, abortCeremony]
+    [phase, currentEstate, isOverArtwork, month, handleLoadEstate, abortCeremony, runExclusive]
   );
 
   const overlayRoot = document.getElementById('overlay-root');
@@ -402,24 +406,6 @@ export function CalendarDial() {
 
   const isLit = LIT_PHASES.includes(phase);
 
-  // Inline for now so this works without touching CalendarDial.css. Move it to
-  // a .calendar-error rule when you style the rest of the overlay.
-  const errorStyle: CSSProperties = {
-    position: 'fixed',
-    left: '50%',
-    bottom: '3rem',
-    transform: 'translateX(-50%)',
-    maxWidth: '32rem',
-    padding: '0.75rem 1.25rem',
-    textAlign: 'center',
-    background: 'rgba(20, 16, 14, 0.92)',
-    border: '1px solid rgba(180, 150, 110, 0.45)',
-    color: '#e8ddc8',
-    font: '0.95rem/1.4 inherit',
-    pointerEvents: 'none',
-    zIndex: 10,
-  };
-
   return createPortal(
     <div
       className={`calendar-overlay phase-${phase}${isLit ? ' is-lit' : ''}`}
@@ -428,9 +414,14 @@ export function CalendarDial() {
       <div className="calendar-scrim" />
 
       {error && (
-        <div className="calendar-error" style={errorStyle} role="alert">
-          The month could not be advanced. {error}
-        </div>
+        <ErrorNotice
+          variant="toast"
+          title="The month could not be advanced."
+          message={error}
+          onDismiss={() => setError(null)}
+          dismissLabel="Dismiss"
+          autoDismissMs={10000}
+        />
       )}
 
       <div className="calendar-dial" ref={shellRef}>

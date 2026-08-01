@@ -1,120 +1,115 @@
 // server/routes/dungeonSummaryRoute.ts
 import { Router, Request, Response } from 'express';
-import { loadEstate, saveEstate } from '../fileOps.js';
-import { callLLM } from '../services/llm/llmService.js';
+import { withEstate } from '../estateLock.js';
+import { asyncHandler } from '../middleware/errorHandler.js';
+import { AppError } from '../errors.js';
+import { callEstateLLM, parseLlmJson, requireFields } from '../services/llm/estateLlm.js';
 import { compileDungeonSummaryPrompt } from '../services/dungeon/dungeonSummaryService.js';
 
-import type { Estate } from '../../shared/types/types.js';
-import type { LLMRequest } from '../services/llm/llmService.js';
-
 const router = Router();
+
+interface WageShare {
+  identifier: string;
+  share?: number;
+}
+
+interface DungeonSummary {
+  headline: string;
+  characters: WageShare[];
+  town: number;
+  bursar?: number;
+}
 
 /**
  * POST /estates/:estateName/dungeon/summary
  * Generates a wage split and dungeon summary after a completed expedition.
  * Called after story + consequences have already been processed.
  */
-router.post('/estates/:estateName/dungeon/summary', async (req: Request, res: Response) => {
-  try {
+router.post(
+  '/estates/:estateName/dungeon/summary',
+  asyncHandler(async (req: Request<{ estateName: string }, {}, { totalLoot: unknown }>, res: Response) => {
     const { estateName } = req.params;
-    const { totalLoot } = req.body;
+    const { totalLoot } = req.body ?? {};
 
-    // 1. Load the estate (already updated with return-home consequences)
-    const estate: Estate | undefined = await loadEstate(estateName);
-    if (!estate) {
-      return res.status(404).json({ error: `Estate '${estateName}' not found` });
+    const lootTotal = Number(totalLoot);
+    if (!Number.isFinite(lootTotal) || lootTotal < 0) {
+      throw AppError.badRequest(
+        `totalLoot must be a non-negative number, got ${JSON.stringify(totalLoot)}.`
+      );
     }
 
-    if (!estate.dungeon) {
-      return res.status(400).json({ error: 'No active dungeon on this estate' });
-    }
-
-    // 2. Compile the summary prompt
-    const summaryPrompt = compileDungeonSummaryPrompt(estate, totalLoot);
-
-    // 3. Call LLM
-    const provider = estate.preferences?.llmProvider ?? 'anthropic';
-    const model = estate.preferences?.llmModel;
-
-    const summaryRequest: LLMRequest = {
-      provider,
-      model,
-      prompt: summaryPrompt,
-      maxTokens: estate.preferences?.maxTokens,
-      temperature: 0.7,
-    };
-
-    const response = await callLLM(summaryRequest);
-
-    // 4. Clean and parse the response
-    const cleanedText = response
-      .replace(/^```(json)?\n/, '')
-      .replace(/:\s*\+(\d)/g, ': $1')
-      .replace(/```/, '')
-      .trim();
-
-    console.log(`Total money: ${totalLoot}`);
-    console.log(cleanedText);
-    console.log('');
-
-    const parsedJson = JSON.parse(cleanedText);
-
-    // 5. Basic validation
-    if (!parsedJson.headline || !Array.isArray(parsedJson.characters) || parsedJson.town === undefined) {
-      throw new Error('Dungeon summary response missing required fields');
-    }
-
-    // 6. Validate wage total
-    const characterTotal = parsedJson.characters.reduce(
-      (sum: number, c: any) => sum + (c.share || 0), 0
-    );
-    const totalDistributed = characterTotal + (parsedJson.town || 0) + (parsedJson.bursar || 0);
-    const lootNum = parseInt(totalLoot) || 0;
-
-    if (totalDistributed !== lootNum) {
-      console.warn(`Wage total mismatch: distributed ${totalDistributed}, expected ${lootNum}. Adjusting town share.`);
-      parsedJson.town = lootNum - characterTotal - (parsedJson.bursar || 0);
-    }
-
-    // 7. Apply results to estate
-    // - Update character.money for each wage
-    parsedJson.characters.forEach((charShare: any) => {
-      const char = estate.characters[charShare.identifier];
-      if (char) {
-        char.money += (charShare.share || 0);
+    const summary = await withEstate(estateName, async (estate) => {
+      if (!estate.dungeon) {
+        throw AppError.invalidState('There is no active dungeon on this estate to summarise.');
       }
+
+      const prompt = compileDungeonSummaryPrompt(estate, totalLoot as any);
+      const response = await callEstateLLM(estate, prompt, { temperature: 0.7 });
+
+      const parsed = parseLlmJson<DungeonSummary>(response, 'dungeon summary');
+      requireFields(parsed, 'dungeon summary', ['headline', 'characters', 'town']);
+
+      if (!Array.isArray(parsed.characters)) {
+        throw AppError.llmBadContent('dungeon summary', ['"characters" is not an array'], parsed);
+      }
+
+      console.log(`Total money: ${lootTotal}`);
+      console.log(JSON.stringify(parsed, null, 2));
+      console.log('');
+
+      // --- Reconcile the split against the actual loot ---
+      const characterTotal = parsed.characters.reduce((sum, c) => sum + (c.share || 0), 0);
+      const bursarCut = parsed.bursar || 0;
+      const distributed = characterTotal + (parsed.town || 0) + bursarCut;
+
+      if (distributed !== lootTotal) {
+        console.warn(
+          `Wage total mismatch: distributed ${distributed}, expected ${lootTotal}. Adjusting town share.`
+        );
+        parsed.town = lootTotal - characterTotal - bursarCut;
+      }
+
+      // The model can hand out more than exists. Absorbing that as a negative
+      // town share would quietly drain the estate's treasury, so floor it and
+      // say so instead.
+      if (parsed.town < 0) {
+        console.warn(
+          `Wages exceeded the loot by ${-parsed.town}. Town share floored at 0; the estate covers the shortfall.`
+        );
+        parsed.town = 0;
+      }
+
+      // --- Apply ---
+      for (const charShare of parsed.characters) {
+        const char = estate.characters[charShare.identifier];
+        if (char) {
+          char.money += charShare.share || 0;
+        } else {
+          console.warn(`Wage for unknown character '${charShare.identifier}' discarded.`);
+        }
+      }
+
+      estate.money += parsed.town;
+
+      if (bursarCut > 0) {
+        const bursarId = estate.leadership.bursar;
+        const bursar = estate.characters[bursarId];
+        if (bursar) {
+          bursar.money += bursarCut;
+        } else {
+          console.warn(
+            `Bursar cut of ${bursarCut} diverted to estate: Bursar '${bursarId}' not found.`
+          );
+          estate.money += bursarCut;
+        }
+      }
+
+      estate.dungeon = undefined;
+      return parsed;
     });
 
-    // - Update estate.money with town share
-    estate.money += (parsedJson.town || 0);
-
-    // - Apply bursar cut
-    if (parsedJson.bursar > 0) {
-      const bursarId = estate.leadership.bursar;
-      const bursar = estate.characters[bursarId];
-      if (bursar) {
-        bursar.money += parsedJson.bursar;
-      } else {
-        console.warn(`Bursar cut of ${parsedJson.bursar} diverted to estate: Bursar '${bursarId}' not found.`);
-        estate.money += parsedJson.bursar;
-      }
-    }
-
-    // - Clear estate.dungeon
-    estate.dungeon = undefined;
-
-    // - Save estate
-    await saveEstate(estate);
-
-    return res.json({
-      success: true,
-      result: parsedJson,
-    });
-
-  } catch (error: any) {
-    console.error('Error in dungeon summary route:', error);
-    return res.status(500).json({ error: error.message });
-  }
-});
+    res.json({ success: true, result: summary });
+  })
+);
 
 export default router;

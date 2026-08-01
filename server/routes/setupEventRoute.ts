@@ -1,47 +1,59 @@
+// server/routes/setupEventRoute.ts
 import { Router, Request, Response } from 'express';
 import { setupEvent, setupFollowUpEvent } from '../services/story/setupEventService.js';
 import { takeFollowUpEvent } from '../services/game/followUpService.js';
-import { loadEstate, saveEstate } from '../fileOps.js';
+import { requireEstate } from '../fileOps.js';
+import { withEstate } from '../estateLock.js';
+import { asyncHandler } from '../middleware/errorHandler.js';
 
 const router = Router();
 
-router.post('/estates/:estateName/events/setup', async (req: Request, res: Response) => {
-  try {
-    const { estateName } = req.params;
-    const { eventId, characterIds, enemyIds } = req.body;
+interface SetupRequest {
+  eventId?: string | null;
+  characterIds?: string[];
+  enemyIds?: string[];
+}
 
-    const estate = await loadEstate(estateName);
-    if (!estate) {
-      return res.status(404).json({ error: `Estate '${estateName}' not found` });
-    }
+router.post(
+  '/estates/:estateName/events/setup',
+  asyncHandler(async (req: Request<{ estateName: string }, {}, SetupRequest>, res: Response) => {
+    const { estateName } = req.params;
+    const { eventId, characterIds, enemyIds } = req.body ?? {};
 
     // A follow-up may only pre-empt an *undirected* random pull. A request that
     // names an event or specific participants is honored as-is.
     const isUndirected = !eventId && !characterIds?.length && !enemyIds?.length;
 
-    let result;
-    let usedFollowUp = false;
-
-    if (isUndirected) {
-      const followUp = takeFollowUpEvent(estate); // mutates estate.followUps (queue + streak)
-
-      result = followUp
-        ? await setupFollowUpEvent(estate, followUp)
-        : await setupEvent(estate, { eventId, characterIds, enemyIds });
-
-      usedFollowUp = !!followUp;
-
-      // takeFollowUpEvent touched the queue/counter — persist it.
-      await saveEstate(estate);
-    } else {
-      result = await setupEvent(estate, { eventId, characterIds, enemyIds });
+    if (!isUndirected) {
+      // Directed setup reads but never writes, so it takes no lock.
+      const estate = await requireEstate(estateName);
+      const result = await setupEvent(estate, {
+        eventId: eventId ?? undefined,
+        characterIds,
+        enemyIds,
+      });
+      res.json({ ...result, success: true, usedFollowUp: false });
+      return;
     }
 
-    return res.json({ success: true, usedFollowUp, ...result });
-  } catch (error: any) {
-    console.error('Error setting up event:', error);
-    return res.status(500).json({ error: error.message });
-  }
-});
+    // Undirected setup consumes from the follow-up queue and updates the
+    // streak counter, so it does write.
+    let usedFollowUp = false;
+
+    const result = await withEstate(estateName, async (estate) => {
+      // Mutates estate.followUps (removes the served entry, updates the streak).
+      const followUp = takeFollowUpEvent(estate);
+      usedFollowUp = !!followUp;
+
+      // If this throws, withEstate skips the save and the queue on disk is
+      // untouched — a failed setup doesn't silently eat a follow-up.
+      return followUp
+        ? await setupFollowUpEvent(estate, followUp)
+        : await setupEvent(estate, { eventId: undefined, characterIds, enemyIds });
+    });
+
+    res.json({ ...result, success: true, usedFollowUp });
+  })
+);
 
 export default router;

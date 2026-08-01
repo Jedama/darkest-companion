@@ -1,85 +1,64 @@
 // server/routes/reviewRoute.ts
 import { Router, Request, Response } from 'express';
-import { loadEstate, saveEstate } from '../fileOps.js';
-import { callLLM } from '../services/llm/llmService.js';
+import { withEstate } from '../estateLock.js';
+import { asyncHandler } from '../middleware/errorHandler.js';
+import { AppError } from '../errors.js';
+import { callEstateLLM, parseLlmJson, requireFields } from '../services/llm/estateLlm.js';
 import { applyReview, compileReviewPrompt } from '../services/review/reviewService.js';
 
-import type { Estate } from '../../shared/types/types.js';
-import type { LLMRequest } from '../services/llm/llmService.js';
-
 const router = Router();
+
+const MAX_NARRATIVES = 8;
+
+/**
+ * The exact shape applyReview accepts, derived from its own signature rather
+ * than redeclared here. Declaring a second `ReviewResult` just gave us two
+ * incompatible types with the same name.
+ */
+type ReviewResult = Parameters<typeof applyReview>[1];
 
 /**
  * POST /estates/:estateName/review
  * Triggers a narrative review at dungeon-end or month-end.
  * Evaluates logs, maintains active narratives, and generates follow-up events.
+ *
+ * This is the route most likely to collide with something else: it renders
+ * nothing, so a player can fire it and immediately open a town event.
  */
-router.post('/estates/:estateName/review', async (req: Request, res: Response) => {
-  try {
+router.post(
+  '/estates/:estateName/review',
+  asyncHandler(async (req: Request<{ estateName: string }>, res: Response) => {
     const { estateName } = req.params;
 
-    // 1. Load the estate
-    const estate: Estate | undefined = await loadEstate(estateName);
-    if (!estate) {
-      return res.status(404).json({ error: `Estate '${estateName}' not found` });
-    }
+    const result = await withEstate(estateName, async (estate) => {
+      const prompt = compileReviewPrompt(estate);
+      const response = await callEstateLLM(estate, prompt, { temperature: 0.7 });
 
-    // 2. Compile the review prompt
-    const reviewPrompt = compileReviewPrompt(estate);
+      const parsed = parseLlmJson<ReviewResult>(response, 'review');
+      requireFields(parsed, 'review', ['estate_log', 'narratives']);
 
-    // 3. Call LLM
-    const provider = estate.preferences?.llmProvider ?? 'anthropic';
-    const model = estate.preferences?.llmModel;
+      if (!Array.isArray(parsed.narratives)) {
+        throw AppError.llmBadContent('review', ['"narratives" is not an array'], parsed);
+      }
 
-    const reviewRequest: LLMRequest = {
-      provider,
-      model,
-      prompt: reviewPrompt,
-      maxTokens: estate.preferences?.maxTokens,
-      temperature: 0.7,
-    };
+      if (parsed.narratives.length > MAX_NARRATIVES) {
+        throw AppError.llmBadContent(
+          'review',
+          [`returned ${parsed.narratives.length} narratives, maximum is ${MAX_NARRATIVES}`],
+          parsed
+        );
+      }
 
-    const response = await callLLM(reviewRequest);
+      console.log('Review Results');
+      console.log(JSON.stringify(parsed, null, 2));
+      console.log('');
 
-    // 4. Clean and parse the response
-     const cleanResponse = (text: string): string => {
-      return text
-        .replace(/^```(json)?\n/, '')
-        .replace(/```/, '')
-        .replace(/:\s*\+(\d)/g, ': $1')  // "+6" → "6" only after colons (JSON values)
-        .trim();
-    };
-
-    const cleanedText = cleanResponse(response);
-
-    console.log(`Review Results`);
-    console.log(cleanedText);
-    console.log('');
-
-    const parsedJson = JSON.parse(cleanedText);
-
-    // 5. Basic validation
-    if (!parsedJson.estate_log || !Array.isArray(parsedJson.narratives)) {
-      throw new Error('Review response missing required "estate_log" or "narratives" array');
-    }
-
-    if (parsedJson.narratives.length > 8) {
-      throw new Error(`Review returned ${parsedJson.narratives.length} narratives, maximum is 8`);
-    }
-
-    // 6. Apply results to estate and persist
-    applyReview(estate, parsedJson);
-    await saveEstate(estate); 
-
-    return res.json({
-      success: true,
-      result: parsedJson,
+      applyReview(estate, parsed);
+      return parsed;
     });
 
-  } catch (error: any) {
-    console.error('Error in review route:', error);
-    return res.status(500).json({ error: error.message });
-  }
-});
+    res.json({ success: true, result });
+  })
+);
 
 export default router;

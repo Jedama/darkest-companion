@@ -1,141 +1,166 @@
 // server/routes/recruitEventRoute.ts
 import { Router, Request, Response } from 'express';
-import { saveEstate, loadEstate } from '../fileOps';
-import { callLLM } from '../services/llm/llmService.js';
+import { withEstate } from '../estateLock.js';
+import { asyncHandler } from '../middleware/errorHandler.js';
+import { AppError } from '../errors.js';
+import { callEstateLLM, parseLlmJson } from '../services/llm/estateLlm.js';
+import { checkConsequences, reportUnhandledConsequences } from '../services/llm/consequenceChecks.js';
 import { setupEvent } from '../services/story/setupEventService.js';
-import { compileRecruitPrompt, compileRecruitConsequencesPrompt } from '../services/recruit/recruitEventService.js';
-import { applyConsequences, separateStoryTitle, ensureAllCharactersHaveConsequences, validateConsequences, formatConsequences, ConsequencesResult } from '../services/llm/llmResponseProcessor.js';
-
-import type { Estate } from '../../shared/types/types.ts';
-import type { LLMRequest } from "../services/llm/llmService.js";
 import { addCharacterToEstate } from '../services/game/estateService.js';
+import {
+  compileRecruitPrompt,
+  compileRecruitConsequencesPrompt,
+} from '../services/recruit/recruitEventService.js';
+import {
+  applyConsequences,
+  separateStoryTitle,
+  ensureAllCharactersHaveConsequences,
+  type ConsequencesResult,
+} from '../services/llm/llmResponseProcessor.js';
 
+import type { Character } from '../../shared/types/types.js';
 
 const router = Router();
 
+interface RecruitRequest {
+  eventId: string;
+  characterId: string;
+  name: string;
+  context?: string;
+}
+
 /**
- * POST /estates/:estateName/events/story
- * Expects JSON body with { event, chosenCharacterIds } or you might store these in the estate.
- * Returns a compiled prompt string that the frontend can send to the LLM.
+ * POST /estates/:estateName/events/recruit
+ *
+ * Adds a character to the estate and narrates their arrival, then applies the
+ * consequences of that arrival. Two chained LLM calls, so this holds the estate
+ * lock longer than anything else — expect the slow-hold warning on a bad day.
+ *
+ * The estate is only written once both calls succeed, so a failure anywhere
+ * leaves the roster untouched.
  */
-router.post('/estates/:estateName/events/recruit', async (req: Request, res: Response) => {
-  try {
+router.post(
+  '/estates/:estateName/events/recruit',
+  asyncHandler(async (req: Request<{ estateName: string }, {}, RecruitRequest>, res: Response) => {
     const { estateName } = req.params;
-    const { eventId, characterId, name, context  } = req.body;
+    const { eventId, characterId, name, context } = req.body ?? {};
 
-    // 1. Load the estate so we can fetch character data
-    let estate: Estate | undefined = await loadEstate(estateName);
-    if (!estate) {
-      return res.status(404).json({ error: `Estate '${estateName}' not found` });
-    }
+    if (!characterId) throw AppError.badRequest('No character class was chosen.');
+    if (!name?.trim()) throw AppError.badRequest('The recruit needs a name.');
 
-    // 2. Add the new character to the estate
-    estate = addCharacterToEstate(estate, characterId);
-    estate.characters[characterId].name = name;
+    const story = await withEstate(estateName, async (estate) => {
+      // The modal filters out classes already on the roster, but the route
+      // shouldn't take its word for it — adding twice would overwrite the
+      // existing character, name, logs and all.
+      const existing = estate.characters[characterId];
+      if (existing) {
+        throw AppError.invalidState(
+          `${existing.name} already serves this estate as ${characterId}.`
+        );
+      }
 
-    // 3. Call the service to pick random event + characters
-    const setupResult = await setupEvent(estate, {
-      eventId,
-      characterIds: characterId ? [characterId] : [],
+      // Fold the result back onto the locked reference rather than reassigning,
+      // so it works whether addCharacterToEstate mutates or returns a copy.
+      Object.assign(estate, addCharacterToEstate(estate, characterId));
+
+      // The guard above narrowed estate.characters[characterId] to `never`, and
+      // TS doesn't undo that for a mutation made through Object.assign. The
+      // annotation restates what is true after the call.
+      const recruit: Character = estate.characters[characterId];
+      if (!recruit) {
+        throw new AppError(
+          `addCharacterToEstate produced no character for '${characterId}'.`,
+          500,
+          'internal'
+        );
+      }
+      recruit.name = name.trim();
+
+      const setupResult = await setupEvent(estate, {
+        eventId,
+        characterIds: [characterId],
+      });
+
+      console.log('Generating story:');
+      console.log(`${setupResult.event.title} (${setupResult.event.identifier})`);
+      console.log(`Keywords: ${setupResult.keywords?.join(', ') || 'none'}`);
+      console.log(`Recruiting: ${name} (${characterId})`);
+      console.log(`Modifiers: ${context || 'none'}\n`);
+
+      const recruitPrompt = await compileRecruitPrompt(
+        estate,
+        setupResult.event,
+        setupResult.chosenCharacterIds,
+        setupResult.locations,
+        setupResult.bystanders,
+        setupResult.keywords,
+        context ?? ''
+      );
+
+      // Two LLM calls share this request's path, so the label can't be inferred.
+      const recruitResponse = await callEstateLLM(estate, recruitPrompt, {
+        temperature: 0.7,
+        label: 'recruit story',
+      });
+      const { title, body } = separateStoryTitle(recruitResponse);
+
+      if (!body.trim()) {
+        throw AppError.llmBadContent(
+          'recruit story',
+          ['the response contained no story text'],
+          recruitResponse
+        );
+      }
+
+      console.log('Story:');
+      console.log(`[${title}]`);
+      console.log(`${body}\n`);
+
+      const consequencesPrompt = await compileRecruitConsequencesPrompt({
+        estate,
+        story: body,
+        chosenCharacterIds: setupResult.chosenCharacterIds,
+        keywords: setupResult.keywords,
+      });
+
+      const consequencesResponse = await callEstateLLM(estate, consequencesPrompt, {
+        temperature: 0.7,
+        label: 'recruit consequences',
+      });
+      const parsed = parseLlmJson<ConsequencesResult>(consequencesResponse, 'recruit consequences');
+
+      if (!Array.isArray(parsed.characters)) {
+        throw AppError.llmBadContent(
+          'recruit consequences',
+          ['response has no "characters" array'],
+          parsed
+        );
+      }
+
+      const problems = checkConsequences(parsed, estate.characters);
+      if (problems.length > 0) {
+        throw AppError.llmBadContent('recruit consequences', problems, parsed);
+      }
+
+      reportUnhandledConsequences(parsed, 'recruit consequences');
+
+      // structuredClone inside here is what keeps `parsed` unmutated — the old
+      // formatConsequences() shallow copy was redundant with it.
+      const consequences = ensureAllCharactersHaveConsequences(
+        parsed,
+        setupResult.chosenCharacterIds
+      );
+
+      console.log('Consequences');
+      console.log(JSON.stringify(consequences, null, 2));
+      console.log('');
+
+      applyConsequences(estate, consequences);
+      return { title, body };
     });
 
-    console.log(`Generating story:`);
-    console.log(`${setupResult.event.title} (${setupResult.event.identifier})`);
-    console.log(`Keywords: ${setupResult.keywords?.join(', ') || 'none'}`);
-    console.log(`Recruiting: ${name} (${characterId})`);
-    console.log(`Modifiers: ${context || 'none'}\n`);
-    
-    // 4. Build the prompt using your storyEventService
-    const recruitPrompt = await compileRecruitPrompt(
-      estate, 
-      setupResult.event, 
-      setupResult.chosenCharacterIds, 
-      setupResult.locations, 
-      setupResult.bystanders, 
-      setupResult.keywords,
-      context,
-    );
-
-    // 5. Call LLM with the prompt
-    const provider = estate.preferences?.llmProvider ?? "anthropic";
-    const model = estate.preferences?.llmModel; // if undefined, provider default in callLLM will apply
-
-    const recruitRequest: LLMRequest = {
-      provider,
-      model,
-      prompt: recruitPrompt,
-      maxTokens: estate.preferences?.maxTokens,
-      temperature: 0.7,
-    };
-
-    const recruitResponse = await callLLM(recruitRequest);
-
-    // 6. Extract title from response
-    const { title, body } = separateStoryTitle(recruitResponse);
-    const consequencesPrompt = await compileRecruitConsequencesPrompt({
-      estate,
-      story: body,
-      chosenCharacterIds: setupResult.chosenCharacterIds,
-      keywords: setupResult.keywords
-    });
-
-    console.log(`Story:`);
-    console.log(`[${title}]`);
-    console.log(`${body}\n`);
-
-    const response = await callLLM({
-      provider,
-      model,
-      prompt: consequencesPrompt,
-      maxTokens: estate.preferences?.maxTokens,
-      temperature: 0.7,
-    });
-
-    // 7. Clean and parse the response
-     const cleanResponse = (text: string): string => {
-      return text
-        .replace(/^```(json)?\n/, '')
-        .replace(/```/, '')
-        .replace(/:\s*\+(\d)/g, ': $1')  // "+6" → "6" only after colons (JSON values)
-        .trim();
-    };
-    
-    const cleanedText = cleanResponse(response);
-
-    // 8. Parse and validate the response
-    let parsedJson: ConsequencesResult;
-    parsedJson = JSON.parse(cleanedText) as ConsequencesResult;
-
-    if (!parsedJson || !Array.isArray(parsedJson.characters)) {
-      throw new Error('Response missing required "characters" array');
-    }
-
-    if (!validateConsequences(parsedJson, estate.characters)) {
-      throw new Error('Response failed consequence validation rules');
-    }
-
-    const formattedConsequences = formatConsequences(parsedJson);
-
-    const consequencesForProcessing: ConsequencesResult =
-      ensureAllCharactersHaveConsequences(formattedConsequences, setupResult.chosenCharacterIds);
-
-    const updatedEstate = applyConsequences(estate, consequencesForProcessing);
-
-    console.log(`Consequences`);
-    console.log(JSON.stringify(consequencesForProcessing, null, 2));
-    console.log('');
-
-    await saveEstate(updatedEstate);
-
-    return res.json({
-      success: true,
-      story: { title, body },
-    });
-    
-  } catch (error: any) {
-    console.error('Error in recruit route:', error);
-    return res.status(500).json({ error: error.message });
-  }
-});
+    res.json({ success: true, story });
+  })
+);
 
 export default router;

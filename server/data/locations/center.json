@@ -96,7 +96,7 @@
     "title": "Puppet Theater",
     "description": "A weathered wooden puppet booth, its window frame gaping darkly against rotting panels. Broken shutters lie among tangled puppet strings and discarded props below, while cobwebs drape the corners where once curtains hung.",
     "restored": "A quaint puppet booth stands ready for performance, its window frame neatly bordered to create a proper stage for the puppeteer's art. Fresh paint brightens the panels, while new shutters and warm lamplight promise simple entertainments to come.",
-    "summary": "A wooden booth in the town square designed for entertaining audiences with puppet shows, a source of simple fun and distraction.",
+    "summary": "puppet_theater (Puppet Theater) A wooden booth in the town square designed for entertaining audiences with puppet shows, a source of simple fun and distraction.",
     "parent": "town_square",
     "children": []
   },

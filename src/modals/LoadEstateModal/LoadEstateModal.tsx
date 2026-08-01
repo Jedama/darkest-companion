@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { fetchEstates } from '../../utils/api';
 import { useEstateContext } from '../../contexts/EstateContext';
+import { ErrorNotice } from '../../components/ui/ErrorNotice';
 import './LoadEstateModal.css'; // if you have a CSS file
 
 export function LoadEstateModal() {
@@ -24,7 +25,7 @@ export function LoadEstateModal() {
       setExistingEstates(estates);
       setError(null);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to load estate')
+      setError(err instanceof Error ? err.message : 'Failed to load estates');
       console.error(err);
     } finally {
       setLoading(false);
@@ -40,7 +41,7 @@ export function LoadEstateModal() {
       // Reload list to see the newly created estate in the list
       await loadEstatesList();
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to load estate')
+      setError(err instanceof Error ? err.message : 'Failed to create estate');
       console.error(err);
     }
   };
@@ -49,7 +50,7 @@ export function LoadEstateModal() {
     try {
       await handleLoadEstate(estateName);
     } catch (err) {
-      setError('Failed to load estate');
+      setError(err instanceof Error ? err.message : 'Failed to load estate');
       console.error(err);
     }
   };
@@ -59,7 +60,7 @@ export function LoadEstateModal() {
       await handleDeleteEstate(estateName);
       await loadEstatesList();
     } catch (err) {
-      setError('Failed to delete estate');
+      setError(err instanceof Error ? err.message : 'Failed to delete estate');
       console.error(err);
     }
   };
@@ -69,7 +70,13 @@ export function LoadEstateModal() {
       <div className="modal-content">
         <h2>Load or Create Estate</h2>
         
-        {error && <div className="error-message">{error}</div>}
+        {error && (
+          <ErrorNotice
+            message={error}
+            onDismiss={() => setError(null)}
+            dismissLabel="Dismiss"
+          />
+        )}
         
         <div className="create-estate-section">
           <input

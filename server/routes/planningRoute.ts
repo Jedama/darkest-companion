@@ -1,15 +1,14 @@
 // server/routes/planningRoute.ts
 import { Router, Request, Response } from 'express';
-import { loadEstate } from '../fileOps.js';
-import { callLLM } from '../services/llm/llmService.js';
+import { requireEstate } from '../fileOps.js';
+import { asyncHandler } from '../middleware/errorHandler.js';
+import { AppError } from '../errors.js';
+import { callEstateLLM } from '../services/llm/estateLlm.js';
 import {
   compileDeliberationPrompt,
   getPlanningAttendees,
   parseDialogue,
 } from '../services/planning/planningService.js';
-
-import type { Estate } from '../../shared/types/types.js';
-import type { LLMRequest } from '../services/llm/llmService.js';
 
 const router = Router();
 
@@ -22,62 +21,50 @@ const router = Router();
  *
  * Read-only: nothing is persisted. Constraints and team assignments come later.
  */
-router.post('/estates/:estateName/planning/deliberate', async (req: Request, res: Response) => {
-  try {
+router.post(
+  '/estates/:estateName/planning/deliberate',
+  asyncHandler(async (req: Request<{ estateName: string }>, res: Response) => {
     const { estateName } = req.params;
+    const estate = await requireEstate(estateName);
 
-    // 1. Load the estate
-    const estate: Estate | undefined = await loadEstate(estateName);
-    if (!estate) {
-      return res.status(404).json({ error: `Estate '${estateName}' not found` });
-    }
-
-    // 2. Determine attendance
     const attendees = getPlanningAttendees(estate);
     if (attendees.length < 2) {
-      return res.status(400).json({ error: 'Not enough leadership present to hold a planning meeting.' });
+      // Not a malformed request — the estate simply isn't in a state to hold
+      // a meeting, so this is a conflict rather than a bad request.
+      throw AppError.invalidState(
+        `Not enough leadership present to hold a planning meeting (${attendees.length} of 2 required).`
+      );
     }
-    const attendeeIds = attendees.map(a => a.character.identifier);
+    const attendeeIds = attendees.map((a) => a.character.identifier);
 
-    // 3. Compile the prompt
-    const deliberationPrompt = compileDeliberationPrompt(estate);
+    const prompt = compileDeliberationPrompt(estate);
 
-    console.log(`Generating planning meeting:`);
+    console.log('Generating planning meeting:');
     console.log(`Month ${estate.time.month}, Day ${estate.time.day}`);
-    console.log(`Attending: ${attendees.map(a => `${a.character.name} (${a.seat})`).join(', ')}\n`);
+    console.log(`Attending: ${attendees.map((a) => `${a.character.name} (${a.seat})`).join(', ')}\n`);
 
-    // 4. Call LLM
-    const provider = estate.preferences?.llmProvider ?? 'anthropic';
-    const model = estate.preferences?.llmModel;
+    const response = await callEstateLLM(estate, prompt, { temperature: 0.7 });
 
-    const deliberationRequest: LLMRequest = {
-      provider,
-      model,
-      prompt: deliberationPrompt,
-      maxTokens: estate.preferences?.maxTokens,
-      temperature: 0.7,
-    };
-
-    const response = await callLLM(deliberationRequest);
-
-    // 5. Parse the dialogue
     const lines = parseDialogue(response, attendeeIds);
 
     if (lines.length === 0) {
-      console.error('Raw response:\n' + response);
-      throw new Error('Deliberation produced no usable dialogue lines');
+      throw AppError.llmBadContent(
+        'planning deliberation',
+        ['no lines could be attributed to any attendee'],
+        response
+      );
     }
 
-    console.log(`Planning Meeting`);
-    lines.forEach(line => {
+    console.log('Planning Meeting');
+    lines.forEach((line) => {
       const speaker = estate.characters[line.speaker]?.name ?? line.speaker;
       console.log(`${speaker}: ${line.text}`);
     });
     console.log('');
 
-    return res.json({
+    res.json({
       success: true,
-      attendees: attendees.map(a => ({
+      attendees: attendees.map((a) => ({
         identifier: a.character.identifier,
         name: a.character.name,
         title: a.character.title,
@@ -85,11 +72,7 @@ router.post('/estates/:estateName/planning/deliberate', async (req: Request, res
       })),
       lines,
     });
-
-  } catch (error: any) {
-    console.error('Error in planning deliberation route:', error);
-    return res.status(500).json({ error: error.message });
-  }
-});
+  })
+);
 
 export default router;

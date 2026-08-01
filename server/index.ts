@@ -1,8 +1,11 @@
 // server/index.ts
 import express, { Request, Response } from 'express';
 import cors from 'cors';
-import { loadEstate, listEstates, deleteEstate } from './fileOps.js';
-import type { Estate } from '../shared/types/types.js';
+
+import { requireEstate, listEstates, deleteEstate, estateExists } from './fileOps.js';
+import { AppError } from './errors.js';
+import { asyncHandler, errorHandler, notFoundHandler } from './middleware/errorHandler.js';
+import { llmModeMiddleware, DEFAULT_LLM_MODE } from './services/llm/llmMode.js';
 
 import { createNewEstateAndSave } from './services/game/estateService.js';
 import staticDataRoute from './routes/staticDataRoute.js';
@@ -18,10 +21,77 @@ import StaticGameDataManager from './staticGameDataManager.js';
 const DEFAULT_CHARACTER_IDS = ['crusader', 'highwayman', 'heiress', 'kheir'];
 
 const app = express();
-const port = 3000;
+const port = Number(process.env.PORT) || 3000;
 
 app.use(cors());
 app.use(express.json());
+
+// Opens the per-request LLM mode store. Must come after express.json(), since
+// fixtures read the parsed body, and before any route that calls an LLM.
+app.use(llmModeMiddleware);
+
+/* ---------------------------------------------------------------- *
+ *  Estates
+ * ---------------------------------------------------------------- */
+
+interface EstateParams {
+  name: string;
+}
+
+interface CreateEstateBody {
+  estateName: string;
+}
+
+app.get(
+  '/estates',
+  asyncHandler(async (_req: Request, res: Response) => {
+    res.json(await listEstates());
+  })
+);
+
+app.get(
+  '/estates/:name',
+  asyncHandler(async (req: Request<EstateParams>, res: Response) => {
+    // 404 when it doesn't exist, 500 only when the disk is genuinely unhappy.
+    // The old version reported every failure — including corrupt JSON — as
+    // "Estate not found".
+    res.json(await requireEstate(req.params.name));
+  })
+);
+
+app.post(
+  '/estates',
+  asyncHandler(async (req: Request<{}, {}, CreateEstateBody>, res: Response) => {
+    const estateName = req.body?.estateName?.trim();
+    if (!estateName) {
+      throw AppError.badRequest('An estate name is required.');
+    }
+
+    const gameData = StaticGameDataManager.getInstance();
+    const result = await createNewEstateAndSave(estateName, gameData, DEFAULT_CHARACTER_IDS);
+
+    if ('error' in result) {
+      // The service reports its own status; 409 is the sensible default for
+      // the duplicate-name case it mostly signals.
+      throw new AppError(result.error, result.status ?? 409, 'estate_exists');
+    }
+
+    res.status(201).json(result);
+  })
+);
+
+app.delete(
+  '/estates/:name',
+  asyncHandler(async (req: Request<EstateParams>, res: Response) => {
+    const deleted = await deleteEstate(req.params.name);
+    if (!deleted) throw AppError.estateNotFound(req.params.name);
+    res.status(204).send();
+  })
+);
+
+/* ---------------------------------------------------------------- *
+ *  Feature routers
+ * ---------------------------------------------------------------- */
 
 app.use(staticDataRoute);
 app.use(setupEventRoute);
@@ -32,83 +102,27 @@ app.use(reviewRoute);
 app.use(dungeonSummaryRoute);
 app.use(planningRoute);
 
-// Type for request params
-interface EstateParams {
-  name: string;
-}
+/* ---------------------------------------------------------------- *
+ *  Error handling — must come after every route.
+ * ---------------------------------------------------------------- */
 
-// Type for request body
-interface CreateEstateBody {
-  estateName: string;
-}
+app.use(notFoundHandler);
+app.use(errorHandler);
 
-app.get('/estates', async (_req: Request, res: Response<string[]>) => {
-  try {
-    const estates = await listEstates();
-    res.json(estates);
-  } catch (error) {
-    console.error('Error listing estates:', error);
-    res.status(500).json([]);
-  }
-});
+/* ---------------------------------------------------------------- *
+ *  Boot
+ * ---------------------------------------------------------------- */
 
-app.get('/estates/:name', async (req: Request<EstateParams>, res: Response<Estate | { error: string }>) => {
-  try {
-    const estate = await loadEstate(req.params.name);
-    res.json(estate);
-  } catch (error) {
-    console.error('Error loading estate:', error);
-    res.status(404).json({ error: 'Estate not found' });
-  }
-});
-
-app.post('/estates', async (req: Request<{}, {}, CreateEstateBody>, res: Response<Estate | { error: string }>) => {
-  try {
-    const { estateName } = req.body;
-
-    // Check for duplicates
-    const gameData = StaticGameDataManager.getInstance();
-    const result = await createNewEstateAndSave(estateName, gameData, DEFAULT_CHARACTER_IDS);
-    
-    // Check if the service returned an error object
-    if ('error' in result) {
-      return res.status(result.status).json({ error: result.error });
-    }
-
-    // If not, it's the full Estate object
-    res.status(201).json(result);
-  } catch (error) {
-    console.error('Error creating estate:', error);
-    res.status(500).json({ error: 'Failed to create estate' });
-  }
-});
-
-app.delete('/estates/:name', async (req: Request<EstateParams>, res: Response) => {
-  try {
-    const estateName = req.params.name;
-    
-    const estates = await listEstates();
-    if (!estates.includes(estateName)) {
-      return res.status(404).json({ error: 'Estate not found' });
-    }
-
-    await deleteEstate(estateName);
-    res.status(204).send();
-  } catch (error) {
-    console.error('Error deleting estate:', error);
-    res.status(500).json({ error: 'Failed to delete estate' });
-  }
-});
-
-// Initialize the server
 async function startServer() {
   try {
-    // Initialize static game data first
+    // Static game data has to be in memory before the first request lands.
     await StaticGameDataManager.getInstance().initialize();
-    
-    // Then start the Express server
+
     app.listen(port, () => {
       console.log(`Server running at http://localhost:${port}`);
+      if (DEFAULT_LLM_MODE !== 'live') {
+        console.log(`LLM_MODE=${DEFAULT_LLM_MODE} — provider calls are stubbed by default.`);
+      }
     });
   } catch (error) {
     console.error('Failed to start server:', error);
@@ -116,5 +130,10 @@ async function startServer() {
   }
 }
 
-// Start the server
 startServer();
+
+// A rejected promise outside a request would otherwise take the process down
+// silently in newer Node versions. Log it and keep serving.
+process.on('unhandledRejection', (reason) => {
+  console.error('Unhandled promise rejection:', reason);
+});

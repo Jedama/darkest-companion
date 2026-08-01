@@ -1,7 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import type { AnimationEvent } from 'react';
+import type { ConsequenceCharacterDisplay } from '../../utils/api';
 import './CardComponent.css';
 
-import type { ConsequenceCharacterDisplay } from '../../utils/api';
+/** Max absolute affinity value (+/- 5), used to scale the glow. */
+const MAX_ABS_AFFINITY = 5;
+
+/** Stable empty array, so "no relationships" isn't a new reference each render. */
+const NO_CHANGES: never[] = [];
+
 interface CardComponentProps {
   characterId: string;    // To get front image
   cornerIndex: number;    // Which corner to place it in
@@ -15,6 +22,20 @@ interface CardComponentProps {
   allConsequences: ConsequenceCharacterDisplay[]; // Entire array for looking up relationships
 }
 
+/** Maps a net affinity change to a glow colour and spread. */
+function glowFor(affinity: number): { color: string; size: string } | null {
+  if (affinity === 0) return null;
+
+  const intensity = Math.min(Math.abs(affinity) / MAX_ABS_AFFINITY, 1);
+  // Base opacity of 0.2 so even small changes register, scaling up to 1.0.
+  const alpha = Math.min(1, 0.2 + intensity * 0.8);
+
+  return {
+    color: affinity > 0 ? `rgba(255, 255, 255, ${alpha})` : `rgba(255, 0, 0, ${alpha})`,
+    size: `${5 + intensity * 20}px`, // 5px min spread, 25px max
+  };
+}
+
 export function CardComponent({
   characterId,
   cornerIndex,
@@ -26,109 +47,79 @@ export function CardComponent({
   onCardLeave,
   allConsequences,
 }: CardComponentProps) {
-  const cardRef = useRef<HTMLDivElement>(null);
+  /**
+   * React owns the animation class now, rather than a classList.add() from
+   * inside an effect. Same visual result, but the DOM can no longer disagree
+   * with the component about whether this card has been dealt.
+   */
+  const [isDealing, setIsDealing] = useState(false);
+
+  /**
+   * The parent passes a fresh arrow every render. Holding it in a ref keeps it
+   * out of the effect's dependencies — otherwise every parent re-render (and
+   * the story flow causes several while cards are in flight) would clear the
+   * pending timer and restart the deal delay from zero.
+   */
+  const onDealCompleteRef = useRef(onDealComplete);
+  onDealCompleteRef.current = onDealComplete;
+
+  /** Deal completion is reported exactly once, whatever the DOM does. */
+  const hasReportedRef = useRef(false);
 
   useEffect(() => {
-    const el = cardRef.current;
-    if (!el) return;
+    const timer = window.setTimeout(() => setIsDealing(true), dealDelay);
+    return () => window.clearTimeout(timer);
+  }, [dealDelay]);
 
-    // Delay the addition of the animation class
-    const timer = setTimeout(() => {
-      el.classList.add('deal-animation');
-    }, dealDelay);
+  const handleAnimationEnd = (event: AnimationEvent<HTMLDivElement>) => {
+    // animationend bubbles. Without this, any animation on a child — a face, an
+    // overlay, anything added later — would report the deal as finished and
+    // shunt the story straight to its text phase.
+    if (event.target !== event.currentTarget) return;
 
-    // Listen for animation end to notify parent
-    const handleAnimationEnd = () => {
-      onDealComplete?.();
-    };
-
-    el.addEventListener('animationend', handleAnimationEnd);
-    return () => {
-      clearTimeout(timer);
-      el.removeEventListener('animationend', handleAnimationEnd);
-    };
-  }, [characterId, cornerIndex, dealDelay, onDealComplete]);
-
-  const [glowStyle, setGlowStyle] = useState<{ color: string; size: string } | null>(null);
-
-  // Logic for determining which content to show
-  const isThisCardHovered = hoveredCharacterId === characterId;
-  const isAnotherCardHovered = hoveredCharacterId !== null && hoveredCharacterId !== characterId;
-
-  // Find consequences data for the character currently *being hovered* (the source of changes)
-  // This is used for OTHER cards to display relationships *from* the hovered card.
-  const sourceOfRelationshipsConsequences = hoveredCharacterId
-    ? allConsequences.find(c => c.identifier === hoveredCharacterId)
-    : undefined;
-
-  // Get the relationship changes *from* the hovered character *to this specific card's character*
-  // This array will be empty if no such changes exist or if no card is hovered.
-  const relationshipsDisplayedOnThisCard = sourceOfRelationshipsConsequences
-    ?.relationshipChanges[characterId] || [];
-
-  // Effect to calculate glow properties based on hover and relationship changes
-  useEffect(() => {
-    // Only calculate glow if another card is hovered AND this card is a target
-    if (isAnotherCardHovered && relationshipsDisplayedOnThisCard.length > 0) {
-      let totalAffinityChange = 0;
-      relationshipsDisplayedOnThisCard.forEach(change => {
-        if (typeof change.affinity === 'number') {
-          totalAffinityChange += change.affinity;
-        }
-      });
-
-      if (totalAffinityChange !== 0) {
-        // Call the helper function to get glow properties
-        const calculatedGlow = calculateGlowProperties(totalAffinityChange);
-        setGlowStyle(calculatedGlow);
-      } else {
-        // No net affinity change, so no glow
-        setGlowStyle(null);
-      }
-    } else {
-      // No other card hovered, or this card is the hovered one, so no glow here
-      setGlowStyle(null);
-    }
-  }, [isAnotherCardHovered, relationshipsDisplayedOnThisCard]); // Dependencies for this effect
-
-  // Helper function to map affinity to glow color and size
-  const calculateGlowProperties = (affinity: number) => {
-    const maxAbsAffinity = 5; // Max absolute affinity value (+/- 5)
-
-    let color = '';
-    let size = ''; // This will be the box-shadow spread value
-
-    if (affinity > 0) {
-      // Positive affinity: interpolate towards bright white
-      const intensity = Math.abs(affinity) / maxAbsAffinity; // 0 to 1
-      // Base opacity of 0.2, scales up to 1.0. This ensures small changes have some glow.
-      const alpha = Math.min(1, 0.2 + intensity * 0.8);
-      color = `rgba(255, 255, 255, ${alpha})`; // White glow
-      // Min spread 5px, max spread 25px (5 + 20*intensity)
-      size = `${5 + intensity * 20}px`;
-    } else if (affinity < 0) {
-      // Negative affinity: interpolate towards bright red
-      const intensity = Math.abs(affinity) / maxAbsAffinity; // 0 to 1
-      const alpha = Math.min(1, 0.2 + intensity * 0.8);
-      color = `rgba(255, 0, 0, ${alpha})`; // Red glow
-      size = `${5 + intensity * 20}px`;
-    } else {
-      // Affinity is 0
-      color = 'transparent'; // No color
-      size = '0px'; // No spread
-    }
-    return { color, size };
+    if (hasReportedRef.current) return;
+    hasReportedRef.current = true;
+    onDealCompleteRef.current?.();
   };
 
-  const frontImageUrl = `src/assets/characters/card/${characterId}.png`;
+  // Which content to show
+  const isThisCardHovered = hoveredCharacterId === characterId;
+  const isAnotherCardHovered = hoveredCharacterId !== null && !isThisCardHovered;
+
+  // Relationship changes FROM the hovered character TO this card's character.
+  const incomingChanges =
+    (hoveredCharacterId
+      ? allConsequences.find((c) => c.identifier === hoveredCharacterId)?.relationshipChanges[
+          characterId
+        ]
+      : undefined) ?? NO_CHANGES;
+
+  /**
+   * Derived during render rather than pushed into state by an effect. The glow
+   * is a pure function of the props, so storing it was an extra render and an
+   * extra chance for the two to disagree.
+   */
+  const netAffinity =
+    isAnotherCardHovered && incomingChanges.length > 0
+      ? incomingChanges.reduce((sum, change) => sum + (change.affinity ?? 0), 0)
+      : 0;
+
+  const glow = glowFor(netAffinity);
+
+  // Built with new URL so Vite fingerprints it at build time. A plain
+  // 'src/assets/...' string only resolves under the dev server.
+  const frontImageUrl = new URL(
+    `../../assets/characters/card/${characterId}.png`,
+    import.meta.url
+  ).href;
 
   return (
     <div
-      className="card-wrapper"
-      ref={cardRef}
+      className={`card-wrapper${isDealing ? ' deal-animation' : ''}`}
       data-corner={cornerIndex}
       style={{ zIndex: 100 - cornerIndex }}
-      // Keep hover listeners on the outer wrapper, as it defines the clickable area
+      onAnimationEnd={handleAnimationEnd}
+      // Hover listeners stay on the outer wrapper, which defines the hit area.
       onMouseEnter={consequences ? () => onCardHover(characterId) : undefined}
       onMouseLeave={consequences ? onCardLeave : undefined}
     >
@@ -137,45 +128,45 @@ export function CardComponent({
         <div
           className="card-glow-overlay"
           style={{
-            // Apply box-shadow if glowStyle is present, otherwise 'none' for smooth transition out
-            boxShadow: glowStyle ? `0 0 ${glowStyle.size} ${glowStyle.size} ${glowStyle.color}` : 'none',
-            // Control opacity based on whether glowStyle is active
-            opacity: glowStyle ? 1 : 0,
+            boxShadow: glow ? `0 0 ${glow.size} ${glow.size} ${glow.color}` : 'none',
+            opacity: glow ? 1 : 0,
           }}
-        ></div>
-        
+        />
+
         {/* The back face */}
         <div className="card-face card-back" />
-        {/* The front face */}
-        <div
-          className="card-face card-front"
-          style={{ backgroundImage: `url(${frontImageUrl})` }}
-        >
-          {/* Consequence Display */}
-        {consequences && (
-          <div className="consequences-overlay">
-            {/* Personal Changes Display */}
-            <div className={`personal-changes-display ${isAnotherCardHovered ? 'inactive-content' : 'active-content'}`}>
-              {consequences.personalChanges.map((change, idx) => (
-                <p key={idx} style={{ color: change.color }}>
-                  {change.text}
-                </p>
-              ))}
-            </div>
 
-            {/* Relationship Changes - This section will be hidden by default for Phase 1 */}
-            <div className={`relationship-changes-display ${isAnotherCardHovered ? 'active-content' : 'inactive-content'}`}>
-              {/* Only render relationship changes if there are any to display */}
-              {relationshipsDisplayedOnThisCard.map((change, idx) => (
-                <p key={idx} style={{ color: change.color }}>
-                  {change.text}
-                </p>
-              ))}
+        {/* The front face */}
+        <div className="card-face card-front" style={{ backgroundImage: `url(${frontImageUrl})` }}>
+          {consequences && (
+            <div className="consequences-overlay">
+              <div
+                className={`personal-changes-display ${
+                  isAnotherCardHovered ? 'inactive-content' : 'active-content'
+                }`}
+              >
+                {consequences.personalChanges.map((change, idx) => (
+                  <p key={idx} style={{ color: change.color }}>
+                    {change.text}
+                  </p>
+                ))}
+              </div>
+
+              <div
+                className={`relationship-changes-display ${
+                  isAnotherCardHovered ? 'active-content' : 'inactive-content'
+                }`}
+              >
+                {incomingChanges.map((change, idx) => (
+                  <p key={idx} style={{ color: change.color }}>
+                    {change.text}
+                  </p>
+                ))}
+              </div>
             </div>
-          </div>
-        )}
+          )}
         </div>
-      </div> 
+      </div>
     </div>
   );
 }
