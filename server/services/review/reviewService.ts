@@ -39,31 +39,31 @@ export function compileReviewPrompt(estate: Estate): string {
   const examples = gameData.getPrompt('review.examples');
 
   const prompt = `
-    ${instructions}
+${instructions}
 
-    [Character Roster]
-    ${buildCharacterRosterSection(estate)}
+[Character Roster]
+${buildCharacterRosterSection(estate)}
 
-    [Leadership]
-    ${buildLeadershipSection(estate)}
+[Leadership]
+${buildLeadershipSection(estate)}
 
-    [Political Landscape]
-    ${buildPoliticalLandscapeSection(estate, getAllLocationLabels())}
+[Political Landscape]
+${buildPoliticalLandscapeSection(estate, getAllLocationLabels())}
 
-    [Active Narratives]
-    ${buildNarrativesSection(estate)}
+[Active Narratives]
+${buildNarrativesSection(estate)}
 
-    [Logs]
-    ${buildAllLogsSection(estate)}
+[Logs]
+${buildAllLogsSection(estate)}
 
-    [Locations]
-    ${buildLocationSummarySection()}
+[Locations]
+${buildLocationSummarySection()}
 
-    [Content Preferences]
-    ${buildContentPreferencesSection(estate.preferences)}
+[Content Preferences]
+${buildContentPreferencesSection(estate.preferences)}
 
-    ${format}
-    ${examples}
+${format}
+${examples}
   `.trim();
 
   return prompt;

@@ -117,6 +117,72 @@ function getLocationParents(
 }
 
 /**
+ * Last-resort label built from the identifier itself: `dower_house__rosewood_chamber`
+ * becomes `Rosewood Chamber, Dower House`.
+ *
+ * Only used when a location is absent from the map — a stale save referencing a
+ * removed room, or static data that failed to load. Everything else goes through
+ * the authored `title`.
+ */
+function labelFromIdentifier(identifier: string): string {
+  const titleCase = (part: string) =>
+    part
+      .split('_')
+      .filter(Boolean)
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+ 
+  // The convention encodes ancestry as parent__child, so reversing the segments
+  // gives the same "innermost first" order the real labels use.
+  return identifier.split('__').map(titleCase).reverse().join(', ');
+}
+ 
+/**
+ * A readable, unambiguous name for a location.
+ *
+ *   dower_house__rosewood_chamber  ->  "Rosewood Chamber, Dower House"
+ *   abbey__private_cells           ->  "Private Cells, Abbey"
+ *   town_square                    ->  "Town Square"
+ *
+ * The qualifier is the OUTERMOST ancestor below the stop roots, not the immediate
+ * parent. A bedroom three levels deep inside the Apple Yard reads better as
+ * "Master Bedroom, Apple Yard" than "Master Bedroom, Apple Yard House", and the
+ * outermost name is the one a reader recognises.
+ *
+ * Qualifying at all matters more than it looks: the hamlet has at least three
+ * rooms titled "Master Bedroom" and two titled "Common Room". A bare title is
+ * ambiguous, and an identifier is unreadable.
+ */
+export function getLocationLabel(locationId: string): string {
+  const locationMap = StaticGameDataManager.getInstance().getLocationMap();
+  const location = locationMap.get(locationId);
+  if (!location) return labelFromIdentifier(locationId);
+ 
+  const ancestors = getLocationParents(location, locationMap);
+  if (ancestors.length === 0) return location.title;
+ 
+  const named = ancestors.filter(ancestor => ancestor.parent !== TOWN_SCOPE_ROOT);
+  if (named.length === 0) return location.title;
+
+  return `${location.title}, ${named[named.length - 1].title}`;
+}
+ 
+/**
+ * Labels for every known location, keyed by identifier.
+ *
+ * Convenient for callers that need to label an arbitrary set — the political
+ * landscape labels whichever rooms turn out to be interesting, and does not know
+ * which those are until after it has run.
+ */
+export function getAllLocationLabels(): Record<string, string> {
+  const labels: Record<string, string> = {};
+  for (const location of StaticGameDataManager.getInstance().getAllLocations()) {
+    labels[location.identifier] = getLocationLabel(location.identifier);
+  }
+  return labels;
+}
+
+/**
  * Every location inside the town proper: not the hamlet root itself, not its
  * immediate districts, but everything below those. Used both for allowAll
  * events and as the last-resort pool when nothing else scores.
