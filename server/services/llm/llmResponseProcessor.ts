@@ -5,6 +5,7 @@
 
 import type { Character, CharacterLocations, Estate, LogEntry } from '../../../shared/types/types.js';
 import { updateBeat, updateDay } from '../game/estateService.js';
+import { NEUTRAL_AFFINITY } from '../../../shared/constants/relationships.js';
 import { 
   type LogTimeframe, 
   addEstateLog, 
@@ -671,7 +672,7 @@ function processRelationships(character: Character, consequence: CharacterConseq
     // Create relationship if it doesn't exist (this should never happen)
     if (!character.relationships[target]) {
       character.relationships[target] = {
-        affinity: 4, // Default neutral affinity
+        affinity: NEUTRAL_AFFINITY, // Default neutral affinity
         dynamic: "",
         description: ""
       };

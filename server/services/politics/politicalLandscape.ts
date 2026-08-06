@@ -24,19 +24,28 @@ import { profileHeroes } from './heroMetrics.js';
  * writer these are measured facts rather than authored ones, which is the stance
  * we want taken toward them.
  */
-export function buildPoliticalLandscapeSection(estate: Estate): string {
-  return render(estate, { debug: false });
+export function buildPoliticalLandscapeSection(
+  estate: Estate,
+  locationTitles: Record<string, string> = {}
+): string {
+  return render(estate, { debug: false, locationTitles });
 }
 
 /**
  * A human-readable dump of everything the political layer currently knows.
  * Verbose, with timings and thresholds left in. For the console, not the prompt.
  */
-export function debugPoliticalLandscape(estate: Estate): string {
-  return render(estate, { debug: true });
+export function debugPoliticalLandscape(
+  estate: Estate,
+  locationTitles: Record<string, string> = {}
+): string {
+  return render(estate, { debug: true, locationTitles });
 }
 
-function render(estate: Estate, options: { debug: boolean }): string {
+function render(
+  estate: Estate,
+  options: { debug: boolean; locationTitles: Record<string, string> }
+): string {
   const roster = estate.characters;
   const lines: string[] = [];
 
@@ -136,7 +145,7 @@ function render(estate: Estate, options: { debug: boolean }): string {
   }
 
   // --- standing groups: membership that persists, whoever marches ---
-  const given = profileGivenGroups(roster, estate.leadership, profiles);
+  const given = profileGivenGroups(roster, estate.leadership, profiles, options.locationTitles);
   if (given.length > 0) {
     lines.push('');
     lines.push('--- Standing groups ---');

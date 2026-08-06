@@ -167,16 +167,16 @@ export function bondBetween(a: string, b: string, roster: CharacterRecord): numb
   return low + CLIQUE_CONFIG.ASYMMETRY_CREDIT * (high - low);
 }
 
-/**
- * The bar a group must clear: the higher of CORDIAL and the hamlet's mean
- * RECORDED affinity. Unrecorded pairs are excluded from the mean — on a large
- * roster most pairs are strangers, and counting them would drag the average to
- * neutral and make every real relationship look remarkable.
- *
- * Note this scales the entry fee too. Joining a trio of 8s costs affinity
- * `4 + gate/2` — 6.5 in a normal hamlet, 7.5 in a warm one. Getting into a
- * clique is harder where everyone is already friendly, which is correct.
- */
+  /**
+   * The bar a group must clear: the higher of CORDIAL and the hamlet's mean
+   * RECORDED affinity. Unrecorded pairs are excluded from the mean — on a large
+   * roster most pairs are strangers, and counting them would drag the average to
+   * neutral and make every real relationship look remarkable.
+   *
+   * Note this scales the entry fee too. Joining a trio of 8s costs affinity
+   * `NEUTRAL_AFFINITY + gate/2` — 6.5 in a normal hamlet, 7.5 in a warm one. Getting into a
+   * clique is harder where everyone is already friendly, which is correct.
+   */
 export function cliqueGate(roster: CharacterRecord): number {
   const recorded: number[] = [];
   for (const hero of Object.values(roster)) {

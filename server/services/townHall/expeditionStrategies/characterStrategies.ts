@@ -6,7 +6,7 @@
  */
 
 import { CharacterRecord, Character, StrategyContext } from '../../../../shared/types/types';
-import { NEUTRAL_AFFINITY } from '../../../../shared/constants/relationships.js';
+import { NEUTRAL_AFFINITY, MAX_AFFINITY } from '../../../../shared/constants/relationships.js';
 import { PARTY_SIZE } from '../../../../shared/constants/expedition';
 import { Party, Composition } from '../expeditionPlanner';
 import { countTag, calculateSimplePairSynergy } from './strategyUtils';
@@ -171,12 +171,12 @@ export function scorePartyBySocialVitality_Zenith(party: Party, roster: Characte
     // 1. Intra-Gender Rivalry (low affinity is good)
     const maleAff1 = getAffinity(males[0], males[1]);
     const maleAff2 = getAffinity(males[1], males[0]);
-    affinityAdjustment += (NEUTRAL_AFFINITY - maleAff1); // Bonus if aff < 4
+    affinityAdjustment += (NEUTRAL_AFFINITY - maleAff1); // Bonus if aff < NEUTRAL_AFFINITY
     affinityAdjustment += (NEUTRAL_AFFINITY - maleAff2);
     
     const femaleAff1 = getAffinity(females[0], females[1]);
     const femaleAff2 = getAffinity(females[1], females[0]);
-    affinityAdjustment += (NEUTRAL_AFFINITY - femaleAff1); // Bonus if aff < 4
+    affinityAdjustment += (NEUTRAL_AFFINITY - femaleAff1); // Bonus if aff < NEUTRAL_AFFINITY
     affinityAdjustment += (NEUTRAL_AFFINITY - femaleAff2);
     
     // 2. Inter-Gender Appreciation (high affinity is good)
@@ -335,7 +335,7 @@ export function scorePartyByDedicatedProtector_Martyr(party: Party, roster: Char
     const totalAffinity = wards.reduce((sum, ward) => {
       return sum + (bulwark.relationships[ward.identifier]?.affinity ?? NEUTRAL_AFFINITY);
     }, 0);
-    averageAffinity = wards.length > 0 ? totalAffinity / wards.length : 3;
+    averageAffinity = wards.length > 0 ? totalAffinity / wards.length : NEUTRAL_AFFINITY;
   }
 
   // Step 3: The final score is a direct product of potency and devotion.
@@ -391,11 +391,11 @@ export function scorePartyByDedicatedProtector_Offering(party: Party, roster: Ch
   // The Offering has no special clause; her philosophy applies universally.
   const totalDisAffinity = wards.reduce((sum, ward) => {
     const affinity = bulwark.relationships[ward.identifier]?.affinity ?? NEUTRAL_AFFINITY;
-    const disAffinity = 10 - affinity; // Inverted affinity
+    const disAffinity = MAX_AFFINITY - affinity; // Inverted affinity
     return sum + disAffinity;
   }, 0);
   
-  const averageDisAffinity = wards.length > 0 ? totalDisAffinity / wards.length : 7; // (10 - 3)
+  const averageDisAffinity = wards.length > 0 ? totalDisAffinity / wards.length : MAX_AFFINITY - NEUTRAL_AFFINITY; // (10 - 4)
 
   // Step 3: The final score is a product of potency and alienation.
   const rawScore = bulwarkPotency * averageDisAffinity;

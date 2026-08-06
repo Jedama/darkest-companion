@@ -8,12 +8,6 @@
  * ASSIGNED — seats are granted through the affairs of the estate, rooms by the
  * quartermaster — so nobody was picked for compatibility and nobody can walk away.
  *
- * TODO: location labels. `prettifyLocation` below is dumb string work on the
- * identifier and knows nothing of the location tree. A proper implementation
- * belongs in locationService — walk `LocationData.parent` up to the grandest
- * ancestor below the hamlet itself, and title from there — and should be passed
- * in through `locationTitles`.
- *
  * That flips which metrics matter. Cohesion is unremarkable; FRACTURE is the
  * finding. Four people who must keep meeting, two of whom cannot stand each
  * other, is a situation. And rooms are the strongest generator of all, because
@@ -164,13 +158,15 @@ function empiricalTail(
 }
 
 /**
- * `abbey__penance_chamber` -> `Abbey, Penance Chamber`.
+ * FALLBACK ONLY. Real labels come from locationService via `locationTitles`,
+ * which reads the authored title and qualifies it with its outermost ancestor.
  *
- * A fallback, so this module stays free of StaticGameDataManager and remains
- * testable with a bare roster. Callers holding real location titles can pass
- * them in and override this entirely.
+ * This exists so the module stays free of StaticGameDataManager and can be
+ * tested with a bare roster. It reverses the identifier's segments to match the
+ * real labels' innermost-first order: `dower_house__rosewood_chamber` becomes
+ * `Rosewood Chamber, Dower House`.
  */
-function prettifyLocation(identifier: string): string {
+function labelFromIdentifier(identifier: string): string {
   return identifier
     .split('__')
     .map(part =>
@@ -180,6 +176,7 @@ function prettifyLocation(identifier: string): string {
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ')
     )
+    .reverse()
     .join(', ');
 }
 
@@ -529,7 +526,7 @@ export function profileGivenGroups(
   for (const [room, occupants] of byRoom) {
     if (occupants.length < GIVEN_CONFIG.MIN_ROOM_SIZE) continue;
     const profile = build(
-      'residence', room, locationTitles[room] ?? prettifyLocation(room), occupants
+      'residence', room, locationTitles[room] ?? labelFromIdentifier(room), occupants
     );
     // Rooms earn their line or stay silent. Contentment is not news.
     if (profile && profile.features.length > 0) residences.push(profile);

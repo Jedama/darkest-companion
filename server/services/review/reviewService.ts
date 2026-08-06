@@ -14,6 +14,7 @@ import {
 
 import StaticGameDataManager from '../../staticGameDataManager.js';
 import { buildPoliticalLandscapeSection } from '../politics/politicalLandscape.js';
+import { getAllLocationLabels } from '../game/locationService.js';
 import { updateMonth } from '../game/estateService.js';
 
 interface ReviewResult {
@@ -47,7 +48,7 @@ export function compileReviewPrompt(estate: Estate): string {
     ${buildLeadershipSection(estate)}
 
     [Political Landscape]
-    ${buildPoliticalLandscapeSection(estate)}
+    ${buildPoliticalLandscapeSection(estate, getAllLocationLabels())}
 
     [Active Narratives]
     ${buildNarrativesSection(estate)}

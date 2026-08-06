@@ -7,7 +7,7 @@
 import { CharacterRecord, Character } from '../../../../shared/types/types';
 import { AfflictionType, VirtueType, isAffliction, isVirtue } from '../../../../shared/constants/conditions.js';
 import { Party, Composition } from '../expeditionPlanner';
-import { NEUTRAL_AFFINITY } from '../../../../shared/constants/relationships.js';
+import { NEUTRAL_AFFINITY, MAX_AFFINITY } from '../../../../shared/constants/relationships.js';
 import {
   countTag,
   calculateStackingPairSynergy,
@@ -186,7 +186,6 @@ export function scorePartyByPeakAffinity(party: Party, roster: CharacterRecord):
 export function scorePartyByDiscordPenalty(party: Party, roster: CharacterRecord): number {
   let totalDiscord = 0;
   if (party.length < 2) return 0;
-  const MAX_AFFINITY = 10;
   for (let i = 0; i < party.length; i++) {
     for (let j = i + 1; j < party.length; j++) {
       const char1 = roster[party[i]];
