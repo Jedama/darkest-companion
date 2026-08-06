@@ -115,6 +115,16 @@ export interface CliqueProfile {
   gate: number;
   density: number;
   weakestLink: { a: string; b: string; bond: number };
+  /**
+   * A member whose removal would break the group into unconnected pieces — the
+   * one person holding it together.
+   *
+   * Structural, not scored. There is no meaningful "how surprising is it that this
+   * clique has a hinge": it either has one or it does not, and saying so is worth
+   * more than any probability attached to it. A dense court has none; a thread has
+   * one, and losing them ends the bloc.
+   */
+  hinge: string | null;
   /** Ranked, filtered, capped. */
   features: CliqueFeature[];
 }
@@ -163,14 +173,22 @@ function hypergeometricTail(
 }
 
 /**
- * Where `value` falls in a sorted sample, as a two-tailed probability.
+ * Where `value` falls in a sorted sample, as a probability.
  *
- * Uses MID-RANK: samples equal to the observed value count as half. Without it,
- * a metric with few distinct values reads as far rarer than it is — density is
+ * MID-RANK: samples equal to the observed value count as half. Without it, a
+ * metric with few distinct values reads as far rarer than it is — density is
  * exactly 1.00 for a large share of qualifying groups, and counting only
  * strictly-smaller samples made a perfectly ordinary trio look one-in-thousands.
+ *
+ * DIRECTION: a two-tailed test asks "is this unusual either way" and costs exactly
+ * one bit against a one-tailed test. That price is only worth paying for metrics
+ * we genuinely report at both ends. Most here do not — a fracture is only ever
+ * reported when LARGE — and asking the wrong question was quietly sinking real
+ * findings below the reporting floor.
  */
-function empiricalTail(sorted: number[], value: number): number {
+function empiricalTail(
+  sorted: number[], value: number, direction: 'high' | 'low' | 'both' = 'both'
+): number {
   let below = 0;
   let equal = 0;
   for (const sample of sorted) {
@@ -178,12 +196,15 @@ function empiricalTail(sorted: number[], value: number): number {
     else if (sample === value) equal++;
   }
   const midRank = (below + equal / 2) / sorted.length;
-  const tail = Math.min(midRank, 1 - midRank);
+  const tail =
+    direction === 'high' ? 1 - midRank
+    : direction === 'low' ? midRank
+    : Math.min(midRank, 1 - midRank) * 2;
   // A sample of N cannot resolve anything rarer than ~1/N. Clamp rather than
   // report a confidence the sample does not support — and note that several
   // findings clipping at the ceiling become indistinguishable, which is why the
   // metrics with clean closed forms (tags, stats, seats) do not use this path.
-  return Math.max(tail * 2, 1 / sorted.length);
+  return Math.max(tail, 1 / sorted.length);
 }
 
 function mean(values: number[]): number {
@@ -291,6 +312,38 @@ function randomGroup(ids: string[], size: number): string[] {
  * Scores each clique's incidental properties and returns the surprising ones,
  * ranked. Leadership is optional; without it, seat-holding is simply not measured.
  */
+/**
+ * The member whose removal disconnects the rest, if there is one — an articulation
+ * point of the clique's warm subgraph. Returns null for groups held together by
+ * more than one person, which is most of them.
+ */
+function findHinge(members: string[], roster: CharacterRecord, gate: number): string | null {
+  if (members.length < 3) return null;
+
+  const warmBetween = (a: string, b: string) => bondBetween(a, b, roster) >= gate;
+
+  for (const candidate of members) {
+    const rest = members.filter(m => m !== candidate);
+    if (rest.length < 2) continue;
+
+    // Flood-fill the remainder through warm bonds only.
+    const seen = new Set<string>([rest[0]]);
+    const queue = [rest[0]];
+    while (queue.length) {
+      const current = queue.pop()!;
+      for (const other of rest) {
+        if (seen.has(other) || !warmBetween(current, other)) continue;
+        seen.add(other);
+        queue.push(other);
+      }
+    }
+
+    if (seen.size < rest.length) return candidate;
+  }
+
+  return null;
+}
+
 export function profileCliques(
   cliques: Clique[],
   roster: CharacterRecord,
@@ -582,8 +635,19 @@ export function profileCliques(
           : `the hamlet thinks better of them than they do of it, by ${(-v).toFixed(1)}`) +
         ` (a comparable group sits at ${t.toFixed(1)})`,
     };
+    // Which end of each distribution is worth reporting. Only regard is genuinely
+    // two-sided: a bloc the hamlet adores and one it resents are both stories.
+    const shapeDirection: Record<keyof GraphShape, 'high' | 'low' | 'both'> = {
+      density: 'both',          // a sealed court and a thin chain are different findings
+      fracture: 'high',
+      authoritySpread: 'both',  // a hierarchy and a room of equals both say something
+      inwardRegard: 'both',
+      outwardRegard: 'both',
+      attitudeDelta: 'both',
+    };
+
     for (const key of nulls ? (Object.keys(shapeLabels) as (keyof GraphShape)[]) : []) {
-      const p = empiricalTail(nulls![key], shape[key]);
+      const p = empiricalTail(nulls![key], shape[key], shapeDirection[key]);
       const typical = mean(nulls![key]);
       add({
         metric: `shape:${key}`,
@@ -603,6 +667,7 @@ export function profileCliques(
       gate,
       density: clique.density,
       weakestLink: clique.weakestLink,
+      hinge: findHinge(members, roster, gate),
       features: features.slice(0, METRIC_CONFIG.MAX_FEATURES),
     };
   });

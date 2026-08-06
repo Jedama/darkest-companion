@@ -15,7 +15,7 @@ ROOT LEVEL FORMAT:
     "timeframe": "short_term" | "mid_term" | "long_term"
   },
   "narratives": [
-    "string — 2-4 sentence narrative description"
+    "string — 2-3 sentence narrative description"
   ],
   "follow_up_events": [...]
 }

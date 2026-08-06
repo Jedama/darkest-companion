@@ -561,7 +561,7 @@ export function buildContentPreferencesSection(prefs?: EstatePreferences): strin
   const lines = CONTENT_TAGS.map(
     (tag) => `${CONTENT_LABELS[tag]}: ${LEVEL_LABELS[prefs.content![tag] ?? 'permitted']}`
   );
-  return `[Content Preferences]\n${lines.join('\n')}\n\n`;
+  return `${lines.join('\n')}\n\n`;
 }
 
 export function buildUserInputSection(context?: string, description?: string): string {

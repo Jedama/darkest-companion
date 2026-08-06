@@ -13,6 +13,7 @@ import {
 } from '../llm/buildPromptService.js';
 
 import StaticGameDataManager from '../../staticGameDataManager.js';
+import { buildPoliticalLandscapeSection } from '../politics/politicalLandscape.js';
 import { updateMonth } from '../game/estateService.js';
 
 interface ReviewResult {
@@ -44,6 +45,9 @@ export function compileReviewPrompt(estate: Estate): string {
 
     [Leadership]
     ${buildLeadershipSection(estate)}
+
+    [Political Landscape]
+    ${buildPoliticalLandscapeSection(estate)}
 
     [Active Narratives]
     ${buildNarrativesSection(estate)}
