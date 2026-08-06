@@ -5,6 +5,7 @@ import { asyncHandler } from '../middleware/errorHandler.js';
 import { AppError } from '../errors.js';
 import { callEstateLLM, parseLlmJson } from '../services/llm/estateLlm.js';
 import { checkConsequences, reportUnhandledConsequences } from '../services/llm/consequenceChecks.js';
+import { commitFollowUp } from '../services/game/followUpService.js';
 import { compileConsequencesPrompt } from '../services/story/consequencesEventService.js';
 import {
   applyConsequences,
@@ -72,6 +73,11 @@ router.post(
       console.log('');
 
       applyConsequences(estate, consequences);
+
+      // The town event has now genuinely resolved, so a follow-up reserved back
+      // at setup can finally be consumed. No-op when this was a random event.
+      commitFollowUp(estate);
+
       return prepareConsequenceDisplay(consequences);
     });
 

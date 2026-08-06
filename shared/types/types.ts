@@ -27,6 +27,34 @@ export interface EstateLeadership {
   council?: string[];
 }
 
+/**
+ * The slice of estate state a scorer may consult beyond the roster itself.
+ *
+ * Scorers receive this as an OPTIONAL third argument. Strategies that don't care
+ * about politics ignore it entirely; strategies that do must return a neutral 0
+ * when it is absent, so the expedition planner stays callable without an Estate
+ * (tests, tooling, the zero-weight fast path).
+ *
+ * IMPORTANT: whatever context is used for scoring must also be passed to
+ * `generateScoringStatistics`. Sampling without it while scoring with it
+ * normalizes a context-dependent strategy against a baseline where it always
+ * returned 0 — mean 0, stdDev 1 — silently turning z-scores back into raw scores.
+ */
+export interface StrategyContext {
+  margrave?: string;
+  bursar?: string;
+  council?: readonly string[];
+}
+
+/** Convenience: builds the scoring context from an estate's leadership. */
+export function toStrategyContext(leadership: EstateLeadership): StrategyContext {
+  return {
+    margrave: leadership.margrave,
+    bursar: leadership.bursar,
+    council: leadership.council ?? [],
+  };
+}
+
 export const CONTENT_TAGS = [
   'gore',
   'nudity',
@@ -96,6 +124,7 @@ export interface FollowUpEvent {
 export interface FollowUpQueue {
   events: FollowUpEvent[];   // newest first — front-inserted on ingestion
   consecutiveServed: number; // follow-ups fired in a row; resets when a random event fires
+  inFlight?: FollowUpEvent;  // reserved by setup, consumed by commitFollowUp; see followUpService
 }
 
 export interface Estate {
@@ -177,7 +206,11 @@ export interface CharacterLocations {
   frequents: string[];
 }
 
-export type StrategyWeights = Record<string, number>;
+// Strategy identifiers live in shared/constants/strategies.ts so that both this
+// file and the server-side registry can depend on the same list without shared/
+// having to import from server/. Re-exported here for existing import sites.
+import type { StrategyWeights } from '../constants/strategies.js';
+export type { StrategyId, StrategyWeights } from '../constants/strategies.js';
 
 /* -------------------------------------------------------------------
  *  Relationships 

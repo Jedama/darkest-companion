@@ -24,7 +24,6 @@ import {
   loadAllEnemies,
   loadAllLocations,
   loadCharacterTemplates,
-  loadDefaultCharacterLocations,
   loadDefaultCharacterWeights,
   loadDefaultRelationships,
   loadEnemyRelationships,
@@ -79,41 +78,6 @@ async function loadRecordByCategory<C extends readonly string[], T>(
   return Object.fromEntries(entries) as Record<C[number], T>;
 }
 
-/**
- * Picks a random subset of locations for a character based on predefined rules:
- * - One random residence if multiple are available
- * - 1-4 random workplaces
- * - 4-8 random frequented locations
- * NOTE: This is a simple random selection; more complex, maybe LLM-based logic can be added later.
- */
-function pickRandomLocationsForCharacter(locations: CharacterLocations): CharacterLocations {
-  function getRandomSubset<T>(array: T[], minCount: number, maxCount: number): T[] {
-    if (!array.length) return [];
-
-    const shuffled = [...array];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-
-    const count = Math.min(
-      shuffled.length,
-      Math.floor(Math.random() * (maxCount - minCount + 1)) + minCount
-    );
-
-    return shuffled.slice(0, count);
-  }
-
-  return {
-    residence:
-      locations.residence.length > 1
-        ? [locations.residence[Math.floor(Math.random() * locations.residence.length)]]
-        : locations.residence,
-    workplaces: getRandomSubset(locations.workplaces, 1, 4),
-    frequents: getRandomSubset(locations.frequents, 4, 8),
-  };
-}
-
 /* -------------------------------------------------------------------
  *  StaticGameDataManager
  * ------------------------------------------------------------------- */
@@ -147,8 +111,6 @@ class StaticGameDataManager {
   /* -------------------------------------------------------------------
    *  Character meta (non-template)
    * ------------------------------------------------------------------- */
-
-  private defaultCharacterLocations: Record<string, CharacterLocations> = {};
 
   /**
    * Holds the complete set of default weights for ALL strategies.
@@ -228,7 +190,6 @@ class StaticGameDataManager {
         characterTemplates,
         defaultRelationships,
         enemyRelationships,
-        defaultCharacterLocations,
         characterWeightOverrides,
         locations,
         npcsByCategory,
@@ -243,7 +204,6 @@ class StaticGameDataManager {
         loadCharacterTemplates(),
         loadDefaultRelationships(),
         loadEnemyRelationships(),
-        loadDefaultCharacterLocations(),
         loadDefaultCharacterWeights(),
 
         // World
@@ -266,7 +226,6 @@ class StaticGameDataManager {
       this.characterTemplates = characterTemplates;
       this.defaultRelationships = defaultRelationships;
       this.enemyRelationships = enemyRelationships;
-      this.defaultCharacterLocations = defaultCharacterLocations;
       this.characterWeightOverrides = characterWeightOverrides;
 
       this.baseDefaultWeights = generateDefaultWeights() as Record<string, number>;
@@ -369,24 +328,8 @@ class StaticGameDataManager {
   }
 
   /* -------------------------------------------------------------------
-   *  Character meta (locations / strategy weights)
+   *  Character meta (strategy weights)
    * ------------------------------------------------------------------- */
-
-  public getDefaultLocationsForCharacter(characterId: string): CharacterLocations {
-    this.ensureInitialized();
-    return (
-      this.defaultCharacterLocations[characterId] || {
-        residence: [],
-        workplaces: [],
-        frequents: [],
-      }
-    );
-  }
-
-  public getRandomizedLocationsForCharacter(characterId: string): CharacterLocations {
-    this.ensureInitialized();
-    return pickRandomLocationsForCharacter(this.getDefaultLocationsForCharacter(characterId));
-  }
 
   public getStrategiesForCharacter(characterId: string): StrategyWeights {
     this.ensureInitialized();

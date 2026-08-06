@@ -3,7 +3,7 @@
 // Imports → Domain constants → Types → Public API (parsing/display/mutation)
 // → Internal processors → Internal utilities
 
-import type { Character, Estate, LogEntry } from '../../../shared/types/types.js';
+import type { Character, CharacterLocations, Estate, LogEntry } from '../../../shared/types/types.js';
 import { updateBeat, updateDay } from '../game/estateService.js';
 import { 
   type LogTimeframe, 
@@ -72,6 +72,7 @@ export interface CharacterConsequence {
   lose_trinket?: string;
   update_money?: number;
   update_religion?: string;
+  update_locations?: Partial<CharacterLocations>;
   death?: string;
 }
 
@@ -486,6 +487,7 @@ export function applyConsequences(estate: Estate, consequences: ConsequencesResu
     processClothing(character, characterConsequence);
     processWoundsAndDiseases(character, characterConsequence);
     processNotes(character, characterConsequence);
+    processUpdateLocations(character, characterConsequence);
     processMiscUpdates(character, characterConsequence);
   }
 
@@ -815,6 +817,25 @@ function processMiscUpdates(character: Character, consequence: CharacterConseque
   // Update religion
   if (consequence.update_religion) {
     character.religion = consequence.update_religion;
+  }
+}
+
+/**
+ * Update character locations (residence, workplaces, frequents)
+ */
+function processUpdateLocations(character: Character, consequence: CharacterConsequence): void {
+  if (!consequence.update_locations) return;
+
+  const { update_locations } = consequence;
+
+  if (update_locations.residence) {
+    character.locations.residence = update_locations.residence;
+  }
+  if (update_locations.workplaces) {
+    character.locations.workplaces = update_locations.workplaces;
+  }
+  if (update_locations.frequents) {
+    character.locations.frequents = update_locations.frequents;
   }
 }
 

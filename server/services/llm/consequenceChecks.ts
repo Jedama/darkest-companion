@@ -47,6 +47,7 @@ const KNOWN_KEYS = new Set<string>([
   'lose_trinket',
   'update_money',
   'update_religion',
+  'update_locations',
   'death',
 ]);
 

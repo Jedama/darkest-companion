@@ -30,6 +30,9 @@ export interface LLMRequest {
    * (Opus 4.8 / 4.7). Defaults to "high". Other providers ignore this.
    */
   effort?: AnthropicEffort;
+
+  /** Overall wall-clock budget for this call. Defaults to LLM_TIMEOUT_MS. */
+  timeoutMs?: number;
 }
 
 /**
@@ -38,10 +41,65 @@ export interface LLMRequest {
  */
 const DEFAULT_MODEL: Record<LlmProvider, string> = {
   openai: "gpt-5.5",
-  xai: "grok-4.5",
+  xai: "grok-4.20-0309-reasoning",
   anthropic: "claude-fable-5",
   google: "gemini-3.1-pro-preview",
 };
+
+/* -------------------------------------------------------------------
+ *  Timeouts
+ *
+ *  A call with no deadline is worse here than elsewhere: routes run inside the
+ *  estate write lock, so one hung connection wedges that estate until the
+ *  process restarts. The budget below is deliberately under the client's
+ *  five-minute limit, so the server fails first with a clean 504 rather than
+ *  the browser giving up on a request the server still thinks is alive.
+ * ------------------------------------------------------------------- */
+
+export const DEFAULT_TIMEOUT_MS = Number(process.env.LLM_TIMEOUT_MS) || 180_000;
+
+/** Retries multiply wall time, so keep the count low and let the budget rule. */
+const MAX_RETRIES = 1;
+
+export class LlmTimeoutError extends Error {
+  constructor(readonly provider: LlmProvider, readonly timeoutMs: number) {
+    super(`The ${provider} request timed out after ${Math.round(timeoutMs / 1000)}s.`);
+    this.name = "LlmTimeoutError";
+  }
+}
+
+/**
+ * Enforces the overall budget.
+ *
+ * The AbortSignal is what actually stops the work; this race is the backstop
+ * for an SDK that ignores it, so a hung call can never outlive the budget and
+ * hold the lock. Note that if the race wins, the underlying request may still
+ * be settling in the background — it is abandoned, not awaited.
+ */
+async function withDeadline<T>(
+  work: (signal: AbortSignal) => Promise<T>,
+  provider: LlmProvider,
+  timeoutMs: number
+): Promise<T> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    return await Promise.race([
+      work(controller.signal),
+      new Promise<never>((_, reject) =>
+        setTimeout(() => reject(new LlmTimeoutError(provider, timeoutMs)), timeoutMs)
+      ),
+    ]);
+  } catch (error) {
+    // An SDK that honours the signal reports its own abort; report ours instead,
+    // so callers see one consistent error however the deadline was enforced.
+    if (controller.signal.aborted) throw new LlmTimeoutError(provider, timeoutMs);
+    throw error;
+  } finally {
+    clearTimeout(timer);
+  }
+}
 
 function requireEnv(name: string): string {
   const val = process.env[name];
@@ -49,8 +107,52 @@ function requireEnv(name: string): string {
   return val;
 }
 
+/* -------------------------------------------------------------------
+ *  Clients
+ *
+ *  Built once on first use rather than per call: constructing a client per
+ *  request threw away connection pooling. Lazy so that a missing key only
+ *  matters for the provider you actually use.
+ * ------------------------------------------------------------------- */
+
+let anthropicClient: Anthropic | undefined;
+let openaiClient: OpenAI | undefined;
+let xaiClient: OpenAI | undefined;
+let googleClient: GoogleGenAI | undefined;
+
+function getAnthropic(): Anthropic {
+  anthropicClient ??= new Anthropic({
+    apiKey: requireEnv("ANTHROPIC_API_KEY"),
+    maxRetries: MAX_RETRIES,
+  });
+  return anthropicClient;
+}
+
+function getOpenAI(): OpenAI {
+  openaiClient ??= new OpenAI({
+    apiKey: requireEnv("OPENAI_API_KEY"),
+    maxRetries: MAX_RETRIES,
+  });
+  return openaiClient;
+}
+
+function getXai(): OpenAI {
+  xaiClient ??= new OpenAI({
+    apiKey: requireEnv("XAI_API_KEY"),
+    baseURL: "https://api.x.ai/v1",
+    maxRetries: MAX_RETRIES,
+  });
+  return xaiClient;
+}
+
+function getGoogle(): GoogleGenAI {
+  googleClient ??= new GoogleGenAI({ apiKey: requireEnv("GEMINI_API_KEY") });
+  return googleClient;
+}
+
 /**
  * Single entry point: callLLM routes the call to the correct provider adapter.
+ * Every path is bounded by the request's timeout budget.
  */
 export async function callLLM(req: LLMRequest): Promise<string> {
   switch (req.provider) {
@@ -94,20 +196,25 @@ export async function callAnthropic({
   maxTokens,
   system,
   effort,
+  timeoutMs = DEFAULT_TIMEOUT_MS,
 }: LLMRequest): Promise<string> {
-  const anthropic = new Anthropic({
-    apiKey: requireEnv("ANTHROPIC_API_KEY"),
-  });
-
-  const response = await anthropic.messages.create({
-    model: model || DEFAULT_MODEL.anthropic,
-    max_tokens: maxTokens ?? 16384,
-    system: system, // top-level system field (Anthropic does not use a "system" message role)
-    thinking: { type: "adaptive" },
-    // effort lives under output_config on the Messages API. Defaults to "high".
-    output_config: { effort: effort ?? "high" },
-    messages: [{ role: "user", content: prompt }],
-  });
+  const response = await withDeadline(
+    (signal) =>
+      getAnthropic().messages.create(
+        {
+          model: model || DEFAULT_MODEL.anthropic,
+          max_tokens: maxTokens ?? 16384,
+          system: system, // top-level system field (Anthropic does not use a "system" message role)
+          thinking: { type: "adaptive" },
+          // effort lives under output_config on the Messages API. Defaults to "high".
+          output_config: { effort: effort ?? "high" },
+          messages: [{ role: "user", content: prompt }],
+        },
+        { signal, timeout: timeoutMs }
+      ),
+    "anthropic",
+    timeoutMs
+  );
 
   // With thinking enabled the response can contain `thinking` (and
   // `redacted_thinking`) blocks alongside `text` blocks. We only want the
@@ -129,21 +236,25 @@ export async function callXai({
   maxTokens,
   temperature,
   system,
+  timeoutMs = DEFAULT_TIMEOUT_MS,
 }: LLMRequest): Promise<string> {
-  const client = new OpenAI({
-    apiKey: requireEnv("XAI_API_KEY"),
-    baseURL: "https://api.x.ai/v1",
-  });
-
-  const response = await client.chat.completions.create({
-    model: model || DEFAULT_MODEL.xai,
-    max_tokens: maxTokens ?? 16384,
-    temperature: temperature ?? 1.0,
-    messages: [
-      ...(system ? [{ role: "system" as const, content: system }] : []),
-      { role: "user" as const, content: prompt },
-    ],
-  });
+  const response = await withDeadline(
+    (signal) =>
+      getXai().chat.completions.create(
+        {
+          model: model || DEFAULT_MODEL.xai,
+          max_tokens: maxTokens ?? 16384,
+          temperature: temperature ?? 1.0,
+          messages: [
+            ...(system ? [{ role: "system" as const, content: system }] : []),
+            { role: "user" as const, content: prompt },
+          ],
+        },
+        { signal, timeout: timeoutMs }
+      ),
+    "xai",
+    timeoutMs
+  );
 
   return response.choices[0]?.message?.content || "";
 }
@@ -157,20 +268,25 @@ export async function callOpenAI({
   maxTokens,
   temperature,
   system,
+  timeoutMs = DEFAULT_TIMEOUT_MS,
 }: LLMRequest): Promise<string> {
-  const client = new OpenAI({
-    apiKey: requireEnv("OPENAI_API_KEY"),
-  });
-
-  const response = await client.chat.completions.create({
-    model: model || DEFAULT_MODEL.openai,
-    max_tokens: maxTokens ?? 16384,
-    temperature: temperature ?? 1.0,
-    messages: [
-      ...(system ? [{ role: "system" as const, content: system }] : []),
-      { role: "user" as const, content: prompt },
-    ],
-  });
+  const response = await withDeadline(
+    (signal) =>
+      getOpenAI().chat.completions.create(
+        {
+          model: model || DEFAULT_MODEL.openai,
+          max_tokens: maxTokens ?? 16384,
+          temperature: temperature ?? 1.0,
+          messages: [
+            ...(system ? [{ role: "system" as const, content: system }] : []),
+            { role: "user" as const, content: prompt },
+          ],
+        },
+        { signal, timeout: timeoutMs }
+      ),
+    "openai",
+    timeoutMs
+  );
 
   return response.choices[0]?.message?.content || "";
 }
@@ -185,18 +301,23 @@ export async function callGoogle({
   maxTokens,
   temperature,
   system,
+  timeoutMs = DEFAULT_TIMEOUT_MS,
 }: LLMRequest): Promise<string> {
-  const ai = new GoogleGenAI({ apiKey: requireEnv("GEMINI_API_KEY") });
-
-  const response = await ai.models.generateContent({
-    model: model || DEFAULT_MODEL.google,
-    contents: prompt,
-    config: {
-      ...(system ? { systemInstruction: system } : {}),
-      maxOutputTokens: maxTokens ?? 16384,
-      ...(typeof temperature === "number" ? { temperature } : {}),
-    },
-  });
+  const response = await withDeadline(
+    (signal) =>
+      getGoogle().models.generateContent({
+        model: model || DEFAULT_MODEL.google,
+        contents: prompt,
+        config: {
+          ...(system ? { systemInstruction: system } : {}),
+          maxOutputTokens: maxTokens ?? 16384,
+          ...(typeof temperature === "number" ? { temperature } : {}),
+          abortSignal: signal,
+        },
+      }),
+    "google",
+    timeoutMs
+  );
 
   return response.text ?? "";
 }

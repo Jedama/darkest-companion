@@ -77,13 +77,5 @@
     "Frail",
     "Strategist",
     "Scavenger"
-  ],
-  "strategyWeights": {
-    "maximizeCommandClarity_Heiress": 10,
-    "minimizeLiabilityExposure": 6.5,
-    "minimizeTacticalNonsense": 3,
-    "minimizeDiscord": 3,
-    "maximizeGameplaySynergy": 2,
-    "maximizeAffinity": 1
-  }
+  ]
 }

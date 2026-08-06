@@ -9,7 +9,7 @@ import {
   buildAllLogsSection,
   buildCharactersSectionPlanning,
   buildContentPreferencesSection,
-  buildLeadershipSection,
+  buildPlanningLeadershipSection,
   buildNarrativesSection,
   buildRelationshipSection,
   buildUserGuidanceSection,
@@ -17,12 +17,14 @@ import {
 } from '../llm/buildPromptService.js';
 
 import StaticGameDataManager from '../../staticGameDataManager.js';
+import { assemblePlanningCouncil, PlanningCouncil } from '../townHall/council.js';
+import { getZodiacForMonth } from '../game/calendarService.js';
 
 /* -------------------------------------------------------------------
  *  Types
  * ------------------------------------------------------------------- */
 
-export type PlanningSeat = 'Margrave' | 'Bursar' | 'Council';
+export type PlanningSeat = 'Margrave' | 'Bursar' | 'Council' | 'Advisor';
 
 export interface PlanningAttendee {
   character: Character;
@@ -39,13 +41,29 @@ export interface DialogueLine {
  * ------------------------------------------------------------------- */
 
 /**
- * Determines who sits at the planning meeting: the Margrave, the Bursar, and
- * the sitting council.
+ * Determines who sits at the planning meeting.
  *
- * TODO: the council is currently whatever `estate.leadership.council` holds.
- * Elections, ousting and political manoeuvring will eventually decide this.
+ * Four capacities now, not three. The Margrave and Bursar may be ACTING — the de
+ * jure holder keeps the title while ill, and someone steps into the chair for the
+ * month. Councillors hold persistent seats granted through play. Advisors are
+ * computed fresh each month from competence and standing, and are stored nowhere.
+ *
+ * `zodiac` is the reigning season's name; heroes born under it are favoured when
+ * advisors are chosen, so the bench turns over as the year does.
  */
-export function getPlanningAttendees(estate: Estate): PlanningAttendee[] {
+export function getPlanningAttendees(
+  estate: Estate,
+  options: { zodiac?: string } = {}
+): PlanningAttendee[] {
+  const assembled = assemblePlanningCouncil(estate.leadership, estate.characters, options);
+  return seatAttendees(assembled, estate);
+}
+
+/**
+ * Turns an assembled council into attendee records, preserving speaking order:
+ * leadership, then the seated council, then the advisors.
+ */
+function seatAttendees(assembled: PlanningCouncil, estate: Estate): PlanningAttendee[] {
   const attendees: PlanningAttendee[] = [];
   const seen = new Set<string>();
 
@@ -60,9 +78,14 @@ export function getPlanningAttendees(estate: Estate): PlanningAttendee[] {
     seen.add(id);
   };
 
-  add(estate.leadership.margrave, 'Margrave');
-  add(estate.leadership.bursar, 'Bursar');
-  for (const id of estate.leadership.council ?? []) add(id, 'Council');
+  add(assembled.margrave, 'Margrave');
+  add(assembled.bursar, 'Bursar');
+  for (const id of assembled.council) add(id, 'Council');
+  for (const id of assembled.advisors) add(id, 'Advisor');
+
+  for (const { identifier, reason } of assembled.absent) {
+    console.info(`[Planning] '${identifier}' holds a chair but cannot attend (${reason}).`);
+  }
 
   return attendees;
 }
@@ -72,14 +95,50 @@ export function getPlanningAttendees(estate: Estate): PlanningAttendee[] {
  * ------------------------------------------------------------------- */
 
 /**
- * compileDeliberationPrompt
- * Builds the prompt for phase one of the planning cycle: the council's
- * discussion, before any teams are assembled. Output is plain dialogue.
+ * preparePlanningMeeting
+ *
+ * The single entry point for phase one of the planning cycle. Assembles the room
+ * ONCE and derives everything else from that one assembly — attendees, the prompt,
+ * and the identifiers `parseDialogue` will validate against.
+ *
+ * Assembling twice would be a quiet correctness bug: succession and the zodiac
+ * bonus both depend on roster state, and two independent assemblies have no
+ * guarantee of agreeing. A prompt that seats the Aesthete while the parser only
+ * accepts the Cook silently drops every line he speaks.
  */
-export function compileDeliberationPrompt(estate: Estate): string {
+export function preparePlanningMeeting(estate: Estate): {
+  council: PlanningCouncil;
+  attendees: PlanningAttendee[];
+  attendeeIds: string[];
+  prompt: string;
+} {
+  const zodiac = getZodiacForMonth(estate.time.month);
+  const council = assemblePlanningCouncil(estate.leadership, estate.characters, {
+    zodiac: zodiac.name,
+  });
+
+  const attendees = seatAttendees(council, estate);
+  const attendeeIds = attendees.map(a => a.character.identifier);
+  const prompt = compileDeliberationPrompt(estate, council, attendees);
+
+  return { council, attendees, attendeeIds, prompt };
+}
+
+/**
+ * compileDeliberationPrompt
+ * Builds the prompt for phase one of the planning cycle: the council's discussion,
+ * before any teams are assembled. Output is plain dialogue.
+ *
+ * Takes an already-assembled council rather than assembling its own — see
+ * preparePlanningMeeting for why.
+ */
+export function compileDeliberationPrompt(
+  estate: Estate,
+  council: PlanningCouncil,
+  attendees: PlanningAttendee[] = seatAttendees(council, estate)
+): string {
   const gameData = StaticGameDataManager.getInstance();
 
-  const attendees = getPlanningAttendees(estate);
   const attendeeCharacters = attendees.map(a => a.character);
   const attendeeIds = attendees.map(a => a.character.identifier);
 
@@ -91,8 +150,8 @@ export function compileDeliberationPrompt(estate: Estate): string {
   const prompt = `
     ${compilePlanningContext(estate, gameData)}
 
-    [Leadership]
-    ${buildLeadershipSection(estate)}
+    [The Table]
+    ${buildPlanningLeadershipSection(estate, council)}
 
     [Attendees]
     ${buildCharactersSectionPlanning(attendeeCharacters, seats)}

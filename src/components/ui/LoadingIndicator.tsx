@@ -17,6 +17,17 @@ interface LoadingIndicatorProps {
   message?: string;
   /** Milliseconds for one full turn. A character changes every half turn. */
   revolutionMs?: number;
+  /**
+   * Dim and block whatever is behind. Use when the indicator covers a form or
+   * a view that must not be interacted with while the work runs.
+   */
+  backdrop?: boolean;
+  /**
+   * Stacking order within the positioned ancestor. Needs to beat any sibling
+   * that appears later in the DOM — images in particular, which otherwise
+   * paint straight over the top.
+   */
+  zIndex?: number;
 }
 
 const DEFAULT_REVOLUTION_MS = 3200;
@@ -36,6 +47,8 @@ export function LoadingIndicator({
   waitingFor,
   message,
   revolutionMs = DEFAULT_REVOLUTION_MS,
+  backdrop = false,
+  zIndex = 20,
 }: LoadingIndicatorProps) {
   const { currentEstate } = useEstateContext();
 
@@ -137,7 +150,11 @@ export function LoadingIndicator({
         color: '#e8ddc8',
         font: '1rem/1.4 inherit',
         textAlign: 'center',
-        pointerEvents: 'none',
+        zIndex,
+        // A backdrop swallows clicks on purpose, so the form underneath can't
+        // be typed into while the request is in flight.
+        pointerEvents: backdrop ? 'auto' : 'none',
+        ...(backdrop ? { background: 'rgba(8, 6, 5, 0.72)' } : null),
       }}
     >
       <style>{`

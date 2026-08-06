@@ -7,6 +7,7 @@
 import { CharacterRecord, Character } from '../../../../shared/types/types';
 import { AfflictionType, VirtueType, isAffliction, isVirtue } from '../../../../shared/constants/conditions.js';
 import { Party, Composition } from '../expeditionPlanner';
+import { NEUTRAL_AFFINITY } from '../../../../shared/constants/relationships.js';
 import {
   countTag,
   calculateStackingPairSynergy,
@@ -158,8 +159,8 @@ export function scorePartyByAffinity(party: Party, roster: CharacterRecord): num
       const char1 = roster[party[i]];
       const char2 = roster[party[j]];
       if (!char1 || !char2) continue;
-      const affinity1to2 = char1.relationships[party[j]]?.affinity ?? 3;
-      const affinity2to1 = char2.relationships[party[i]]?.affinity ?? 3;
+      const affinity1to2 = char1.relationships[party[j]]?.affinity ?? NEUTRAL_AFFINITY;
+      const affinity2to1 = char2.relationships[party[i]]?.affinity ?? NEUTRAL_AFFINITY;
       totalAffinity += affinity1to2 + affinity2to1;
     }
   }
@@ -174,8 +175,8 @@ export function scorePartyByPeakAffinity(party: Party, roster: CharacterRecord):
       const char1 = roster[party[i]];
       const char2 = roster[party[j]];
       if (!char1 || !char2) continue;
-      const affinity1to2 = char1.relationships[party[j]]?.affinity ?? 3;
-      const affinity2to1 = char2.relationships[party[i]]?.affinity ?? 3;
+      const affinity1to2 = char1.relationships[party[j]]?.affinity ?? NEUTRAL_AFFINITY;
+      const affinity2to1 = char2.relationships[party[i]]?.affinity ?? NEUTRAL_AFFINITY;
       totalPeakAffinity += Math.pow(affinity1to2, 1.25) + Math.pow(affinity2to1, 1.25);
     }
   }
@@ -191,8 +192,8 @@ export function scorePartyByDiscordPenalty(party: Party, roster: CharacterRecord
       const char1 = roster[party[i]];
       const char2 = roster[party[j]];
       if (!char1 || !char2) continue;
-      const affinity1to2 = char1.relationships[party[j]]?.affinity ?? 3;
-      const affinity2to1 = char2.relationships[party[i]]?.affinity ?? 3;
+      const affinity1to2 = char1.relationships[party[j]]?.affinity ?? NEUTRAL_AFFINITY;
+      const affinity2to1 = char2.relationships[party[i]]?.affinity ?? NEUTRAL_AFFINITY;
       totalDiscord += Math.pow(MAX_AFFINITY - affinity1to2, 1.25);
       totalDiscord += Math.pow(MAX_AFFINITY - affinity2to1, 1.25);
     }
@@ -235,7 +236,7 @@ export function scorePartyByCommandClarity(party: Party, roster: CharacterRecord
     if (!subordinate.hero) continue;
     const gap_to_leader = leader1.eas - subordinate.eas;
     const riskFactor = 1 / (gap_to_leader + 0.5);
-    const affinity_to_leader = subordinate.hero.relationships[leader1.id]?.affinity ?? 3;
+    const affinity_to_leader = subordinate.hero.relationships[leader1.id]?.affinity ?? NEUTRAL_AFFINITY;
     let affinityModifier = affinity_to_leader - 6;
     if (subordinate.hero.tags.includes('Abrasive')) {
       affinityModifier -= 1.5;
@@ -257,7 +258,7 @@ export function scorePartyByLiabilityExposure(party: Party, roster: CharacterRec
     if (hero.tags.includes('Unstable')) {
       let containmentScore = 0;
       for (const stabilizer of otherHeroes) {
-        const affinity = stabilizer.relationships[hero.identifier]?.affinity ?? 3;
+        const affinity = stabilizer.relationships[hero.identifier]?.affinity ?? NEUTRAL_AFFINITY;
         const healerBonus = stabilizer.tags.includes('StressHealer') ? 8 : 0;
         containmentScore += stabilizer.stats.authority + (stabilizer.stats.strength * 0.5) + affinity + healerBonus;
       }
@@ -572,4 +573,207 @@ export function scoreCompositionByAuthorityBalance(composition: Composition, ros
   const variance = leadershipPotentialScores.map(lps => Math.pow(lps - meanLPS, 2)).reduce((a, b) => a + b, 0) / leadershipPotentialScores.length;
   
   return Math.sqrt(variance);
+}
+
+// ==================================
+// EXPEDITION YIELD
+// ==================================
+
+/**
+ * Value that a party can plausibly bring home, expressed as three factors:
+ * FIND it, APPRAISE it, HAUL it.
+ *
+ * Deliberately narrow. Survivability, cohesion and tactical soundness are the
+ * business of other strategies; this one only asks how much wealth walks back
+ * through the gate. The tags it reads (Scavenger, Scout, Scholar/Scholarly)
+ * are otherwise untouched by the registry, so it carves out its own territory
+ * rather than restating scorePartyByGameplaySynergy in a different currency.
+ *
+ * Exported because the Claimants' variant scores every party's haul too — with
+ * the sign reversed for anyone who isn't them.
+ */
+export function calculateHaulValue(party: Party, roster: CharacterRecord): number {
+  if (party.length === 0) return 0;
+  const heroes = party.map(id => roster[id]).filter((h): h is Character => !!h);
+  if (heroes.length === 0) return 0;
+
+  // --- FIND ---
+  // Having a Scavenger gives +6.0. Extra Scavengers yield ZERO additional bonus.
+  const scavengers = countTag(party, roster, 'Scavenger');
+  const scouts = countTag(party, roster, 'Scout');
+  const findValue = 1 + (scavengers > 0 ? 6.0 : 0) + (scouts * 0.4);
+
+  // --- HAUL ---
+  let carriers = 0;
+  for (const hero of heroes) {
+    let contribution = hero.stats.strength;
+    if (hero.tags.includes('Child')) contribution -= 4;
+    if (hero.tags.includes('Elder')) contribution -= 3;
+    carriers += contribution;
+  }
+  const haulModifier = 1 + (Math.max(0, carriers) * 0.01);
+
+  // --- APPRAISE ---
+  const scholars = heroes.filter(h =>
+    h.tags.includes('Scholar') || h.tags.includes('Scholarly')
+  ).length;
+  const appraiseModifier = 1 + (scholars * 0.10);
+
+  return findValue * haulModifier * appraiseModifier;
+}
+
+/**
+ * [GENERIC] Maximizes the wealth an expedition brings back to the Hamlet.
+ *
+ * Base value is FIND x APPRAISE x HAUL (see calculateHaulValue). On top of that,
+ * and ONLY when the party actually has a Scavenger, it rewards two things that
+ * let a treasure-finder keep working: level headroom inside the mission bracket,
+ * and a party built to hold a room rather than flee it.
+ *
+ * That conditional matters. Level parity and role coverage are already the
+ * business of minimizeLevelHardship and maximizeGameplaySynergy; restating them
+ * unconditionally here would just be a second vote for the same thing. Applied
+ * only behind a Scavenger, they mean something specific: a team that can find
+ * treasure should be equipped to stay in the dungeon and strip it properly.
+ */
+export function scorePartyByExpeditionYield(party: Party, roster: CharacterRecord): number {
+  if (party.length === 0) return 0;
+
+  let value = calculateHaulValue(party, roster);
+
+  const scavengers = countTag(party, roster, 'Scavenger');
+  if (scavengers > 0) {
+    const heroes = party.map(id => roster[id]).filter((h): h is Character => !!h);
+    if (heroes.length > 0) {
+
+      // --- Dungeon Tier Headroom ---
+      const maxLevel = Math.max(...heroes.map(h => h.level));
+      const tierBaseFloor = maxLevel >= 5 ? 5 : maxLevel >= 3 ? 3 : 1;
+      
+      let totalHeadroom = 0;
+      for (const hero of heroes) {
+        totalHeadroom += Math.max(0, hero.level - tierBaseFloor);
+      }
+      const avgHeadroom = totalHeadroom / heroes.length; // Range [0.0, 1.0]
+      const headroomBonus = avgHeadroom * 0.20; // Up to +20%
+
+      // --- Room-Holding Archetypes (1 slot per core role, max +30%) ---
+      let archetypes = 0;
+      
+      // 1. Defense / Tank
+      if (
+        countTag(party, roster, 'Tank') > 0 ||
+        countTag(party, roster, 'Guarder') > 0 ||
+        countTag(party, roster, 'SelfSufficient') > 0
+      ) {
+        archetypes++;
+      }
+      
+      // 2. Sustain / Healing
+      if (
+        countTag(party, roster, 'Healer') > 0 ||
+        countTag(party, roster, 'Cleanser') > 0 ||
+        countTag(party, roster, 'StressHealer') > 0
+      ) {
+        archetypes++;
+      }
+      
+      // 3. Offense / Damage Dealer
+      if (
+        countTag(party, roster, 'HeavyHitter') > 0 ||
+        countTag(party, roster, 'Bleeder') > 0 ||
+        countTag(party, roster, 'Blighter') > 0 ||
+        countTag(party, roster, 'ArmorPiercer') > 0
+      ) {
+        archetypes++;
+      }
+
+      const archetypeBonus = archetypes * 0.10; // Up to +30%
+
+      value *= (1 + headroomBonus + archetypeBonus);
+    }
+  }
+
+  return Math.pow(value, 1.3);
+}
+
+
+// ==================================
+// FACTION RISK
+// ==================================
+
+/**
+ * A mutual bond between two heroes, and how dangerous that bond is.
+ * Exported so character-specific variants can reuse the detection and disagree
+ * only about what to do with the result.
+ */
+export interface DetectedBloc {
+  a: string;
+  b: string;
+  /** How far the WEAKER of the two directed affinities sits above neutral. */
+  bond: number;
+  /** Bond sharpened by the pair's combined standing. */
+  danger: number;
+}
+
+/**
+ * Finds every mutually warm pair inside a party.
+ *
+ * Mutual is the point: min() of the two directed affinities, not the average.
+ * One-sided admiration is not a faction — the Highwayman looking up to the
+ * Crusader is a fact about the Highwayman. Two people who trust each other is
+ * a fact about the Hamlet.
+ *
+ * The bond is raised to a power slightly above 1 so closeness ACCELERATES:
+ * the step from 9 to 10 counts for more than the step from 5 to 6, because
+ * inseparable allies are qualitatively worse than friendly colleagues.
+ * Authority is what makes a bond dangerous rather than merely pleasant;
+ * sociability contributes at a fifth of the weight, since reach amplifies
+ * influence without creating it.
+ */
+export function detectBlocs(party: Party, roster: CharacterRecord): DetectedBloc[] {
+  const blocs: DetectedBloc[] = [];
+  if (party.length < 2) return blocs;
+
+  for (let i = 0; i < party.length; i++) {
+    for (let j = i + 1; j < party.length; j++) {
+      const heroA = roster[party[i]];
+      const heroB = roster[party[j]];
+      if (!heroA || !heroB) continue;
+
+      const aToB = heroA.relationships[party[j]]?.affinity ?? NEUTRAL_AFFINITY;
+      const bToA = heroB.relationships[party[i]]?.affinity ?? NEUTRAL_AFFINITY;
+
+      const bond = Math.min(aToB, bToA) - NEUTRAL_AFFINITY;
+      if (bond <= 0) continue; // indifference and dislike are not conspiracies
+
+      const standing =
+        heroA.stats.authority + heroB.stats.authority +
+        0.2 * (heroA.stats.sociability + heroB.stats.sociability);
+
+      blocs.push({
+        a: heroA.identifier,
+        b: heroB.identifier,
+        bond,
+        danger: Math.pow(bond, 1.2) * standing,
+      });
+    }
+  }
+
+  return blocs;
+}
+
+/**
+ * [GENERIC] Minimizes the concentration of cohesive, influential heroes.
+ *
+ * A party containing two powerful people who genuinely trust each other is a
+ * power base with legs. Minimizing this across parties scatters such pairs.
+ *
+ * Note this is the deliberate mirror of maximizeAffinity and maximizePeakAffinity:
+ * the same pair scores well there and badly here. A character weighting both is
+ * expressing something contradictory — which may be exactly right for a paranoid
+ * one, but it will show up as opposing rows in the debug table and is not a bug.
+ */
+export function scorePartyByFactionRisk(party: Party, roster: CharacterRecord): number {
+  return detectBlocs(party, roster).reduce((sum, bloc) => sum + bloc.danger, 0);
 }

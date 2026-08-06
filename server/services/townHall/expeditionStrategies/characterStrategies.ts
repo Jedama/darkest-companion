@@ -5,10 +5,12 @@
  * team drafting strategies.
  */
 
-import { CharacterRecord, Character } from '../../../../shared/types/types';
+import { CharacterRecord, Character, StrategyContext } from '../../../../shared/types/types';
+import { NEUTRAL_AFFINITY } from '../../../../shared/constants/relationships.js';
 import { PARTY_SIZE } from '../../../../shared/constants/expedition';
 import { Party, Composition } from '../expeditionPlanner';
 import { countTag, calculateSimplePairSynergy } from './strategyUtils';
+import { calculateHaulValue, detectBlocs } from './genericStrategies.js';
 
 // ===================================================================
 // HEIRESS (PERSEPHONE) - STRATEGIES
@@ -78,7 +80,7 @@ export function scorePartyByCommandClarity_Heiress(party: Party, roster: Charact
     const riskFactor = 1 / (gap_to_leader + 0.5);
 
     // Demanding Neutral Point: Only proven loyalty is rewarded.
-    const affinity_to_leader = subordinate.hero.relationships[leader1.id]?.affinity ?? 3;
+    const affinity_to_leader = subordinate.hero.relationships[leader1.id]?.affinity ?? NEUTRAL_AFFINITY;
     let affinityModifier = affinity_to_leader - 7.5;
 
     // An Abrasive subordinate adds significant pressure, independent of their loyalty.
@@ -161,7 +163,6 @@ export function scorePartyBySocialVitality_Zenith(party: Party, roster: Characte
   // --- NEW: Affinity Modifier for 2 Male / 2 Female Parties ---
   if (males.length === 2 && females.length === 2) {
     let affinityAdjustment = 0;
-    const NEUTRAL_AFFINITY = 4; // On a 0-10 scale.
     
     const getAffinity = (fromId: string, toId: string) => {
       return roster[fromId]?.relationships?.[toId]?.affinity ?? NEUTRAL_AFFINITY;
@@ -332,7 +333,7 @@ export function scorePartyByDedicatedProtector_Martyr(party: Party, roster: Char
     averageAffinity = 10; // Super-maximal affinity override
   } else {
     const totalAffinity = wards.reduce((sum, ward) => {
-      return sum + (bulwark.relationships[ward.identifier]?.affinity ?? 3);
+      return sum + (bulwark.relationships[ward.identifier]?.affinity ?? NEUTRAL_AFFINITY);
     }, 0);
     averageAffinity = wards.length > 0 ? totalAffinity / wards.length : 3;
   }
@@ -389,7 +390,7 @@ export function scorePartyByDedicatedProtector_Offering(party: Party, roster: Ch
   
   // The Offering has no special clause; her philosophy applies universally.
   const totalDisAffinity = wards.reduce((sum, ward) => {
-    const affinity = bulwark.relationships[ward.identifier]?.affinity ?? 3;
+    const affinity = bulwark.relationships[ward.identifier]?.affinity ?? NEUTRAL_AFFINITY;
     const disAffinity = 10 - affinity; // Inverted affinity
     return sum + disAffinity;
   }, 0);
@@ -436,4 +437,204 @@ export function scoreCompositionByQuarantinedHorrors_Heir(composition: Compositi
   const variance = horrorScores.map(score => Math.pow(score - mean, 2)).reduce((a, b) => a + b, 0) / horrorScores.length;
   
   return variance; // Direction: 'maximize'
+}
+
+// ===================================================================
+// HEIRESS (PERSEPHONE) - FACTION RISK
+// ===================================================================
+
+const HEIRESS_ID = 'heiress';
+
+/** True if the given hero holds any seat: Margrave, Bursar, or a council chair. */
+function holdsAnySeat(id: string, ctx?: StrategyContext): boolean {
+  if (!ctx) return false;
+  return ctx.margrave === id || ctx.bursar === id || (ctx.council?.includes(id) ?? false);
+}
+
+/**
+ * [CHARACTER-SPECIFIC] The Heiress's reading of factions within a party.
+ *
+ * She does not fear alliances. She fears alliances AGAINST her — and only while
+ * she has a seat to lose. Out of office this scorer is silent; in office it
+ * asks, of every bond it finds, how those two feel about HER.
+ *
+ * Blocs hostile to her are penalized, scaled by how far below neutral their
+ * regard sits. Blocs loyal to her count slightly in FAVOUR, since two people who
+ * trust each other and trust her are a court rather than a conspiracy. That
+ * positive is capped hard: it is an afterthought, not a lever for assembling her
+ * entire retinue into one party.
+ *
+ * Her own bonds are excluded. A pair including the Heiress is not a faction
+ * against the Heiress.
+ */
+export function scorePartyByFactionRisk_heiress(
+  party: Party,
+  roster: CharacterRecord,
+  ctx?: StrategyContext
+): number {
+  if (!holdsAnySeat(HEIRESS_ID, ctx)) return 0;
+
+  const LOYALTY_BONUS_RATE = 0.15;
+  const LOYALTY_BONUS_CAP = 12;   // her court may reassure her, never dominate the plan
+  const HOSTILITY_SCALE = 0.25;
+
+  let risk = 0;
+
+  for (const bloc of detectBlocs(party, roster)) {
+    if (bloc.a === HEIRESS_ID || bloc.b === HEIRESS_ID) continue;
+
+    const regardA = roster[bloc.a]?.relationships[HEIRESS_ID]?.affinity ?? NEUTRAL_AFFINITY;
+    const regardB = roster[bloc.b]?.relationships[HEIRESS_ID]?.affinity ?? NEUTRAL_AFFINITY;
+    const regard = Math.min(regardA, regardB); // the bloc is only as loyal as its colder half
+
+    if (regard < NEUTRAL_AFFINITY) {
+      const hostility = NEUTRAL_AFFINITY - regard;
+      risk += bloc.danger * (1 + hostility * HOSTILITY_SCALE);
+    } else {
+      const loyalty = regard - NEUTRAL_AFFINITY;
+      risk -= Math.min(bloc.danger * LOYALTY_BONUS_RATE * loyalty, LOYALTY_BONUS_CAP);
+    }
+  }
+
+  return risk;
+}
+
+
+// ===================================================================
+// CLAIMANTS (GENEVIVE & CLAUDE) - STRATEGIES
+// ===================================================================
+
+const CLAIMANTS_ID = 'hqclaimants';
+
+/**
+ * [CHARACTER-SPECIFIC] Faction risk as the Claimants read it, plus the quiet
+ * under-resourcing of whoever currently outranks them.
+ *
+ * Detection is unmodified — a bloc is a bloc. What they add is sabotage: a party
+ * carrying the Margrave or the Bursar scores BETTER (this strategy is minimized,
+ * so the term is subtracted) for being surrounded by the weak and the fragile.
+ *
+ * Three rules keep it deniable and self-consistent:
+ *  - The target's OWN tags never count. The Heiress is Weak and Frail herself;
+ *    scoring those would fire the term at full strength regardless of who joins
+ *    her, which is a constant offset and not a plan.
+ *  - Vulnerability saturates. Stacking a fourth invalid onto the Margrave's team
+ *    buys almost nothing and starts to look like what it is.
+ *  - Skipped entirely when the Claimants share that party. No sense hobbling a
+ *    team you are standing in.
+ *
+ * And if they hold office themselves, there is nothing to usurp: as Margrave they
+ * sabotage neither seat; as Bursar they sabotage only the Margrave.
+ */
+export function scorePartyByFactionRisk_hqclaimants(
+  party: Party,
+  roster: CharacterRecord,
+  ctx?: StrategyContext
+): number {
+  let risk = detectBlocs(party, roster).reduce((sum, bloc) => sum + bloc.danger, 0);
+
+  if (!ctx || party.includes(CLAIMANTS_ID)) return risk;
+
+  const MARGRAVE_PRIORITY = 1.0;
+  const BURSAR_PRIORITY = 0.8;  // he holds the purse; she gives the orders
+  const SATURATION = 25;        // vulnerability points at which extra frailty stops paying
+
+  const claimantsAreMargrave = ctx.margrave === CLAIMANTS_ID;
+  const claimantsAreBursar = ctx.bursar === CLAIMANTS_ID;
+
+  const targets: { id: string; priority: number }[] = [];
+  if (ctx.margrave && !claimantsAreMargrave) {
+    targets.push({ id: ctx.margrave, priority: MARGRAVE_PRIORITY });
+  }
+  if (ctx.bursar && !claimantsAreBursar && !claimantsAreMargrave) {
+    targets.push({ id: ctx.bursar, priority: BURSAR_PRIORITY });
+  }
+
+  for (const target of targets) {
+    if (!party.includes(target.id)) continue;
+
+    // Vulnerability of the ESCORT only — never the target's own frailty.
+    let vulnerability = 0;
+    for (const id of party) {
+      if (id === target.id) continue;
+      const hero = roster[id];
+      if (!hero) continue;
+
+      if (hero.tags.includes('Child')) vulnerability += 4;
+      if (hero.tags.includes('Frail')) vulnerability += 3;
+      if (hero.tags.includes('Weak')) vulnerability += 3;
+      if (hero.tags.includes('Hider')) vulnerability += 1.5;
+      vulnerability += Math.max(0, 6 - hero.stats.strength) * 0.4;
+    }
+
+    // Saturating: approaches SATURATION but never exceeds it.
+    const effect = SATURATION * (1 - Math.exp(-vulnerability / SATURATION));
+    risk -= effect * target.priority;
+  }
+
+  return risk;
+}
+
+/**
+ * [CHARACTER-SPECIFIC] Expedition yield, weighed entirely in their own favour.
+ *
+ * Written from scratch rather than wrapping the generic scorer — it shares the
+ * subject matter, not the opinion.
+ *
+ * THEIR party: they want the finder within arm's reach, and no one qualified to
+ * notice what leaves with them. Just heroes are the ones who say the reliquary
+ * belongs to the Church; Vigilant heroes are simply awake. Both are penalized,
+ * the moralists far more than the merely observant.
+ *
+ * EVERY OTHER party: their haul counts AGAINST the score. Every crown someone
+ * else carries home is a crown that did not pass through the Claimants' hands.
+ * This one inversion produces the sabotage behaviours by itself — concentrating
+ * the Hamlet's Scavengers into a single party wastes the find multiplier, and
+ * pairing a rival Scavenger with weak arms strangles the haul — without a line
+ * of code naming either tactic.
+ *
+ * UNLESS they hold office. As Margrave or Bursar the treasury is theirs, and a
+ * rich Hamlet is a rich them: the sign flips and they want every party to prosper.
+ */
+export function scorePartyByExpeditionYield_hqclaimants(
+  party: Party,
+  roster: CharacterRecord,
+  ctx?: StrategyContext
+): number {
+  if (party.length === 0) return 0;
+
+  // Same convex shaping as the generic scorer, so both strategies speak in the
+  // same units and a party's haul means the same thing on either side of the
+  // ledger. Their variant skips the Scavenger-conditional bonus entirely: level
+  // headroom and role coverage are the Hamlet's concern, not theirs.
+  const value = Math.pow(calculateHaulValue(party, roster), 1.3);
+  const theirParty = party.includes(CLAIMANTS_ID);
+
+  // Their appetite outranks their spite. A Scavenger in their own party is worth
+  // several times what a rival's ruined haul is worth — the same gap the generic
+  // scorer puts between a party with a Scavenger and a party without one. Because
+  // all of it lives inside a single strategy, this ratio survives normalization
+  // and any weight you later give them; only cross-strategy balance needs tuning.
+  const OWN_PARTY_WEIGHT = 3;
+  const SCAVENGER_PROXIMITY = 10;
+  const JUST_PENALTY = 8;      // objects to the taking
+  const VIGILANT_PENALTY = 2.5; // merely sees it
+
+  if (theirParty) {
+    let score = value * OWN_PARTY_WEIGHT;
+
+    if (countTag(party, roster, 'Scavenger') > 0) score += SCAVENGER_PROXIMITY;
+
+    for (const id of party) {
+      const hero = roster[id];
+      if (!hero || hero.identifier === CLAIMANTS_ID) continue;
+      if (hero.tags.includes('Just')) score -= JUST_PENALTY;
+      if (hero.tags.includes('Vigilant')) score -= VIGILANT_PENALTY;
+    }
+
+    return score;
+  }
+
+  const inOffice = ctx?.margrave === CLAIMANTS_ID || ctx?.bursar === CLAIMANTS_ID;
+  return inOffice ? value : -value;
 }

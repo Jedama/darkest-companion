@@ -1,69 +1,177 @@
-//server/services/townHall/council.ts
+// server/services/townHall/council.ts
+/**
+ * @file Assembles the room for the monthly planning meeting.
+ *
+ * TWO KINDS OF CHAIR, and the distinction is the point:
+ *
+ *  - SEATS (`leadership.council`) are DE JURE and persistent. They are granted,
+ *    inherited, bought and lost through storytelling, never computed here. A
+ *    councillor holds their seat while diseased, disgraced or useless; they
+ *    simply do not attend.
+ *
+ *  - ADVISORS are computed fresh every month and stored nowhere. They are in the
+ *    room because the room will listen to them: competence, tempered by the state
+ *    they are actually in, plus standing with the leadership and the roster.
+ *
+ * Leadership works the same way. `leadership.margrave` is DE JURE and is never
+ * overwritten here — a Margrave laid up with the Crimson Curse keeps her title.
+ * What this file computes is the DE FACTO leader: whoever steps into the chair
+ * for the month. Recomputed on demand, so recovery needs no special handling.
+ */
+
 import { Character, CharacterRecord, EstateLeadership } from '../../../shared/types/types';
 import { isVirtue, isAffliction } from '../../../shared/constants/conditions';
+import { NEUTRAL_AFFINITY } from '../../../shared/constants/relationships.js';
 
 // ===================================================================
 // 0. CONFIGURATION
 // ===================================================================
 
-const ELECTION_CONFIG = {
-  FITNESS_THRESHOLDS: {
+const COUNCIL_CONFIG = {
+  /** An advisor must be functional enough to be worth sending for. Seats ignore this. */
+  ADVISOR_FITNESS: {
     MIN_MENTAL: 25,
     MIN_PHYSICAL: 25,
-},
-COUNCIL_SEATS: {
-    BASE_SEATS: 0,
-    SEATS_PER_ROSTER_MEMBER: 12,
-    MAX_SEATS: 5,
-    MIN_SEATS: 1,
-    MIN_ROSTER_FOR_COUNCIL: 10,
-  }
+  },
+
+  ADVISORS: {
+    /** A hamlet this small is a household, not a government. */
+    ROSTER_FOR_FIRST_ADVISOR: 8,
+    ROSTER_FOR_SECOND_ADVISOR: 16,
+    BASE: 2,
+
+    /**
+     * If fewer than this many seated councillors attend, advisors are called in to
+     * make up the difference — an institution reaching for competence when its own
+     * membership fails to supply it. Four seats with one stepping up leaves three,
+     * which is presence enough; nobody extra is summoned. An empty council pulls
+     * in the full complement.
+     */
+    MIN_COUNCIL_PRESENCE: 2,
+
+    MAX: 4,
+
+    /** Score-gap clustering: a near-tie for the last chair pulls one more in. */
+    INCLUSION_THRESHOLD: 0.05,
+    /** A cliff below the last chair leaves it empty. */
+    EXCLUSION_THRESHOLD: 0.2,
+  },
+
+  /**
+   * Who steps up when a chair is empty.
+   *
+   * Level outweighs authority per point because its range is so much narrower:
+   * authority spans 1-10 while a veteran is level 5 or 6. At these weights a brand
+   * new hamlet is decided purely by authority (everyone is level 0), while a
+   * level-5 veteran with authority 4 outranks a level-0 newcomer with authority 10.
+   * No three-week recruit inherits the estate.
+   */
+  SUCCESSION: {
+    MARGRAVE: { authority: 2, level: 3, intelligence: 0.5, sociability: 0.25 },
+    BURSAR: { intelligence: 2, level: 3, authority: 0.5, sociability: 0.25 },
+  },
+
+  /**
+   * Whose good opinion counts when calling in advisors, and how much. The council
+   * has a voice here — advisors are quietly democratic, chosen in part by the
+   * people already in the room.
+   */
+  LEADERSHIP_AFFINITY: {
+    MARGRAVE: 1.5,
+    BURSAR: 1.25,
+    COUNCILLOR: 1.0,
+  },
+
+  /**
+   * The stars favour those born under the reigning sign. Advisors only — who runs
+   * the estate while the Margrave is ill is a question of continuity, not birthdays.
+   *
+   * Multiplicative rather than additive, and deliberately so: it lifts whoever is
+   * already near the cut rather than elevating the plainly unsuitable. A lucky star
+   * does not make a fool wise. On a twelve-sign wheel this reshuffles the advisory
+   * bench in roughly half of all months.
+   */
+  ZODIAC_BONUS: 1.25,
 };
 
 // ===================================================================
-// 1. HELPER FUNCTIONS & SCORE CALCULATORS
+// 1. TYPES
+// ===================================================================
+
+/** Everyone attending this month's planning meeting, and in what capacity. */
+export interface PlanningCouncil {
+  /** DE FACTO Margrave — the de jure holder unless they could not serve. */
+  margrave: string;
+  /** DE FACTO Bursar. */
+  bursar: string;
+  /** Seated councillors attending as councillors (excludes the absent and those who stepped up). */
+  council: string[];
+  /** Called in on merit and standing, for this month only. */
+  advisors: string[];
+
+  /** True when the de facto leader is not the de jure one. */
+  margraveIsActing: boolean;
+  bursarIsActing: boolean;
+
+  /** Chair-holders who could not attend, and why. */
+  absent: { identifier: string; reason: 'disease' | 'missing' }[];
+}
+
+export interface CouncilOptions {
+  /** Name of the reigning zodiac season, matched against `character.zodiac`. */
+  zodiac?: string;
+}
+
+// ===================================================================
+// 2. FITNESS & SCORE HELPERS
 // ===================================================================
 
 /**
- * Calculates a hero's "Readiness Modifier" based on their current health,
- * stress, and status. This acts as a multiplier on their core competence.
- * @param hero The character to evaluate.
- * @returns A multiplier, typically between 0.1 and 1.15.
+ * Disease is the one hard bar. The Black Plague, the Runs, Rabies — none of these
+ * are conditions you argue expedition policy through. Affliction is NOT a bar:
+ * a Paranoid Margrave slamming her goblet on the table is the meeting.
  */
+function canAttend(hero: Character | undefined): hero is Character {
+  return !!hero && hero.status.diseases.length === 0;
+}
+
+/**
+ * Fit to be CALLED IN as an advisor. Stricter than merely attending: you keep a
+ * seat you already hold while barely standing, but nobody sends for you.
+ */
+function isEligibleAdvisor(hero: Character | undefined): hero is Character {
+  return (
+    canAttend(hero) &&
+    hero.status.mental >= COUNCIL_CONFIG.ADVISOR_FITNESS.MIN_MENTAL &&
+    hero.status.physical >= COUNCIL_CONFIG.ADVISOR_FITNESS.MIN_PHYSICAL
+  );
+}
+
+/** Current fitness for duty as a multiplier on competence. Typically 0.15 to 1.15. */
 function getReadinessModifier(hero: Character): number {
   let modifier = 1.0;
 
-  // Virtue Bonus for proven mental fortitude.
   if (isVirtue(hero.status.affliction)) {
     modifier += 0.15;
-  }
-  // Affliction Penalty for being a massive liability in deliberations.
-  else if (isAffliction(hero.status.affliction)) {
-    modifier -= 0.40;
+  } else if (isAffliction(hero.status.affliction)) {
+    // You do not seek counsel from the selfish, the paranoid or the fearful.
+    modifier -= 0.4;
   }
 
-  // Health Penalty (linear, max -0.2)
   const missingHealthPercent = (100 - hero.status.physical) / 100;
   modifier -= missingHealthPercent * 0.2;
 
-  // Stress Penalty (non-linear, skyrockets at high stress)
   const stressPercent = (100 - hero.status.mental) / 100;
   modifier -= Math.pow(stressPercent, 2.5);
 
-  // Wound Penalty
-  modifier -= (hero.status.wounds.length * 0.04);
+  modifier -= hero.status.wounds.length * 0.04;
 
-  // Clamp the final modifier to prevent extreme results.
   return Math.max(0.15, modifier);
 }
 
 /**
- * Calculates a hero's "Weighted Roster Affinity," a measure of their
- * political capital within the Hamlet. Affinity with more influential
- * heroes (high authority/sociability) counts for more.
- * @param hero The candidate hero.
- * @param roster The full character roster.
- * @returns A weighted average affinity score.
+ * Political capital in the Hamlet at large. Regard from influential heroes counts
+ * for more than regard from the meek.
  */
 function getWeightedRosterAffinity(hero: Character, roster: CharacterRecord): number {
   let weightedAffinitySum = 0;
@@ -72,215 +180,278 @@ function getWeightedRosterAffinity(hero: Character, roster: CharacterRecord): nu
   for (const otherHero of Object.values(roster)) {
     if (otherHero.identifier === hero.identifier) continue;
 
-    const influenceWeight = 1 + (otherHero.stats.authority * 0.5) + (otherHero.stats.sociability * 0.2);
-    const affinity = hero.relationships[otherHero.identifier]?.affinity ?? 3;
+    const influenceWeight = 1 + otherHero.stats.authority * 0.5 + otherHero.stats.sociability * 0.2;
+    const affinity = hero.relationships[otherHero.identifier]?.affinity ?? NEUTRAL_AFFINITY;
 
     weightedAffinitySum += affinity * influenceWeight;
     totalInfluence += influenceWeight;
   }
 
-  // Return the weighted average, or a neutral score if there's no one else.
-  return totalInfluence > 0 ? weightedAffinitySum / totalInfluence : 3;
+  return totalInfluence > 0 ? weightedAffinitySum / totalInfluence : NEUTRAL_AFFINITY;
 }
 
 /**
- * A shared utility to determine if a character is fit for leadership roles.
- * @param hero The character to check.
- * @returns {boolean} True if the hero is fit, false otherwise.
+ * How the people already in the room regard a candidate.
+ *
+ * The DE FACTO leaders are used rather than the de jure ones: the favour that
+ * matters when summoning an advisor is the favour of whoever is running the meeting.
  */
-const isFitForDuty = (hero: Character): boolean =>
-  hero.status.diseases.length === 0 &&
-  !isAffliction(hero.status.affliction) &&
-  hero.status.mental >= ELECTION_CONFIG.FITNESS_THRESHOLDS.MIN_MENTAL &&
-  hero.status.physical >= ELECTION_CONFIG.FITNESS_THRESHOLDS.MIN_PHYSICAL;
+function getLeadershipAffinity(
+  candidateId: string,
+  roster: CharacterRecord,
+  margraveId: string,
+  bursarId: string,
+  councillorIds: readonly string[]
+): number {
+  const W = COUNCIL_CONFIG.LEADERSHIP_AFFINITY;
+  const voices: { id: string; weight: number }[] = [
+    { id: margraveId, weight: W.MARGRAVE },
+    { id: bursarId, weight: W.BURSAR },
+    ...councillorIds.map(id => ({ id, weight: W.COUNCILLOR })),
+  ];
+
+  let sum = 0;
+  let totalWeight = 0;
+
+  for (const voice of voices) {
+    if (voice.id === candidateId) continue;
+    const speaker = roster[voice.id];
+    if (!speaker) continue;
+
+    sum += (speaker.relationships[candidateId]?.affinity ?? NEUTRAL_AFFINITY) * voice.weight;
+    totalWeight += voice.weight;
+  }
+
+  return totalWeight > 0 ? sum / totalWeight : NEUTRAL_AFFINITY;
+}
 
 /**
- * Calculates the final "Council Score" for a hero, determining their
- * suitability for a seat on the Privy Council.
+ * Suitability to be called in as an advisor: competence, adjusted for the state
+ * they are in, plus standing with the room and with the Hamlet.
  */
-function calculateCouncilScore(
+function calculateAdvisorScore(
   hero: Character,
   roster: CharacterRecord,
-  margrave: Character,
-  bursar: Character
+  margraveId: string,
+  bursarId: string,
+  councillorIds: readonly string[],
+  zodiac?: string
 ): number {
-  // Hard disqualifier: A diseased hero cannot attend the council.
-  if (hero.status.diseases.length > 0) {
-    return -Infinity;
-  }
-
-  // Foundational Score: The hero's core competence.
-  const foundationalScore = (hero.stats.authority * 3) + (hero.stats.intelligence * 2) + hero.level;
-
-  // Readiness Modifier: Their current fitness for duty.
+  const competence = hero.stats.authority * 3 + hero.stats.intelligence * 2 + hero.level;
   const readiness = getReadinessModifier(hero);
 
-  // Political Acumen: Their relationships with leadership and the roster.
-  const diarchyAffinity = ((margrave.relationships[hero.identifier]?.affinity ?? 3) + (bursar.relationships[hero.identifier]?.affinity ?? 3)) / 2;
-  const weightedRosterAffinity = getWeightedRosterAffinity(hero, roster);
-  const politicalScore = (diarchyAffinity * 1.5) + weightedRosterAffinity;
+  const leadershipAffinity = getLeadershipAffinity(
+    hero.identifier, roster, margraveId, bursarId, councillorIds
+  );
+  const rosterAffinity = getWeightedRosterAffinity(hero, roster);
+  const standing = leadershipAffinity * 1.5 + rosterAffinity;
 
-  // Final score combines core competence (adjusted for readiness) with political skill.
-  return (foundationalScore * readiness) + politicalScore;
+  const score = competence * readiness + standing;
+
+  const favoured = !!zodiac && hero.zodiac === zodiac;
+  return favoured ? score * COUNCIL_CONFIG.ZODIAC_BONUS : score;
 }
 
 // ===================================================================
-// 2. SUCCESSION LOGIC
+// 3. SUCCESSION (DE FACTO LEADERSHIP)
 // ===================================================================
 
+type SuccessionWeights = {
+  authority: number;
+  level: number;
+  intelligence: number;
+  sociability: number;
+};
+
 /**
- * Checks if the Margrave or Bursar are incapacitated and appoints replacements.
- * This function prioritizes fit leaders but will choose the "least unfit"
- * candidate if no one is fully qualified, preventing a power vacuum.
+ * Fitness to step into a vacant chair. Deliberately NOT the advisor score: this is
+ * about experience and standing to command, not about whose counsel is worth
+ * hearing. Health and stress apply only as a softened nudge, so a wounded veteran
+ * still outranks a hale newcomer.
  */
-function handleSuccession(currentLeadership: EstateLeadership, roster: CharacterRecord): EstateLeadership {
-  const activeLeadership = { ...currentLeadership };
-  const rosterAsArray = Object.values(roster);
+function calculateSuccessionScore(hero: Character, weights: SuccessionWeights): number {
+  const base =
+    hero.stats.authority * weights.authority +
+    hero.level * weights.level +
+    hero.stats.intelligence * weights.intelligence +
+    hero.stats.sociability * weights.sociability;
 
-  // --- Margrave Succession ---
-  const originalMargrave = roster[currentLeadership.margrave];
-  if (originalMargrave && !isFitForDuty(originalMargrave)) {
-    // Find candidates who are NOT the current leaders and ARE fit for duty.
-    const fitCandidates = rosterAsArray.filter(h =>
-      h.identifier !== originalMargrave.identifier &&
-      h.identifier !== currentLeadership.bursar &&
-      isFitForDuty(h)
-    );
-
-    if (fitCandidates.length > 0) {
-        // A fit successor exists. Appoint the best one.
-      fitCandidates.sort((a, b) => {
-        if (a.stats.authority !== b.stats.authority) return b.stats.authority - a.stats.authority;
-        return b.level - a.level;
-      });
-      activeLeadership.margrave = fitCandidates[0].identifier;
-    }
-    // If fitCandidates is empty, this block is skipped. The unfit Margrave remains.
-  }
-
-  // --- Bursar Succession (runs *after* potential Margrave change) ---
-  const originalBursar = roster[currentLeadership.bursar];
-  if (originalBursar && !isFitForDuty(originalBursar)) {
-    // Find candidates who are NOT the original bursar, NOT the CURRENT margrave, and ARE fit.
-    const fitCandidates = rosterAsArray.filter(h =>
-      h.identifier !== originalBursar.identifier &&
-      h.identifier !== activeLeadership .margrave && // Uses the *new* margrave
-      isFitForDuty(h)
-    );
-    
-    if (fitCandidates.length > 0) {
-      // A fit successor exists. Appoint the best one.
-      fitCandidates.sort((a, b) => {
-        if (a.stats.intelligence !== b.stats.intelligence) return b.stats.intelligence - a.stats.intelligence;
-        return b.level - a.level;
-      });
-      activeLeadership.bursar = fitCandidates[0].identifier;
-    }
-    // If fitCandidates is empty, this block is skipped. The unfit Bursar remains.
-  }
-
-  return activeLeadership;
+  // Halved influence: a readiness of 0.6 becomes a multiplier of 0.8.
+  const softenedReadiness = 0.5 + 0.5 * getReadinessModifier(hero);
+  return base * softenedReadiness;
 }
-  
+
+/**
+ * Picks whoever steps up, preferring the sitting council over the roster at large.
+ * The institution promotes from within: a councillor is already in the room, already
+ * briefed, already trusted with a chair.
+ *
+ * Ties break on `identifier`, so the outcome is deterministic. Without that, two
+ * heroes equal on every stat would be separated by `Object.values` ordering, and the
+ * acting Margrave could silently change from one month to the next because an
+ * unrelated hero died.
+ */
+function chooseSuccessor(
+  candidates: Character[],
+  councilSeats: readonly string[],
+  weights: SuccessionWeights
+): Character | undefined {
+  if (candidates.length === 0) return undefined;
+
+  const seated = new Set(councilSeats);
+  const fromCouncil = candidates.filter(h => seated.has(h.identifier));
+  const pool = fromCouncil.length > 0 ? fromCouncil : candidates;
+
+  return [...pool].sort((a, b) => {
+    const diff = calculateSuccessionScore(b, weights) - calculateSuccessionScore(a, weights);
+    if (Math.abs(diff) > 1e-9) return diff;
+    return a.identifier.localeCompare(b.identifier);
+  })[0];
+}
+
 // ===================================================================
-// 3. MAIN EXPORTED FUNCTION
+// 4. MAIN EXPORT
 // ===================================================================
 
 /**
- * Manages the monthly election of the Hamlet's Privy Council.
- * This function handles succession for incapacitated leaders and then selects
- * council members based on a robust scoring system. In cases of widespread
- * illness where no one is qualified, the council will be empty for the month.
+ * Assembles the planning meeting for the current month.
+ *
+ * Pure and side-effect free: it reads `leadership` and never writes to it. The de
+ * jure record is the caller's to change through storytelling; what comes back is
+ * only who sits down this month.
  */
-export function electNewCouncil(currentLeadership: EstateLeadership, roster: CharacterRecord): EstateLeadership {
-  // Step 1: Handle emergency successions to determine the active leaders.
-  // If no fit replacements are found, the original (unfit) leaders will remain.
-  const activeLeadership = handleSuccession(currentLeadership, roster);
-  const margrave = roster[activeLeadership.margrave];
-  const bursar = roster[activeLeadership.bursar];
+export function assemblePlanningCouncil(
+  leadership: EstateLeadership,
+  roster: CharacterRecord,
+  options: CouncilOptions = {}
+): PlanningCouncil {
+  const absent: PlanningCouncil['absent'] = [];
+  const noteAbsent = (id: string, hero: Character | undefined) =>
+    absent.push({ identifier: id, reason: hero ? 'disease' : 'missing' });
 
-  // Defend against a completely empty roster or missing leaders.
-  if (!margrave || !bursar) {
-      console.error("Cannot elect council: Margrave or Bursar is missing from the roster.");
-      activeLeadership.council = [];
-      return activeLeadership;
+  const seats = leadership.council ?? [];
+
+  // --- Step 1: can the de jure officers serve? ---
+  const deJureMargrave = roster[leadership.margrave];
+  const deJureBursar = roster[leadership.bursar];
+
+  const margraveServes = canAttend(deJureMargrave);
+  const bursarServes = canAttend(deJureBursar);
+
+  if (!margraveServes) noteAbsent(leadership.margrave, deJureMargrave);
+  if (!bursarServes) noteAbsent(leadership.bursar, deJureBursar);
+
+  // --- Step 2: fill the empty chairs, council first ---
+  const taken = new Set<string>([leadership.margrave, leadership.bursar]);
+  const availableCandidates = () =>
+    Object.values(roster).filter(h => canAttend(h) && !taken.has(h.identifier));
+
+  let actingMargrave: Character | undefined = margraveServes ? deJureMargrave : undefined;
+  if (!actingMargrave) {
+    actingMargrave = chooseSuccessor(availableCandidates(), seats, COUNCIL_CONFIG.SUCCESSION.MARGRAVE);
+    if (actingMargrave) taken.add(actingMargrave.identifier);
   }
 
-  // Step 2: Determine the base number of council seats.
+  let actingBursar: Character | undefined = bursarServes ? deJureBursar : undefined;
+  if (!actingBursar) {
+    actingBursar = chooseSuccessor(availableCandidates(), seats, COUNCIL_CONFIG.SUCCESSION.BURSAR);
+    if (actingBursar) taken.add(actingBursar.identifier);
+  }
+
+  // A hamlet with nobody able to hold the estate has larger problems than an agenda.
+  if (!actingMargrave || !actingBursar) {
+    console.error('[Council] No one is able to hold the estate; the meeting cannot be convened.');
+    return {
+      margrave: actingMargrave?.identifier ?? leadership.margrave,
+      bursar: actingBursar?.identifier ?? leadership.bursar,
+      council: [],
+      advisors: [],
+      margraveIsActing: !margraveServes,
+      bursarIsActing: !bursarServes,
+      absent,
+    };
+  }
+
+  const margraveId = actingMargrave.identifier;
+  const bursarId = actingBursar.identifier;
+
+  // --- Step 3: which seated councillors attend AS councillors? ---
+  // Anyone who stepped up now occupies a leadership chair and is not counted twice.
+  const attendingCouncil: string[] = [];
+  for (const id of seats) {
+    if (id === margraveId || id === bursarId) continue;
+    const hero = roster[id];
+    if (!canAttend(hero)) {
+      noteAbsent(id, hero);
+      continue;
+    }
+    attendingCouncil.push(id);
+  }
+
+  // --- Step 4: how many advisors does the month warrant? ---
   const rosterSize = Object.keys(roster).length;
-  if (rosterSize < ELECTION_CONFIG.COUNCIL_SEATS.MIN_ROSTER_FOR_COUNCIL) {
-      // The community is too small and informal. The leaders rule by decree.
-      activeLeadership.council = [];
-      return activeLeadership;
-  }
-  const baseSeats = ELECTION_CONFIG.COUNCIL_SEATS.BASE_SEATS + Math.floor(rosterSize / ELECTION_CONFIG.COUNCIL_SEATS.SEATS_PER_ROSTER_MEMBER);
-  let finalSeats = Math.min(baseSeats, ELECTION_CONFIG.COUNCIL_SEATS.MAX_SEATS);
+  const A = COUNCIL_CONFIG.ADVISORS;
 
-  // Step 3: Score all potential candidates.
-  const originalLeaderIds = [currentLeadership.margrave, currentLeadership.bursar];
+  let target =
+    rosterSize < A.ROSTER_FOR_FIRST_ADVISOR ? 0 :
+    rosterSize < A.ROSTER_FOR_SECOND_ADVISOR ? 1 :
+    A.BASE;
 
-  const potentialCandidates = Object.values(roster)
-  .filter(h => 
-      h.identifier !== margrave.identifier &&   // Exclude the CURRENT Margrave
-      h.identifier !== bursar.identifier &&     // Exclude the CURRENT Bursar
-      !originalLeaderIds.includes(h.identifier) // Also exclude the ORIGINAL leaders
-  )
-  .map(hero => ({
-    id: hero.identifier,
-    score: calculateCouncilScore(hero, roster, margrave, bursar)
-  }));
+  const shortfall = Math.max(0, A.MIN_COUNCIL_PRESENCE - attendingCouncil.length);
+  target = Math.min(target + shortfall, A.MAX);
 
-  // Step 4: Filter out DISQUALIFIED candidates. This is the key to handling mass illness.
-  const qualifiedCandidates = potentialCandidates
-    .filter(c => c.score > -Infinity)
-    .sort((a, b) => b.score - a.score);
+  // --- Step 5: score and rank the candidates ---
+  const excluded = new Set<string>([
+    margraveId,
+    bursarId,
+    leadership.margrave, // the de jure holders are not summoned as advisors to their own estate
+    leadership.bursar,
+    ...seats,            // a seat-holder is never also an advisor
+  ]);
 
-  // If there are no qualified candidates, the council is empty for the month. This is the intended outcome.
-  if (qualifiedCandidates.length === 0) {
-    activeLeadership.council = [];
-    return activeLeadership;
-  }
-  
-  // The number of seats cannot exceed the number of available, qualified candidates.
-  finalSeats = Math.min(finalSeats, qualifiedCandidates.length);
+  const ranked = Object.values(roster)
+    .filter(h => !excluded.has(h.identifier) && isEligibleAdvisor(h))
+    .map(hero => ({
+      id: hero.identifier,
+      score: calculateAdvisorScore(
+        hero, roster, margraveId, bursarId, attendingCouncil, options.zodiac
+      ),
+    }))
+    .sort((a, b) => (b.score - a.score) || a.id.localeCompare(b.id));
 
-  // Step 5: Apply clustering logic to potentially adjust seat count by +/- 1.
-  const lastSeatIndex = finalSeats - 1;
+  target = Math.min(target, ranked.length);
 
-  // Check for an "inclusion" case (+1 seat) if the next candidate is "on the bubble".
-  // This can only happen if there is a next candidate and we are below the max seat count.
-  if (finalSeats < ELECTION_CONFIG.COUNCIL_SEATS.MAX_SEATS && qualifiedCandidates.length > lastSeatIndex + 1) {
-    const lastAppointeeScore = qualifiedCandidates[lastSeatIndex].score;
-    const bubbleCandidateScore = qualifiedCandidates[lastSeatIndex + 1].score;
-    const inclusionGap = lastAppointeeScore - bubbleCandidateScore;
-    
-    // Threshold is a small percentage of the last appointee's score (e.g., 5%).
-    // Using 0.05 directly, but a config variable would be better.
-    const inclusionThreshold = lastAppointeeScore * 0.05;
+  // --- Step 6: clustering nudge, plus or minus one chair ---
+  // Guarded against target === 0. The old code indexed candidates[-1] here and threw
+  // outright on any roster that produced no chairs — which included an 11-hero hamlet.
+  if (target > 0) {
+    const lastIndex = target - 1;
 
-    // If the gap is very small, the bubble candidate also gets a seat.
-    if (inclusionGap >= 0 && inclusionGap <= inclusionThreshold) {
-      finalSeats++;
-    }
-  } 
-  // If no one was added, check for an "exclusion" case (-1 seat).
-  // This can only happen if we have more than the minimum number of seats.
-  else if (finalSeats > ELECTION_CONFIG.COUNCIL_SEATS.MIN_SEATS && qualifiedCandidates.length > lastSeatIndex) {
-    const lastAppointeeScore = qualifiedCandidates[lastSeatIndex].score;
-    const penultimateAppointeeScore = qualifiedCandidates[lastSeatIndex - 1].score;
-    const exclusionGap = penultimateAppointeeScore - lastAppointeeScore;
-
-    // Threshold is a large percentage of the penultimate appointee's score (e.g., 20%).
-    const exclusionThreshold = penultimateAppointeeScore * 0.20;
-
-    // If there's a huge drop-off in quality for the last seat, we leave it empty.
-    if (exclusionGap > exclusionThreshold) {
-      finalSeats--;
+    if (target < A.MAX && ranked.length > target) {
+      const lastScore = ranked[lastIndex].score;
+      const bubbleScore = ranked[target].score;
+      const gap = lastScore - bubbleScore;
+      // A near-tie for the final chair: hear them both.
+      if (gap >= 0 && gap <= Math.abs(lastScore) * A.INCLUSION_THRESHOLD) {
+        target++;
+      }
+    } else if (target > 1) {
+      const lastScore = ranked[lastIndex].score;
+      const previousScore = ranked[lastIndex - 1].score;
+      // A cliff below the last chair: leave it empty.
+      if (previousScore - lastScore > Math.abs(previousScore) * A.EXCLUSION_THRESHOLD) {
+        target--;
+      }
     }
   }
-  
-  // Step 6: Appoint the final council members from the qualified list.
-  activeLeadership.council = qualifiedCandidates.slice(0, finalSeats).map(c => c.id);
-  
-  return activeLeadership;
+
+  return {
+    margrave: margraveId,
+    bursar: bursarId,
+    council: attendingCouncil,
+    advisors: ranked.slice(0, target).map(c => c.id),
+    margraveIsActing: !margraveServes,
+    bursarIsActing: !bursarServes,
+    absent,
+  };
 }

@@ -3,15 +3,38 @@
     "identifier": "ruins",
     "title": "The Ruins",
     "description": "The sprawling halls and consecrated vaults beneath and before the manor, where the noble line raised its chapels and interred its dead in tiers of descending grandeur. The Ancestor's excavations cut straight through them on the way to deeper things, and what his work disturbed did not settle afterward. Travel is by candlelight between walls of niched dead, over rubble-choked stairs and through galleries that carry sound too far and too long.",
-    "summary": "ruins (The Ruins) -- The manor's crumbling halls and burial vaults, cut through by the Ancestor's excavations and left unquiet ever since.",
+    "summary": "The manor's crumbling halls and burial vaults, cut through by the Ancestor's excavations and left unquiet ever since.",
     "parent": "estate",
-    "children": ["ruins__altar", "ruins__bannered_hall", "ruins__stores", "ruins__catacomb", "ruins__chapel", "ruins__profaned_altar", "ruins__drain", "ruins__forbidden_door", "ruins__ruined_gallery", "ruins__cells", "ruins__vigil", "ruins__pillared_hall", "ruins__bonefall", "ruins__empty_hall", "ruins__entrance", "ruins__broken_cell", "ruins__reading_room", "ruins__sealed_gate", "ruins__question_chamber", "ruins__wine_cellar", "ruins__sanctum", "ruins__pulpit"]
+    "children": [
+      "ruins__altar",
+      "ruins__bannered_hall",
+      "ruins__stores",
+      "ruins__catacomb",
+      "ruins__chapel",
+      "ruins__profaned_altar",
+      "ruins__drain",
+      "ruins__forbidden_door",
+      "ruins__ruined_gallery",
+      "ruins__cells",
+      "ruins__vigil",
+      "ruins__pillared_hall",
+      "ruins__bonefall",
+      "ruins__empty_hall",
+      "ruins__entrance",
+      "ruins__broken_cell",
+      "ruins__reading_room",
+      "ruins__sealed_gate",
+      "ruins__question_chamber",
+      "ruins__wine_cellar",
+      "ruins__sanctum",
+      "ruins__pulpit"
+    ]
   },
   {
     "identifier": "ruins__altar",
     "title": "The Altar",
     "description": "A candlelit shrine beneath the carved likeness of a praying saint, the wax pooled thick and the flames untended by any visible hand. In the arched niches to either side, the honored dead slump in their vestments, one still clutching the sword he was buried with.",
-    "summary": "ruins__altar (The Altar) -- A candlelit shrine to a praying saint, flanked by niched dead, its flames tended by no visible hand.",
+    "summary": "A candlelit shrine to a praying saint, flanked by niched dead, its flames tended by no visible hand.",
     "parent": "ruins",
     "children": []
   },
@@ -19,7 +42,7 @@
     "identifier": "ruins__bannered_hall",
     "title": "The Bannered Hall",
     "description": "A processional gallery hung with blue standards bearing crossed swords, their cloth strangely whole while the arches around them crumble onto open dark. Whatever victory they were raised for, no one remains below to name it.",
-    "summary": "ruins__bannered_hall (The Bannered Hall) -- A crumbling processional gallery hung with strangely whole standards of crossed swords.",
+    "summary": "A crumbling processional gallery hung with strangely whole standards of crossed swords.",
     "parent": "ruins",
     "children": []
   },
@@ -27,7 +50,7 @@
     "identifier": "ruins__stores",
     "title": "The Stores",
     "description": "A provisions cellar stacked wall to wall with barrels, a chained pantry-box hanging from the rafters beyond the reach of vermin. It failed; small red eyes watch from the gaps between the staves, and a fleshless hand juts from the wall where something dug the wrong way.",
-    "summary": "ruins__stores (The Stores) -- A barrel-stacked cellar overrun by red-eyed vermin, a hanging pantry-box its failed defense.",
+    "summary": "A barrel-stacked cellar overrun by red-eyed vermin, a hanging pantry-box its failed defense.",
     "parent": "ruins",
     "children": []
   },
@@ -35,7 +58,7 @@
     "identifier": "ruins__catacomb",
     "title": "The Catacomb",
     "description": "A vaulted chamber of arched wall-niches, each sealed face carved with the shield of the knight within. A long stone bier stands before them, and where the far niches have collapsed, their contents lie heaped and mingled past any sorting.",
-    "summary": "ruins__catacomb (The Catacomb) -- A vault of shield-carved knight niches, its collapsed end spilling the dead into one heap.",
+    "summary": "A vault of shield-carved knight niches, its collapsed end spilling the dead into one heap.",
     "parent": "ruins",
     "children": []
   },
@@ -43,7 +66,7 @@
     "identifier": "ruins__chapel",
     "title": "The Chapel",
     "description": "A house of worship broken open to the vaults, amber light standing in its cracked lancet windows though no sun reaches this deep. Rubble chokes the nave, and the twin doors beneath the carved wheel-cross are barred from the other side.",
-    "summary": "ruins__chapel (The Chapel) -- A broken chapel of sourceless amber windows, its doors barred from the other side.",
+    "summary": "A broken chapel of sourceless amber windows, its doors barred from the other side.",
     "parent": "ruins",
     "children": []
   },
@@ -51,7 +74,7 @@
     "identifier": "ruins__profaned_altar",
     "title": "The Profaned Altar",
     "description": "A desecrated shrine where runes daubed in red climb the walls and arches, and above the apse the Iron Crown is drawn large in the same red, five-spoked and unmistakable. On the altar, a shattered mitre and crook lie arranged across a bed of skulls, and the fires in the flanking niches burn gold—something keeps them fed.",
-    "summary": "ruins__profaned_altar (The Profaned Altar) -- A rune-daubed shrine marked with the Iron Crown, a broken mitre and crook arranged on skulls.",
+    "summary": "A rune-daubed shrine marked with the Iron Crown, a broken mitre and crook arranged on skulls.",
     "parent": "ruins",
     "children": []
   },
@@ -59,7 +82,7 @@
     "identifier": "ruins__drain",
     "title": "The Drain",
     "description": "A barred culvert-mouth at the bottom of a sloping chamber, the floor before it heaped with butchered remains in every state of freshness. The bars hold, for now; green eyes shine steady in the dark beyond them, waiting for the pile to grow.",
-    "summary": "ruins__drain (The Drain) -- A barred culvert heaped with butchered remains, green eyes waiting steady in the dark beyond.",
+    "summary": "A barred culvert heaped with butchered remains, green eyes waiting steady in the dark beyond.",
     "parent": "ruins",
     "children": []
   },
@@ -67,7 +90,7 @@
     "identifier": "ruins__forbidden_door",
     "title": "The Forbidden Door",
     "description": "Three arched doorways in a row, the flanking pair merely shut on their studded hinges. The center door is boarded plank over plank beneath a great red cross that has run and dried down the grain, skull-crowned standards planted at either post—and the dark stain on the flagstones runs out from beneath it, not toward it.",
-    "summary": "ruins__forbidden_door (The Forbidden Door) -- A boarded center door marked with a dried red cross, its stain running outward from beneath.",
+    "summary": "A boarded center door marked with a dried red cross, its stain running outward from beneath.",
     "parent": "ruins",
     "children": []
   },
@@ -75,7 +98,7 @@
     "identifier": "ruins__ruined_gallery",
     "title": "The Ruined Gallery",
     "description": "A colonnade whose arches open onto sunken courtyards gone to moss and creeper, cold blue light filtering from somewhere far above. The growth has had generations; the footprints in it have had hours.",
-    "summary": "ruins__ruined_gallery (The Ruined Gallery) -- A colonnade over moss-drowned courtyards, old growth crossed by fresh footprints.",
+    "summary": "A colonnade over moss-drowned courtyards, old growth crossed by fresh footprints.",
     "parent": "ruins",
     "children": []
   },
@@ -83,7 +106,7 @@
     "identifier": "ruins__cells",
     "title": "The Cells",
     "description": "Two barred cells beneath high blue windows, their occupants dead where they knelt, arms still extended through the bars. Whatever they reached for was not the lock.",
-    "summary": "ruins__cells (The Cells) -- Two barred cells whose occupants died kneeling, arms outstretched through the bars.",
+    "summary": "Two barred cells whose occupants died kneeling, arms outstretched through the bars.",
     "parent": "ruins",
     "children": []
   },
@@ -91,7 +114,7 @@
     "identifier": "ruins__vigil",
     "title": "The Vigil",
     "description": "A tomb chamber where a knight's effigy lies in state between ranks of standing armor, the arches beyond opening onto a vast drowned dark of distant spires. The armor stands empty—probably; the count comes out differently by torchlight than it did in the doorway.",
-    "summary": "ruins__vigil (The Vigil) -- A knight's effigy lying in state between ranks of armor that do not count the same twice.",
+    "summary": "A knight's effigy lying in state between ranks of armor that do not count the same twice.",
     "parent": "ruins",
     "children": []
   },
@@ -99,7 +122,7 @@
     "identifier": "ruins__pillared_hall",
     "title": "The Pillared Hall",
     "description": "A forest of columns receding into mist that hangs at knee height and does not stir. Winged shapes crouch at the pillar bases in attitudes of sleep, carved too well, and never quite where they were on the way in.",
-    "summary": "ruins__pillared_hall (The Pillared Hall) -- A misted forest of columns where crouched winged shapes are never quite where they were.",
+    "summary": "A misted forest of columns where crouched winged shapes are never quite where they were.",
     "parent": "ruins",
     "children": []
   },
@@ -107,7 +130,7 @@
     "identifier": "ruins__bonefall",
     "title": "The Bonefall",
     "description": "A hall half-filled by the collapse of some higher level, the rubble slope studded throughout with the dead it carried down—skulls, spears, a knight still in harness. The slide has settled; things inside it have not.",
-    "summary": "ruins__bonefall (The Bonefall) -- A collapsed hall whose rubble slope is studded with the dead it carried down.",
+    "summary": "A collapsed hall whose rubble slope is studded with the dead it carried down.",
     "parent": "ruins",
     "children": []
   },
@@ -115,7 +138,7 @@
     "identifier": "ruins__empty_hall",
     "title": "The Empty Hall",
     "description": "A stretch of bare wall and shut gates holding nothing at all—no niche, no bones, not even dust worth stirring. In vaults where every chamber keeps its dead, the one swept clean is the hardest to walk through.",
-    "summary": "ruins__empty_hall (The Empty Hall) -- A bare, swept-clean stretch between shut gates, unsettling for all it does not hold.",
+    "summary": "A bare, swept-clean stretch between shut gates, unsettling for all it does not hold.",
     "parent": "ruins",
     "children": []
   },
@@ -123,7 +146,7 @@
     "identifier": "ruins__entrance",
     "title": "The Entrance",
     "description": "One of many breaches where the sprawling ruins admit the outside, pale sky showing through toppled towers beyond a hasty barricade of planks. Three windows glow warm further along the wall, though nothing that lives down here needs the light.",
-    "summary": "ruins__entrance (The Entrance) -- One of many barricaded breaches into the ruins, warm light glowing where nothing needs it.",
+    "summary": "One of many barricaded breaches into the ruins, warm light glowing where nothing needs it.",
     "parent": "ruins",
     "children": []
   },
@@ -131,7 +154,7 @@
     "identifier": "ruins__broken_cell",
     "title": "The Broken Cell",
     "description": "A cell where the great chain hangs snapped from the ceiling, its collar open and empty beside a table something used, once, like a person. Tally marks are scratched into the wall in ordered rows—hundreds of them, and then, mid-row, no more.",
-    "summary": "ruins__broken_cell (The Broken Cell) -- A cell of snapped chain and empty collar, its wall-tally stopping mid-row.",
+    "summary": "A cell of snapped chain and empty collar, its wall-tally stopping mid-row.",
     "parent": "ruins",
     "children": []
   },
@@ -139,7 +162,7 @@
     "identifier": "ruins__reading_room",
     "title": "The Reading Room",
     "description": "An undercroft library of laden shelves and guttering candles, a scribe's orb still glowing at its stand and scrolls left mid-sprawl across the floor. Between two bookcases, a sigil shines faint violet on the bare brick, shelved with everything else as if it were merely another text.",
-    "summary": "ruins__reading_room (The Reading Room) -- An undercroft library of abandoned scrolls, a violet sigil shelved among the books.",
+    "summary": "An undercroft library of abandoned scrolls, a violet sigil shelved among the books.",
     "parent": "ruins",
     "children": []
   },
@@ -147,7 +170,7 @@
     "identifier": "ruins__sealed_gate",
     "title": "The Sealed Gate",
     "description": "A gate of black iron filling the passage floor to vault, red light bleeding through its seams and a lone torch burning before it like an offering. The air is warm here, and grows warmer the longer one stands still.",
-    "summary": "ruins__sealed_gate (The Sealed Gate) -- A black iron gate bleeding red light through its seams, the air before it too warm.",
+    "summary": "A black iron gate bleeding red light through its seams, the air before it too warm.",
     "parent": "ruins",
     "children": []
   },
@@ -155,7 +178,7 @@
     "identifier": "ruins__question_chamber",
     "title": "The Question Chamber",
     "description": "A workroom of racks and wheels beneath a hanging two-man saw, the instruments ordered on their hooks by size and purpose. A caged figure slumps by the door, and the candles among the machinery are recent, and many.",
-    "summary": "ruins__question_chamber (The Question Chamber) -- An ordered workroom of racks and instruments, its candles recent and many.",
+    "summary": "An ordered workroom of racks and instruments, its candles recent and many.",
     "parent": "ruins",
     "children": []
   },
@@ -163,7 +186,7 @@
     "identifier": "ruins__wine_cellar",
     "title": "The Wine Cellar",
     "description": "Racked barrels line a low cellar in the quiet dark, the newest of them decades old. A spill runs from the center stack across the flagstones, pooled and dark; it has not dried, and it is not wine.",
-    "summary": "ruins__wine_cellar (The Wine Cellar) -- A cellar of decades-old barrels, a dark spill across its flagstones that is not wine.",
+    "summary": "A cellar of decades-old barrels, a dark spill across its flagstones that is not wine.",
     "parent": "ruins",
     "children": []
   },
@@ -171,7 +194,7 @@
     "identifier": "ruins__pulpit",
     "title": "The Pulpit",
     "description": "A ruined chapel drowning in candlelight, its boarded arches scrawled edge to edge with prophecy and hung with banners of a hooded, praying corpse. Chalk sketches of a winged, tentacled thing cover the far wall above drifts of fallen scrolls, and rows of heavy oak pews have been dragged into a barricade across the nave—whoever holds the pulpit beyond meant for no one to reach it without splintering through.",
-    "summary": "ruins__pulpit (The Pulpit) -- A candle-drowned chapel of scrawled prophecy and skull banners, its nave barricaded with heavy pews.",
+    "summary": "A candle-drowned chapel of scrawled prophecy and skull banners, its nave barricaded with heavy pews.",
     "parent": "ruins",
     "children": []
   },
@@ -179,7 +202,7 @@
     "identifier": "ruins__sanctum",
     "title": "The Sanctum",
     "description": "A scholar's study given over to darker work: red drapery bearing a skull standard, shelves of tomes whose spines glow with green script, and a desk where an emerald orb burns beside instruments laid out mid-ritual. Severed arms hang from cords in the dark overhead, corpses are heaped like reference material against the wall, and a flayed chart diagrams a five-pointed working around a grinning skull.",
-    "summary": "ruins__sanctum (The Sanctum) -- A red-draped study of glowing tomes and a burning green orb, corpses heaped like reference material.",
+    "summary": "A red-draped study of glowing tomes and a burning green orb, corpses heaped like reference material.",
     "parent": "ruins",
     "children": []
   }

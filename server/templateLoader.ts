@@ -8,7 +8,6 @@ import path from 'path';
 
 import {
   CHARACTER_DIR,
-  DEFAULT_CHARACTER_LOCATIONS_FILE,
   DEFAULT_RELATIONSHIPS_FILE,
   DEFAULT_WEIGHTS_FILE,
   ENEMY_RELATIONSHIPS_FILE,
@@ -155,25 +154,6 @@ export async function loadEnemyRelationships(): Promise<EnemyRelationshipsMap> {
 /* -------------------------------------------------------------------
  *  Character meta (non-template)
  * ------------------------------------------------------------------- */
-
-export async function loadDefaultCharacterLocations(): Promise<
-  Record<
-    string,
-    {
-      residence: string[];
-      workplaces: string[];
-      frequents: string[];
-    }
-  >
-> {
-  try {
-    const content = await readFile(DEFAULT_CHARACTER_LOCATIONS_FILE, 'utf-8');
-    return JSON.parse(content);
-  } catch (error) {
-    console.error('Error loading default character locations:', error);
-    throw error;
-  }
-}
 
 // Loads character-specific strategy overrides.
 export async function loadDefaultCharacterWeights(): Promise<Record<string, Record<string, number>>> {

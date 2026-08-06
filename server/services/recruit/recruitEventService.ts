@@ -18,6 +18,7 @@ import {
     buildLocationSection,
     buildLogsSection,
     buildRecruitKeywordsSection,
+    buildRecruitLocationSelectionSection,
     buildRelationshipSection,
     buildUserGuidanceSection,
     buildUserInputSection,
@@ -67,6 +68,7 @@ export async function compileRecruitPrompt(
     buildRelationshipSection(involvedCharacters) +
     buildLocationSection(estate, locations) +
     buildBystandersSection(estate, bystanders, chosenCharacterIds) +
+    buildRecruitKeywordsSection(keywords) +
     buildLogsSection(filteredLogs) +
     buildUserGuidanceSection(estate.preferences?.guidance) +
     buildContentPreferencesSection(estate.preferences) +
@@ -81,7 +83,7 @@ export async function compileRecruitConsequencesPrompt(options: {
   chosenCharacterIds: string[];
   keywords: string[];
 }): Promise<string> {
-  const { estate, story, chosenCharacterIds } = options;
+  const { estate, story, chosenCharacterIds, keywords } = options;
 
   const gameData = StaticGameDataManager.getInstance();
   const consequenceInstructions = gameData.getPrompt('recruit.consequence.instructions');
@@ -162,11 +164,11 @@ const recruitedCharacter: Character = remainingCharacters[0];
     [Story Context]
     ${story}
 
-    [User-provided character modifiers]
-    These are the quirks/personality modifiers that the user supplied for the recruit. 
-    Don't mindlessly add them, but if they're present in the story, use them to inform your consequence choices.
+    ${buildRecruitKeywordsSection(keywords)}
 
     ${charactersSection}
+
+    ${buildRecruitLocationSelectionSection(estate)}
 
     ${consequenceInstructions}
     ${consequenceFormat}

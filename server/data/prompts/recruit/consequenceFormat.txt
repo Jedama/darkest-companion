@@ -32,5 +32,6 @@ ALLOWED COMMANDS PER CHARACTER:
   "gain_note?": "string",
   "lose_note?": "string",
   "update_religion?": "string",
+  "update_locations?": { "residence?": ["string"], "workplaces?": ["string"], "frequents?": ["string"] },
   "death?": "string"
 }

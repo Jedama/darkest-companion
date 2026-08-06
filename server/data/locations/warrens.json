@@ -3,15 +3,33 @@
     "identifier": "warrens",
     "title": "The Warrens",
     "description": "An ancient network of aqueducts and cisterns beneath the estate, older than the manor above, broken into during the Ancestor's excavations and used thereafter as a dump for the misshapen leavings of his rituals. The swinefolk that took root there have made it their own, building, butchering, and worshipping in the dark. Travel is stooped and wet—cramped brick vaulting, red mire underfoot, air thick with rot, and distant squealing down every duct.",
-    "summary": "warrens (The Warrens) -- An ancient aqueduct network beneath the estate, once a dump for the Ancestor's ritual leavings, now the burrow-city of the swinefolk.",
+    "summary": "An ancient aqueduct network beneath the estate, once a dump for the Ancestor's ritual leavings, now the burrow-city of the swinefolk.",
     "parent": "estate",
-    "children": ["warrens__spoiled_meat", "warrens__great_duct", "warrens__old_gallery", "warrens__effigy", "warrens__flesh_seeps", "warrens__hovels", "warrens__grate", "warrens__meat_locker", "warrens__crossways", "warrens__shrine", "warrens__tannery", "warrens__sluice", "warrens__diggings", "warrens__dumping_ground", "warrens__feeding_hall", "warrens__ossuary", "warrens__gatehouse"]
+    "children": [
+      "warrens__spoiled_meat",
+      "warrens__great_duct",
+      "warrens__old_gallery",
+      "warrens__effigy",
+      "warrens__flesh_seeps",
+      "warrens__hovels",
+      "warrens__grate",
+      "warrens__meat_locker",
+      "warrens__crossways",
+      "warrens__shrine",
+      "warrens__tannery",
+      "warrens__sluice",
+      "warrens__diggings",
+      "warrens__dumping_ground",
+      "warrens__feeding_hall",
+      "warrens__ossuary",
+      "warrens__gatehouse"
+    ]
   },
   {
     "identifier": "warrens__spoiled_meat",
     "title": "The Spoiled Meat",
     "description": "A broken stretch of tunnel opening onto a wide waste of bone and mud under a sickly haze. Carcass-cuts hang from chained hooks overhead, long past eating, and skulls lie heaped along the fallen timbers.",
-    "summary": "warrens__spoiled_meat (The Spoiled Meat) -- A broken tunnel mouth hung with rotting meat on hooks, opening onto a bone-strewn waste.",
+    "summary": "A broken tunnel mouth hung with rotting meat on hooks, opening onto a bone-strewn waste.",
     "parent": "warrens",
     "children": []
   },
@@ -19,7 +37,7 @@
     "identifier": "warrens__great_duct",
     "title": "The Great Duct",
     "description": "The mouth of a major duct, its grate half-eaten by rust and dripping with orange filth. Red sludge pours steadily from it and spreads across the chamber floor, ankle-deep in places.",
-    "summary": "warrens__great_duct (The Great Duct) -- A huge rusted duct-mouth steadily disgorging red sludge across the chamber floor.",
+    "summary": "A huge rusted duct-mouth steadily disgorging red sludge across the chamber floor.",
     "parent": "warrens",
     "children": []
   },
@@ -27,7 +45,7 @@
     "identifier": "warrens__old_gallery",
     "title": "The Old Gallery",
     "description": "A colonnaded gallery of finer masonry than the tunnels around it, with a brazier burning on the ledge beside a cluster of melted candles. Skulls are stacked neatly against a rotten log; someone tends the flames.",
-    "summary": "warrens__old_gallery (The Old Gallery) -- A finer colonnaded gallery with a tended brazier, melted candles, and neatly stacked skulls.",
+    "summary": "A finer colonnaded gallery with a tended brazier, melted candles, and neatly stacked skulls.",
     "parent": "warrens",
     "children": []
   },
@@ -35,7 +53,7 @@
     "identifier": "warrens__effigy",
     "title": "The Effigy",
     "description": "A towering effigy fills the chamber: an iron crown turned upside down, six-spoked, built enormous from stone slabs and stretched hide. Many swinefolk wear its likeness. A burning brazier stands at either side, kept lit.",
-    "summary": "warrens__effigy (The Effigy) -- A towering swinefolk effigy of an inverted, six-spoked iron crown, flanked by tended braziers.",
+    "summary": "A towering swinefolk effigy of an inverted, six-spoked iron crown, flanked by tended braziers.",
     "parent": "warrens",
     "children": []
   },
@@ -43,7 +61,7 @@
     "identifier": "warrens__flesh_seeps",
     "title": "The Flesh Seeps",
     "description": "A chamber where red sinew has grown up through the brickwork, spreading over benches and arches in ropy sheets. On the far wall the growth has bunched into the crude likeness of a horned, grinning face.",
-    "summary": "warrens__flesh_seeps (The Flesh Seeps) -- A chamber overgrown with red sinew that has bunched into the likeness of a horned, grinning face.",
+    "summary": "A chamber overgrown with red sinew that has bunched into the likeness of a horned, grinning face.",
     "parent": "warrens",
     "children": []
   },
@@ -51,7 +69,7 @@
     "identifier": "warrens__hovels",
     "title": "The Hovels",
     "description": "A cluster of swine dwellings raised inside a larger chamber—tents of stitched hide over timber stakes, fenced with scavenged planks. Yellow smoke hangs low over the mud between them.",
-    "summary": "warrens__hovels (The Hovels) -- A cluster of swinefolk hide-tents and plank fences under low-hanging smoke.",
+    "summary": "A cluster of swinefolk hide-tents and plank fences under low-hanging smoke.",
     "parent": "warrens",
     "children": []
   },
@@ -59,7 +77,7 @@
     "identifier": "warrens__grate",
     "title": "The Grate",
     "description": "A wall of heavy iron bars closes the tunnel from floor to ceiling, the passage beyond it choked with fallen stone. The bars are old work, and whatever they were set to hold back, the rubble now holds better.",
-    "summary": "warrens__grate (The Grate) -- A floor-to-ceiling iron grate sealing a tunnel already choked with fallen stone.",
+    "summary": "A floor-to-ceiling iron grate sealing a tunnel already choked with fallen stone.",
     "parent": "warrens",
     "children": []
   },
@@ -67,7 +85,7 @@
     "identifier": "warrens__meat_locker",
     "title": "The Meat Locker",
     "description": "A chamber strung with chains and hooks, hung densely with cuts of meat in every state of freshness. Skulls and stripped bones are heaped where they fell beneath the hooks.",
-    "summary": "warrens__meat_locker (The Meat Locker) -- A chain-strung larder hung with meat in every state of freshness, bones heaped below.",
+    "summary": "A chain-strung larder hung with meat in every state of freshness, bones heaped below.",
     "parent": "warrens",
     "children": []
   },
@@ -75,7 +93,7 @@
     "identifier": "warrens__crossways",
     "title": "The Crossways",
     "description": "A junction where arched passages recede in every direction, identical brick swallowing the torchlight. Down one of them, far off, a cluster of candles burns on a ledge.",
-    "summary": "warrens__crossways (The Crossways) -- A junction of identical receding brick archways, distant candlelight down one passage.",
+    "summary": "A junction of identical receding brick archways, distant candlelight down one passage.",
     "parent": "warrens",
     "children": []
   },
@@ -83,7 +101,7 @@
     "identifier": "warrens__shrine",
     "title": "The Shrine",
     "description": "A ledge crowded with burning candles and braziers beneath two hanging banners—one daubed with a tusked jaw, the other with rows of runes. A standard pole leans against the stonework, wrapped in cord.",
-    "summary": "warrens__shrine (The Shrine) -- A candle-crowded swinefolk shrine beneath banners daubed with a tusked jaw and runes.",
+    "summary": "A candle-crowded swinefolk shrine beneath banners daubed with a tusked jaw and runes.",
     "parent": "warrens",
     "children": []
   },
@@ -91,7 +109,7 @@
     "identifier": "warrens__tannery",
     "title": "The Tannery",
     "description": "Two hides stretched taut on timber frames stand mid-chamber, a brazier burning beside them and empty hooks swaying overhead. Runes are daubed on the wall behind in something dark.",
-    "summary": "warrens__tannery (The Tannery) -- A skin-stretching room of taut hides on frames, a lit brazier, and dark-daubed runes.",
+    "summary": "A skin-stretching room of taut hides on frames, a lit brazier, and dark-daubed runes.",
     "parent": "warrens",
     "children": []
   },
@@ -99,7 +117,7 @@
     "identifier": "warrens__sluice",
     "title": "The Sluice",
     "description": "A wide, low hall where several barred culvert-mouths open at floor level, bones and skulls spilling from them into the red mire. Whatever the sluices once carried, they carry remains now.",
-    "summary": "warrens__sluice (The Sluice) -- A low hall of barred culvert-mouths spilling bones and skulls into the red mire.",
+    "summary": "A low hall of barred culvert-mouths spilling bones and skulls into the red mire.",
     "parent": "warrens",
     "children": []
   },
@@ -107,7 +125,7 @@
     "identifier": "warrens__diggings",
     "title": "The Diggings",
     "description": "A working face where the swine are tunneling upward—ladders lashed to the walls, a cart heaped with spoil, picks and shovels left mid-shift. Through a barred opening, lamplit buildings show in the gloom beyond.",
-    "summary": "warrens__diggings (The Diggings) -- An active swine digging with ladders, carts, and tools, its barred opening showing lamplit buildings beyond.",
+    "summary": "An active swine digging with ladders, carts, and tools, its barred opening showing lamplit buildings beyond.",
     "parent": "warrens",
     "children": []
   },
@@ -115,7 +133,7 @@
     "identifier": "warrens__dumping_ground",
     "title": "The Dumping Ground",
     "description": "Three great duct-arches stand choked with fused red flesh, egg-like sacs budding on stalks along the walls. Here the Ancestor disposed of his failed summonings, the half-living offal heaped until it grew together; a heart-like mass sits in the central arch, and it moves.",
-    "summary": "warrens__dumping_ground (The Dumping Ground) -- The duct-arches where the Ancestor's ritual offal was heaped until it fused into a single living mass.",
+    "summary": "The duct-arches where the Ancestor's ritual offal was heaped until it fused into a single living mass.",
     "parent": "warrens",
     "children": []
   },
@@ -123,7 +141,7 @@
     "identifier": "warrens__feeding_hall",
     "title": "The Feeding Hall",
     "description": "A court of bone and hide: a huge crowned seat of tusks and skulls, a butcher's block heaped with gore beneath an embedded cleaver, braziers and rune-banners on every side. Here the swine feed the great brute the Ancestor summoned and abandoned, as they have fed it since he emptied a village to do so.",
-    "summary": "warrens__feeding_hall (The Feeding Hall) -- The bone-and-hide court where the swinefolk feed the great brute the Ancestor summoned and abandoned.",
+    "summary": "The bone-and-hide court where the swinefolk feed the great brute the Ancestor summoned and abandoned.",
     "parent": "warrens",
     "children": []
   },
@@ -131,7 +149,7 @@
     "identifier": "warrens__ossuary",
     "title": "The Ossuary",
     "description": "Arched wall-niches packed with stacked skulls, red root-flesh grown through the gaps between them. Two pillars carved with runes give off a dull orange glow, and a flanged mace hangs on its chain beside the eastern arch.",
-    "summary": "warrens__ossuary (The Ossuary) -- Wall-niches packed with skulls amid red root-flesh, lit by two dully glowing rune pillars.",
+    "summary": "Wall-niches packed with skulls amid red root-flesh, lit by two dully glowing rune pillars.",
     "parent": "warrens",
     "children": []
   },
@@ -139,7 +157,7 @@
     "identifier": "warrens__gatehouse",
     "title": "The Gatehouse",
     "description": "A two-story structure of newer brick straddling a culvert arch, its upper window hung with a pale cloth. The floor before it is stained a deep, walked-in red, and half its planking has been torn away for timber.",
-    "summary": "warrens__gatehouse (The Gatehouse) -- A ruined two-story brick gatehouse over a culvert arch, its floor stained a walked-in red.",
+    "summary": "A ruined two-story brick gatehouse over a culvert arch, its floor stained a walked-in red.",
     "parent": "warrens",
     "children": []
   }

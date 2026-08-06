@@ -1,8 +1,7 @@
 // server/routes/setupEventRoute.ts
 import { Router, Request, Response } from 'express';
 import { setupEvent, setupFollowUpEvent } from '../services/story/setupEventService.js';
-import { takeFollowUpEvent } from '../services/game/followUpService.js';
-import { requireEstate } from '../fileOps.js';
+import { takeFollowUpEvent, reclaimInFlight } from '../services/game/followUpService.js';
 import { withEstate } from '../estateLock.js';
 import { asyncHandler } from '../middleware/errorHandler.js';
 
@@ -14,6 +13,13 @@ interface SetupRequest {
   enemyIds?: string[];
 }
 
+/**
+ * POST /estates/:estateName/events/setup
+ *
+ * Picks the event, cast and scenery for a town event. Both paths take the write
+ * lock: even a directed setup reclaims an unresolved follow-up reservation, so
+ * no reservation can outlive the setup that follows it.
+ */
 router.post(
   '/estates/:estateName/events/setup',
   asyncHandler(async (req: Request<{ estateName: string }, {}, SetupRequest>, res: Response) => {
@@ -24,32 +30,30 @@ router.post(
     // names an event or specific participants is honored as-is.
     const isUndirected = !eventId && !characterIds?.length && !enemyIds?.length;
 
-    if (!isUndirected) {
-      // Directed setup reads but never writes, so it takes no lock.
-      const estate = await requireEstate(estateName);
-      const result = await setupEvent(estate, {
-        eventId: eventId ?? undefined,
-        characterIds,
-        enemyIds,
-      });
-      res.json({ ...result, success: true, usedFollowUp: false });
-      return;
-    }
-
-    // Undirected setup consumes from the follow-up queue and updates the
-    // streak counter, so it does write.
     let usedFollowUp = false;
 
     const result = await withEstate(estateName, async (estate) => {
-      // Mutates estate.followUps (removes the served entry, updates the streak).
+      if (!isUndirected) {
+        // Directed setup can't serve a follow-up, but it must still clear any
+        // stale reservation — otherwise a later consequences call would commit
+        // a follow-up that was never told.
+        reclaimInFlight(estate);
+        return setupEvent(estate, {
+          eventId: eventId ?? undefined,
+          characterIds,
+          enemyIds,
+        });
+      }
+
+      // Reserves into estate.followUps.inFlight and updates the streak counter.
       const followUp = takeFollowUpEvent(estate);
       usedFollowUp = !!followUp;
 
-      // If this throws, withEstate skips the save and the queue on disk is
-      // untouched — a failed setup doesn't silently eat a follow-up.
+      // If this throws, withEstate skips the save. The reservation is not
+      // written, so the follow-up stays where it was.
       return followUp
-        ? await setupFollowUpEvent(estate, followUp)
-        : await setupEvent(estate, { eventId: undefined, characterIds, enemyIds });
+        ? setupFollowUpEvent(estate, followUp)
+        : setupEvent(estate, { eventId: undefined, characterIds, enemyIds });
     });
 
     res.json({ ...result, success: true, usedFollowUp });

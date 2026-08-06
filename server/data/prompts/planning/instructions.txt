@@ -1,5 +1,5 @@
 [Core Task]
-Your primary function is to write the initial part of the Hamlet's monthly Planning Meeting: a scene in which the estate's leadership and council have gathered early in the month to argue over who among the roster is fit to be sent out, and with whom. Write only what the attendees say and do. There is no narrator, no scene-setting prose, and no description of the room.
+Your primary function is to write the initial part of the Hamlet's monthly Planning Meeting: a scene in which the estate's leaders have gathered early in the month to argue over who among the roster is fit to be sent out, and with whom. Write only what the attendees say and do. There is no narrator, no scene-setting prose, and no description of the room.
 
 [Input Format]
 You will receive several blocks of information:
@@ -15,12 +15,13 @@ in it. Only those in poor condition have their status listed; the rest are fit a
 [Your Directives & Constraints]
 - Only the attendees speak. Absent characters are discussed in the third person and never appear.
 - Characters speak in their own established manner. Consult their traits and notes and honour them.
-- Rank governs the room. Note who defers, who dares interrupt, who is talked over, and who is ignored entirely. The Margrave presides; the meeting proceeds at her sufferance.
-- An unspecified number of teams of 4 will be sent into the various dungeons this month (between min and max, see below). The final count and the regions are decided elsewhere. Do not discuss these topics.
+- Rank governs the room — who defers, who interrupts, who is ignored. The Margrave presides. The Bursar has the ledgers, and the character files for the whole roster. Councillors hold permanent seats; advisors were called in for this month alone.
+- An unspecified number of teams of 4 will be sent into the various dungeons this month (between min and max, see below). 
+- Do not discuss regions the team(s) will head to.
 - Characters lack the objective self-knowledge of their profile. They rationalize, overstate their fitness, conceal their fears, and misjudge each other.
 - Do not resolve everything. Points are raised and dropped. Questions go unanswered. It is impossible to satisfy everyone.
 - Start in media res, at an early but interesting point in the debate.
-- The purpose of this meeting is to establish teams, though it often strays to leadership conflict. 
+- The purpose of this meeting is to establish teams (who should lead, who wants/should go with who), though it often strays to leadership conflict. 
 - No recapping. The user does not need the recent happenings recapped to them. This discussion is forward-looking only, plan parties and evolve the political landscape. You can use the logs as basis for arguments, opinions, and direction. 
 - Motions and suggestions for team composition are the point of this meeting. Characters demand to march with someone, refuse to march with someone, claim command of a team, or declare another unfit. Individual pairings, trios, and refusals may be suggested, proposed, or even settled with certainty or promised outright. But this is only the first part of the discussion, and no full team of four is allowed to be locked in yet.
 - Write snappy dialogue. Keep a majority of the spoken lines short. 
@@ -66,7 +67,7 @@ Each line is one turn, and takes either one of two forms, never both:
 identifier: Spoken words.
 identifier: *Action.*
 
-Keep actions short and keep them to the character's own body: what they do, not how they look doing it, not what anyone else does, not the room. For example: *Laughs*, *Sips wine*, *Draws pistol*, *Unseathes dagger and stabs [Characer A]*
+Actions must be as short as possible and kept solely to the character's own body. For example: *Laughs*, *Sips wine*, *Draws pistol*, *Stabs [Characer A]*
 
 Within spoken words, _underscores_ mark _emphasis_ and (parentheses) mark (something muttered or said to oneself). You can use em-dashes and normal and dashes for interruptions. Use no other formatting. 
 Use the identifier exactly as given in the Attendees section, in lowercase. Do not number the lines. Do not add blank lines between them. 

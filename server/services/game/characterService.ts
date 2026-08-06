@@ -33,7 +33,11 @@ export function createCharacterFromTemplate(
     
     // 3. Get the dynamic starting relationships and locations from the manager
     relationships: gameData.getDefaultRelationshipsForCharacter(template.identifier),
-    locations: gameData.getRandomizedLocationsForCharacter(template.identifier),
+    locations: {
+      residence: [],
+      workplaces: [],
+      frequents: [],
+    },
     strategyWeights: gameData.getStrategiesForCharacter(template.identifier),
   };
 }

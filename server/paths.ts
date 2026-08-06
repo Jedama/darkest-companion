@@ -22,7 +22,6 @@ export const KEYWORDS_DIR = path.join(DATA_DIR, 'keywords');
 
 // Specific Data Files
 export const DEFAULT_RELATIONSHIPS_FILE = path.join(TEMPLATES_DIR, 'defaultRelationships.json');
-export const DEFAULT_CHARACTER_LOCATIONS_FILE = path.join(TEMPLATES_DIR, 'defaultCharacterLocations.json');
 export const DEFAULT_WEIGHTS_FILE = path.join(TEMPLATES_DIR, 'defaultCharacterStrategies.json');
 export const ENEMY_RELATIONSHIPS_FILE = path.join(TEMPLATES_DIR, 'enemyRelationships.json');
 export const TOWN_KEYWORDS_FILE = path.join(KEYWORDS_DIR, 'default.json');

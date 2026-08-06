@@ -3,15 +3,39 @@
     "identifier": "cove",
     "title": "The Cove",
     "description": "A great sea-cave on the Estate's coastline, entered trough the shore path and traversed on foot thereafter—wading flooded galleries, climbing slick shingle, and squeezing through passages that fill without warning at the turn of the tide. Men have used it in every age: an antediluvian city stands drowned in its depths, coastal folk raised shrines near its mouths, and smugglers ran their goods through it within living memory. Its traffic now comes up from deeper water.",
-    "summary": "cove (The Cove) -- A vast tidal sea-cave holding a drowned antediluvian city, old fisherfolk shrines, and abandoned smuggler routes, now trafficked by things from deeper water.",
+    "summary": "A vast tidal sea-cave holding a drowned antediluvian city, old fisherfolk shrines, and abandoned smuggler routes, now trafficked by things from deeper water.",
     "parent": "estate",
-    "children": ["cove__grotto", "cove__undercroft", "cove__the_hand", "cove__still_lake", "cove__crusted_gate", "cove__old_shrine", "cove__old_statue", "cove__shipwreck", "cove__tholos", "cove__ring_vault", "cove__turtle_hall", "cove__breach", "cove__whale", "cove__ammonite", "cove__basalt_gallery", "cove__mural_wall", "cove__votive_stone", "cove__drowned_city", "cove__coral_garden", "cove__berthed_ship", "cove__shoreline", "cove__hold", "cove__grotto_of_songs"]
+    "children": [
+      "cove__grotto",
+      "cove__undercroft",
+      "cove__the_hand",
+      "cove__still_lake",
+      "cove__crusted_gate",
+      "cove__old_shrine",
+      "cove__old_statue",
+      "cove__shipwreck",
+      "cove__tholos",
+      "cove__ring_vault",
+      "cove__turtle_hall",
+      "cove__breach",
+      "cove__whale",
+      "cove__ammonite",
+      "cove__basalt_gallery",
+      "cove__mural_wall",
+      "cove__votive_stone",
+      "cove__drowned_city",
+      "cove__coral_garden",
+      "cove__berthed_ship",
+      "cove__shoreline",
+      "cove__hold",
+      "cove__grotto_of_songs"
+    ]
   },
   {
     "identifier": "cove__grotto",
     "title": "The Grotto",
     "description": "A flooded hall where a narrow cut stairway of recent make descends to meet far older masonry, most of it collapsed into the central pool. The water gives off its own faint blue light, which the smugglers seem to have relied on, as no torch brackets were ever installed.",
-    "summary": "cove__grotto (The Grotto) -- A flooded hall where a newer stairway meets collapsed ancient masonry over a faintly glowing pool.",
+    "summary": "A flooded hall where a newer stairway meets collapsed ancient masonry over a faintly glowing pool.",
     "parent": "cove",
     "children": []
   },
@@ -19,7 +43,7 @@
     "identifier": "cove__undercroft",
     "title": "The Undercroft",
     "description": "A run of vaulted arches half-buried in rubble and green growth, purple clusters of barnacle crusting the walls. A low burrow-mouth opens at the waterline beneath the stonework.",
-    "summary": "cove__undercroft (The Undercroft) -- Ruined vaulted arches buried in rubble and barnacle growth, with a burrow opening at the waterline.",
+    "summary": "Ruined vaulted arches buried in rubble and barnacle growth, with a burrow opening at the waterline.",
     "parent": "cove",
     "children": []
   },
@@ -27,7 +51,7 @@
     "identifier": "cove__the_hand",
     "title": "The Hand",
     "description": "Five pale stone pillars rise from a still channel like the fingers of a half-closed hand, bent and knuckled by erosion. The current here pulls gently inward, toward the deeper cave.",
-    "summary": "cove__the_hand (The Hand) -- Five eroded pillars over a still channel, resembling a half-closed hand, where the current pulls inward.",
+    "summary": "Five eroded pillars over a still channel, resembling a half-closed hand, where the current pulls inward.",
     "parent": "cove",
     "children": []
   },
@@ -35,7 +59,7 @@
     "identifier": "cove__still_lake",
     "title": "The Still Lake",
     "description": "A wide underground lake ringed by grey mineral shores, its surface flat as glass. Sound carries strangely across the water. The far side is dim.",
-    "summary": "cove__still_lake (The Still Lake) -- A wide, glass-flat underground lake with grey mineral shores where sound carries strangely.",
+    "summary": "A wide, glass-flat underground lake with grey mineral shores where sound carries strangely.",
     "parent": "cove",
     "children": []
   },
@@ -43,7 +67,7 @@
     "identifier": "cove__crusted_gate",
     "title": "The Crusted Gate",
     "description": "A rectangular carved lintel and doorposts of very great age, nearly swallowed under towering heaps of shell and limpet accretion. Sprigs of pink coral grow along the lower stones.",
-    "summary": "cove__crusted_gate (The Crusted Gate) -- An ancient carved doorway almost entirely buried under mounds of shell and limpet accretion.",
+    "summary": "An ancient carved doorway almost entirely buried under mounds of shell and limpet accretion.",
     "parent": "cove",
     "children": []
   },
@@ -51,7 +75,7 @@
     "identifier": "cove__old_shrine",
     "title": "The Old Shrine",
     "description": "A small altar recess set between two masonry piers, the arches around it long collapsed into a mossy mound. Wave-worn offering bowls remain at its base, empty.",
-    "summary": "cove__old_shrine (The Old Shrine) -- A small altar recess amid collapsed arches, its wave-worn offering bowls standing empty.",
+    "summary": "A small altar recess amid collapsed arches, its wave-worn offering bowls standing empty.",
     "parent": "cove",
     "children": []
   },
@@ -59,7 +83,7 @@
     "identifier": "cove__old_statue",
     "title": "The Idol",
     "description": "A colossal weathered stone head, very human in its features, standing among fallen columns and starfish-studded rubble. Whoever it portrayed, the face has eroded past recognition.",
-    "summary": "cove__old_statue (The Idol) -- A colossal, human-featured stone head among fallen columns, its face eroded past recognition.",
+    "summary": "A colossal, human-featured stone head among fallen columns, its face eroded past recognition.",
     "parent": "cove",
     "children": []
   },
@@ -67,7 +91,7 @@
     "identifier": "cove__shipwreck",
     "title": "The Wreck",
     "description": "A merchant vessel lying broken among rock teeth, sails rotted to shrouds, her crew's bones scattered around a dropped anchor. She was moored here, not storm-driven; her lines are still made fast.",
-    "summary": "cove__shipwreck (The Wreck) -- A broken merchant vessel and her dead crew, moored deliberately in the cave and never sailed out.",
+    "summary": "A broken merchant vessel and her dead crew, moored deliberately in the cave and never sailed out.",
     "parent": "cove",
     "children": []
   },
@@ -75,7 +99,7 @@
     "identifier": "cove__tholos",
     "title": "The Tholos",
     "description": "A round, domed temple leaning where the ground beneath it gave way, its colonnade sunk to the knees in seawater. The workmanship remains graceful despite an age beyond guessing.",
-    "summary": "cove__tholos (The Tholos) -- A round, domed temple of graceful antediluvian workmanship, sunk to its knees in seawater.",
+    "summary": "A round, domed temple of graceful antediluvian workmanship, sunk to its knees in seawater.",
     "parent": "cove",
     "children": []
   },
@@ -83,7 +107,7 @@
     "identifier": "cove__ring_vault",
     "title": "The Ring Vault",
     "description": "An enormous carved ring of masonry encircling the chamber, its stones cut with meander patterns around a wave-carved keystone. Corals have colonized the lower courses.",
-    "summary": "cove__ring_vault (The Ring Vault) -- A chamber enclosed by an enormous carved masonry ring, meander-patterned and coral-grown.",
+    "summary": "A chamber enclosed by an enormous carved masonry ring, meander-patterned and coral-grown.",
     "parent": "cove",
     "children": []
   },
@@ -91,7 +115,7 @@
     "identifier": "cove__turtle_hall",
     "title": "The Turtle Hall",
     "description": "A colonnaded hall with its coffered ceiling largely intact, a toppled carved pillar lying at the center. Ranks of turtle-like statues line both walls, shell-backed and blunt-headed, crusted with sea-growth.",
-    "summary": "cove__turtle_hall (The Turtle Hall) -- A colonnaded hall lined with rows of sea-crusted, turtle-like statues around a fallen pillar.",
+    "summary": "A colonnaded hall lined with rows of sea-crusted, turtle-like statues around a fallen pillar.",
     "parent": "cove",
     "children": []
   },
@@ -99,7 +123,7 @@
     "identifier": "cove__breach",
     "title": "The Breach",
     "description": "A gap between two rock faces carved with coiling tentacle reliefs, wide enough for two abreast. A stake palisade of much later make stands before it, built facing the gap.",
-    "summary": "cove__breach (The Breach) -- A narrow gap between tentacle-carved rock faces, fronted by a stake palisade built facing it.",
+    "summary": "A narrow gap between tentacle-carved rock faces, fronted by a stake palisade built facing it.",
     "parent": "cove",
     "children": []
   },
@@ -107,7 +131,7 @@
     "identifier": "cove__whale",
     "title": "The Whale",
     "description": "A sperm whale carcass beached on the shingle, harpoons and hoisting-poles still planted along its back, one flank opened to the ribs. The kill is fresh, the flensing abandoned midway, and nothing was carried off.",
-    "summary": "cove__whale (The Whale) -- A fresh sperm whale carcass full of harpoons, its butchering abandoned midway with nothing taken.",
+    "summary": "A fresh sperm whale carcass full of harpoons, its butchering abandoned midway with nothing taken.",
     "parent": "cove",
     "children": []
   },
@@ -115,7 +139,7 @@
     "identifier": "cove__ammonite",
     "title": "The Ammonite",
     "description": "A living ammonite of tremendous size, its coiled shell higher than a cottage, resting in the shallows with tentacles spread across the stones. It watches passersby with one great eye and, so far, does nothing more.",
-    "summary": "cove__ammonite (The Ammonite) -- A living, cottage-sized ammonite resting in the shallows, watching passersby with one great eye.",
+    "summary": "A living, cottage-sized ammonite resting in the shallows, watching passersby with one great eye.",
     "parent": "cove",
     "children": []
   },
@@ -123,7 +147,7 @@
     "identifier": "cove__basalt_gallery",
     "title": "The Basalt Gallery",
     "description": "A gallery of towering hexagonal basalt columns, part natural colonnade and part half-ordered steps, lit by thin shafts of light from cracks far above. Green algae marks the waterline on every pillar.",
-    "summary": "cove__basalt_gallery (The Basalt Gallery) -- A gallery of hexagonal basalt columns, half geology and half stairway, lit by thin shafts from above.",
+    "summary": "A gallery of hexagonal basalt columns, half geology and half stairway, lit by thin shafts from above.",
     "parent": "cove",
     "children": []
   },
@@ -131,7 +155,7 @@
     "identifier": "cove__mural_wall",
     "title": "The Mural Wall",
     "description": "A long carved wall of great age depicting boats, whales, and a toothed god of the sea rising among wave patterns. A stake fence stands before it, and living growths have crept over the carving's edges.",
-    "summary": "cove__mural_wall (The Mural Wall) -- An ancient carved wall of boats, whales, and a toothed sea-god, fenced off and edged with living growths.",
+    "summary": "An ancient carved wall of boats, whales, and a toothed sea-god, fenced off and edged with living growths.",
     "parent": "cove",
     "children": []
   },
@@ -139,7 +163,7 @@
     "identifier": "cove__votive_stone",
     "title": "The Votive Stone",
     "description": "A rune-carved standing stone at the water's edge, amid banks of white and green coral. Small lights drift on the water around it, in the manner of votive candles set afloat.",
-    "summary": "cove__votive_stone (The Votive Stone) -- A rune-carved standing stone amid coral banks, ringed by small lights adrift on the water.",
+    "summary": "A rune-carved standing stone amid coral banks, ringed by small lights adrift on the water.",
     "parent": "cove",
     "children": []
   },
@@ -147,7 +171,7 @@
     "identifier": "cove__drowned_city",
     "title": "The Drowned City",
     "description": "Stone facades and arched doorways of an antediluvian settlement climb the cavern wall, pediments and gables largely intact. Pale blue light stands in some of the windows.",
-    "summary": "cove__drowned_city (The Drowned City) -- Intact antediluvian facades climbing the cavern wall, pale blue light standing in some windows.",
+    "summary": "Intact antediluvian facades climbing the cavern wall, pale blue light standing in some windows.",
     "parent": "cove",
     "children": []
   },
@@ -155,7 +179,7 @@
     "identifier": "cove__coral_garden",
     "title": "The Coral Garden",
     "description": "A calm gallery banked with luminous corals—pink, gold, and green—beneath two tall monoliths carved with spirals. The water here is clear and bright enough to read by.",
-    "summary": "cove__coral_garden (The Coral Garden) -- A calm gallery of luminous corals beneath two spiral-carved monoliths, bright enough to read by.",
+    "summary": "A calm gallery of luminous corals beneath two spiral-carved monoliths, bright enough to read by.",
     "parent": "cove",
     "children": []
   },
@@ -163,7 +187,7 @@
     "identifier": "cove__berthed_ship",
     "title": "The Berthed Ship",
     "description": "A three-masted ship rotting at her anchorage deep inside the cave, sails hanging in strips, one of her crew still propped sword in hand where the water took him. Corals have claimed the lower decks, and a corked bottle floats in the bilge.",
-    "summary": "cove__berthed_ship (The Berthed Ship) -- A three-masted ship rotting at anchor deep in the cave, her last crewman still propped sword in hand.",
+    "summary": "A three-masted ship rotting at anchor deep in the cave, her last crewman still propped sword in hand.",
     "parent": "cove",
     "children": []
   },
@@ -171,7 +195,7 @@
     "identifier": "cove__shoreline",
     "title": "The Shoreline",
     "description": "The cave mouth opens onto a strip of pale sand and the flat open sea, hard turquoise sky above the headland's long shadow. Far out where the water darkens, a single black spike rises from the surface—too sharp for rock, too still for anything else.",
-    "summary": "cove__shoreline (The Shoreline) -- A sandy cave mouth facing the open sea, a single black spike rising far offshore.",
+    "summary": "A sandy cave mouth facing the open sea, a single black spike rising far offshore.",
     "parent": "cove",
     "children": []
   },
@@ -179,7 +203,7 @@
     "identifier": "cove__hold",
     "title": "The Hold",
     "description": "The belly of a great wreck lodged deep in the cave, lantern-light burning cold blue along the ruined deck and mist rolling low through the shattered hull. Chains cross the dark between skull-crowned mooring posts, hung banners rot beside the ship's wheel, and against the far bulkhead sits the hoard—coins, plate, and a chest split open around a glowing anchor-key—heaped and unspent, exactly where its keepers drowned with it.",
-    "summary": "cove__hold (The Hold) -- The blue-lit belly of a great wreck, its unspent hoard heaped where the crew drowned with it.",
+    "summary": "The blue-lit belly of a great wreck, its unspent hoard heaped where the crew drowned with it.",
     "parent": "cove",
     "children": []
   },
@@ -187,7 +211,7 @@
     "identifier": "cove__grotto_of_songs",
     "title": "The Grotto of Songs",
     "description": "A deep chamber whose every surface has been overgrown—coiled tentacles, fanged maws, and clustered eyes fused into the living walls, all of it dormant, none of it dead. Wave-worn timbers stud the growth, carved sigils and rings glowing cold blue among pink stars of the sea, and at the center the flesh recedes around a dark hollow from which a thin melody drifts, patient as the tide.",
-    "summary": "cove__grotto_of_songs (The Grotto of Songs) -- A chamber of living, dormant sea-flesh grown over old wrecks, a patient melody drifting from its dark heart.",
+    "summary": "A chamber of living, dormant sea-flesh grown over old wrecks, a patient melody drifting from its dark heart.",
     "parent": "cove",
     "children": []
   }

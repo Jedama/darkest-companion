@@ -16,6 +16,7 @@ export type ErrorCode =
   | 'invalid_state'
   | 'not_found'
   | 'llm_unavailable'
+  | 'llm_timeout'
   | 'llm_bad_json'
   | 'llm_bad_content'
   | 'internal';
@@ -77,6 +78,15 @@ export class AppError extends Error {
       502,
       'llm_unavailable',
       details
+    );
+  }
+
+  /** The provider accepted the request but never finished answering. */
+  static llmTimeout(seconds: number): AppError {
+    return new AppError(
+      `The storyteller did not answer within ${seconds} seconds.`,
+      504,
+      'llm_timeout'
     );
   }
 

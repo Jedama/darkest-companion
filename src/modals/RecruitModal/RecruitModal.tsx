@@ -166,7 +166,7 @@ export function RecruitModal({ onClose }: RecruitModalProps) {
     <div className="recruit-modal-container">
       <div className="recruit-content">
 
-        {isSubmitting && <LoadingIndicator waitingFor={activity?.label} />}
+        {isSubmitting && <LoadingIndicator waitingFor={activity?.label} backdrop />}
 
         <h2 className="recruit-title">Recruit</h2>
 

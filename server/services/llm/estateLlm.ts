@@ -3,7 +3,7 @@
 // The two things every LLM route was reimplementing: assembling a request from
 // estate preferences, and dragging JSON out of a fenced response.
 
-import { callLLM } from './llmService.js';
+import { callLLM, LlmTimeoutError } from './llmService.js';
 import { AppError } from '../../errors.js';
 import { currentLlmContext } from './llmMode.js';
 import { inferLabel, stubResponse, garbageResponse } from './llmStub.js';
@@ -70,6 +70,12 @@ export async function callEstateLLM(
       ...providerOptions,
     });
   } catch (error) {
+    // A deadline is worth distinguishing from an outage: it means the provider
+    // took the request and never came back, which is retryable in a different
+    // way from being unreachable.
+    if (error instanceof LlmTimeoutError) {
+      throw AppError.llmTimeout(Math.round(error.timeoutMs / 1000));
+    }
     throw AppError.llmUnavailable(
       error instanceof Error ? error.message : String(error)
     );

@@ -3,32 +3,59 @@
     "identifier": "weald",
     "title": "The Weald",
     "description": "The old-growth forest through which the estate's roads once ran, long since gone bad—the trees hung with moss, the air thick with spores, and a creeping fungal rot claiming trunk, beast, and farmstead alike. Travel means sucking mud, root-choked tracks, and long detours around thickets no blade clears. What the rot has not taken, the brigands have; their camps and toll-points move through the woods like weather.",
-    "summary": "weald (The Weald) -- The estate's rotting old-growth forest, its roads choked by mud, fungal corruption, and roving brigands.",
+    "summary": "The estate's rotting old-growth forest, its roads choked by mud, fungal corruption, and roving brigands.",
     "parent": "estate",
-    "children": ["old_road", "weald__chapel_yard", "weald__crooked_cabin", "weald__lovers_graves", "weald__crow_nest", "weald__carrion_tree", "weald__old_crypt", "weald__fallen_giant", "weald__cemetery_gate", "weald__hand_tree", "weald__giant_funnels", "weald__moonlit_tomb", "weald__poison_creek", "weald__mushroom_hollow", "weald__empty_village", "weald__brigand_camp", "weald__hags_hut", "weald__old_park", "weald__thicket", "weald__root_cellar", "weald__field"]
+    "children": [
+      "old_road",
+      "weald__chapel_yard",
+      "weald__crooked_cabin",
+      "weald__lovers_graves",
+      "weald__crow_nest",
+      "weald__carrion_tree",
+      "weald__old_crypt",
+      "weald__fallen_giant",
+      "weald__cemetery_gate",
+      "weald__hand_tree",
+      "weald__giant_funnels",
+      "weald__moonlit_tomb",
+      "weald__poison_creek",
+      "weald__mushroom_hollow",
+      "weald__empty_village",
+      "weald__brigand_camp",
+      "weald__hags_hut",
+      "weald__old_park",
+      "weald__thicket",
+      "weald__root_cellar",
+      "weald__field"
+    ]
   },
   {
     "identifier": "old_road",
     "title": "The Old Road",
     "description": "The forgotten trade route that winds its way toward the Hamlet, now little more than a scar through the wilderness. Brigands and worse stalk the shadows of ruined waystations, watching for those foolish enough to travel without armed escort. The mud here is deep and treacherous, eager to claim boots and wheels alike.",
-    "summary": "old_road (The Old Road) -- The forgotten trade route winding toward the Hamlet, plagued by brigands and deep mud that claims boots and wheels alike.",
+    "summary": "The forgotten trade route winding toward the Hamlet, plagued by brigands and deep mud that claims boots and wheels alike.",
     "parent": "weald",
-    "children": ["prologue__stagecoach", "prologue__crash_site"]
+    "children": [
+      "prologue__stagecoach",
+      "prologue__crash_site"
+    ]
   },
   {
     "identifier": "prologue__stagecoach",
     "title": "Stagecoach Interior",
     "description": "A heavy carriage that smells of old leather and anxious sweat, lurching violently over the rutted track. Through the front partition, the Caretaker can be heard whipping the two panicked horses, his manic muttering competing with the groan of straining axles. The interior lanterns sway wildly, casting erratic shadows that offer no comfort against the encroaching dark.",
-    "summary": "prologue__stagecoach (Stagecoach Interior) -- The cramping interior of a heavy carriage where the Caretaker drives two panicked horses down the rutted track.",
+    "summary": "The cramping interior of a heavy carriage where the Caretaker drives two panicked horses down the rutted track.",
     "parent": "old_road",
     "children": [],
-    "npcs": ["caretaker"]
+    "npcs": [
+      "caretaker"
+    ]
   },
   {
     "identifier": "prologue__crash_site",
     "title": "Crash Site",
     "description": "A muddy depression in the road where the carriage's axle finally gave way to the rough terrain. The vehicle lies crippled on its side, spilling trunks and provisions into the mire while the horses have torn free of their traces and vanished. The driver is nowhere to be seen, leaving the survivors alone beneath the looming, hostile boughs.",
-    "summary": "prologue__crash_site (Crash Site) -- A muddy depression where the carriage lies crippled, spilling provisions into the mire after the horses tore free.",
+    "summary": "A muddy depression where the carriage lies crippled, spilling provisions into the mire after the horses tore free.",
     "parent": "old_road",
     "children": []
   },
@@ -36,7 +63,7 @@
     "identifier": "weald__chapel_yard",
     "title": "The Chapel Yard",
     "description": "A small roofless chapel and its leaning grave markers under a red dusk, a stone cross toppled against the path. A horn-like fungal growth has burst through the wall of the nave, and skulls lie gathered at the roots of the boundary tree.",
-    "summary": "weald__chapel_yard (The Chapel Yard) -- A roofless chapel and leaning graves, its wall burst by a horn-like fungal growth.",
+    "summary": "A roofless chapel and leaning graves, its wall burst by a horn-like fungal growth.",
     "parent": "weald",
     "children": []
   },
@@ -44,7 +71,7 @@
     "identifier": "weald__crooked_cabin",
     "title": "The Crooked Cabin",
     "description": "A stone cottage with a thatched roof, a covered well in the yard, and an animal skull mounted over the door. Skull-capped mushrooms crowd the yard among scattered bones, and a red light burns in the upper window.",
-    "summary": "weald__crooked_cabin (The Crooked Cabin) -- A skull-marked cottage with a well, bone-strewn yard, and a red light in the window.",
+    "summary": "A skull-marked cottage with a well, bone-strewn yard, and a red light in the window.",
     "parent": "weald",
     "children": []
   },
@@ -52,7 +79,7 @@
     "identifier": "weald__lovers_graves",
     "title": "The Lovers' Graves",
     "description": "Two wooden crosses, lashed with cord, planted side by side in a quiet stand of trees, fireflies drifting between the trunks. On the nearest tree, a heart and initials are carved at head height—older work than the graves.",
-    "summary": "weald__lovers_graves (The Lovers' Graves) -- Two lashed wooden crosses side by side beneath a tree carved with a heart and initials.",
+    "summary": "Two lashed wooden crosses side by side beneath a tree carved with a heart and initials.",
     "parent": "weald",
     "children": []
   },
@@ -60,7 +87,7 @@
     "identifier": "weald__crow_nest",
     "title": "The Nest",
     "description": "A dark grove where an enormous nest of woven branches sits in the canopy, the ground below littered with bones. Pale, skull-marked mushrooms grow in banks on every side, and a violet haze hangs at knee height.",
-    "summary": "weald__crow_nest (The Nest) -- A dark grove beneath an enormous woven nest, banked with pale skull-marked mushrooms.",
+    "summary": "A dark grove beneath an enormous woven nest, banked with pale skull-marked mushrooms.",
     "parent": "weald",
     "children": []
   },
@@ -68,7 +95,7 @@
     "identifier": "weald__carrion_tree",
     "title": "The Carrion Tree",
     "description": "A vast dead tree against the sunset, something ragged and fleshy lodged in its crown, bats circling above. Shrouded shapes hang from the lower boughs, and the surrounding trees leer with knotted, face-like burls.",
-    "summary": "weald__carrion_tree (The Carrion Tree) -- A vast dead tree with carrion lodged in its crown and shrouded shapes hanging below.",
+    "summary": "A vast dead tree with carrion lodged in its crown and shrouded shapes hanging below.",
     "parent": "weald",
     "children": []
   },
@@ -76,7 +103,7 @@
     "identifier": "weald__old_crypt",
     "title": "The Old Crypt",
     "description": "A stone mausoleum with a paneled door and a shield carved beside it, ringed by crosses and headstones. A coffin lies tilted out of the ground nearby, overgrown with glowing yellow mushrooms.",
-    "summary": "weald__old_crypt (The Old Crypt) -- A stone mausoleum with an unearthed coffin beside it, overgrown with glowing yellow mushrooms.",
+    "summary": "A stone mausoleum with an unearthed coffin beside it, overgrown with glowing yellow mushrooms.",
     "parent": "weald",
     "children": []
   },
@@ -84,7 +111,7 @@
     "identifier": "weald__fallen_giant",
     "title": "The Fallen Giant",
     "description": "An ancient tree lying full-length across the way, roots torn up in a wall of earth, its trunk making a low bridge over the track. A file of small mushrooms has colonized the ground beneath it.",
-    "summary": "weald__fallen_giant (The Fallen Giant) -- An ancient fallen tree bridging the track, its torn roots standing in a wall of earth.",
+    "summary": "An ancient fallen tree bridging the track, its torn roots standing in a wall of earth.",
     "parent": "weald",
     "children": []
   },
@@ -92,7 +119,7 @@
     "identifier": "weald__cemetery_gate",
     "title": "The Cemetery Gate",
     "description": "The iron fence and obelisk pillars of a large burial ground, mausoleums and headstone rows fading back into the mist. The gate stands open, and the fence has been down in places for years.",
-    "summary": "weald__cemetery_gate (The Cemetery Gate) -- The open iron gate and obelisk pillars of a large, mist-bound burial ground.",
+    "summary": "The open iron gate and obelisk pillars of a large, mist-bound burial ground.",
     "parent": "weald",
     "children": []
   },
@@ -100,7 +127,7 @@
     "identifier": "weald__hand_tree",
     "title": "The Hand Tree",
     "description": "A broad old tree with severed hands hung from its branches on lengths of cord, dozens of them, in every state of age. At its base, a cluster of thick candles burns on a mossy mound, tended by someone.",
-    "summary": "weald__hand_tree (The Hand Tree) -- An old tree hung with severed hands on cords, tended candles burning at its base.",
+    "summary": "An old tree hung with severed hands on cords, tended candles burning at its base.",
     "parent": "weald",
     "children": []
   },
@@ -108,7 +135,7 @@
     "identifier": "weald__giant_funnels",
     "title": "The Giant Funnels",
     "description": "A bank of enormous funnel-shaped fungi, the largest spreading wider than a cart, growing in tiers across the clearing. Fallen timber and a broken stone marker lie half-digested beneath them.",
-    "summary": "weald__giant_funnels (The Giant Funnels) -- A tiered bank of cart-sized funnel fungi digesting fallen timber and a broken marker.",
+    "summary": "A tiered bank of cart-sized funnel fungi digesting fallen timber and a broken marker.",
     "parent": "weald",
     "children": []
   },
@@ -116,7 +143,7 @@
     "identifier": "weald__moonlit_tomb",
     "title": "The Moonlit Tomb",
     "description": "A pillared tomb almost swallowed by black hedgerow, its pediment showing through the growth. Through the open doorway, moonlight falls on an altar and a single urn.",
-    "summary": "weald__moonlit_tomb (The Moonlit Tomb) -- A hedge-swallowed pillared tomb, moonlight falling on the altar and urn within.",
+    "summary": "A hedge-swallowed pillared tomb, moonlight falling on the altar and urn within.",
     "parent": "weald",
     "children": []
   },
@@ -124,7 +151,7 @@
     "identifier": "weald__poison_creek",
     "title": "The Poison Creek",
     "description": "A sluggish yellow stream winding between mushroom-crowded banks, bones and a skull lodged in the shallows. Nothing green grows within reach of the water.",
-    "summary": "weald__poison_creek (The Poison Creek) -- A sluggish yellow stream between mushroom banks, bones lodged in its shallows.",
+    "summary": "A sluggish yellow stream between mushroom banks, bones lodged in its shallows.",
     "parent": "weald",
     "children": []
   },
@@ -132,7 +159,7 @@
     "identifier": "weald__mushroom_hollow",
     "title": "The Mushroom Hollow",
     "description": "A hollow given over entirely to fungus—caps from thumb-sized to tree-sized crowding wall to wall, lit from within by a low orange glow. At the center the growth bunches thickly around something roughly man-shaped.",
-    "summary": "weald__mushroom_hollow (The Mushroom Hollow) -- A glowing hollow of wall-to-wall fungus, bunched at the center around a man-shaped mass.",
+    "summary": "A glowing hollow of wall-to-wall fungus, bunched at the center around a man-shaped mass.",
     "parent": "weald",
     "children": []
   },
@@ -140,7 +167,7 @@
     "identifier": "weald__empty_village",
     "title": "The Empty Village",
     "description": "A cluster of thatched farmhouses under a red evening sky, the parish spire visible beyond the treeline. The lanes are bare, bones lie unburied on a rooftop, and fungal stalks have taken the fence-side plots.",
-    "summary": "weald__empty_village (The Empty Village) -- An abandoned thatched hamlet under red sky, bones on its rooftops and fungus in its plots.",
+    "summary": "An abandoned thatched hamlet under red sky, bones on its rooftops and fungus in its plots.",
     "parent": "weald",
     "children": []
   },
@@ -148,7 +175,7 @@
     "identifier": "weald__brigand_camp",
     "title": "The Brigand Camp",
     "description": "A fortified camp on stony ground—tents pitched around low fires, a stake palisade, and a scaffolded watch-house standing over the stores. Cannonballs lie scattered down the slope; the brigands dragged a great gun through these woods, and the whole camp is arranged around guarding and feeding it.",
-    "summary": "weald__brigand_camp (The Brigand Camp) -- A fortified brigand camp of tents and palisades, built around a great cannon and its shot.",
+    "summary": "A fortified brigand camp of tents and palisades, built around a great cannon and its shot.",
     "parent": "weald",
     "children": []
   },
@@ -156,7 +183,7 @@
     "identifier": "weald__hags_hut",
     "title": "The Hag's Hut",
     "description": "The single room of a herb-wife's hut: shelves of jars, dried bundles, and salves; an antlered skull over the door; a bone charm strung above the mantel. The hearth burns high with skulls on its stones, and mushrooms sprout in tiers straight through the floorboards.",
-    "summary": "weald__hags_hut (The Hag's Hut) -- A herb-wife's hut of stocked shelves and bone charms, its hearth burning over skulls.",
+    "summary": "A herb-wife's hut of stocked shelves and bone charms, its hearth burning over skulls.",
     "parent": "weald",
     "children": []
   },
@@ -164,7 +191,7 @@
     "identifier": "weald__old_park",
     "title": "The Old Park",
     "description": "A stretch of the estate's ornamental park gone wild—cracked cobbles, overgrown hedges, and a lantern still hung on its post by the path. On a plinth among the shrubs stands the statue of a bearded lord with folded arms, streaked and half-claimed by ivy.",
-    "summary": "weald__old_park (The Old Park) -- An overgrown ornamental park with a hung lantern and the ivy-claimed statue of a bearded lord.",
+    "summary": "An overgrown ornamental park with a hung lantern and the ivy-claimed statue of a bearded lord.",
     "parent": "weald",
     "children": []
   },
@@ -172,7 +199,7 @@
     "identifier": "weald__thicket",
     "title": "The Thicket",
     "description": "A tunnel through dense, interlaced growth, the canopy closing overhead until the red of the sky shows only in fragments. One of the flanking trunks bears a deep, twisted burl in the shape of a howling face.",
-    "summary": "weald__thicket (The Thicket) -- A closed tunnel of interlaced growth, one trunk bearing a burl like a howling face.",
+    "summary": "A closed tunnel of interlaced growth, one trunk bearing a burl like a howling face.",
     "parent": "weald",
     "children": []
   },
@@ -180,7 +207,7 @@
     "identifier": "weald__root_cellar",
     "title": "The Root Cellar",
     "description": "An iron gate set into a rock outcrop beneath the roots of two great trees, steps descending behind it into the dark. The hinges are rusted, but the path to the gate is trodden clear.",
-    "summary": "weald__root_cellar (The Root Cellar) -- An iron gate in a rock outcrop under tree roots, its approach trodden clear.",
+    "summary": "An iron gate in a rock outcrop under tree roots, its approach trodden clear.",
     "parent": "weald",
     "children": []
   },
@@ -188,7 +215,7 @@
     "identifier": "weald__field",
     "title": "The Field",
     "description": "A rock-rimmed rise where the trees break, the Weald's canopy rolling away below in dark waves to the horizon under a clouded moon. Grass grows in the clearing's heart, green and untainted—the only such patch for miles, and nothing has made a bed of it.",
-    "summary": "weald__field (The Field) -- A moonlit rise above the rolling canopy, its heart a single patch of clean green grass.",
+    "summary": "A moonlit rise above the rolling canopy, its heart a single patch of clean green grass.",
     "parent": "weald",
     "children": []
   }

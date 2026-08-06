@@ -86,8 +86,10 @@ WHAT TO LOOK FOR:
     * Good: "The Man-at-Arms' hope for understanding from the Crusader is tempered by the knight's instinct to side with authority and propriety over a fellow soldier's concerns." (Describes the Crusader's general tendency, not a specific intervention)
 
 9. LOCATIONS:
-  - You will be provided a list of potential residences, workplaces, and frequented locations.
-  - Pick one residence, 1-3 workplaces, and 1-5 frequented locations that make sense for the character.
+  Assign long-term location profiles based on the character's persona, skills, and social dynamics:
+  - 'residence': Pick EXACTLY 1 location with available beds (> 0 capacity left). Match the room's atmosphere to the recruit, and consider whether they would get along with any existing roommates.
+  - 'workplaces': Pick 0 to 3 locations where they actively serve the hamlet. Use [] if they are a vagrant, mercenary, or hold no formal job.
+  - 'frequents': Pick 2 to 6 locations where they naturally spend off-duty hours, pursue personal habits, or seek vice.
 
 10. OTHER:
   - Equipment is necessary for gameplay purposes, more cannot be added, nor can any equipment be removed.

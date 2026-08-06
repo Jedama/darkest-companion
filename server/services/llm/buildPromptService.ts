@@ -13,6 +13,8 @@ import type {
 } from '../../../shared/types/types.js';
 import { CONTENT_TAGS } from '../../../shared/types/types.js';
 
+import { NEUTRAL_AFFINITY } from '../../../shared/constants/relationships.js';
+import type { PlanningCouncil } from '../townHall/council.js';
 import StaticGameDataManager from '../../staticGameDataManager.js';
 import { isDescendantOf } from '../game/locationService.js';
 import { getZodiacForMonth, formatTimeSinceEvent } from '../game/calendarService.js';
@@ -205,7 +207,7 @@ export function buildRelationshipSection(involvedCharacters: Character[]): strin
         );
       } else {
         lines.push(
-          `${charA.title} → ${charB.title} (Affinity: 3, Dynamic: Strangers)\n  Description: No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone.\n\n`
+          `${charA.title} → ${charB.title} (Affinity: ${NEUTRAL_AFFINITY}, Dynamic: Strangers)\n  Description: No meaningful interactions yet. Maintains distance and reservation, as survival here demands caution with everyone.\n\n`
         );
       }
     }
@@ -292,6 +294,72 @@ export function buildLocationSection(
 
   lines.push('\n');
   return lines.join('');
+}
+
+export function buildRecruitLocationSelectionSection(estate: Estate): string {
+  const gameData = StaticGameDataManager.getInstance();
+  const allLocations = gameData.getAllLocations();
+  const locationMap = gameData.getLocationMap();
+  const TOWN_SCOPE_ROOT = "hamlet";
+
+  // 1. Map current occupants by location ID
+  const roomOccupants: Record<string, Character[]> = {};
+  for (const char of Object.values(estate.characters)) {
+    if (!char.locations.residence) continue;
+    for (const locId of char.locations.residence) {
+      if (!roomOccupants[locId]) roomOccupants[locId] = [];
+      roomOccupants[locId].push(char);
+    }
+  }
+
+  // 2. Filter to Hamlet locations
+  const hamletLocations = allLocations.filter(loc => {
+    if (!loc.summary) return false;
+    if (loc.identifier === TOWN_SCOPE_ROOT || loc.parent === TOWN_SCOPE_ROOT) return false;
+    return isDescendantOf(loc.identifier, TOWN_SCOPE_ROOT, locationMap);
+  });
+
+  const lines: string[] = [
+    `[Hamlet Locations, Capacity & Roommates]`,
+    `Select valid location identifiers for the new recruit's:`,
+    `- 'residence': Must be a location with available capacity (> 0 beds left).`,
+    `- 'workplaces': 0 or more logical work locations (e.g. blacksmith, constabulary).`,
+    `- 'frequents': 1 or more places they like to hang out.\n`
+  ];
+
+  for (const loc of hamletLocations) {
+    const occupants = roomOccupants[loc.identifier] || [];
+    const capacity = loc.capacity ?? 0;
+
+    // Check if location is restored (if applicable)
+    const summaryText = (loc.restored && estate.restoredLocations?.includes(loc.identifier))
+      ? loc.restored
+      : loc.summary;
+
+    // Format Capacity Header
+    let capacityHeader = "Non-residential";
+    if (capacity > 0) {
+      const isFull = occupants.length >= capacity ? " - FULL" : "";
+      capacityHeader = `Beds: ${occupants.length}/${capacity}${isFull}`;
+    }
+
+    lines.push(`- [${loc.identifier}] ${loc.title} (${capacityHeader})`);
+    lines.push(`  Summary: ${summaryText}`);
+
+    // Print occupants with ALL traits
+    if (occupants.length > 0) {
+      lines.push(`  Current Residents:`);
+      for (const occ of occupants) {
+        const traitsStr = occ.traits?.length ? ` — Traits: ${occ.traits.join(', ')}` : '';
+        lines.push(`    * ${occ.name} (${occ.title})${traitsStr}`);
+      }
+    } else if (capacity > 0) {
+      lines.push(`  Current Residents: None`);
+    }
+    lines.push(''); // Blank line spacing between locations
+  }
+
+  return lines.join('\n');
 }
 
 export function buildNPCSection(npcs: NPC[]): string {
@@ -626,7 +694,7 @@ export function buildLocationSummarySection(): string {
       if (loc.parent === TOWN_SCOPE_ROOT) return false;
       return isDescendantOf(loc.identifier, TOWN_SCOPE_ROOT, locationMap);
     })
-    .map(loc => `- ${loc.summary}`);
+    .map(loc => `- ${loc.title} (${loc.identifier}) - ${loc.summary}`);
 
   return lines.length ? lines.join('\n') : 'No locations available.';
 }
@@ -742,9 +810,14 @@ export function compilePlanningContext(estate: Estate, gameData: StaticGameDataM
  
   const backstory = gameData.getPrompt('game.backstory').replaceAll('${estateName}', estate.name);
 
-  const rosterSize = Object.keys(estate.characters).length;
+  const characters = Object.values(estate.characters);
+  const rosterSize = characters.length;
+
+  // Count healthy heroes (mental > 50)
+  const healthyCount = characters.filter((char) => char.status.mental > 50).length;
+
   const maxTeams = Math.max(1, Math.floor(rosterSize / 4));
-  const minTeams = 1;
+  const minTeams = Math.floor(healthyCount / 4);
   
   return `
     [Instructions]
@@ -765,4 +838,60 @@ Between ${minTeams} and ${maxTeams} teams of four will be sent out this month.
  
   `;
  
+}
+
+/**
+ * The table at a planning meeting: who sits where, and who is missing.
+ *
+ * Deliberately terse — this is prompt budget, not documentation. Distinct from
+ * buildLeadershipSection, which describes the standing offices for prompts that
+ * do not convene a meeting.
+ */
+export function buildPlanningLeadershipSection(estate: Estate, council: PlanningCouncil): string {
+  const name = (id: string) => {
+    const c = estate.characters[id];
+    return c ? `${c.name} (${id})` : id;
+  };
+
+  const absence = (id: string): string | null => {
+    const record = council.absent.find(a => a.identifier === id);
+    if (!record) return null;
+    if (record.reason === 'missing') return 'gone from the Hamlet';
+    const diseases = estate.characters[id]?.status.diseases ?? [];
+    return diseases.length ? `absent, ${diseases.join('; ')}` : 'absent';
+  };
+
+  const lines: string[] = [];
+
+  if (estate.leadership.description) lines.push(estate.leadership.description, '');
+
+  if (council.margraveIsActing) {
+    lines.push(`Margrave (de jure): ${name(estate.leadership.margrave)} — ${absence(estate.leadership.margrave) ?? 'not serving'}`);
+    lines.push(`Margrave (de facto): ${name(council.margrave)}`);
+  } else {
+    lines.push(`Margrave: ${name(council.margrave)}`);
+  }
+
+  if (council.bursarIsActing) {
+    lines.push(`Bursar (de jure): ${name(estate.leadership.bursar)} — ${absence(estate.leadership.bursar) ?? 'not serving'}`);
+    lines.push(`Bursar (de facto): ${name(council.bursar)}`);
+  } else {
+    lines.push(`Bursar: ${name(council.bursar)}`);
+  }
+
+  const seats = estate.leadership.council ?? [];
+  const seatEntries = seats.map(id => {
+    const note =
+      id === council.margrave ? 'acting Margrave' :
+      id === council.bursar ? 'acting Bursar' :
+      absence(id);
+    const c = estate.characters[id];
+    const label = c ? c.name : id;
+    return note ? `${label} (${id}, ${note})` : `${label} (${id})`;
+  });
+  lines.push(`Council: ${seatEntries.length ? seatEntries.join(', ') : 'none seated'}`);
+
+  lines.push(`Advisors: ${council.advisors.length ? council.advisors.map(name).join(', ') : 'none called'}`);
+
+  return lines.join('\n');
 }

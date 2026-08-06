@@ -5,6 +5,7 @@ import { asyncHandler } from '../middleware/errorHandler.js';
 import { AppError } from '../errors.js';
 import { callEstateLLM, parseLlmJson, requireFields } from '../services/llm/estateLlm.js';
 import { applyReview, compileReviewPrompt } from '../services/review/reviewService.js';
+import { debugPoliticalLandscape } from '../services/politics/politicalLandscape.js';
 
 const router = Router();
 
@@ -31,6 +32,11 @@ router.post(
     const { estateName } = req.params;
 
     const result = await withEstate(estateName, async (estate) => {
+      // TEMPORARY: political layer under construction. Printed before the LLM
+      // call so the numbers can be checked against a live save; nothing here
+      // reaches the prompt yet.
+      console.log(debugPoliticalLandscape(estate));
+
       const prompt = compileReviewPrompt(estate);
       const response = await callEstateLLM(estate, prompt, { temperature: 0.7 });
 

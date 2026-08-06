@@ -1,6 +1,6 @@
 // server/services/game/followUpService.ts
 // File order:
-// Imports → Constants → Public API (ingestion / month-end / selection) → Internals (roll / pick / validity) → Utilities
+// Imports → Constants → Public API (ingestion / month-end / reservation / selection) → Internals (roll / pick / validity) → Utilities
 
 import type { Estate, FollowUpEvent, FollowUpQueue } from '../../../shared/types/types.js';
 
@@ -24,6 +24,24 @@ const FRONT_DECAY = 0.7;
 const TAIL_FLOOR = 0.02;
 
 /* -------------------------------------------------------------------
+ *  Reservation model
+ *
+ *  A town event spans three requests: setup, story, consequences. Serving a
+ *  follow-up therefore cannot be a single atomic act — setup must record its
+ *  choice before the story exists, and anything after that can fail.
+ *
+ *  So takeFollowUpEvent RESERVES: it moves the entry out of the queue and into
+ *  queue.inFlight. Only commitFollowUp — called once consequences have landed —
+ *  actually consumes it. Any reservation still sitting in inFlight when the next
+ *  setup runs was never resolved, and is returned to the front of the queue.
+ *
+ *  The guarantee is "never silently lost", not "exactly once". Exactly-once
+ *  across three requests needs a transaction protocol; never-lost needs one
+ *  nullable field, and its worst case is telling a thread twice rather than
+ *  losing it.
+ * ------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------
  *  Public API
  * ------------------------------------------------------------------- */
 
@@ -41,26 +59,84 @@ export function addFollowUpEvent(estate: Estate, event: FollowUpEvent): void {
  * trimFollowUpEvents
  * Month-end cleanup: keep the `keep` newest follow-ups, drop the rest.
  * Newest-first ordering means the freshest entries are the ones that survive.
+ *
+ * Reclaims any dangling reservation first, so an unresolved follow-up is
+ * considered for retention rather than surviving the month invisibly.
  */
 export function trimFollowUpEvents(estate: Estate, keep: number = MONTH_END_KEEP): void {
+  reclaimInFlight(estate);
+
   const queue = estate.followUps;
   if (!queue?.events.length) return;
   queue.events = queue.events.slice(0, keep);
 }
 
 /**
- * takeFollowUpEvent
- * Decides whether the next town event should be a follow-up and, if so, returns
- * one (removing it from the queue). Returns null when a normal random event
- * should fire instead.
+ * reclaimInFlight
+ * Returns an unresolved reservation to the front of the queue.
  *
+ * Called at the start of every setup — directed or not — so that a follow-up
+ * whose story or consequences failed, or whose modal was simply closed, is
+ * offered again rather than quietly dropped. Also runs after a server restart,
+ * since the reservation lives in the save file.
+ *
+ * Returns true if something was reclaimed.
+ */
+export function reclaimInFlight(estate: Estate): boolean {
+  const queue = estate.followUps;
+  if (!queue?.inFlight) return false;
+
+  const reclaimed = queue.inFlight;
+  queue.inFlight = undefined;
+  queue.events.unshift(reclaimed);
+
+  console.warn(
+    `Follow-up "${reclaimed.title}" was never resolved — returned to the front of the queue.`
+  );
+  return true;
+}
+
+/**
+ * commitFollowUp
+ * Consumes the reservation made by takeFollowUpEvent. Call once the event has
+ * genuinely resolved, i.e. after consequences have been applied.
+ *
+ * A no-op when nothing is reserved, so it is safe to call after every town
+ * event without asking whether a follow-up was involved.
+ *
+ * The streak counter increments HERE rather than at reservation: a follow-up
+ * that failed to be told should not decay the chance of the next one.
+ *
+ * Returns true if a reservation was consumed.
+ */
+export function commitFollowUp(estate: Estate): boolean {
+  const queue = estate.followUps;
+  if (!queue?.inFlight) return false;
+
+  const served = queue.inFlight;
+  queue.inFlight = undefined;
+  queue.consecutiveServed += 1;
+
+  console.log(`Follow-up "${served.title}" resolved and consumed.`);
+  return true;
+}
+
+/**
+ * takeFollowUpEvent
+ * Decides whether the next town event should be a follow-up and, if so, reserves
+ * one (moving it from the queue into inFlight). Returns null when a normal
+ * random event should fire instead.
+ *
+ * - Reclaims any unresolved reservation before doing anything else.
  * - Rolls follow-up vs. random on the streak-decayed chance only.
  * - On a win, picks front-skewed and validates the chosen entry; an entry whose
  *   characters no longer exist is pruned (dropped) and the pick is retried.
- * - Maintains the consecutive-served counter: it increments only when a valid
- *   follow-up is actually returned, and resets to 0 whenever a random fires.
+ * - Resets the consecutive-served counter whenever a random fires. Incrementing
+ *   it is commitFollowUp's job.
  */
 export function takeFollowUpEvent(estate: Estate): FollowUpEvent | null {
+  reclaimInFlight(estate);
+
   const queue = estate.followUps;
 
   if (!queue || queue.events.length === 0 || !rollForFollowUp(queue)) {
@@ -74,7 +150,8 @@ export function takeFollowUpEvent(estate: Estate): FollowUpEvent | null {
     const [candidate] = queue.events.splice(index, 1);
 
     if (charactersPresent(estate, candidate)) {
-      queue.consecutiveServed += 1;
+      // Reserved, not consumed. commitFollowUp finishes the job.
+      queue.inFlight = candidate;
       return candidate;
     }
     // Invalid: already spliced out (pruned). Loop and pick again.

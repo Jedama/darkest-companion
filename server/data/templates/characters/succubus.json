@@ -2,7 +2,7 @@
   "identifier": "succubus",
   "title": "Succubus",
   "name": "Aria",
-  "description": "The Succubus is a demon in a pilgrim's robe, whose glamour hides what she is behind a veil of angelic beauty and helplessness, potent enough to charm anything at all—man, woman, or beast—into exclusive devotion. She is a patient manipulator, working through favours, secrets, and small kindnesses, but beneath the deceit is a longing for true love and affection.",
+  "description": "The Succubus is a demon in a pilgrim's robe, whose glamour hides her scythe and what she really is behind a veil of angelic beauty and helplessness, potent enough to charm anything at all—man, woman, or beast—into exclusive devotion. She is a patient manipulator, working through favours, secrets, and small kindnesses, but beneath the deceit is a longing for true love and affection.",
   "history": "Once a woman, the Succubus traded her mortality in a deal with the devil known as the Dark Father. Her centuries of service have been spent among those devoted to the Light, spreading rumour and jealousy through congregations until they turn on one another. The Hamlet is but her newest assignment.",
   "summary": "A vain and ancient Succubus in a pilgrim's disguise, capable of charming anyone, sent to ruin the faith of the devout.",
   "race": "Demon",
@@ -19,7 +19,7 @@
     "strength": 3,
     "agility": 6,
     "intelligence": 8,
-    "authority": 7,
+    "authority": 5,
     "sociability": 9
   },
   "equipment": [

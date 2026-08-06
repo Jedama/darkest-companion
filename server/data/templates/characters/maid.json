@@ -36,10 +36,10 @@
     "features": "A flat, unreadable expression"
   },
   "clothing": {
-    "head": "White lace headdress",
-    "body": "Pinstriped black bodice and blouse",
-    "legs": "Long black skirt and apron",
-    "accessories": "Fingerless gloves, pearl chains, pocket watch on a chain"
+    "head": "White frilled lace cap",
+    "body": "Fitted black pinstriped blouse, long sleeves with deep turned-back cuffs",
+    "legs": "Short black apron with white embroidery over long black skirt",
+    "accessories": "Fingerless gloves"
   },
   "combat": {
     "role": "Assassin",

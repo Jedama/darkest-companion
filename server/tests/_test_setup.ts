@@ -87,7 +87,11 @@ function createCharacterFromTemplate(
     money: 0,
     status: defaultStatus,
     relationships: gameData.getDefaultRelationshipsForCharacter(template.identifier),
-    locations: gameData.getRandomizedLocationsForCharacter(template.identifier),
+    locations: {
+      residence: [],
+      workplaces: [],
+      frequents: [],
+    },
     strategyWeights: gameData.getStrategiesForCharacter(template.identifier),
   };
 }

@@ -4,11 +4,16 @@ import { countViolations, repairComposition } from './incompatibility';
 import { PARTY_SIZE } from '../../../shared/constants/expedition';
 import { 
   STRATEGY_REGISTRY, 
+  ALL_STRATEGIES,
+  PARTY_STRATEGIES,
+  COMPOSITION_STRATEGIES,
   StrategyWeights, 
   PartyScoringStatistics, 
   NormalizationStats,
   generateDefaultWeights
 } from './expeditionStrategies/';
+import { isStrategyId } from '../../../shared/constants/strategies.js';
+import type { StrategyContext } from '../../../shared/types/types';
 
 // --- DEBUG INFORMATION TYPES ---
 // These types structure the detailed breakdown of the scoring.
@@ -86,24 +91,29 @@ export interface OptimalArrangementResult {
 export type Party = string[];
 export type Composition = Party[];
 
-const VALID_STRATEGY_IDS = new Set(STRATEGY_REGISTRY.map(s => s.identifier));
-
 // This function now works with the dynamically generated StrategyWeights type.
 function defineWeights(customWeights: StrategyWeights): Required<StrategyWeights> {
   const defaultWeights = generateDefaultWeights();
   const sanitizedCustomWeights: StrategyWeights = {};
 
   // Validate and sanitize the custom weights against the valid strategy IDs.
-  for (const key in customWeights) {
-    const strategyId = key as keyof StrategyWeights;
+  // Typos are now a compile error at every typed call site; this remains as the
+  // guard for weights that arrive from parsed save files or API payloads.
+  for (const [key, value] of Object.entries(customWeights)) {
+    if (typeof value !== 'number' || !Number.isFinite(value)) {
+      console.warn(
+        `[Strategy Warning] Non-numeric weight for "${key}" in customWeights. This weight will be ignored.`
+      );
+      continue;
+    }
 
-    if (VALID_STRATEGY_IDS.has(strategyId)) {
+    if (isStrategyId(key)) {
       // If the key is valid, add it to our sanitized object.
-      sanitizedCustomWeights[strategyId] = customWeights[strategyId];
+      sanitizedCustomWeights[key] = value;
     } else {
       // If the key is invalid, issue a warning and DO NOT add it.
       console.warn(
-        `[Strategy Warning] An invalid strategy identifier was provided in customWeights: "${strategyId}". ` +
+        `[Strategy Warning] An invalid strategy identifier was provided in customWeights: "${key}". ` +
         `This weight will be ignored. Please check for typos or ensure the strategy is registered.`
       );
     }
@@ -229,10 +239,11 @@ export function generateScoringStatistics(
   roster: CharacterRecord,
   partySize: number,
   sampleSize: number,
-  numPartiesToSample?: number // <-- NEW optional parameter
+  numPartiesToSample?: number,
+  ctx?: StrategyContext
 ): PartyScoringStatistics {
   const rawScores: { [id: string]: number[] } = {};
-  STRATEGY_REGISTRY.forEach(s => rawScores[s.identifier] = []);  
+  ALL_STRATEGIES.forEach(s => rawScores[s.identifier] = []);  
   // Determine the total number of heroes to use for composition sampling.
   // If numPartiesToSample is given, use it. Otherwise, use all available heroes.
   const totalPartiesInRoster = Math.floor(availableHeroes.length / partySize);
@@ -242,12 +253,12 @@ export function generateScoringStatistics(
     // We only need one shuffle per outer loop iteration.
     const shuffled = shuffleInPlace([...availableHeroes]);
     
-    for (const strategy of STRATEGY_REGISTRY) {
+    for (const strategy of ALL_STRATEGIES) {
         
       if (strategy.scope === 'party') {
         // Party-scope sampling is unaffected and can use any heroes.
         const randomParty = shuffled.slice(0, partySize);
-        rawScores[strategy.identifier].push(strategy.scorer(randomParty, roster));
+        rawScores[strategy.identifier].push(strategy.scorer(randomParty, roster, ctx));
       } else { // scope === 'composition'
         // Take a subset of heroes corresponding to the desired number of parties.
         const heroSubset = shuffled.slice(0, numHeroesToUse);  
@@ -261,7 +272,7 @@ export function generateScoringStatistics(
         
         // Only score if we actually formed a composition of the correct size.
         if (randomComposition.length === partiesToCreate) {
-          rawScores[strategy.identifier].push(strategy.scorer(randomComposition, roster));
+          rawScores[strategy.identifier].push(strategy.scorer(randomComposition, roster, ctx));
         }
       }
     }
@@ -269,7 +280,7 @@ export function generateScoringStatistics(
   
   // Now calculate the statistics for each strategy.
   const statistics = {} as PartyScoringStatistics;
-  for (const strategy of STRATEGY_REGISTRY) {
+  for (const strategy of ALL_STRATEGIES) {
     statistics[strategy.identifier] = calculateStats(rawScores[strategy.identifier]);
   }
   return statistics;
@@ -283,7 +294,8 @@ function analyzeComposition(
   roster: CharacterRecord,
   weights: Required<StrategyWeights>,
   stats: PartyScoringStatistics,
-  partiesToScore?: number
+  partiesToScore?: number,
+  ctx?: StrategyContext
 ): CompositionDebugInfo {
 
   /**
@@ -320,7 +332,7 @@ function analyzeComposition(
   // --- Process Party-Scoped Strategies ---
   // NOTE: This loop still analyzes ALL parties for the debug breakdown,
   // but we only add the scores of ACTIVE parties to the total.
-  const partyStrategies = STRATEGY_REGISTRY.filter(s => s.scope === 'party');
+  const partyStrategies = PARTY_STRATEGIES;
   for (const [index, party] of composition.entries()) {
     let singlePartyScore = 0;
     const partyDebug: PartyDebugInfo = {
@@ -332,7 +344,7 @@ function analyzeComposition(
     for (const strategy of partyStrategies) {
       const weight = weights[strategy.identifier] ?? 0;
       // We still calculate even with weight 0 for complete debug info
-      const rawScore = strategy.scorer(party, roster);
+      const rawScore = strategy.scorer(party, roster, ctx);
       const strategyStats = stats[strategy.identifier];
       const normalizedScore = (rawScore - strategyStats.mean) / (strategyStats.stdDev || 1);
       const directionalMultiplier = strategy.direction === 'maximize' ? 1 : -1;
@@ -362,13 +374,13 @@ function analyzeComposition(
 
   // --- Process Composition-Scoped Strategies ---
   // This part now operates ONLY on the active subset of parties.
-  const compositionStrategies = STRATEGY_REGISTRY.filter(s => s.scope === 'composition');
+  const compositionStrategies = COMPOSITION_STRATEGIES;
   for (const strategy of compositionStrategies) {
     const weight = weights[strategy.identifier] ?? 0;
     if (weight === 0) continue;
 
     // Pass the active subset to the scorer
-    const rawScore = strategy.scorer(activeParties, roster);
+    const rawScore = strategy.scorer(activeParties, roster, ctx);
     const strategyStats = stats[strategy.identifier];
     const normalizedScore = (rawScore - strategyStats.mean) / (strategyStats.stdDev || 1);
     const directionalMultiplier = strategy.direction === 'maximize' ? 1 : -1;
@@ -431,8 +443,10 @@ function analyzeComposition(
  * HELPER: Checks if all numeric values in the weights object are zero.
  */
 export function areAllWeightsZero(weights: Required<StrategyWeights>): boolean {
-  for (const key in weights) {
-    if (typeof weights[key] === 'number' && weights[key] !== 0) {
+  // Object.values rather than a `for...in` + index: the keys are a literal union
+  // now, so indexing with a bare `string` no longer typechecks.
+  for (const weight of Object.values(weights)) {
+    if (typeof weight === 'number' && weight !== 0) {
       return false; // Found a non-zero weight, so we can stop.
     }
   }
@@ -444,7 +458,8 @@ export function findBestComposition(
   roster: CharacterRecord,
   customWeights: StrategyWeights,
   partySize: number = PARTY_SIZE,
-  partiesToScore?: number
+  partiesToScore?: number,
+  ctx?: StrategyContext
 ): BestCompositionResult {
   const numHeroes = availableHeroes.length;
   const weights = defineWeights(customWeights); 
@@ -468,8 +483,8 @@ export function findBestComposition(
     }
 
     // We still need to generate stats and analyze the composition once for a valid return object.
-    const scoringStats = generateScoringStatistics(availableHeroes, roster, partySize, 500); // Small sample size is fine
-    const debugInfo = analyzeComposition(defaultComposition, roster, weights, scoringStats, partiesToScore);
+    const scoringStats = generateScoringStatistics(availableHeroes, roster, partySize, 500, undefined, ctx); // Small sample size is fine
+    const debugInfo = analyzeComposition(defaultComposition, roster, weights, scoringStats, partiesToScore, ctx);
 
     // Return immediately, skipping the optimization loop
     return { composition: defaultComposition, debugInfo, scoringStats };
@@ -478,8 +493,8 @@ export function findBestComposition(
   if (numHeroes <= partySize) {
     const singleParty = availableHeroes.slice(0, partySize);
     const composition = singleParty.length > 0 ? [singleParty] : [];
-    const scoringStats = generateScoringStatistics(availableHeroes, roster, partySize, 500);
-    const debugInfo = analyzeComposition(composition, roster, weights, scoringStats);
+    const scoringStats = generateScoringStatistics(availableHeroes, roster, partySize, 500, undefined, ctx);
+    const debugInfo = analyzeComposition(composition, roster, weights, scoringStats, undefined, ctx);
     return { composition, debugInfo, scoringStats };
   }  
   // --- Adaptive iteration & sampling budgets (heuristics unchanged) ---
@@ -493,7 +508,7 @@ export function findBestComposition(
   //  scored, so composition-scope strategies were normalized against the wrong shape.)
   const completeParties = Math.floor(numHeroes / partySize);
   const partiesToSample = partiesToScore ?? completeParties;
-  const scoringStats = generateScoringStatistics(availableHeroes, roster, partySize, sampleSize, partiesToSample);
+  const scoringStats = generateScoringStatistics(availableHeroes, roster, partySize, sampleSize, partiesToSample, ctx);
 
   // --- Build the initial composition (level-sorted seed) ---
   const sortedHeroes = [...availableHeroes].sort((a, b) => (roster[b]?.level ?? 0) - (roster[a]?.level ?? 0));
@@ -511,12 +526,12 @@ export function findBestComposition(
   }
 
   // `current` is the wandering incumbent; `best` is the best composition seen so far.
-  let currentScore = analyzeComposition(current, roster, weights, scoringStats, partiesToScore).finalScore;
+  let currentScore = analyzeComposition(current, roster, weights, scoringStats, partiesToScore, ctx).finalScore;
   let best: Composition = current.map(party => [...party]);
   let bestScore = currentScore;
   let bestViolations = currentViolations;
 
-  let bestDebugInfo = analyzeComposition(best, roster, weights, scoringStats, partiesToScore);
+  let bestDebugInfo = analyzeComposition(best, roster, weights, scoringStats, partiesToScore, ctx);
 
   // With fewer than two parties there are no swaps to make.
   if (current.length < 2) {
@@ -535,7 +550,7 @@ export function findBestComposition(
   let deltaSum = 0, deltaCount = 0;
   for (let b = 0; b < BURN_IN; b++) {
     const undo = applyRandomMove(current);
-    const probeScore = analyzeComposition(current, roster, weights, scoringStats, partiesToScore).finalScore;
+    const probeScore = analyzeComposition(current, roster, weights, scoringStats, partiesToScore, ctx).finalScore;
     const d = Math.abs(probeScore - currentScore);
     if (d > 0) { deltaSum += d; deltaCount++; }
     undo(); // a probe must not move the incumbent
@@ -557,7 +572,7 @@ export function findBestComposition(
       continue;
     }
 
-    const candidateInfo = analyzeComposition(current, roster, weights, scoringStats, partiesToScore);
+    const candidateInfo = analyzeComposition(current, roster, weights, scoringStats, partiesToScore, ctx);
     const candidateScore = candidateInfo.finalScore;
     const delta = candidateScore - currentScore;
 
@@ -573,7 +588,7 @@ export function findBestComposition(
         bestScore = candidateScore;
         bestViolations = candidateViolations;
         best = current.map(party => [...party]);
-        bestDebugInfo = analyzeComposition(best, roster, weights, scoringStats, partiesToScore);
+        bestDebugInfo = analyzeComposition(best, roster, weights, scoringStats, partiesToScore, ctx);
       }
     } else {
       undo();
@@ -673,7 +688,8 @@ export async function findOptimalArrangement(
     availableHeroes: string[],
     roster: CharacterRecord,
     customWeights: StrategyWeights,
-    partySize: number = PARTY_SIZE
+    partySize: number = PARTY_SIZE,
+    ctx?: StrategyContext
 ): Promise<OptimalArrangementResult> {
     // Tunable constant for the benching penalty ---
     // A value of 0.95 means each benched team makes the total score worth 5% less.
@@ -705,8 +721,8 @@ export async function findOptimalArrangement(
       }
       
       // We still need a valid report, so we run analysis once.
-      const stats = generateScoringStatistics(availableHeroes, roster, partySize, 500, completeParties);
-      const debugInfo = analyzeComposition(defaultComposition, roster, weights, stats, completeParties);
+      const stats = generateScoringStatistics(availableHeroes, roster, partySize, 500, completeParties, ctx);
+      const debugInfo = analyzeComposition(defaultComposition, roster, weights, stats, completeParties, ctx);
 
       // Return the complete default result immediately
       return {
@@ -734,11 +750,11 @@ export async function findOptimalArrangement(
 
     // --- Baseline Run: Use stats generated for the FULL number of parties ---
     console.log(`[Meta-Optimizer] Generating stats for baseline (${completeParties} parties)...`);
-    const baselineStats = generateScoringStatistics(availableHeroes, roster, partySize, sampleSize, completeParties);
+    const baselineStats = generateScoringStatistics(availableHeroes, roster, partySize, sampleSize, completeParties, ctx);
     
     console.log(`[Meta-Optimizer] Baseline run: Optimizing for ${completeParties} active parties.`);
-    const baselineResult = findBestComposition(availableHeroes, roster, customWeights, partySize, completeParties);
-    const baselineDebugInfo = analyzeComposition(baselineResult.composition, roster, weights, baselineStats, completeParties);
+    const baselineResult = findBestComposition(availableHeroes, roster, customWeights, partySize, completeParties, ctx);
+    const baselineDebugInfo = analyzeComposition(baselineResult.composition, roster, weights, baselineStats, completeParties, ctx);
 
     let overallBest = {
         composition: baselineResult.composition,
@@ -755,15 +771,15 @@ export async function findOptimalArrangement(
         
         // --- NEW: Generate a dedicated stats object FOR THIS SCENARIO ---
         console.log(`\n[Meta-Optimizer] Generating stats for scenario (${numActive} parties)...`);
-        const statsForThisRun = generateScoringStatistics(availableHeroes, roster, partySize, sampleSize, numActive);
+        const statsForThisRun = generateScoringStatistics(availableHeroes, roster, partySize, sampleSize, numActive, ctx);
 
         console.log(`[Meta-Optimizer] Testing scenario: Optimizing for ${numActive} active parties.`);
 
         const heroesForNextRun = overallBest.composition.flat();
-        const candidateResult = findBestComposition(heroesForNextRun, roster, customWeights, partySize, numActive);
+        const candidateResult = findBestComposition(heroesForNextRun, roster, customWeights, partySize, numActive, ctx);
         
         // --- NEW: Use the DEDICATED stats object for analysis ---
-        const candidateDebugInfo = analyzeComposition(candidateResult.composition, roster, weights, statsForThisRun, numActive);
+        const candidateDebugInfo = analyzeComposition(candidateResult.composition, roster, weights, statsForThisRun, numActive, ctx);
         const candidateScore = candidateDebugInfo.finalScore;
 
         const candidatePenalty = Math.pow(BENCH_PENALTY_FACTOR, numToBench);
