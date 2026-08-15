@@ -63,18 +63,8 @@
     "Used to carve wood toys for his son"
   ],
   "tags": [
-    "Dancer",
-    "Tank",
-    "Leader",
-    "ShortReach",
-    "Healer",
-    "UnholyHunter",
-    "HeavyHitter",
-    "Religious",
-    "StressHealer",
-    "Stunner",
-    "Light",
-    "Warrior",
-    "Vigilant"
+    "Dancer", "Tank", "Leader", "Healer", "UnholyHunter", "HeavyHitter",
+    "Religious", "StressHealer", "Stunner", "Torchlit", "Warrior", "Vigilant",
+    "Lowborn"
   ]
 }

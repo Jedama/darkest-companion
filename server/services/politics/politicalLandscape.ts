@@ -2,89 +2,65 @@
 /**
  * @file Assembles the political picture of a hamlet for the narrative writer.
  *
- * WORK IN PROGRESS. Only the clique layer exists so far; the given groups
- * (council, residences), the roster-level opening line and the relations
- * BETWEEN cliques are still to come. For now this renders a debug view so the
- * numbers can be eyeballed against a real save before any of it reaches a prompt.
+ * The one entry point every route uses. Its signature deliberately matches the
+ * section builders in buildPromptService — Estate in, string out — so callers
+ * compose it identically and cannot tell the difference. What is behind it is
+ * different in kind, though, and that is why it lives here rather than there:
+ * the builders in buildPromptService PROJECT state the Estate already holds,
+ * while this DERIVES facts that exist nowhere in the save. Nothing in the estate
+ * knows there is a bloc, or that it holds three of five seats.
+ *
+ * The `<metric:name>` tags are KEPT deliberately — they tell the writer these are
+ * measured facts rather than authored ones, which is the stance we want taken
+ * toward them.
  */
 
 import type { Estate } from '../../../shared/types/types.js';
-import { findCliques, cliqueGate } from './cliqueFinder.js';
+import { cliqueGate } from './roster.js';
+import { reseed } from './statistics.js';
+import { findCliques } from './cliqueFinder.js';
 import { profileCliques } from './cliqueMetrics.js';
 import { relateCliques } from './cliqueRelations.js';
 import { profileGivenGroups } from './givenGroups.js';
 import { summariseHamlet, describeHamlet } from './hamletSummary.js';
 import { profileHeroes } from './heroMetrics.js';
 
-/**
- * The political landscape as prompt copy.
- *
- * Same content as the debug view minus the machinery: no timings, no internal
- * thresholds. The `<metric:name>` tags are KEPT deliberately — they tell the
- * writer these are measured facts rather than authored ones, which is the stance
- * we want taken toward them.
- */
 export function buildPoliticalLandscapeSection(
   estate: Estate,
-  locationTitles: Record<string, string> = {}
+  locationTitles: Record<string, string>
 ): string {
-  return render(estate, { debug: false, locationTitles });
-}
+  // Every layer below draws thousands of random groups to build its nulls. Seed
+  // once, here, so a given estate in a given month always reads the same way.
+  reseed(`${estate.name}:${estate.time.month}`);
 
-/**
- * A human-readable dump of everything the political layer currently knows.
- * Verbose, with timings and thresholds left in. For the console, not the prompt.
- */
-export function debugPoliticalLandscape(
-  estate: Estate,
-  locationTitles: Record<string, string> = {}
-): string {
-  return render(estate, { debug: true, locationTitles });
-}
-
-function render(
-  estate: Estate,
-  options: { debug: boolean; locationTitles: Record<string, string> }
-): string {
   const roster = estate.characters;
   const lines: string[] = [];
 
-  const started = Date.now();
+  const gate = cliqueGate(roster);
   const cliques = findCliques(roster);
   const profiles = profileCliques(cliques, roster, estate.leadership);
-  const elapsed = Date.now() - started;
-
-  const rosterSize = Object.keys(roster).length;
-  const gate = cliqueGate(roster);
-
-  if (options.debug) {
-    lines.push('='.repeat(72));
-    lines.push(`POLITICAL LANDSCAPE — clique bar ${gate.toFixed(2)}, ${elapsed}ms`);
-    lines.push('='.repeat(72));
-  } else {
-    lines.push(
-      `Measured from the roster's relationships, not authored. A bloc is a group ` +
-      `bonded above ${gate.toFixed(1)} of 10; the bracketed figure on each finding is ` +
-      `how unusual it is, where higher is rarer. Absence of a finding means nothing ` +
-      `remarkable was measured, not that nothing is happening.`
-    );
-  }
-  lines.push('');
-  lines.push(describeHamlet(summariseHamlet(roster, profiles, estate.leadership), roster));
 
   const name = (id: string) => {
     const hero = roster[id];
     return hero ? `${hero.name} (${id})` : id;
   };
 
-  if (profiles.length === 0) {
-    if (options.debug) {
-      lines.push('');
-      lines.push('='.repeat(72));
-    }
-    return lines.join('\n');
-  }
+  lines.push(
+    `Measured from the roster's relationships, not authored. A bloc is a group ` +
+    `bonded above ${gate.toFixed(1)} of 10; the bracketed figure on each finding is ` +
+    `how unusual it is, where higher is rarer. Absence of a finding means nothing ` +
+    `remarkable was measured, not that nothing is happening.`
+  );
+  lines.push('');
+  lines.push(describeHamlet(summariseHamlet(roster, profiles, estate.leadership), roster));
 
+  // --- the cliques themselves ---
+  //
+  // Each section guards itself. This used to be one early return on an empty
+  // clique list, which silently discarded the standing groups and the individuals
+  // too — but a hamlet with no blocs still has a Table, still has shared rooms,
+  // and can still have taken sides over someone. Those are precisely the months
+  // where the other two layers are all there is.
   profiles.forEach((profile, i) => {
     const label = String.fromCharCode(65 + i); // A, B, C...
     lines.push('');
@@ -145,7 +121,7 @@ function render(
   }
 
   // --- standing groups: membership that persists, whoever marches ---
-  const given = profileGivenGroups(roster, estate.leadership, profiles, options.locationTitles);
+  const given = profileGivenGroups(roster, estate.leadership, profiles, locationTitles);
   if (given.length > 0) {
     lines.push('');
     lines.push('--- Standing groups ---');
@@ -154,9 +130,14 @@ function render(
       lines.push(`    ${group.label} (${group.members.length}): ${group.members.map(name).join(', ')}`);
       // Just the comparison. Naming the weakest pair here duplicated the feature
       // that names it below, and by design: the weakest pair is usually the story.
+      //
+      // `expectedMeanBond` is what a RANDOM GROUP OF THIS SIZE averages, not the
+      // hamlet mean — a better baseline, and the one the bits are actually scored
+      // against. It was labelled "hamlet average" here, which put four different
+      // hamlet averages in one document, two of them a different statistic.
       lines.push(
         `      bonds average ${group.meanBond.toFixed(2)}; ` +
-        `hamlet average ${group.expectedMeanBond.toFixed(2)}`
+        `a comparable group averages ${group.expectedMeanBond.toFixed(2)}`
       );
       if (group.cliqueCapture) {
         lines.push(
@@ -184,9 +165,5 @@ function render(
     }
   }
 
-  if (options.debug) {
-    lines.push('');
-    lines.push('='.repeat(72));
-  }
   return lines.join('\n');
 }

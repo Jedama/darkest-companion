@@ -1,13 +1,13 @@
 // src/App.tsx
 import { useEffect, useRef, useState } from 'react';
-import { preloadImages } from './utils/preload';
-import { useEstateContext } from './contexts/EstateContext';
-import { MainLayout } from './components/layout/MainLayout';
-import { ModalProvider } from './modals/ModalProvider';
-import { LoadEstateModal } from './modals/LoadEstateModal/LoadEstateModal';
-import type { Character } from '../shared/types/types';
-import type { ViewType } from './types/viewTypes';
-import { GameProvider, useGameData } from './contexts/GameDataContext';
+import { preloadImages } from './utils/preload.js';
+import { useEstateContext } from './contexts/EstateContext.js';
+import { MainLayout } from './components/layout/MainLayout.js';
+import { ModalProvider } from './modals/ModalProvider.js';
+import { LoadEstateModal } from './modals/LoadEstateModal/LoadEstateModal.js';
+import type { Character } from '../shared/types/types.js';
+import type { ViewType } from './types/viewTypes.js';
+import { GameProvider, useGameData } from './contexts/GameDataContext.js';
 import './styles/fonts.css';
 
 // Create a wrapper component to handle the Inner Logic

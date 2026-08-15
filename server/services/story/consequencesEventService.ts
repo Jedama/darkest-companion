@@ -1,5 +1,5 @@
 // services/consequencesEventService.ts
-import type { Estate, Character } from '../../../shared/types/types';
+import type { Estate, Character } from '../../../shared/types/types.js';
 import StaticGameDataManager from '../../staticGameDataManager.js';
 
 /**

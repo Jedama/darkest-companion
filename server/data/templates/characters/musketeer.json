@@ -56,24 +56,14 @@
       "Musket needs reloading"
     ]
   },
-  "magic": "",
+  "magic": "None",
   "notes": [
     "Has a family connections to the Ancestor",
     "Proficient in first aid"
   ],
   "tags": [
-    "Backline",
-    "Healer",
-    "Cleanser",
-    "Buffer",
-    "Marker",
-    "MarkSynergy",
-    "Bleeder",
-    "ArmorPiercer",
-    "Riposter",
-    "GuardBreaker",
-    "Cycler",
-    "Noble",
-    "HeavyHitter"
+    "Backline", "Healer", "Cleanser", "Buffer", "Marker", "MarkSynergy",
+    "Bleeder", "ArmorPiercer", "Riposter", "GuardBreaker", "Cycler", "Noble",
+    "HeavyHitter", "Physician", "Reach"
   ]
 }

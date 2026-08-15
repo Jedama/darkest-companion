@@ -2,9 +2,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { createPortal } from 'react-dom';
-import { useEstateContext } from '../../contexts/EstateContext';
-import { runReview } from '../../utils/api';
-import { ErrorNotice } from '../ui/ErrorNotice';
+import { useEstateContext } from '../../contexts/EstateContext.js';
+import { runReview } from '../../utils/api.js';
+import { ErrorNotice } from '../ui/ErrorNotice.js';
 
 import baseSrc from '../../assets/ui/views/manor/calendar_base.png';
 import monthHandSrc from '../../assets/ui/views/manor/calendar_month.png';

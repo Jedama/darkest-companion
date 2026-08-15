@@ -32,7 +32,7 @@ export function createCharacterFromTemplate(
     status: defaultStatus,
     
     // 3. Get the dynamic starting relationships and locations from the manager
-    relationships: gameData.getDefaultRelationshipsForCharacter(template.identifier),
+    relationships: {},
     locations: {
       residence: [],
       workplaces: [],

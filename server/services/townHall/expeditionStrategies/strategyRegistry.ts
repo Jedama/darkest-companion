@@ -7,18 +7,18 @@
  * `StrategyWeights` type.
  */
 
-import { CharacterRecord } from '../../../../shared/types/types';
+import { CharacterRecord } from '../../../../shared/types/types.js';
 import type { StrategyId, StrategyWeights } from '../../../../shared/constants/strategies.js';
-import type { StrategyContext } from '../../../../shared/types/types';
-import { Party, Composition } from '../expeditionPlanner';
+import type { StrategyContext } from '../../../../shared/types/types.js';
+import { Party, Composition } from '../expeditionPlanner.js';
 
-// Re-exported so existing importers (`from './expeditionStrategies/'`) keep working.
+// Re-exported so existing importers (`from './expeditionStrategies/.js'`) keep working.
 export type { StrategyId, StrategyWeights, StrategyContext };
 
 // Import all scorer functions from their respective files.
 // Using aliases ('generic', 'character') keeps the calls clean.
-import * as generic from './genericStrategies';
-import * as character from './characterStrategies';
+import * as generic from './genericStrategies.js';
+import * as character from './characterStrategies.js';
 
 // ==================================
 // 1. CORE TYPE DEFINITIONS

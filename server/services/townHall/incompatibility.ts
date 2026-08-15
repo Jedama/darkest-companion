@@ -10,7 +10,7 @@
  * refuses the Voivode; the adjacency map is built in both directions.
  */
 
-import { Party, Composition } from './expeditionPlanner';
+import { Party, Composition } from './expeditionPlanner.js';
 
 export const INCOMPATIBLE_PAIRS: readonly (readonly [string, string])[] = [
   ['voivode', 'vestal'],

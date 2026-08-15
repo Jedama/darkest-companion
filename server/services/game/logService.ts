@@ -384,26 +384,30 @@ function recencyKey(log: UnifiedLog): number {
   return log.month * 30000 + log.day * 1000 + log.beat;
 }
 
-function formatLogLine(currentMonth: number, currentDay: number, log: UnifiedLog): string {
+/**
+ * Formats relative time for log entries.
+ */
+export function formatTimeAgo(
+  currentMonth: number,
+  currentDay: number,
+  logMonth: number,
+  logDay: number
+): string {
   const totalCurrentDays = currentMonth * 30 + currentDay;
-  const totalLogDays = log.month * 30 + log.day;
+  const totalLogDays = logMonth * 30 + logDay;
   const daysAgo = Math.max(0, totalCurrentDays - totalLogDays);
-  
+
+  if (daysAgo === 0) return 'today';
+  if (daysAgo === 1) return 'yesterday';
+  if (daysAgo < 30) return `${daysAgo} days ago`;
+
   const monthsAgo = Math.floor(daysAgo / 30);
-  const remainingDays = daysAgo % 30;
-  
-  let timeStr = '';
-  if (monthsAgo > 0 && remainingDays > 0) {
-    timeStr = `${monthsAgo} months, ${remainingDays} days ago`;
-  } else if (monthsAgo > 0) {
-    timeStr = `${monthsAgo} months ago`;
-  } else if (remainingDays > 0) {
-    timeStr = `${remainingDays} days ago`;
-  } else {
-    timeStr = 'today';
-  }
-  
-  return `${timeStr}: ${log.entry}`;
+  return monthsAgo === 1 ? '1 month ago' : `${monthsAgo} months ago`;
+}
+
+function formatLogLine(currentMonth: number, currentDay: number, log: UnifiedLog): string {
+  const timeAgo = formatTimeAgo(currentMonth, currentDay, log.month, log.day);
+  return `${timeAgo}: ${log.entry}`;
 }
 
 function dedupeUnifiedLogs(logs: UnifiedLog[]): UnifiedLog[] {

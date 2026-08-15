@@ -1,0 +1,69 @@
+{
+  "identifier": "entrenched",
+  "title": "Entrenched",
+  "name": "Bordeaux",
+  "description": "The Entrenched is a grieving small girl who refuses her expulsion from the military. She's awkward in her dad's several-sizes-too-big uniform and her squinty eyes and wide grin are charming in a goofy way, but trained from birth, she can dig in, patch wounds, and operate her mortar better than most. With Ostvengr having fallen, she has found her way to the Estate, to continue her family trade and legacy.",
+  "history": "Born to military officers and raised in the barracks, the Entrenched knew she'd one day serve in Craie's front lines. But when the war took her parents, she was expelled under the 'Sole kin policy' and left alone in the family manor with nothing but grief and memories of them. When she heard the sounds of war resuming on the Ostvengr front, she picked up her father's jacket, backpack, and mortar, all too big for her, and set out to serve anyway.",
+  "summary": "A cheerful and unshakeable Entrenched, a girl of Craie refusing the expulsion from the army she was raised in.",
+  "race": "Human",
+  "gender": "Female",
+  "religion": "The Light",
+  "zodiac": "Aries",
+  "traits": [
+    "Cheerful",
+    "Dutiful",
+    "Resourceful",
+    "Stubborn",
+    "Grieving"
+  ],
+  "stats": {
+    "strength": 4,
+    "agility": 5,
+    "intelligence": 4,
+    "authority": 3,
+    "sociability": 7
+  },
+  "equipment": [
+    "Trenching shovel",
+    "Mortar",
+    "Flare gun"
+  ],
+  "appearance": {
+    "height": "Short",
+    "build": "Slight",
+    "skinTone": "Fair",
+    "hairColor": "Dirty white",
+    "hairStyle": "Shaggy and unkempt, past the jaw",
+    "features": "Wide, ever-squinting eyes and a permanent cat-like grin"
+  },
+  "clothing": {
+    "head": "Steel helmet with a crest",
+    "body": "Oversized military cassock over a hooded coat, with an enormous trench pack",
+    "legs": "Red trousers and heavy boots",
+    "accessories": "Cream bow, belt"
+  },
+  "combat": {
+    "role": "Sapper",
+    "strengths": [
+      "Fortifications",
+      "Mortar fire",
+      "Field medicine"
+    ],
+    "weaknesses": [
+      "Close combat",
+      "Needs setting up"
+    ]
+  },
+  "magic": "None",
+  "notes": [
+    "Carries a pack far too large for her, containing everything she could possibly need, yet can never find any of it",
+    "Bumbling and animated in the way she moves and behaves",
+    "Plays the fiddle, taught by her mother",
+    "Her favourite question is 'who are you trying to make proud?'"
+  ],
+  "tags": [
+    "Backline", "Weak", "Hider", "Riposter", "Marker", "Buffer",
+    "Healer", "StressHealer", "Cleanser", "Vigilant", "Entertainer", "Religious",
+    "Child", "Warrior", "Physician", "Reach"
+  ]
+}

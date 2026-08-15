@@ -73,6 +73,10 @@ router.post(
     console.log(`${event.title} (${event.identifier})`);
     console.log(`Keywords: ${keywords?.join(', ') || 'none'}\n`);
 
+    console.log('Prompt:');
+    console.log(prompt);
+    console.log('');
+
     const response = await callEstateLLM(estate, prompt, { temperature: 1.0 });
 
     const { title, body } = separateStoryTitle(response);

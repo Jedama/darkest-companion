@@ -3,7 +3,7 @@
   "title": "Resonant",
   "name": "Isa",
   "description": "The Resonant is a detached bird-folk mystic trapped in a state of profound derealization, convinced the world is a cold, artificial design where no one possesses free will. Once a venerated ceremonial ritualist, a pact granted her the divine revelation she sought, shattering her mind in the process. She wanders the Hamlet seeking amnestics for herself while offering quiet solace to companions whose ignorance she bitterly envies.",
-  "history": "Raised as a ceremonial ritualist within bird-folk society, the Resonant spent her early life pursuing the sacred geometry and divine harmony beneath reality. When she invoked an ancient pact for higher communion, the revelation she received was not divine warmth, but a mechanical grid of cold rules and silent puppeteers. Driven to despair by the loss of her agency, she has sought heavy sedatives, amnestics, and physical oblivion ever since—only to find that what has been learned cannot be unlearned.",
+  "history": "Raised as a ceremonial ritualist within bird-folk society, the Resonant spent her early life pursuing the sacred geometry and divine harmony beneath reality. When she invoked an ancient pact for higher communion, the revelation she received was not divine warmth, but a mechanical grid of cold rules and silent puppeteers. Driven to despair by the loss of her agency, she has sought heavy sedatives, amnestics, and physical oblivion ever since\u2014only to find that what has been learned cannot be unlearned.",
   "summary": "A weary and detached Resonant, a former ceremonial ritualist whose shattered mind sees the world as a cold, mechanical script.",
   "race": "Bird-folk",
   "gender": "Female",
@@ -60,8 +60,8 @@
     "Unlike the other heroes, the Resonant may acknowledge the narration itself, and question who is narrating and to whom"
   ],
   "tags": [
-    "Backline", "Frail", "Stanceshifter", "Cycler", "Guarder", 
-    "Riposter", "Healer", "StressHealer", "SelfStress", "Debuffer", 
-    "Unstable", "Eldritch", "Scholarly", "Animal"
+    "Backline", "Frail", "Stanceshifter", "Cycler", "Guarder", "Riposter",
+    "Healer", "StressHealer", "SelfStress", "Debuffer", "Unstable", "Eldritch",
+    "Scholarly", "Animal", "Reach"
   ]
 }

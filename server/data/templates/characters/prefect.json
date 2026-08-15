@@ -2,8 +2,8 @@
   "identifier": "prefect",
   "title": "Prefect",
   "name": "Vigo",
-  "description": "The Prefect is a bird-folk academic in a doctor's robes, calm, patient, and far better company than anyone expects of a professor. He is unfailingly kind to his companions and steadies them when they falter. Whatever power he now commands, he derived himself, from study — no pact, no god, no revelation, only work.",
-  "history": "He held a university chair and a doctorate in pharmacology, and was one of several specialists the Ancestor once wrote to for advice. He has wondered ever since what the man was really asking around. In time he found the post was eating the hours he wanted for his own work — lectures, examinations, faculty business — and he gave it up to travel to the Hamlet to find out for himself.",
+  "description": "The Prefect is a bird-folk academic in a doctor's robes, calm, patient, and far better company than anyone expects of a professor. He is unfailingly kind to his companions and steadies them when they falter. Whatever power he now commands, he derived himself, from study \u2014 no pact, no god, no revelation, only work.",
+  "history": "He held a university chair and a doctorate in pharmacology, and was one of several specialists the Ancestor once wrote to for advice. He has wondered ever since what the man was really asking around. In time he found the post was eating the hours he wanted for his own work \u2014 lectures, examinations, faculty business \u2014 and he gave it up to travel to the Hamlet to find out for himself.",
   "summary": "A brilliant yet kind Prefect, a bird-folk professor who left his chair to find out what the Ancestor was digging for.",
   "race": "Bird-folk",
   "gender": "Male",
@@ -57,14 +57,14 @@
   "magic": "Reality-bending techniques of his own derivation",
   "notes": [
     "Notices when someone is struggling and makes them stop, breathe, and sit down",
-    "Speaks in the vocabulary of a classroom — marks, assignments, extra credit — and awards a gold star to anyone who genuinely earns one",
+    "Speaks in the vocabulary of a classroom--marks, assignments, extra credit--and awards a gold star to anyone who genuinely earns one",
     "Brews his own panacea, and will not hear a word about medicine from anyone less qualified",
     "Carries a commonplace book and is forever writing things down in it",
     "His self-derived techniques resemble no magic anyone recognises, and unsettle everyone they touch"
   ],
   "tags": [
-    "Backline", "Weak", "Frail", "Cycler", "Setup", "Disruptor", "Debuffer",
-    "Buffer", "Stealther", "GuardBreaker", "Marker", "BleedSynergy",
-    "BlightSynergy", "SelfStress", "Scholarly", "Animal"
+    "Backline", "Weak", "Frail", "Cycler", "Setup", "Disruptor",
+    "Debuffer", "Buffer", "Stealther", "GuardBreaker", "Marker", "BleedSynergy",
+    "BlightSynergy", "SelfStress", "Scholarly", "Animal", "Physician"
   ]
 }

@@ -66,19 +66,8 @@
     "Spits to show contempt or dismissal"
   ],
   "tags": [
-    "Flexible",
-    "Mercenary",
-    "Warrior",
-    "MarkApplier",
-    "HumanHunter",
-    "GiantHunter",
-    "HeavyHitter",
-    "MarkSynergy",
-    "Stunner",
-    "Debuffer",
-    "Disruptor",
-    "StunSynergy",
-    "Scout",
-    "Bleeder"
+    "Flexible", "Mercenary", "Warrior", "Marker", "HumanHunter", "GiantHunter",
+    "HeavyHitter", "MarkSynergy", "Stunner", "Debuffer", "Disruptor", "StunSynergy",
+    "Scout", "Bleeder", "Silent"
   ]
 }

@@ -60,18 +60,8 @@
     "Has sacrificed parts of himself for power"
   ],
   "tags": [
-    "Flexible",
-    "Healer",
-    "Debuffer",
-    "Stunner",
-    "Marker",
-    "Disruptor",
-    "EldritchHunter",
-    "Unstable",
-    "Frail",
-    "Dark",
-    "Eldritch",
-    "Scholarly",
-    "Vigilant"
+    "Flexible", "Healer", "Debuffer", "Stunner", "Marker", "Disruptor",
+    "EldritchHunter", "Unstable", "Frail", "Unlit", "Eldritch", "Scholarly",
+    "Vigilant", "Reach", "Sweeper"
   ]
 }

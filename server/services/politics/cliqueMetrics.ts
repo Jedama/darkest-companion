@@ -31,9 +31,11 @@
  * groups with identical cohesion can differ wildly on both.
  */
 
-import { CharacterRecord, EstateLeadership } from '../../../shared/types/types';
+import { CharacterRecord, EstateLeadership } from '../../../shared/types/types.js';
 import { NEUTRAL_AFFINITY } from '../../../shared/constants/relationships.js';
-import { Clique, bondBetween, cliqueGate } from './cliqueFinder.js';
+import { Clique } from './cliqueFinder.js';
+import { bondBetween, cliqueGate, hamletAffinities } from './roster.js';
+import { bits, empiricalTail, mean, randomGroup, stdDev } from './statistics.js';
 
 // ===================================================================
 // CONFIGURATION
@@ -56,7 +58,7 @@ const METRIC_CONFIG = {
    * Below this, a finding is a coincidence. 4 bits is about one-in-sixteen —
    * the sort of thing that happens somewhere in any roster every month.
    */
-  MIN_BITS: 4,
+  MIN_BITS: 3.5,
 
   /** Features reported per clique, after ranking. */
   MAX_FEATURES: 4,
@@ -130,7 +132,10 @@ export interface CliqueProfile {
 }
 
 // ===================================================================
-// SMALL STATISTICS
+// CLOSED-FORM STATISTICS
+//
+// The sampled ones (empiricalTail, randomGroup) and the summary ones live in
+// statistics.ts. What stays here is the exact maths only this file uses.
 // ===================================================================
 
 /** log(n!) table, so hypergeometric terms stay in range for any roster size. */
@@ -139,8 +144,6 @@ function logFactorials(upTo: number): number[] {
   for (let i = 2; i <= upTo; i++) table[i] = table[i - 1] + Math.log(i);
   return table;
 }
-
-const bits = (p: number): number => -Math.log2(Math.max(p, 1e-12));
 
 /** Normal upper tail, Abramowitz & Stegun 7.1.26. Two-tailed p is 2x this. */
 function normalTail(z: number): number {
@@ -170,51 +173,6 @@ function hypergeometricTail(
     total += Math.exp(choose(tagged, i) + choose(population - tagged, drawn - i) - denominator);
   }
   return Math.min(1, total);
-}
-
-/**
- * Where `value` falls in a sorted sample, as a probability.
- *
- * MID-RANK: samples equal to the observed value count as half. Without it, a
- * metric with few distinct values reads as far rarer than it is — density is
- * exactly 1.00 for a large share of qualifying groups, and counting only
- * strictly-smaller samples made a perfectly ordinary trio look one-in-thousands.
- *
- * DIRECTION: a two-tailed test asks "is this unusual either way" and costs exactly
- * one bit against a one-tailed test. That price is only worth paying for metrics
- * we genuinely report at both ends. Most here do not — a fracture is only ever
- * reported when LARGE — and asking the wrong question was quietly sinking real
- * findings below the reporting floor.
- */
-function empiricalTail(
-  sorted: number[], value: number, direction: 'high' | 'low' | 'both' = 'both'
-): number {
-  let below = 0;
-  let equal = 0;
-  for (const sample of sorted) {
-    if (sample < value) below++;
-    else if (sample === value) equal++;
-  }
-  const midRank = (below + equal / 2) / sorted.length;
-  const tail =
-    direction === 'high' ? 1 - midRank
-    : direction === 'low' ? midRank
-    : Math.min(midRank, 1 - midRank) * 2;
-  // A sample of N cannot resolve anything rarer than ~1/N. Clamp rather than
-  // report a confidence the sample does not support — and note that several
-  // findings clipping at the ceiling become indistinguishable, which is why the
-  // metrics with clean closed forms (tags, stats, seats) do not use this path.
-  return Math.max(tail, 1 / sorted.length);
-}
-
-function mean(values: number[]): number {
-  return values.length ? values.reduce((a, b) => a + b, 0) / values.length : 0;
-}
-
-function stdDev(values: number[]): number {
-  if (values.length < 2) return 0;
-  const m = mean(values);
-  return Math.sqrt(mean(values.map(v => (v - m) ** 2)));
 }
 
 // ===================================================================
@@ -294,16 +252,6 @@ function measureShape(
   };
 }
 
-/** Random group of `size` drawn without replacement. */
-function randomGroup(ids: string[], size: number): string[] {
-  const pool = [...ids];
-  const picked: string[] = [];
-  for (let i = 0; i < size && pool.length; i++) {
-    picked.push(pool.splice(Math.floor(Math.random() * pool.length), 1)[0]);
-  }
-  return picked;
-}
-
 // ===================================================================
 // MAIN EXPORT
 // ===================================================================
@@ -353,12 +301,7 @@ export function profileCliques(
   const gate = cliqueGate(roster);
   const lf = logFactorials(ids.length + 1);
 
-  const recorded: number[] = [];
-  for (const hero of Object.values(roster)) {
-    for (const rel of Object.values(hero.relationships)) {
-      if (typeof rel?.affinity === 'number') recorded.push(rel.affinity);
-    }
-  }
+  const recorded = hamletAffinities(roster);
   const rosterMean = recorded.length ? mean(recorded) : NEUTRAL_AFFINITY;
 
   // --- roster-wide reference values, computed once ---

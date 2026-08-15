@@ -1,6 +1,6 @@
 // src/components/storymodal/ActivityLog.tsx
 import React, { useState, useRef, useEffect } from 'react';
-import { ImageButton } from '../../components/ui/buttons/ImageButton';
+import { ImageButton } from '../../components/ui/buttons/ImageButton.js';
 import './ActivityLog.css';
 
 // Import the new assets

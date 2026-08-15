@@ -1,8 +1,8 @@
 // src/components/characterpanel/CharacterPanel.tsx
 import { useMemo } from 'react';
-import { useEstateContext } from '../../contexts/EstateContext'; // Import this
-import type { Character } from '../../../shared/types/types.ts';
-import type { StatName } from '../../types/statTypes.ts';
+import { useEstateContext } from '../../contexts/EstateContext.js'; // Import this
+import type { Character } from '../../../shared/types/types.js';
+import type { StatName } from '../../types/statTypes.js';
 import './CharacterPanel.css';
 
 interface CharacterPanelProps {

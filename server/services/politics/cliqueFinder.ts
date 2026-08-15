@@ -6,6 +6,9 @@
  * here is a property of the affinity graph alone, so it can be unit-tested with
  * a handful of made-up heroes.
  *
+ * The vocabulary — what a bond is, where the bar sits — lives in roster.ts, since
+ * every other layer needs it and none of them are finding cliques.
+ *
  * WHAT A CLIQUE IS, in this model:
  *   - Mutual. One-sided admiration is a fact about the admirer, not a bond.
  *   - Cordial at minimum. A group must average above CORDIAL to exist at all;
@@ -14,60 +17,14 @@
  *   - Connected. Two friendly pairs who have never met are not one group of four.
  */
 
-import { CharacterRecord } from '../../../shared/types/types';
-import { NEUTRAL_AFFINITY } from '../../../shared/constants/relationships.js';
+import { CharacterRecord } from '../../../shared/types/types.js';
+import { bondBetween, cliqueGate } from './roster.js';
 
 // ===================================================================
 // CONFIGURATION
 // ===================================================================
 
 const CLIQUE_CONFIG = {
-  /**
-   * The absolute floor for being a clique at all.
-   *
-   * The gate actually used is  max(CORDIAL, hamlet mean)  — a clique must be
-   * warmer than cordial AND warmer than this hamlet's normal, whichever bar is
-   * higher. Both halves earn their place:
-   *
-   *   Bitter hamlet (mean 3.1): a purely relative gate would let four people
-   *   sitting at plain neutral register as a bloc for merely not hating each
-   *   other. CORDIAL holds the line.
-   *
-   *   Friendly hamlet (mean 7.0): a purely absolute gate would swallow the whole
-   *   roster into one clique. A school class is not a clique because the vibe is
-   *   good; the mean raises the bar so only genuinely-closer-than-usual groups pass.
-   *
-   * The gate is also the zero point for cohesion, so a group sitting exactly on it
-   * scores 0 at any size and cannot grow its way past the threshold.
-   */
-  CORDIAL: 5,
-
-  /**
-   * How much of the warmer direction forgives the colder one.
-   *
-   *   bond = min + ASYMMETRY_CREDIT * (max - min)
-   *
-   * Pure `min` is the honest starting point — you are not close to someone who
-   * despises you, however warmly you feel about them. But pure `min` is brutal on
-   * affection that simply has not been returned yet. At 0.25:
-   *
-   *   8/8 -> 8.00   mutual devotion
-   *   8/6 -> 6.50   warm, slightly uneven
-   *   8/4 -> 5.00   one-sided, scrapes in exactly at CORDIAL
-   *   8/2 -> 3.50   warmth does not redeem contempt
-   *
-   * A bond is mostly its weaker direction, but not entirely.
-   */
-  ASYMMETRY_CREDIT: 0.25,
-
-  /**
-   * What an unrecorded pair is worth. Strangers dilute a group without damaging
-   * it: they contribute below CORDIAL, so padding a clique with people who have
-   * never met drags the average down on its own. Lower this to make stranger-
-   * padded groups fail faster.
-   */
-  STRANGER_AFFINITY: NEUTRAL_AFFINITY,
-
   /**
    * Size exponent:  score = cohesion * size^SIZE_EXPONENT
    *
@@ -146,48 +103,6 @@ export interface Clique {
   density: number;
   /** The seam: weakest internal bond. Near the floor by construction in found cliques. */
   weakestLink: { a: string; b: string; bond: number };
-}
-
-// ===================================================================
-// THE BOND
-// ===================================================================
-
-/**
- * The strength of the tie between two heroes: mostly the weaker direction,
- * partially forgiven by the stronger. Unrecorded directions fall back to
- * STRANGER_AFFINITY.
- */
-export function bondBetween(a: string, b: string, roster: CharacterRecord): number {
-  const S = CLIQUE_CONFIG.STRANGER_AFFINITY;
-  const aToB = roster[a]?.relationships[b]?.affinity ?? S;
-  const bToA = roster[b]?.relationships[a]?.affinity ?? S;
-
-  const low = Math.min(aToB, bToA);
-  const high = Math.max(aToB, bToA);
-  return low + CLIQUE_CONFIG.ASYMMETRY_CREDIT * (high - low);
-}
-
-  /**
-   * The bar a group must clear: the higher of CORDIAL and the hamlet's mean
-   * RECORDED affinity. Unrecorded pairs are excluded from the mean — on a large
-   * roster most pairs are strangers, and counting them would drag the average to
-   * neutral and make every real relationship look remarkable.
-   *
-   * Note this scales the entry fee too. Joining a trio of 8s costs affinity
-   * `NEUTRAL_AFFINITY + gate/2` — 6.5 in a normal hamlet, 7.5 in a warm one. Getting into a
-   * clique is harder where everyone is already friendly, which is correct.
-   */
-export function cliqueGate(roster: CharacterRecord): number {
-  const recorded: number[] = [];
-  for (const hero of Object.values(roster)) {
-    for (const rel of Object.values(hero.relationships)) {
-      if (typeof rel?.affinity === 'number') recorded.push(rel.affinity);
-    }
-  }
-  if (recorded.length === 0) return CLIQUE_CONFIG.CORDIAL;
-
-  const mean = recorded.reduce((a, b) => a + b, 0) / recorded.length;
-  return Math.max(CLIQUE_CONFIG.CORDIAL, mean);
 }
 
 // ===================================================================
@@ -281,7 +196,6 @@ export function findCliques(roster: CharacterRecord): Clique[] {
    */
   const extend = (sub: number[], ext: number[], seed: number): void => {
     const inSub = new Set(sub);
-    const inPool = new Set(ext);
     if (sub.length >= CLIQUE_CONFIG.MIN_SIZE) {
       if (++candidates > CLIQUE_CONFIG.MAX_CANDIDATES) return;
       evaluate(sub);
@@ -294,9 +208,16 @@ export function findCliques(roster: CharacterRecord): Clique[] {
 
       // Exclusive neighbours of w: warm to w, above the seed, not already in or
       // adjacent to the current set.
+      //
+      // INVARIANT: every vertex in `ext` is already a neighbour of `sub` — true
+      // at the seed, and preserved by each recursive call, since what we pass
+      // down is the remaining pool (neighbours of sub, so still neighbours of
+      // sub + w) plus w's own neighbours. A membership test against `ext` would
+      // therefore only ever reject vertices the N(sub) check below rejects
+      // anyway, so there is no third condition here and none is needed.
       const exclusive: number[] = [];
       for (const u of warm[w]) {
-        if (u <= seed || inSub.has(u) || inPool.has(u)) continue;
+        if (u <= seed || inSub.has(u)) continue;
         if (sub.some(s => warm[s].has(u))) continue;
         exclusive.push(u);
       }

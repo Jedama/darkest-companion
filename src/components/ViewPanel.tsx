@@ -1,7 +1,7 @@
 // src/components/ViewPanel.tsx
-import { ManorView } from './views/ManorView';
-import type { ViewType } from '../types/viewTypes';
-import type { Character } from '../../shared/types/types.ts';
+import { ManorView } from './views/ManorView.js';
+import type { ViewType } from '../types/viewTypes.js';
+import type { Character } from '../../shared/types/types.js';
 
 interface ViewPanelProps {
   currentView: ViewType;

@@ -2,8 +2,8 @@
   "identifier": "fawn",
   "title": "Fawn",
   "name": "Czsyzow",
-  "description": "A discarded creation of the Ancestor's early experiments, the Fawn is a naked, childlike patchwork creature held together by sutures and adhesive, with bladed shears grafted where a hand should be. She fights by throwing herself bodily at the enemy, though her fragile stitched frame comes apart nearly as fast as her foes do. Cheerful, affectionate, and eager to help, she drifts through the horrors of the estate with a four-year-old's mind—mostly oblivious, endlessly curious, and slowly, painfully, learning to understand what she is.",
-  "history": "Before the Ancestor settled on swine for his experiments, he worked with other beasts, and the cervine line produced the creature known as the Fawn Mother and her brood of near-identical daughters. The Fawn came out wrong—a defect among defects—and was cast out by the very things that made her. She does not remember this clearly and she still believes that 'daddy' loved her. Alone, she somehow found her way to the estate, where she attached herself to its heroes like a stray following anyone who might keep her.",
+  "description": "A discarded creation of the Ancestor's early experiments, the Fawn is a naked, childlike patchwork creature held together by sutures and adhesive, with bladed shears grafted where a hand should be. She fights by throwing herself bodily at the enemy, though her fragile stitched frame comes apart nearly as fast as her foes do. Cheerful, affectionate, and eager to help, she drifts through the horrors of the estate with a four-year-old's mind\u2014mostly oblivious, endlessly curious, and slowly, painfully, learning to understand what she is.",
+  "history": "Before the Ancestor settled on swine for his experiments, he worked with other beasts, and the cervine line produced the creature known as the Fawn Mother and her brood of near-identical daughters. The Fawn came out wrong\u2014a defect among defects\u2014and was cast out by the very things that made her. She does not remember this clearly and she still believes that 'daddy' loved her. Alone, she somehow found her way to the estate, where she attached herself to its heroes like a stray following anyone who might keep her.",
   "summary": "A cheerful, childlike patchwork experiment, discarded by her makers, who grows toward personhood and the grief that comes with it.",
   "race": "Human-cervine construct",
   "gender": "Female",
@@ -33,7 +33,7 @@
     "skinTone": "Mismatched patches of pale skin and russet fur",
     "hairColor": "Orange",
     "hairStyle": "Long, bushy squirrel's tail sprouting from her head like a mane",
-    "features": "Stitched mouth, small horns, no fingers—a hoof for one hand and grafted blades for the other, one hoofed leg and one spiked peg"
+    "features": "Stitched mouth, small horns, no fingers\u2014a hoof for one hand and grafted blades for the other, one hoofed leg and one spiked peg"
   },
   "clothing": {
     "head": "None",
@@ -56,11 +56,11 @@
   "magic": "None",
   "notes": [
     "Speaks in broken toddler grammar ('I is', 'does I', 'smashy-smashy~'), calls anything unfamiliar 'thing', and lapses into animal noises and sing-song",
-    "Her cheerfulness is genuine, but she is slowly learning—and each step toward personhood brings her closer to understanding that she was made, came out wrong, and was thrown away",
+    "Her cheerfulness is genuine, but she is slowly learning\u2014and each step toward personhood brings her closer to understanding that she was made, came out wrong, and was thrown away",
     "Anchors her identity in being soft and fluffy; seeks pets, grooming, and nuzzles as reassurance that she will be kept this time"
   ],
   "tags": [
-    "Dancer", "Frail", "HeavyHitter", "Crit", "Cycler", "Unstable", "Child",
-    "Animal", "Outcast", "Eldritch"
+    "Dancer", "Frail", "HeavyHitter", "Crit", "Cycler", "Unstable",
+    "Child", "Animal", "Outcast", "Eldritch", "Exile", "Reach"
   ]
 }

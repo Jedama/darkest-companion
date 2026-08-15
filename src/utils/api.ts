@@ -13,7 +13,7 @@
 // When the server's response shapes get normalised later, this file absorbs
 // the change and no component has to move.
 
-import type { Estate } from '../../shared/types/types.ts';
+import type { Estate } from '../../shared/types/types.js';
 
 const API_URL = import.meta.env?.VITE_API_URL ?? 'http://localhost:3000';
 

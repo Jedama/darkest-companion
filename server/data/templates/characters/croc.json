@@ -1,0 +1,67 @@
+{
+  "identifier": "croc",
+  "title": "Trophy Hunter",
+  "name": "Wrex",
+  "description": "The Trophy Hunter is an enormous crocodile-folk warrior who has spent his life proving he is the biggest thing in any room, and collects heads, teeth and scars as evidence. He is loud, boastful, and genuinely fond of the people he fights alongside, whom he praises and encourages. He wants a hard fight and a fair one, and holds anyone who wins by trickery in open contempt, though sometimes he worries he is growing past his prime.",
+  "history": "He came out of a marshland where he was the largest thing alive, and left it because nothing there could give him a real fight. Since then he has hunted whatever he was pointed at, for pay, for glory, and for the trophies, and the Estate promised him more dangerous prey than anywhere he had been.",
+  "summary": "A boastful and warm-hearted Trophy Hunter, a crocodile-folk warrior collecting glory and beginning to fear he is past his prime.",
+  "race": "Crocodile-folk",
+  "gender": "Male",
+  "religion": "None",
+  "zodiac": "Aries",
+  "traits": [
+    "Boastful",
+    "Bloodthirsty",
+    "Territorial",
+    "Protective",
+    "Honourable"
+  ],
+  "stats": {
+    "strength": 10,
+    "agility": 4,
+    "intelligence": 5,
+    "authority": 7,
+    "sociability": 6
+  },
+  "equipment": [
+    "Macuahuitl",
+    "Trident"
+  ],
+  "appearance": {
+    "height": "Towering",
+    "build": "Massive",
+    "skinTone": "Dark green scales",
+    "hairColor": "None",
+    "hairStyle": "None",
+    "features": "A long tail, heavy jaws, and old scars across the hide"
+  },
+  "clothing": {
+    "head": "None",
+    "body": "Bare, with a chest strap and a carved shoulder disc",
+    "legs": "Dark red loincloth",
+    "accessories": "Carved gold belt disc, bone trophies"
+  },
+  "combat": {
+    "role": "Brawler",
+    "strengths": [
+      "Enormous strength",
+      "Frightening",
+      "Sharp teeth",
+      "Versatile"
+    ],
+    "weaknesses": [
+      "Slow",
+      "Fights fairly"
+    ]
+  },
+  "magic": "None",
+  "notes": [
+    "Open minded and tries to learn new things",
+    "Enjoys hot baths, and warmth in general",
+    "Eats the dead, and picks at his teeth for days afterward"
+  ],
+  "tags": [
+    "Tank", "HeavyHitter", "Bleeder", "BleedSynergy", "Crit", "Riposter",
+    "Disruptor", "Dancer", "Guarder", "StressHealer", "Warrior", "Animal"
+  ]
+}

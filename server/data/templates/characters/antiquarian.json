@@ -3,7 +3,7 @@
   "title": "Antiquarian",
   "name": "Josephine",
   "description": "The Antiquarian is a cunning and morally ambiguous character driven by an insatiable greed for valuable artifacts and occult knowledge. Her pursuit of power and wealth leads her to dark places, both literally and figuratively. She has arrived at the estate to pilfer the Ancestor's relics, and in search of the final piece of a mysterious puzzle box.",
-  "history": "Originally from the deserts around the Levantine Sultanate, the Antiquarian has traveled the world trading in supernatural relics. She became a disciple to a sorcerer to advance her knowledge of the arcane, only to betray and imprison him in a censer during a ritual. Her past is marked by self-serving decisions and a willingness to sacrifice others for her goals.",
+  "history": "Originally from the deserts around the Levantine Vizierate, the Antiquarian has traveled the world trading in supernatural relics. She became a disciple to a sorcerer to advance her knowledge of the arcane, only to betray and imprison him in a censer during a ritual. Her past is marked by self-serving decisions and a willingness to sacrifice others for her goals.",
   "summary": "A greedy, silver-tongued relic hunter chasing occult knowledge, who has already betrayed one master and would sacrifice anyone else for her prize.",
   "race": "Human",
   "gender": "Female",
@@ -64,17 +64,7 @@
     "Meticulously maintains her hair's cleanliness"
   ],
   "tags": [
-    "Backline",
-    "Weak",
-    "Frail",
-    "Hider",
-    "Buffer",
-    "Debuffer",
-    "Scavenger",
-    "Mercenary",
-    "Scholarly",
-    "Blighter",
-    "Immoral",
-    "Abrasive"
+    "Backline", "Weak", "Frail", "Hider", "Buffer", "Debuffer",
+    "Scavenger", "Mercenary", "Scholarly", "Blighter", "Immoral", "Abrasive"
   ]
 }

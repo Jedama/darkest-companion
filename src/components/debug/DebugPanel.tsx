@@ -1,6 +1,6 @@
 // src/components/debug/DebugPanel.tsx
 import React, { useState } from 'react';
-import { useEstateContext } from '../../contexts/EstateContext';
+import { useEstateContext } from '../../contexts/EstateContext.js';
 
 interface QuirkEntry {
   characterId: string;
@@ -48,7 +48,7 @@ export function DebugPanel() {
         style={{
           position: 'fixed',
           bottom: 12,
-          right: 12,
+          left: 12,
           zIndex: 9999,
           background: '#1a1a1a',
           color: '#ff6b35',
@@ -70,7 +70,7 @@ export function DebugPanel() {
       style={{
         position: 'fixed',
         bottom: 12,
-        right: 12,
+        left: 12,
         zIndex: 9999,
         background: '#1a1a1ae6',
         border: '1px solid #ff6b35',

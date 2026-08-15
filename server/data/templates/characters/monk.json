@@ -57,12 +57,12 @@
   },
   "magic": "Mastery of life energy",
   "notes": [
-    "Keeps a rigid daily order whatever the circumstances—rising before dawn, eating only before dark, prostrations at fixed hours",
+    "Keeps a rigid daily order whatever the circumstances, rising before dawn, eating only before dark, prostrations at fixed hours",
     "Out of touch with the customs, manners, and famous names everyone else takes for granted",
     "Refuses drink and other indulgence, save for measured mouthfuls from his gourd at set times"
   ],
   "tags": [
-    "Frontline", "Dancer", "Disruptor", "Healer", "StressHealer", "Cleanser",
-    "SelfSufficient", "Crit", "Religious", "Warrior", "Outcast"
+    "Dancer", "Disruptor", "Healer", "StressHealer", "Cleanser", "SelfSufficient",
+    "Crit", "Religious", "Warrior", "Outcast", "Penitent"
   ]
 }

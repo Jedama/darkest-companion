@@ -1,7 +1,7 @@
 // src/components/modals/ModalProvider.tsx
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import { ModalPortal } from './ModalPortal';
+import { ModalPortal } from './ModalPortal.js';
 import './ModalProvider.css';
 
 interface ModalContextValue {

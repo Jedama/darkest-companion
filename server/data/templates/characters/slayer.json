@@ -1,0 +1,64 @@
+{
+  "identifier": "slayer",
+  "title": "Slayer",
+  "name": "Konrad",
+  "description": "The Slayer is a shotgunner from Ostvengr, whose eldritch parasites allow his flesh and double barrel shotgun to morph into saws and energy cannons. Having spent decades locked in a casket, he does not speak anymore, uninterested in all but slaying the creatures and cultists of the Maw and Heart of Darkness.",
+  "history": "The Slayer was a soldier of Ostvengr's Slayer corps, sent down on the first expedition into the Maw of Darkness. They came under attack, but unlike the other survivors, he didn't report the eldritch parasites that had fused with him. He fought better than anyone in the corps for as long as it took them to work out why, but when they did, they took him alive and sealed him in a stone casket for decades. He was awake for all of it. The Ancestor had the casket stolen and brought it to the Estate, where it sat until parties digging through the ruins broke it open.",
+  "summary": "A silent and implacable Slayer, a soldier of a fallen empire sealed alive for the things he carries.",
+  "race": "Human/eldritch amalgam",
+  "gender": "Male",
+  "religion": "None",
+  "zodiac": "Capricorn",
+  "traits": [
+    "Disciplined",
+    "Implacable",
+    "Loyal",
+    "Incurious",
+    "Enduring"
+  ],
+  "stats": {
+    "strength": 8,
+    "agility": 5,
+    "intelligence": 5,
+    "authority": 5,
+    "sociability": 1
+  },
+  "equipment": [
+    "Double barrel shotgun"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Massive",
+    "skinTone": "None",
+    "hairColor": "None",
+    "hairStyle": "None",
+    "features": "None"
+  },
+  "clothing": {
+    "head": "Spiked helm with a barred visor",
+    "body": "Heavy plate, swollen and grown into",
+    "legs": "Plated",
+    "accessories": "None"
+  },
+  "combat": {
+    "role": "Shocktrooper",
+    "strengths": [
+      "Close-range fire",
+      "Enormous strength",
+      "Endurance"
+    ],
+    "weaknesses": []
+  },
+  "magic": "None",
+  "notes": [
+    "Still keeps a tulip, a gift from a long-dead lover, alive and unwilting",
+    "Speaks extremely rarely, and only in terse sentences",
+    "Sustained by his parasites, he no longer eats or sleeps",
+    "His relationship with his parasites is symbiotic, and they will lash out at him if overused"
+  ],
+  "tags": [
+    "Flexible", "HeavyHitter", "Crit", "Unaging", "Executor", "Marker",
+    "MarkSynergy", "SelfSufficient", "Cycler", "Eldritch", "Warrior", "Outcast",
+    "Exile", "Silent", "Reach"
+  ]
+}

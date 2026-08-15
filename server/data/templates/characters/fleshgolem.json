@@ -2,10 +2,10 @@
   "identifier": "fleshgolem",
   "title": "Homunculus",
   "name": "Alphonse",
-  "description": "A protean construct of shaped flesh housing a bound human soul, the Homunculus fights by imitation—molding his own mass into the weapons, arts, and bearing of his companions. He can be shield, healer, hunter, or poison as the battle demands, wearing each role like a borrowed coat. Behind the smooth white mask, a mind clings to what remains of its humanity while the shell urges it to dissolve into mere flesh, and with every passing season the shell's argument grows stronger.",
-  "history": "He was made by a flesh-shaping ritual of the old cult at the source beneath the estate—the same wellspring of dark practice the Ancestor would later uncover, drawn from long before. A human soul was bound into the working as its living core, and it dwelt in the shaped flesh for decades in the dark. Rejected everywhere he surfaced, he has drifted to the Hamlet because its expeditions dig toward the place he was made—and with it, perhaps, the means to reclaim what was taken from him, if anything remains to reclaim. He no longer remembers who he was.",
+  "description": "A protean construct of shaped flesh housing a bound human soul, the Homunculus fights by imitation: molding his own mass into the weapons, arts, and bearing of his companions. He can be shield, healer, hunter, or poison as the battle demands, wearing each role like a borrowed coat. Behind the smooth white mask, a mind clings to what remains of its humanity while the shell urges it to dissolve into mere flesh, and with every passing season the shell's argument grows stronger.",
+  "history": "He was made by a flesh-shaping ritual of the old cult at the source beneath the estate, the same wellspring of dark practice the Ancestor would later uncover, drawn from long before. A human soul was bound into the working as its living core, and it dwelt in the shaped flesh for decades in the dark. Rejected everywhere he surfaced, he has drifted to the Hamlet because its expeditions dig toward the place he was made. And, perhaps, the means to reclaim what was taken from him, if anything remains to reclaim. He no longer remembers who he was.",
   "summary": "A human soul bound in protean flesh, imitating the living while slowly forgetting how to be one of them.",
-  "race": "Flesh construct (bound human soul)",
+  "race": "Flesh construct",
   "gender": "Male",
   "religion": "The Flesh",
   "zodiac": "Cancer",
@@ -51,10 +51,11 @@
   "notes": [
     "Mimics the shape, features, and language of those around him",
     "His human name is lost; he does not remember it, and no one alive can tell him",
-    "Mind and shell war within him—the mind striving to remember and reclaim, the flesh urging him to dissolve into it—and the flesh is slowly winning"
+    "Mind and shell war within him, the mind striving to remember and reclaim while the flesh urges him to dissolve into it, and the flesh is slowly winning"
   ],
   "tags": [
     "Flexible", "Shapeshifter", "Stanceshifter", "Tank", "Healer", "StressHealer",
-    "Buffer", "Debuffer", "Blighter", "Riposter", "Stealther", "Eldritch", "Outcast"
+    "Unaging", "Buffer", "Debuffer", "Blighter", "Riposter", "Stealther",
+    "Eldritch", "Outcast"
   ]
 }

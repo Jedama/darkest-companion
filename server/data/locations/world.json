@@ -2,17 +2,21 @@
   {
     "identifier": "world",
     "title": "Known World",
-    "description": "A vast and varied land of distinct nations and uneasy alliances. From the isolated traditions of the Sunward Isles to the militarized, industrial expanse of Ostvengr, civilization asserts itself through commerce and conquest. The Levantine Empire and the City of a Thousand Temples stand as monuments to human ambition, maintaining order and trade across the continents. A kingdom stands at its center, and on its rugged coastline, a neglected Ancestral Estate sits apart from these geopolitical machinations, harboring secrets that will soon draw eyes away from the concerns of the wider world.",
-    "summary": "A vast land of nations like Ostvengr and the Sunward Isles, functioning through trade and war while ancient secrets linger in the margins.",
+    "description": "A vast and varied land of distinct nations and uneasy alliances, from the terraced island empire of Haenara in the far east to the ruins of Ostvengr in the west. Civilization asserts itself through commerce and conquest: the Levantine Vizierate holds the trade of the east, Great Forks taxes what passes between, and a kingdom stands at the centre of it all. On that kingdom's rugged coastline, a neglected Ancestral Estate sits apart from these machinations, harboring secrets that will soon draw eyes away from the concerns of the wider world.",
+    "summary": "A vast land of nations from Haenara to fallen Ostvengr, functioning through trade and war while ancient secrets linger in the margins.",
     "parent": null,
     "children": [
       "kingdom",
       "sunward_isles",
-      "levantine_empire",
+      "levantine",
       "great_forks",
       "ostvengr",
       "pelagia",
-      "haenara"
+      "haenara",
+      "valley",
+      "northern_forest",
+      "chernozem",
+      "craie"
     ]
   },
   {
@@ -89,7 +93,8 @@
     "summary": "The walled imperial capital of Haenara, sacked once and still standing, held now by a warlord.",
     "parent": "haenara",
     "children": [
-      "haenara__bitgung"
+      "haenara__bitgung",
+      "haenara__byeoltap"
     ]
   },
   {
@@ -97,17 +102,15 @@
     "title": "Bitgung",
     "description": "The palace at the height of the capital, a compound of painted halls and courtyards behind three gates, where the emperor's court kept its records, its treasures, and its guardian relic. Raiders reached the innermost hall and killed everyone in it, and the relic went out through the harbour that same night. The halls were scrubbed and repainted for the next emperor, and the empty stand where the relic sat has never been filled.",
     "summary": "The imperial palace at the top of the capital, where the court was slaughtered and Haenara's guardian relic was stolen.",
-    "parent": "haenara_haeseong",
-    "children": [
-      "haenara__byeoltap"
-    ]
+    "parent": "haenara__haeseong",
+    "children": []
   },
   {
     "identifier": "haenara__byeoltap",
     "title": "Byeoltap",
     "description": "A tower of fitted stone on the ridge above the palace, half observatory and half workshop, where the court's technicians ground lenses, cast gears, mixed powders, and kept the almanacs that told the empire when to plant and when to fight. Its instruments are cleaned daily by men who no longer know what half of them measure. The apprentices' benches at the base of the tower are still marked with their owners' names.",
     "summary": "The star-tower above the capital, observatory and workshop both, where Haenara's technicians kept the almanacs.",
-    "parent": "haenara_bitgung",
+    "parent": "haenara__haeseong",
     "children": []
   },
   {
@@ -121,8 +124,8 @@
   {
     "identifier": "great_forks",
     "title": "Great Forks",
-    "description": "A city-state where three rivers meet, holding the trade between the Kingdom and the Sultanate and taxing all of it. Its fields and orchards run for a day's ride in every direction and feed a population far larger than they should, the difference made up by barge. Great Forks has no state faith and suppresses none, which has made it a refuge for creeds beaten out of everywhere else, and a byword elsewhere for laxity.",
-    "summary": "A wealthy river city-state on the trade road between the Kingdom and the Sultanate, which tolerates every faith and enforces none.",
+    "description": "A city-state where three rivers meet, holding the trade between the Kingdom and the Vizierate and taxing all of it. Its fields and orchards run for a day's ride in every direction and feed a population far larger than they should, the difference made up by barge. Great Forks has no state faith and suppresses none, which has made it a refuge for creeds beaten out of everywhere else, and a byword elsewhere for laxity.",
+    "summary": "A wealthy river city-state on the trade road between the Kingdom and the Vizierate, which tolerates every faith and enforces none.",
     "parent": "world",
     "children": [
       "great_forks__thousand_temples"
@@ -134,6 +137,72 @@
     "description": "The heart of the city, where every faith that ever came upriver built a house and few have been pulled down since. Shrines stand shoulder to shoulder along the water, grand ones with priesthoods and painted domes beside single rooms with one attendant and a locked door. The festival calendar runs past three hundred days a year and several fall together, so the noise rarely stops; children of the quarter learn early which processions pay best to join.",
     "summary": "The temple quarter of Great Forks, packed with shrines of every faith and in festival most days of the year.",
     "parent": "great_forks",
+    "children": []
+  },
+  {
+    "identifier": "levantine",
+    "title": "The Levantine Vizierate",
+    "description": "The great power of the east, a belt of desert and river-cities that a single conqueror welded together from sultanates, republics and free cities centuries ago. It is rich and orderly: its schools and physicians are the best in the world, its sorcery is careful and licensed, and its soldiery is drilled rather than raised. The Vizier has ruled it since he took the throne from the foreign king who held it, and has not aged since; his made bodyguards do not age either, and no one has tested him twice. Life under him is prosperous and precarious in equal measure, since he has an appetite for ruining people who have something to lose.",
+    "summary": "The rich and orderly Vizierate of the east, ruled for centuries by an unaging usurper who took the throne by murder.",
+    "parent": "world",
+    "children": []
+  },
+  {
+    "identifier": "ostvengr",
+    "title": "Ostvengr",
+    "description": "Until recently the strongest nation in the world, warmongering yet impenetrable behind their mountains, yet now a wasteland its neighbours are walling off rather than dividing. Ostvengr's advantage was never invention: its expeditions brought something back from underground, the Maw of Darkness, and its engineers spent generations building it into everything from field guns to kitchen appliances, over written warnings they overruled. It turned on them in a single day, an event known as the Fall. What is left is factory country full of machines that are still moving, a scatter of survivors who each blame a different part of it, and a border of river and mountain held by other people's armies. Nobody knows what became of the Kaiserin or her daughter.",
+    "summary": "A fallen industrial empire, undone in a day by the eldritch machinery it built its supremacy on.",
+    "parent": "world",
+    "children": ["ostvengr__the_maw"]
+  },
+  {
+    "identifier": "ostvengr__the_maw",
+    "title": "The Maw of Darkness",
+    "description": "A shaft in the mountains that Ostvengr found and did not stop descending. Material and knowledge came up out of it, barely comprehensible and enormously useful, and the empire built everything it had on what it took from the shaft. The first expeditions went down unprotected, and the men who came back from those were not entirely the men who went down; every expedition after that went in sealed machines. Nobody has gone in since the Fall, and nobody can say whether the corruption that took the country came up the shaft or was already in what had been carried out of it.",
+    "summary": "The shaft beneath Ostvengr's mountains that its expeditions descended, and the source of everything the empire became.",
+    "parent": "ostvengr",
+    "children": []
+  },
+  {
+    "identifier": "valley",
+    "title": "The Valley",
+    "description": "A hot, sunken expanse of dunes and buried ruin at the northern edge of the Vizierate's reach, held by nobody and claimed by several. The Kvarotz built an empire here and vanished from it without explanation, leaving necropolises under the sand, vaults nobody has emptied, and machines that still run on something worse than fuel. Three tribes of Wildlanders hold the surface in confederation, the Vizier's expeditionary force is dug into the tombs and has not advanced in a long while, and everything the Kvarotz made of their slaves is still down in the mines. What draws all of them is amber: raw it sickens and ruins, refined it makes weapons and gear nothing else can match.",
+    "summary": "A contested desert frontier of Kvarotz ruins and amber, fought over by Wildlander tribes and a stalled Levantine expedition.",
+    "parent": "world",
+    "children": []
+  },
+  {
+    "identifier": "northern_forest",
+    "title": "The Northern Forest",
+    "description": "An old forest in the cold north, beyond any border worth defending, where the beasts run larger than they have any business being. The Wildlanders send their young there to be marked: find the animal your god wears, survive it, and come home with the scar to prove it. Most of the pilgrims are girls, and most of the ones who do not return were boys. Nobody lives there. The tribes that use it are scattered across half the world and have not shared a homeland in generations, so the forest is the only ground all of them still hold in common.",
+    "summary": "A cold northern forest of oversized beasts, where Wildlanders go to be scarred by their gods' animals and come back warriors.",
+    "parent": "world",
+    "children": []
+  },
+  {
+    "identifier": "chernozem",
+    "title": "Chernozem",
+    "description": "A cold northern country organised entirely around a war it has been fighting since before it had records of anything else. It has good soil and a great many people, and no other industry worth the name. The army takes what it needs of both, and nobody argues. Now that the enemy has destroyed itself the country is quieter than it has been in living memory, and its officers are looking for the next war rather than waiting for one.",
+    "summary": "A cold northern war-state that fought Ostvengr for its whole recorded history, and is already looking for its next war.",
+    "parent": "world",
+    "children": [
+      "chernozem__black_earth"
+    ]
+  },
+  {
+    "identifier": "chernozem__black_earth",
+    "title": "The Black Earth",
+    "description": "The strip of ground between Chernozem and Ostvengr's mountains, and the only ground the two could ever fight over, since everything east of it is impassable. Generations of offensives have crossed it in both directions and neither side has held it for long. The soil is dark and enormously fertile, and nobody farms it. Chernozem took its name from this place rather than the other way round.",
+    "summary": "The dark fertile frontier between Chernozem and Ostvengr, fought over for generations and farmed by nobody.",
+    "parent": "chernozem",
+    "children": []
+  },
+  {
+    "identifier": "craie",
+    "title": "Craie",
+    "description": "A country of pale downland and chalk hills west of Ostvengr's mountains, wealthy in wine and wheat and nothing else, which has spent two generations being the ground its neighbour's wars are fought across. Its army is large, conscripted, and mostly made of farmers, and it has never won a war so much as outlasted one. The fighting settled into long stretches of nothing broken by weeks of shelling, and the villages nearest the frontier learned to live in cellars. Now that Ostvengr has destroyed itself, Craie has an intact army, no enemy, and a great many holes in the ground it does not know what to do with.",
+    "summary": "A chalk-hilled farming country west of Ostvengr, ground down by two generations of a war that has just ended without it.",
+    "parent": "world",
     "children": []
   }
 ]

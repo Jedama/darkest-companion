@@ -1,84 +1,67 @@
 {
   "identifier": "greymane",
   "title": "Cursed",
-  "name": "Genn Greymane",
-  "description": "The proud and tragic King of Gilneas, the Cursed is a man defined by his failures and his unbreakable will to atone. He wields the very lycanthropic curse that ruined his kingdom as a weapon, shifting between a pragmatic human commander and a ferocious Worgen beast. Driven by the ghosts of his past, he has come to the Estate to prove that even a fallen king can still protect his people and carve out a future from ruin.",
-  "history": "Once an arrogant and isolationist ruler, the Cursed's pride led to the downfall of his kingdom, Gilneas. In a desperate act to defend his walled-off nation, he unleashed the Worgen curse, only to see it infect him and his people, costing him his son and his throne. Now a king without a country, he is haunted by his choices and seeks not conquest, but redemption, fighting to restore the honor of his name and the future of the Gilnean people.",
-  "summary": "A proud and tragic cursed king who wields his monstrous form as a weapon, haunted by past failures and driven by a desperate need for atonement.",
-  "race": "Human",
+  "name": "Genn",
+  "description": "The Cursed is an aging king in a soldier's greatcoat, white-bearded and heavy through the shoulders, who still gives orders as though he had a country to give them for. He closed his kingdom off from the world and ruined it doing so, and knows it. He carries a lycanthropic curse of his own making, and can loose it at will into a second shape, all fur and claws and appetite, which he holds under discipline rather than fear.",
+  "history": "He inherited a small kingdom and closed its borders, certain it needed nothing from outside. It was besieged anyway, and to save it he opened knowledge that had been sealed for good reason: a curse that made wolves of its defenders and then of everyone else. The walls held. His son died in the fighting, his people came out of it changed, and the court had no use for the king who had done it to them. He left his wife and what remained of that court behind and came west for the Estate's pay and its plunder, both of which he intends to spend on rebuilding.",
+  "summary": "A proud and remorseful king in exile, who loosed a lycanthropic curse on his own kingdom and now fights to fund its rebuilding.",
+  "race": "Lycanthrope shapeshifter",
   "gender": "Male",
   "religion": "The Light",
   "zodiac": "Leo",
   "traits": [
     "Proud",
-    "Determined",
-    "Pragmatic",
-    "Regretful",
-    "Authoritative"
+    "Commanding",
+    "Disciplined",
+    "Remorseful",
+    "Guarded",
+    "Wry"
   ],
   "stats": {
     "strength": 8,
-    "agility": 7,
-    "intelligence": 6,
+    "agility": 6,
+    "intelligence": 7,
     "authority": 9,
-    "sociability": 3
+    "sociability": 5
   },
   "equipment": [
     "Flintlock pistol",
-    "King's Saber"
+    "Sabre",
+    "Incendiary flask"
   ],
   "appearance": {
-    "height": "Tall",
-    "build": "Sturdy",
-    "skinTone": "Weathered",
+    "height": "Tall/Towering",
+    "build": "Sturdy/Massive",
+    "skinTone": "Weathered/Dark grey fur",
     "hairColor": "White",
-    "hairStyle": "Thick and swept back",
-    "features": "Full white beard and mutton chops, sharp facial scars"
+    "hairStyle": "Thick and swept back/A shaggy mane",
+    "features": "Full white beard and mutton chops/Large ears, sharp teeth, and clawed hands"
   },
   "clothing": {
     "head": "None",
     "body": "Black greatcoat with gold epaulets",
-    "legs": "Dark trousers",
+    "legs": "Dark trousers and boots",
     "accessories": "Red cravat"
   },
   "combat": {
-    "role": "Shapeshifting Brawler",
+    "role": "Brawler",
     "strengths": [
-      "Versatile (Human/Worgen forms)",
-      "High damage output",
-      "Controlled ferocity"
+      "Versatile",
+      "High damage"
     ],
-    "weaknesses": [
-      "Prideful arrogance",
-      "Vulnerable to bloodlust",
-      "Can become abusive under stress"
-    ]
+    "weaknesses": []
   },
-  "magic": "The Worgen Curse, allowing him to shapeshift at will between his human and bestial forms.",
+  "magic": "A lycanthropic curse he can loose at will",
   "notes": [
-    "Haunted by the memory of his lost son, Liam, and the fall of his kingdom.",
-    "Maintains rigid control over his Worgen form, but the scent of blood can agitate his inner beast.",
-    "Carries immense guilt over his past pride and isolationism, which he now views as the cause of his people's suffering.",
-    "Has a grim, cynical sense of humor, often joking about his own curse."
+    "Speaks as a commander addressing a formation: says 'we' and 'our' about matters that concern only him, and issues orders where a suggestion would do",
+    "Keeps a nightly observance learned from foreigners who kept his people from losing their minds, and puts the day's fury down before it sets",
+    "Swears by the wolf rather than the Light, and speaks of the rage as a separate thing with its own will and its own low opinion of him",
+    "Sets aside a share of everything recovered as a treasury for a country that currently has no ground under it"
   ],
   "tags": [
-    "Dancer",
-    "Shapeshifter",
-    "Bleeder",
-    "BleedSynergy",
-    "MarkSynergy",
-    "Riposter",
-    "Buffer",
-    "HeavyHitter",
-    "Just",
-    "Crit",
-    "GuardBreaker",
-    "Executor",
-    "Noble",
-    "Leader",
-    "Warrior",
-    "Outcast",
-    "Eldritch",
-    "Religious"
+    "Dancer", "Shapeshifter", "Bleeder", "BleedSynergy", "MarkSynergy", "Riposter",
+    "Buffer", "HeavyHitter", "Just", "Crit", "GuardBreaker", "Executor",
+    "Noble", "Leader", "Warrior", "Outcast", "Eldritch", "Religious",
+    "Penitent", "Exile"
   ]
 }

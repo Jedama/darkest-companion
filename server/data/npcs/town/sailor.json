@@ -2,14 +2,15 @@
   "identifier": "sailor",
   "title": "Sailor",
   "name": "Marston",
-  "description": "A retired seaman who maintains The Stumbling Corpse with the same stern discipline he once commanded on deck. Though his sailing days ended when a strange illness left him with a persistent limp, he keeps watch over his establishment with quiet vigilance, marking each night's unusual occurrences in his logbook with the precision of a ship's captain.",
-  "history": "Spent thirty years at sea before the strange waters near the Estate's coast claimed his ship and most of his crew. While recovering from the illness that followed his rescue, he took over the then-abandoned boarding house, converting it into a haven for those who still brave the harbor's dangers.",
-  "summary": "sailor (Marston) -- A watchful and disciplined retired Sailor, now maintaining The Stumbling Corpse, who quietly logs unusual occurrences despite a persistent limp from a strange illness.",
+  "description": "A retired seaman who keeps the boarding house with the discipline he once ran a deck with. Something followed him back from the waters off this coast, a sickness of the mind he has taken to calling the Dream of the Abyss, and he has spent years learning to live around it rather than beat it. He keeps quiet hours and expects the same of his guests, because he has found that quiet helps.",
+  "history": "He spent thirty years at sea before the waters off the Estate's coast took his ship and most of his crew. He came out of it with a bad leg and something worse, which comes and goes in stages he has learned to recognise and cannot predict. He took over the abandoned boarding house while recovering and has kept it since, for the sort of people who still go down to that harbour.",
+  "summary": "A watchful and taciturn retired Sailor who keeps The Stumbling Corpse, and the sickness he calls the Dream of the Abyss.",
   "traits": [
     "Watchful",
     "Taciturn",
     "Disciplined",
-    "Superstitious"
+    "Superstitious",
+    "Practical"
   ],
   "appearance": {
     "height": "Tall but stooped",
@@ -26,8 +27,10 @@
     "accessories": "Pipe, ring of keys"
   },
   "notes": [
-    "Rests both hands on his gnarled walking cane",
-    "Maintains a collection of objects recovered from the shore",
-    "Spends many evenings smoking with the Blacksmith"
+    "Keeps his house quiet after dark, and puts out anyone who will not.",
+    "Has recorded the stages of his own sickness for years, and can recognise the signs in others before they can.",
+    "Keeps a dried flower at his bedside that he believes keeps the worst of it away.",
+    "Walks with a bad leg from the wreck, resting his hands on a gnarled cane.",
+    "Spends many evenings smoking with the Blacksmith."
   ]
 }

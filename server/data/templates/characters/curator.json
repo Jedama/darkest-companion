@@ -3,7 +3,7 @@
   "title": "Curator",
   "name": "Blathers",
   "description": "A fastidious academic and lifelong scholar, the Curator has been drawn to the Estate by an insatiable curiosity for its unique and forgotten relics. His keen eye can spot value where others see only ruin, but his vast knowledge is tempered by his physical frailty. While he can support his allies with sharp analysis, his academic condescension and obsessive need to collect artifacts often clash with the brutal reality of combat.",
-  "history": "Having spent his life in the quiet halls of museums, the Curator's world was upended by tales of impossible artifacts emerging from the Estate. Unable to resist the call of such a historical enigma, he journeyed to the hamlet not as a warrior, but as a researcher on the ultimate field expedition. His goal is to document and preserve the treasures of this land before they are lost to the encroaching darkness, a task for which he will risk life and limb—preferably someone else's.",
+  "history": "Having spent his life in the quiet halls of museums, the Curator's world was upended by tales of impossible artifacts emerging from the Estate. Unable to resist the call of such a historical enigma, he journeyed to the hamlet not as a warrior, but as a researcher on the ultimate field expedition. His goal is to document and preserve the treasures of this land before they are lost to the encroaching darkness, a task for which he will risk life and limb\u2014preferably someone else's.",
   "summary": "A curious and physically frail Curator, whose academic snobbery and obsessive need to collect artifacts clash with the brutal reality of the Estate.",
   "race": "Human",
   "gender": "Male",
@@ -63,24 +63,9 @@
     "Despite his fascination with eldritch artifacts, he is secretly terrified of common insects and vermin."
   ],
   "tags": [
-    "Backline",
-    "Immobile",
-    "Weak",
-    "Frail",
-    "Healer",
-    "Cleanse",
-    "Buffer",
-    "Marker",
-    "Crit",
-    "Executor",
-    "Abrasive",
-    "Debuffer",
-    "Disruptor",
-    "Stealth",
-    "Scholarly",
-    "Strategist",
-    "SelfStress",
-    "Scavenger",
+    "Backline", "Immobile", "Weak", "Frail", "Healer", "Cleanser",
+    "Buffer", "Marker", "Crit", "Executor", "Abrasive", "Debuffer",
+    "Disruptor", "Stealther", "Scholarly", "Strategist", "SelfStress", "Scavenger",
     "Vigilant"
   ]
 }

@@ -25,8 +25,9 @@
  *   the same person every month and press the writer into repeating themselves.
  */
 
-import { CharacterRecord } from '../../../shared/types/types';
-import { NEUTRAL_AFFINITY } from '../../../shared/constants/relationships.js';
+import { CharacterRecord } from '../../../shared/types/types.js';
+import { hamletAffinities } from './roster.js';
+import { bits, empiricalTail, mean, random, stdDev } from './statistics.js';
 import type { CliqueFeature, CliqueProfile } from './cliqueMetrics.js';
 
 const HERO_CONFIG = {
@@ -56,29 +57,6 @@ export interface HeroFinding extends CliqueFeature {
   identifier: string;
 }
 
-function mean(values: number[]): number {
-  return values.length ? values.reduce((a, b) => a + b, 0) / values.length : 0;
-}
-
-function stdDev(values: number[]): number {
-  if (values.length < 2) return 0;
-  const m = mean(values);
-  return Math.sqrt(mean(values.map(v => (v - m) ** 2)));
-}
-
-const bits = (p: number): number => -Math.log2(Math.max(p, 1e-12));
-
-function empiricalTail(sorted: number[], value: number, direction: 'high' | 'low'): number {
-  let below = 0;
-  let equal = 0;
-  for (const sample of sorted) {
-    if (sample < value) below++;
-    else if (sample === value) equal++;
-  }
-  const midRank = (below + equal / 2) / sorted.length;
-  return Math.max(direction === 'high' ? 1 - midRank : midRank, 1 / sorted.length);
-}
-
 /**
  * Finds the heroes worth a line of their own.
  *
@@ -98,12 +76,7 @@ export function profileHeroes(
 
   // Every recorded opinion in the hamlet. Used as the null for REGARD, where the
   // question is how a hero's standing compares to the hamlet's general warmth.
-  const pool: number[] = [];
-  for (const hero of Object.values(roster)) {
-    for (const rel of Object.values(hero.relationships)) {
-      if (typeof rel?.affinity === 'number') pool.push(rel.affinity);
-    }
-  }
+  const pool = hamletAffinities(roster);
   if (pool.length < 6) return [];
   const hamletMean = mean(pool);
 
@@ -152,13 +125,13 @@ export function profileHeroes(
       // Polarisation against within-hero variation...
       const residualDraw: number[] = [];
       for (let j = 0; j < count; j++) {
-        residualDraw.push(residuals[Math.floor(Math.random() * residuals.length)]);
+        residualDraw.push(residuals[Math.floor(random() * residuals.length)]);
       }
       spread.push(stdDev(residualDraw));
 
       // ...and standing against the hamlet's opinions at large.
       const regardDraw: number[] = [];
-      for (let j = 0; j < count; j++) regardDraw.push(pool[Math.floor(Math.random() * pool.length)]);
+      for (let j = 0; j < count; j++) regardDraw.push(pool[Math.floor(random() * pool.length)]);
       const k = HERO_CONFIG.SHRINKAGE;
       regard.push((count * mean(regardDraw) + k * hamletMean) / (count + k));
     }

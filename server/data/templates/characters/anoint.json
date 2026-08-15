@@ -57,11 +57,12 @@
   "notes": [
     "Quotes chapter and verse constantly, and can produce a relevant one for any situation: 'Verse XXVI: ...'",
     "Loud and fervent in public, but surprisingly quiet and gentle among trusted company",
-    "Understands the Coven — the bird-folk freedom militia — and rejects their methods, and will try to talk one down mid-fight",
+    "Understands the Coven, the bird-folk freedom militia, but rejects their methods",
     "Lost his wings, and misses flying badly"
   ],
   "tags": [
-    "Frontline", "Tank", "Guarder", "Healer", "Buffer", "Marker", "GuardBreaker",
-    "Religious", "Warrior", "Leader", "Just", "Outcast", "Animal"
+    "Frontline", "Tank", "Guarder", "Healer", "Buffer", "Marker",
+    "GuardBreaker", "Religious", "Warrior", "Leader", "Just", "Outcast",
+    "Animal"
   ]
 }

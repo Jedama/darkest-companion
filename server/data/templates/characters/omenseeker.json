@@ -3,7 +3,7 @@
   "title": "Omen Seeker",
   "name": "Mesmira",
   "description": "The Omen Seeker is a nomad inquisitor of the Flame, an officer of a purging order and an expert in what monsters are and how they die. She is exacting with everyone, herself worst of all, and the only softness in her comes out as instruction.",
-  "history": "Born to a nomad people of the Levantine Sultanate, the Omen Seeker was at a travelling show as a girl on the night a performer turned on his audience and left almost none of it alive. She joined the Inquisition of the Flame, which promised such things could be found and stopped, and rose to hold a rosette and command soldiers. The purges she led have not stopped, and neither has the doubt she began to feel somewhere among them.",
+  "history": "Born to a nomad people of the Levantine Vizierate, the Omen Seeker was at a travelling show as a girl on the night a performer turned on his audience and left almost none of it alive. She joined the Inquisition of the Flame, which promised such things could be found and stopped, and rose to hold a rosette and command soldiers. The purges she led have not stopped, and neither has the doubt she began to feel somewhere among them.",
   "summary": "A stern and exacting Omen Seeker of the Flame, a nomad monster hunter weighed down by the villages she burned on the order's word.",
   "race": "Human",
   "gender": "Female",
@@ -57,7 +57,7 @@
   },
   "magic": "None",
   "notes": [
-    "Instructs constantly—stance, grip, footing—and talks like a schoolmistress",
+    "Instructs constantly-stance, grip, footing-and talks like a schoolmistress",
     "Reads palms and cards for anyone who asks, but reports gentler fortunes than what she sees",
     "Scourges and fasts as penance",
     "Averse to song and merriment, and grows watchful when others are laughing",
@@ -65,7 +65,7 @@
   ],
   "tags": [
     "Flexible", "Debuffer", "Stunner", "Disruptor", "Bleeder", "BleedSynergy",
-    "BlightSynergy", "Crit", "Just", "Religious", "Warrior",
-    "Scholarly", "Vigilant", "Scavenger"
+    "BlightSynergy", "Crit", "Just", "Religious", "Warrior", "Scholarly",
+    "Vigilant", "Scavenger", "Penitent", "Reach"
   ]
 }

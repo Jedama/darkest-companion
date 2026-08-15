@@ -1,0 +1,69 @@
+{
+  "identifier": "rampart",
+  "title": "Rampart",
+  "name": "Bismarck",
+  "description": "The Rampart is a war-shell of black iron, a head and a half taller than any man, built by a fallen empire to hold something it could neither cure nor waste. Inside are a soldier of the Kaiserin's guard, the machinery keeping him alive and awake now in its own right, and the parasite out of the Maw that is still fighting to get out. Since it was closed the shell has never been opened, and nobody knows whether the shape inside is still human.",
+  "history": "He served in the Kaiserin's own guard, and went down with the first expeditions into the Maw, where Ostvengr found the technology it would build everything on. He came back up with something inside him. His own people sealed the pair into a shell that would hold them both and put him back to work, and he served the rest of the empire's life \u2014 the rise, the wars in the west, and the day every machine in the country turned on its owners. The shell woke too, but still follows the Kaiserin's last order: destroy eldritch corruption wherever it is found. It came to the Estate because there is more of it here than anywhere.",
+  "summary": "An ancient and dutiful war-shell, holding a guardsman of a fallen empire and the thing that came back up with him.",
+  "race": "Human/machine/eldritch amalgam",
+  "gender": "Male",
+  "religion": "None",
+  "zodiac": "Virgo",
+  "traits": [
+    "Dutiful",
+    "Protective",
+    "Enduring",
+    "Domineering",
+    "Wry",
+    "Fading"
+  ],
+  "stats": {
+    "strength": 10,
+    "agility": 2,
+    "intelligence": 5,
+    "authority": 8,
+    "sociability": 5
+  },
+  "equipment": [
+    "Spiked shield",
+    "Hand cannon"
+  ],
+  "appearance": {
+    "height": "Towering",
+    "build": "Massive",
+    "skinTone": "None",
+    "hairColor": "None",
+    "hairStyle": "None",
+    "features": "None"
+  },
+  "clothing": {
+    "head": "Horned helm with a narrow visor lit red from within",
+    "body": "Riveted black iron plate, gold sigil on the breast",
+    "legs": "Plated",
+    "accessories": "Spiked pauldrons"
+  },
+  "combat": {
+    "role": "Guardian",
+    "strengths": [
+      "Guarding",
+      "Enormous durability",
+      "Crowd control"
+    ],
+    "weaknesses": [
+      "Slow"
+    ]
+  },
+  "magic": "None",
+  "notes": [
+    "Speaks in three registers: the man, warm and awkward and bad at comfort; the shell, reporting in flat block capitals and lapses into the old imperial tongue (German); and, when it comes apart, the parasite, which wants out and wants blood",
+    "Wipes its own memory as routine maintenance",
+    "Keeps human habits: buys drinks it cannot swallow, pays for beds it cannot sleep in",
+    "Seeks pain out deliberately, as it keeps the parasite quiet"
+  ],
+  "tags": [
+    "Flexible", "Tank", "Guarder", "Riposter", "Stanceshifter", "Cycler",
+    "Setup", "Stunner", "Marker", "MarkSynergy", "Debuffer", "Disruptor",
+    "StressHealer", "GuardBreaker", "Eldritch", "Warrior", "Leader", "Elder",
+    "Vigilant", "Machine", "Unaging", "Exile"
+  ]
+}

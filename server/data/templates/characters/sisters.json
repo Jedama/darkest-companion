@@ -63,24 +63,9 @@
     "In combat, the sister in control sometimes reluctantly relinquish it to take advantage of the other's strength"
   ],
   "tags": [
-    "Dancer",
-    "Stanceshifter",
-    "Healer",
-    "StressHealer",
-    "Blighter",
-    "Bleeder",
-    "Marker",
-    "MarkSynergy",
-    "Riposter",
-    "Abrasive",
-    "Disruptor",
-    "Stealth",
-    "Crit",
-    "Companion",
-    "Scholarly",
-    "Warrior",
-    "Unstable",
-    "Vigilant",
-    "HeavyHitter"
+    "Dancer", "Stanceshifter", "Healer", "StressHealer", "Blighter", "Bleeder",
+    "Marker", "MarkSynergy", "Riposter", "Abrasive", "Disruptor", "Stealther",
+    "Crit", "Companion", "Scholarly", "Warrior", "Unstable", "Vigilant",
+    "HeavyHitter", "Reach"
   ]
 }

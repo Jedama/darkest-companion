@@ -13,8 +13,10 @@
  * padded out to look substantial.
  */
 
-import { CharacterRecord, EstateLeadership } from '../../../shared/types/types';
+import { CharacterRecord, EstateLeadership } from '../../../shared/types/types.js';
 import { NEUTRAL_AFFINITY } from '../../../shared/constants/relationships.js';
+import { hamletAffinities } from './roster.js';
+import { mean } from './statistics.js';
 import type { CliqueProfile } from './cliqueMetrics.js';
 
 export interface HamletSummary {
@@ -46,7 +48,11 @@ export function summariseHamlet(
   const ids = Object.keys(roster);
   const size = ids.length;
 
-  const recorded: number[] = [];
+  // The pair walk answers "how many pairs know each other, and how many both
+  // ways" — questions about PAIRS, which hamletAffinities cannot answer since it
+  // returns a flat list. The mean comes from the shared helper so that the figure
+  // printed here is the same one the clique bar and every regard metric use.
+  const recorded = hamletAffinities(roster);
   let recordedPairs = 0;
   let warmBothWays = 0;
 
@@ -54,8 +60,6 @@ export function summariseHamlet(
     for (let j = i + 1; j < ids.length; j++) {
       const aToB = roster[ids[i]]?.relationships[ids[j]]?.affinity;
       const bToA = roster[ids[j]]?.relationships[ids[i]]?.affinity;
-      if (typeof aToB === 'number') recorded.push(aToB);
-      if (typeof bToA === 'number') recorded.push(bToA);
       if (typeof aToB !== 'number' && typeof bToA !== 'number') continue;
 
       recordedPairs++;
@@ -69,9 +73,7 @@ export function summariseHamlet(
   }
 
   const possiblePairs = (size * (size - 1)) / 2;
-  const meanAffinity = recorded.length
-    ? recorded.reduce((a, b) => a + b, 0) / recorded.length
-    : NEUTRAL_AFFINITY;
+  const meanAffinity = recorded.length ? mean(recorded) : NEUTRAL_AFFINITY;
 
   const affiliated = new Set<string>();
   for (const clique of cliques) for (const member of clique.members) affiliated.add(member);

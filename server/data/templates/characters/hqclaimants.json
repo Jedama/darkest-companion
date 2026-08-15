@@ -64,24 +64,9 @@
     "Extremely protective of each other, would rather die together than separate"
   ],
   "tags": [
-    "Flexible",
-    "Stanceshifter",
-    "Tank",
-    "Healer",
-    "StressHealer",
-    "Guarder",
-    "Riposter",
-    "Disruptor",
-    "Immoral",
-    "Abrasive",
-    "ArmorPiercer",
-    "Cleanser",
-    "Companion",
-    "Noble",
-    "Leader",
-    "Strategist",
-    "Eldritch",
-    "Religious",
-    "Scout"
+    "Flexible", "Stanceshifter", "Tank", "Healer", "StressHealer", "Guarder",
+    "Riposter", "Disruptor", "Immoral", "Abrasive", "ArmorPiercer", "Cleanser",
+    "Companion", "Noble", "Leader", "Strategist", "Eldritch", "Religious",
+    "Scout", "Exile"
   ]
 }

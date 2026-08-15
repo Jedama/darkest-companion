@@ -2,8 +2,8 @@
   "identifier": "maenad",
   "title": "Maenad",
   "name": "Paculla",
-  "description": "A barefoot missionary of ecstasy, come across the sea preaching a nameless god of wine and liberation. She promises the miserable that anguish can be danced into joy—and she means it: she is genuinely, radiantly happy, and it is the most unsettling thing about her. Behind the warmth waits the frenzy of her god, rending and wild and holy, never far beneath the dance.",
-  "history": "An initiate of the Orphic mysteries that haunt Pelagia's hills, she rose to priestess and then to missionary, carrying the cult's rites across the sea of her own free will. She chose the Hamlet deliberately—where despair pools deepest, her god's promise shines brightest. What she has paid for her ecstasies, she no longer remembers; that is rather the point.",
+  "description": "A barefoot missionary of ecstasy, come across the sea preaching a nameless god of wine and liberation. She promises the miserable that anguish can be danced into joy\u2014and she means it: she is genuinely, radiantly happy, and it is the most unsettling thing about her. Behind the warmth waits the frenzy of her god, rending and wild and holy, never far beneath the dance.",
+  "history": "An initiate of the Orphic mysteries that haunt Pelagia's hills, she rose to priestess and then to missionary, carrying the cult's rites across the sea of her own free will. She chose the Hamlet deliberately\u2014where despair pools deepest, her god's promise shines brightest. What she has paid for her ecstasies, she no longer remembers; that is rather the point.",
   "summary": "A joyous, mad missionary of a nameless wine-god, dancing anguish into ecstasy at the price of her memories.",
   "race": "Human",
   "gender": "Female",
@@ -57,16 +57,16 @@
       "Madness rises as she fights"
     ]
   },
-  "magic": "Orphic mysteries—sacred intoxicants, ecstatic trance, communion with spirits",
+  "magic": "Orphic mysteries\u2014sacred intoxicants, ecstatic trance, communion with spirits",
   "notes": [
     "Speaks in warm, rushing exhortations; everyone is 'beloved', every stranger a convert-to-be",
-    "Genuinely happy—despair simply does not take root in her",
+    "Genuinely happy\u2014despair simply does not take root in her",
     "Always in motion: swaying, humming, dancing in place",
     "Drinks constantly from her kylix, and offers it to all",
     "Her memories dissolve at the heights of her ecstasies"
   ],
   "tags": [
-    "Flexible", "Dancer", "Frail", "StressHealer", "Cleanser", "Buffer", "Bleeder",
+    "Dancer", "Frail", "StressHealer", "Cleanser", "Buffer", "Bleeder",
     "SelfStress", "Unstable", "Religious", "Outcast", "Charmer", "Drunkard"
   ]
 }

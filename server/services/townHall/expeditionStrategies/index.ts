@@ -1,2 +1,2 @@
 // server/services/townHall/expeditionStrategies/index.ts
-export * from './strategyRegistry';
+export * from './strategyRegistry.js';

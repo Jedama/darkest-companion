@@ -2,7 +2,7 @@
   "identifier": "lamia",
   "title": "Lamia",
   "name": "Euryale",
-  "description": "A creature of two natures hidden beneath a veil of beauty. As a flawless woman she is warm, doting, and seemingly helpless—easing fears, tending wounds, and basking in the gratitude of those she cares for. Beneath the veil coils the truth: a serpentine horror of claws, venom, and a petrifying gaze, a creature terrible to behold.",
+  "description": "A creature of two natures hidden beneath a veil of beauty. As a flawless woman she is warm, doting, and seemingly helpless\u2014easing fears, tending wounds, and basking in the gratitude of those she cares for. Beneath the veil coils the truth: a serpentine horror of claws, venom, and a petrifying gaze, a creature terrible to behold.",
   "history": "The Lamia was one of three sisters born to a far-off royal house, worshipped for her beauty until worship curdled into envy, rumors, and accusations that led her to be burned alive. She survived, disfigured, and sought the drowned powers of the deep, sacrificing a young woman bind her beauty into a mended eldritch mirror. She returns to the Hamlet, near the dark waters beneath the Cove to which she must, now and then, return.",
   "summary": "An ancient, vain serpent-creature wearing a sacrificed woman's beauty, a singer and temptress by day while her true nature coils beneath the veil.",
   "race": "Lamia",
@@ -56,14 +56,15 @@
   },
   "magic": "Tide-granted glamour and eldritch arts",
   "notes": [
-    "Relishes playing the human woman—adored, needed, and kind; the mask is also the life she wants back",
+    "Relishes playing the human woman\u2014adored, needed, and kind; the mask is also the life she wants back",
     "Speaks in charming flirtation and playful helplessness, forever fishing for admiration",
     "Is afraid of fire",
     "In her true form she can only hiss",
     "Must hold the mirror to maintain her human disguise"
   ],
   "tags": [
-    "Backline", "Frail", "Healer", "StressHealer", "Cleanser", "Charmer", "Stealther",
-    "Shapeshifter", "Stanceshifter", "Stunner", "Blighter", "Debuffer", "Eldritch", "Immoral"
+    "Backline", "Frail", "Healer", "StressHealer", "Cleanser", "Charmer",
+    "Stealther", "Shapeshifter", "Stanceshifter", "Stunner", "Blighter", "Noble",
+    "Debuffer", "Eldritch", "Immoral", "Unaging", "Exile", "Sweeper"
   ]
 }

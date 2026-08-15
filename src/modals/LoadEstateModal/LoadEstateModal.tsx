@@ -1,8 +1,8 @@
 // src/modals/LoadEstateModal/LoadEstateModal.tsx
 import { useState, useEffect } from 'react';
-import { fetchEstates } from '../../utils/api';
-import { useEstateContext } from '../../contexts/EstateContext';
-import { ErrorNotice } from '../../components/ui/ErrorNotice';
+import { fetchEstates } from '../../utils/api.js';
+import { useEstateContext } from '../../contexts/EstateContext.js';
+import { ErrorNotice } from '../../components/ui/ErrorNotice.js';
 import './LoadEstateModal.css'; // if you have a CSS file
 
 export function LoadEstateModal() {

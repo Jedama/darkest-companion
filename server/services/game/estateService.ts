@@ -1,5 +1,5 @@
 // server/services/estateService.ts
-import type { Estate, EstateLeadership, Character, CharacterRecord } from '../../../shared/types/types.js';
+import type { Estate, EstateLeadership, Character, CharacterRecord, CharacterRelationship } from '../../../shared/types/types.js';
 import { saveEstate, listEstates } from '../../fileOps.js';
 import StaticGameDataManager from '../../staticGameDataManager.js';
 import { createCharacterFromTemplate } from './characterService.js';
@@ -69,20 +69,49 @@ export function addCharacterToEstate(
   if (!template) {
     throw new Error(`Character template '${characterId}' not found`);
   }
-
-  // Prevent accidental overwrite
   if (estate.characters[characterId]) {
     throw new Error(`Character '${characterId}' already exists in estate`);
   }
 
-  const character: Character = createCharacterFromTemplate(template, gameData);
+  // 1. Instantiate the new character
+  const newChar = createCharacterFromTemplate(template, gameData);
+  
+  // 2. Filter new character's relationships to ONLY targets currently in the estate
+  const filteredNewCharRelationships: Record<string, CharacterRelationship> = {};
+  const allDefaultRels = gameData.getDefaultRelationshipsForCharacter(characterId) || {};
 
+  for (const [targetId, rel] of Object.entries(allDefaultRels)) {
+    if (estate.characters[targetId]) {
+      filteredNewCharRelationships[targetId] = rel;
+    }
+  }
+  newChar.relationships = filteredNewCharRelationships;
+
+  // 3. Update existing estate characters with reciprocal relationships towards newChar (if defined)
+  const updatedEstateCharacters = { ...estate.characters };
+
+  for (const [existingId, existingChar] of Object.entries(updatedEstateCharacters)) {
+    const existingDefaultRels = gameData.getDefaultRelationshipsForCharacter(existingId) || {};
+    
+    // If the existing character has a template default for the new character
+    if (existingDefaultRels[characterId] && !existingChar.relationships[characterId]) {
+      updatedEstateCharacters[existingId] = {
+        ...existingChar,
+        relationships: {
+          ...existingChar.relationships,
+          [characterId]: existingDefaultRels[characterId],
+        },
+      };
+    }
+  }
+
+  // 4. Return updated estate
   return {
     ...estate,
     characters: {
-      ...estate.characters,
-      [characterId]: character
-    }
+      ...updatedEstateCharacters,
+      [characterId]: newChar,
+    },
   };
 }
 

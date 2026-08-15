@@ -1,0 +1,89 @@
+[
+  {
+    "identifier": "lore_siren",
+    "title": "Echoes of House Tritonis",
+    "type": "story",
+    "description": "Marston guides [Characters] through the long-abandoned Tritonis House, from the Daughter's Chamber through the house, and finally to the far end of the pier. Marston recounts the grim history of the Tritonis family, and wonders became of their daughter. This is a lore event, and its primary purpose is to explain this backstory to the user.",
+    "characterCount": [1, 4],
+    "keywords": [],
+    "location": {
+      "default": [
+        "tritonis_house__daughter_chamber",
+        "tritonis_house__master_bedroom",
+        "tritonis_house__dining_hall",
+        "tritonis_house__porch",
+        "harbor__pier"
+      ],
+      "residence": [],
+      "workplaces": [],
+      "frequents": [],
+      "allowAll": false,
+      "allowParentLocations": false,
+      "multipleLocations": 5
+    },
+    "npcs": ["sailor"]
+  },
+  {
+    "identifier": "lore_bone_taker",
+    "title": "Chains of the Ossuary",
+    "type": "story",
+    "description": "Abbot Tobias guides [Characters] through the hillside graveyard, telling them of Martha, the keeper's daughter—a sweet girl who loved playing among the skull-lined niches of the Ossuary, and who vanished during the chaos when the Manor's horrors first assailed the hamlet. This is a lore event, and its primary purpose is to explain this backstory to the user.",
+    "characterCount": [1, 4],
+    "keywords": [],
+    "location": {
+      "default": [
+        "graveyard",
+        "graveyard__ossuary"
+      ],
+      "residence": [],
+      "workplaces": [],
+      "frequents": [],
+      "allowAll": false,
+      "allowParentLocations": false,
+      "multipleLocations": 2
+    },
+    "npcs": ["abbot"]
+  },
+  {
+    "identifier": "lore_hag",
+    "title": "Roots of Obsession",
+    "type": "story",
+    "description": "Imogen guides [Characters] through the dark timber Apothecary, moving from the shop floor up to the sister's third-floor bedroom, and finally out into the overgrown herb garden, recounting the tale of the late Apothecary and his ambitious sister, the Horticulturist—how her obsession with cultivating the Weald's unnatural fungi drove her to abandon human medicine, grab her cauldron, and vanish forever into the rotting forest. This is a lore event, and its primary purpose is to explain this backstory to the user.",
+    "characterCount": [1, 4],
+    "keywords": [],
+    "location": {
+      "default": [
+        "apothecary__shop",
+        "apothecary__third_floor",
+        "apothecary__garden"
+      ],
+      "residence": [],
+      "workplaces": [],
+      "frequents": [],
+      "allowAll": false,
+      "allowParentLocations": false,
+      "multipleLocations": 3
+    },
+    "npcs": ["physician"]
+  },
+  {
+    "identifier": "lore_vvulf",
+    "title": "Scars of the Brigade",
+    "type": "story",
+    "description": "Guild Master Thorne gathers [Characters] at the scarred stone steps of the Constabulary. Over an old artillery map, the former brigand lieutenant recounts how the townpeople, dissatisfied with the Ancestor, began making demands. And how he, and his fellow brigands, who were hired to silence the unrest, under Vvulf's orders, brought the 8-Pounder, the great cannon, to pulverize anyone who resisted. Thorne tells of the late Captain, who yet refused to yield, and how he later led the Hamlet's militia against the horrors that escaped the Manor, after the Ancestor's death. This is a lore event, and its primary purpose is to explain this backstory to the user.",
+    "characterCount": [1, 4],
+    "keywords": [],
+    "location": {
+      "default": [
+        "constabulary"
+      ],
+      "residence": [],
+      "workplaces": [],
+      "frequents": [],
+      "allowAll": false,
+      "allowParentLocations": false,
+      "multipleLocations": 1
+    },
+    "npcs": ["guild_master"]
+  }
+]

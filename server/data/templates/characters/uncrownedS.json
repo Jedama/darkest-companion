@@ -1,0 +1,68 @@
+{
+  "identifier": "uncrownedS",
+  "title": "Uncrowned",
+  "name": "Hush",
+  "description": "The Uncrowned is a raven-folk assassin in a dark hood, sworn to a goddess of death and quietly certain she is not finished with him. He works from shadow and kills quickly, and each time he dies he's returned to her service, but comes back with a little less of himself.",
+  "history": "He was a thief first, and a poor one, stealing to eat in a country that had no other use for him. The Duskmaven chose him, and he took the Uncrowned's trade: contracts, poisons, and a blade in the dark, at the price of a service that does not end. He has died more than once now and been returned each time, and something goes missing with every return. She told him to come here, and he came.",
+  "summary": "A devout and unravelling Uncrowned, a raven-folk assassin sworn to a goddess of death who keeps returning him.",
+  "race": "Bird-folk",
+  "gender": "Male",
+  "religion": "The Duskmaven",
+  "zodiac": "Cancer",
+  "traits": [
+    "Devout",
+    "Wary",
+    "Greedy",
+    "Fatalistic",
+    "Proud"
+  ],
+  "stats": {
+    "strength": 5,
+    "agility": 9,
+    "intelligence": 6,
+    "authority": 4,
+    "sociability": 4
+  },
+  "equipment": [
+    "Twin daggers",
+    "Poisons"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Slight",
+    "skinTone": "Black and violet plumage",
+    "hairColor": "None",
+    "hairStyle": "None",
+    "features": "A long straight beak and dark wings"
+  },
+  "clothing": {
+    "head": "Deep hood",
+    "body": "Dark leathers under a maroon cloak",
+    "legs": "Dark wrappings over bare talons",
+    "accessories": "Purple beads on a cord, knife belts"
+  },
+  "combat": {
+    "role": "Assassin",
+    "strengths": [
+      "Striking from stealth",
+      "Poisons",
+      "Building to a killing blow"
+    ],
+    "weaknesses": [
+      "Frail",
+      "Spent once he strikes"
+    ]
+  },
+  "magic": "None",
+  "notes": [
+    "Takes normal medicine willingly, but violently attacks anyone who tries to touch his mind.",
+    "Needs someone in front of him, and asks for it constantly.",
+    "Prays to the Duskmaven aloud, and refuses anything she would disapprove of.",
+    "Due to his repeated deaths, he is more bird-like than the rest of his kind."
+  ],
+  "tags": [
+    "Frontline", "Frail", "Stealther", "Cycler", "Crit", "Bleeder",
+    "Blighter", "Stunner", "GuardBreaker", "Executor", "Scout", "Religious",
+    "Animal", "Immoral", "Outcast", "Lowborn", "Reach", "Sweeper"
+  ]
+}

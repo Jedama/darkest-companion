@@ -1,0 +1,68 @@
+{
+  "identifier": "salad",
+  "title": "Salamander",
+  "name": "Brunhilde",
+  "description": "The Salamander is an engineer who has made herself her own best work. After an explosion took her arm, she replaced it, and has not stopped since. She is more steel than flesh, but does not consider herself maimed or cursed; she considers herself unfinished, and intends one day to be done.",
+  "history": "The Salamander was an independent engineer in the warmongering Ostvengr. After an explosion in her lab severely injured her, taking an arm and leaving a deep gash across her face, she built combat-focused prosthetics for herself. Ever since, she has been addicted to the pain and the progress of tearing away parts of herself to replace them with something better. In need of money, and of a place where nobody asks questions, she has made her way to the Estate.",
+  "summary": "A brilliant but self-devouring engineer who is steadily replacing her own body with better parts.",
+  "race": "Human",
+  "gender": "Female",
+  "religion": "None",
+  "zodiac": "Gemini",
+  "traits": [
+    "Brilliant",
+    "Driven",
+    "Coarse",
+    "Blunt",
+    "Masochistic"
+  ],
+  "stats": {
+    "strength": 5,
+    "agility": 7,
+    "intelligence": 9,
+    "authority": 5,
+    "sociability": 5
+  },
+  "equipment": [
+    "Flamethrower",
+    "Grappling claw",
+    "Pile bunker"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Slight",
+    "skinTone": "Fair",
+    "hairColor": "Black",
+    "hairStyle": "Long and tied back, with a blunt fringe (hidden by helmet)",
+    "features": "A slash across the nose and both cheeks, all four limbs are prosthetic"
+  },
+  "clothing": {
+    "head": "Riveted steel helm with a barred visor",
+    "body": "Chestplate, grafted to her flesh",
+    "legs": "Spiked tassets over dark trousers",
+    "accessories": "None"
+  },
+  "combat": {
+    "role": "Skirmisher",
+    "strengths": [
+      "Versatile weaponry",
+      "Mobility",
+      "Flames"
+    ],
+    "weaknesses": [
+      "Overheating",
+      "Unreliable damage"
+    ]
+  },
+  "magic": "None",
+  "notes": [
+    "Speaks like a workshop hand, all 'lads' and 'oi' and casual swearing",
+    "Her body is loud and obvious with her emotions: revving, steam hissing, actuators clicking",
+    "Enjoys bets and gambling",
+    "Enjoys the surgery she performs on herself"
+  ],
+  "tags": [
+    "Dancer", "Crit", "Bleeder", "Disruptor", "Mercenary", "SelfSufficient",
+    "Scholarly", "Unstable", "Machine", "Exile"
+  ]
+}

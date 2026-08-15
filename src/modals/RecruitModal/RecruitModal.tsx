@@ -1,12 +1,12 @@
 // src/components/modals/RecruitModal/RecruitModal.tsx
 
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import { useGameData } from '../../contexts/GameDataContext';
-import { useEstateContext } from '../../contexts/EstateContext';
-import { ImageButton } from '../../components/ui/buttons/ImageButton';
-import { LoadingIndicator } from '../../components/ui/LoadingIndicator';
-import { ErrorNotice } from '../../components/ui/ErrorNotice';
-import { recruitCharacter, isAbortError } from '../../utils/api';
+import { useGameData } from '../../contexts/GameDataContext.js';
+import { useEstateContext } from '../../contexts/EstateContext.js';
+import { ImageButton } from '../../components/ui/buttons/ImageButton.js';
+import { LoadingIndicator } from '../../components/ui/LoadingIndicator.js';
+import { ErrorNotice } from '../../components/ui/ErrorNotice.js';
+import { recruitCharacter, isAbortError } from '../../utils/api.js';
 import './RecruitModal.css';
 
 interface RecruitModalProps {

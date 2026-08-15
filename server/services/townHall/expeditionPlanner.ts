@@ -1,7 +1,7 @@
 //server/services/townHall/expeditionPlanner.ts
-import { CharacterRecord } from '../../../shared/types/types';
-import { countViolations, repairComposition } from './incompatibility';
-import { PARTY_SIZE } from '../../../shared/constants/expedition';
+import { CharacterRecord } from '../../../shared/types/types.js';
+import { countViolations, repairComposition } from './incompatibility.js';
+import { PARTY_SIZE } from '../../../shared/constants/expedition.js';
 import { 
   STRATEGY_REGISTRY, 
   ALL_STRATEGIES,
@@ -11,9 +11,9 @@ import {
   PartyScoringStatistics, 
   NormalizationStats,
   generateDefaultWeights
-} from './expeditionStrategies/';
+} from './expeditionStrategies/index.js';
 import { isStrategyId } from '../../../shared/constants/strategies.js';
-import type { StrategyContext } from '../../../shared/types/types';
+import type { StrategyContext } from '../../../shared/types/types.js';
 
 // --- DEBUG INFORMATION TYPES ---
 // These types structure the detailed breakdown of the scoring.

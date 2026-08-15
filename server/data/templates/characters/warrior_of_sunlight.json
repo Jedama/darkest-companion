@@ -2,8 +2,8 @@
   "identifier": "warrior_of_sunlight",
   "title": "Sunlight Warrior",
   "name": "Oswin",
-  "description": "A knight of the wandering Order of Sunlight, sworn to protect the meek in the name of the sun god. the Sunlight Warrior fights as a mobile guardian—parrying, stunning, and hurling spears of light—while keeping his companions' spirits lifted with relentless, booming good cheer. That jollity is not naivety but discipline: beneath his armor he bears the black brand of the undead curse, which denies him death at the price of slowly hollowing into a mindless husk. Only his faith in the magnificent sun and his sworn duty to others hold the erosion at bay, and so he practices both the way other men draw breath.",
-  "history": "Many lifetimes ago, the Sunlight Warrior's order swore their covenant and took up the search for a long-forgotten prophecy. He has died more times than he cares to admit, and each return has cost him a sliver of mind and faith—an arithmetic he knows cannot run forever. The tolling of distant bells and the words of a blind prophetess drew his order across the old road to the Hamlet, where the Sunlight Warrior now stands at dawn upon the cliffs, gazing at the rising sun, certain that his destiny and the estate's are intertwined.",
+  "description": "A knight of the wandering Order of Sunlight, sworn to protect the meek in the name of the sun god. the Sunlight Warrior fights as a mobile guardian\u2014parrying, stunning, and hurling spears of light\u2014while keeping his companions' spirits lifted with relentless, booming good cheer. That jollity is not naivety but discipline: beneath his armor he bears the black brand of the undead curse, which denies him death at the price of slowly hollowing into a mindless husk. Only his faith in the magnificent sun and his sworn duty to others hold the erosion at bay, and so he practices both the way other men draw breath.",
+  "history": "Many lifetimes ago, the Sunlight Warrior's order swore their covenant and took up the search for a long-forgotten prophecy. He has died more times than he cares to admit, and each return has cost him a sliver of mind and faith\u2014an arithmetic he knows cannot run forever. The tolling of distant bells and the words of a blind prophetess drew his order across the old road to the Hamlet, where the Sunlight Warrior now stands at dawn upon the cliffs, gazing at the rising sun, certain that his destiny and the estate's are intertwined.",
   "summary": "A jolly, devout undead knight whose relentless good cheer is the discipline holding his cursed mind together.",
   "race": "Undead human",
   "gender": "Male",
@@ -57,12 +57,12 @@
   },
   "magic": "Miracles of sunlight",
   "notes": [
-    "Relentlessly warm and encouraging, calling everyone 'friend' and speaking in earnest, booming exclamations—'Praise the Sun!'",
+    "Relentlessly warm and encouraging, calling everyone 'friend' and speaking in earnest, booming exclamations\u2014'Praise the Sun!'",
     "His cheer is discipline, not innocence: despair hastens his hollowing, so he starves it in himself and others alike",
     "Hides his curse beneath armor he never removes, and does not speak of it to anyone, even his order"
   ],
   "tags": [
     "Flexible", "Tank", "Guarder", "Riposter", "Stunner", "Disruptor",
-    "StressHealer", "Warrior", "Religious", "Light"
+    "StressHealer", "Warrior", "Religious", "Torchlit", "Unaging"
   ]
 }

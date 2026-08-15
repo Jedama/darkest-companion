@@ -28,7 +28,7 @@
   },
   {
     "identifier": "harbor__pier",
-    "title": "Harbor's Pier",
+    "title": "Pier",
     "description": "The longest dock reaches deep into the murky waters, its weathered planks perpetually encrusted with barnacles that seem to grow back overnight. At its far end, where chains once held something precious, starfish cluster in unnatural abundance, their forms visible even through the dark waters. Local sailors whisper of a mournful song that rises from the depths during certain moons, and how the last of House Tritonis, mad with grief, walked these boards into the freezing waters in search of their daughter's voice.",
     "summary": "The longest dock reaching into murky waters, known for unnatural starfish clusters and local legends of a mournful song from the depths.",
     "parent": "harbor",
@@ -185,8 +185,8 @@
   {
     "identifier": "stumbling_corpse__keepers_nook",
     "title": "Keeper's Nook",
-    "description": "The proprietor's private quarters, barely large enough for a bed and standing closet. A collection of pipes lines one wall, while a logbook on the simple desk records decades of tenants, some pages marked with small red crosses.",
-    "summary": "The proprietor's private, spartan quarters in The Stumbling Corpse, with a bed, closet, pipes, and a logbook.",
+    "description": "The proprietor's private quarters, barely large enough for a bed and standing closet. A collection of pipes lines one wall, while a logbook on the simple desk records decades of tenants, some pages marked with small red crosses. A dried blue flower sits on the windowsill beside the bed, replaced whenever it crumbles.",
+    "summary": "The proprietor's private, spartan quarters in The Stumbling Corpse, with a bed, closet, pipes, a logbook, and a dried blue flower.",
     "parent": "stumbling_corpse",
     "children": []
   }

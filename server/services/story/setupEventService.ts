@@ -3,7 +3,7 @@ import StaticGameDataManager from '../../staticGameDataManager.js';
 import { pickEventLocation } from '../game/locationService.js';
 import { EVENTS_DIR } from '../../paths.js';
 
-import type { Estate, EventData, EventLocationRequirements, LocationData, Bystander, FollowUpEvent } from '../../../shared/types/types';
+import type { Estate, EventData, EventLocationRequirements, LocationData, Bystander, FollowUpEvent } from '../../../shared/types/types.js';
 
 // Constants
 const MAX_SCENE_NPCS = 6;

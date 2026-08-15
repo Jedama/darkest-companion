@@ -1,0 +1,66 @@
+{
+  "identifier": "tempest",
+  "title": "Tempest",
+  "name": "Vetra",
+  "description": "The Tempest is a dragon-folk woman who was a god until recently and has not adjusted to the loss. She commands where she means to ask and condescends where she means to comfort, and is nonetheless the first to heal a wound and the last to let anyone fall. Mortality is an indignity she has not accepted, though she is finding some of it unexpectedly wonderful.",
+  "history": "The Tempest was a god, with devout followers she loved and bestowed boons upon, until she was cast down and left in a mortal body, and her pantheon let it happen. She has come to the Estate to kill whatever orchestrated her fall and take back what is hers.",
+  "summary": "An imperious and lightning-wielding Tempest, a dethroned god in a mortal body, come to take her divinity back.",
+  "race": "Dragon-folk",
+  "gender": "Female",
+  "religion": "None",
+  "zodiac": "Libra",
+  "traits": [
+    "Imperious",
+    "Curious",
+    "Protective",
+    "Determined"
+  ],
+  "stats": {
+    "strength": 4,
+    "agility": 5,
+    "intelligence": 9,
+    "authority": 9,
+    "sociability": 5
+  },
+  "equipment": [
+    "Electric gauntlet"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Slight",
+    "skinTone": "Dark blue-grey scales",
+    "hairColor": "None",
+    "hairStyle": "None",
+    "features": "A horned draconic skull and clawed hands"
+  },
+  "clothing": {
+    "head": "None",
+    "body": "Layered dark robes over pale wrappings, with a spiked shoulder mantle",
+    "legs": "Dark trousers and heavy boots",
+    "accessories": "Crystal-set gauntlet, high collar"
+  },
+  "combat": {
+    "role": "Caster",
+    "strengths": [
+      "Lightning",
+      "Buffing the party",
+      "Healing"
+    ],
+    "weaknesses": [
+      "Spells hurt herself",
+      "Frail"
+    ]
+  },
+  "magic": "Electricity, channelled through her gauntlet",
+  "notes": [
+    "Calls everyone lesser, and does not hear herself doing it",
+    "Explains the workings of the world unprompted, and in terms nobody follows",
+    "Investigating mortal sensation with genuine delight\u2014pain, wine, sex\u2014and unembarrassed about it",
+    "Misses her past badly, but forbids anyone from asking about it"
+  ],
+  "tags": [
+    "Flexible", "Frail", "Buffer", "Healer", "Disruptor", "Riposter",
+    "Unstable", "ArmorPiercer", "Crit", "Scholarly", "Abrasive", "Animal",
+    "Exile", "Reach"
+  ]
+}

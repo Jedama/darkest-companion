@@ -1,7 +1,7 @@
 // src/contexts/GameDataContext.tsx
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { fetchStaticGameData, isAbortError } from '../utils/api';
-import type { CharacterDefinition } from '../utils/api';
+import { fetchStaticGameData, isAbortError } from '../utils/api.js';
+import type { CharacterDefinition } from '../utils/api.js';
 
 // Re-exported so existing `import type { CharacterDefinition } from
 // '../contexts/GameDataContext'` lines keep working. The type itself now lives

@@ -2,8 +2,8 @@
   "identifier": "thorn",
   "title": "Thorn",
   "name": "Marlene",
-  "description": "A blind duelist who fights by ear, the Thorn holds her ground and lets the battle come to her. In her defensive stance she is a sentinel—listening, marking, and shielding allies from blows they don't see coming; with her blade drawn she becomes a lethal fencer, parrying and answering every attack with a precise riposte. She has turned her condition into a discipline, training her sighted companions to move and fight in darkness. But her mastery is built on a fixed point in space: she will not maneuver mid-battle, and a blow she fails to sense can shatter her focus entirely.",
-  "history": "The Thorn was once 'the Rose'—champion fencer and favourite of a great lady of the court, celebrated before adoring crowds. Her sight was taken in a duel by an unremarkable opponent she had beaten before. Discarded by the court, she spent long years lost before slowly rebuilding herself through relentless discipline, trading a champion's gift for a fencer's drilled mastery.",
+  "description": "A blind duelist who fights by ear, the Thorn holds her ground and lets the battle come to her. In her defensive stance she is a sentinel\u2014listening, marking, and shielding allies from blows they don't see coming; with her blade drawn she becomes a lethal fencer, parrying and answering every attack with a precise riposte. She has turned her condition into a discipline, training her sighted companions to move and fight in darkness. But her mastery is built on a fixed point in space: she will not maneuver mid-battle, and a blow she fails to sense can shatter her focus entirely.",
+  "history": "The Thorn was once 'the Rose'\u2014champion fencer and favourite of a great lady of the court, celebrated before adoring crowds. Her sight was taken in a duel by an unremarkable opponent she had beaten before. Discarded by the court, she spent long years lost before slowly rebuilding herself through relentless discipline, trading a champion's gift for a fencer's drilled mastery.",
   "summary": "A blind former court champion who rebuilt herself into a patient, vigilant duelist and teacher, sharper now than she was celebrated.",
   "race": "Human",
   "gender": "Female",
@@ -62,7 +62,8 @@
     "Perceives the world through hearing and scent, and teaches others to do the same"
   ],
   "tags": [
-    "Flexible", "Immobile", "Riposter", "Guarder", "Marker", "MarkSynergy", "Bleeder",
-    "Stunner", "Debuffer", "GuardBreaker", "Stanceshifter", "Warrior", "Vigilant", "Setup"
+    "Flexible", "Immobile", "Riposter", "Guarder", "Marker", "MarkSynergy",
+    "Bleeder", "Stunner", "Debuffer", "GuardBreaker", "Stanceshifter", "Warrior",
+    "Vigilant", "Setup"
   ]
 }

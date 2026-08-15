@@ -2,8 +2,8 @@
   "identifier": "cataphract",
   "title": "Cataphract",
   "name": "Nyriad",
-  "description": "The Cataphract is a formidable mounted warrior from the Levantine Sultanate, bonded with the spirit of her horse, Kargadaan, whose skull she always carries around. In battle, it transforms into a spectral steed of blue flames to assist the Cataphract. Together they form an unstoppable cavalry unit, using their combined skills to charge into battle and vanquish foes.",
-  "history": "Once a respected warrior of the Levantine Sultanate, the Cataphract's life changed when her beloved Kargadaan was fatally wounded. Desperate, she stole a powerful artifact to revive him, resulting in their exile. Now the spirit of the horse speaks to her, and they fight together against the horrors of the estate.",
+  "description": "The Cataphract is a formidable mounted warrior from the Levantine Vizierate, bonded with the spirit of her horse, Kargadaan, whose skull she always carries around. In battle, it transforms into a spectral steed of blue flames to assist the Cataphract. Together they form an unstoppable cavalry unit, using their combined skills to charge into battle and vanquish foes.",
+  "history": "Once a respected warrior of the Levantine Vizierate, the Cataphract's life changed when her beloved Kargadaan was fatally wounded. Desperate, she stole a powerful artifact to revive him, resulting in their exile. Now the spirit of the horse speaks to her, and they fight together against the horrors of the estate.",
   "summary": "An exiled Levantine cavalry warrior bonded to the spirit of her horse, whose rigid discipline fractures into his voice under enough stress.",
   "race": "Human",
   "gender": "Female",
@@ -63,14 +63,7 @@
     "Forms immediate judgments of others and stubbornly sticks to them"
   ],
   "tags": [
-    "Dancer",
-    "Healer",
-    "Companion",
-    "Warrior",
-    "Leader",
-    "Vigilant",
-    "Debuffer",
-    "HeavyHitter",
-    "Just"
+    "Dancer", "Healer", "Companion", "Warrior", "Leader", "Vigilant",
+    "Debuffer", "HeavyHitter", "Just", "Exile", "Reach", "Sweeper"
   ]
 }

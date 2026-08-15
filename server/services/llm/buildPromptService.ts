@@ -1,4 +1,4 @@
-// server/services/buildPromptService.ts
+// server/services/llm/buildPromptService.ts
 import type {
   Bystander,
   Character,
@@ -16,9 +16,10 @@ import { CONTENT_TAGS } from '../../../shared/types/types.js';
 import { NEUTRAL_AFFINITY } from '../../../shared/constants/relationships.js';
 import type { PlanningCouncil } from '../townHall/council.js';
 import StaticGameDataManager from '../../staticGameDataManager.js';
-import { isDescendantOf } from '../game/locationService.js';
+import { isDescendantOf, getLocationLabel } from '../game/locationService.js';
 import { getZodiacForMonth, formatTimeSinceEvent } from '../game/calendarService.js';
 import { generateWeatherDescription, generateWeatherChangeDescription } from '../game/weatherService.js';
+import { formatTimeAgo } from '../game/logService.js'
 
 const MAX_USER_INPUT_LENGTH = 10000;
 
@@ -123,7 +124,7 @@ export function buildCharactersSection(involvedCharacters: Character[]): string 
   lines.push(`[Characters]\n`);
 
   for (const char of involvedCharacters) {
-    lines.push(`\n\n- ${char.name} (${char.title}):\n`);
+    lines.push(`- ${char.name} (${char.title}):\n`);
     lines.push(`  - Description: ${char.description}\n`);
     lines.push(`  - History: ${char.history}\n`);
     lines.push(
@@ -265,6 +266,8 @@ export function buildLocationSection(
       ? loc.restored
       : loc.description;
 
+  const titleFor = (loc: LocationData) => getLocationLabel(loc.identifier);
+
   // Fall back to "first location is the main one" if no ids are supplied,
   // so any existing callers keep working unchanged.
   const mainIds = new Set(mainLocationIds.length ? mainLocationIds : [locations[0].identifier]);
@@ -277,18 +280,18 @@ export function buildLocationSection(
   if (mains.length > 1) {
     lines.push(`This scene unfolds across ${mains.length} locations at once — cut between them.\n\n`);
     mains.forEach((loc, i) => {
-      lines.push(`Main Location ${i + 1}: ${loc.title}\n`);
+      lines.push(`Main Location ${i + 1}: ${titleFor(loc)}\n`);
       lines.push(`Description: ${descFor(loc)}\n\n`);
     });
   } else {
-    lines.push(`Title: ${mains[0].title}\n`);
+    lines.push(`Title: ${titleFor(mains[0])}\n`);
     lines.push(`Description: ${descFor(mains[0])}\n\n`);
   }
 
   if (surrounding.length) {
     lines.push(`Surrounding Locations:\n`);
     for (const loc of surrounding) {
-      lines.push(`- ${loc.title}: ${descFor(loc)}\n`);
+      lines.push(`- ${titleFor(loc)}: ${descFor(loc)}\n`);
     }
   }
 
@@ -385,6 +388,10 @@ export function buildNPCSection(npcs: NPC[]): string {
 
     if (npc.traits.length > 0) {
       lines.push(`  Notable Traits: ${npc.traits.join(', ')}\n`);
+    }
+
+    if (npc.notes.length > 0) {
+      lines.push(`${npc.notes.join('\n')}\n`);
     }
 
     lines.push('\n');
@@ -588,9 +595,6 @@ export function buildUserInputSection(context?: string, description?: string): s
   return parts.join('\n') + '\n';
 }
 
-
-// Add these to server/services/llm/buildPromptService.ts
-
 /* -------------------------------------------------------------------
  *  Review prompt builders
  * ------------------------------------------------------------------- */
@@ -613,20 +617,6 @@ export function buildNarrativesSection(estate: Estate): string {
   return narratives
     .map((narrative, i) => `${i + 1}. ${narrative}`)
     .join('\n\n');
-}
-
-function formatTimeAgo(currentMonth: number, currentDay: number, logMonth: number, logDay: number): string {
-  const totalCurrentDays = currentMonth * 30 + currentDay;
-  const totalLogDays = logMonth * 30 + logDay;
-  const daysAgo = Math.max(0, totalCurrentDays - totalLogDays);
-  
-  const monthsAgo = Math.floor(daysAgo / 30);
-  const remainingDays = daysAgo % 30;
-  
-  if (monthsAgo > 0 && remainingDays > 0) return `${monthsAgo} months, ${remainingDays} days ago`;
-  if (monthsAgo > 0) return `${monthsAgo} months ago`;
-  if (remainingDays > 0) return `${remainingDays} days ago`;
-  return 'today';
 }
 
 export function buildAllLogsSection(estate: Estate): string {

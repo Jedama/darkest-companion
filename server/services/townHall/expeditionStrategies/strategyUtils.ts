@@ -4,8 +4,8 @@
  * They are designed to be generic and opinion-free.
  */
 
-import { CharacterRecord } from '../../../../shared/types/types';
-import { Party } from '../expeditionPlanner';
+import { CharacterRecord } from '../../../../shared/types/types.js';
+import { Party } from '../expeditionPlanner.js';
 
 // ==================================
 // UTILITY/HELPER FUNCTIONS

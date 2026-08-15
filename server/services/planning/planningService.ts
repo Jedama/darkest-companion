@@ -32,32 +32,13 @@ export interface PlanningAttendee {
 }
 
 export interface DialogueLine {
-  speaker: string; // character identifier
+  speaker: string; // canonical character identifier, as keyed in estate.characters
   text: string;
 }
 
 /* -------------------------------------------------------------------
  *  Attendance
  * ------------------------------------------------------------------- */
-
-/**
- * Determines who sits at the planning meeting.
- *
- * Four capacities now, not three. The Margrave and Bursar may be ACTING — the de
- * jure holder keeps the title while ill, and someone steps into the chair for the
- * month. Councillors hold persistent seats granted through play. Advisors are
- * computed fresh each month from competence and standing, and are stored nowhere.
- *
- * `zodiac` is the reigning season's name; heroes born under it are favoured when
- * advisors are chosen, so the bench turns over as the year does.
- */
-export function getPlanningAttendees(
-  estate: Estate,
-  options: { zodiac?: string } = {}
-): PlanningAttendee[] {
-  const assembled = assemblePlanningCouncil(estate.leadership, estate.characters, options);
-  return seatAttendees(assembled, estate);
-}
 
 /**
  * Turns an assembled council into attendee records, preserving speaking order:
@@ -183,9 +164,17 @@ export function compileDeliberationPrompt(
  * Splits a plain-text dialogue response into speaker/text pairs. Lines are of
  * the form `identifier: spoken words`. Anything that does not name a known
  * attendee is dropped — a mis-attributed line is worse than a missing one.
+ *
+ * Speakers are matched CASE-INSENSITIVELY but reported CANONICALLY. The model
+ * echoes back whatever casing it likes, while `estate.characters` is keyed by the
+ * exact identifier. Matching on a lowercased copy and then emitting that copy
+ * would trade one silent failure for another: the line parses, and every
+ * downstream `estate.characters[line.speaker]` lookup misses.
  */
 export function parseDialogue(response: string, attendeeIds: string[]): DialogueLine[] {
-  const valid = new Set(attendeeIds);
+  const canonical = new Map<string, string>();
+  for (const id of attendeeIds) canonical.set(id.toLowerCase(), id);
+
   const lines: DialogueLine[] = [];
 
   for (const raw of response.split('\n')) {
@@ -198,11 +187,12 @@ export function parseDialogue(response: string, attendeeIds: string[]): Dialogue
       continue;
     }
 
-    const speaker = line.slice(0, separator).trim().toLowerCase();
+    const spoken = line.slice(0, separator).trim();
     const text = line.slice(separator + 1).trim();
 
-    if (!valid.has(speaker)) {
-      console.warn(`[Planning] Dropping line from unknown speaker '${speaker}'.`);
+    const speaker = canonical.get(spoken.toLowerCase());
+    if (!speaker) {
+      console.warn(`[Planning] Dropping line from unknown speaker '${spoken}'.`);
       continue;
     }
     if (!text) continue;

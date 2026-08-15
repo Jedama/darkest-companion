@@ -60,18 +60,8 @@
     "Thinks violence must be spectacular and dislikes poison"
   ],
   "tags": [
-    "Frontline",
-    "StressHealer",
-    "Buffer",
-    "Stunner",
-    "Disruptor",
-    "GuardBreaker",
-    "Bleeder",
-    "Executor",
-    "Leader",
-    "Entertainer",
-    "Scavenger",
-    "HeavyHitter",
-    "Immoral"
+    "Frontline", "StressHealer", "Buffer", "Stunner", "Disruptor", "GuardBreaker",
+    "Bleeder", "Executor", "Leader", "Entertainer", "Scavenger", "HeavyHitter",
+    "Immoral", "Companion"
   ]
 }

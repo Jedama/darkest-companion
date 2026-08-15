@@ -4,6 +4,7 @@
   "name": "Damien",
   "description": "The Flagellant is a religious extremist who discovered divine power through self-inflicted suffering. Now he wanders, seeking fresh torments and offering to consume others' sins by accepting their violence upon his flesh. His scarred body is a living document of devotion.",
   "history": "Damien was a listless vagrant until drunks beat him bloody in an alley. As his tooth cracked and vision went crimson, he discovered something profound: pain was power, suffering was sacrament. He joined the clergy and worked in the church's dungeons, administering punishment with such zealous fervor that his brethren grew frightened and cast him out. Each wound fueled his rapture. When Death came for him with her scythe, he defied her through sheer ecstasy in suffering.",
+  "summary": "A scarred and rapturous Flagellant of the Light, cast out by his own church, who takes others' wounds and sins onto flesh already ruined by devotion.",
   "race": "Human",
   "gender": "Male",
   "religion": "The Light",
@@ -60,17 +61,8 @@
     "Becomes raptorous when stressed, joyously dispensing pain on himself, enemies, and allies alike"
   ],
   "tags": [
-    "Frontline",
-    "ShortReach",
-    "Tank",
-    "Healer",
-    "StressHealer",
-    "Bleeder",
-    "Cleanser",
-    "SelfSufficient",
-    "SelfStress",
-    "Religious",
-    "Unstable",
-    "Brink"
+    "Frontline", "ShortReach", "Tank", "Healer", "StressHealer", "Bleeder",
+    "Cleanser", "SelfSufficient", "SelfStress", "Religious", "Unstable", "Brink",
+    "Lowborn"
   ]
 }

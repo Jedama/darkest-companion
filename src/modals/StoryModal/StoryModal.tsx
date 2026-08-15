@@ -1,21 +1,21 @@
 // src/components/storymodal/StoryModal.tsx
 
 import React, { useState, useEffect, useRef } from 'react';
-import { DeckComponent } from './DeckComponent';
-import { CardComponent } from './CardComponent';
-import { ActivityLog } from './ActivityLog.tsx';
-import { ImageButton } from '../../components/ui/buttons/ImageButton.tsx';
-import { LoadingIndicator } from '../../components/ui/LoadingIndicator.tsx';
-import { ErrorNotice } from '../../components/ui/ErrorNotice.tsx';
-import { parseFormattedText } from '../../utils/textUtils';
-import { useEstateContext } from '../../contexts/EstateContext';
+import { DeckComponent } from './DeckComponent.js';
+import { CardComponent } from './CardComponent.js';
+import { ActivityLog } from './ActivityLog.js';
+import { ImageButton } from '../../components/ui/buttons/ImageButton.js';
+import { LoadingIndicator } from '../../components/ui/LoadingIndicator.js';
+import { ErrorNotice } from '../../components/ui/ErrorNotice.js';
+import { parseFormattedText } from '../../utils/textUtils.js';
+import { useEstateContext } from '../../contexts/EstateContext.js';
 import {
   setupStoryEvent,
   generateStory,
   generateConsequences,
   isAbortError,
-} from '../../utils/api';
-import type { ConsequenceCharacterDisplay } from '../../utils/api';
+} from '../../utils/api.js';
+import type { ConsequenceCharacterDisplay } from '../../utils/api.js';
 
 // Imported, not written as 'src/assets/...' strings: raw paths resolve in the
 // dev server but 404 after a production build. Same folder as ActivityLog's.

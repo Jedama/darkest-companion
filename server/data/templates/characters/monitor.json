@@ -1,0 +1,68 @@
+{
+  "identifier": "monitor",
+  "title": "Monitor",
+  "name": "Warner",
+  "description": "The Monitor is the last Oberst of Ostvengr, and has declared the Fallen Star protocol in effect: the empire is to be rebuilt, and he is the man to do it. He has no country, no High Command that anyone else can hear, and no throne to answer to, so he intends to raise all three. He is warm, expansive, and honest about all of it, including the part where he enjoyed every war he ever fought and would like another.",
+  "history": "He fought for Ostvengr for fifty years and left a limb or an eye in most of its wars, replacing each as he went, until his superiors offered him a desk or a discharge. He took the desk. The empire fell weeks later and the war he had been removed from turned out to be the last one, so he loaded what technology he could carry and went looking for another. He came west to the Estate for a payroll, a supply line, and men \u2014 the beginnings, as he sees it, of the army that will take Ostvengr back.",
+  "summary": "An affable and unyielding Monitor, the last officer of a fallen empire, raising its next army out of whoever will take his orders.",
+  "race": "Human",
+  "gender": "Male",
+  "religion": "None",
+  "zodiac": "Aries",
+  "traits": [
+    "Affable",
+    "Indomitable",
+    "Tactical",
+    "Bellicose",
+    "Grandiose"
+  ],
+  "stats": {
+    "strength": 5,
+    "agility": 3,
+    "intelligence": 8,
+    "authority": 9,
+    "sociability": 8
+  },
+  "equipment": [
+    "Holdout pistol",
+    "Clipboard",
+    "Flare gun"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Wiry",
+    "skinTone": "Weathered",
+    "hairColor": "Grey",
+    "hairStyle": "Cropped (hidden by cap)",
+    "features": "Targeting monocle and prosthetics"
+  },
+  "clothing": {
+    "head": "Peaked officer's cap over a featureless steel mask",
+    "body": "Long dark greatcoat with rank braid",
+    "legs": "Uniform trousers and boots",
+    "accessories": "Antenna pack"
+  },
+  "combat": {
+    "role": "Quartermaster",
+    "strengths": [
+      "Logistics",
+      "Battlefield support",
+      "Calling in fire"
+    ],
+    "weaknesses": [
+      "Poor fighter"
+    ]
+  },
+  "magic": "None",
+  "notes": [
+    "Calls people lad, tells stories, shares his pipe, and is genuinely affable",
+    "Receives, writes down, and executes orders from 'High Command', though other people only hear static",
+    "Recruits openly, promising rank in the New Ostvengr he's building",
+    "Enjoys war and says so plainly"
+  ],
+  "tags": [
+    "Backline", "Weak", "Buffer", "Healer", "StressHealer", "Marker",
+    "MarkSynergy", "Stunner", "Debuffer", "Setup", "Scavenger", "Warrior",
+    "Leader", "Strategist", "Elder", "Machine", "Exile", "Sweeper"
+  ]
+}

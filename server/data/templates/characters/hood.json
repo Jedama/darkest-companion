@@ -63,16 +63,7 @@
     "Whacks enemies with her satchel bag"
   ],
   "tags": [
-    "Dancer",
-    "Weak",
-    "Frail",
-    "Healer",
-    "Bleeder",
-    "Disruptor",
-    "Hider",
-    "Scavenger",
-    "Child",
-    "Outcast",
-    "Unstable"
+    "Dancer", "Weak", "Frail", "Healer", "Bleeder", "Disruptor",
+    "Hider", "Scavenger", "Child", "Outcast", "Unstable", "Lowborn"
   ]
 }

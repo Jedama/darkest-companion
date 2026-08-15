@@ -4,9 +4,9 @@
  * and can be used in any character's strategy profile.
  */
 
-import { CharacterRecord, Character } from '../../../../shared/types/types';
+import { CharacterRecord, Character } from '../../../../shared/types/types.js';
 import { AfflictionType, VirtueType, isAffliction, isVirtue } from '../../../../shared/constants/conditions.js';
-import { Party, Composition } from '../expeditionPlanner';
+import { Party, Composition } from '../expeditionPlanner.js';
 import { NEUTRAL_AFFINITY, MAX_AFFINITY } from '../../../../shared/constants/relationships.js';
 import {
   countTag,

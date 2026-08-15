@@ -63,21 +63,8 @@
     "Calls his fountain pen 'Devil's Reach'"
   ],
   "tags": [
-    "Backline",
-    "StressHealer",
-    "Buffer",
-    "Debuffer",
-    "Stunner",
-    "Disruptor",
-    "GuardBreaker",
-    "Abrasive",
-    "Marker",
-    "Weak",
-    "Frail",
-    "Unstable",
-    "Eldritch",
-    "Scholarly",
-    "Drunkard",
-    "Outcast"
+    "Backline", "StressHealer", "Buffer", "Debuffer", "Stunner", "Disruptor",
+    "GuardBreaker", "Abrasive", "Marker", "Weak", "Frail", "Unstable",
+    "Eldritch", "Scholarly", "Drunkard", "Outcast", "Physician", "Reach"
   ]
 }

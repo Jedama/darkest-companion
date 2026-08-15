@@ -21,8 +21,9 @@
  * they say.
  */
 
-import { CharacterRecord, EstateLeadership } from '../../../shared/types/types';
-import { bondBetween } from './cliqueFinder.js';
+import { CharacterRecord, EstateLeadership } from '../../../shared/types/types.js';
+import { bondBetween } from './roster.js';
+import { bits, empiricalTail, mean, randomGroup, stdDev } from './statistics.js';
 import type { CliqueFeature, CliqueProfile } from './cliqueMetrics.js';
 
 // ===================================================================
@@ -109,53 +110,6 @@ export interface GivenGroupProfile {
 // ===================================================================
 // HELPERS
 // ===================================================================
-
-function mean(values: number[]): number {
-  return values.length ? values.reduce((a, b) => a + b, 0) / values.length : 0;
-}
-
-function stdDev(values: number[]): number {
-  if (values.length < 2) return 0;
-  const m = mean(values);
-  return Math.sqrt(mean(values.map(v => (v - m) ** 2)));
-}
-
-const bits = (p: number): number => -Math.log2(Math.max(p, 1e-12));
-
-/**
- * Mid-rank position of `value` within a sorted sample, as a probability.
- *
- * `direction` matters more than it looks. A TWO-tailed test asks "is this unusual
- * either way", and costs exactly one bit of significance compared to a one-tailed
- * test. That price is only worth paying when we genuinely report both ends.
- *
- * Most metrics here have a settled interest direction — we only ever report a
- * fracture that is LARGE, a room that is COLD, a member who is FAR outside. Asking
- * a two-tailed question about a one-directional claim is simply the wrong test,
- * and it was quietly costing real findings: a pair at mutual contempt scored 3.78
- * bits against a floor of 4 and vanished.
- *
- * Mid-rank also matters because affinities are integers, so sampled values clump —
- * counting ties as half avoids treating a common value as a rarity.
- */
-function empiricalTail(
-  sorted: number[], value: number, direction: 'high' | 'low' | 'both' = 'both'
-): number {
-  let below = 0;
-  let equal = 0;
-  for (const sample of sorted) {
-    if (sample < value) below++;
-    else if (sample === value) equal++;
-  }
-  const midRank = (below + equal / 2) / sorted.length;
-
-  const tail =
-    direction === 'high' ? 1 - midRank
-    : direction === 'low' ? midRank
-    : Math.min(midRank, 1 - midRank) * 2;
-
-  return Math.max(tail, 1 / sorted.length);
-}
 
 /**
  * FALLBACK ONLY. Real labels come from locationService via `locationTitles`,
@@ -264,15 +218,6 @@ function measureGroup(members: string[], roster: CharacterRecord): GroupShape {
 type SampledKey = 'meanBond' | 'fracture' | 'internalSpread' | 'oddGap' | 'maxAsymmetry';
 type SampledShape = Record<SampledKey, number[]>;
 
-function randomGroup(ids: string[], size: number): string[] {
-  const pool = [...ids];
-  const picked: string[] = [];
-  for (let i = 0; i < size && pool.length; i++) {
-    picked.push(pool.splice(Math.floor(Math.random() * pool.length), 1)[0]);
-  }
-  return picked;
-}
-
 // ===================================================================
 // MAIN EXPORT
 // ===================================================================
@@ -280,15 +225,18 @@ function randomGroup(ids: string[], size: number): string[] {
 /**
  * Profiles the Table and every shared residence.
  *
- * `cliques` is optional and used only to detect capture of the Table.
- * `locationTitles` lets a caller supply real names; without it, identifiers are
- * prettified.
+ * `cliques` is used only to detect capture of the Table; pass [] if none.
+ *
+ * `locationTitles` is REQUIRED even though labelFromIdentifier could cover for
+ * it. A silent default here would ship a reconstructed identifier to the writer
+ * the moment someone forgot to thread the real titles through, and it would look
+ * plausible enough that nobody would notice.
  */
 export function profileGivenGroups(
   roster: CharacterRecord,
   leadership: EstateLeadership,
-  cliques: CliqueProfile[] = [],
-  locationTitles: Record<string, string> = {}
+  cliques: CliqueProfile[],
+  locationTitles: Record<string, string>
 ): GivenGroupProfile[] {
   const ids = Object.keys(roster);
   if (ids.length < 2) return [];

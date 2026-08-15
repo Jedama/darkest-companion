@@ -19,8 +19,8 @@
  * for the month. Recomputed on demand, so recovery needs no special handling.
  */
 
-import { Character, CharacterRecord, EstateLeadership } from '../../../shared/types/types';
-import { isVirtue, isAffliction } from '../../../shared/constants/conditions';
+import { Character, CharacterRecord, EstateLeadership } from '../../../shared/types/types.js';
+import { isVirtue, isAffliction } from '../../../shared/constants/conditions.js';
 import { NEUTRAL_AFFINITY } from '../../../shared/constants/relationships.js';
 
 // ===================================================================

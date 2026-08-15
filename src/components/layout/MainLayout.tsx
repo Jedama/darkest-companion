@@ -1,11 +1,11 @@
 // src/components/layout/MainLayout.tsx
-import { ViewPanel } from '../ViewPanel.tsx';
-import { CharacterPanel } from '../CharacterPanel/CharacterPanel.tsx';
-import { DebugPanel } from '../debug/DebugPanel';
-import { useEstateContext } from '../../contexts/EstateContext';
+import { ViewPanel } from '../ViewPanel.js';
+import { CharacterPanel } from '../CharacterPanel/CharacterPanel.js';
+import { DebugPanel } from '../debug/DebugPanel.js';
+import { useEstateContext } from '../../contexts/EstateContext.js';
 
-import type { ViewType } from '../../types/viewTypes.ts';
-import type { Character } from '../../../shared/types/types.ts';
+import type { ViewType } from '../../types/viewTypes.js';
+import type { Character } from '../../../shared/types/types.js';
 import './MainLayout.css';
 
 import manorBg from '../../assets/ui/backgrounds/manor.png';

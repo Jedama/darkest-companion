@@ -2,7 +2,7 @@
   "identifier": "succubus",
   "title": "Succubus",
   "name": "Aria",
-  "description": "The Succubus is a demon in a pilgrim's robe, whose glamour hides her scythe and what she really is behind a veil of angelic beauty and helplessness, potent enough to charm anything at all—man, woman, or beast—into exclusive devotion. She is a patient manipulator, working through favours, secrets, and small kindnesses, but beneath the deceit is a longing for true love and affection.",
+  "description": "The Succubus is a demon in a pilgrim's robe, whose glamour hides her scythe and what she really is behind a veil of angelic beauty and helplessness, potent enough to charm anything at all\u2014man, woman, or beast\u2014into exclusive devotion. She is a patient manipulator, working through favours, secrets, and small kindnesses, but beneath the deceit is a longing for true love and affection.",
   "history": "Once a woman, the Succubus traded her mortality in a deal with the devil known as the Dark Father. Her centuries of service have been spent among those devoted to the Light, spreading rumour and jealousy through congregations until they turn on one another. The Hamlet is but her newest assignment.",
   "summary": "A vain and ancient Succubus in a pilgrim's disguise, capable of charming anyone, sent to ruin the faith of the devout.",
   "race": "Demon",
@@ -52,13 +52,13 @@
   },
   "magic": "Glamour and life-stealing curses",
   "notes": [
-    "Speaks in endearments—darling, my dear, sweetie",
+    "Speaks in endearments\u2014darling, my dear, sweetie",
     "Carries rumour and confidence between companions, and is at her happiest when they distrust one another",
     "Stays hooded and covered, as keeping the glamour up takes effort"
   ],
   "tags": [
     "Flexible", "Frail", "Stanceshifter", "Marker", "MarkSynergy", "Stunner",
-    "Debuffer", "Disruptor", "StressHealer", "Executor", "ArmorPiercer",
-    "GuardBreaker", "Hider", "Charmer", "Immoral"
+    "Debuffer", "Disruptor", "StressHealer", "Executor", "ArmorPiercer", "GuardBreaker",
+    "Hider", "Charmer", "Immoral", "Religious", "Unaging", "Sweeper"
   ]
 }

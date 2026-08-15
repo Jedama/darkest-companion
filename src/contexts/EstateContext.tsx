@@ -7,13 +7,13 @@ import React, {
   ReactNode,
   useContext
 } from 'react';
-import type { Estate } from '../../shared/types/types';
+import type { Estate } from '../../shared/types/types.js';
 import {
   fetchEstates,
   loadEstate,
   createEstate as createEstateApi,
   deleteEstate as deleteEstateApi
-} from '../utils/api';
+} from '../utils/api.js';
 
 /** What the estate is currently busy doing, for anything that wants to say so. */
 export interface EstateActivity {

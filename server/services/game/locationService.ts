@@ -1,4 +1,4 @@
-import { Estate, Character, EventData, LocationData, Bystander } from '../../../shared/types/types';
+import { Estate, Character, EventData, LocationData, Bystander } from '../../../shared/types/types.js';
 import StaticGameDataManager from '../../staticGameDataManager.js';
 import { AppError } from '../../errors.js';
 

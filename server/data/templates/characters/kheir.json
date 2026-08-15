@@ -60,18 +60,8 @@
     "Under extreme pressure, something defiant kicks in, where he often perseveres rather than crumbles"
   ],
   "tags": [
-    "Flexible",
-    "Weak",
-    "Frail",
-    "Healer",
-    "StressHealer",
-    "Blighter",
-    "Debuffer",
-    "Noble",
-    "Scholar",
-    "Strategist",
-    "Drunkard",
-    "SelfStress",
+    "Flexible", "Weak", "Frail", "Healer", "StressHealer", "Blighter",
+    "Debuffer", "Noble", "Scholarly", "Strategist", "Drunkard", "SelfStress",
     "Scavenger"
   ]
 }

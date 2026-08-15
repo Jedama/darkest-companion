@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import type { AnimationEvent } from 'react';
-import type { ConsequenceCharacterDisplay } from '../../utils/api';
+import type { ConsequenceCharacterDisplay } from '../../utils/api.js';
 import './CardComponent.css';
 
 /** Max absolute affinity value (+/- 5), used to scale the glow. */

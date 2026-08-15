@@ -2,13 +2,13 @@
 
 import { useState, useEffect, useRef } from 'react';
 
-import { useEstateContext } from '../../contexts/EstateContext';
-import type { Character } from '../../../shared/types/types.ts';
-import { useModalContext } from '../../modals/ModalProvider';
-import { StoryModal } from '../../modals/StoryModal/StoryModal';
-import { RecruitModal } from '../../modals/RecruitModal/RecruitModal';
-import { ImageButton } from '../ui/buttons/ImageButton.tsx';
-import { CalendarDial } from '../calendar/CalendarDial.tsx';
+import { useEstateContext } from '../../contexts/EstateContext.js';
+import type { Character } from '../../../shared/types/types.js';
+import { useModalContext } from '../../modals/ModalProvider.js';
+import { StoryModal } from '../../modals/StoryModal/StoryModal.js';
+import { RecruitModal } from '../../modals/RecruitModal/RecruitModal.js';
+import { ImageButton } from '../ui/buttons/ImageButton.js';
+import { CalendarDial } from '../calendar/CalendarDial.js';
 
 import townEventButton from '../../assets/ui/views/manor/button_event.png';
 import recruitButton from '../../assets/ui/views/manor/button_recruit.png';

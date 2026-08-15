@@ -5,11 +5,11 @@
  * team drafting strategies.
  */
 
-import { CharacterRecord, Character, StrategyContext } from '../../../../shared/types/types';
+import { CharacterRecord, Character, StrategyContext } from '../../../../shared/types/types.js';
 import { NEUTRAL_AFFINITY, MAX_AFFINITY } from '../../../../shared/constants/relationships.js';
-import { PARTY_SIZE } from '../../../../shared/constants/expedition';
-import { Party, Composition } from '../expeditionPlanner';
-import { countTag, calculateSimplePairSynergy } from './strategyUtils';
+import { PARTY_SIZE } from '../../../../shared/constants/expedition.js';
+import { Party, Composition } from '../expeditionPlanner.js';
+import { countTag, calculateSimplePairSynergy } from './strategyUtils.js';
 import { calculateHaulValue, detectBlocs } from './genericStrategies.js';
 
 // ===================================================================

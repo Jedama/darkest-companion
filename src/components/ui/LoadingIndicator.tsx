@@ -8,7 +8,7 @@
 // Falls back to a plain ring when no estate is loaded or no sprites resolve.
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { useEstateContext } from '../../contexts/EstateContext';
+import { useEstateContext } from '../../contexts/EstateContext.js';
 
 interface LoadingIndicatorProps {
   /** What we're waiting on, e.g. "the month-end review". Optional. */

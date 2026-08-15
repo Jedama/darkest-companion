@@ -37,9 +37,9 @@ import StaticGameDataManager from '../../staticGameDataManager.js';
 
 /**
  * compileStoryPrompt
- * Builds a string prompt.
+ * Builds a string prompt. Synchronous — callers may still await it harmlessly.
  */
-export async function compileStoryPrompt(
+export function compileStoryPrompt(
   estate: Estate,
   event: EventData,
   chosenCharacterIds: string[],
@@ -50,7 +50,7 @@ export async function compileStoryPrompt(
   keywords: string[] = [],
   context: string,
   description: string
-): Promise<string> {
+): string {
   const gameData = StaticGameDataManager.getInstance();
 
   const narrativeContext = compileNarrativeContext(estate, gameData);

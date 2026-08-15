@@ -2,7 +2,7 @@
   "identifier": "exorcist",
   "title": "Exorcist",
   "name": "Maxwell",
-  "description": "The Exorcist is a heavy-set clergyman of the Light, learned in scripture and unshaken by any horror he faces. He was called to the church expecting mystic holiness and found a trade instead—correct words, correct order, reliable results—and he has never stopped being good at it. He is kind to the frightened and patient with the ignorant, yet privately unsure whether the Light is what answers him, or whether the words simply work.",
+  "description": "The Exorcist is a heavy-set clergyman of the Light, learned in scripture and unshaken by any horror he faces. He was called to the church expecting mystic holiness and found a trade instead\u2014correct words, correct order, reliable results\u2014and he has never stopped being good at it. He is kind to the frightened and patient with the ignorant, yet privately unsure whether the Light is what answers him, or whether the words simply work.",
   "history": "The Exorcist grew up in a hamlet too small for a church, working its fields and serving as its lay preacher for most of his life. He took orders as a grown man and was apprenticed to an old priest, who was killed by a possessed girl the pair had come to heal; the Exorcist finished her with the rite instead, alone, over his master's body. A capable healer still, he is quicker than most to judge a case past healing, and the church sends him where that judgement is needed.",
   "summary": "A heavy-set and unshakeable Exorcist of the Light, expert at banishing demons yet no longer certain who answers his prayers.",
   "race": "Human",
@@ -62,6 +62,6 @@
   "tags": [
     "Flexible", "Religious", "Healer", "StressHealer", "Buffer", "Debuffer",
     "Disruptor", "Stunner", "Cleanser", "Marker", "UnholyHunter", "EldritchHunter",
-    "Scholarly", "Vigilant"
+    "Scholarly", "Vigilant", "Lowborn"
   ]
 }

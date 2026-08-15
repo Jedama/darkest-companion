@@ -15,9 +15,10 @@
  * reason but our own overlap threshold.
  */
 
-import { CharacterRecord } from '../../../shared/types/types';
+import { CharacterRecord } from '../../../shared/types/types.js';
 import { NEUTRAL_AFFINITY } from '../../../shared/constants/relationships.js';
-import { bondBetween, cliqueGate } from './cliqueFinder.js';
+import { bondBetween, cliqueGate, hamletAffinities } from './roster.js';
+import { mean } from './statistics.js';
 import type { CliqueProfile } from './cliqueMetrics.js';
 
 const RELATION_CONFIG = {
@@ -74,10 +75,6 @@ export interface CliqueRelation {
   dividedLoyalties: DividedLoyalty[];
 }
 
-function mean(values: number[]): number {
-  return values.length ? values.reduce((a, b) => a + b, 0) / values.length : 0;
-}
-
 /**
  * Compares every pair of cliques. Returns one entry per pair, in the order the
  * profiles were given.
@@ -90,12 +87,7 @@ export function relateCliques(
 
   const gate = cliqueGate(roster);
 
-  const recorded: number[] = [];
-  for (const hero of Object.values(roster)) {
-    for (const rel of Object.values(hero.relationships)) {
-      if (typeof rel?.affinity === 'number') recorded.push(rel.affinity);
-    }
-  }
+  const recorded = hamletAffinities(roster);
   const hamletMean = recorded.length ? mean(recorded) : NEUTRAL_AFFINITY;
 
   const shrink = (values: number[]) => {
