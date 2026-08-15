@@ -18,6 +18,7 @@ import {
     buildLocationSection,
     buildLogsSection,
     buildRecruitKeywordsSection,
+    buildArrivalMethodSection,
     buildRecruitLocationSelectionSection,
     buildRelationshipSection,
     buildUserGuidanceSection,
@@ -64,6 +65,7 @@ export async function compileRecruitPrompt(
   const fullPrompt =
     narrativeContext +
     buildEventSection(event, involvedCharacters) +
+    buildArrivalMethodSection(gameData, recruit) +
     buildCharactersSection(involvedCharacters) +
     buildRelationshipSection(involvedCharacters) +
     buildLocationSection(estate, locations) +

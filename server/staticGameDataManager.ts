@@ -25,6 +25,7 @@ import {
   loadAllLocations,
   loadCharacterTemplates,
   loadDefaultCharacterWeights,
+  loadDefaultRecruitTexts,
   loadDefaultRelationships,
   loadEnemyRelationships,
   loadEventTemplatesForCategory,
@@ -99,6 +100,7 @@ class StaticGameDataManager {
    * ------------------------------------------------------------------- */
 
   private characterTemplates: CharacterTemplateRecord = {};
+  private recruitTexts: Record<string, string> = {};
 
   /* -------------------------------------------------------------------
    *  Relationships
@@ -186,25 +188,27 @@ class StaticGameDataManager {
     try {
       console.log('Initializing static game data...');
 
-      const [
-        characterTemplates,
-        defaultRelationships,
-        enemyRelationships,
-        characterWeightOverrides,
-        locations,
-        npcsByCategory,
-        enemies,
-        eventsByCategory,
-        townKeywords,
-        elapsedMonthText,
-        zodiacSeasons,
-        prompts
-      ] = await Promise.all([
-        // Characters / relationships / meta
-        loadCharacterTemplates(),
-        loadDefaultRelationships(),
-        loadEnemyRelationships(),
-        loadDefaultCharacterWeights(),
+        const [
+          characterTemplates,
+          recruitTexts,
+          defaultRelationships,
+          enemyRelationships,
+          characterWeightOverrides,
+          locations,
+          npcsByCategory,
+          enemies,
+          eventsByCategory,
+          townKeywords,
+          elapsedMonthText,
+          zodiacSeasons,
+          prompts
+        ] = await Promise.all([
+          // Characters / relationships / meta
+          loadCharacterTemplates(),
+          loadDefaultRecruitTexts(),
+          loadDefaultRelationships(),
+          loadEnemyRelationships(),
+          loadDefaultCharacterWeights(),
 
         // World
         loadAllLocations(),
@@ -224,6 +228,7 @@ class StaticGameDataManager {
 
       // Characters / relationships / meta
       this.characterTemplates = characterTemplates;
+      this.recruitTexts = recruitTexts;
       this.defaultRelationships = defaultRelationships;
       this.enemyRelationships = enemyRelationships;
       this.characterWeightOverrides = characterWeightOverrides;
@@ -303,6 +308,12 @@ class StaticGameDataManager {
     this.ensureInitialized();
     return this.characterTemplates[id];
   }
+
+  public getDefaultRecruitText(characterId: string): string | undefined {
+    this.ensureInitialized();
+    return this.recruitTexts[characterId];
+  }
+
 
   /* -------------------------------------------------------------------
    *  Relationships

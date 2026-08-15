@@ -8,6 +8,7 @@ import path from 'path';
 
 import {
   CHARACTER_DIR,
+  DEFAULT_RECRUIT_FILE,
   DEFAULT_RELATIONSHIPS_FILE,
   DEFAULT_WEIGHTS_FILE,
   ENEMY_RELATIONSHIPS_FILE,
@@ -165,6 +166,17 @@ export async function loadDefaultCharacterWeights(): Promise<Record<string, Reco
     throw error;
   }
 }
+
+export async function loadDefaultRecruitTexts(): Promise<Record<string, string>> {
+  try {
+    const content = await readFile(DEFAULT_RECRUIT_FILE, 'utf-8');
+    return JSON.parse(content);
+  } catch (error) {
+    console.error('Error loading default recruit texts:', error);
+    throw error;
+  }
+}
+
 
 /* -------------------------------------------------------------------
  *  World: Locations

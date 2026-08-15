@@ -536,6 +536,16 @@ export function buildLogsSection(logs: string[]): string {
   return lines.join('');
 }
 
+
+export function buildArrivalMethodSection(gameData: StaticGameDataManager, recruit?: Character): string {
+  if (!recruit) return '';
+
+  const recruitText = gameData.getDefaultRecruitText(recruit.identifier);
+  if (!recruitText) return '';
+
+  return `[Special arrival method]\nInstead of the regular stagecoach along the Old Road, the recruited character shows up as follows:\n${recruitText}\n\n`;
+}
+
 export function buildKeywordsSection(keywords: string[]): string {
   if (!keywords?.length) return '';
   return `[Keywords]\n${keywords.join(', ')}\n\n`;
