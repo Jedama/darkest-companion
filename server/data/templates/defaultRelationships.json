@@ -19,6 +19,11 @@
       "affinity": 4,
       "dynamic": "The Enemy Elite",
       "description": "The Commandant's forces fought Ostvengr's well-trained Slayer corps for generations on the battlefield. Taking one down was a monumental achievement. This one seems far worse than the rest, and the Commandant is glad to stand alongside one for once."
+    },
+    "snor_rasp": {
+      "affinity": 3,
+      "dynamic": "A Blemish",
+      "description": "The Martyr's fanatical khlysty sects of Chernozem's far north are illegal, but the state has never had the reach to root them out; too hard to say who is a member, and there was always a war on. The Commandant would prefer them gone."
     }
   },
   "crusader": {

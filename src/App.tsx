@@ -78,6 +78,7 @@ function GameContent() {
         new URL('./assets/ui/views/manor/calendar_day.png', import.meta.url).href,
 
         // Character panel assets
+        new URL('./assets/ui/panels/characterpanel/crest.png', import.meta.url).href,
         new URL('./assets/ui/panels/characterpanel/background.png', import.meta.url).href,
         new URL('./assets/ui/panels/characterpanel/gems/strength.png', import.meta.url).href,
         new URL('./assets/ui/panels/characterpanel/gems/agility.png', import.meta.url).href,

@@ -1,6 +1,8 @@
 // src/components/layout/MainLayout.tsx
 import { ViewPanel } from '../ViewPanel.js';
-import { CharacterPanel } from '../CharacterPanel/CharacterPanel.js';
+import { BookPanel } from '../CharacterPanel/BookPanel.js';
+import { TitlePage } from '../CharacterPanel/TitlePage.js';
+import { CharacterSheet } from '../CharacterPanel/CharacterSheet.js';
 import { DebugPanel } from '../debug/DebugPanel.js';
 import { useEstateContext } from '../../contexts/EstateContext.js';
 
@@ -43,15 +45,12 @@ export function MainLayout({
         backgroundRepeat: 'no-repeat'
       }}
     >
-      {/* Character Panel (left side) */}
+      {/* The book (left side) */}
       <div className="character-panel">
-        {selectedCharacter ? (
-          <CharacterPanel character={selectedCharacter} />
-        ) : (
-          <div className="no-character-selected">
-            
-          </div>
-        )}
+        <BookPanel>
+          <TitlePage visible={!selectedCharacter} />
+          <CharacterSheet character={selectedCharacter} />
+        </BookPanel>
       </div>
 
       {/* View Panel (right side) */}
@@ -63,7 +62,7 @@ export function MainLayout({
           selectedCharacterId={selectedCharacter?.identifier}
         />
       </div>
-      {currentEstate && <DebugPanel estateName={currentEstate.name} />}
+      {currentEstate && <DebugPanel />}
     </div>
   );
 }

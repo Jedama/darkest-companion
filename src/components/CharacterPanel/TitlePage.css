@@ -1,0 +1,106 @@
+/* src/components/CharacterPanel/TitlePage.css */
+
+/* Declares the container, and blends the whole page into the paper.
+   Nothing in this rule may use cqw — those resolve against an ANCESTOR
+   container, never the element that declares one. */
+.title-page {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    container-type: size;
+    mix-blend-mode: multiply;
+}
+
+.title-page.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* cqw = 1% of the book's inner width, so the page scales with the paper. */
+.title-page-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 9cqh 7cqw 7cqh;
+    box-sizing: border-box;
+    text-align: center;
+    color: #4a3b2a;
+}
+
+.title-page-head,
+.title-page-foot {
+    flex: 0 0 auto;
+}
+
+/* The empty middle. min-height: 0 lets it shrink instead of overflowing. */
+.title-page-device {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-page-crest {
+    width: 60cqw;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0.42;
+}
+
+.title-page-estate {
+    font-family: 'DwarvenAxe';
+    font-size: 11cqw;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    color: #211a12;
+}
+
+/* Two centred lines, the second shorter — the taper is the whole trick. */
+.title-page-subtitle {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2.4cqw;
+    font-family: 'CaslonAntique', serif;
+    font-style: italic;
+    font-size: 4.1cqw;
+    line-height: 1.35;
+}
+
+.title-page-rule {
+    width: 42%;
+    height: 0.3cqw;
+    margin: 3cqw auto;
+    background: currentColor;
+    opacity: 0.4;
+}
+
+.title-page-attribution {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8cqw;
+    font-family: 'CaslonAntique', serif;
+    font-size: 4.0cqw;
+    line-height: 1.25;
+}
+
+.title-page-rule-foot {
+    width: 30%;
+    margin-bottom: 2.4cqw;
+}
+
+.title-page-tally,
+.title-page-date {
+    font-family: 'CaslonAntique', serif;
+    line-height: 1.4;
+    color: #5c4a35;
+}
+
+.title-page-tally {
+    font-size: 3.7cqw;
+}
+
+.title-page-date {
+    font-size: 4.3cqw;
+    margin-top: 0.6cqw;
+}

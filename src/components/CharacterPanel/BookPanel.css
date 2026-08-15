@@ -1,0 +1,19 @@
+/* src/components/CharacterPanel/BookPanel.css */
+
+/* The book: paper texture, covers, page geometry. */
+.character-info {
+    position: relative;
+    height: 100%;
+    overflow: visible;
+    background-image: url('../../assets/ui/panels/characterpanel/background.png');
+    background-size: 100% 100%;
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding: 49px 80px 35px 20px; /* 49 perfectly places the bookmarks */
+}
+
+/* The printable area inside the covers. */
+.panel-content {
+    position: relative;
+    height: 100%;
+}

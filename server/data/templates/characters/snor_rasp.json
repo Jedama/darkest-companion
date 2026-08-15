@@ -2,8 +2,8 @@
   "identifier": "snor_rasp",
   "title": "Martyr",
   "name": "Anastasia",
-  "description": "A devotee of pain-worship accompanied by Yuzupov, a shadowy spirit who grants her near-immortality. The Martyr eagerly throws herself into danger to shield others, viewing suffering as both religious devotion and genuine pleasure. She wields a thorn whip used more for self-discipline than combat",
-  "history": "Raised in chambers dedicated to pain-worship, Anastasia's devotion attracted Yuzupov, a spirit who bound itself to her and granted immortality in exchange for endless suffering. Now she wanders seeking greater trials, viewing the Estate's horrors as the perfect pilgrimage to test her faith's limits and protect those too weak to endure what she craves.",
+  "description": "The Martyr is an inured, cheerful girl who was raised from infancy to endure pain. Craving nothing but more of it, she goes barefoot and unarmoured to project powerlessness and draw all blows to her. Chosen by the spirit Yuzupov, she has been granted near-immortality and regeneration. Highly devout and selfless, she offers her healing to anyone in need. ",
+  "history": "The Martyr was an orphan, taken in by a master of an underground khlysty sect in Chernozem's far north who had spent his life ffailing to earn the blessing of their spirit, Yuzupov and concluded he had simply begun too late. He raised her in their chambers from birth: poison, arrows, beating, and ice, over and over, until she genuinely enjoyed nothing else. And Yuzupov, the spirit that administers the rites, at last chose a vessel. Finished with his work, her master abandoned her.",
   "summary": "A pain-worshipping devotee kept near-immortal by a bound spirit, who throws herself between her allies and harm for the joy of the suffering.",
   "race": "Human",
   "gender": "Female",
@@ -11,18 +11,17 @@
   "zodiac": "Pisces",
   "traits": [
     "Devoted",
-    "Masochistic",
-    "Resilient",
-    "Fearless",
-    "Reckless",
-    "Enigmatic"
+    "Protective",
+    "Insistent",
+    "Cheerful",
+    "Single-minded"
   ],
   "stats": {
-    "strength": 3,
-    "agility": 3,
+    "strength": 2,
+    "agility": 2,
     "intelligence": 3,
-    "authority": 3,
-    "sociability": 4
+    "authority": 2,
+    "sociability": 5
   },
   "equipment": [
     "Thorn whip"
@@ -38,28 +37,32 @@
   "clothing": {
     "head": "Crown of thorns",
     "body": "Frilly red dress with ruffled white collar",
-    "legs": "None",
+    "legs": "Bare legs below the knee, always barefoot",
     "accessories": "None"
   },
   "combat": {
     "role": "Frontliner",
     "strengths": [
-      "High pain tolerance"
+      "High pain tolerance",
+      "Shielding allies",
+      "Self-healing"
     ],
     "weaknesses": [
-      "Physically weak",
-      "Single-minded"
+      "Physically weak"
     ]
   },
   "magic": "Spirit-granted near-immortality",
   "notes": [
-    "Punctuates speech, pain especially, with enthusiastic gasps: 'Hiii!', 'Ahh!'",
-    "Speaks encouragingly to others about pain in an unsettling, casual manner",
-    "Finds pleasure in strangling herself with her thorn whip"
+    "Punctuates speech with hurting herself and enthusiastic gasps: 'Hiii!', 'Ahh!'",
+    "Does not pray or meditate, considering flagellation the only form of devotion",
+    "Cuts or tears pieces of herself to stew and feed the hungry",
+    "Enjoys the freezing cold, reminding her of home",
+    "Strangles and cuts herself with her thorn whip",
+    "Secretly misses her master"
   ],
   "tags": [
     "Frontline", "Immobile", "Tank", "Guarder", "Healer", "Disruptor",
     "Debuffer", "Executor", "Setup", "Brink", "Riposter", "SelfSufficient",
-    "Vigilant", "Weak", "Religious", "Child", "Unaging", "Reach"
+    "Vigilant", "Weak", "Religious", "Child", "Reach"
   ]
 }
