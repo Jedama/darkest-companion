@@ -1,6 +1,5 @@
 // src/components/modals/ModalProvider.tsx
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { ModalPortal } from './ModalPortal.js';
 import './ModalProvider.css';
 
@@ -32,10 +31,21 @@ export function ModalProvider({ children }: { children: React.ReactNode }) {
     setIsOpen(true);
   };
 
-  const hide = () => {
+  const hide = useCallback(() => {
     setModalContent(null);
     setIsOpen(false);
-  };
+  }, []);
+
+  // Escape dismisses the modal. Only bound while one is open, so nothing
+  // else in the app has to know this exists.
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') hide();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [isOpen, hide]);
 
   // Effect to disable body scrolling if a modal is open
   useEffect(() => {

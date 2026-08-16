@@ -10,15 +10,56 @@
 }
 
 .character-panel {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 40%;
-  height: 100%;
-  z-index: 2;
-  padding: 0px;
-  overflow: hidden;
-  pointer-events: auto;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40%;
+    height: 100%;
+    z-index: 2;
+    padding: 0px;
+    overflow: hidden;
+    pointer-events: auto;
+
+    /* How much of the book stays on screen when closed, as a fraction of the
+       panel's width. The paper is stretched with background-size: 100% 100%,
+       so a percentage keeps the same slice of art visible at any resolution. */
+    --book-peek: 12%;
+
+    transform: translateX(calc(-100% + var(--book-peek)));
+    transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+}
+
+.character-panel.is-open {
+    transform: translateX(0);
+}
+
+/* Leans toward the cursor. Closed, it comes out to meet you; open, it
+   shrinks back — each previews the direction that clicking will take it. */
+.character-panel:not(.is-open):has(.book-edge:hover) {
+    transform: translateX(calc(-100% + var(--book-peek) + 14px));
+}
+
+.character-panel.is-open:has(.book-edge:hover) {
+    transform: translateX(-10px);
+}
+
+/* Eager out, unhurried back. */
+.character-panel:has(.book-edge:hover) {
+    transition-duration: 180ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .character-panel,
+    .character-panel:has(.book-edge:hover) {
+        transition-duration: 1ms;
+    }
+    .character-panel:not(.is-open):has(.book-edge:hover) {
+        transform: translateX(calc(-100% + var(--book-peek)));
+    }
+    .character-panel.is-open:has(.book-edge:hover) {
+        transform: translateX(0);
+    }
 }
 
 .view-panel {

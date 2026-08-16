@@ -1,19 +1,36 @@
-/* src/components/CharacterPanel/BookPanel.css */
-
-/* The book: paper texture, covers, page geometry. */
-.character-info {
-    position: relative;
+/* The frayed page edges — the only part visible when the book is closed,
+   and the handle in both states. Width matches the peek exactly, so closed
+   the book IS the button. */
+.book-edge {
+    position: absolute;
+    top: 0;
+    right: 0;
     height: 100%;
-    overflow: visible;
-    background-image: url('../../assets/ui/panels/characterpanel/background.png');
-    background-size: 100% 100%;
-    background-position: left center;
-    background-repeat: no-repeat;
-    padding: 49px 80px 35px 20px; /* 49 perfectly places the bookmarks */
+    width: var(--book-peek);
+    z-index: 6;
+
+    appearance: none;
+    -webkit-appearance: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
-/* The printable area inside the covers. */
-.panel-content {
-    position: relative;
-    height: 100%;
+.book-edge,
+.book-edge:hover,
+.book-edge:focus,
+.book-edge:active {
+    background: transparent;
+    border: 0;
+    outline: none;
+    box-shadow: none;
+}
+
+/* Keyboard users still get a target they can see. */
+.book-edge:focus-visible {
+    outline: 2px solid rgba(90, 70, 45, 0.5);
+    outline-offset: -4px;
 }

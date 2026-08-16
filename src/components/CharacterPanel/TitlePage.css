@@ -9,6 +9,7 @@
     z-index: 1;
     container-type: size;
     mix-blend-mode: multiply;
+    transition: opacity 200ms ease;
 }
 
 .title-page.is-hidden {

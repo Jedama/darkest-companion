@@ -67,7 +67,7 @@ export function CharacterSheet({ character }: CharacterSheetProps) {
   if (!currentEstate) return null;
 
   return (
-    <>
+    <div className={`character-sheet${character ? '' : ' is-hidden'}`}>
       {/* --- THE FIX: Image Stack --- */}
       {/* We render an image for EVERY character the player owns. */}
       {allCharacters.map((c) => (
@@ -124,6 +124,6 @@ export function CharacterSheet({ character }: CharacterSheetProps) {
           </div>
         </>
       )}
-    </>
+    </div>
   );
 }
