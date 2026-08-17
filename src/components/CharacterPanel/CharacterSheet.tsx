@@ -5,6 +5,12 @@ import type { Character } from '../../../shared/types/types.js';
 import type { StatName } from '../../types/statTypes.js';
 import './CharacterSheet.css';
 
+import healthRibbon from '../../assets/ui/panels/characterpanel/bookmarks/health_ribbon.png';
+import healthStub from '../../assets/ui/panels/characterpanel/bookmarks/health_stub.png';
+import mentalRibbon from '../../assets/ui/panels/characterpanel/bookmarks/mental_ribbon.png';
+import mentalStub from '../../assets/ui/panels/characterpanel/bookmarks/mental_stub.png';
+import { Bookmark } from './Bookmark.js';
+
 interface CharacterSheetProps {
   character: Character | null;
 }
@@ -99,14 +105,18 @@ export function CharacterSheet({ character }: CharacterSheetProps) {
             </ul>
           </div>
 
-          <div 
-            className="health-bookmark"
-            style={{ backgroundImage: `url(${ASSETS.paths.bookmarks.health()})` }}
-          />
-          <div 
-            className="mental-bookmark"
-            style={{ backgroundImage: `url(${ASSETS.paths.bookmarks.mental()})` }}
-          />
+          <Bookmark
+              className="health-bookmark"
+              value={character.status.physical}
+              ribbonSrc={healthRibbon}
+              stubSrc={healthStub}
+            />
+            <Bookmark
+              className="mental-bookmark"
+              value={character.status.mental}
+              ribbonSrc={mentalRibbon}
+              stubSrc={mentalStub}
+            />
 
           <div className="stats-container">
             {statItems.map(({ name, value }) => (

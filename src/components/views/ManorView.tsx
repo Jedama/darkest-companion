@@ -22,57 +22,79 @@ interface ManorViewProps {
 }
 
 /**
- * Adds inertia-based scrolling to a container that would normally scroll with wheel events.
+ * Inertia scrolling for a horizontal container.
+ *
+ * Coast distance is velocity / (1 - friction), so friction is the strong knob:
+ * 0.92 gives each unit of velocity ~12px of travel, 0.95 gives ~20px.
  */
 export function useInertiaScroll(
   containerRef: React.RefObject<HTMLDivElement | null>,
   {
-    friction = 0.99,
-    velocityThreshold = 0.1,
+    friction = 0.5,
+    velocityThreshold = 0.5,
   }: {
     friction?: number;
     velocityThreshold?: number;
   } = {}
 ) {
-  // Current velocity
   const velocityRef = useRef(0);
   const rafIdRef = useRef<number | null>(null);
 
-  // The function that does the inertia step each frame
-  function animateInertia() {
-    const el = containerRef.current;
-    if (!el) return;
-
-    el.scrollLeft += velocityRef.current;
-
-    // apply friction
-    velocityRef.current *= friction;
-
-    // if velocity is large enough, keep going
-    if (Math.abs(velocityRef.current) > velocityThreshold) {
-      rafIdRef.current = requestAnimationFrame(animateInertia);
-    } else {
-      // stop
-      velocityRef.current = 0;
-      rafIdRef.current = null;
-    }
-  }
+  /** Wheel pixels → velocity. Lower is heavier. */
+  const WHEEL_MULTIPLIER = 0.35;
+  /** Ceiling on a single flick, in px per frame. */
+  const MAX_VELOCITY = 45;
+  /** Assumed line height for mice that report deltas in lines. */
+  const LINE_HEIGHT = 16;
 
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
 
+    function step() {
+      const node = containerRef.current;
+      if (!node) {
+        rafIdRef.current = null;
+        return;
+      }
+
+      const max = node.scrollWidth - node.clientWidth;
+      const next = node.scrollLeft + velocityRef.current;
+      const clamped = Math.max(0, Math.min(max, next));
+
+      // Hit an end — drop the velocity instead of spinning against the wall.
+      if (clamped !== next) velocityRef.current = 0;
+
+      node.scrollLeft = clamped;
+      velocityRef.current *= friction;
+
+      if (Math.abs(velocityRef.current) > velocityThreshold) {
+        rafIdRef.current = requestAnimationFrame(step);
+      } else {
+        velocityRef.current = 0;
+        rafIdRef.current = null;
+      }
+    }
+
     function onWheel(e: WheelEvent) {
       e.preventDefault();
-    
-      const delta = e.deltaY;
-    
-      // Amplify the delta based on its magnitude
-      const amplifiedDelta = Math.sign(delta) * Math.pow(Math.abs(delta), 1.2); // Exponential boost
-      velocityRef.current += amplifiedDelta;
-    
+
+      // Trackpads send horizontal deltas, wheels vertical. Take the larger.
+      let delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+
+      // deltaMode 1 = lines, 2 = pages. Without this, different mice scroll
+      // at wildly different speeds.
+      if (e.deltaMode === 1) delta *= LINE_HEIGHT;
+      else if (e.deltaMode === 2) delta *= el!.clientWidth;
+
+      velocityRef.current += delta * WHEEL_MULTIPLIER;
+      velocityRef.current = Math.max(
+        -MAX_VELOCITY,
+        Math.min(MAX_VELOCITY, velocityRef.current)
+      );
+
       if (rafIdRef.current === null) {
-        rafIdRef.current = requestAnimationFrame(animateInertia);
+        rafIdRef.current = requestAnimationFrame(step);
       }
     }
 
@@ -82,6 +104,7 @@ export function useInertiaScroll(
       el.removeEventListener('wheel', onWheel);
       if (rafIdRef.current !== null) {
         cancelAnimationFrame(rafIdRef.current);
+        rafIdRef.current = null;
       }
     };
   }, [containerRef, friction, velocityThreshold]);

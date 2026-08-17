@@ -1,0 +1,37 @@
+/* src/components/CharacterPanel/Bookmark.css */
+
+/* Placement — top, left, width, height — lives in .health-bookmark and
+   .mental-bookmark in CharacterSheet.css. Everything here fills that box. */
+.bookmark {
+    position: absolute;
+}
+
+/* The ribbon vanishes at this box's top edge, where the knot used to sit.
+   --ribbon-hides-at nudges that line up or down without disturbing anything
+   else; 0 puts it at the very top of the placement box. */
+.bookmark-window {
+    position: absolute;
+    top: var(--ribbon-hides-at, 0px);
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    overflow: hidden;
+}
+
+/* Sized to the placement box, not the window, so tuning the clip line doesn't
+   change the ribbon's scale. transform keeps it on the compositor. */
+.bookmark-ribbon {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 400ms ease;
+}
+
+.bookmark-stub {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}

@@ -85,8 +85,10 @@ function GameContent() {
         new URL('./assets/ui/panels/characterpanel/gems/intelligence.png', import.meta.url).href,
         new URL('./assets/ui/panels/characterpanel/gems/authority.png', import.meta.url).href,
         new URL('./assets/ui/panels/characterpanel/gems/sociability.png', import.meta.url).href,
-        new URL('./assets/ui/panels/characterpanel/bookmarks/health_10.png', import.meta.url).href,
-        new URL('./assets/ui/panels/characterpanel/bookmarks/mental_10.png', import.meta.url).href,
+        new URL('./assets/ui/panels/characterpanel/bookmarks/health_ribbon.png', import.meta.url).href,
+        new URL('./assets/ui/panels/characterpanel/bookmarks/health_stub.png', import.meta.url).href,
+        new URL('./assets/ui/panels/characterpanel/bookmarks/mental_ribbon.png', import.meta.url).href,
+        new URL('./assets/ui/panels/characterpanel/bookmarks/mental_stub.png', import.meta.url).href,
 
         // Recuit modal assets
         new URL('./assets/ui/modals/recruit/background.png', import.meta.url).href, 

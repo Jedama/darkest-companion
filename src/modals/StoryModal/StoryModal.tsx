@@ -24,6 +24,7 @@ import continueButtonSrc from '../../assets/ui/modals/storymodal/continue.png';
 
 import './StoryModal.css';
 import './ActivityLog.css';
+import { useModalContext } from '../ModalProvider.js';
 
 interface StoryModalProps {
   estateName: string;
@@ -46,6 +47,8 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
 
   const [hoveredCharacterId, setHoveredCharacterId] = useState<string | null>(null);
 
+  const { setDismissible } = useModalContext();
+
   /**
    * Cancels the in-flight chain. The story flow is three sequential LLM calls,
    * so closing the modal has to be able to walk away from it — otherwise the
@@ -56,6 +59,13 @@ export function StoryModal({ estateName, onClose }: StoryModalProps) {
   useEffect(() => {
     return () => abortRef.current?.abort();
   }, []);
+
+  useEffect(() => {
+    // Dismissible before the pull starts and once it's told — but not while
+    // the three-call chain is in flight, since consequences persist
+    // server-side before the player ever reads the story.
+    setDismissible(error !== null || phase === 'input' || phase === 'text');
+  }, [phase, error, setDismissible]);
 
   const fetchStoryFlow = React.useCallback(
     async (userPrompt: string | null) => {

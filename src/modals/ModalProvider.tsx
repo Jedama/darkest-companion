@@ -3,9 +3,15 @@ import React, { createContext, useContext, useState, useEffect, useCallback } fr
 import { ModalPortal } from './ModalPortal.js';
 import './ModalProvider.css';
 
+interface ModalOptions {
+  dismissible?: boolean;
+}
+
 interface ModalContextValue {
-  show: (content: React.ReactNode) => void;
+  show: (content: React.ReactNode, options?: ModalOptions) => void;
   hide: () => void;
+  /** Lets a modal change its own mind as its internal state moves on. */
+  setDismissible: (value: boolean) => void;
   isOpen: boolean;
   content: React.ReactNode | null;
 }
@@ -13,6 +19,7 @@ interface ModalContextValue {
 const ModalContext = createContext<ModalContextValue>({
   show: () => {},
   hide: () => {},
+  setDismissible: () => {},
   isOpen: false,
   content: null,
 });
@@ -25,12 +32,14 @@ export function useModalContext() {
 export function ModalProvider({ children }: { children: React.ReactNode }) {
   const [modalContent, setModalContent] = useState<React.ReactNode | null>(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [dismissible, setDismissible] = useState(true);
 
-  const show = (content: React.ReactNode) => {
+ const show = useCallback((content: React.ReactNode, options?: ModalOptions) => {
     setModalContent(content);
+    setDismissible(options?.dismissible ?? true);
     setIsOpen(true);
-  };
-
+  }, []);
+  
   const hide = useCallback(() => {
     setModalContent(null);
     setIsOpen(false);
@@ -39,13 +48,13 @@ export function ModalProvider({ children }: { children: React.ReactNode }) {
   // Escape dismisses the modal. Only bound while one is open, so nothing
   // else in the app has to know this exists.
   useEffect(() => {
-    if (!isOpen) return;
+    if (!isOpen || !dismissible) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') hide();
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [isOpen, hide]);
+  }, [isOpen, dismissible, hide]);
 
   // Effect to disable body scrolling if a modal is open
   useEffect(() => {
@@ -57,7 +66,7 @@ export function ModalProvider({ children }: { children: React.ReactNode }) {
   }, [isOpen]);
 
   return (
-    <ModalContext.Provider value={{ show, hide, isOpen, content: modalContent }}>
+    <ModalContext.Provider value={{ show, hide, setDismissible, isOpen, content: modalContent }}>
       {children}
 
       <ModalPortal>
