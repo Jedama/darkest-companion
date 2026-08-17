@@ -19,14 +19,7 @@ const MIN_EXTENT = 14;
 
 export function Bookmark({ value, ribbonSrc, stubSrc, className = '' }: BookmarkProps) {
   const clamped = Math.max(0, Math.min(100, value));
-
-  if (clamped <= 0) {
-    return (
-      <div className={`bookmark ${className}`}>
-        <img className="bookmark-stub" src={stubSrc} alt="" />
-      </div>
-    );
-  }
+  const dead = clamped <= 0;
 
   // At 100 the ribbon sits at rest; at 1 it has withdrawn all but MIN_EXTENT.
   // The window clips whatever rises above its top edge.
@@ -34,7 +27,7 @@ export function Bookmark({ value, ribbonSrc, stubSrc, className = '' }: Bookmark
 
   return (
     <div className={`bookmark ${className}`}>
-      <div className="bookmark-window">
+      <div className={`bookmark-window${dead ? ' is-hidden' : ''}`}>
         <img
           className="bookmark-ribbon"
           src={ribbonSrc}
@@ -42,6 +35,12 @@ export function Bookmark({ value, ribbonSrc, stubSrc, className = '' }: Bookmark
           style={{ transform: `translateY(-${hidden}%)` }}
         />
       </div>
+
+      <img
+        className={`bookmark-stub${dead ? '' : ' is-hidden'}`}
+        src={stubSrc}
+        alt=""
+      />
     </div>
   );
 }

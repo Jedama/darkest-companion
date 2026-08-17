@@ -65,6 +65,9 @@ function GameContent() {
         new URL('./assets/ui/backgrounds/oldroad.png', import.meta.url).href,
         new URL('./assets/ui/backgrounds/strategy.png', import.meta.url).href,
 
+        // Manor wall (scrolls with the portrait grid)
+        new URL('./assets/ui/backgrounds/manor_scroll.png', import.meta.url).href,
+
         // Default portrait
         new URL('./assets/characters/portrait/small/placeholder_190x278.png', import.meta.url).href,
 

@@ -27,6 +27,19 @@
   /* Hide scrollbar */
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+
+  /* The wall scrolls with the portraits, so they read as pinned to it.
+    'local' is the whole trick: the default ('scroll') would pin the wall to
+    the viewport and only the portraits would move. */
+  background-image: url('../../assets/ui/backgrounds/manor_scroll.png');
+  background-attachment: local;
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: auto 100%;
+
+  /* Without this the grid is only as wide as its content, so a small roster
+     would leave bare wall-less space to the right. */
+  min-width: 100%;
 }
 
 .portrait-grid::-webkit-scrollbar {

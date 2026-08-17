@@ -66,7 +66,7 @@ export function LoadEstateModal() {
   };
 
   return (
-    <div className="modal-overlay">
+    <div className="load-estate-modal">
       <div className="modal-content">
         <h2>Load or Create Estate</h2>
         
