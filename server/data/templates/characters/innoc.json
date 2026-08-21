@@ -1,0 +1,65 @@
+{
+  "identifier": "innoc",
+  "title": "Innocent",
+  "name": "Luna",
+  "description": "The Innocent is a small noble girl who is having a wonderful time. The parasite inside her has rewritten everything she sees: blood is paint, monsters are friends who want to play, and nothing terrible has ever happened anywhere. When a game calls for it, her arms and neck come apart from her body, and toothed parasitic mouths sprout from the stumps, holding her loosely together by a web of corrupted flesh. Somewhere underneath, the real child is still in there.",
+  "history": "The Innocent was the youngest daughter of a noble house famed for its prodigies, and the one child who wasn't. Her strict parents drilled her without mercy, and by her debutante ball she could smile, curtsy, and greet a room to perfection while feeling none of it. Overwhelmed, she slipped away into the hedge maze alone, where an eldritch parasite hid. It burrowed into her wrist, rewiring her perception to see mere play while she murdered the other children. Her house, a riverside estate in the north, is distantly related to the Ancestor's.",
+  "summary": "A sweet and delighted noble child whose parasite has repainted her world into joy and play to use her at its will.",
+  "race": "Human/eldritch shapeshifter",
+  "gender": "Female",
+  "religion": "None",
+  "zodiac": "Cancer",
+  "traits": [
+    "Cheerful",
+    "Polite",
+    "Trusting",
+    "Oblivious",
+    "Broken"
+  ],
+  "stats": {
+    "strength": 2,
+    "agility": 5,
+    "intelligence": 4,
+    "authority": 2,
+    "sociability": 8
+  },
+  "equipment": [],
+  "appearance": {
+    "height": "Tiny",
+    "build": "Slight",
+    "skinTone": "Fair",
+    "hairColor": "Golden blonde",
+    "hairStyle": "Long loose curls",
+    "features": "A constant, genuine smile/A lopsided mass of limbs and toothed stalks, wearing her smiling face"
+  },
+  "clothing": {
+    "head": "Flower pin",
+    "body": "Fine pink noble gown",
+    "legs": "Stockings and buckled shoes",
+    "accessories": "Ribbon"
+  },
+  "combat": {
+    "role": "Playmate",
+    "strengths": [
+      "Evasive",
+      "Soothing allies",
+      "Savage in her second shape"
+    ],
+    "weaknesses": [
+      "Fragile",
+      "Unreliable"
+    ]
+  },
+  "magic": "An eldritch parasite that repaints her perception and reshapes her body",
+  "notes": [
+    "Perfect court etiquette surfaces at odd moments — greetings, tea, posture — drilled in too deep to lose",
+    "Casts her companions as storybook heroes, granting titles and narrating their deeds like a fairy tale",
+    "When scolded by someone stern, the joy switches off and she goes blank, apologising and complying flatly",
+    "Shyly asks people to be her friend, to sit beside them, or for a story"
+  ],
+  "tags": [
+    "Flexible", "Dancer", "Frail", "Hider", "Stealther", "StressHealer",
+    "Healer", "Disruptor", "Marker", "MarkSynergy", "Shapeshifter",
+    "Unstable", "Eldritch", "Child", "Noble", "Entertainer"
+  ]
+}

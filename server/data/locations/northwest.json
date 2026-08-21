@@ -9,7 +9,9 @@
       "dower_house",
       "library",
       "town_hall",
-      "bank"
+      "bank",
+      "nest",
+      "academie_duello"
     ]
   },
   {
@@ -179,9 +181,9 @@
   {
     "identifier": "dower_house__red_hook",
     "title": "Red Hook",
-    "description": "Known as the Red Hook, this ancient monument rises from the garden in broken majesty. The base remains intact, but the great curved tentacle that once reached skyward now lies shattered, its fragments scattered across the garden. It predates the Dower House by centuries, and the Estate itself was built around this enigma. Its records mention others like it, though their locations are lost.",
-    "restored": "Known as the Red Hook, this monument rises once more in dark splendor, a great curved tentacle of black stone reaching toward the sky. Its restoration serves no practical purpose, yet here it stands, rebuilt stone by stone, a declaration of the Estate's continued triumphs against the darkness. It predates the Dower House by centuries, the Estate itself built around its glory. Several miniatures, sculpted in its likeness, have been found during expeditions into the ruins beneath the manor.",
-    "summary": "An ancient monument of black stone in the Dower House garden, depicting a curved tentacle, holding enigmatic significance.",
+    "description": "Known as the Red Hook, this ancient monument rises from the overgrown garden in broken majesty. While its circular stone plinth remains intact, the great curved tentacle of black basalt that once reached skyward lies shattered into jagged fragments scattered among nightshade and briars. It predates the Dower House by centuries—the Estate itself was founded around this enigma—and estate archives mention sister monoliths whose locations have been lost to time.",
+    "restored": "Known as the Red Hook, this ancient monolith rises in dark splendor, a great curved tentacle of seamless black stone reaching toward the sky. Its reconstruction serves no practical utility, standing instead as a defiant symbol of the Estate's reclaimed dominion over the dark. Miniatures sculpted in its exact likeness continue to be unearthed in the ruins beneath the manor, proof that this enigma predates the settlement itself.",
+    "summary": "An ancient black stone monolith depicting a curling tentacle, around which the Estate was originally founded.",
     "parent": "dower_house__garden",
     "children": []
   },
@@ -334,28 +336,37 @@
   {
     "identifier": "bank",
     "title": "Bank",
-    "description": "A broken shell that once housed the hamlet's wealth. The grand entrance lies smashed open, plundered by desperate townsfolk in their flight from the Estate. Inside, the main hall's marble floor lies buried under debris, while the teller counter's brass grilles hang twisted from their mountings. The vault beyond stands empty, its thick door torn from its hinges by makeshift tools and desperate strength.",
-    "restored": "A testament to restored order and returned prosperity. Fresh-cut stone has replaced the broken steps, while the entrance hall gleams with polished marble and brass. The restored teller counter stretches along one wall, its grilles glinting in the light from new windows. The vault door hangs straight and true once more, its mechanisms rebuilt to protect what wealth now returns to the hamlet's coffers.",
-    "summary": "A building intended to house the hamlet's wealth and maintain financial order, featuring a vault and teller counter.",
+    "description": "A ransacked classical stone hall that once housed the hamlet's treasury. Its grand entrance pillars are chipped and charred, the interior marble floor is choked with shattered glass and broken counting desks, and the iron vault at the back hangs torn from its hinges, plundered and hollow.",
+    "restored": "A secure, imposing financial house of dressed stone and polished brass. Inside, tall arched windows illuminate a gleaming marble banking hall with reinforced teller grilles and balance scales, leading back to a massive iron vault door secured by intricate combination tumblers.",
+    "summary": "The hamlet's formal financial institution, featuring a teller hall and reinforced subterranean vault for safeguarding bullion and interest.",
     "parent": "north_west_district",
     "children": []
   },
   {
     "identifier": "nest",
     "title": "The Nest",
-    "description": "Two weathered pillars stand alone in a weed-choked lot between the district's grand houses, the arch they once carried long since fallen between them. Foundation lines trace a nave that no longer exists, from the days when the hamlet was small enough for this to be its center and its church was dedicated to Sol Invictus. Among the rubble a stair descends into the crypts below, its mouth part-blocked and part-cleared, and the dead down there are older than any name still spoken in the hamlet. Bats come and go all night.",
-    "restored": "The great arch stands whole again between its pillars, its sun window reset and the ground beneath it swept, a monument to the chapel it once served, though the nave remains bare foundation lines under open sky. This was the hamlet's holy ground once, raised to Sol Invictus before the Light extinguished the old faith. The stair descends to crypts shored with fresh timber and hung with new doors, the old burial niches cleared out and fitted with beds. It is cool down there, and dark at all hours, which suits those who lodge in it.",
-    "summary": "Two lone pillars and a descending stair in a weed-choked lot, all that remains of the hamlet's oldest chapel, raised to a faith the Abbey replaced.",
+    "description": "Two weathered pillars stand alone in a weed-choked lot between the district's grand houses, the arch they once carried long since fallen between them. Foundation lines trace a nave that no longer exists, from the days when the hamlet was small enough for this to be its center and its church was dedicated to Sol Invictus. Among the rubble, a stair descends into the crypts below, its mouth part-blocked and part-cleared, where the dead are older than any name still spoken in the hamlet. Bats come and go through the dark opening all night.",
+    "restored": "The great stone arch stands whole again between its pillars, its carved sun window reset over swept ground as a monument to the lost Sol Invictus chapel, though the nave remains bare foundation lines under open sky. A cleared stairway descends into the crypts below, where the ancient masonry has been shored with fresh timber and hung with heavy doors. The old burial niches, cleared of rubble and fitted with beds, provide cool, lightless quarters that suit solitary lodgers.",
+    "summary": "A historic sanctuary lot marked by the stone arch of an ancient Sol Invictus chapel, featuring subterranean crypts converted for lodging.",
     "parent": "north_west_district",
     "capacity": 6,
-    "children": []
+    "children": ["sol_invictus_statue"]
   },
   {
     "identifier": "sol_invictus_statue",
     "title": "Statue of Sol Invictus",
-    "description": "A stone figure toppled from its plinth in a weed-choked lot among the district's grand houses, lying half-buried in the masonry that came down with it. It was razed generations ago, when the Light became the region's faith. The spear lies snapped near the head, and the shield lies turned into the dirt. The sun graven on the plinth's face is still clean enough to read. Wax has pooled and hardened in the hollows of the stone, older than anyone in the hamlet will admit to.",
-    "restored": "A great armoured figure of pale stone stands on a stepped plinth in the courtyard of its old church, spear held level and shield raised, the sun on its boss picked out in gold. It stands as it did before the Light came to the region, when this lot was the hamlet's holy ground and the older faith still had its temples here. Four painted panels are set into the base, restored stroke for stroke",
-    "summary": "A stone figure of the sun-god on a graven plinth, raised in old church's graveyard long before the Light came to the region.",
+    "description": "A stone figure toppled from its plinth in the old chapel lot, lying half-buried in the masonry that came down with it. It was razed generations ago when the Light became the region's faith. The warrior's spear lies snapped near the head, and the sun-emblazoned shield lies face-down in the dirt.",
+    "restored": "A colossal armored figure of pale stone stands atop a stepped plinth in the chapel lot, spear held level and shield raised with its solar boss picked out in gold. Carved in the days before the Light claimed the region, the ancient sun-god watches over the courtyard once more, framed by four painted panels set into the base recounting the Faith's four virtues.",
+    "summary": "A monumental stone statue of the ancient sun-god mounted on an engraved plinth in the old chapel grounds.",
+    "parent": "nest",
+    "children": []
+  },
+  {
+    "identifier": "academie_duello",
+    "title": "Académie Duello",
+    "description": "A stately stone fencing salon and tower overlooking the northwest quarter, its dignified facade scarred by past violence. Grand arched windows lie shattered, while the columned entrance steps are choked with fallen masonry and splintered rapier blades, long abandoned since the masters from Craie were forced to flee or perish.",
+    "restored": "A dignified martial academy of dressed grey stone, warm slate roofing, and a prominent corner watch-tower. Warm candlelight pours through restored arched windows, illuminating a polished parquetry fencing salle hung with heraldic standards. Here, the refined fencing, parrying, and riposte techniques of Craie are drilled and mastered once more.",
+    "summary": "A grand stone fencing academy and martial salon in the northwest district, dedicated to the formal dueling arts and rapier techniques of Craie.",
     "parent": "north_west_district",
     "children": []
   }

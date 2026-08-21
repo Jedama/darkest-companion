@@ -2,11 +2,9 @@
   "anoint": {
     "shambler": "The Anointed fought it once, in the dark, saving those it harried at the cost of his wings. He will know the shriek before he sees anything."
   },
-  "meister": {
-    "drowned_captain": "These are the men who sacked the Meister's court, killed his emperor, and took his arm. He crossed an ocean to find them, but it appears they were drowned before he arrived."
-  },
-  "prefect": {
-    "healer": "The Prefect taught her, in a lecture hall, years ago. He will recognise the work before he recognises the face, and will grade it aloud while she is trying to kill him."
+  "arsonist": {
+    "talon_mother": "The Arsonist has burned out gangs like hers for most of his working life and knows the shape of the operation she runs: the routes, the buyers, the accounting of people sold. She is the reason the rest of them exist, and he will go for her without being asked and without taking her alive.",
+    "talon_damsel": "The Arsonist knows this trick. The woman held out in front is real, is not one of them, and is there to make decent people hesitate — which is the exact practice he took up burning these gangs to end. He has killed through a shield like this before and will again."
   },
   "eagle": {
     "eagle": "The Arbiter's old rank, old uniform, old stance. They remind him of himself, and of his friend Felnum, who was executed after their defection. It pains him to kill men who could have been his brothers.",
@@ -14,5 +12,11 @@
     "healer": "The Arbiter's friend Nora was a Naturopath before they defected together. She was the only other survivor, and they parted ways soon after; these remind him of her, and of the fact that he did not follow her.",
     "vultman": "The Arbiter's friend Zuriel served among these before the defection, and was gunned down for it. He kills them without hesitation.",
     "p_crow": "The Arbiter served under officers of this rank his whole life, and one of them signed the order that killed his squad. He still calls them 'sir', from habit."
+  },
+  "meister": {
+    "drowned_captain": "These are the men who sacked the Meister's court, killed his emperor, and took his arm. He crossed an ocean to find them, but it appears they were drowned before he arrived."
+  },
+  "prefect": {
+    "healer": "The Prefect taught her, in a lecture hall, years ago. He will recognise the work before he recognises the face, and will grade it aloud while she is trying to kill him."
   }
 }

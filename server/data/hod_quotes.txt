@@ -3,6 +3,8 @@ aesthete: Eek! Anyone but I! The world could not endure such a loss!
 anointed: What is feather and flock amongst flesh and foulness?
 antiquarian: So I'm the final antique, yet there will be nothing around to collect...
 arbalest: Please, no! I want to live!
+arsonist: One last breath of defiance...
+bluesman_bet: Heh, I figured it'd end like this. Can't cheat the Devil.
 bogatyr: Aah, I've lived long, and learned much. Perhaps it is time at last to return home.
 bounty_hunter: ...hm.
 cataphract: We'll ride together in green fields under warm skies. It is time.
@@ -22,12 +24,14 @@ flagellant: I've waited long for this! DON'T TAKE IT FROM ME.
 fleshgolem: Go on.. I will handle it.
 grave_robber: A proper lady does not volunteer herself for slaughter!
 greymane: I will see you soon, Liam.
+harlot: Well, I've had some great rolls in the hay!
 heiress: I’m the one who answered the letter. I’ll answer to this.
 hellion: Send me to hell then! AAAKYLORAAAHHH!
 highwayman: No way out. hmph. Let's do this.
 hood: Your voice sounds so odd. Is something the matter?
 houndmaster: Steady, girl. If we're called, we answer.
 hqclaimants: Yes... yes! Coronate us, on the throne of eternity!
+innoc: Home? We're, I'm... Who, wha... Eh, EHEHE~
 jester: Hah! The joke's on me then...?
 kheir: Hold my wine.
 krakenslayer: Not yet, I still have more heads to claim!
@@ -35,6 +39,7 @@ lamia: I'd rather not keep up the second part of our bargain, if you don't mind.
 librarian: The visions I saw, it was you...
 leper: Spare the others, I am ready.
 maid: Will there ever be a place for the broken in the light?
+mambo: The Loa lead me here to fight evil. If this be their will, so be it.
 man_at_arms: I go with a clear conscience. I've given my all.
 meister: W-were the sages wrong? What if...?
 monitor: No! Ostvengr! (MISSING)
@@ -47,6 +52,7 @@ plague_doctor: Not me! I am a learned scholar!
 prefect: Years upon years chasing those drops of cosmic truth...and yet now I yearn for ignorance.
 psychiatrist: Father, I have done enough. I hope my sins are forgiven.
 rampart: At last, my duty ends. / FINALLY, I RETURN HOME.
+rescuer: Even a doctor cannot escape death!
 resonant: The true god is not this facsimile - it is you, player. I knew all along.
 ringmaster: The Butcher can never die. My successor will only raise the stakes.
 salad: I am but a puppet, and here is the puppeteer...
@@ -57,6 +63,7 @@ sisters: No! This is not the fate I deserve! END US, GOD OF FLESH!
 slayer: <Grin>
 snake_charmer: It's my destiny...I'm waiting for you, Devourer!
 snor_rasp: I will make just one request. Please, let me feel it.
+steel_driver: I swore I'd die with this hammer in my hand!
 succubus: I thought we had a deal!!! / Am I dying? But... I was promised pleasure...
 tempest: You reprehensible thing! THIS was your plan? Dethrone my divinity, then end the world?!
 thorn: I know eternal darkness. I'm ready...

@@ -16,7 +16,8 @@
       "valley",
       "northern_forest",
       "chernozem",
-      "craie"
+      "craie",
+      "winterhome"
     ]
   },
   {
@@ -186,7 +187,7 @@
     "summary": "A cold northern war-state that fought Ostvengr for its whole recorded history, and is already looking for its next war.",
     "parent": "world",
     "children": [
-      "chernozem__black_earth"
+      "chernozem__black_earth", "chernozem__podzola"
     ]
   },
   {
@@ -198,10 +199,36 @@
     "children": []
   },
   {
+    "identifier": "chernozem__podzola",
+    "title": "Podzola",
+    "description": "Chernozem's northern half, named for its pale ash-grey soil. Winters are long and harsh, it grows little worth taking and, far from Chernozem's eternal war, it has been mostly ignored. The old songs are still sung here and the old rites still observed, and sects the Light's churches believes stamped out meet in cellars.",
+    "summary": "Chernozem's poor-soiled northern half, too worthless to fight over, where old songs and older heresies survived the war years intact.",
+    "parent": "chernozem",
+    "children": [
+      "chernozem__far_north"
+    ]
+  },
+  {
+    "identifier": "chernozem__far_north",
+    "title": "The Far North",
+    "description": "Podzola past the last of its forts, where the farms end and the country stops pretending to be governed. A few settlements sit on the rivers and the rest of the people follow the reindeer, paying their tribute in furs to a capital none of them has seen and otherwise going years without meeting anyone who could name them. No church ever came this far, so the old animist faiths were never converted, only left alone. The garrisons collect what they are owed and do not ask what is further north.",
+    "summary": "The frontier beyond Podzola's forts, where herders pay tribute in furs and the old animist faiths were never converted.",
+    "parent": "chernozem__podzola",
+    "children": []
+  },
+  {
+    "identifier": "winterhome",
+    "title": "Winterhome",
+    "description": "The land past the last of the reindeer herders, where the winter does not break and never has. Nothing is farmed here and nobody lives here except hardened wildlife, winter demons, and the sorcerer Koschei. What is known of it comes from the old epics, which are songs about heroes who went north and are not reliable about anything else.",
+    "summary": "The land beyond the reindeer herders, where the winter never breaks and nothing lives but the winter demons and Koschei.",
+    "parent": "world",
+    "children": []
+  },
+  {
     "identifier": "craie",
     "title": "Craie",
-    "description": "A country of pale downland and chalk hills west of Ostvengr's mountains, wealthy in wine and wheat and nothing else, which has spent two generations being the ground its neighbour's wars are fought across. Its army is large, conscripted, and mostly made of farmers, and it has never won a war so much as outlasted one. The fighting settled into long stretches of nothing broken by weeks of shelling, and the villages nearest the frontier learned to live in cellars. Now that Ostvengr has destroyed itself, Craie has an intact army, no enemy, and a great many holes in the ground it does not know what to do with.",
-    "summary": "A chalk-hilled farming country west of Ostvengr, ground down by two generations of a war that has just ended without it.",
+    "description": "A country of pale downland and chalk hills west of Ostvengr's mountains, wealthy in wine and wheat and nothing else, which has spent two generations being the ground its neighbour's wars are fought across. Its nobility once prided themselves on the finest fencing academies and dueling salons in the world, traditions rendered utterly useless by weeks of industrialized artillery shelling and trench disease. Its army is large, conscripted, and mostly made of farmers who learned to live in cellars rather than parry on dueling pistes. Now that Ostvengr has destroyed itself, Craie is left with an intact army, no enemy, and a generation of displaced fencing masters whose elegant art had nowhere left to go but abroad.",
+    "summary": "A chalk-hilled downland country west of Ostvengr, whose proud dueling traditions were rendered obsolete by two generations of grinding trench warfare.",
     "parent": "world",
     "children": []
   }

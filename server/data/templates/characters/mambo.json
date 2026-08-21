@@ -1,0 +1,65 @@
+{
+  "identifier": "mambo",
+  "title": "Mambo",
+  "name": "Marie",
+  "description": "The Mambo is a freedwoman of renown, who earned her standing and carries it plainly. She is warm and protective, but takes open offence at being talked down to or treated as nobody. She serves the Loa, spirits of the crossroads and the grave, who answer her in exchange for her own blood. A black rooster rides on her shoulder, holding what she believes is her husband's soul.",
+  "history": "The Mambo was born to slavery and raised in the faith of her people, until a man bought her freedom papers. They married and lived happily. But after their daughter died shortly after birth and he died in a war, she went to the Loa to put his soul into a black rooster, so she could still keep him close. Life moved on, she worked as a hairdresser to wealthy women, a nurse through a plague, and a priestess to those who came to her door, and became well known in her city. When the Loa showed her a face being swallowed by something that unmade it, she began making her way to the Estate.",
+  "summary": "A regal and generous Mambo, a freedwoman priestess of the crossroads spirits, come to the Estate on their word.",
+  "race": "Human",
+  "gender": "Female",
+  "religion": "Voodooism (The Loa)",
+  "zodiac": "Taurus",
+  "traits": [
+    "Regal", "Warm", "Shrewd", "Generous", "Unbowed", "Bereaved"
+  ],
+  "stats": {
+    "strength": 4,
+    "agility": 3,
+    "intelligence": 8,
+    "authority": 9,
+    "sociability": 9
+  },
+  "equipment": [
+    "Rosary beads",
+    "Dagger"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Full and solid",
+    "skinTone": "Dark brown",
+    "hairColor": "Black",
+    "hairStyle": "Put up beneath her headwrap (hidden)",
+    "features": "Deep-set eyes with darkened lids, thin arched brows, a high forehead"
+  },
+  "clothing": {
+    "head": "Red headwrap",
+    "body": "Teal gown and shawl, with small bone clasps at the shoulders",
+    "legs": "Long dark red skirts",
+    "accessories": "Large gold hoop earrings, gold bangles, a belt with a bottle of pepper rum"
+  },
+  "combat": {
+    "role": "Support",
+    "strengths": [
+      "Curses",
+      "Soothing",
+      "Guarding"
+    ],
+    "weaknesses": [
+      "Low damage",
+      "Frail"
+    ]
+  },
+  "magic": "Blessings and curses from the Loa",
+  "notes": [
+    "Speaks a warm regional dialect, and drops into her older native creole when she's in earnest (southern American English to Louisiana Creole)",
+    "Openly talks to her rooster, and treats its noises as coherent answers",
+    "Offers to cut or style people's hair",
+    "Has adopted her spirits' way of speaking of death as a familiar and crude joke"
+  ],
+  "tags": [
+    "Flexible", "Weak", "Frail", "StressHealer", "SelfSufficient",
+    "SelfStress", "Debuffer", "Marker", "Blighter", "Guarder",
+    "Riposter", "Cycler", "EldritchHunter", "Vigilant", "Companion",
+    "Religious", "Physician", "Lowborn", "Reach"
+  ]
+}

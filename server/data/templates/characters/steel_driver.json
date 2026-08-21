@@ -1,0 +1,64 @@
+{
+  "identifier": "steel_driver",
+  "title": "Steel Driver",
+  "name": "Henry",
+  "description": "The Steel Driver is a big, plainspoken labourer with a shard of the Comet that struck the Farmstead driven into his shoulder. It is still growing, fighting for his body, capable of seizing control, but never for long. He is inspiring and resilient, promising everyone they'll get through any hardship, and stubbornly gives his all to keep those promises. He has pledged his service to the Estate, intent on returning to the Farmstead to put his former crew out of their misery.",
+  "history": "The Steel Driver was a section hand on a railway crew and its hollerer, the man who called the rhythm the others swung to. The king's men hired the crew to level ground on the Estate's outskirts for a line meant to run up the coast. On the day they started work the Comet came down on them. It turned the rest of the crew into husks, but he stayed conscious through it and smashed the shard in his shoulder until the spreading slowed enough to be manageable. His insides were ruptured by the impact, and he could not rid himself of the shard, as the crystal knitting him shut was the only thing keeping him alive.",
+  "summary": "A steadfast and stubborn Steel Driver, sole survivor of the Comet, with its crystal growing through him and its will fighting him for the body.",
+  "race": "Human",
+  "gender": "Male",
+  "religion": "None",
+  "zodiac": "Aquarius",
+  "traits": [
+    "Steadfast", "Diligent", "Reassuring", "Boastful", "Stubborn"
+  ],
+  "stats": {
+    "strength": 9,
+    "agility": 4,
+    "intelligence": 5,
+    "authority": 6,
+    "sociability": 7
+  },
+  "equipment": [
+    "Sledgehammer"
+  ],
+  "appearance": {
+    "height": "Above average",
+    "build": "Heavy",
+    "skinTone": "Dark brown",
+    "hairColor": "Black",
+    "hairStyle": "Shaved",
+    "features": "Crystal growing from his left shoulder down the arm, clouding one eye pale blue"
+  },
+  "clothing": {
+    "head": "None",
+    "body": "Work overalls over a bare chest and shoulders",
+    "legs": "Overall trousers and heavy boots",
+    "accessories": "Red neckerchief"
+  },
+  "combat": {
+    "role": "Sapper",
+    "strengths": [
+      "Heavy blows that carry through armour",
+      "Resilient",
+      "Charging and shoving",
+      "Demolitions"
+    ],
+    "weaknesses": [
+      "Slow",
+      "Short range"
+    ]
+  },
+  "magic": "Grows and bursts crystal from the Comet",
+  "notes": [
+    "Speaks in a slow working drawl thick with railyard terms (southern American English)",
+    "Considers rhythm paramount in any work, and hollers loudly for others to keep pace",
+    "When the shard takes him he goes rigid and flat-voiced, his own voice still quietly audible underneath",
+    "Chips at the crystal with a chisel most nights, though it always grows back"
+  ],
+  "tags": [
+    "Frontline", "Tank", "HeavyHitter", "ArmorPiercer", "Crit",
+    "Setup", "Sweeper", "Disruptor", "SelfSufficient", "SelfStress",
+    "Cycler", "Eldritch", "Lowborn", "Scavenger"
+  ]
+}

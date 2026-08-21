@@ -16,9 +16,9 @@
   {
     "identifier": "granary",
     "title": "Granary",
-    "description": "A broken husk of splintered timber and collapsing supports that once secured the hamlet's food stores. The loading dock has completely collapsed, leaving wagons' weathered remains half-buried in the debris. Ravens nest in the sagging rafters, their calls echoing through holes in the roof while vermin scurry through rotting grain in the shadows below.",
-    "restored": "A sturdy guardian of the hamlet's sustenance risen anew. Fresh-cut timber and iron bands have replaced rotting boards, while the restored loading dock again bears the weight of harvest wagons. The upper floors now keep their precious cargo dry and secure, though workers whisper of strange sounds that still echo from the deepest storage bins.",
-    "summary": "A broken husk of splintered timber and rotting grain, serving as a ruined monument to the hamlet's lost sustenance.",
+    "description": "A collapsed agricultural storehouse of rotted siding and sagging rafters. The exterior loading dock has caved into the mud under the weight of overturned wagons, while flocks of ravens nest in the roof's gaping holes, picking at heaps of moldered grain in the dark below.",
+    "restored": "A massive timber-and-iron storehouse elevated on heavy stone footings to deter pests and damp. Broad wooden ramps easily accommodate laden harvest wagons, while ventilated upper silos and hoppers keep sacks of grain, meal, and emergency rations dry and secure.",
+    "summary": "The hamlet's bulk agricultural storehouse, equipped with heavy timber loading docks and ventilated silos for storing grain.",
     "parent": "south_district",
     "children": []
   },
@@ -48,7 +48,8 @@
     "children": [
       "mill",
       "tainted_well",
-      "miasmal_orchard"
+      "miasmal_orchard",
+      "railway"
     ],
     "npcs": [
       "miller_wife"
@@ -57,27 +58,27 @@
   {
     "identifier": "mill",
     "title": "Mill",
-    "description": "A stark silhouette of stone and timber whose upper portions hang suspended in defiance of natural law. Crystalline growths trace paths up its walls like frozen ivy, while the great millstone hangs motionless, caught between earthly mechanics and otherworldly forces. Through gaps in the walls, pale blue light pulses in time with distant distortions.",
-    "restored": "The great wheel stands whole once more, its timbers and masonry carefully reconstructed to bridge what once floated in cosmic suspension. Though new stones and gears have replaced those too far gone, something of its time in the corruption lingers in the grain's subtle luminescence. The millstone turns again, grinding wheat from safer fields.",
-    "summary": "A stark silhouette of stone and timber suspended in defiance of natural law, pulsing with the pale light of distant distortions.",
+    "description": "A stark silhouette of stone and timber whose upper works hang suspended in mid-air in defiance of natural law. Crystalline growths crawl up the shattered masonry like frozen ivy, while the great millstone hangs motionless, caught between earthly mechanics and cosmic distortions. Through gaps in the walls, a pale cyan light pulses in time with otherworldly tremors.",
+    "restored": "A massive timber-and-masonry windmill standing whole above the farmstead. Heavy iron-banded gears turn the great wheel steadily in the coastal wind, driving realigned grindstones to process wheat from reclaimed fields. Though shielded safely behind the ward stones, a faint luminescence still glimmers along the deepest foundation blocks.",
+    "summary": "The agricultural windmill on the southern farmstead, housing a massive wheel and grindstones for flour production.",
     "parent": "mill_grounds",
     "children": []
   },
   {
     "identifier": "tainted_well",
     "title": "Tainted Well",
-    "description": "A deep-driven shaft whose waters now reflect impossible constellations. The stone walls bear crystalline growths that pulse with inner light, while the well's wooden roof hangs crooked, its beams warped by forces that pull toward the inner wards. No bucket has drawn safe water here since the comet's fall.",
-    "restored": "Fresh stones cap the ancient shaft, with new roof timbers replacing those warped by cosmic forces. While the water still glimmers strangely in certain lights, careful filtration and regular testing have made it safe for use once more. The old bucket chain turns true, though workers prefer to draw water in daylight hours.",
-    "summary": "A deep-driven shaft where crystalline growths pulse with inner light and the water reflects impossible constellations.",
+    "description": "A shattered masonry well where wild, runaway crystal growths have burst through the stonework, leaving the canopy crushed under fallen timbers. Glowing cyan brine spills across the cracked base and pools into the mud, poisoning the soil and rendering the flooded shaft completely unusable.",
+    "restored": "A braced masonry well dominated by a colossal, glowing cyan crystal that juts straight through the center of its shingled roof. While the waters below are permanently infused with the comet's luminescence, the reinforced stone base and winch allow workers to safely draw the mineral-charged brine for specialized settlement use.",
+    "summary": "A farmstead stone well pierced by a towering, luminescent comet crystal, utilized for drawing crystal-infused water.",
     "parent": "mill_grounds",
     "children": []
   },
   {
     "identifier": "miasmal_orchard",
     "title": "Miasmal Orchard",
-    "description": "Rows of twisted fruit trees transformed by cosmic forces into crystalline mockeries of their former selves. Their branches, more mineral than wood, bear fruit-shaped formations that pulse with inner light. No living thing could find nourishment in this corrupted harvest.",
-    "restored": "Patient work has removed the worst of the crystalline growth, while new saplings planted between the old stumps promise future harvests. Though some older trees still bear traces of their corruption in glimmering bark and luminous leaves, their fruit grows wholesome and sweet. The replanted rows stand straight where their twisted predecessors once leaned.",
-    "summary": "Rows of twisted trees transformed into crystalline mockeries, bearing mineral fruit that pulses with corrupt light.",
+    "description": "A blighted thicket of blackened, twisted trees choked with jagged, uncontrolled crystal formations. Corrupted mists drift across the untamed soil, where the fractured wood bleeds a pale glow into the barren ground, far too dangerous and volatile for any worker to approach.",
+    "restored": "A gnarled, blackened tree enclosed within a sturdy circular wooden fence, preserved as a contained cosmic anomaly. Massive clusters of cyan crystals burst from its boughs and roots, wreathed in a faint luminescent mist that workers harvest for crystalline growth and esoteric extracts.",
+    "summary": "A fenced agricultural enclosure on the farmstead surrounding an ancient tree fused with glowing cosmic crystals.",
     "parent": "mill_grounds",
     "children": []
   },
@@ -90,7 +91,7 @@
     "children": [
       "apple_yard__house",
       "apple_yard__barn",
-      "mass_grave"
+      "apple_yard__mass_grave"
     ]
   },
   {
@@ -152,6 +153,14 @@
     "description": "A suspiciously regular mound beyond the orchard's edge, where three bodies were said to be buried after the miasma took them. The Conscript's sword sticks out of the earth at an odd angle, alongside gifts left by others who pretended to mourn them.",
     "summary": "A suspiciously regular mound marked by a conscript's sword, burying the bodies taken by the miasma.",
     "parent": "apple_yard",
+    "children": []
+  },
+  {
+    "identifier": "railway",
+    "title": "The Cut",
+    "description": "A channel blasted through the farmstead's southern slope, graded wide enough for two rails that were never laid. Sleepers are stacked in bundles along the spoil heaps, beside barrows, spike hammers and a powder store left standing open. The surveyors' tents are still pitched at the far end, canvas stiff with ash. Crystal has come up through the rubble in patches, and the former crew roam around the farmstead as empty, lifeless husks.",
+    "summary": "A blasted railway channel on the farmstead's slope, its tools, tents and unlaid sleepers left where the crew dropped them.",
+    "parent": "mill_grounds",
     "children": []
   }
 ]

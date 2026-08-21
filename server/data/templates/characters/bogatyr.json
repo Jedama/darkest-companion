@@ -1,0 +1,66 @@
+{
+  "identifier": "bogatyr",
+  "title": "Bogatyr",
+  "name": "Ilya",
+  "description": "The Bogatyr is an enormous, white-bearded old warrior of the far north, an ancient hero who was cursed into a winter demon and has only recently been given his mortality and human form back. He is jolly, generous, and fond of everyone he travels with, and takes great care to be seen eating, singing, and grieving as a man does. A cold that is not weather follows him wherever he goes, but he will insist it's your imagination. He fears dying, as his phylactery would bring him back as a mindless winter demon again.",
+  "history": "The Bogatyr was a champion of the old north until his sworn brother was sealed alive in an enchanted tomb that no blow of his would open. Seeking the strength to free him, the Bogatyr went to Koschei the Deathless, who tore his mortality out of him and sealed it in a phylactery, turning him into a winter demon who roamed for centuries, having forgotten the man it had been. Stumbling upon the mythical 'stone at the crossroads', enough of him woke to choose, out of the three paths, to 'walk straight and be granted death'. On that road, a woman looked at his monstrous form and smiled, and its warmth granted him his humanity back. He lived alongside her family for years, until Koschei found them and killed them all. The Bogatyr drove the sorcerer off, and now hunts him and his own phylactery, to finally end his long life.",
+  "summary": "A jovial and hospitable Bogatyr, an ancient hero forgiven out of a winter curse, hunting the sorcerer who owns his death.",
+  "race": "Winter Demon",
+  "gender": "Male",
+  "religion": "Animism",
+  "zodiac": "Capricorn",
+  "traits": [
+    "Jovial", "Paternal", "Hospitable", "Insistent", "Haunted"
+  ],
+  "stats": {
+    "strength": 8,
+    "agility": 3,
+    "intelligence": 6,
+    "authority": 7,
+    "sociability": 9
+  },
+  "equipment": [
+    "Shortsword",
+    "Round shield, weighted for throwing"
+  ],
+  "appearance": {
+    "height": "Towering",
+    "build": "Broad and heavy",
+    "skinTone": "Pale and weathered",
+    "hairColor": "White",
+    "hairStyle": "Balding",
+    "features": "Big nose, an enormous white beard"
+  },
+  "clothing": {
+    "head": "Fur-lined hood over a gilded circlet",
+    "body": "Layered brigandine and mail over a red tunic, with a heavy fur mantle",
+    "legs": "Padded trousers and fur-topped boots",
+    "accessories": "Gilded belt fittings, rune-etched trim"
+  },
+  "combat": {
+    "role": "Bulwark",
+    "strengths": [
+      "Freezing enemies",
+      "Resilient",
+      "Healing"
+    ],
+    "weaknesses": [
+      "Low damage",
+      "Slow"    
+    ]
+  },
+  "magic": "Demonic chill",
+  "notes": [
+    "Plays the gusli at camp and sings in a booming voice",
+    "Carries a cloth that magically conjures hot food",
+    "Swears by the elk, the bear, and the wolf",
+    "Takes immaculate care of his great beard",
+    "Calls people child or youngin, and laughs in a hearty 'ho ho' way"
+  ],
+  "tags": [
+    "Flexible", "Tank", "Weak", "Stunner", "StunSynergy",
+    "Debuffer", "Disruptor", "Buffer", "Healer", "StressHealer",
+    "Entertainer", "Warrior", "Elder", "Penitent", "Exile",
+    "Eldritch", "Unaging"
+  ]
+}

@@ -13,7 +13,9 @@
       "shore_path",
       "schoolhouse",
       "manor_staircase",
-      "aqueduct"
+      "aqueduct",
+      "amphitheater",
+      "archaeological_base_camp"
     ]
   },
   {
@@ -38,9 +40,9 @@
   {
     "identifier": "shore_path__condemned_shack",
     "title": "Condemned Shack",
-    "description": "A crooked structure perched on a small rocky islet, connected to shore by a weathered stone bridge. Built atop the ruins of an ancient lighthouse, its upper floor has long since collapsed, though the ground floor remains stable enough to offer rudimentary shelter. From here, one can see both the manor's abandoned pulley system and the cove's distant mouth, though most residents avoid lingering in either direction.",
-    "restored": "A precarious dwelling risen anew upon its rocky islet, with restored upper floor and a distinctive spired addition clinging to its side. Though still ramshackle by any measure, its weathered boards and crooked windows now offer proper shelter from the coastal winds. From its elevated position, one can see both the manor's abandoned pulley system and the cove's distant mouth, though most residents still avoid lingering in either direction.",
-    "summary": "A structure on a rocky islet, built on an old lighthouse, offering shelter and views of the cove.",
+    "description": "A shattered wooden shanty clinging to a rocky islet along the shore path, linked to the mainland by a cracked stone footbridge. Built atop the stump of an ancient lighthouse, its roof and upper floor have completely caved in, leaving only a rotted, wind-whipped shell where seawater pools over cracked floorboards.",
+    "restored": "A sturdy timber shelter anchored securely upon the ancient lighthouse foundations. Fresh-cut cedar shingles, reinforced walls, and a small lookout turret keep the coastal gales at bay, providing dry, elevated quarters with a commanding view of both the cove's cavernous mouth and the manor's cliffside hoist.",
+    "summary": "An isolated dwelling constructed upon ancient lighthouse foundations on an offshore islet, providing cliffside lodging.",
     "parent": "shore_path",
     "capacity": 2,
     "children": [
@@ -58,18 +60,18 @@
   {
     "identifier": "athenaeum",
     "title": "Athenaeum",
-    "description": "Once the Estate's center of esoteric learning, now a shell of broken windows and toppled shelves. The Ancestor spared no expense in its construction, gathering scholars from across the known world to study ancient texts and enigmatic artifacts. A tattered banner still clings to its facade, its faded text - 'Scientia Est Lux Lucis' ('Knowledge Is Light') - now seeming more warning than motto. The domed observatory that once crowned the building lies shattered, its brass telescopes and astronomical instruments long since salvaged by fleeing scholars. When the horrors emerged, this building's position at the hamlet's edge ensured it was among the first to fall.",
-    "restored": "A dark-timbered structure of sharp angles and gabled windows, crowned by a restored astronomical dome. Where scholars once sought forbidden secrets, their successors now study ways to contain and counter the Estate's many horrors. A new banner flies proudly: 'Scientia Est Scutum' ('Knowledge Is A Shield'). The building's distinctive silhouette, with its peaked roofs and working observatory, stands as a reminder that knowledge, properly directed, might yet save the hamlet.",
-    "summary": "The Estate's center for esoteric learning, with a distinctive domed observatory, dedicated to studying ancient texts and artifacts.",
+    "description": "Once the Estate's premier center of esoteric learning, now a gutted shell of shattered windows and toppled, sodden bookshelves on the coastal bluff. A tattered banner still clings to its facade—its faded motto 'Scientia Est Lux Lucis' ('Knowledge Is Light') reading more like a grim warning. The domed rooftop observatory lies caved in, its brass telescopes long since smashed or carried off by fleeing scholars.",
+    "restored": "A sharp-gabled academic hall of dark timber and slate, crowned by a working copper-domed observatory overlooking the sea. High arched windows illuminate long reading tables, secure display cabinets of eldritch relics, and shelves of salvaged occult texts. Above the entrance flies a pristine banner bearing the institution's renewed vow: 'Scientia Est Scutum' ('Knowledge Is A Shield').",
+    "summary": "An esoteric academy and domed observatory dedicated to occult research, artifact cataloging, and containment studies.",
     "parent": "north_east_district",
     "children": []
   },
   {
     "identifier": "geological_study_hall",
     "title": "Geological Study Hall",
-    "description": "A partially collapsed tower commissioned to study the Estate's underlying rock formations. The eastern wall has entirely given way, leaving floors exposed like open drawers in a cabinet, their contents spilling into the abyss. The final expedition's equipment remains exactly as they left it - theodolites still aimed at survey points, core samples laid out for analysis, log books open to their last entries. None returned from the depths they were measuring.",
-    "restored": "Rising dramatically against the coastal sky, its restored spire and observation tower once again serve scientific purpose - though now turned skyward as much as earthward. Modern scholars study the comet's impact since its crash at the Miller's farm, where crystalline corruption inches outward from the ruined mill. The old measurement tools remain in place, their needles still drawn to something deep beneath the manor's foundations, while new instruments track the comet's otherworldly effects on the region's bedrock.",
-    "summary": "A tower designed for scientific study of the Estate's rock formations and cosmic phenomena, featuring observation tools.",
+    "description": "A sheared stone tower on the coastal bluff whose seaward wall has collapsed into the abyss. The final survey expedition's equipment lies exactly as they left it—drilling rigs hanging over open air, core samples laid out beside rain-soaked logbooks open to their final entries. None of the scholars ever returned from the depths they were measuring.",
+    "restored": "A tall observation tower of reinforced masonry and timber buttresses, anchored deep into the cliff bedrock. While modern scholars use its rooftop spire and instruments to track the crystalline corruption spreading from the Miller's comet, the old magnetic needles remain inexplicably drawn to something buried deep beneath the manor's foundations.",
+    "summary": "A cliffside research tower equipped with seismographs and surveying instruments for studying the Estate's bedrock and cosmic mineral anomalies.",
     "parent": "north_east_district",
     "children": []
   },
@@ -160,10 +162,20 @@
   {
     "identifier": "amphitheater",
     "title": "Amphitheater",
-    "description": "Tiers of broken seating descend the cliffside at the district's edge, carved to face the open sea. The gallery that once crowned the uppermost row has collapsed entirely, its gothic arches reduced to heaps of rubble that spill down across the seating, while salt wind and frost have split the lower tiers into leaning slabs. Gulls nest in the gaps between fallen stones, and weeds push through what remains of the stage, which stands closest of all to the cliff's drop, its edge slick with spray. Whatever was once performed here, no playbill or plaque survives to say.",
-    "restored": "The amphitheater has been restored to its former glory. Tiers of grey stone seating descend the cliffside in orderly rows, carved to face the open sea, crowned at their highest point by a gothic gallery whose pointed arches shelter the topmost rows from the coastal wind. A narrow stair climbs alongside the seating from the stage below, where fresh-laid flagstones extend nearly to the cliff's drop. Humble performances have returned to the old venue - the Town Crier's long-deferred soliloquies, guild ceremonies, the rare traveling player brave enough to reach the hamlet.",
-    "summary": "Cliffside tiers of stone seating facing the open sea, crowned by a gothic gallery, built for performances against the water's expanse.",
+    "description": "A ruined open-air theater carved into the cliff edge, facing the churning sea. The crowning gallery has collapsed into massive piles of rubble that choke the tiered seating below, while salt frost and weeds have split the stage into tilted slabs slick with spray. Whatever was once performed here, no playbill survives to tell.",
+    "restored": "A grand semicircular stone theater carved into the coastal bluff. Orderly tiers of grey stone seating descend toward a flagged stage overlooking the water, crowned by a gothic arched gallery that shelters spectators from coastal winds. The venue once more hosts guild ceremonies, traveling players, and the Town Crier's dramatic soliloquies.",
+    "summary": "A tiered cliffside stone amphitheater with a covered gothic gallery, designed for assemblies and performances overlooking the sea.",
     "parent": "north_east_district",
+    "children": []
+  },
+  {
+    "identifier": "archaeological_base_camp",
+    "title": "Archaeological Base Camp",
+    "description": "A leaning, three-story staging house at the foot of the manor approach, its lower porch buried in debris and slide-rock. Smashed amphorae, broken pickaxes, and muddy excavation crates spill from the rotting awning, abandoned when the things unearthed in the oldest ancestral foundations turned upon the diggers.",
+    "restored": "A robust, three-story timber lodge serving as the primary field station for subterranean excavations. Barrels of iron-headed shovels and mattocks flank the stone threshold, while the covered porch is packed with cataloged pottery jars, antique mirrors, and architectural fragments recovered from the ancient castle strata beneath the manor.",
+    "summary": "A three-story excavation headquarters and staging post in the northeast district, outfitted for delving into the ancient ancestral ruins beneath the manor.",
+    "parent": "north_east_district",
+    "capacity": 2,
     "children": []
   }
 ]

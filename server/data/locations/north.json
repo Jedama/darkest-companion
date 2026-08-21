@@ -31,9 +31,9 @@
   {
     "identifier": "graveyard__cursed_grounds",
     "title": "Cursed Grounds",
-    "description": "A weathered sepulchre that looms against the hillside, its original purpose as a noble family's tomb all but forgotten. An eerie violet glow seeps from beneath its sealed doors, while unsettling whispers echo in the minds of those who venture too close. Bats and other creatures have made it their home.",
-    "restored": "A stately mausoleum restored to dignified grandeur, its marble facade and bronze doors honoring the great families of generations past. Though the whispers remain, they feel more like reverent echoes of history than haunting threats.",
-    "summary": "A sepulchre or mausoleum on the hillside, a noble family's tomb associated with eerie glows and unsettling whispers.",
+    "description": "A collapsed hillside ruin where the ancient vault of House Estruch once stood. Shattered pediment stones and heavy roof slabs lie half-buried in a sunken, mud-choked crater, surrounded by twisted iron spikes and broken headstones. From the cracked fissure of the exposed subterranean crypt, a sickly violet vapor bleeds into the cold night air.",
+    "restored": "The mausoleum of House Estruch stands fortified and rebuilt upon its hillside mound. The surrounding crater has been filled and leveled with fresh earth, encircled by straightened iron palings. Beneath the carved pediment, the vault's stone archway glows with a steady violet vigil light, safely housing the consecrated burial niches within.",
+    "summary": "A hillside burial mound and stone mausoleum belonging to House Estruch, holding consecrated resting vaults.",
     "parent": "graveyard",
     "capacity": 4,
     "children": []
@@ -41,9 +41,9 @@
   {
     "identifier": "graveyard__memorial_grounds",
     "title": "Memorial Grounds",
-    "description": "Once-orderly rows of memorial stones list drunkenly across overgrown grass. Weather and neglect have conspired to blur the names of fallen greats, while fallen leaves gather in the empty basins of offerings that no one maintains.",
-    "restored": "Serene rows of restored monuments honor the Estate's fallen, each stone bearing a name and date in crisp lettering. Fresh flowers and small offerings appear regularly in polished basins, while carefully maintained paths allow mourners to walk among the memories of their loved ones.",
-    "summary": "A solemn area within the graveyard with rows of memorial stones, honoring the Estate's fallen.",
+    "description": "Rows of moss-choked memorial stones listing drunkenly across overgrown, unkempt grass. Decades of coastal rain and neglect have blurred the incised names of fallen heroes and dignitaries, while cracked offering basins lie dry, filled only with dead weeds and stagnant water.",
+    "restored": "Serene, orderly rows of dressed stone monuments set along clean gravel walkways, each marker incised with names and dates in crisp lettering. Polished stone basins hold fresh flowers, burning candles, and small devotional offerings left by mourners paying quiet tribute to the fallen.",
+    "summary": "A solemn terrace of memorial monuments and stone offering basins dedicated to honoring the Estate's fallen.",
     "parent": "graveyard",
     "children": []
   },
@@ -103,9 +103,9 @@
   {
     "identifier": "abbey__altar",
     "title": "Altar of Light",
-    "description": "A broken shrine whose fractured crystal focuses no longer channel the sun's purifying rays. Shadows gather unnaturally in its corners even at midday.",
-    "restored": "A beacon of hope restored, its crystal array capturing and amplifying daylight into beams that seem to push back the darkness. The surrounding area feels notably warmer and brighter.",
-    "summary": "A shrine within the abbey's transept, intended to channel purifying light and create a beacon of hope.",
+    "description": "A smashed and desecrated shrine lying in heaps across the transept flagstones. One of the hooded guardian statues lies toppled and decapitated, the central skull stele is cracked in two, and the shattered stone lectern is strewn with burned, moldered scraps of scripture among mounds of cold tallow and fallen masonry.",
+    "restored": "An imposing stone devotional altar flanked by twin intact statues of draped, hooded penitents. Scores of beeswax candles burn across the stepped dais, illuminating the open sacred scripture on the lectern and the sun-haloed skull carved into the central stele, which is draped in fresh parchment prayer scrolls sealed with red wax.",
+    "summary": "A stone devotional altar in the Abbey's transept, adorned with hooded statues, purity seals, and an open holy scripture before a sun-haloed skull.",
     "parent": "abbey__transept",
     "children": []
   },
@@ -199,9 +199,9 @@
   {
     "identifier": "abbey__secluded_shrine",
     "title": "Secluded Shrine",
-    "description": "Tucked away in a forgotten corner of the abbey grounds, half-swallowed by overgrown briars, stands the statue of a forgotten warrior-saint. Her stone form is cracked and stained with lichen, the altar before her shattered.",
-    "restored": "Cleared of overgrowth and carefully repaired, the shrine is once again a place of quiet reverence. The statue of the warrior-saint stands proud and clean, her stone gaze offering resolute strength. The gentle motes of light now glow with a steady, comforting warmth, and the air feels charged with a renewed, protective grace.",
-    "summary": "A forgotten shrine in hidden amongst the briars of the abbey grounds, featuring a statue of a warrior-saint.",
+    "description": "A forgotten corner of the abbey grounds choked by thorny briars, where the effigy of a warrior-saint lies toppled and shattered. Her stone blade is snapped near the hilt, the head lies buried in the mud, and the prayer kneeler before her has been crushed beneath collapsed garden stonework.",
+    "restored": "A secluded stone alcove cleared of briars and neatly framed by low stone walls. The full-length statue of the warrior-saint stands whole and resolute upon her plinth, broadsword held point-downward before a clean stone kneeler, where burning votive candles cast a steady, protective glow.",
+    "summary": "A private stone shrine and effigy of a warrior-saint, situated in a quiet alcove of the Abbey grounds.",
     "parent": "abbey__grounds",
     "children": []
   },

@@ -1,0 +1,65 @@
+{
+  "identifier": "bluesman_bet",
+  "title": "Bluesman",
+  "name": "Robert",
+  "description": "The Bluesman is a travelling musician in a good suit and dark glasses, blinded by a husband who came home early. A demon holds his contract and keeps him breathing until it comes due, and the terms let it take his body to fight or to turn his silver tongue on whoever is nearby, gathering souls for its court. He prays to the Light for forgiveness at camp yet opens the door again the next morning.",
+  "history": "The Bluesman travelled and played for a living, and slept with other men's wives wherever he stopped. One of the husbands came home early and took his eyes out with a broken bottle. He stumbled away to a crossroads that night and begged for help. The demon Ronové appeared and offered him a contract he could not read. He signed it anyway, in his own blood. He came to the Estate because it is a long way from where he was, and because he is still looking for a way out of the agreement.",
+  "summary": "A charming and faithless Bluesman, a blind musician kept alive by a demon he has no way of paying.",
+  "race": "Human",
+  "gender": "Male",
+  "religion": "The Light",
+  "zodiac": "Gemini",
+  "traits": [
+    "Charming", "Philandering", "Generous", "Faithless", "Self-pitying"
+  ],
+  "stats": {
+    "strength": 4,
+    "agility": 6,
+    "intelligence": 6,
+    "authority": 5,
+    "sociability": 9
+  },
+  "equipment": [
+    "Straight razor",
+    "Harmonica"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Wiry",
+    "skinTone": "Brown",
+    "hairColor": "Black",
+    "hairStyle": "Short under his hat",
+    "features": "Eyes scarred by broken glass, unkempt stubble, and a large hooked nose"
+  },
+  "clothing": {
+    "head": "Flat-topped black hat and dark rectangular glasses",
+    "body": "Blue suit coat over a tan waistcoat and teal cravat",
+    "legs": "Baggy blue trousers and worn shoes",
+    "accessories": "Belt with a brass buckle, a hip flask"
+  },
+  "combat": {
+    "role": "Duellist",
+    "strengths": [
+      "Disrupting enemies",
+      "Buffing allies",
+      "Buoying spirits"
+    ],
+    "weaknesses": [
+      "Blind",
+      "Reckless"
+    ]
+  },
+  "magic": "Demon who contractually acts through him when he permits it",
+  "notes": [
+    "Speaks in a warm southern drawl and jokes about his blindness constantly (southern American English)",
+    "Flirts with whoever is nearest, married or not, and generously hands out whiskey, cigars and lucky cards",
+    "Talks to his harmonica, and has named it 'Monica'",
+    "When he lifts his glasses and the demon takes over, he blacks out entirely, and afterwards asks what happened",
+    "Taps ahead with a cane, and dislikes being moved without warning"
+  ],
+  "tags": [
+    "Flexible", "Bleeder", "Debuffer", "Disruptor", "Riposter",
+    "Marker", "Buffer", "SelfStress", "Religious", "Drunkard",
+    "Entertainer", "Immoral", "Charmer"
+  ]
+}

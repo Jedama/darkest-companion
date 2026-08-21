@@ -9,7 +9,8 @@
       "blacksmith",
       "guild_hall",
       "apothecary",
-      "inlet"
+      "inlet",
+      "craftworks"
     ]
   },
   {
@@ -32,8 +33,8 @@
     "children": [
       "guild_hall__master_quarters",
       "guild_hall__instructors",
-      "training_ring",
-      "training_yard"
+      "guild_hall__training_ring",
+      "guild_hall__training_yard"
     ]
   },
   {
@@ -59,9 +60,9 @@
   {
     "identifier": "guild_hall__training_ring",
     "title": "Training Ring",
-    "description": "A proper practice arena reduced to debris and splintered timber. The collapsed viewing stands and broken practice dummies speak to the intensity of use rather than poor construction. Iron fixtures and solid foundation stones wait amid the wreckage, ready for restoration.",
-    "restored": "A proper training arena rebuilt to withstand even the Guild Trainer's most demanding drills. Tiered wooden stands encircle a packed-earth ring, while reinforced practice dummies stand ready for abuse. Brass hooks hold torches for evening practice, though few remain after dark despite the ring's robust reconstruction.",
-    "summary": "A proper practice arena with tiered stands and practice dummies, used for intensive combat drills and training.",
+    "description": "A battered training stockade reduced to broken palisade posts and splintered weapon racks. The timber shelter's roof has caved in, crushing target stands beneath heavy beams, while rusted halberds, warped shields, and headless straw dummies lie scattered across the muddy yard.",
+    "restored": "A fortified martial stockade encircled by sharpened timber palisades and crowned with iron spearheads. A stone-and-timber gear shed with a striped canvas awning anchors the yard, flanked by arrow-riddled archery targets, propped heater shields, and an armored dummy bearing a grim skull helmet.",
+    "summary": "A fortified weapons stockade and martial practice yard equipped with archery targets, armored dummies, and weapon racks.",
     "parent": "guild_hall",
     "children": [],
     "npcs": [
@@ -132,6 +133,15 @@
     "description": "A walled garden where the family cultivated medicinal herbs for generations, now bearing visible signs of the Horticulturist's later experiments. While most beds lie neglected, certain patches flourish with unsettling vigor, particularly where her mushroom specimens have spread beyond their bounds. The old well remains sealed with heavy chains, a precaution dating to the days before she left.",
     "summary": "A walled garden once used for medicinal herbs, now showing signs of unusual botanical experiments and unsettling plant growth.",
     "parent": "apothecary",
+    "children": []
+  },
+  {
+    "identifier": "craftworks",
+    "title": "Craftworks",
+    "description": "A collapsed open-air workshop and artisan yard reduced to ash and rot. The stone kiln and furnace sit cracked and choked with cold slag, while splintered lumber stacks, warped turning lathes, and shattered ceramic molds lie buried under the collapsed timber lean-to.",
+    "restored": "A bustling artisan workshop centered around a roaring stone kiln and outdoor forge. Shelves beneath a broad timber awning hold fresh pottery, glass carboys, and specialized carving tools, while seasoned timber stacks and iron-banded workbenches supply the settlement with carpentry, masonry, and mechanical fittings.",
+    "summary": "An open-air artisan workshop and kiln yard in the southeastern district, supplying the settlement with specialized carpentry, masonry, and metalcraft.",
+    "parent": "southeast_district",
     "children": []
   }
 ]

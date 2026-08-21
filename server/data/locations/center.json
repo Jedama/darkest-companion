@@ -22,7 +22,8 @@
       "ancestor_statue",
       "constabulary",
       "market_wagons",
-      "puppet_theater"
+      "puppet_theater",
+      "performance_hall"
     ],
     "npcs": [
       "town_crier"
@@ -118,9 +119,18 @@
   {
     "identifier": "puppet_theater",
     "title": "Puppet Theater",
-    "description": "A weathered wooden puppet booth, its window frame gaping darkly against rotting panels. Broken shutters lie among tangled puppet strings and discarded props below, while cobwebs drape the corners where once curtains hung.",
-    "restored": "A quaint puppet booth stands ready for performance, its window frame neatly bordered to create a proper stage for the puppeteer's art. Fresh paint brightens the panels, while new shutters and warm lamplight promise simple entertainments to come.",
-    "summary": "A wooden booth in the town square designed for entertaining audiences with puppet shows, a source of simple fun and distraction.",
+    "description": "A battered, narrow puppet booth listing precariously in the square, its striped canvas siding torn and rotting. The stage shutters hang broken from their hinges over a dark, empty opening, while splintered marionette limbs, shredded playbills, and cracked signboards lie scattered in the mud below.",
+    "restored": "A tall, striped wooden puppet booth with open stage shutters and scalloped valence curtains. Inside, a cloaked rogue and a skull-faced monarch puppet duel with miniature daggers above the counter, while painted playbills of a grinning jester and a skull placard flank the stage to draw spectators.",
+    "summary": "A narrow outdoor puppet booth in the town square featuring miniature theatrical duels, satirical scripts, and painted playbills.",
+    "parent": "town_square",
+    "children": []
+  },
+  {
+    "identifier": "performance_hall",
+    "title": "Performance Hall",
+    "description": "A collapsed travelling stage in the town square, its conical canvas pavilion shredded and wooden proscenium broken into splintered planks. Tangled ropes, moldering costume rags, and shattered lutes spill from an overturned prop chest into the mud.",
+    "restored": "A raised wooden stage crowned by a stitched canvas pavilion and draped in rich red velvet. Flanked by mounted Comedy and Tragedy drama masks and a jester crest, the deck holds a tuned lute on a stool beside an open wardrobe trunk overflowing with colorful performer disguises.",
+    "summary": "A raised outdoor theater and jester's stage in the town square, equipped with instruments, props, and curtains for musical performances.",
     "parent": "town_square",
     "children": []
   },

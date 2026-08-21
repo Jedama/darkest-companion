@@ -110,9 +110,9 @@
   {
     "identifier": "yellow_hand",
     "title": "House of the Yellow Hand",
-    "description": "A devastated tavern, most of its structure reduced to rubble and rotting timber. Among the debris, a fallen sign bearing a faded golden handprint lies half-buried. Though the building appears thoroughly abandoned, keen observers might notice fresh footprints in the dust leading through a partially cleared path in the wreckage, and occasional whispers seem to emerge from beneath the ruins.",
-    "restored": "A three-story establishment of dark timber and wrought iron, its windows glowing amber in the harbor's gloom. The carved sign of a golden hand marks the heavy oak door, while iron-bound stairs lead to private rooms above. Though ostensibly a simple tavern, the regular traffic through its back entrance tells a different story.",
-    "summary": "A three-story establishment, formerly a tavern, with a golden hand sign, known for private rooms and unusual back-entrance traffic.",
+    "description": "A devastated harbor tavern collapsed into a heap of waterlogged timber and shattered brick. Among the debris, a fallen sign bearing a faded golden handprint lies half-buried. Though the wreckage appears thoroughly abandoned, fresh tracks in the dust lead toward a cleared cellar gap, where low murmurs occasionally emerge from the foundations.",
+    "restored": "A multi-story waterfront establishment of salt-stained dark timber and wrought iron, its leaded windows glowing with warm amber light. A heavy carved sign of a golden hand marks the reinforced oak entrance. Behind the bustling taproom, discreet staircases lead to private upper chambers, while steady back-alley traffic conducts illicit harbor business after hours.",
+    "summary": "A harbor-front establishment marked by a golden hand emblem, known as both a tavern and a clandestine hub for the port's smugglers.",
     "parent": "east_district",
     "children": [],
     "npcs": [
@@ -134,9 +134,9 @@
   {
     "identifier": "kraken_society",
     "title": "The Kraken Society",
-    "description": "A shattered building whose jagged silhouette mars the otherwise intact street, its destruction speaking more of calculated malice than mere decay. Rubble resembling thick stone walls, once covered in careful records of the Estate's eldritch monuments, now bear only scorch marks and the occasional fragment of runic script. Inside, broken instruments and burned texts suggest the Ancestor's determination to claim their centuries of research for himself. A partially collapsed staircase spirals down to flooded chambers where the society's most precious archives once resided, though the rising tide has claimed whatever secrets the flames missed.",
-    "restored": "A peculiar structure of rough-hewn timber and salvaged stone rises at sharp angles against the harbor sky, betraying its hasty reconstruction. Three asymmetric levels stack precariously, their peaked roofs bristling with makeshift observatories and curious instruments. While the exterior suggests improvised functionality, the interior houses carefully organized archives - newly gathered texts and specimens documenting the Estate's otherworldly elements. The reinstated scholars, like their predecessors, focus particularly on the Red Hook's significance.",
-    "summary": "A peculiar scholarly institution with observatories and instruments, dedicated to documenting the Estate's otherworldly elements and archives.",
+    "description": "A shattered stone lodge whose jagged, soot-stained silhouette speaks of deliberate destruction. Smashed oceanic instruments, burned nautical charts, and charred runic fragments litter the floors—scars of the Ancestor's purge to claim their research for himself. A collapsed spiral stair descends into flooded basement vaults, where the tide laps against ruined archives.",
+    "restored": "An imposing, tiered structure of rough-hewn timber and salvaged stone rising at sharp angles over the harbor. Makeshift observatories, brass astrolabes, and tide gauges bristle along its gabled roofline. Within, organized archives, seawater specimen tanks, and specialized texts document the region's oceanic horrors, with particular study given to the Red Hook and ancient monoliths.",
+    "summary": "A scholarly lodge and coastal observatory in the harbor district, dedicated to archiving eldritch marine anomalies and studying ancient monuments.",
     "parent": "east_district",
     "children": []
   },

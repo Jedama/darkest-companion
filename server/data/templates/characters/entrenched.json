@@ -3,8 +3,8 @@
   "title": "Entrenched",
   "name": "Bordeaux",
   "description": "The Entrenched is a grieving small girl who refuses her expulsion from the military. She's awkward in her dad's several-sizes-too-big uniform and her squinty eyes and wide grin are charming in a goofy way, but trained from birth, she can dig in, patch wounds, and operate her mortar better than most. With Ostvengr having fallen, she has found her way to the Estate, to continue her family trade and legacy.",
-  "history": "Born to military officers and raised in the barracks, the Entrenched knew she'd one day serve in Craie's front lines. But when the war took her parents, she was expelled under the 'Sole kin policy' and left alone in the family manor with nothing but grief and memories of them. When she heard the sounds of war resuming on the Ostvengr front, she picked up her father's jacket, backpack, and mortar, all too big for her, and set out to serve anyway.",
-  "summary": "A cheerful and unshakeable Entrenched, a girl of Craie refusing the expulsion from the army she was raised in.",
+  "history": "Born to military officers and raised in the barracks, the Entrenched knew she'd one day serve in Craie's front lines. But when the war took her parents, she was expelled under the 'Sole kin policy' and left alone in the family manor with nothing but grief and memories of them. When she heard the sounds of war resuming on the Ostvengr front, she picked up her father's jacket, backpack, and mortar, all too big for her, and set out to serve anyway. With Ostvengr subsequent fall, she found a new cause enlisting soldiers.",
+  "summary": "A grieving yet cheerful and unshakeable Entrenched, a girl of Craie refusing the expulsion from the army she was raised in.",
   "race": "Human",
   "gender": "Female",
   "religion": "The Light",
@@ -64,6 +64,6 @@
   "tags": [
     "Backline", "Weak", "Hider", "Riposter", "Marker", "Buffer",
     "Healer", "StressHealer", "Cleanser", "Vigilant", "Entertainer", "Religious",
-    "Child", "Warrior", "Physician", "Reach"
+    "Child", "Warrior", "Physician", "Reach", "Burner"
   ]
 }

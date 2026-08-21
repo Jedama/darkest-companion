@@ -21,6 +21,8 @@
     { "tag": "BleedSynergy",    "description": "Gains a bonus when attacking Bleeding targets." },
     { "tag": "Blighter",        "description": "Reliably applies Blight damage-over-time effects." },
     { "tag": "BlightSynergy",   "description": "Gains a bonus when attacking Blighted targets." },
+    { "tag": "Burner",          "description": "Reliably applies Burn damage-over-time effects." },
+    { "tag": "BurnSynergy",     "description": "Gains a bonus when attacking Burned targets." },
     { "tag": "Marker",          "description": "Reliably applies the Mark debuff to enemies." },
     { "tag": "MarkSynergy",     "description": "Gains a bonus when attacking Marked targets." },
     { "tag": "StunSynergy",     "description": "Gains a bonus when attacking Stunned targets." },
@@ -76,6 +78,8 @@
     { "tag": "Exile",           "description": "Driven from, or unable to return to, the home or people that were theirs." },
     { "tag": "Lowborn",         "description": "Born to poverty, servitude, or common labour." },
     { "tag": "Physician",       "description": "A trained healer of the body by study or craft, rather than by divine or improvised means." },
-    { "tag": "Silent",          "description": "Cannot speak, or seldom does." }
+    { "tag": "Silent",          "description": "Cannot speak, or seldom does." },
+    { "tag": "Reach",           "description": "Has abilities that can consistently deal significant damage to backline enemies." },
+    { "tag": "Sweeper",         "description": "Has very good or a core part of their kit is AoE damage to multiple enemies at once." }
   ]
 }

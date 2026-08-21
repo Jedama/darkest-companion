@@ -1,4 +1,11 @@
 {
+  "arsonist": {
+    "falconer": {
+      "affinity": 3,
+      "dynamic": "Recognition and suspicion",
+      "description": "The Arsonist has hunted the Talon Brigands for years and knows their marks — the leathers, the trained birds, the way they work a road. He will place the Falconer early and be certain of it."
+    }
+  },
   "commandant": {
     "entrenched": {
       "affinity": 7,
@@ -250,6 +257,11 @@
       "dynamic": "Youthful Resentment",
       "description": "The Heir met the Claimants at the Ancestor's parties—they were always hovering around his father, flattering him with talk of lineage and legacy. When they deigned to notice the Heir himself, their remarks were cutting and condescending. Sometimes he wonders if they remain as insufferable as he remembers."
     },
+      "innoc": {
+      "affinity": 3,
+      "dynamic": "Distant Kin",
+      "description": "The Heir knows the family registers, and knows a distant cadet branch holds a riverside estate in the north. He will recognise the name of their youngest daughter, who hasn't been seen since her debutante ball ended in a massacre of the attending children."
+    },
     "leper": {
       "affinity": 4,
       "dynamic": "Academic Curiosity",
@@ -350,6 +362,11 @@
     }
   },
   "rampart": {
+    "innoc": {
+      "affinity": 2,
+      "dynamic": "A Threat to Mankind",
+      "description": "The Rampart will recognise the same breed of parasite in the Innocent the first time she transforms. For the safety of the world, she must be sealed or neutralized."
+    },
     "slayer": {
       "affinity": 2,
       "dynamic": "Two Ways Down",
@@ -400,6 +417,11 @@
     }
   },
   "slayer": {
+    "innoc": {
+      "affinity": 4,
+      "dynamic": "Same Passengers",
+      "description": "The Slayer carries two parasites of the same breed, and recognises the Innocent's immediately."
+    },
     "rampart": {
       "affinity": 2,
       "dynamic": "The same thing",

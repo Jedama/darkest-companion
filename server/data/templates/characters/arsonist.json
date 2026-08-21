@@ -1,0 +1,64 @@
+{
+  "identifier": "arsonist",
+  "title": "Arsonist",
+  "name": "Keegan",
+  "description": "The Arsonist is a brutal yet cunning fire-wielding vigilante. He wears a scarf over his mouth to cover the burn scars left by many years of acting as judge, jury and executioner toward traffickers, murderers, and the men who buy from them. He plans his every move carefully and lies well when it serves him. Believing himself just, he has come to the Estate to fight for the greater good.",
+  "history": "The Arsonist was a blacksmith who grew tired of watching trafficking gangs go unpunished, and took to vigilantism. He worked alone, made his own incendiaries, and set one hideout ablaze after another, burning a group of children alive in one of them. He still keeps one of their missing person posters as a memory of his commitment. Stopping now would mean they died for nothing, and had the traffickers been stopped sooner, the children would never have been there at all.",
+  "summary": "A methodical and unrepentant Arsonist, a self-appointed vigilante who burns criminals out of their hideouts.",
+  "race": "Human",
+  "gender": "Male",
+  "religion": "None",
+  "zodiac": "Libra",
+  "traits": [
+    "Methodical", "Cunning", "Self-righteous", "Unrepentant", "Reckless"
+  ],
+  "stats": {
+    "strength": 5,
+    "agility": 6,
+    "intelligence": 8,
+    "authority": 6,
+    "sociability": 5
+  },
+  "equipment": [
+    "Fire iron",
+    "Molotovs",
+    "Smoke bombs",
+    "Torch"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Lean",
+    "skinTone": "Fair",
+    "hairColor": "Dark blond",
+    "hairStyle": "Short and swept back",
+    "features": "Burn-scarred mouth and jaw (under a scarf)"
+  },
+  "clothing": {
+    "head": "Welding goggles and a deep red scarf over the mouth",
+    "body": "Tattered deep red cape over blackened leathers",
+    "legs": "Heavy trousers and plated boots",
+    "accessories": "Belt of pouches and flasks"
+  },
+  "combat": {
+    "role": "Skirmisher",
+    "strengths": [
+      "Fire",
+      "Explosives",
+      "Cunning tactics"
+    ],
+    "weaknesses": [
+      "Burns himself"
+    ]
+  },
+  "magic": "None",
+  "notes": [
+    "Talks in fire-related idioms and dry humor, and always refers to the flames as a 'she'",
+    "Has thought it through before he opens his mouth, and speaks in instructions rather than suggestions",
+    "Whistles while he works"
+  ],
+  "tags": [
+    "Flexible", "Marker", "Disruptor", "Sweeper", "Riposter",
+    "Stealther", "Torchlit", "Unstable", "Strategist", "Criminal",
+    "Immoral", "Burner", "BurnSynergy"
+  ]
+}

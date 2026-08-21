@@ -147,18 +147,18 @@
   {
     "identifier": "outsider_bonfire",
     "title": "Outsider's Bonfire",
-    "description": "A scatter of scorched stones and cold ash where the hamlet once celebrated brighter days. Rusted spits and broken benches lie half-buried in weeds, while dark stains mark where revelers spilled their drinks in hasty flight. The old solstice grounds stand empty now, though some say the flames died only after the last celebrant vanished into the Weald's darkness.",
-    "restored": "A welcoming circle of warmth and light at the hamlet's edge. Iron spits turn above carefully maintained flames, while sturdy benches and barrels provide comfort for those seeking respite from the Estate's horrors. Though the Weald's shadows press close, they cannot breach the ring of firelight where townsfolk still gather to share meals and memories of better days.",
-    "summary": "A welcoming circle of warmth and light at the hamlet's edge, used for gatherings, sharing meals, and finding respite.",
+    "description": "A scatter of scorched stones and cold ash where the hamlet once gathered at the settlement's western edge. Rusted spits and rotted benches lie half-buried in encroaching weeds, while dark stains mark where revelers spilled drinks in hasty flight. The old solstice grounds stand empty and cold, the Weald's creeping shadow encroaching unhindered upon the ashes.",
+    "restored": "A wide circle of warmth and light pushed hard against the wilderness. Heavy iron spits turn steadily above roaring timber fires, while sturdy benches and rough-hewn tables offer comfort to weary wanderers. The brilliant ring of firelight holds the Weald's darkness at bay while townsfolk gather to share hot food, drink, and memories of better days.",
+    "summary": "A communal hearth and gathering ground situated at the hamlet's western perimeter near the Weald.",
     "parent": "west_district",
     "children": []
   },
   {
     "identifier": "cartographer_camp",
     "title": "Cartographer's Camp",
-    "description": "A collapsed tent whose scattered contents speak of hasty abandonment. Moldering maps poke from muddy earth, their careful markings rendered meaningless by the Estate's shifting geography. A broken theodolite still points toward the manor, its brass dulled by years of neglect.",
-    "restored": "A well-ordered pavilion where brass instruments gleam on sturdy tables, dedicated to the endless task of mapping the Estate's fluid boundaries. Fresh charts line the walls, each noting how paths and landmarks drift between surveys. The cartographer works by lamplight into the night, knowing tomorrow's expedition might find everything changed anew.",
-    "summary": "A well-ordered pavilion with brass instruments and charts, dedicated to mapping the Estate's fluid and shifting boundaries.",
+    "description": "A collapsed expedition tent half-swallowed by mud and neglect. Moldering parchment maps poke from the mire, their careful ink markings rendered obsolete by the Estate's shifting geography. A brass theodolite lies overturned in the weeds, its surveying lenses cracked and dulled by coastal damp.",
+    "restored": "A well-ordered pavilion dedicated to surveying the Estate's fluid boundaries. Brass instruments gleam atop sturdy drafting tables, where fresh charts document drifting paths, deadfall landmarks, and topographic anomalies. Lanterns burn into the night as surveys are continuously updated against tomorrow's inevitable shifts.",
+    "summary": "An expedition post equipped with drafting tables and optical instruments, dedicated to mapping the Estate's shifting terrain.",
     "parent": "west_district",
     "children": []
   },

@@ -20,11 +20,15 @@ export const INCOMPATIBLE_PAIRS: readonly (readonly [string, string])[] = [
 
   ['librarian', 'houndmaster'],
   ['librarian', 'good_boy'],
+  ['librarian', 'rescuer'],
+
+  ['succubus', 'rescuer'],
 
   ['darkwraith','warrior_of_sunlight'],
   ['darkwraith','vestal'],
 
   ['snake_charmer', 'shieldbreaker'],
+  ['snake_charmer', 'harlot'],
 
   ['grove_tender', 'flagellant'],
 
