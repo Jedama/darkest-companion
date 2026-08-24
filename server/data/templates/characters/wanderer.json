@@ -1,0 +1,71 @@
+{
+  "identifier": "wanderer",
+  "title": "Wanderer",
+  "name": "Musashi",
+  "description": "The Wanderer is a masterless swordsman from across the sea, sole student of a school that no longer exists. He wields a cursed blade, earned by his own greed, that refuses sheathing until it has drawn blood and denies him the seppuku his disgrace demands. Yet he fights patiently, gathering himself until a single cut can end his foes. He has come to the Estate to find something strong enough to end him.",
+  "history": "The Wanderer was born to a samurai house of the Sunward Isles and became the sole student of an ancient iaijutsu school. He sailed for a distant shrine, leaving a rival swordsman trusted to keep the peace between their schools. An umibōzu broke the ship, and he lost his sword to the water. A spirit surfaced and asked whether the golden blade she carried was the one he had dropped. He lied, and said that it was. He came home to a burning province. The rival's clan had gone to war while he was at sea, and his master lay dead in the ruins of the dojo. His uncle found him on the coast. The rival came down to the water, and the Wanderer drew. The blade would not sheathe unsated, and he killed the rival, his uncle, and the children with him.",
+  "summary": "A disciplined and remorseful Wanderer, a masterless swordsman carrying the cursed blade that killed his own family.",
+  "race": "Human",
+  "gender": "Male",
+  "religion": "None",
+  "zodiac": "Cancer",
+  "traits": [
+    "Disciplined",
+    "Courteous",
+    "Proud",
+    "Patient",
+    "Remorseful",
+    "Fatalistic"
+  ],
+  "stats": {
+    "strength": 6,
+    "agility": 8,
+    "intelligence": 6,
+    "authority": 5,
+    "sociability": 4
+  },
+  "equipment": [
+    "Cursed katana"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Lean and sinewy",
+    "skinTone": "Tanned",
+    "hairColor": "Black (hidden by his hat)",
+    "hairStyle": "Cropped nearly to the scalp (hidden by his hat)",
+    "features": "Gaunt and hollow-cheeked, a scar across his lip, a blue tattoo curling down his sword arm"
+  },
+  "clothing": {
+    "head": "Straw kasa hung with tassels, laced beneath the chin",
+    "body": "Tattered pale yukata worn open off one shoulder",
+    "legs": "Dark hakama",
+    "accessories": "Yellow obi sash"
+  },
+  "combat": {
+    "role": "Duelist",
+    "strengths": [
+      "High damage",
+      "Armour-piercing slashes",
+      "Countering"
+    ],
+    "weaknesses": [
+      "Fragile",
+      "Forbidden technique harms self"
+    ]
+  },
+  "magic": "A cursed blade that will not sheathe unsated",
+  "notes": [
+    "Names the estate's horrors with his homeland's words: oni, yokai, demons",
+    "Often speaks in poetry, dropping into strict haiku of five syllables, then seven, then five",
+    "Does not eat meat, as it reminds him of cutting men",
+    "Remarks openly on the strangeness of this country, its missing rice, crude medicine, and so on",
+    "Keeps to the five stances of his school — upper, middle, lower, right and left — and holds that true mastery lies in the emptiness past them",
+    "The cursed blade whispers to him constantly, and when his mind gives way it can seize control"
+  ],
+  "tags": [
+    "Dancer", "HeavyHitter", "Crit", "ArmorPiercer", "Executor",
+    "Marker", "MarkSynergy", "Disruptor", "GuardBreaker", "Riposter",
+    "Setup", "SelfSufficient", "SelfStress", "Brink", "Unstable",
+    "Warrior", "Noble", "Exile", "Eldritch", "Drunkard"
+  ]
+}

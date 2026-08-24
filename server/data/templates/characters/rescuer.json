@@ -1,0 +1,67 @@
+{
+  "identifier": "rescuer",
+  "title": "Rescuer",
+  "name": "Einstein, Alina & Gurutz",
+  "description": "The Rescuer is a physician out of the mountains, travelling with two great hounds and a long staff, who came south because this is where help was needed most. When the work here is finished he means to go home, and works tirelessly to make sure everyone else can, too. Raised by monks but a believer in medicine, he treats death and despair alike with bandages and gas.",
+  "history": "The Rescuer was a herd-boy in the mountains until a ram in his own flock turned on him. He ran until he was lost, and the weather closed, and the snow took him; brothers from a hospice on the pass dug him out and kept him. They raised him on herbs, minerals and the secrets of the shepherd, and when that proved not to be enough he went down to the university and studied pharmacology, then took a commission as a physician with Craie's army, where he was granted the title Médecin-Chef. An avalanche took the field hospital he was stationed in, along with the patients and nurses inside it. He dug for them but was too late. He went back to the pass after that and worked there for years, until the war ended with Ostvengr's fall, and masterless mercenaries came up the mountain and burned the hospice. He is no use with a hammer and saw, so he left the brothers to rebuild and came south to where people are dying in numbers, and intends to go home when the work here is done.",
+  "summary": "A methodical and devoted Rescuer, a mountain physician who came south with two hounds to work where the dying are thickest.",
+  "race": "Human",
+  "gender": "Male",
+  "religion": "None",
+  "zodiac": "Virgo",
+  "traits": [
+    "Methodical", "Devoted", "Proud", "Selfless", "Anxious"
+  ],
+  "stats": {
+    "strength": 5,
+    "agility": 6,
+    "intelligence": 9,
+    "authority": 7,
+    "sociability": 6
+  },
+  "equipment": [
+    "Staff",
+    "Gas canister"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Sturdy",
+    "skinTone": "Fair",
+    "hairColor": "Blond",
+    "hairStyle": "Tied back at the nape",
+    "features": "A strong jaw and sharply cut features, handsome into middle age"
+  },
+  "clothing": {
+    "head": "Brown felt tricorn",
+    "body": "Heavy blue mountain-wool coat over a padded jerkin, blue scarf",
+    "legs": "Brown breeches and tall boots",
+    "accessories": "Pack straps, leather belt"
+  },
+  "combat": {
+    "role": "Physician",
+    "strengths": [
+      "Healing",
+      "Curing wounds and poisons",
+      "Steadying nerves",
+      "Directing the hounds"
+    ],
+    "weaknesses": [
+      "Frail",
+      "Little damage"
+    ]
+  },
+  "magic": "None",
+  "notes": [
+    "Explains what he is doing while he does it, in anatomical terms",
+    "Addresses the hounds by name and handles them as working colleagues rather than pets, short commands and no fussing, yet sees to them before he sees to himself",
+    "His hounds are a great tan-and-white rescue dog and a white mountain herding dog",
+    "Gives confident prognoses, and never admits uncertainty to a patient",
+    "Doses the party with laughing gas to settle their nerves, and himself more often than that, when the mountain comes back to him"
+  ],
+  "tags": [
+    "Flexible", "Weak", "Healer", "StressHealer", "Cleanser",
+    "Buffer", "Riposter", "MarkSynergy", "Companion", "Physician",
+    "Elder", "Warrior", "Vigilant", "Setup", "Lowborn",
+    "Scout"
+  ]
+}

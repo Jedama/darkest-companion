@@ -1,0 +1,62 @@
+{
+  "identifier": "dragons_duelist",
+  "title": "Dragon's Duelist",
+  "name": "Kasey",
+  "description": "The Dragon's Duelist fights in the cloth and mesh of a training hall, because she is still training — the Estate is the hardest practice available and she came here for it. She was chosen as the best swordmaster's pupil over better students than herself, which led to him being killed. She doesn't understand what potential he saw in her, but has been trying to deserve it since. She intends to face the man who did it one day, on his terms, and win.",
+  "history": "The Dragon's Duelist was one student among several dozen training at an academy of the sword. When the masters each chose an heir to carry their forms, the best swordmaster, known as 'the Dragon', chose her, which surprised everyone and her most of all. After she underperformed at a sparring tournament, the academy's best student, who had expected the honour, challenged her for it. The Dragon refused on her behalf, was insulted for it, and took the challenge himself. He lost, and the blow that beat him was meant to kill rather than to score. His helm was passed on to her. The masters, honouring his judgement over their own doubts, sent her away to train, and for her protection.",
+  "summary": "A driven and insecure Dragon's Duelist, an academy fencer carrying a dead master's helm and title.",
+  "race": "Human",
+  "gender": "Female",
+  "religion": "None",
+  "zodiac": "Sagittarius",
+  "traits": [
+    "Diligent", "Formal", "Blunt", "Driven", "Insecure"
+  ],
+  "stats": {
+    "strength": 5,
+    "agility": 8,
+    "intelligence": 6,
+    "authority": 5,
+    "sociability": 5
+  },
+  "equipment": [
+    "Fencing foil"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Lean",
+    "skinTone": "Fair",
+    "hairColor": "Brown",
+    "hairStyle": "Combed to one side and falling across her face (hidden by her helm)",
+    "features": "A long face with hollow cheeks (hidden by her helm)"
+  },
+  "clothing": {
+    "head": "Wide-brimmed fencing helm with a steel mesh visor and a curled plume",
+    "body": "Dark quilted jacket with a mail collar and a plated shoulder",
+    "legs": "Red-brown breeches and tall boots",
+    "accessories": "Leather belt, sheath at the hip, gloves"
+  },
+  "combat": {
+    "role": "Duelist",
+    "strengths": [
+      "Quick swordwork",
+      "Feinting",
+      "Riposting"
+    ],
+    "weaknesses": [
+      "Short reach",
+      "No means of recovery"
+    ]
+  },
+  "magic": "None",
+  "notes": [
+    "Measures herself against everyone she fights beside and finds herself wanting, and asks what her master would have done in her place",
+    "Talks about fights in points, openings and ground conceded, and tells her companions their mistakes plainly, the way her masters told her",
+    "Holds herself formally at all times, upright and squared, and salutes anything that reads as an opponent",
+    "Doesn't let anyone touch her helm, and cleans and mends it herself"
+  ],
+  "tags": [
+    "Frontline", "Riposter", "Guarder", "Debuffer", "Marker",
+    "Bleeder", "Stealther", "Warrior", "ShortReach"
+  ]
+}

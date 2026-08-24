@@ -2,20 +2,14 @@
   "identifier": "highwayman",
   "title": "Highwayman",
   "name": "Dismas",
-  "description": "Once a prisoner, the Highwayman is now a haunted fugitive, living off the squalor of the city's canals and the meager pickings from vermin. His vision of freedom has been replaced by a reality of degradation, driving him to reluctantly offer his services for a final, desperate heist. Now, his path has unexpectedly converged with that of the Heiress and the Heir, offering a precarious chance at redemption through service.",
-  "history": "The Highwayman's tale is one of escape and survival, painted with strokes of desperation and grim resolve. Escaping from incarceration during a prison riot, he sought refuge in the underbelly of the city, subsisting in conditions that stripped away his illusions of freedom. A final job, taken out of sheer necessity, ended in tragedy, leaving him with a burden of guilt that no distance can alleviate.",
-  "summary": "A rugged, desperate, and remorseful Highwayman, haunted by his past as a fugitive, who cheats at cards and possesses a cynical gallows humor.",
+  "description": "The Highwayman is a repentant brigand and cutpurse who left the road after a job went badly wrong. He fights the way he robbed: close, fast, and first, a dirk in one hand and a pistol at point-blank range. Looking for better work, he was hired as a bodyguard by two Heirs looking to reclaim their ancestral estate.",
+  "history": "The Highwayman was once an apprentice candlemaker who abandoned the trade for the quick coin and violence of the high road, eventually cutting his way out of an iron gaol by butchering his keepers. Hunted by the garrison, he lived like vermin in the flooded canals and sewers until starvation drove him to take a broker's coin for one final coach robbery. He killed the escorts and fired blindly through the carriage window. When he forced the door open he found only an innocent mother and her young child dead by his hand. Stricken by what he'd done, he took the woman's locket from the floorboards and walked away from the haul, leaving his old life behind.",
+  "summary": "A lethal and guilt-ridden Highwayman, an escaped convict and crack shot seeking redemption for an innocent life taken on a dark road.",
   "race": "Human",
   "gender": "Male",
   "religion": "None",
   "zodiac": "Sagittarius",
-  "traits": [
-    "Rugged",
-    "Desperate",
-    "Fugitive",
-    "Remorseful",
-    "Cynical"
-  ],
+  "traits": [ "Pragmatic", "Remorseful", "Cynical", "Fatalistic", "Alert" ],
   "stats": {
     "strength": 6,
     "agility": 8,
@@ -25,43 +19,43 @@
   },
   "equipment": [
     "Flintlock pistol",
-    "Dagger"
+    "Dirk"
   ],
   "appearance": {
     "height": "Average",
-    "build": "Athletic",
+    "build": "Lean and wiry",
     "skinTone": "Weathered",
-    "hairColor": "Dark",
-    "hairStyle": "Short, practical",
-    "features": "Stubble, narrow face"
+    "hairColor": "Dark brown",
+    "hairStyle": "Short and unkempt",
+    "features": "Gaunt cheeks, dark stubble, sharp hooded eyes"
   },
   "clothing": {
-    "head": "Red scarf",
-    "body": "Rugged grey coat with fur collar",
-    "legs": "Dark trousers",
-    "accessories": "Red gloves and a belt"
+    "head": "Red neckerchief worn over the mouth",
+    "body": "Worn coat with a fur-lined collar, over a leather vest",
+    "legs": "Dark trousers and boots",
+    "accessories": "Belt with pouches and dirk sheath"
   },
   "combat": {
     "role": "Skirmisher",
     "strengths": [
-      "Quick reflexes",
-      "Stealth",
-      "Marksmanship"
+      "Meele and ranged options",
+      "High damage",
+      "Fast footwork"
     ],
     "weaknesses": [
-      "Distrustful",
-      "Endurance"
+      "No defensive options"
     ]
   },
   "magic": "None",
   "notes": [
-    "Known to cheat at cards",
-    "Has a gallows sense of humor",
-    "Carries a locket taken from a victim and fidgets with it during moments of guilt",
-    "Frequently punctuates statements with 'eh' and drops the g's on -ing words"
+    "Frequently punctuates statements with 'eh' and drops the 'g' on -ing words",
+    "Uses dry sarcasm and gallows humor to deflect from danger or serious conversation",
+    "Quietly mumbles rhymes and tries to piece together verses to himself",
+    "Carries a dead woman's locket tucked into his coat, and fidgets with it when feeling uneasy",
+    "Cheats at cards and dice, and lies easily and well whenever it suits him"
   ],
   "tags": [
-    "Dancer", "Riposter", "Bleeder", "Criminal", "MarkSynergy", "Vigilant",
+    "Dancer", "Riposter", "Bleeder", "Criminal", "MarkSynergy",
     "Setup", "Outcast", "HeavyHitter", "Penitent", "Lowborn", "Reach"
   ]
 }

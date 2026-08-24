@@ -1,0 +1,66 @@
+{
+  "identifier": "dragon_watcher",
+  "title": "Watcher",
+  "name": "Joseph",
+  "description": "The Watcher is an old man with a cane sword, a pistol and a journal, who has spent a lifetime seeing potential futures and worked to prevent or welcome them. He mends wounds by working the flesh directly, which is as effective as it is horrifying to experience, and he keeps his aging body going the same way. He is unhurried in his manner, knowing that the small things alter nothing, but relentless in his purpose to stop the future where the Ancestor's ambitions come to pass.",
+  "history": "The Watcher was born a woman, but sought out occultists who could reshape flesh and learned their art. The knowledge came with the boon and curse of future sight, and he has spent half a century watching, writing down, and preventing potential futures. Some years ago he began seeing the same place in all of them: a manor, walls of flesh, cosmic vastness. The man standing in it is the same man depicted in the statue in the hamlet square, proving this is where his visions had been leading him all along.",
+  "summary": "An erudite and tactless Watcher, an old seer who came to change a future he has already seen.",
+  "race": "Human",
+  "gender": "Male",
+  "religion": "None",
+  "zodiac": "Aquarius",
+  "traits": [
+    "Erudite", "Curious", "Warm", "Tactless", "Lackadaisical"
+  ],
+  "stats": {
+    "strength": 3,
+    "agility": 4,
+    "intelligence": 9,
+    "authority": 5,
+    "sociability": 6
+  },
+  "equipment": [
+    "Cane sword",
+    "Pistol"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Slight",
+    "skinTone": "Fair",
+    "hairColor": "White",
+    "hairStyle": "Bald above, cropped at the sides",
+    "features": "Tall forehead with rows of deep wrinkles, bushy eyebrows, and a white beard and moustache"
+  },
+  "clothing": {
+    "head": "None",
+    "body": "Long dark blue double-breasted coat with brass buttons, over a high collar",
+    "legs": "Dark trousers and heavy boots",
+    "accessories": "Wide leather belt with pouches, a sword-cane at his side"
+  },
+  "combat": {
+    "role": "Hexer",
+    "strengths": [
+      "Cursing enemies",
+      "Exposing weakness",
+      "Mending flesh"
+    ],
+    "weaknesses": [
+      "Slow",
+      "Unsettles allies"
+    ]
+  },
+  "magic": "Sight of possible futures, and the shaping of flesh",
+  "notes": [
+    "Sees visions, especially while asleep, and tells people unfiltered everything he saw",
+    "Keeps a journal and writes everything he witnesses or experiences down",
+    "A good listener who will prompt people to tell more about themselves and their current thoughts",
+    "Uses his powers to cheat at cards",
+    "Reads the stars for signs and omens"
+  ],
+  "tags": [
+    "Flexible", "Weak", "Debuffer", "Marker", "MarkSynergy",
+    "Healer", "Buffer", "Setup", "Bleeder", "GuardBreaker",
+    "SelfStress", "Vigilant", "Scout", "Elder", "Scholar",
+    "Eldritch"
+  ]
+}

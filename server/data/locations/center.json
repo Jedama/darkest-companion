@@ -9,7 +9,8 @@
       "town_square",
       "constabulary",
       "seamstress",
-      "hamlet_streets"
+      "hamlet_streets",
+      "comrade_house"
     ]
   },
   {
@@ -150,6 +151,16 @@
     "summary": "The mud-choked thoroughfares, alleyways, and dark corners of the hamlet, serving as a bleak catch-all haven for the homeless, sleepless, outcasts, or wanderers.",
     "parent": "center_district",
     "capacity": 1000,
+    "children": []
+  },
+  {
+    "identifier": "comrade_house",
+    "title": "The Comrades' House",
+    "description": "The charred, smoking carcass of a two-story stone townhouse, gut-burned by fire and collapsed inward. Glowing embers and trapped flames still pulse deep within the cracked basement vaults, while blackened roof timbers jut like broken ribs against a backdrop of rising soot and heat haze.",
+    "restored": "A sturdy, dark-timbered lodge rebuilt from scorched foundations. An exterior stone staircase climbs to a warm mid-level hall, while heavy stone lintels frame the reinforced lower bunkrooms. Sconces and roaring hearths burn night and day, providing a spirited, communal haven where front-line veterans, sappers, and fire-wielders share warmth and shelter.",
+    "summary": "A multi-story stone lodge with an exterior staircase and roaring hearths, rebuilt as a communal haven and lodging for front-line comrades and flame-wielders.",
+    "parent": "center_district",
+    "capacity": 4,
     "children": []
   }
 ]

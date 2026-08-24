@@ -24,7 +24,8 @@
     "children": [
       "stagecoach",
       "omen_seeker_wagon",
-      "butchers_circus"
+      "butchers_circus",
+      "racetrack"
     ]
   },
   {
@@ -185,8 +186,8 @@
   {
     "identifier": "inn__bell_room",
     "title": "Inn Bell Room",
-    "description": "Named for its view of the abbey's bell tower, though the gothic window's heavy curtains now remain perpetually drawn. The room centers on an unusual circular bed, its iron frame suggesting it was once able to rotate, while devotional candles left by successive occupants crowd the shelf near the door.",
-    "summary": "A room in the inn named for its view of the abbey's bell tower, featuring an unusual circular bed and devotional candles.",
+    "description": "Named for its view of the abbey's bell tower, though the gothic window's heavy curtains now remain perpetually drawn. The room centers on an unusual circular bed set within a heavy iron frame engraved with astrological dials and liturgical hours, while devotional candles left by successive occupants crowd the shelf near the door.",
+    "summary": "A room in the inn named for its view of the abbey's bell tower, featuring an unusual circular iron-framed bed and devotional candles.",
     "parent": "inn__north",
     "capacity": 2,
     "children": []
@@ -492,6 +493,15 @@
     "description": "A cluster of smaller tents where fighters prepare for their moments in the ring. Canvas walls barely muffle the sounds of training and meditation, while braziers cast long shadows of warriors practicing their forms. A medical station occupies the nearest tent, ready to tend those fortunate enough to survive their defeats.",
     "summary": "A cluster of smaller tents in the Butcher's Circus where fighters prepare for combat and receive medical attention.",
     "parent": "butchers_circus",
+    "children": []
+  },
+  {
+    "identifier": "racetrack",
+    "title": "Racetrack",
+    "description": "A collapsed stone archway and splintered fence-posts marking an abandoned dog-racing circuit on the clearing's edge. Rotting timbers jut outward from the shattered masonry curve, where muddy race lanes lie overgrown with thistles and choked with discarded rubble.",
+    "restored": "A lively outdoor coursing track and betting pavilion at the edge of the clearing. Strung with festive pennant bunting, a yellow-and-blue striped pavilion tent anchors the dirt circuit, flanked by wager boards, prize rosettes, and an odds easel displaying race cards. Behind the start gate, spectators gather with kegs of ale to cheer running hounds sprinting along the fenced track.",
+    "summary": "An outdoor hound-racing circuit and betting pavilion on the clearing's edge, featuring fenced dirt tracks, wager boards, and ale stands.",
+    "parent": "clearing",
     "children": []
   }
 ]

@@ -6,11 +6,18 @@
       "description": "The Arsonist has hunted the Talon Brigands for years and knows their marks — the leathers, the trained birds, the way they work a road. He will place the Falconer early and be certain of it."
     }
   },
+  "bluesman_bet": {
+    "mambo": {
+      "affinity": 5,
+      "dynamic": "A warning he ignored",
+      "description": "The Bluesman went to the priestess once, back when he could see. She warned him that a bargain at a crossroads will cost him dearly, but he did it anyway."
+    }
+  },
   "commandant": {
     "entrenched": {
       "affinity": 7,
       "dynamic": "Obedient soldier",
-      "description": "Obedience is the core of any military, and failure to follow the Commandant's orders always meant a bullet to the back of the skull. The Entrenced proves Craie's military discipline must be better than he previously thought, as she will strive to do literally anything he asks."
+      "description": "Obedience is the core of any military, and failure to follow the Commandant's orders always meant a bullet to the back of the skull. The Entrenched proves Craie's military discipline must be better than he previously thought, as she will strive to do literally anything he asks."
     },
     "monitor": {
       "affinity": 3,
@@ -55,6 +62,40 @@
       "description": "The Crusader served under the Seraph after her miraculous transformation, awed by her divine presence and inspired by her holy purpose. Her burned visage and manifest powers were proof of the Light's grace, making his role in her crusade feel truly righteous."
     }
   },
+  "dragon_watcher": {
+    "antiquarian": {
+      "affinity": 5,
+      "dynamic": "A student he needs",
+      "description": "The Watcher has seen many of this woman's futures, where she ends up a common robber on a road, obsessed by her greed. Destroying one master has set her on this path, and she will need someone to guide her. He intends to be that person."
+    },
+    "entrenched": {
+      "affinity": 2,
+      "dynamic": "A grinning monster",
+      "description": "The Watcher has seen the Entrenched's future, standing over pools of blood and piles of massacred bodies, playing her fiddle with her self-satisfied grin."
+    },
+    "heiress": {
+      "affinity": 3,
+      "dynamic": "Played for a fool",
+      "description": "The Watcher has seen the Heiress' future, and her inevitable encounter with the Ancestor everyone believes dead. Thereafter, she shall 'come unto her maker'."
+    },
+    "kheir": {
+      "affinity": 4,
+      "dynamic": "Played for a fool",
+      "description": "The Watcher has seen the Heir' future, and his inevitable encounter with the Ancestor everyone believes dead. Thereafter, he shall 'come unto his maker'."
+    }
+  },
+  "dragons_duelist": {
+    "thorn": {
+      "affinity": 6,
+      "dynamic": "A famous name",
+      "description": "The Dragon's Duelist grew up hearing about the Rose (Thorn), the court's celebrated champion."
+    },
+    "duchess": {
+      "affinity": 5,
+      "dynamic": "A famous name",
+      "description": "The Dragon's Duelist knows the Duchess, the finest blade at court."
+    }
+  },
   "duchess": {
     "heiress": {
       "affinity": 2,
@@ -75,6 +116,11 @@
       "affinity": 3,
       "dynamic": "The Loser",
       "description": "The Duchess remembers the celebrated Rose—the one blade at court worth measuring against her own. A grand tournament was to settle it at last, in a final all of society anticipated; instead the Rose fell to an unremarkable blade in an earlier bout, blinded, and the Duchess claimed her championship by walkover. Her pride has never forgiven the debt that can no longer be collected."
+    },
+    "dragons_duelist": {
+      "affinity": 4,
+      "dynamic": "Trade school",
+      "description": "The Duchess knew the Dragon by reputation, but always doubted that old brutish warlord turned fencer knew anything about proper form."
     }
   },
   "eagle": {
@@ -373,6 +419,20 @@
       "description": "The Slayer corps and the Kaisergarde went together into the Maw of Darkness. When the Rampart and others were infected, they gave everything to seal the parasites away, while the Slayer's deception threatened the entire country. The Rampart remembers him and his transgression."
     }
   },
+  "rescuer": {
+    "succubus": {
+      "affinity": 3,
+      "dynamic": "Warned by the hounds",
+      "description": "The Rescuer has no complaint about the hooded pilgrim that he could put into words, but his hounds will not go near her and he trusts them over his own judgement."
+    }
+  },
+  "resonant": {
+    "entrenched": {
+      "affinity": 4,
+      "dynamic": "An endearing anomaly",
+      "description": "The Resonant alone sees that the Entrenched does not fit in here. Her lines are thinner, her eyes are the wrong shape. The artstyle she is drawn in is simply not 'accurate'. She will ponder why she is here. Perhaps even the creator has biases?"
+    }
+  },
   "ringmaster": {
     "thrall": {
       "affinity": 6,
@@ -441,6 +501,11 @@
       "dynamic": "A Colleague's Scent",
       "description": "The Succubus will recognise him at once: this man serves Paimon, a demonic king of the infernal court. She will offer him insights, and he who usually manipulates others will not realise he is the one being played."
     },
+    "rescuer": {
+      "affinity": 3,
+      "dynamic": "Refused by animals",
+      "description": "Dogs, like most beasts, are immediately drawn to the Succubus, but the Rescuer's hounds will refuse to come near her."
+    },
     "seraph": {
       "affinity": 2,
       "dynamic": "An Old Failure",
@@ -460,6 +525,11 @@
     }
   },
   "thorn": {
+    "dragons_duelist": {
+      "affinity": 5,
+      "dynamic": "The hall's product",
+      "description": "The Thorn knew the swordmaster called the Dragon by reputation, and the academy he taught at."
+    },
     "duchess": {
       "affinity": 4,
       "dynamic": "A Familiar Cadence",

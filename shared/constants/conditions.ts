@@ -126,7 +126,34 @@ export const VIRTUES = {
 
   resilient:
     "The Steel Driver refuses to fall down, and hands the same stubbornness out to everyone else. He says plainly that he has a swing or two left in him and that nobody is getting rid of him yet, then turns to whoever looks worst and promises them, personally, that they are getting out of here. He is entirely sincere, and people believe him.",
+
+  protectorateb:
+    "The Rescuer's army years come back to him and he begins running the party as a unit. He calls them into close order so he can cover them, speaks in the register of discipline and unconquered colours rather than medicine, and — rarely for him — stops long enough to see to himself, on the reasoning that a physician who collapses is no use to anyone. The warmth is still there underneath, but he is giving orders now.",
+
+  medical:
+    "The Rescuer's faith in his own craft goes total. He announces each thing he is about to do and why it will work, treats everyone in turn without waiting to be asked, doses whoever is fraying with gas, sets the hounds to work, and reminds the party — and himself — exactly what he is. He promises outcomes no one could guarantee, which he does anyway; in this state he is generally right.",
 } as const;
+
+/**
+ * Display names for conditions whose key differs from the name shown in game.
+ * Anything absent here displays under its own key, capitalised.
+ *
+ * Keys follow the mod authors' internal ids; these are the labels players see.
+ * Kept out of the description strings so the prose isn't spent restating a
+ * label the builder can render as a header.
+ */
+export const CONDITION_DISPLAY_NAMES: Partial<Record<ConditionType, string>> = {
+  blindness: "Lost",
+  protectorateb: "Protectorate",
+  medical: "Humanitarian",
+};
+
+export function getConditionDisplayName(condition: ConditionType): string {
+  return (
+    CONDITION_DISPLAY_NAMES[condition] ??
+    condition.charAt(0).toUpperCase() + condition.slice(1)
+  );
+}
 
 // Utility types derived from the constant objects
 export type AfflictionType = keyof typeof AFFLICTIONS;

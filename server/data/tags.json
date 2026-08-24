@@ -16,7 +16,7 @@
     { "tag": "Weak",            "description": "Has a low overall damage output compared to other heroes." },
     { "tag": "Frail",           "description": "Has low survivability (HP/Dodge) and benefits from being guarded." },
     { "tag": "SelfSufficient",  "description": "Has strong abilities to heal their own HP or Stress." },
-    { "tag": "SelfStress",      "description": "Has abilities or traits that cause stress to themself." },
+    { "tag": "SelfStress",      "description": "Has abilities or traits that cause stress to themself or the party." },
     { "tag": "Bleeder",         "description": "Reliably applies Bleed damage-over-time effects." },
     { "tag": "BleedSynergy",    "description": "Gains a bonus when attacking Bleeding targets." },
     { "tag": "Blighter",        "description": "Reliably applies Blight damage-over-time effects." },

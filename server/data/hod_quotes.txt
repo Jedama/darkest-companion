@@ -13,6 +13,7 @@ cook: I've had a long life... but I don't want to go like this!
 croc: So I'm the final kill...but there is no glory. There never was...
 crusader: Unholy foulness! I will take you with me!
 curator: So we were all doomed from the beginning...
+dragon_watcher: Let us beat them back until the end of time.
 dredge: We dug ours up too... (MISSING)
 duchess: I expected this. I trusted you not to go through with it.
 eagle: The heart of the world. Everything the Coven wanted. But it'll die with me.
@@ -69,8 +70,10 @@ tempest: You reprehensible thing! THIS was your plan? Dethrone my divinity, then
 thorn: I know eternal darkness. I'm ready...
 thrall: Come then, creature of creation! If I am to die, I will die free of my shackles!
 uncrownedS: In her footsteps, I follow to the end.
+veiled: How long have I waited! Unmake me! UNMAKE ME NOW!
 vestal: I-it's too horrible! Noooo!
 voivode: You are nothing compared to the darkness I return to !!!
+wanderer: I have found what I sought. 無.
 warrior_of_sunlight: Where is the Sun my magnificent Sun! Noooo!
 wretch: Huh. 'Bout bloody time.
 zenith: I burned too brightly!

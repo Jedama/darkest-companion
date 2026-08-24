@@ -1,0 +1,65 @@
+{
+  "identifier": "veiled",
+  "title": "Veiled",
+  "name": "Zaleskar",
+  "description": "The Veiled is a playwright cursed with unending life, held together by mist and wrapped head to foot in cloth. He can no longer feel warmth, taste, pain, or sleep. Understanding the horrors of undeath, he seeks to keep the living alive and to end the undead. Unable to end himself, he has come to the Estate to find something that finally can.",
+  "history": "The Veiled was an accomplished playwright, known for tragedies, and well past his middle years when the woman he loved fell ill. They went together to a necromancer, who raised her as an undead body of bone and mist, yet with her mind intact. They lived on, got married, her under a thick veil. But unable to bear ageing beside her, he returned to the necromancer. Waking from the ritual, he felt nothing. No joy, no warmth, no love. When he asked if she did, she admitted having acted for his sake. She too felt empty. Their existence unbearable, he sought out and learned the necromancy to finally end her.",
+  "summary": "A selfless and exacting Veiled, a deathless tragedian looking for something able to end him.",
+  "race": "Animated remains",
+  "gender": "Male",
+  "religion": "None",
+  "zodiac": "Taurus",
+  "traits": [
+    "Exacting", "Sardonic", "Romantic", "Kind", "Solitary"
+  ],
+  "stats": {
+    "strength": 3,
+    "agility": 5,
+    "intelligence": 8,
+    "authority": 5,
+    "sociability": 4
+  },
+  "equipment": [
+    "Crooked staff hung with vials",
+    "Swordbreaker"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Skeletal",
+    "skinTone": "None",
+    "hairColor": "None",
+    "hairStyle": "None",
+    "features": "A bare skull, hollow-socketed, trailing violet mist (hidden by his veils)"
+  },
+  "clothing": {
+    "head": "Horned skull mask over layered veils",
+    "body": "Dark violet robes over wrapped linen",
+    "legs": "Baggy white trousers and wrappings",
+    "accessories": "Studded belt with two scrolls"
+  },
+  "combat": {
+    "role": "Support",
+    "strengths": [
+      "Healing allies",
+      "Curses",
+      "Stronger near death"
+    ],
+    "weaknesses": [
+      "Abilities harm himself",
+      "Weak at full health"
+    ]
+  },
+  "magic": "Necromancy, paid for out of his own body",
+  "notes": [
+    "Talks about events as though staging them, and takes it badly when a scene plays out worse than he had in mind",
+    "Does not permit anyone to touch him, brush past him, or lay a hand on his veils",
+    "Envies the living their bodies and remarks on it constantly, though having forgotten, he is hopelessly bad at anatomy",
+    "Used to be religious, but since his resurrection he holds the Light in open contempt",
+    "Genuinely kind in downtime, and thankful for company he has not had in a very long time"
+  ],
+  "tags": [
+    "Flexible", "Healer", "Cleanser", "Debuffer", "Marker",
+    "Stunner", "Unstable", "Eldritch", "Unaging", "Scholar",
+    "Elder", "Entertainer", "Brink", "Setup"
+  ]
+}
