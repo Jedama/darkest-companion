@@ -522,10 +522,12 @@ function getDetailedLiability(hero: CharacterRecord[string] | undefined): { stre
   const condition = hero.status.affliction;
   if (condition) {
     if (isAffliction(condition)) {
-      otherLiability += AFFLICTION_SEVERITY[condition];
+      // Falls back to 0 rather than NaN-poisoning the whole composition score
+      // if a condition type is ever added here before its severity is tuned.
+      otherLiability += AFFLICTION_SEVERITY[condition] ?? 0;
     } else if (isVirtue(condition)) {
       // A virtue reduces non-stress liability (it makes you more resilient)
-      otherLiability -= VIRTUE_BENEFIT[condition] * 1.5;
+      otherLiability -= (VIRTUE_BENEFIT[condition] ?? 0) * 1.5;
     }
   }
 
