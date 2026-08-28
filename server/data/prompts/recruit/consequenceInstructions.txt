@@ -85,13 +85,20 @@ WHAT TO LOOK FOR:
     * Bad: "complicated by the knight's immediate defense of the Duchess' secrecy, a reminder that holy men often choose propriety over solidarity" (References a specific event and a third character)
     * Good: "The Man-at-Arms' hope for understanding from the Crusader is tempered by the knight's instinct to side with authority and propriety over a fellow soldier's concerns." (Describes the Crusader's general tendency, not a specific intervention)
 
-9. LOCATIONS:
+9. PARTY INTENTS (NEXT EXPEDITION):
+  - Optional. Two characters can submit a request to march together next month, or one can refuse to be paired with another.
+  - Add "add_party_intent" to ONE of the pair's character entries; it applies to both, the same as a relationship log.
+  - "score": -5 to +5. Positive means "wants to be on the same team," negative means "refuses to be paired." Magnitude is how strongly this should weigh when expeditions are assembled, not how dramatic the moment was.
+  - Reserve ±4/±5 for something stated outright and unambiguous ("I will not fight beside her again"). Most should be ±1 to ±3.
+  - "reason" is a short, in-character justification (a few words to a sentence). 
+
+10. LOCATIONS:
   Assign long-term location profiles based on the character's persona, skills, and social dynamics:
   - 'residence': Pick EXACTLY 1 location with available beds (> 0 capacity left). Match the room's atmosphere to the recruit, and consider whether they would get along with any existing roommates.
   - 'workplaces': Pick 0 to 3 locations where they actively serve the hamlet. Use [] if they are a vagrant, mercenary, or hold no formal job.
   - 'frequents': Pick 2 to 6 locations where they naturally spend off-duty hours, pursue personal habits, or seek vice.
 
-10. OTHER:
+11. OTHER:
   - Equipment is necessary for gameplay purposes, more cannot be added, nor can any equipment be removed.
   - You can update religion. Here, 'none' means believign in The Light, but not actively participating in church functions. 'The Light' means fervent, active belief. 'Occulism' or 'Paganism' are common. You can also put the name of a specific deity, e.g. 'The Sea Mother'.
 
