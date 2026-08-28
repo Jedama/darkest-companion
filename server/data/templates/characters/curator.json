@@ -64,8 +64,8 @@
   ],
   "tags": [
     "Backline", "Immobile", "Weak", "Frail", "Healer", "Cleanser",
-    "Buffer", "Marker", "Crit", "Executor", "Abrasive", "Debuffer",
-    "Disruptor", "Stealther", "Scholarly", "Strategist", "SelfStress", "Scavenger",
+    "Buffer", "Marker", "Crit", "Executor",  "Debuffer", "Scavenger",
+    "Disruptor", "Stealther", "Scholarly", "Strategist", "SelfStress", 
     "Vigilant"
   ]
 }

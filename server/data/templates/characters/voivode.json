@@ -54,7 +54,7 @@
   },
   "magic": "Command of shadows, bats, and weak minds",
   "notes": [
-    "Speaks with formal, archaic courtesy, and addresses everyone as an inferior\u2014peasants, sheep, mortals",
+    "Speaks with formal, archaic courtesy, but addresses people as an inferior: peasants, sheep, mortals",
     "Offers his own blood to those he has taken under his protection, and treats them as his flock",
     "Visited the Hamlet on several occasions as the Ancestor's guest; anyone from that circle (characters, NPCs, or bosses) who still survives may recognise him, and he them",
     "His courtly shape takes effort to hold, and hunger wears it thin; underneath is a screeching, barely controllable thing he would rather nobody saw",
@@ -63,6 +63,6 @@
   "tags": [
     "Flexible", "Shapeshifter", "Unlit", "Guarder", "Stunner", "Debuffer",
     "Bleeder", "Scout", "SelfSufficient", "Leader", "Noble", "Strategist",
-    "Elder", "Immoral", "Vigilant", "Unaging", "Exile", "Reach"
+    "Elder", "Immoral", "Vigilant", "Unaging", "Exile", "Reach", "Abrasive"
   ]
 }
