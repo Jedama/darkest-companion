@@ -7,6 +7,8 @@
         "dev": "tsx watch index.ts"
     },
     "dependencies": {
+        "@anthropic-ai/sdk": "^0.122.0",
+        "@google/genai": "^2.19.0",
         "cors": "^2.8.5",
         "express": "^4.21.1",
         "openai": "^4.94.0"
