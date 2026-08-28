@@ -28,6 +28,7 @@ export const STRATEGY_IDS = [
   'maximizeDedicatedProtector',
   'maximizeExpeditionYield',
   'minimizeFactionRisk',
+  'honorPartyIntents',
 
   // --- Generic composition strategies ---
   'balanceAuthority',

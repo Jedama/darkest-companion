@@ -4,7 +4,7 @@
  * and can be used in any character's strategy profile.
  */
 
-import { CharacterRecord, Character } from '../../../../shared/types/types.js';
+import { CharacterRecord, Character, StrategyContext } from '../../../../shared/types/types.js';
 import { AfflictionType, VirtueType, isAffliction, isVirtue } from '../../../../shared/constants/conditions.js';
 import { Party, Composition } from '../expeditionPlanner.js';
 import { NEUTRAL_AFFINITY, MAX_AFFINITY } from '../../../../shared/constants/relationships.js';
@@ -198,6 +198,30 @@ export function scorePartyByDiscordPenalty(party: Party, roster: CharacterRecord
     }
   }
   return totalDiscord;
+}
+
+/**
+ * [GENERIC] Honors this month's party intents — the signed, pair-wise "march
+ * together" / "refuse to march together" decisions raised by the planning
+ * meeting (or any other consequence pass) and carried in ctx.partyIntents.
+ *
+ * Unlike maximizeAffinity, this reads an explicit, one-off decision rather
+ * than ambient relationship data, and is meant to weigh in more decisively:
+ * a stated refusal should reliably split a pair, not just nudge against them.
+ * Purged monthly by the caller once expeditions are actually assembled, so
+ * there is nothing to decay or expire here — every intent present is live.
+ */
+export function scorePartyByPartyIntents(party: Party, roster: CharacterRecord, ctx?: StrategyContext): number {
+  if (!ctx?.partyIntents || ctx.partyIntents.length === 0 || party.length < 2) return 0;
+
+  const members = new Set(party);
+  let score = 0;
+  for (const intent of ctx.partyIntents) {
+    if (members.has(intent.a) && members.has(intent.b)) {
+      score += intent.score;
+    }
+  }
+  return score;
 }
 
 export function scorePartyByCommandClarity(party: Party, roster: CharacterRecord): number {

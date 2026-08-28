@@ -44,6 +44,7 @@ export interface StrategyContext {
   margrave?: string;
   bursar?: string;
   council?: readonly string[];
+  partyIntents?: readonly PartyIntent[];
 }
 
 /** Convenience: builds the scoring context from an estate's leadership. */

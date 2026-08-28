@@ -145,6 +145,15 @@ export const STRATEGY_REGISTRY = [
     scorer: generic.scorePartyByExpeditionYield,
   },
   {
+    identifier: 'honorPartyIntents',
+    name: 'Party Intents',
+    description: "Honors this month's explicit decisions to march together or refuse to, raised by the planning meeting or another event.",
+    direction: 'maximize',
+    scope: 'party',
+    scorer: generic.scorePartyByPartyIntents,
+    defaultWeight: 8,
+  },
+  {
     identifier: 'minimizeFactionRisk',
     name: 'Faction Risk',
     description: 'Scatters mutually devoted, influential heroes so no single party becomes a power base.',
