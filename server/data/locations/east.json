@@ -23,7 +23,8 @@
     "summary": "A stretch of weathered docks extending into dark, light-swallowing waters, marked by splintered pilings and rusted chains.",
     "parent": "east_district",
     "children": [
-      "harbor__pier"
+      "harbor__pier",
+      "harbor__ship"
     ]
   },
   {
@@ -31,6 +32,15 @@
     "title": "Pier",
     "description": "The longest dock reaches deep into the murky waters, its weathered planks perpetually encrusted with barnacles that seem to grow back overnight. At its far end, where chains once held something precious, starfish cluster in unnatural abundance, their forms visible even through the dark waters. Local sailors whisper of a mournful song that rises from the depths during certain moons, and how the last of House Tritonis, mad with grief, walked these boards into the freezing waters in search of their daughter's voice.",
     "summary": "The longest dock reaching into murky waters, known for unnatural starfish clusters and local legends of a mournful song from the depths.",
+    "parent": "harbor",
+    "children": []
+  },
+  {
+    "identifier": "harbor__ship",
+    "title": "Red Seal Ship",
+    "description": "A shattered deep-water berth at the harbor's edge, reduced to waterlogged pilings and broken chains that prevent large foreign vessels from mooring safely in the shallows.",
+    "restored": "A reinforced harbor quay where an imposing foreign merchant junk from the Sunward Isles now rests at anchor. Sporting ribbed crimson batten-sails and the Emperor's vermilion trade seal upon its rigging, the ship's crew trades exotic goods, rare teas, and foreign coinage in gratitude for the hamlet's aid across the sea.",
+    "summary": "A grand foreign merchant vessel from the Sunward Isles moored at a rebuilt harbor berth, establishing regular trade for exotic goods and Red Seals.",
     "parent": "harbor",
     "children": []
   },

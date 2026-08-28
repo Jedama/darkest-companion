@@ -6,9 +6,11 @@ arbalest: Please, no! I want to live!
 arsonist: One last breath of defiance...
 bluesman_bet: Heh, I figured it'd end like this. Can't cheat the Devil.
 bogatyr: Aah, I've lived long, and learned much. Perhaps it is time at last to return home.
+bombard: Absolutely fucking not!
 bounty_hunter: ...hm.
 cataphract: We'll ride together in green fields under warm skies. It is time.
 commandant: For the Motherland!
+comrade_witch: Write down my fate and send them to my sisters. Let them know I was right!
 cook: I've had a long life... but I don't want to go like this!
 croc: So I'm the final kill...but there is no glory. There never was...
 crusader: Unholy foulness! I will take you with me!
@@ -19,6 +21,7 @@ duchess: I expected this. I trusted you not to go through with it.
 eagle: The heart of the world. Everything the Coven wanted. But it'll die with me.
 entrenched: No more cowardice... see you there, Pa.
 exorcist: Dies irae...
+exterminator: The root. Then... all this was symptom... ? (MISSING)
 falconer: I have accepted my fate. I am ready.
 fawn: Is mean ? Me feel... very very empty~
 flagellant: I've waited long for this! DON'T TAKE IT FROM ME.

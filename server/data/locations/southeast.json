@@ -86,6 +86,16 @@
     "description": "A sheltered cove nestled between weathered rocks, reached by worn steps cut into the cliff face. Unlike the harbor's murky expanse, these waters remain clear enough to see the sandy bottom. Ancient mooring rings suggest it once served fisher-folk, though now it offers only quiet solitude.",
     "summary": "A sheltered cove nestled between weathered rocks, with clear waters and ancient mooring rings, once used by fisher-folk.",
     "parent": "southeast_district",
+    "children": ["inlet__ryokan"]
+  },
+  {
+    "identifier": "inlet__ryokan",
+    "title": "Congenial Ryokan",
+    "description": "A wild coastal fissure in the inlet where hot, mineral-rich thermal water bubbles up from the rocks into a drafty, weed-choked tidal pool, surrounded by fallen foundation stones.",
+    "restored": "A tranquil, multi-tiered cedar inn and bathhouse constructed over the inlet's natural hot springs by grateful craftsmen from the Sunward Isles. Polished wooden balconies and steaming stone soaking pools channel the warm mineral waters, offering exhausted heroes soothing baths, hot tea, and restorative rest.",
+    "summary": "A traditional hot-spring inn and bathhouse built over the inlet's thermal springs by Sunward craftsmen, offering restorative mineral baths and lodging.",
+    "parent": "inlet",
+    "capacity": 4,
     "children": []
   },
   {

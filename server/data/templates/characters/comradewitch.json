@@ -1,0 +1,70 @@
+{
+  "identifier": "comradewitch",
+  "title": "Gunwitch",
+  "name": "Sofiya",
+  "description": "The Gunwitch is a Podzolan witch and a decorated veteran despite her young age, fighting with three guns and her old rites at once and holding the combination plainly superior to either alone. Though her testing is unfinished, she has total confidence she has found the future of warfare. The Estate is her proving ground.",
+  "history": "The Gunwitch was raised in a coven in the forests of Podzola, until she was conscripted into Chernozem's army. She did well, and was awarded medals, and when she came home she understood that a rifle could do in a moment what a rite took a full evening. Her coven refused the modernisation, calling it heresy, and so she left. She intends to go back and seize her sisters' crown, but for now fate has foretold that she is needed here, at the Estate.",
+  "summary": "An arrogant and vindication-driven Gunwitch, a Podzolan witch who came back from the war with medals and a musket.",
+  "race": "Human",
+  "gender": "Female",
+  "religion": "The Pierced One",
+  "zodiac": "Aquarius",
+  "traits": [
+    "Ambitious",
+    "Arrogant",
+    "Inventive",
+    "Rebellious",
+    "Reckless"
+  ],
+  "stats": {
+    "strength": 4,
+    "agility": 6,
+    "intelligence": 8,
+    "authority": 6,
+    "sociability": 5
+  },
+  "equipment": [
+    "Musket",
+    "Musket rest",
+    "Dual pistols",
+    "Cauldron mortar"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Slight",
+    "skinTone": "Fair",
+    "hairColor": "Light blonde",
+    "hairStyle": "Tied in a bun, with bangs framing her face",
+    "features": "None"
+  },
+  "clothing": {
+    "head": "Broad-brimmed black witch's hat",
+    "body": "Long black coat with pale piping, buckled across the chest",
+    "legs": "Dark trousers and tall brown boots",
+    "accessories": "Round spectacles, a dark cloth mask over the lower half of her face, leather bandolier and belts"
+  },
+  "combat": {
+    "role": "Artillerist",
+    "strengths": [
+      "Versatile",
+      "Can work at any range"
+    ],
+    "weaknesses": [
+      "Mortar needs loading",
+      "Fragile"
+    ]
+  },
+  "magic": "Rites of the Pierced One",
+  "notes": [
+    "Follows the Pierced One, who like much of Chernozem's culture and old rites answers to wounds and pain",
+    "Talks in two registers at once: rites, omens and storybook witchery versus military drill and trench discipline",
+    "Her cat holds the rank of sergeant, and is consulted before big decisions",
+    "Is refining her new gun-witch combat style, and takes notes after battles",
+    "Addresses her reactionary sisters aloud and with anger, as if they could hear her"
+  ],
+  "tags": [
+    "Flexible", "Frail", "Sweeper", "Reach", "Marker", "MarkSynergy",
+    "Crit", "Buffer", "Disruptor", "Riposter", "Setup", "Cycler",
+    "Unlit", "Companion", "Warrior", "Unstable"
+  ]
+}

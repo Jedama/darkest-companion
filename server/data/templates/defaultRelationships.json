@@ -40,6 +40,13 @@
       "description": "The Martyr's fanatical khlysty sects of Chernozem's far north are illegal, but the state has never had the reach to root them out; too hard to say who is a member, and there was always a war on. The Commandant would prefer them gone."
     }
   },
+  "comradewitch": {
+    "uncrownedS": {
+      "affinity": 3,
+      "dynamic": "Watched by birds",
+      "description": "The Gunwitch has noticed she is being trailed by crows and bird-folk in the shadows, but is not aware her coven has sent the Uncrowned order of assassins after her."
+    }
+  },
   "crusader": {
     "heiress": {
       "affinity": 5,
@@ -346,6 +353,11 @@
       "affinity": 4,
       "dynamic": "A Survivor, and hope?",
       "description": "The Maid came to the Estate and its courtyard to find her Mistress, who attended the Ancestor's final ball and never came back. The Duchess was at that ball, and while she did get infected, she survived with her wits intact. Maybe there is hope the Maid's Mistress did, too?"
+    },
+    "wanderer": {
+      "affinity": 3,
+      "dynamic": "A legend",
+      "description": "The Maid has heard rumors of the Wanderer, a disgraced ronin who roams the isles, unbestable in single combat."
     }
   },
   "man_at_arms": {
@@ -551,6 +563,13 @@
       "affinity": 3,
       "dynamic": "Another Ring",
       "description": "The Thrall has seen many like the Ringmaster. On her cues, he is to maim someone beyond recognition. Applause will follow."
+    }
+  },
+  "uncrownedS": {
+    "comradewitch": {
+      "affinity": 2,
+      "dynamic": "A standing contract",
+      "description": "The Uncrowned order has been hired to assassinate the Gunwitch by the sisters of her coven."
     }
   },
   "vestal": {

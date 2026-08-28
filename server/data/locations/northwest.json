@@ -283,9 +283,7 @@
     "parent": "north_west_district",
     "children": [
       "town_hall__vestibule",
-      "town_hall__meeting_hall",
       "town_hall__strategy_room",
-      "town_hall__council_chamber",
       "town_hall__record_archives",
       "town_hall__strong_room"
     ]

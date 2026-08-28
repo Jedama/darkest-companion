@@ -1,0 +1,71 @@
+{
+  "identifier": "exterminator",
+  "title": "Exterminator",
+  "name": "LaFontant",
+  "description": "The Exterminator is at the Estate on a contract rather than a calling, working to terms and expecting to be paid at the end of it. He treats every horror here as a species with habits, a breeding ground, and a correct method of removal. He is decent company, tends wounds, and stands rounds when there is money, yet would spend his companions, or even himself, if it meant stopping an outbreak before it spread.",
+  "history": "The Exterminator was trained by a guild that has specialised in disease and infestation for generations, and has driven the field further than anywhere else in the world. He spent years working outbreaks in the field, where containment meant quarantine, culling, and burial. Alongside its various eldritch horrors, the Estate had a problem with disease-spreading rats, and wrote to his guild asking for someone to handle them. He arrived to a place overrun by far worse, and took that on as well.",
+  "summary": "A methodical and ruthless Exterminator, a disease-control professional who stayed on after the job outgrew its contract.",
+  "race": "Human",
+  "gender": "Male",
+  "religion": "None",
+  "zodiac": "Virgo",
+  "traits": [
+    "Methodical",
+    "Observant",
+    "Pragmatic",
+    "Ruthless",
+    "Wry",
+    "Proud"
+  ],
+  "stats": {
+    "strength": 5,
+    "agility": 5,
+    "intelligence": 8,
+    "authority": 6,
+    "sociability": 6
+  },
+  "equipment": [
+    "Fumigator",
+    "Chained collar",
+    "Bear trap"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Sturdy",
+    "skinTone": "Fair",
+    "hairColor": "Black (hidden by his hat)",
+    "hairStyle": "Short (hidden by his hat)",
+    "features": "None"
+  },
+  "clothing": {
+    "head": "Soft wide-brimmed hat wound with bandaging, and round goggles",
+    "body": "Mustard-yellow mantle toggled down the front, its high collar drawn over his mouth, over a grey coat",
+    "legs": "Mustard-yellow trousers and heavy boots",
+    "accessories": "Bandage wrappings on the forearms, the rope slung to carry his fumigator, leather belt and pouches"
+  },
+  "combat": {
+    "role": "Suppressor",
+    "strengths": [
+      "Lingering poison",
+      "Disabling enemies",
+      "Warding off disease"
+    ],
+    "weaknesses": [
+      "Little direct damage",
+      "Fumes catch allies"
+    ]
+  },
+  "magic": "None",
+  "notes": [
+    "Watches his companions closely, but can be quick to read odd behaviour as the first symptoms of something incubating",
+    "Speaks in rules, aphorisms regarding bodies, contagion, and medicine quoted from his training",
+    "Tells prepared bits, with setups, punchlines, and long anecdotes",
+    "Enjoys inhaling his own fumigant, but only sparingly, and only the blends he knows are safe"
+  ],
+  "tags": [
+    "Flexible", "Weak", "Sweeper", "Reach", "Marker", "MarkSynergy",
+    "Bleeder", "Blighter", "BlightSynergy", "Stunner", "Riposter",
+    "Disruptor", "GuardBreaker", "Debuffer", "Buffer", "Setup",
+    "BeastHunter", "Physician", "Scholarly", "Strategist", "Mercenary"
+  ]
+}

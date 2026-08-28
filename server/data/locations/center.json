@@ -21,7 +21,6 @@
     "parent": "center_district",
     "children": [
       "ancestor_statue",
-      "constabulary",
       "market_wagons",
       "puppet_theater",
       "performance_hall"
