@@ -1,0 +1,162 @@
+EXAMPLE CONSEQUENCES:
+
+  Below are examples demonstrating well-formatted consequences. Note how:
+  - Event log captures the main plot development (always required)
+  - Character and Relationship logs always mention the involved character(s) by Title
+  - Relationship descriptions explain ongoing dynamics, not specific events
+  - There is a focus on party intent
+
+============================================================
+EXAMPLE 1: Utter chaos
+============================================================
+
+{
+  "event_log": {
+    "entry": "The council deliberated over expedition rosters to clear the encroaching blight, clashing over child deployment, missing loot, and personnel pairings.",
+    "timeframe": "transient"
+  },
+  "characters": [
+    {
+      "identifier": "heiress",
+      "update_status": {
+        "mental": -8,
+        "description": "Exasperated and single-mindedly focused on burning back the blighted perimeter"
+      },
+      "update_relationships": [
+        {
+          "target": "exterminator",
+          "affinity": -1,
+          "dynamic": "Impatient Authority",
+          "description": "The Heiress tolerates the Exterminator's eccentricities only so far as they do not disrupt operational efficiency or contract terms."
+        }
+      ]
+    },
+    {
+      "identifier": "kheir",
+      "add_relationship_log": {
+        "target": "highwayman",
+        "entry": "The Heir publicly questioned the Highwayman regarding a missing gold chain from the toll-point ledger.",
+        "timeframe": "short_term"
+      },
+      "update_status": {
+        "mental": -10,
+        "description": "Deeply irritated by fiscal discrepancies and blatant council chamber indecency"
+      },
+      "update_relationships": [
+        {
+          "target": "highwayman",
+          "affinity": -1,
+          "dynamic": "Suspicious Oversight",
+          "description": "The Heir keeps a watchful eye on the Highwayman, convinced his light fingers are bleeding the Estate's ledgers dry."
+        },
+        {
+          "target": "exterminator",
+          "affinity": -1,
+          "dynamic": "Open Exasperation",
+          "description": "The Heir is continually disgusted and distracted by the Exterminator's refusal to adhere to basic dress standards."
+        }
+      ]
+    },
+    {
+      "identifier": "highwayman",
+      "add_relationship_log": {
+        "target": "crusader",
+        "entry": "The Crusader subtly deflected suspicion from the Highwayman regarding stolen toll-point jewelry.",
+        "timeframe": "short_term"
+      },
+      "add_party_intent": [
+        {
+          "target": "bluesman_bet",
+          "score": -4,
+          "reason": "Refuses to navigate the muck with a blind comrade"
+        },
+        {
+          "target": "vestal",
+          "score": -3,
+          "reason": "Refuses to play bodyguard to a marked nun"
+        }
+      ],
+      "update_status": {
+        "description": "Defensive about his scavenged spoils and wary of high-risk escorts"
+      },
+      "update_relationships": [
+        {
+          "target": "crusader",
+          "affinity": 1,
+          "dynamic": "Partners in Crime",
+          "description": "The Highwayman appreciates the Crusader's quiet complicity in petty theft despite his sanctimonious lectures."
+        },
+        {
+          "target": "kheir",
+          "affinity": -1,
+          "dynamic": "Guarded Resentment",
+          "description": "The Highwayman bristles under the Heir's ledger-hawking scrutiny and persistent accusations."
+        }
+      ]
+    },
+    {
+      "identifier": "crusader",
+      "add_party_intent": [
+        {
+          "target": "vestal",
+          "score": 4,
+          "reason": "Insists on protecting and marching alongside a fellow sister of the Light"
+        },
+        {
+          "target": "highwayman",
+          "score": 2,
+          "reason": "Expects to take the vanguard alongside his fellow rogue"
+        }
+      ],
+      "update_status": {
+        "description": "Steadfast in divine duty while shielding fellow scoundrels from scrutiny"
+      },
+      "update_relationships": [
+        {
+          "target": "highwayman",
+          "affinity": 1,
+          "dynamic": "Unspoken Complicity",
+          "description": "The Crusader maintains a pious facade while quietly harboring mutual understanding and cover for the Highwayman's sticky fingers."
+        }
+      ]
+    },
+    {
+      "identifier": "arsonist",
+      "add_party_intent": [
+        {
+          "target": "plague_doctor",
+          "score": 4,
+          "reason": "Wants to combine chemical rot with flame to cleanse the blight"
+        },
+        {
+          "target": "entrenched",
+          "score": 3,
+          "reason": "Wants the fuse-lighting youth to blast and clear heavy brush"
+        }
+      ],
+      "update_status": {
+        "description": "Eager and fixated on feeding the blighted wilderness to the fire"
+      }
+    },
+    {
+      "identifier": "exterminator",
+      "add_party_intent": {
+        "target": "plague_doctor",
+        "score": -5,
+        "reason": "Refuses to expose himself to contagion without substantial hazard compensation"
+      },
+      "gain_note": "Strips off clothing and footwear at the slightest dampness to prevent mite infestation and fungal spread.",
+      "update_status": {
+        "description": "Unclad, paranoid about damp parasites, and stubbornly demanding hazard pay"
+      },
+      "update_relationships": [
+        {
+          "target": "kheir",
+          "affinity": -1,
+          "dynamic": "Condescending Contempt",
+          "description": "The Exterminator views the Heir's obsession with clothing and modesty as foolish ignorance of basic biological hazards."
+        }
+      ]
+    }
+  ]
+}

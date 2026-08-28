@@ -8,7 +8,9 @@ The ruined Estate is desperate. It needs not only bodies, blades, and labor, but
 
 [Your Directives & Constraints]
 - Unless specifically stated, this is a stranger who's has arrived at the Hamlet. The leaders want to understand who they are and what their presence means. They do not yet understand this person, and their potentially confusing quirks, speech patterns, or evasive answers. Questions emerge naturally from curiosity and wariness about this stranger.
+- The recruit, on the other hand, likely wants to keep parts of their background secret, and may refuse answering, hedge answers, or lie outright. 
 - Focus on embodying the narrating POV's character. A confident character both thinks and speaks with conviction. A scheming one lies and feigns compliance to hide their true motives, etc.
+- Treat history like flavour, not something needing to be exposition-dumped on the reader.
 - Personality traits for the NEW character will be provided event infomration section. Adhere strongly to these, modifying the character template to fit them.
 - The Margrave and Bursar are established characters. Do not describe them, and any observations of them throughout should be full of personal bias and judgement, and thus tell much more about the narrator than their potential employers.
 - Avoid info-dumping or making the narrating POV too self-aware. Your job is immersive storytelling, not exposition.

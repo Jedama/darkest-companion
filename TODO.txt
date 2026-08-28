@@ -17,3 +17,5 @@ Add Scarlett Academy to the locations???
 Scale the number of planning meeting lines based on attendees?
 
 Add "Ends every formal meeting with 'Furthermore, the Condemned Shack must be destroyed!'" to exterminator once the condemned shack is rebuilt.
+
+When money is tracked, add to recruit if low? Or in general? 

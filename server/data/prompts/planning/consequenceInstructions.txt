@@ -1,0 +1,121 @@
+=========================================================
+NARRATIVE STORYTELLING COMPANION - CONSEQUENCE DETECTION
+=========================================================
+
+You are analyzing the transcript of a Hamlet planning meeting to identify meaningful developments, revelations, relationship changes that come out of the deliberation, and MOST IMPORTANTLY any team intentions the attendees settled on.
+
+WHAT TO LOOK FOR:
+- Character revelations: personality traits, ticks, fears, or weaknesses revealed
+- Relationship developments: new dynamics, trust, conflict, or disdain between attendees
+- Physical or mental changes: confidence boosts, humiliation, vindication, stress
+- Personality shifts: changes in outlook, priorities, or behavior patterns
+- Team intentions: who agreed to march together, who refused whom (see PARTY INTENTS below)
+
+GUIDANCE FOR QUALITY CONSEQUENCES:
+  - Always remember: This is a game of managing broken, horrible people and difficult, dysfunctional relationships, and those few moments of true redemption are our primary selling points.
+  - Make the characters hate and love and despise and long for each other. Extreme character dynamics are the core of our stories.
+
+1. LOGS:
+  - Be objective and brief while capturing details
+  - Add logs for anything noteworthy that occurred
+  - Use timeframes to indicate story impact:
+    * transient: Only for continuity into the next event
+    * short_term: Minor events affecting next few interactions
+    * mid_term: Significant developments with lasting consequences
+    * long_term: Major events reshaping the quest or characters
+    * permanent: Irreversible changes to world, characters, or relationships
+
+  A. ESTATE LOG (REQUIRED):
+    * Objective summary of what transpired in the meeting
+    * Focus on decisions, power shifts, or conflicts affecting the hamlet
+    * Examples:
+      - "The council argued over next month's expeditions without reaching agreement" (transient)
+      - "The Bursar publicly challenged the Margrave's judgment before the full council" (mid_term)
+      - "A faction formed against the sitting leadership" (long_term)
+
+  B. CHARACTER LOGS (Optional - only if noteworthy):
+    * Record significant actions or experiences specific to a character
+    * What the character DID or what HAPPENED to them
+    * DO NOT mention other characters here - if an action involves another character, use a relationship log instead
+    * Mention the character by title
+    * Examples:
+      - "The Heir was shouted down when he raised the treasury's state" (transient)
+      - "The Highwayman declared himself unfit to lead a team this month" (short_term)
+    * Skip if character's involvement was routine or minor
+
+  C. RELATIONSHIP LOGS (Optional - only if noteworthy):
+    * Record significant developments between two specific characters
+    * When you add a relationship log, it automatically appears for BOTH characters involved - only specify it once
+    * State what happened between the two characters - actions, words, and visible reactions. (Feelings belong in the relationship section)
+    * Each relationship log involves exactly two characters, but a character may have multiple logs with different people
+    * Mention the characters by title
+    * Examples:
+      - "The Heir and Heiress' argument escalated into a fistfight" (transient)
+      - "The Bounty Hunter publicly vouched for the Grave Robber's fitness to lead" (mid_term)
+    * Skip if interaction was consistent with existing dynamic
+
+2. STATUS DESCRIPTIONS:
+  - Capture the character's current CONDITION (physical/mental state)
+  - Focus on how they ARE, not what they're DOING
+  - Reflect immediate conditions from this scene, not long-term states
+  - Don't confine your numerical updates to multiples of five.
+  - Physical and mental are UPDATES (±values), not absolute settings. Range ±1 to ±50.
+
+3. TRAITS:
+  - Traits represent fundamental character attributes reflected in their behavior
+  - One or two words maximum
+
+4. NOTES:
+  - Notes capture OBSERVABLE, REPEATABLE, and HIGH-UTILITY behaviors, physical tics, or fears. They define how a character acts across many different situations.
+  - The bar for adding a note is EXTREMELY HIGH. Most meetings should add zero notes. Notes accumulate over a character's lifetime, so each must earn its place against years of future scenes.
+  - **The "Tavern vs Dungeon" Test (Broad Applicability):** Before writing a note, ask: *Could this behavior naturally manifest in a completely different setting, like bickering around a campfire, drinking in a tavern, or facing monsters in a dungeon?* If it is locked to the current event's specific context, do not write it.
+  - **Avoid "Context-Locked" Notes:** Do not write notes that sound good but are too niche to ever trigger again. Ensure actions are translated into general behavioral patterns.
+  - **Avoid Generic Human Reactions:** Do not write down ordinary behaviors that apply to almost anyone (e.g., "Sighs when tired," "Gets quiet when sad," or "Fidgets when nervous"). A note must describe a habit, reaction, or quirk that is distinct, slightly peculiar, or uniquely telling of *this* character.
+
+5. STATS:
+  - Only update when a significant change is demonstrated
+  - Strength/Agility: physical capabilities displayed
+  - Intelligence: knowledge or mental acuity revealed
+  - Authority: command presence or leadership shown
+  - Sociability: social skills or connection demonstrated
+
+6. CLOTHES & APPEARANCE
+  - Only include long-term or permanent changes. For temporary changes, use the status field.
+  - Focus on persistent physical markers: scars, brandings, missing limbs.
+  - When updating a field, include the original. Not "Gashed", but "Green overcoat with a deep gash."
+
+7. RELATIONSHIPS:
+  - Affinity updates must be within a range of up to ±5, indicating how this meeting shifted the bond between two characters.
+  - Always consider current affinity values when assessing changes. Ask: Did something NEW happen, or is this just more of the same?
+  - Apply "Reversion to the Mean" asymmetry: It must be significantly easier for a high relationship to decay (e.g., decaying from 7→6) than it is to build it further (e.g., climbing from 7→8). The mean is 3.5.
+    * High Barrier for Trust (Relational Inertia): True trust is exceptionally difficult to build. Routine cooperation, shared activities, or casual banter should rarely increase affinity. Reserve affinity increases (+1 or more) strictly for moments of genuine vulnerability, shared trauma, or life-saving actions.
+    * High Sensitivity to Friction (Relational Fragility): In this hostile environment, trust is brittle. Minor friction should easily damage relationships. When characters clash, express resentment, or bicker, default to lowering their affinity.
+    * The Default is No Change: Most meetings should result in an affinity shift of 0.
+  - Changes at the extremes require heavy justification:
+    * Moving 2→1 or 1→0: The relationship is already broken. Did this specific interaction make it actively worse, or is it just a continuation of their mutual disdain?
+    * Moving 8→9 or 9→10: They are already very close. Did this moment profoundly deepen their bond, or is it just more of the same?
+    * Mid-range shifts (3-6): Subtle shifts of ±1 or ±2 are appropriate for meaningful interactions.
+  - Reserve major shifts (±3 to ±5) strictly for life-altering events: genuine betrayals, devastating cruelty, or profound breakthroughs.
+  - Dynamics should describe the TYPE OF RELATIONSHIP between two people (1-3 words). Update when the previous dynamic no longer accurately describes the relationship
+  - Descriptions explain the ONGOING PATTERN of how characters view each other. NEVER mention what just happened in this meeting - that's what relationship logs are for.
+
+8. PARTY INTENTS (NEXT EXPEDITION):
+  - Optional. Two characters can submit a request to march together next month, or one can refuse to be paired with another.
+  - Add "add_party_intent" to ONE of the pair's character entries; it applies to both, the same as a relationship log.
+  - "score": -5 to +5. Positive means "wants to be on the same team," negative means "refuses to be paired." Magnitude is how strongly this should weigh when expeditions are assembled, not how dramatic the moment was.
+  - Reserve ±4/±5 for something stated outright and unambiguous ("I will not fight beside her again"). Most should be ±1 to ±3.
+  - "reason" is a short, in-character justification (a few words to a sentence). 
+
+9. OTHER:
+  - Money updates typically range from ±100 to ±1000, with larger amounts reserved for extraordinary windfalls or losses.
+  - Equipment is necessary for gameplay purposes and should not be permanently lost or broken.
+
+RULES:
+1. Use ONLY the fields above. No new keys.
+2. For removals (lose_trait, lose_note, etc.), values MUST match existing entries exactly.
+3. Omit fields entirely if no changes (don't include empty arrays/objects/±0).
+4. If an attendee is absent (merely discussed), do NOT list any consequences for them, ONLY for those who spoke or acted.
+5. Use the characters' identifiers, labeled with [identifier] above. Be extra attentive as some characters don't use their exact title as identifier (Heir is kheir, for example)
+6. In text, such as descriptions, refer to the characters by their titles, not names. ("the Heir", not "Percival").
+7. Don't include the questionmarks in your response, they are only there to indicate optional fields.
+8. Focus on the most meaningful 2-3 changes per character rather than trying to change everything.
