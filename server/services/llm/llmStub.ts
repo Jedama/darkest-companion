@@ -21,6 +21,7 @@ export type LlmLabel =
   | 'review'
   | 'dungeon summary'
   | 'planning deliberation'
+  | 'planning posing'
   | 'planning consequences'
   | 'unknown';
 
@@ -140,6 +141,14 @@ function planningFixture(estate: Estate, subjects: string[]): string {
     .join('\n');
 }
 
+/** Mirrors planningFixture's speaker count exactly, so every tagged index has a matching line. */
+function posingFixture(estate: Estate, subjects: string[]): string {
+  const speakers = subjects.length > 0 ? subjects : Object.keys(estate.characters).slice(0, 2);
+  const poses = ['neutral', 'happy', 'sad', 'angry', 'surprised'];
+  const tags = speakers.map((_, index) => ({ index, pose: poses[index % poses.length] }));
+  return fence(tags);
+}
+
 /* ------------------------------------------------------------------ *
  *  Entry point
  * ------------------------------------------------------------------ */
@@ -162,6 +171,8 @@ export function stubResponse(label: LlmLabel, estate: Estate, body: any): string
       return dungeonSummaryFixture();
     case 'planning deliberation':
       return planningFixture(estate, subjects);
+    case 'planning posing':
+      return posingFixture(estate, subjects);
     case 'planning consequences':
       return consequencesFixture(subjects, 'planning');
     default:

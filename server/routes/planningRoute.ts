@@ -12,6 +12,7 @@ import {
   type DialogueLine,
 } from '../services/planning/planningService.js';
 import { compilePlanningConsequencesPrompt } from '../services/planning/planningConsequencesService.js';
+import { compilePosingPrompt, applyPoses } from '../services/planning/planningPosingService.js';
 import {
   applyConsequences,
   prepareConsequenceDisplay,
@@ -58,11 +59,11 @@ router.post(
     }
     console.log('');
 
-    const response = await callEstateLLM(estate, prompt, { temperature: 0.7 });
+    const response = await callEstateLLM(estate, prompt, { temperature: 0.7, label: 'planning deliberation' });
 
-    const lines = parseDialogue(response, attendeeIds);
+    const parsedLines = parseDialogue(response, attendeeIds);
 
-    if (lines.length === 0) {
+    if (parsedLines.length === 0) {
       throw AppError.llmBadContent(
         'planning deliberation',
         ['no lines could be attributed to any attendee'],
@@ -70,10 +71,19 @@ router.post(
       );
     }
 
+    // Second, cosmetic pass: tags each line with a sprite pose. Never fails the
+    // request — a bad tag falls back to neutral inside applyPoses.
+    const posingPrompt = compilePosingPrompt(parsedLines, attendeeIds);
+    const posingResponse = await callEstateLLM(estate, posingPrompt, {
+      temperature: 0.3,
+      label: 'planning posing',
+    });
+    const lines = applyPoses(parsedLines, posingResponse);
+
     console.log('Planning Meeting');
     lines.forEach((line) => {
       const speaker = estate.characters[line.speaker]?.name ?? line.speaker;
-      console.log(`${speaker}: ${line.text}`);
+      console.log(`${speaker} [${line.pose}]: ${line.text}`);
     });
     console.log('');
 

@@ -34,6 +34,8 @@ export interface PlanningAttendee {
 export interface DialogueLine {
   speaker: string; // canonical character identifier, as keyed in estate.characters
   text: string;
+  /** Sprite pose for this line, added by a later posing pass. See planningPosingService.ts. */
+  pose?: string;
 }
 
 /* -------------------------------------------------------------------
