@@ -515,6 +515,7 @@ const inputStyle: React.CSSProperties = {
 interface PlanningLine {
   speaker: string;
   text: string;
+  pose?: string;
 }
 
 interface PlanningAttendee {
@@ -522,6 +523,28 @@ interface PlanningAttendee {
   name: string;
   title: string;
   seat: string;
+}
+
+interface ConsequenceDisplaySummary {
+  characters: {
+    identifier: string;
+    personalChanges: { text: string; color: string }[];
+    relationshipChanges: Record<string, { text: string; color: string }[]>;
+  }[];
+}
+
+interface ExpeditionPartyMember {
+  identifier: string;
+  name: string;
+  level: number;
+}
+
+interface ExpeditionResult {
+  marshal: string;
+  activePartiesCount: number;
+  score: number;
+  partyIntentsConsidered: { a: string; b: string; score: number; reason?: string }[];
+  composition: ExpeditionPartyMember[][];
 }
 
 function PlanningPanel({
@@ -535,12 +558,16 @@ function PlanningPanel({
 }) {
   const [lines, setLines] = useState<PlanningLine[]>([]);
   const [attendees, setAttendees] = useState<PlanningAttendee[]>([]);
+  const [consequences, setConsequences] = useState<ConsequenceDisplaySummary | null>(null);
+  const [expedition, setExpedition] = useState<ExpeditionResult | null>(null);
 
   const nameFor = (id: string) => attendees.find(a => a.identifier === id)?.name ?? id;
 
   const handleRun = () => {
     setLines([]);
     setAttendees([]);
+    setConsequences(null);
+    setExpedition(null);
 
     onRun('Planning Meeting', async () => {
       const res = await fetch(`http://localhost:3000/estates/${estateName}/planning/deliberate`, {
@@ -563,7 +590,52 @@ function PlanningPanel({
     });
   };
 
-  const transcript = lines.map(l => `${nameFor(l.speaker)}: ${l.text}`).join('\n');
+  const handleConsequences = () => {
+    setConsequences(null);
+    setExpedition(null);
+
+    onRun('Planning Consequences', async () => {
+      const res = await fetch(`http://localhost:3000/estates/${estateName}/planning/consequences`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ lines, attendeeIds: attendees.map(a => a.identifier) }),
+      });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({ error: `HTTP ${res.status}` }));
+        throw new Error(err.error || `Consequences failed: ${res.status}`);
+      }
+
+      const data = await res.json();
+      if (!data.success) throw new Error('Consequences returned success=false');
+
+      setConsequences(data.display ?? null);
+      return data.display;
+    });
+  };
+
+  const handleExpedition = () => {
+    setExpedition(null);
+
+    onRun('Expedition Planner', async () => {
+      const res = await fetch(`http://localhost:3000/estates/${estateName}/planning/expedition`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({}),
+      });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({ error: `HTTP ${res.status}` }));
+        throw new Error(err.error || `Expedition planning failed: ${res.status}`);
+      }
+
+      const data = await res.json();
+      if (!data.success) throw new Error('Expedition planning returned success=false');
+
+      setExpedition(data);
+      return data;
+    });
+  };
+
+  const transcript = lines.map(l => `${nameFor(l.speaker)}${l.pose ? ` [${l.pose}]` : ''}: ${l.text}`).join('\n');
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 12, minHeight: 0 }}>
@@ -577,6 +649,23 @@ function PlanningPanel({
           style={btnStyle}
         >
           Copy
+        </button>
+      </div>
+
+      <div style={{ display: 'flex', gap: 4 }}>
+        <button
+          onClick={handleConsequences}
+          disabled={disabled || !lines.length}
+          style={{ ...btnStyle, flex: 1, borderColor: consequences ? '#4a4' : '#555' }}
+        >
+          Run Consequences
+        </button>
+        <button
+          onClick={handleExpedition}
+          disabled={disabled}
+          style={{ ...btnStyle, flex: 1, borderColor: expedition ? '#4a4' : '#555' }}
+        >
+          Run Expedition Planner
         </button>
       </div>
 
@@ -603,11 +692,76 @@ function PlanningPanel({
         >
           {lines.map((line, i) => (
             <div key={i} style={{ fontSize: 12, lineHeight: 1.5 }}>
-              <span style={{ color: '#ff6b35' }}>{nameFor(line.speaker)}:</span>{' '}
+              <span style={{ color: '#ff6b35' }}>{nameFor(line.speaker)}</span>{' '}
+              {line.pose && <span style={{ color: '#666' }}>[{line.pose}]</span>}
+              <span style={{ color: '#ff6b35' }}>:</span>{' '}
               <span style={{ color: '#ddd' }}>{line.text}</span>
             </div>
           ))}
           <div style={{ color: '#555', fontSize: 10, marginTop: 4 }}>{lines.length} lines</div>
+        </div>
+      )}
+
+      {consequences && (
+        <div
+          style={{
+            background: '#0a0a0a',
+            border: '1px solid #333',
+            borderRadius: 4,
+            padding: 10,
+            fontSize: 11,
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 6,
+          }}
+        >
+          <div style={{ color: '#4a4' }}>Consequences applied:</div>
+          {consequences.characters.map(c => (
+            <div key={c.identifier}>
+              <span style={{ color: '#ff6b35' }}>{nameFor(c.identifier)}:</span>{' '}
+              <span style={{ color: '#ddd' }}>
+                {c.personalChanges.map(p => p.text).join(', ') || '(no personal changes)'}
+              </span>
+              {Object.entries(c.relationshipChanges).map(([target, changes]) => (
+                <div key={target} style={{ color: '#999', paddingLeft: 12 }}>
+                  → {nameFor(target)}: {changes.map(ch => ch.text).join(', ')}
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      )}
+
+      {expedition && (
+        <div
+          style={{
+            background: '#0a0a0a',
+            border: '1px solid #333',
+            borderRadius: 4,
+            padding: 10,
+            fontSize: 11,
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 6,
+          }}
+        >
+          <div style={{ color: '#4a4' }}>
+            Doctrine: {nameFor(expedition.marshal)} — {expedition.activePartiesCount} active part
+            {expedition.activePartiesCount === 1 ? 'y' : 'ies'}, score {expedition.score.toFixed(2)}
+          </div>
+          {expedition.partyIntentsConsidered.length > 0 && (
+            <div style={{ color: '#999' }}>
+              Party intents: {expedition.partyIntentsConsidered
+                .map(i => `${nameFor(i.a)}↔${nameFor(i.b)} (${i.score > 0 ? '+' : ''}${i.score})`)
+                .join(', ')}
+            </div>
+          )}
+          {expedition.composition.map((party, i) => (
+            <div key={i} style={{ color: i < expedition.activePartiesCount ? '#ddd' : '#666' }}>
+              Party {i + 1}{i >= expedition.activePartiesCount ? ' (benched)' : ''}:{' '}
+              {party.map(m => `${m.name} (Lvl ${m.level})`).join(', ')}
+            </div>
+          ))}
         </div>
       )}
     </div>
