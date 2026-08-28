@@ -3,10 +3,16 @@
 // Imports → Constants → Public API (ingestion / month-end / reservation / selection) → Internals (roll / pick / validity) → Utilities
 
 import type { Estate, FollowUpEvent, FollowUpQueue } from '../../../shared/types/types.js';
+import StaticGameDataManager from '../../staticGameDataManager.js';
 
 /* -------------------------------------------------------------------
  *  Constants (tune here)
  * ------------------------------------------------------------------- */
+
+// Fallback location for a follow-up whose location id doesn't exist (typo,
+// renamed location, LLM hallucination). "hamlet" is the town's real root
+// location, so it's always a valid place for the event to happen.
+const FALLBACK_LOCATION = 'hamlet';
 
 // Month-end retention: keep this many of the newest follow-ups, drop the rest.
 const MONTH_END_KEEP = 5;
@@ -49,10 +55,15 @@ const TAIL_FLOOR = 0.02;
  * addFollowUpEvent
  * Front-inserts one newly generated follow-up so the queue stays newest-first.
  * Call once per follow-up when applying a review result to the estate.
+ *
+ * Validates the location id here, at the single point every follow-up enters
+ * the estate — an unknown id (e.g. hallucinated by the review LLM) would
+ * otherwise survive silently until location scoring drops it and teleports
+ * the event to a random spot in town.
  */
 export function addFollowUpEvent(estate: Estate, event: FollowUpEvent): void {
   const queue = ensureQueue(estate);
-  queue.events.unshift(event);
+  queue.events.unshift(sanitizeFollowUpLocation(event));
 }
 
 /**
@@ -205,6 +216,24 @@ function charactersPresent(estate: Estate, event: FollowUpEvent): boolean {
 /* -------------------------------------------------------------------
  *  Internals: utilities
  * ------------------------------------------------------------------- */
+
+/**
+ * "any" lets participants' own locations drive the pick and is always valid.
+ * Anything else must name a real location; an unrecognized id falls back to
+ * FALLBACK_LOCATION rather than being passed through.
+ */
+function sanitizeFollowUpLocation(event: FollowUpEvent): FollowUpEvent {
+  if (event.location === 'any') return event;
+
+  const locationMap = StaticGameDataManager.getInstance().getLocationMap();
+  if (locationMap.has(event.location)) return event;
+
+  console.warn(
+    `Follow-up "${event.title}" had unknown location "${event.location}" — ` +
+      `defaulting to "${FALLBACK_LOCATION}".`
+  );
+  return { ...event, location: FALLBACK_LOCATION };
+}
 
 function ensureQueue(estate: Estate): FollowUpQueue {
   if (!estate.followUps) {

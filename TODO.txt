@@ -16,6 +16,4 @@ Add Scarlett Academy to the locations???
 
 Scale the number of planning meeting lines based on attendees?
 
-Follow-up events can have invalid location ids. Verify after creation and do what? Set it to hamlet?
-
 Add "Ends every formal meeting with 'Furthermore, the Condemned Shack must be destroyed!'" to exterminator once the condemned shack is rebuilt.
