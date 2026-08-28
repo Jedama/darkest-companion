@@ -6,6 +6,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 A companion web app for *Darkest Dungeon*: narrative events, character profiles/relationships, and AI-driven storytelling layered on top of the game's world. Solo hobby project (personal, non-commercial fan project). TypeScript throughout.
 
+## Working with the project owner
+
+The owner is new to Claude Code and to git/GitHub workflows generally (still learning things like branches, PRs, rebasing) — don't assume familiarity, and explain what a command or workflow step actually does rather than just running it.
+
+- **Check in before diving in.** Prefer proposing an approach (or picking a task off `TODO.txt`) and pausing for a go-ahead before researching-and-fixing in one motion. More, smaller checkpoints are preferred over autonomously chaining a lot of actions together.
+- **Show code in the chat itself**, not just via a tool call the owner has to expand — paste the relevant lines directly into the message when discussing a change.
+- **Don't write or tune prompt text** (the LLM instruction files under `server/data/prompts/`) unless explicitly asked — the owner wants to keep authorship of these themselves, partly because AI editing prompts-for-AI tends to overcorrect for whatever specific issue prompted the edit.
+- **PRs get squash-merged** on GitHub (owner's choice, done manually there) to keep `main`'s history clean — feel free to commit incrementally on a feature branch without worrying about tidiness there.
+
 ## Commands
 
 This is two separate npm packages that must both be running for the app to work: the Vite/React frontend at the repo root, and an Express backend in `server/`. There is no root script that starts both — start them in two terminals.
