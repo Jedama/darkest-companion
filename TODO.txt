@@ -1,3 +1,19 @@
+=== LLM infra ===
+
+Tiered models: route simple/mechanical LLM tasks (e.g. pose-tagging a finished
+dialogue) to a cheaper/faster model instead of the estate's configured model.
+No per-call model override exists yet — callEstateLLM/EstateLLMOptions only
+take temperature/system/effort/label, model always comes from
+estate.preferences?.llmModel.
+
+Retry malformed structured LLM output instead of failing outright. E.g. if a
+pose-tagging pass returns indexes that don't match the transcript, currently
+there's nothing to retry with — every bad response is a hard failure (or,
+for poses specifically, would just fall back to neutral). No retry mechanism
+of any kind exists anywhere in the LLM layer yet.
+
+=================================================
+
 Make a way to add locations later. Butchers and nomad's shouldn't be here yet
 
 Make the return event more likely to add traits or notes (Maybe get the traits) or instruct it to add any throughline from the expedition, if any. 
