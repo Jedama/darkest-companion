@@ -21,6 +21,7 @@ export type LlmLabel =
   | 'review'
   | 'dungeon summary'
   | 'planning deliberation'
+  | 'planning consequences'
   | 'unknown';
 
 /** Infers the label from the request path, so routes need not pass one. */
@@ -32,6 +33,7 @@ export function inferLabel(path: string | undefined): LlmLabel {
   if (path.endsWith('/review')) return 'review';
   if (path.endsWith('/dungeon/summary')) return 'dungeon summary';
   if (path.endsWith('/planning/deliberate')) return 'planning deliberation';
+  if (path.endsWith('/planning/consequences')) return 'planning consequences';
   return 'unknown';
 }
 
@@ -39,6 +41,7 @@ export function inferLabel(path: string | undefined): LlmLabel {
 function subjectsFrom(estate: Estate, body: any): string[] {
   const fromBody: string[] =
     (Array.isArray(body?.chosenCharacterIds) && body.chosenCharacterIds) ||
+    (Array.isArray(body?.attendeeIds) && body.attendeeIds) ||
     (body?.characterId ? [body.characterId] : []);
 
   const known = fromBody.filter((id) => estate.characters[id]);
@@ -93,6 +96,11 @@ function consequencesFixture(subjects: string[], flavour: string): string {
         target,
         entry: `DEBUG: ${identifier} and ${target} shared a stubbed moment.`,
         timeframe: 'short_term',
+      };
+      entry.add_party_intent = {
+        target,
+        score: 2,
+        reason: `DEBUG: ${flavour} stub — wants ${target} along next time.`,
       };
     }
 
@@ -154,6 +162,8 @@ export function stubResponse(label: LlmLabel, estate: Estate, body: any): string
       return dungeonSummaryFixture();
     case 'planning deliberation':
       return planningFixture(estate, subjects);
+    case 'planning consequences':
+      return consequencesFixture(subjects, 'planning');
     default:
       return 'DEBUG: stubbed response for an unrecognised call.';
   }

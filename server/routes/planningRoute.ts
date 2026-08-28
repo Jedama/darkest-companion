@@ -1,13 +1,23 @@
 // server/routes/planningRoute.ts
 import { Router, Request, Response } from 'express';
 import { requireEstate } from '../fileOps.js';
+import { withEstate } from '../estateLock.js';
 import { asyncHandler } from '../middleware/errorHandler.js';
 import { AppError } from '../errors.js';
-import { callEstateLLM } from '../services/llm/estateLlm.js';
+import { callEstateLLM, parseLlmJson } from '../services/llm/estateLlm.js';
+import { checkConsequences, reportUnhandledConsequences } from '../services/llm/consequenceChecks.js';
 import {
   preparePlanningMeeting,
   parseDialogue,
+  type DialogueLine,
 } from '../services/planning/planningService.js';
+import { compilePlanningConsequencesPrompt } from '../services/planning/planningConsequencesService.js';
+import {
+  applyConsequences,
+  prepareConsequenceDisplay,
+  ensureAllCharactersHaveConsequences,
+  type ConsequencesResult,
+} from '../services/llm/llmResponseProcessor.js';
 
 const router = Router();
 
@@ -84,6 +94,65 @@ router.post(
       })),
       lines,
     });
+  })
+);
+
+interface PlanningConsequencesRequest {
+  lines: DialogueLine[];
+  attendeeIds: string[];
+}
+
+/**
+ * POST /estates/:estateName/planning/consequences
+ *
+ * Phase two of the planning cycle. Turns the finished deliberation into state
+ * changes — the same consequence schema/engine as story and recruit events,
+ * with planning-specific instructions — and applies them, including any
+ * party intents (see PartyIntent, shared/types/types.ts) declared for next
+ * month's expedition.
+ */
+router.post(
+  '/estates/:estateName/planning/consequences',
+  asyncHandler(async (req: Request<{ estateName: string }, {}, PlanningConsequencesRequest>, res: Response) => {
+    const { estateName } = req.params;
+    const { lines, attendeeIds } = req.body ?? {};
+
+    if (!Array.isArray(lines) || lines.length === 0) {
+      throw AppError.badRequest('No dialogue was supplied to draw consequences from.');
+    }
+    if (!Array.isArray(attendeeIds) || attendeeIds.length === 0) {
+      throw AppError.badRequest('No attendees were supplied for consequences.');
+    }
+
+    const display = await withEstate(estateName, async (estate) => {
+      const prompt = await compilePlanningConsequencesPrompt({ estate, lines, attendeeIds });
+      const response = await callEstateLLM(estate, prompt, { temperature: 0.7 });
+
+      const parsed = parseLlmJson<ConsequencesResult>(response, 'planning consequences');
+
+      if (!Array.isArray(parsed.characters)) {
+        throw AppError.llmBadContent('planning consequences', ['response has no "characters" array'], parsed);
+      }
+
+      const problems = checkConsequences(parsed, estate.characters);
+      if (problems.length > 0) {
+        throw AppError.llmBadContent('planning consequences', problems, parsed);
+      }
+
+      reportUnhandledConsequences(parsed, 'planning consequences');
+
+      const consequences = ensureAllCharactersHaveConsequences(parsed, attendeeIds);
+
+      console.log('Planning Consequences');
+      console.log(JSON.stringify(consequences, null, 2));
+      console.log('');
+
+      applyConsequences(estate, consequences);
+
+      return prepareConsequenceDisplay(consequences);
+    });
+
+    res.json({ success: true, display });
   })
 );
 

@@ -15,6 +15,10 @@
 
   "planning.instructions": "planning/instructions.txt",
 
+  "planning.consequence.instructions": "planning/consequenceInstructions.txt",
+  "planning.consequence.format": "planning/consequenceFormat.txt",
+  "planning.consequence.examples": "planning/consequenceExamples.txt",
+
   "review.instructions": "review/instructions.txt",
   "review.format": "review/format.txt",
   "review.examples": "review/examples.txt",
