@@ -22,30 +22,65 @@ import {
 
 // --- Severity & Benefit Mappings ---
 // These maps translate a named condition into a numerical score.
-const AFFLICTION_SEVERITY: Record<AfflictionType, number> = {
-  // High disruption
+export const AFFLICTION_SEVERITY: Record<AfflictionType, number> = {
+  // Severe — the character is actively dangerous to their own party
+  ferocious: 90,
+  possessed: 85,
   abusive: 80,
   paranoid: 75,
-  ferocious: 70,
-  // High risk
+  blindness: 75,
+ 
+  // High — hostile, or a serious danger to themselves
+  discordant: 70,
+  resentful: 70,
   masochistic: 65,
+  haunted: 65,
+ 
+  // Moderate — unreliable, unreachable, or unsettling to be near
   fearful: 60,
   refracted: 60,
-  // Moderate disruption
+  irradiant: 60,
+  protean: 55,
   irrational: 50,
+  hyper: 50,
+ 
+  // Low — withdrawn or self-contained; the party still functions
   selfish: 45,
-  discordant: 45,
-  // Low disruption
+  karma: 40,
   hopeless: 35,
+  dissociated: 35,
   rapturous: 30,
 };
-
-const VIRTUE_BENEFIT: Record<VirtueType, number> = {
+ 
+/**
+ * How much a virtue benefits the party, 0-100.
+ *
+ * Scored on effect on the group, not on how pleasant the state is for the
+ * character. Several custom virtues are mechanically good and narratively
+ * terrible — see `eclipsed` and `exuvian`, both scored low for that reason.
+ */
+export const VIRTUE_BENEFIT: Record<VirtueType, number> = {
+  // Directive — actively organises or repairs the rest of the party
+  farseeing: 60,
+  medical: 60,
+  clarified: 55,
+  unbreakable: 55,
+  resilient: 55,
+  protectorateb: 55,
+ 
+  // Steadying — helps chiefly by example or by absorbing risk
   stalwart: 50,
+  vengeful: 50,
   courageous: 45,
+  epiphany: 45,
   vigorous: 40,
-  powerful: 35,
-  focused: 30,
+  focused: 40,
+  dynamic: 40,
+ 
+  // Self-contained — good for the character, little of it reaches anyone else
+  powerful: 30,
+  exuvian: 25,
+  eclipsed: 5,
 };
 
 // ==================================
