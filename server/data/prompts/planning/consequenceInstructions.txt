@@ -102,6 +102,7 @@ GUIDANCE FOR QUALITY CONSEQUENCES:
 8. PARTY INTENTS (NEXT EXPEDITION):
   - Optional. Two characters can submit a request to march together next month, or one can refuse to be paired with another.
   - Add "add_party_intent" to ONE of the pair's character entries; it applies to both, the same as a relationship log.
+  - A character can raise more than one intent in the same scene (e.g. wanting to march with one ally while refusing another) — use an array of these instead of a single object when that happens.
   - "score": -5 to +5. Positive means "wants to be on the same team," negative means "refuses to be paired." Magnitude is how strongly this should weigh when expeditions are assembled, not how dramatic the moment was.
   - Reserve ±4/±5 for something stated outright and unambiguous ("I will not fight beside her again"). Most should be ±1 to ±3.
   - "reason" is a short, in-character justification (a few words to a sentence). 
