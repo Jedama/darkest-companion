@@ -9,6 +9,7 @@ import path from 'path';
 import {
   CHARACTER_DIR,
   DEFAULT_RECRUIT_FILE,
+  DEFAULT_POSES_FILE,
   DEFAULT_RELATIONSHIPS_FILE,
   DEFAULT_WEIGHTS_FILE,
   ENEMY_RELATIONSHIPS_FILE,
@@ -163,6 +164,18 @@ export async function loadDefaultCharacterWeights(): Promise<Record<string, Reco
     return JSON.parse(content);
   } catch (error) {
     console.error('Error loading default character weights:', error);
+    throw error;
+  }
+}
+
+// Loads character-specific unique pose descriptions (planning-meeting sprites
+// only — static forever, so kept separate from the ever-updated template files).
+export async function loadCharacterPoses(): Promise<Record<string, Record<string, string>>> {
+  try {
+    const content = await readFile(DEFAULT_POSES_FILE, 'utf-8');
+    return JSON.parse(content);
+  } catch (error) {
+    console.error('Error loading character poses:', error);
     throw error;
   }
 }

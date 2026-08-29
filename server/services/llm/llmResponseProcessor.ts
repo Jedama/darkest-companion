@@ -3,7 +3,7 @@
 // Imports → Domain constants → Types → Public API (parsing/display/mutation)
 // → Internal processors → Internal utilities
 
-import type { Character, CharacterLocations, Estate, LogEntry } from '../../../shared/types/types.js';
+import type { Character, CharacterLocations, Estate, LogEntry, PartyIntent } from '../../../shared/types/types.js';
 import { updateBeat, updateDay } from '../game/estateService.js';
 import { NEUTRAL_AFFINITY } from '../../../shared/constants/relationships.js';
 import { 
@@ -22,11 +22,19 @@ interface ConsequenceLogEntry {
   timeframe: LogTimeframe;
 }
 
+interface PartyIntentDeclaration {
+  target: string;
+  score: number;
+  reason?: string;
+}
+
 // Define all possible consequence types matching the JSON structure
 export interface CharacterConsequence {
   identifier: string;
   add_log?: ConsequenceLogEntry;
   add_relationship_log?: ConsequenceLogEntry & { target: string };
+  /** A character can raise more than one intent per meeting (e.g. wanting to march with one ally while refusing another), so this may be a single declaration or an array of them. */
+  add_party_intent?: PartyIntentDeclaration | PartyIntentDeclaration[];
   update_description?: string;
   update_history?: string;
   update_stats?: {
@@ -478,6 +486,7 @@ export function applyConsequences(estate: Estate, consequences: ConsequencesResu
 
     processAddLog(estate, character, characterConsequence);
     processAddRelationshipLog(estate, character, characterConsequence);
+    processAddPartyIntent(estate, character, characterConsequence);
     processUpdateDescription(character, characterConsequence);
     processUpdateHistory(character, characterConsequence);
     processUpdateStats(character, characterConsequence);
@@ -565,6 +574,35 @@ function processAddRelationshipLog(
     consequence.add_relationship_log.entry, 
     consequence.add_relationship_log.timeframe
   );
+}
+
+/**
+ * Records a party intent for the current month, keyed by the unordered pair.
+ *
+ * Replaces rather than accumulates: if this pair already has an intent this
+ * month — whether from an earlier event or a mirrored duplicate the model
+ * declared on both sides despite the prompt asking for one — the newer
+ * decision supersedes it rather than stacking.
+ */
+function processAddPartyIntent(estate: Estate, character: Character, consequence: CharacterConsequence): void {
+  if (!consequence.add_party_intent) return;
+
+  const declarations = Array.isArray(consequence.add_party_intent)
+    ? consequence.add_party_intent
+    : [consequence.add_party_intent];
+
+  for (const { target, score, reason } of declarations) {
+    if (!target || !estate.characters[target] || target === character.identifier) continue;
+
+    if (!estate.partyIntents) estate.partyIntents = [];
+
+    const [a, b] = [character.identifier, target].sort();
+    estate.partyIntents = estate.partyIntents.filter(intent => !(intent.a === a && intent.b === b));
+
+    const intent: PartyIntent = { a, b, score };
+    if (reason) intent.reason = reason;
+    estate.partyIntents.push(intent);
+  }
 }
 
 /**

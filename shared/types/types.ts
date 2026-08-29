@@ -44,6 +44,7 @@ export interface StrategyContext {
   margrave?: string;
   bursar?: string;
   council?: readonly string[];
+  partyIntents?: readonly PartyIntent[];
 }
 
 /** Convenience: builds the scoring context from an estate's leadership. */
@@ -127,6 +128,22 @@ export interface FollowUpQueue {
   inFlight?: FollowUpEvent;  // reserved by setup, consumed by commitFollowUp; see followUpService
 }
 
+/**
+ * A pair-wise pull toward or away from marching together next month, raised by
+ * any consequence pass (story, recruit, planning). Symmetric — `a` and `b` are
+ * unordered — and undirected in meaning: positive draws the pair into the same
+ * party, negative keeps them apart.
+ *
+ * Purged wholesale once expeditionPlanner runs for the month, used or not —
+ * these are this month's word only, not standing alliances or grudges.
+ */
+export interface PartyIntent {
+  a: string;        // character identifier
+  b: string;        // character identifier
+  score: number;    // -5 to +5
+  reason?: string;  // short in-character justification, may be surfaced to a later storyteller pass
+}
+
 export interface Estate {
   name: string;
   preferences?: EstatePreferences;
@@ -140,6 +157,7 @@ export interface Estate {
   money: number;
   narratives: string[];
   followUps?: FollowUpQueue;
+  partyIntents?: PartyIntent[];
   characters: CharacterRecord;
   restoredLocations?: string[]; // list of location identifiers that have been restored
   estateLogs?: LogEntry[];

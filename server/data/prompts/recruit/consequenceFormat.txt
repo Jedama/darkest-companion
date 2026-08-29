@@ -16,7 +16,7 @@ ALLOWED COMMANDS PER CHARACTER:
 {
   "identifier": "string (MUST match character identifiers)",
   "add_log?": { "entry": "string", "timeframe": "string" },
-  "add_party_intent?": { "target": "string", "score": ±number (±5), "reason?": "string" },
+  "add_party_intent?": { "target": "string", "score": ±number (±5), "reason?": "string" } (or an array of these, to raise more than one),
   "update_description": "string",
   "update_history": "string",
   "update_stats?": { "strength?": ±number, "agility?": ±number, "intelligence?": ±number, "authority?": ±number, "sociability?": ±number },

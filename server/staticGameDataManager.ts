@@ -23,6 +23,7 @@ import type {
 import {
   loadAllEnemies,
   loadAllLocations,
+  loadCharacterPoses,
   loadCharacterTemplates,
   loadDefaultCharacterWeights,
   loadDefaultRecruitTexts,
@@ -125,6 +126,7 @@ class StaticGameDataManager {
    * This file only needs to contain weights that differ from the base defaults.
    */
   private characterWeightOverrides: Record<string, Record<string, number>> = {};
+  private characterPoses: Record<string, Record<string, string>> = {};
 
   /* -------------------------------------------------------------------
    *  World: Locations
@@ -194,6 +196,7 @@ class StaticGameDataManager {
           defaultRelationships,
           enemyRelationships,
           characterWeightOverrides,
+          characterPoses,
           locations,
           npcsByCategory,
           enemies,
@@ -209,6 +212,7 @@ class StaticGameDataManager {
           loadDefaultRelationships(),
           loadEnemyRelationships(),
           loadDefaultCharacterWeights(),
+          loadCharacterPoses(),
 
         // World
         loadAllLocations(),
@@ -232,6 +236,7 @@ class StaticGameDataManager {
       this.defaultRelationships = defaultRelationships;
       this.enemyRelationships = enemyRelationships;
       this.characterWeightOverrides = characterWeightOverrides;
+      this.characterPoses = characterPoses;
 
       this.baseDefaultWeights = generateDefaultWeights() as Record<string, number>;
 
@@ -351,6 +356,16 @@ class StaticGameDataManager {
     if (overrides) Object.assign(finalWeights, overrides);
 
     return finalWeights;
+  }
+
+  /**
+   * Unique planning-meeting poses for one character, keyed by pose id
+   * (e.g. "unique_0") to a short description of what it depicts. Empty for
+   * any character without unique poses defined — most of the roster, for now.
+   */
+  public getPosesForCharacter(characterId: string): Record<string, string> {
+    this.ensureInitialized();
+    return this.characterPoses[characterId] || {};
   }
 
   /* -------------------------------------------------------------------

@@ -14,6 +14,7 @@ The owner is new to Claude Code and to git/GitHub workflows generally (still lea
 - **Show code in the chat itself**, not just via a tool call the owner has to expand — paste the relevant lines directly into the message when discussing a change.
 - **Don't write or tune prompt text** (the LLM instruction files under `server/data/prompts/`) unless explicitly asked — the owner wants to keep authorship of these themselves, partly because AI editing prompts-for-AI tends to overcorrect for whatever specific issue prompted the edit.
 - **PRs get squash-merged** on GitHub (owner's choice, done manually there) to keep `main`'s history clean — feel free to commit incrementally on a feature branch without worrying about tidiness there.
+- **Never use the `AskUserQuestion` tool (the multiple-choice questionnaire UI).** The owner dislikes it and won't read it. Ask questions as plain text in the conversation instead.
 
 ## Commands
 

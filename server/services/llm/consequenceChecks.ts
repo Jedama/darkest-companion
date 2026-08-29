@@ -13,6 +13,7 @@ const STAT_KEYS = ['strength', 'agility', 'intelligence', 'authority', 'sociabil
 const STAT_DELTA_LIMIT = 5;
 const STATUS_DELTA_LIMIT = 50;
 const AFFINITY_DELTA_LIMIT = 5;
+const PARTY_INTENT_SCORE_LIMIT = 5;
 
 /**
  * Fields the consequences schema declares but applyConsequences does not yet
@@ -28,6 +29,7 @@ const KNOWN_KEYS = new Set<string>([
   'identifier',
   'add_log',
   'add_relationship_log',
+  'add_party_intent',
   'update_description',
   'update_history',
   'update_stats',
@@ -104,6 +106,29 @@ export function checkConsequences(
           `${who}: add_relationship_log timeframe "${char.add_relationship_log.timeframe}" is not valid`
         );
       }
+    }
+
+    if (char.add_party_intent) {
+      const declarations = Array.isArray(char.add_party_intent)
+        ? char.add_party_intent
+        : [char.add_party_intent];
+
+      declarations.forEach((declaration, declIndex) => {
+        const label = declarations.length > 1 ? `${who} add_party_intent[${declIndex}]` : `${who} add_party_intent`;
+        const { target, score } = declaration;
+        if (!target) {
+          problems.push(`${label}: has no target`);
+        } else if (!characters[target]) {
+          problems.push(`${label}: targets unknown character "${target}"`);
+        } else if (target === char.identifier) {
+          problems.push(`${label}: targets themselves`);
+        }
+        if (typeof score !== 'number') {
+          problems.push(`${label}: score is ${typeof score}, expected a number`);
+        } else if (Math.abs(score) > PARTY_INTENT_SCORE_LIMIT) {
+          problems.push(`${label}: score is ${score}, limit is ±${PARTY_INTENT_SCORE_LIMIT}`);
+        }
+      });
     }
 
     if (char.update_stats) {

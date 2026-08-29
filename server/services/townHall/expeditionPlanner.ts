@@ -1,5 +1,5 @@
 //server/services/townHall/expeditionPlanner.ts
-import { CharacterRecord } from '../../../shared/types/types.js';
+import { CharacterRecord, Estate } from '../../../shared/types/types.js';
 import { countViolations, repairComposition } from './incompatibility.js';
 import { PARTY_SIZE } from '../../../shared/constants/expedition.js';
 import { 
@@ -811,4 +811,16 @@ export async function findOptimalArrangement(
     console.log(`Final Recommendation: Send ${overallBest.activePartiesCount} out of ${Math.ceil(availableHeroes.length / partySize)} parties.`);
 
     return overallBest;
+}
+
+/**
+ * Clears this month's party intents (see PartyIntent, shared/types/types.ts).
+ *
+ * Unconditional: called once the composition from findOptimalArrangement has
+ * actually been applied to the estate, whether or not any given intent was
+ * honored. These are this month's word only — not standing alliances or
+ * grudges — so nothing here decays or carries forward.
+ */
+export function purgePartyIntents(estate: Estate): void {
+  estate.partyIntents = [];
 }
