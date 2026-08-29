@@ -246,7 +246,7 @@ export function scorePartyByDiscordPenalty(party: Party, roster: CharacterRecord
  * Purged monthly by the caller once expeditions are actually assembled, so
  * there is nothing to decay or expire here — every intent present is live.
  */
-export function scorePartyByPartyIntents(party: Party, roster: CharacterRecord, ctx?: StrategyContext): number {
+export function scorePartyByPartyIntents(party: Party, _roster: CharacterRecord, ctx?: StrategyContext): number {
   if (!ctx?.partyIntents || ctx.partyIntents.length === 0 || party.length < 2) return 0;
 
   const members = new Set(party);
