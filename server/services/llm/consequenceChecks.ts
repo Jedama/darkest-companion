@@ -109,21 +109,26 @@ export function checkConsequences(
     }
 
     if (char.add_party_intent) {
-      const { target, score } = char.add_party_intent;
-      if (!target) {
-        problems.push(`${who}: add_party_intent has no target`);
-      } else if (!characters[target]) {
-        problems.push(`${who}: add_party_intent targets unknown character "${target}"`);
-      } else if (target === char.identifier) {
-        problems.push(`${who}: add_party_intent targets themselves`);
-      }
-      if (typeof score !== 'number') {
-        problems.push(`${who}: add_party_intent score is ${typeof score}, expected a number`);
-      } else if (Math.abs(score) > PARTY_INTENT_SCORE_LIMIT) {
-        problems.push(
-          `${who}: add_party_intent score is ${score}, limit is ±${PARTY_INTENT_SCORE_LIMIT}`
-        );
-      }
+      const declarations = Array.isArray(char.add_party_intent)
+        ? char.add_party_intent
+        : [char.add_party_intent];
+
+      declarations.forEach((declaration, declIndex) => {
+        const label = declarations.length > 1 ? `${who} add_party_intent[${declIndex}]` : `${who} add_party_intent`;
+        const { target, score } = declaration;
+        if (!target) {
+          problems.push(`${label}: has no target`);
+        } else if (!characters[target]) {
+          problems.push(`${label}: targets unknown character "${target}"`);
+        } else if (target === char.identifier) {
+          problems.push(`${label}: targets themselves`);
+        }
+        if (typeof score !== 'number') {
+          problems.push(`${label}: score is ${typeof score}, expected a number`);
+        } else if (Math.abs(score) > PARTY_INTENT_SCORE_LIMIT) {
+          problems.push(`${label}: score is ${score}, limit is ±${PARTY_INTENT_SCORE_LIMIT}`);
+        }
+      });
     }
 
     if (char.update_stats) {

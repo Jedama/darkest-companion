@@ -139,6 +139,19 @@ router.post(
     }
 
     const display = await withEstate(estateName, async (estate) => {
+      // The three planning steps are separate round-trips (see CLAUDE.md), so in
+      // principle the estate could change between them (a character dying,
+      // leaving, etc.) before this one fires. That shouldn't happen in the
+      // current single-session debug flow, but silently dropping a stale
+      // attendee here would otherwise surface as a quietly incomplete
+      // consequences result rather than an error, so it's worth guarding.
+      const staleAttendees = attendeeIds.filter((id) => !estate.characters[id]);
+      if (staleAttendees.length > 0) {
+        throw AppError.invalidState(
+          `Attendee(s) no longer in the estate, the planning meeting is stale: ${staleAttendees.join(', ')}.`
+        );
+      }
+
       const prompt = await compilePlanningConsequencesPrompt({ estate, lines, attendeeIds });
       const response = await callEstateLLM(estate, prompt, { temperature: 0.7 });
 

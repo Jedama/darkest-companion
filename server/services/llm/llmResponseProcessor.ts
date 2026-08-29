@@ -22,12 +22,19 @@ interface ConsequenceLogEntry {
   timeframe: LogTimeframe;
 }
 
+interface PartyIntentDeclaration {
+  target: string;
+  score: number;
+  reason?: string;
+}
+
 // Define all possible consequence types matching the JSON structure
 export interface CharacterConsequence {
   identifier: string;
   add_log?: ConsequenceLogEntry;
   add_relationship_log?: ConsequenceLogEntry & { target: string };
-  add_party_intent?: { target: string; score: number; reason?: string };
+  /** A character can raise more than one intent per meeting (e.g. wanting to march with one ally while refusing another), so this may be a single declaration or an array of them. */
+  add_party_intent?: PartyIntentDeclaration | PartyIntentDeclaration[];
   update_description?: string;
   update_history?: string;
   update_stats?: {
@@ -580,17 +587,22 @@ function processAddRelationshipLog(
 function processAddPartyIntent(estate: Estate, character: Character, consequence: CharacterConsequence): void {
   if (!consequence.add_party_intent) return;
 
-  const { target, score, reason } = consequence.add_party_intent;
-  if (!target || !estate.characters[target] || target === character.identifier) return;
+  const declarations = Array.isArray(consequence.add_party_intent)
+    ? consequence.add_party_intent
+    : [consequence.add_party_intent];
 
-  if (!estate.partyIntents) estate.partyIntents = [];
+  for (const { target, score, reason } of declarations) {
+    if (!target || !estate.characters[target] || target === character.identifier) continue;
 
-  const [a, b] = [character.identifier, target].sort();
-  estate.partyIntents = estate.partyIntents.filter(intent => !(intent.a === a && intent.b === b));
+    if (!estate.partyIntents) estate.partyIntents = [];
 
-  const intent: PartyIntent = { a, b, score };
-  if (reason) intent.reason = reason;
-  estate.partyIntents.push(intent);
+    const [a, b] = [character.identifier, target].sort();
+    estate.partyIntents = estate.partyIntents.filter(intent => !(intent.a === a && intent.b === b));
+
+    const intent: PartyIntent = { a, b, score };
+    if (reason) intent.reason = reason;
+    estate.partyIntents.push(intent);
+  }
 }
 
 /**
