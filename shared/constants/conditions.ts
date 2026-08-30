@@ -160,6 +160,43 @@ export type AfflictionType = keyof typeof AFFLICTIONS;
 export type VirtueType = keyof typeof VIRTUES;
 export type ConditionType = AfflictionType | VirtueType;
 
+/**
+ * How severe each affliction is, 0-100. Read by both the party-liability
+ * scorer (how much trouble this hero is for whoever they're with) and hero
+ * fitness (whether they should be marching at all) — the two ask different
+ * questions of the same severity number, so it lives here rather than in
+ * either module.
+ */
+export const AFFLICTION_SEVERITY: Record<AfflictionType, number> = {
+  // Severe — the character is actively dangerous to their own party
+  ferocious: 90,
+  possessed: 85,
+  abusive: 80,
+  paranoid: 75,
+  blindness: 75,
+
+  // High — hostile, or a serious danger to themselves
+  discordant: 70,
+  resentful: 70,
+  masochistic: 65,
+  haunted: 65,
+
+  // Moderate — unreliable, unreachable, or unsettling to be near
+  fearful: 60,
+  refracted: 60,
+  irradiant: 60,
+  protean: 55,
+  irrational: 50,
+  hyper: 50,
+
+  // Low — withdrawn or self-contained; the party still functions
+  selfish: 45,
+  karma: 40,
+  hopeless: 35,
+  dissociated: 35,
+  rapturous: 30,
+};
+
 // Helper function to check if a condition is an affliction
 export function isAffliction(condition: string): condition is AfflictionType {
   return condition in AFFLICTIONS;
