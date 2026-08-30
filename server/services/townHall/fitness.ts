@@ -30,6 +30,7 @@
 
 import { CharacterRecord, Character } from '../../../shared/types/types.js';
 import { AFFLICTION_SEVERITY, isAffliction } from '../../../shared/constants/conditions.js';
+import { DISEASE_SEVERITY, isDisease } from '../../../shared/constants/diseases.js';
 
 // A hero's month-end condition, translated into an absolute 0-1 "fit to march"
 // score. Tuned against a hypothetical roster (see PR discussion); recalibrate
@@ -59,7 +60,19 @@ export function heroFitness(hero: Character): number {
     afflictionCost = AFFLICTION_FLOOR + (1 - AFFLICTION_FLOOR) * (severity / 100);
   }
 
-  return clamp01(1 - stressCost - woundCost - afflictionCost);
+  // Unlike affliction, no floor: the disease list runs from near-lethal down to
+  // pure-flavor quirks (tongue_tie, bad_breath) with no mechanical bite, so
+  // there's no "being sick at all costs a minimum" premise to encode here. A
+  // hero can carry several diseases at once, so this sums rather than picking
+  // the worst — still bounded by the clamp below either way.
+  let diseaseCost = 0;
+  for (const id of hero.status.diseases ?? []) {
+    if (isDisease(id)) {
+      diseaseCost += (DISEASE_SEVERITY[id] ?? 0) / 100;
+    }
+  }
+
+  return clamp01(1 - stressCost - woundCost - afflictionCost - diseaseCost);
 }
 
 export interface PartyCountResult {
