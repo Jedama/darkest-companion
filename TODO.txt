@@ -34,4 +34,11 @@ Scale the number of planning meeting lines based on attendees?
 
 Add "Ends every formal meeting with 'Furthermore, the Condemned Shack must be destroyed!'" to exterminator once the condemned shack is rebuilt.
 
-When money is tracked, add to recruit if low? Or in general? 
+When money is tracked, add to recruit if low? Or in general?
+
+Hero location-unavailability (busy at the tavern/sanitarium/etc.). Right now
+planningRoute.ts hands the expedition planner literally every hero in
+estate.characters — there's no concept of a hero being off doing something
+else and thus out of the pool. Once it exists, findOptimalArrangement's
+availableHeroes should be filtered before fitness/composition ever see it,
+not treated as another fitness cost. 
