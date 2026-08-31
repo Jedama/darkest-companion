@@ -29,6 +29,7 @@ export const STRATEGY_IDS = [
   'maximizeExpeditionYield',
   'minimizeFactionRisk',
   'honorPartyIntents',
+  'minimizeChildVulnerability',
 
   // --- Generic composition strategies ---
   'balanceAuthority',
@@ -36,7 +37,6 @@ export const STRATEGY_IDS = [
 
   // --- Character-specific party strategies ---
   'maximizeCommandClarity_heiress',
-  'maximizeChildGuardianship_cook',
   'maximizeSocialVitality_zenith',
   'minimizeSufferingDisparity_flagellant',
   'maximizeDedicatedProtector_snor_rasp',
@@ -44,6 +44,7 @@ export const STRATEGY_IDS = [
   'maximizeExpeditionYield_hqclaimants',
   'minimizeFactionRisk_heiress',
   'minimizeFactionRisk_hqclaimants',
+  'minimizeChildVulnerability_arsonist',
 
   // --- Character-specific composition strategies ---
   'maximizeQuarantinedHorrors_kheir',

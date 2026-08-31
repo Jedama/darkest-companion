@@ -823,3 +823,85 @@ export function detectBlocs(party: Party, roster: CharacterRecord): DetectedBloc
 export function scorePartyByFactionRisk(party: Party, roster: CharacterRecord): number {
   return detectBlocs(party, roster).reduce((sum, bloc) => sum + bloc.danger, 0);
 }
+
+// ==================================
+// CHILD VULNERABILITY
+// ==================================
+
+/** Base exposure of a single child before their personal multiplier is applied. */
+export const BASE_CHILD_EXPOSURE = 10;
+
+/** How much of the party's raw protective capacity actually reaches a child. */
+const ESCORT_SCALE = 0.75;
+
+/**
+ * A per-child multiplier on BASE_CHILD_EXPOSURE, from tags and raw Strength only.
+ *
+ * Deliberately reads no `level` — level parity is minimizeLevelHardship's job,
+ * and restating it here would just be a second vote for the same thing.
+ */
+export function childVulnerability(child: Character): number {
+  const tags = child.tags;
+  const raw = 1
+    + (tags.includes('Frail') ? 0.10 : 0)
+    + (tags.includes('Weak') ? 0.07 : 0)
+    + (tags.includes('Hider') ? 0.07 : 0)
+    - (tags.includes('Tank') ? 0.10 : 0)
+    - (tags.includes('Guarder') ? 0.10 : 0)
+    - (tags.includes('SelfSufficient') ? 0.06 : 0)
+    - (tags.includes('Warrior') ? 0.04 : 0)
+    - 0.02 * (child.stats.strength - 4);
+
+  return Math.max(0.60, Math.min(1.30, raw));
+}
+
+/**
+ * Pooled protective capacity of a party's non-children.
+ *
+ * Children are excluded from both sums: a child never protects another child,
+ * and never protects themselves (including one who is a Tank and a Guarder —
+ * this is what keeps a case like the Martyr from zeroing out her own exposure,
+ * without special-casing her by identifier). Strength modifies only the
+ * interposing half (Guarder/Tank) — physicality helps you body-block, it
+ * doesn't help you set a bone. ESCORT_SCALE multiplies gross only; drain is
+ * meant to weigh relatively heavier than a raw scaling would make it.
+ */
+export function escortSupply(party: Party, roster: CharacterRecord): number {
+  const escorts = party.map(id => roster[id]).filter((h): h is Character => !!h && !h.tags.includes('Child'));
+
+  let gross = 0;
+  let drain = 0;
+  for (const hero of escorts) {
+    const shield = (5 * (hero.tags.includes('Guarder') ? 1 : 0) + 3 * (hero.tags.includes('Tank') ? 1 : 0))
+      * (0.7 + hero.stats.strength / 16);
+    const care = 2 * (hero.tags.includes('Healer') ? 1 : 0)
+      + 1.5 * (hero.tags.includes('Cleanser') ? 1 : 0)
+      + 1.5 * (hero.tags.includes('StressHealer') ? 1 : 0)
+      + 1 * (hero.tags.includes('Physician') ? 1 : 0)
+      + 1 * (hero.tags.includes('Vigilant') ? 1 : 0);
+    gross += shield + care;
+
+    drain += 2 * (hero.tags.includes('Hider') ? 1 : 0) + 1 * (hero.tags.includes('Frail') ? 1 : 0);
+  }
+
+  return Math.max(0, ESCORT_SCALE * gross - drain);
+}
+
+/**
+ * [GENERIC] The Hamlet's institutional position on a child in a dungeon: it is
+ * a failure, and enough escort answers for it — nothing else does. Returns 0
+ * for a childless party (there is nothing to reach zero from), and a
+ * deliberately reachable zero for an escorted one: this is the demand side of
+ * a threshold, not an asymptote.
+ *
+ * Demand and supply both pool across the whole party, so two children need
+ * twice the escort — the scattering pressure between parties is emergent from
+ * that pooling, not a term that names it.
+ */
+export function scorePartyByChildVulnerability(party: Party, roster: CharacterRecord): number {
+  const children = party.map(id => roster[id]).filter((h): h is Character => !!h && h.tags.includes('Child'));
+  if (children.length === 0) return 0;
+
+  const demand = children.reduce((sum, child) => sum + BASE_CHILD_EXPOSURE * childVulnerability(child), 0);
+  return Math.max(0, demand - escortSupply(party, roster));
+}

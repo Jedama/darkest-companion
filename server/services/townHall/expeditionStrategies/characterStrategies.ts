@@ -9,8 +9,8 @@ import { CharacterRecord, Character, StrategyContext } from '../../../../shared/
 import { NEUTRAL_AFFINITY, MAX_AFFINITY } from '../../../../shared/constants/relationships.js';
 import { PARTY_SIZE } from '../../../../shared/constants/expedition.js';
 import { Party, Composition } from '../expeditionPlanner.js';
-import { countTag, calculateSimplePairSynergy } from './strategyUtils.js';
-import { calculateHaulValue, detectBlocs } from './genericStrategies.js';
+import { countTag } from './strategyUtils.js';
+import { calculateHaulValue, detectBlocs, BASE_CHILD_EXPOSURE, escortSupply } from './genericStrategies.js';
 
 // ===================================================================
 // HEIRESS (PERSEPHONE) - STRATEGIES
@@ -99,19 +99,6 @@ export function scorePartyByCommandClarity_Heiress(party: Party, roster: Charact
   return potentialScore * Math.max(0, cohesionFactor);
 }
 
-
-export function scorePartyByChildGuardianship_Cook(party: Party, roster: CharacterRecord): number {
-  let score = 0;
-  if (countTag(party, roster, 'Child') === 0) {
-    return 0;
-  }
-  score += calculateSimplePairSynergy(party, roster, 'Child', 'Guarder', 8);
-  if (score === 0) {
-    score += calculateSimplePairSynergy(party, roster, 'Child', 'Tank', 3);
-  }
-  score += calculateSimplePairSynergy(party, roster, 'Child', 'Healer', 2);
-  return score;
-}
 
 export function scorePartyBySocialVitality_Zenith(party: Party, roster: CharacterRecord): number {
   const zenithId = 'zenith'; // Assuming the Zenith has a fixed identifier.
@@ -637,4 +624,43 @@ export function scorePartyByExpeditionYield_hqclaimants(
 
   const inOffice = ctx?.margrave === CLAIMANTS_ID || ctx?.bursar === CLAIMANTS_ID;
   return inOffice ? value : -value;
+}
+
+
+// ===================================================================
+// ARSONIST (KEEGAN) - STRATEGIES
+// ===================================================================
+
+const ARSONIST_ID = 'arsonist';
+
+/**
+ * [CHARACTER-SPECIFIC] The Arsonist's objection to a child in a dungeon.
+ *
+ * He does not apply the Hamlet's per-child multiplier (childVulnerability) —
+ * he does not know it applies. He doesn't see that this one is a tank who has
+ * been holding a line since before he arrived; he sees the size of them, and
+ * he sees a shame. The Martyr costs him exactly what the Hood costs him, so
+ * demand here is flat: BASE_CHILD_EXPOSURE per child, nothing more.
+ *
+ * Only IRREDUCIBLE_SHARE of that demand is reducible by escort at all — he
+ * tried paying this debt once and the children are still dead, so his
+ * objection never fully clears however the party is built. And if he is
+ * IN the party, escort earns nothing: his objection there isn't that the
+ * child might be hurt, it's that he'll be standing there when it happens.
+ */
+export function scorePartyByChildVulnerability_arsonist(party: Party, roster: CharacterRecord): number {
+  const IRREDUCIBLE_SHARE = 0.40;
+  const PRESENCE_PENALTY = 2.5;
+
+  const children = party.map(id => roster[id]).filter((h): h is Character => !!h && h.tags.includes('Child'));
+  if (children.length === 0) return 0;
+
+  const demand = BASE_CHILD_EXPOSURE * children.length;
+
+  if (party.includes(ARSONIST_ID)) {
+    return demand * PRESENCE_PENALTY;
+  }
+
+  const floor = IRREDUCIBLE_SHARE * demand;
+  return floor + Math.max(0, (demand - floor) - escortSupply(party, roster));
 }
