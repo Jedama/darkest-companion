@@ -13,6 +13,7 @@ import type {
   EnemyRecord,
   EventData,
   EventRecord,
+  KeywordPools,
   LocationData,
   NPC,
   NPCRecord,
@@ -30,8 +31,8 @@ import {
   loadDefaultRelationships,
   loadEnemyRelationships,
   loadEventTemplatesForCategory,
+  loadKeywordPool,
   loadNPCTemplatesForCategory,
-  loadTownKeywords,
 } from './templateLoader.js';
 
 import { loadPromptsFromIndex } from './promptRegistry.js';
@@ -157,7 +158,7 @@ class StaticGameDataManager {
    *  Keywords 
    * ------------------------------------------------------------------- */
 
-  private townKeywords: string[] = [];
+  private keywordPools: KeywordPools = {};
 
   /* -------------------------------------------------------------------
    *  Prompts
@@ -201,7 +202,7 @@ class StaticGameDataManager {
           npcsByCategory,
           enemies,
           eventsByCategory,
-          townKeywords,
+          keywordPools,
           elapsedMonthText,
           zodiacSeasons,
           prompts
@@ -221,7 +222,7 @@ class StaticGameDataManager {
 
         // Events + Keywords
         loadRecordByCategory(EVENT_CATEGORIES, loadEventTemplatesForCategory),
-        loadTownKeywords(),
+        loadRecordByCategory(EVENT_CATEGORIES, loadKeywordPool),
 
         // Prompts
         loadJsonFile<ElapsedMonthText[]>(`${PROMPTS_DIR}/game/elapsedMonthText.json`),
@@ -247,7 +248,7 @@ class StaticGameDataManager {
 
       // Events + keywords
       this.eventsByCategory = eventsByCategory;
-      this.townKeywords = townKeywords;
+      this.keywordPools = keywordPools;
 
       // Prompts
       this.promptMonthText = elapsedMonthText;
@@ -448,9 +449,9 @@ class StaticGameDataManager {
    *  Keywords
    * ------------------------------------------------------------------- */
 
-  public getTownKeywords(): string[] {
+  public getKeywordPool(category: EventCategory): string[] {
     this.ensureInitialized();
-    return this.townKeywords;
+    return this.keywordPools[category] ?? [];
   }
 
   /* -------------------------------------------------------------------

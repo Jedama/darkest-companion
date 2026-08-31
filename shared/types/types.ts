@@ -339,7 +339,7 @@ export interface Enemy {
  *  Events
  * ------------------------------------------------------------------- */
 
-export type EventCategory = 'town' | 'story';
+export type EventCategory = 'town' | 'story' | 'dungeon' | 'recruit' | 'gameplay';
 
 export interface EventLocationRequirements {
   default: string[];
@@ -358,6 +358,8 @@ export interface EventData {
   description: string;
   characterCount: [number, number]; // [min, max]
   keywords: string[]; // e.g., ["combat", "gambling", "nighttime"]
+  keywordCount?: number; // how many keywords to pick; defaults to the standard pool size if omitted
+  keywordPoolMode?: 'mixed' | 'ownOnly'; // 'mixed' (default): blend with the category's shared pool. 'ownOnly': draw only from this event's own keywords
   location: EventLocationRequirements; // location requirements for characters
   enemies?: string[]; // optional array of enemy identifiers
   npcs?: string[]; // optional array of NPC identifiers
@@ -370,8 +372,12 @@ export interface EventData {
 /* -------------------------------------------------------------------
  *  Keywords
  * -------------------------------------------------------------------
- *  (No dedicated keyword types yet; using string[] in EventData.)
+ *  Shared keyword pools, one per event category, blended with an event's
+ *  own `keywords` by pickKeywords() unless keywordPoolMode is 'ownOnly'.
+ *  A category with no pool file just contributes nothing to the blend.
  * ------------------------------------------------------------------- */
+
+export type KeywordPools = Partial<Record<EventCategory, string[]>>;
 
 /* -------------------------------------------------------------------
  *  Bystanders (state / runtime helpers)

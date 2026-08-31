@@ -19,6 +19,8 @@
       "Conducted in passing, between other tasks",
       "Conducted over a meal"
     ],
+    "keywordCount": 1,
+    "keywordPoolMode": "ownOnly",
     "location": {
         "default": ["town_hall__council_chamber", "dower_house__parlor", "dower_house__study", "inn__common", "clearing"],
         "residence": [],
