@@ -6,6 +6,7 @@
 
 import { CharacterRecord, Character, StrategyContext } from '../../../../shared/types/types.js';
 import { VirtueType, isAffliction, isVirtue, AFFLICTION_SEVERITY } from '../../../../shared/constants/conditions.js';
+import { isDisease, DISEASE_SEVERITY } from '../../../../shared/constants/diseases.js';
 import { Party, Composition } from '../expeditionPlanner.js';
 import { NEUTRAL_AFFINITY, MAX_AFFINITY } from '../../../../shared/constants/relationships.js';
 import {
@@ -502,6 +503,15 @@ function getDetailedLiability(hero: CharacterRecord[string] | undefined): { stre
     }
   }
 
+  // --- Disease Modifier ---
+  // A hero can carry several at once (status.diseases is an array, unlike the
+  // single affliction slot), so this sums rather than picking the worst.
+  for (const diseaseId of hero.status.diseases) {
+    if (isDisease(diseaseId)) {
+      otherLiability += DISEASE_SEVERITY[diseaseId] ?? 0;
+    }
+  }
+
   const totalLiability = stressLiability + otherLiability;
   return {
       stress: Math.max(0, stressLiability),
@@ -513,8 +523,8 @@ function getDetailedLiability(hero: CharacterRecord[string] | undefined): { stre
 /**
  * [REVISED] Calculates a holistic "Total Liability" score for a composition.
  * This score's primary purpose is to heavily penalize the inclusion of any high-risk
- * heroes (high stress, afflicted, low health) anywhere in the composition. The balancing
- * of risk between parties is now a secondary, but still present, concern.
+ * heroes (high stress, afflicted, diseased, low health) anywhere in the composition.
+ * The balancing of risk between parties is now a secondary, but still present, concern.
  *
  * It works by:
  * 1. Calculating an individual, non-linear "liability" score for each hero.
