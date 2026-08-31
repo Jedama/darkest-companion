@@ -1,0 +1,68 @@
+{
+  "identifier": "bombard",
+  "title": "Bombard",
+  "name": "Folvilles",
+  "description": "The Bombard is a brigand who changed sides yet still proudly wears the clothes he raided the Hamlet in. He is loud in conversation and combat, and louder still when drunk, which is often. He expects, sooner or later, that his pardon will be withdrawn and someone will come for him, and he keeps one charge in reserve for that day.",
+  "history": "The Bombard was a miner before he was a criminal, and brought the trade's explosives with him when he took up with the brigands. He served Vvulf as his demolition man until the Estate began hiring killers and brigands started dying in numbers. He did the arithmetic and defected in the night. Plainly useful, and more dangerous left out there, he was taken on for wages and amnesty.",
+  "summary": "A volatile and mercenary Bombard, a defected brigand demolitionist working the Estate for wages and amnesty.",
+  "race": "Human",
+  "gender": "Male",
+  "religion": "None",
+  "zodiac": "Aries",
+  "traits": [
+    "Greedy",
+    "Volatile",
+    "Impatient",
+    "Shrewd",
+    "Generous",
+    "Distrustful"
+  ],
+  "stats": {
+    "strength": 7,
+    "agility": 3,
+    "intelligence": 6,
+    "authority": 5,
+    "sociability": 6
+  },
+  "equipment": [
+    "Satchel of explosives"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Thickset",
+    "skinTone": "Weathered",
+    "hairColor": "Greying (hidden by his helm)",
+    "hairStyle": "Long and unkempt (hidden by his helm)",
+    "features": "Gap-toothed, with powder burns speckled across one cheek"
+  },
+  "clothing": {
+    "head": "Riveted steel helm enclosing the whole head, with three vertical slits",
+    "body": "Patched olive-green brigand coat with steel plates strapped over it",
+    "legs": "Dark trousers and heavy boots",
+    "accessories": "A steel belly plate bearing the brigands' red skull, a leather harness of fused bombs, thick gauntlets"
+  },
+  "combat": {
+    "role": "Demolitionist",
+    "strengths": [
+      "Blowing up groups",
+      "Breaching armour",
+      "Resupplying the crew"
+    ],
+    "weaknesses": [
+      "Limited bombs",
+      "Poor dodge"
+    ]
+  },
+  "magic": "None",
+  "notes": [
+    "Speaks in demolition and structural jargon, interspersed with frequent obscene swearing and cheap common-stock proverbs",
+    "Snorts gunpowder as a stimulant, and drinks heavily and continuously",
+    "Unwelcome among the Hamlet's townsfolk, and disliked at the Guild most of all",
+    "While loud and fun to be around, he does not trust easily, and regards his teammates as co-workers, not comrades"
+  ],
+  "tags": [
+    "Flexible", "Reach", "HeavyHitter", "Sweeper", "ArmorPiercer",
+    "Debuffer", "Disruptor", "StunSynergy", "Riposter", "Cycler",
+    "Unstable", "Criminal", "Drunkard", "Mercenary", "Outcast", "Lowborn"
+  ]
+}

@@ -142,10 +142,54 @@ export const VIRTUES = {
  * Kept out of the description strings so the prose isn't spent restating a
  * label the builder can render as a header.
  */
-export const CONDITION_DISPLAY_NAMES: Partial<Record<ConditionType, string>> = {
-  blindness: "Lost",
-  protectorateb: "Protectorate",
-  medical: "Humanitarian",
+/**
+ * Canonical in-game display names for Afflictions and Virtues.
+ * Keys follow the internal mod IDs; values represent the exact in-game labels.
+ */
+export const CONDITION_DISPLAY_NAMES: Record<ConditionType, string> = {
+  // --- General Afflictions ---
+  abusive: "Abusive",
+  paranoid: "Paranoid",
+  fearful: "Fearful",
+  masochistic: "Masochistic",
+  irrational: "Irrational",
+  selfish: "Selfish",
+  hopeless: "Hopeless",
+  refracted: "Refracted",
+
+  // --- Character-Specific Afflictions ---
+  rapturous: "Rapturous",       // Flagellant
+  ferocious: "Ferocious",       // Thrall
+  discordant: "Discordant",     // Sisters
+  hyper: "Hyper",               // Innocent
+  irradiant: "Irradiant",       // Innocent
+  dissociated: "Dissociated",   // Resonant
+  resentful: "Resentful",       // Meister
+  protean: "Protean",           // Homunculus
+  karma: "Karma",               // Monk
+  blindness: "Lost",            // Thorn (internal id is blindness)
+  possessed: "Possessed",       // Steel Driver
+  haunted: "Haunted",           // Steel Driver
+
+  // --- General Virtues ---
+  stalwart: "Stalwart",
+  courageous: "Courageous",
+  vigorous: "Vigorous",
+  powerful: "Powerful",
+  focused: "Focused",
+
+  // --- Character-Specific Virtues ---
+  eclipsed: "Eclipsed",         // Innocent
+  clarified: "Clarified",       // Resonant
+  vengeful: "Vengeful",         // Meister
+  exuvian: "Exuvian",           // Homunculus
+  epiphany: "Epiphany",         // Monk
+  farseeing: "Farseeing",       // Thorn
+  unbreakable: "Unbreakable",   // Steel Driver
+  dynamic: "Dynamic",           // Steel Driver
+  resilient: "Resilient",       // Steel Driver
+  protectorateb: "Protectorate", // Rescuer
+  medical: "Humanitarian",      // Rescuer
 };
 
 export function getConditionDisplayName(condition: ConditionType): string {
