@@ -5,7 +5,8 @@
  */
 
 import { CharacterRecord, Character, StrategyContext } from '../../../../shared/types/types.js';
-import { AfflictionType, VirtueType, isAffliction, isVirtue } from '../../../../shared/constants/conditions.js';
+import { VirtueType, isAffliction, isVirtue, AFFLICTION_SEVERITY } from '../../../../shared/constants/conditions.js';
+import { isDisease, DISEASE_SEVERITY } from '../../../../shared/constants/diseases.js';
 import { Party, Composition } from '../expeditionPlanner.js';
 import { NEUTRAL_AFFINITY, MAX_AFFINITY } from '../../../../shared/constants/relationships.js';
 import {
@@ -20,38 +21,9 @@ import {
 // MAPS FOR SCORING
 // ==================================
 
-// --- Severity & Benefit Mappings ---
-// These maps translate a named condition into a numerical score.
-export const AFFLICTION_SEVERITY: Record<AfflictionType, number> = {
-  // Severe — the character is actively dangerous to their own party
-  ferocious: 90,
-  possessed: 85,
-  abusive: 80,
-  paranoid: 75,
-  blindness: 75,
- 
-  // High — hostile, or a serious danger to themselves
-  discordant: 70,
-  resentful: 70,
-  masochistic: 65,
-  haunted: 65,
- 
-  // Moderate — unreliable, unreachable, or unsettling to be near
-  fearful: 60,
-  refracted: 60,
-  irradiant: 60,
-  protean: 55,
-  irrational: 50,
-  hyper: 50,
- 
-  // Low — withdrawn or self-contained; the party still functions
-  selfish: 45,
-  karma: 40,
-  hopeless: 35,
-  dissociated: 35,
-  rapturous: 30,
-};
- 
+// --- Benefit Mapping ---
+// Translates a named virtue into a numerical score. AFFLICTION_SEVERITY lives in
+// shared/constants/conditions.ts — hero fitness (townHall/fitness.ts) reads it too.
 /**
  * How much a virtue benefits the party, 0-100.
  *
@@ -531,6 +503,15 @@ function getDetailedLiability(hero: CharacterRecord[string] | undefined): { stre
     }
   }
 
+  // --- Disease Modifier ---
+  // A hero can carry several at once (status.diseases is an array, unlike the
+  // single affliction slot), so this sums rather than picking the worst.
+  for (const diseaseId of hero.status.diseases) {
+    if (isDisease(diseaseId)) {
+      otherLiability += DISEASE_SEVERITY[diseaseId] ?? 0;
+    }
+  }
+
   const totalLiability = stressLiability + otherLiability;
   return {
       stress: Math.max(0, stressLiability),
@@ -542,8 +523,8 @@ function getDetailedLiability(hero: CharacterRecord[string] | undefined): { stre
 /**
  * [REVISED] Calculates a holistic "Total Liability" score for a composition.
  * This score's primary purpose is to heavily penalize the inclusion of any high-risk
- * heroes (high stress, afflicted, low health) anywhere in the composition. The balancing
- * of risk between parties is now a secondary, but still present, concern.
+ * heroes (high stress, afflicted, diseased, low health) anywhere in the composition.
+ * The balancing of risk between parties is now a secondary, but still present, concern.
  *
  * It works by:
  * 1. Calculating an individual, non-linear "liability" score for each hero.

@@ -14,6 +14,7 @@ import {
 } from './expeditionStrategies/index.js';
 import { isStrategyId } from '../../../shared/constants/strategies.js';
 import type { StrategyContext } from '../../../shared/types/types.js';
+import { computeActivePartyCount } from './fitness.js';
 
 // --- DEBUG INFORMATION TYPES ---
 // These types structure the detailed breakdown of the scoring.
@@ -676,12 +677,17 @@ export function formatDebugInfoForConsole(
 // expeditionPlanner.ts
 
 /**
- * A "meta" optimizer that wraps findBestComposition.
- * It determines the optimal number of parties to send by iteratively testing
- * if benching a team improves the average quality of the remaining active teams.
- * This version includes a "Diminishing Returns" penalty to incentivize sending
- * more parties.
- * 
+ * Determines how many parties to send (from hero condition alone, see
+ * fitness.ts) and hands that fixed count to findBestComposition, which
+ * builds the best arrangement for exactly that many active parties in a
+ * single pass.
+ *
+ * How many teams go out and who goes in which team used to be entangled —
+ * benching was inferred from the annealer's own score. That's gone: the
+ * annealer never votes on how many parties exist, so this only runs
+ * findBestComposition (one stats pass, one anneal) instead of once per
+ * candidate bench count.
+ *
  * @returns An object containing the best composition, its debug info, and the recommended number of active parties.
  */
 export async function findOptimalArrangement(
@@ -691,48 +697,7 @@ export async function findOptimalArrangement(
     partySize: number = PARTY_SIZE,
     ctx?: StrategyContext
 ): Promise<OptimalArrangementResult> {
-    // Tunable constant for the benching penalty ---
-    // A value of 0.95 means each benched team makes the total score worth 5% less.
-    // Raise this value (e.g., to 0.98) to be MORE willing to bench teams.
-    // Lower this value (e.g., to 0.90) to be LESS willing to bench teams.
-    const BENCH_PENALTY_FACTOR = 0.95; 
-    
-    const weights = defineWeights(customWeights);
     const completeParties = Math.floor(availableHeroes.length / partySize);
-
-    // --- TOP-LEVEL FAST PATH FOR ZERO WEIGHTS ---
-    if (areAllWeightsZero(weights)) {
-      console.warn(
-        "[Meta-Optimizer Warning] All strategy weights are zero. " +
-        "Optimization and benching analysis have been skipped. " +
-        "Returning a default composition with all available parties."
-      );
-
-      // Create the sensible default (send everyone)
-      const sortedHeroes = [...availableHeroes].sort((a, b) => (roster[b]?.level ?? 0) - (roster[a]?.level ?? 0));
-      let defaultComposition: Composition = [];
-      for (let i = 0; i < sortedHeroes.length; i += partySize) {
-        defaultComposition.push(sortedHeroes.slice(i, i + partySize));
-      }
-      defaultComposition = defaultComposition.filter(party => party.length > 0);
-
-      if (repairComposition(defaultComposition, completeParties) > 0) {
-        console.warn("[Meta-Optimizer] Default composition retains hero incompatibilities; roster is over-constrained.");
-      }
-      
-      // We still need a valid report, so we run analysis once.
-      const stats = generateScoringStatistics(availableHeroes, roster, partySize, 500, completeParties, ctx);
-      const debugInfo = analyzeComposition(defaultComposition, roster, weights, stats, completeParties, ctx);
-
-      // Return the complete default result immediately
-      return {
-        composition: defaultComposition,
-        debugInfo: debugInfo,
-        score: debugInfo.finalScore,
-        activePartiesCount: completeParties,
-        scoringStats: stats,
-      };
-    }
 
     if (completeParties === 0) {
         console.log("Not enough heroes to form a single complete party.");
@@ -740,77 +705,27 @@ export async function findOptimalArrangement(
             composition: [availableHeroes],
             debugInfo: null,
             score: -Infinity,
-            activePartiesCount: 0,
+            // A partial party still marches if there's anyone to send at all.
+            activePartiesCount: availableHeroes.length > 0 ? 1 : 0,
             scoringStats: null,
         };
     }
 
-    // Determine sample size for stats generation just once.
-    const sampleSize = Math.min(4000, Math.max(500, availableHeroes.length * 50));
+    const fitness = computeActivePartyCount(availableHeroes, roster, partySize);
+    console.log(
+        `[Fitness] Hamlet capacity: ${fitness.capacity.toFixed(2)} / ${completeParties * partySize} heroes ` +
+        `(deficit ${fitness.deficit.toFixed(2)}). Sending ${fitness.k} of ${completeParties} parties.`
+    );
 
-    // --- Baseline Run: Use stats generated for the FULL number of parties ---
-    console.log(`[Meta-Optimizer] Generating stats for baseline (${completeParties} parties)...`);
-    const baselineStats = generateScoringStatistics(availableHeroes, roster, partySize, sampleSize, completeParties, ctx);
-    
-    console.log(`[Meta-Optimizer] Baseline run: Optimizing for ${completeParties} active parties.`);
-    const baselineResult = findBestComposition(availableHeroes, roster, customWeights, partySize, completeParties, ctx);
-    const baselineDebugInfo = analyzeComposition(baselineResult.composition, roster, weights, baselineStats, completeParties, ctx);
+    const result = findBestComposition(availableHeroes, roster, customWeights, partySize, fitness.k, ctx);
 
-    let overallBest = {
-        composition: baselineResult.composition,
-        debugInfo: baselineDebugInfo,
-        score: baselineDebugInfo.finalScore,
-        activePartiesCount: completeParties,
-        // Store the stats that correspond to this result for final display
-        scoringStats: baselineStats, 
+    return {
+        composition: result.composition,
+        debugInfo: result.debugInfo,
+        score: result.debugInfo.finalScore,
+        activePartiesCount: fitness.k,
+        scoringStats: result.scoringStats,
     };
-    
-    // --- Iterative Benching Runs ---
-    for (let numToBench = 1; numToBench < completeParties; numToBench++) {
-        const numActive = completeParties - numToBench;
-        
-        // --- NEW: Generate a dedicated stats object FOR THIS SCENARIO ---
-        console.log(`\n[Meta-Optimizer] Generating stats for scenario (${numActive} parties)...`);
-        const statsForThisRun = generateScoringStatistics(availableHeroes, roster, partySize, sampleSize, numActive, ctx);
-
-        console.log(`[Meta-Optimizer] Testing scenario: Optimizing for ${numActive} active parties.`);
-
-        const heroesForNextRun = overallBest.composition.flat();
-        const candidateResult = findBestComposition(heroesForNextRun, roster, customWeights, partySize, numActive, ctx);
-        
-        // --- NEW: Use the DEDICATED stats object for analysis ---
-        const candidateDebugInfo = analyzeComposition(candidateResult.composition, roster, weights, statsForThisRun, numActive, ctx);
-        const candidateScore = candidateDebugInfo.finalScore;
-
-        const candidatePenalty = Math.pow(BENCH_PENALTY_FACTOR, numToBench);
-        const adjustedCandidateScore = candidateScore * candidatePenalty;
-        
-        const prevNumBenched = completeParties - overallBest.activePartiesCount;
-        const bestSoFarPenalty = Math.pow(BENCH_PENALTY_FACTOR, prevNumBenched);
-        const adjustedBestScore = overallBest.score * bestSoFarPenalty;
-        
-        console.log(`> Result for ${numActive} parties: ${candidateScore.toFixed(4)} (Adjusted: ${adjustedCandidateScore.toFixed(4)}). Best adjusted so far: ${adjustedBestScore.toFixed(4)}`);
-        
-        if (adjustedCandidateScore > adjustedBestScore) {
-            console.log(`---> New best strategy found! Benching ${numToBench} team(s) improves average quality.`);
-            overallBest = {
-                composition: candidateResult.composition,
-                debugInfo: candidateDebugInfo,
-                score: candidateScore,
-                activePartiesCount: numActive,
-                // NEW: Store the correct stats for the new best result
-                scoringStats: statsForThisRun, 
-            };
-        } else {
-            console.log(`---> Benching did not improve average party quality enough to justify the cost. Sticking with ${overallBest.activePartiesCount} active parties.`);
-            break; 
-        }
-    }
-
-    console.log("\n--- OPTIMIZATION COMPLETE ---");
-    console.log(`Final Recommendation: Send ${overallBest.activePartiesCount} out of ${Math.ceil(availableHeroes.length / partySize)} parties.`);
-
-    return overallBest;
 }
 
 /**

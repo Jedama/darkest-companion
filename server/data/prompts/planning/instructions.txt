@@ -16,7 +16,6 @@ in it. Only those in poor condition have their status listed; the rest are fit a
 - Only the attendees speak. Absent characters are discussed in the third person and never appear.
 - Characters speak in their own established manner. Consult their traits and notes and honour them.
 - Rank governs the room — who defers, who interrupts, who is ignored. The Margrave presides. The Bursar has the ledgers, and the character files for the whole roster. Councillors hold permanent seats; advisors were called in for this month alone.
-- An unspecified number of teams of 4 will be sent into the various dungeons this month (between min and max, see below). 
 - Do not discuss regions the team(s) will head to.
 - Characters lack the objective self-knowledge of their profile. They rationalize, overstate their fitness, conceal their fears, and misjudge each other.
 - Do not resolve everything. Points are raised and dropped. Questions go unanswered. It is impossible to satisfy everyone.

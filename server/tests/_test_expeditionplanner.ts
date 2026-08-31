@@ -1,5 +1,10 @@
 // server/tests/_test_expeditionPlanner.ts
 
+// OUTDATED: the "Expected" comments below (and the balanceCondition-driven
+// benching in TEST CASE 3) describe the old score-inferred benching behavior.
+// Benching is now decided by fitness.ts from hero condition alone, independent
+// of any weight here. Needs a pass once this file is updated for that.
+
 import { findOptimalArrangement, formatDebugInfoForConsole, OptimalArrangementResult } from '../services/townHall/expeditionPlanner.js';
 import { StrategyWeights } from '../services/townHall/expeditionStrategies/index.js';
 import { Estate, CharacterRecord } from '../../shared/types/types.js';
@@ -120,7 +125,7 @@ async function runTests() {
     maximizeGameplaySynergy: 0.0,
     maximizeAffinity: 0.0,
     balanceCondition: 0.0, 
-    maximizeDedicatedProtector_Martyr: 10,
+    maximizeDedicatedProtector_snor_rasp: 10,
   };
  
   const conditionResult = await findOptimalArrangement(availableHeroIds, roster, conditionFocusedWeights);

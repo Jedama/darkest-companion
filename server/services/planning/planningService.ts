@@ -8,6 +8,7 @@ import {
   buildAbsentRosterSection,
   buildAllLogsSection,
   buildCharactersSectionPlanning,
+  buildConditionGlossarySection,
   buildContentPreferencesSection,
   buildPlanningLeadershipSection,
   buildNarrativesSection,
@@ -143,6 +144,9 @@ export function compileDeliberationPrompt(
 
     [Absent Roster]
     ${buildAbsentRosterSection(estate, attendeeIds)}
+
+    [Condition Glossary]
+    ${buildConditionGlossarySection(estate, attendeeIds)}
 
     [Active Narratives]
     ${buildNarrativesSection(estate)}
