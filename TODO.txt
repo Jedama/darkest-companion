@@ -41,4 +41,17 @@ planningRoute.ts hands the expedition planner literally every hero in
 estate.characters — there's no concept of a hero being off doing something
 else and thus out of the pool. Once it exists, findOptimalArrangement's
 availableHeroes should be filtered before fitness/composition ever see it,
-not treated as another fitness cost. 
+not treated as another fitness cost.
+
+getDetailedLiability (genericStrategies.ts) — feeds minimizeLiabilityExposure
+and balanceCondition — reads stress/health/affliction but never
+status.diseases. So a hero's disease affects whether the hamlet can field
+them (fitness.ts) but not whether they're scored as a liability to whoever
+they're partied with. Worth deciding whether that's intentional or an
+oversight from diseases being added after that function was written.
+
+_test_council.ts doesn't currently compile: imports electNewCouncil from
+council.ts, which doesn't export anything by that name anymore, plus an
+Estate | undefined assignment from loadEstate (same issue as
+_test_expeditionplanner.ts). Predates this branch; flagging since it means
+that test script is currently just broken, not merely stale. 
