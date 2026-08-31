@@ -287,21 +287,32 @@ function resolveEventNpcs(params: {
   return final;
 }
 
+const DEFAULT_KEYWORD_COUNT = 4;
+
 /**
- * Combines event and town keywords.
+ * Combines an event's own keywords with its category's shared pool.
+ * `count` controls how many are picked (default 4); `ownOnly` skips the
+ * shared pool entirely, so only the event's own keywords are ever chosen.
  */
-export function pickKeywords(eventKeywords: string[], townKeywords: string[]): string[] {
+export function pickKeywords(
+  eventKeywords: string[],
+  poolKeywords: string[],
+  options: { count?: number; ownOnly?: boolean } = {}
+): string[] {
 
   // If event has no keywords, don't pick anything
   if (eventKeywords.length === 0)
     return [];
+
+  const count = options.count ?? DEFAULT_KEYWORD_COUNT;
+  const pool = options.ownOnly ? [] : poolKeywords;
 
   // Create weighted pool: event keywords appear 3x each
   const weightedPool: string[] = [
     ...eventKeywords,
     ...eventKeywords,
     ...eventKeywords, // Event keywords 3x more likely
-    ...townKeywords
+    ...pool
   ];
 
   // Remove duplicates while preserving weight effect
@@ -313,7 +324,7 @@ export function pickKeywords(eventKeywords: string[], townKeywords: string[]): s
     [combined[i], combined[j]] = [combined[j], combined[i]];
   }
 
-  // Take first 4 unique keywords
+  // Take first `count` unique keywords
   const chosen: string[] = [];
   const seen = new Set<string>();
 
@@ -321,7 +332,7 @@ export function pickKeywords(eventKeywords: string[], townKeywords: string[]): s
     if (!seen.has(kw)) {
       chosen.push(kw);
       seen.add(kw);
-      if (chosen.length === 4) break;
+      if (chosen.length === count) break;
     }
   }
 
@@ -377,7 +388,11 @@ export async function setupEvent(
   validateEnemyIds(enemies);
 
   // 3. Resolve Keywords
-  const keywords = pickKeywords(event.keywords || [], gameData.getTownKeywords());
+  const keywordPool = gameData.getKeywordPool(event.type ?? 'town');
+  const keywords = pickKeywords(event.keywords || [], keywordPool, {
+    count: event.keywordCount,
+    ownOnly: event.keywordPoolMode === 'ownOnly',
+  });
 
   // 4. Resolve Characters
   const { chosenCharacterIds, overflowCharacterIds } =

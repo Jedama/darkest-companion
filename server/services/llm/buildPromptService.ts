@@ -612,8 +612,7 @@ export function buildKeywordsSection(keywords: string[]): string {
 
 export function buildRecruitKeywordsSection(keywords: string[]): string {
   if (!keywords?.length) return '';
-  if (keywords.length == 1 && keywords[0].trim() === 'None') return '';
-  
+
   return `  [Modifiers]
   -The file for the new character is a template and should be adapted based on the personality traits the user provides in this section.
   -Modify their personality, backstory, and or physical details to fit the keywords. Their equipment can not be changed.

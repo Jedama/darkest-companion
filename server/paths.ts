@@ -26,4 +26,3 @@ export const DEFAULT_WEIGHTS_FILE = path.join(TEMPLATES_DIR, 'defaultCharacterSt
 export const DEFAULT_POSES_FILE = path.join(TEMPLATES_DIR, 'defaultCharacterPoses.json');
 export const ENEMY_RELATIONSHIPS_FILE = path.join(TEMPLATES_DIR, 'enemyRelationships.json');
 export const DEFAULT_RECRUIT_FILE = path.join(TEMPLATES_DIR, 'defaultRecruit.json');
-export const TOWN_KEYWORDS_FILE = path.join(KEYWORDS_DIR, 'default.json');

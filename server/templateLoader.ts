@@ -18,7 +18,6 @@ import {
   KEYWORDS_DIR,
   LOCATIONS_DIR,
   NPCS_DIR,
-  TOWN_KEYWORDS_FILE,
 } from './paths.js';
 
 import type {
@@ -417,12 +416,20 @@ function assertValidCharacterCountRange(
  *  Keywords
  * ------------------------------------------------------------------- */
 
-export async function loadTownKeywords(): Promise<string[]> {
+/**
+ * Loads the shared keyword pool for one event category (e.g. "town", "dungeon").
+ * A category with no pool file yet is a normal, expected case — it just means
+ * events in that category won't have any shared keywords blended in unless
+ * one is added later, so it resolves to [] rather than throwing.
+ */
+export async function loadKeywordPool(category: string): Promise<string[]> {
+  const filePath = path.join(KEYWORDS_DIR, `${category}.json`);
   try {
-    const content = await readFile(TOWN_KEYWORDS_FILE, 'utf-8');
+    const content = await readFile(filePath, 'utf-8');
     return JSON.parse(content) as string[];
   } catch (err) {
-    console.error('Error loading town keywords:', err);
+    if ((err as NodeJS.ErrnoException)?.code === 'ENOENT') return [];
+    console.error(`Error loading keyword pool '${category}':`, err);
     throw err;
   }
 }
