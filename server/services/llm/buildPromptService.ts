@@ -14,7 +14,11 @@ import type {
 import { CONTENT_TAGS } from '../../../shared/types/types.js';
 
 import { NEUTRAL_AFFINITY } from '../../../shared/constants/relationships.js';
+import { PARTY_SIZE } from '../../../shared/constants/expedition.js';
+import { isAffliction, AFFLICTIONS } from '../../../shared/constants/conditions.js';
+import { isDisease, DISEASE_DESCRIPTIONS } from '../../../shared/constants/diseases.js';
 import type { PlanningCouncil } from '../townHall/council.js';
+import { computeActivePartyCount } from '../townHall/fitness.js';
 import StaticGameDataManager from '../../staticGameDataManager.js';
 import { isDescendantOf, getLocationLabel } from '../game/locationService.js';
 import { getZodiacForMonth, formatTimeSinceEvent } from '../game/calendarService.js';
@@ -218,6 +222,20 @@ export function buildRelationshipSection(involvedCharacters: Character[]): strin
 }
 
 /**
+ * Whether an absent hero's condition is worth printing at all — used both to
+ * gate their State line in buildAbsentRosterSection and to decide who
+ * contributes terms to buildConditionGlossarySection, so the two never drift
+ * apart (a hero whose condition is glossed should always be one whose
+ * condition is actually shown, and vice versa).
+ */
+function hasNotableCondition(char: Character): boolean {
+  const hurt =
+    char.status.mental < PLANNING_NOTABLE.MENTAL_BELOW ||
+    char.status.physical < PLANNING_NOTABLE.PHYSICAL_BELOW;
+  return hurt || !!char.status.affliction || char.status.wounds.length > 0 || char.status.diseases.length > 0;
+}
+
+/**
  * Everyone in the Hamlet who is NOT at the meeting. These are the people being
  * discussed. Condition is only listed when it is notable — an unlisted hero is
  * fit and unremarkable, which keeps the troubled ones visible in a long roster.
@@ -225,33 +243,74 @@ export function buildRelationshipSection(involvedCharacters: Character[]): strin
 export function buildAbsentRosterSection(estate: Estate, attendeeIds: string[]): string {
   const present = new Set(attendeeIds);
   const absent = Object.values(estate.characters).filter(c => !present.has(c.identifier));
- 
+
   if (!absent.length) return 'Every member of the Hamlet is present at the meeting.';
- 
+
   const lines: string[] = [];
   lines.push(
     'Only heroes in poor condition have their state listed. Any hero without one is hale and untroubled.\n'
   );
- 
+
   for (const char of absent) {
     lines.push(`\n- [${char.identifier}] ${char.name}, the ${char.title}: ${char.summary}`);
- 
-    const flags: string[] = [];
-    const hurt =
-      char.status.mental < PLANNING_NOTABLE.MENTAL_BELOW ||
-      char.status.physical < PLANNING_NOTABLE.PHYSICAL_BELOW;
- 
-    if (hurt) flags.push(`Health ${char.status.physical}, Resolve ${char.status.mental}`);
-    if (char.status.affliction) flags.push(`Condition: ${char.status.affliction}`);
-    if (char.status.wounds.length) flags.push(`Wounds: ${char.status.wounds.join('; ')}`);
-    if (char.status.diseases.length) flags.push(`Diseases: ${char.status.diseases.join('; ')}`);
- 
-    if (flags.length) {
+
+    if (hasNotableCondition(char)) {
+      const flags: string[] = [];
+      const hurt =
+        char.status.mental < PLANNING_NOTABLE.MENTAL_BELOW ||
+        char.status.physical < PLANNING_NOTABLE.PHYSICAL_BELOW;
+
+      if (hurt) flags.push(`Health ${char.status.physical}, Resolve ${char.status.mental}`);
+      if (char.status.affliction) flags.push(`Condition: ${char.status.affliction}`);
+      if (char.status.wounds.length) flags.push(`Wounds: ${char.status.wounds.join('; ')}`);
+      if (char.status.diseases.length) flags.push(`Diseases: ${char.status.diseases.join('; ')}`);
+
       lines.push(`\n  - State: ${char.status.description} (${flags.join(', ')})`);
     }
   }
- 
+
   return lines.join('') + '\n';
+}
+
+/**
+ * Explains, once each, every affliction/disease id that actually appears
+ * somewhere in this prompt — attendees always show their condition in full
+ * (buildCharactersSectionPlanning), absent heroes only when
+ * hasNotableCondition lets their State line print at all. Without this, the
+ * LLM sees a bare id like "vmt_deep_scar" with nothing telling it what that
+ * means; AFFLICTIONS/DISEASE_DESCRIPTIONS exist specifically to be read by a
+ * storytelling LLM, but nothing wired them in until now.
+ *
+ * Deduplicated and scoped to only what's in play this month rather than
+ * dumping the full ~300-entry disease list, so a clean roster costs nothing
+ * and a rough one costs a few lines, not a wall of text.
+ *
+ * Virtues are deliberately not covered here: they're cleared before planning
+ * runs each month (see fitness.ts), so status.affliction can never hold one
+ * at this point.
+ */
+export function buildConditionGlossarySection(estate: Estate, attendeeIds: string[]): string {
+  const present = new Set(attendeeIds);
+  const visible = Object.values(estate.characters).filter(
+    c => present.has(c.identifier) || hasNotableCondition(c)
+  );
+
+  const terms = new Map<string, string>();
+  for (const char of visible) {
+    const affliction = char.status.affliction;
+    if (affliction && isAffliction(affliction) && !terms.has(affliction)) {
+      terms.set(affliction, AFFLICTIONS[affliction]);
+    }
+    for (const disease of char.status.diseases) {
+      if (isDisease(disease) && !terms.has(disease)) {
+        terms.set(disease, DISEASE_DESCRIPTIONS[disease]);
+      }
+    }
+  }
+
+  if (terms.size === 0) return 'No notable conditions this month.';
+
+  return Array.from(terms, ([id, description]) => `- ${id}: ${description}`).join('\n');
 }
 
 export function buildLocationSection(
@@ -810,15 +869,14 @@ export function compilePlanningContext(estate: Estate, gameData: StaticGameDataM
  
   const backstory = gameData.getPrompt('game.backstory').replaceAll('${estateName}', estate.name);
 
-  const characters = Object.values(estate.characters);
-  const rosterSize = characters.length;
+  const availableHeroes = Object.keys(estate.characters);
+  const { k } = computeActivePartyCount(availableHeroes, estate.characters, PARTY_SIZE);
+  // computeActivePartyCount returns 0 when there aren't enough heroes for even one
+  // complete party; findOptimalArrangement still sends whoever's left in that case
+  // (see expeditionPlanner.ts), so mirror that floor here rather than tell the
+  // council no one is marching this month when at least one hero exists.
+  const teamsToSend = k > 0 ? k : (availableHeroes.length > 0 ? 1 : 0);
 
-  // Count healthy heroes (mental > 50)
-  const healthyCount = characters.filter((char) => char.status.mental > 50).length;
-
-  const maxTeams = Math.max(1, Math.floor(rosterSize / 4));
-  const minTeams = Math.floor(healthyCount / 4);
-  
   return `
     [Instructions]
 ${gameData.getPrompt('planning.instructions')}
@@ -834,7 +892,7 @@ It is the month of ${zodiac.name}. ${zodiac.text}
 The current weather is ${weatherDesc}. ${weatherChange ? 'Since last month, ' + weatherChange : ''}.
 ${formatTimeSinceEvent(estate.time.month)} have passed since the Heir and Heiress begun the quest to reclaim the Estate.
 The month has just turned, and the leadership has gathered as it does at the start of every month.
-Between ${minTeams} and ${maxTeams} teams of four will be sent out this month.
+${teamsToSend} team${teamsToSend === 1 ? '' : 's'} of four will be sent out this month.
  
   `;
  
