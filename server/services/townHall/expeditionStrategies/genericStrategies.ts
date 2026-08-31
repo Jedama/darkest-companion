@@ -86,10 +86,10 @@ export function scorePartyByGameplaySynergy(party: Party, roster: CharacterRecor
   }
 
   // Archetype 5: Does the party have a Front- and Backliner?
-  if (countTag(party, roster, 'Frontliner') > 0 || countTag(party, roster, 'Flexible') > 0 || countTag(party, roster, 'Dancer') > 0) {
+  if (countTag(party, roster, 'Frontline') > 0 || countTag(party, roster, 'Flexible') > 0 || countTag(party, roster, 'Dancer') > 0) {
     roleBonus += 5;
   }
-  if (countTag(party, roster, 'Backliner') > 0 || countTag(party, roster, 'Flexible') > 0 || countTag(party, roster, 'Dancer') > 0) {
+  if (countTag(party, roster, 'Backline') > 0 || countTag(party, roster, 'Flexible') > 0 || countTag(party, roster, 'Dancer') > 0) {
     roleBonus += 5;
   }
 
@@ -123,6 +123,11 @@ export function scorePartyByGameplaySynergy(party: Party, roster: CharacterRecor
   score += calculateStackingTagSynergy(party, roster, 'Backline', -40, -20, 3);
 
   score += calculateStackingTagSynergy(party, roster, 'Weak', -60, -30, 2); // The Pillow Fort
+
+  // Two treasure-finders in one room is one wasted set of eyes. Deliberately
+  // light: nine of twelve Scavengers are also Weak, so the Pillow Fort clause
+  // above has usually charged for this already.
+  score += calculateStackingTagSynergy(party, roster, 'Scavenger', -25, -40, 2);
 
   // Stress still needs custom logic as it's a bit more complex.
   const selfStressCount = countTag(party, roster, 'SelfStress');

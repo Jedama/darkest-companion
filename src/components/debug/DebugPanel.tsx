@@ -540,7 +540,7 @@ interface ExpeditionPartyMember {
 }
 
 interface ExpeditionResult {
-  marshal: string;
+  margrave: string;
   activePartiesCount: number;
   score: number;
   partyIntentsConsidered: { a: string; b: string; score: number; reason?: string }[];
@@ -746,7 +746,7 @@ function PlanningPanel({
           }}
         >
           <div style={{ color: '#4a4' }}>
-            Doctrine: {nameFor(expedition.marshal)} — {expedition.activePartiesCount} active part
+            Doctrine: {nameFor(expedition.margrave)} — {expedition.activePartiesCount} active part
             {expedition.activePartiesCount === 1 ? 'y' : 'ies'}, score {expedition.score.toFixed(2)}
           </div>
           {expedition.partyIntentsConsidered.length > 0 && (

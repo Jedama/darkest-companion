@@ -35,9 +35,9 @@ export const INCOMPATIBLE_PAIRS: readonly (readonly [string, string])[] = [
   ['exterminator', 'wretch'],
   ['exterminator', 'bloat'],
 
-  ['scarecrow', 'anointed'],
+  ['scarecrow', 'anoint'],
   ['scarecrow', 'prefect'],
-  ['scarecrow', 'arbiter'],
+  ['scarecrow', 'eagle'],
   ['scarecrow', 'resonant'],
 ] as const;
 

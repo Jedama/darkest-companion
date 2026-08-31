@@ -23,6 +23,8 @@ import { Character, CharacterRecord, EstateLeadership } from '../../../shared/ty
 import { isVirtue, isAffliction } from '../../../shared/constants/conditions.js';
 import { NEUTRAL_AFFINITY } from '../../../shared/constants/relationships.js';
 
+import type { StrategyId, StrategyWeights } from '../../../shared/constants/strategies.js';
+
 // ===================================================================
 // 0. CONFIGURATION
 // ===================================================================
@@ -454,4 +456,101 @@ export function assemblePlanningCouncil(
     bursarIsActing: !bursarServes,
     absent,
   };
+}
+
+// ===================================================================
+// 5. DOCTRINE
+// ===================================================================
+
+/**
+ * How much each chair's opinion counts when the room's doctrines are merged.
+ * The Margrave runs the estate; advisors are in the room on merit but have no
+ * standing. Relative only — the annealer auto-calibrates its temperature from
+ * the observed score landscape, so the absolute scale of the blend is free.
+ */
+const DOCTRINE_CLOUT = {
+  MARGRAVE: 1.25,
+  BURSAR: 1.1,
+  COUNCILLOR: 1,
+  ADVISOR: 0.85,
+} as const;
+
+/**
+ * PROVISIONAL — merges everyone's doctrine into the single weight vector the
+ * expedition planner takes. Replaces "whatever the Margrave thinks", which is
+ * what ran before this existed.
+ *
+ * The one real decision encoded here: an ABSENT KEY IS AN ABSTENTION, not a
+ * vote of zero. Each strategy is averaged over the clout of the attendees who
+ * actually hold an opinion on it, so a signature weight of 10 arrives as ~10
+ * however many other people are at the table. Averaging over the whole room
+ * instead would dilute every personal weight toward zero as attendance grows,
+ * which is precisely backwards — the fuller the table, the more personality
+ * should be on display. Clout therefore arbitrates DISAGREEMENT rather than
+ * volume: it only bites where two attendees weight the same strategy
+ * differently, which in practice means the generic strategies, since a
+ * character-specific scorer is only ever named by its own owner.
+ *
+ * Known to be too simple, in three ways, all deferred until there are enough
+ * doctrines to see them misbehave:
+ *
+ *  1. NO CONSENSUS SCALING. One advisor's private obsession lands as hard as a
+ *     unanimous conviction. Scaling by the share of clout that holds the
+ *     opinion would fix it, but it would also systematically weaken every
+ *     signature scorer (held by exactly one person, always) against the
+ *     generic strategies (potentially held by all), so it needs a floor and
+ *     the floor needs tuning against real rooms.
+ *  2. NO FLOOR ON THE NON-NEGOTIABLES. The registry defaults still sit
+ *     underneath this via defineWeights, but a doctrine that names
+ *     minimizeLevelHardship overrides them downward, and level hardship is
+ *     supposed to be the one thing no personality outvotes. Wants a
+ *     max(blended, default) on a named set once any character actually has an
+ *     opinion about it. None do yet.
+ *  3. DOUBLE-COUNTING. A character-specific scorer that reuses its generic
+ *     twin's terms will now be weighted alongside that twin and charge for the
+ *     same thing twice — minimizeFactionRisk_hqclaimants opens with the same
+ *     bloc sum as minimizeFactionRisk. New variants should be written as
+ *     replacements rather than wrappers; the existing one wants revisiting.
+ */
+export function blendDoctrine(
+  council: PlanningCouncil,
+  roster: CharacterRecord
+): StrategyWeights {
+  const table: { ids: string[]; clout: number }[] = [
+    { ids: [council.margrave], clout: DOCTRINE_CLOUT.MARGRAVE },
+    { ids: [council.bursar], clout: DOCTRINE_CLOUT.BURSAR },
+    { ids: council.council, clout: DOCTRINE_CLOUT.COUNCILLOR },
+    { ids: council.advisors, clout: DOCTRINE_CLOUT.ADVISOR },
+  ];
+
+  // Keyed by raw string, not StrategyId: an unknown identifier is passed
+  // through so defineWeights can warn about it by name. Silently dropping it
+  // here would lose the only diagnostic a typo'd save file ever gets.
+  const tally: Record<string, { weighted: number; clout: number }> = {};
+  const counted = new Set<string>();
+
+  for (const { ids, clout } of table) {
+    for (const id of ids) {
+      // Someone who stepped up holds two chairs; they vote once, at the
+      // higher clout, because the table is walked in descending order.
+      if (!id || counted.has(id)) continue;
+      counted.add(id);
+
+      const doctrine = roster[id]?.strategyWeights;
+      if (!doctrine) continue;
+
+      for (const [strategy, weight] of Object.entries(doctrine)) {
+        if (typeof weight !== 'number' || !Number.isFinite(weight)) continue;
+        const entry = tally[strategy] ?? (tally[strategy] = { weighted: 0, clout: 0 });
+        entry.weighted += weight * clout;
+        entry.clout += clout;
+      }
+    }
+  }
+
+  const blended: StrategyWeights = {};
+  for (const [strategy, { weighted, clout }] of Object.entries(tally)) {
+    if (clout > 0) blended[strategy as StrategyId] = weighted / clout;
+  }
+  return blended;
 }

@@ -19,7 +19,7 @@ import {
   ensureAllCharactersHaveConsequences,
   type ConsequencesResult,
 } from '../services/llm/llmResponseProcessor.js';
-import { assemblePlanningCouncil } from '../services/townHall/council.js';
+import { assemblePlanningCouncil, blendDoctrine } from '../services/townHall/council.js';
 import { findOptimalArrangement, formatDebugInfoForConsole } from '../services/townHall/expeditionPlanner.js';
 import { PARTY_SIZE } from '../../shared/constants/expedition.js';
 import type { StrategyContext } from '../../shared/types/types.js';
@@ -212,8 +212,8 @@ router.post(
     }
 
     const council = assemblePlanningCouncil(estate.leadership, estate.characters);
-    const marshal = estate.characters[council.margrave];
-    const customWeights = marshal?.strategyWeights ?? {};
+    const margrave = estate.characters[council.margrave];
+    const customWeights = blendDoctrine(council, estate.characters);
 
     const ctx: StrategyContext = {
       margrave: council.margrave,
@@ -224,7 +224,7 @@ router.post(
 
     console.log('Running expedition planner:');
     console.log(`Roster available: ${availableHeroes.length}`);
-    console.log(`Doctrine: ${council.margrave} (${marshal?.name ?? 'unknown'})`);
+    console.log(`Doctrine: ${council.margrave} (${margrave?.name ?? 'unknown'})`);
     console.log(`Weights: ${JSON.stringify(customWeights)}`);
     console.log(`Party intents in effect: ${estate.partyIntents?.length ?? 0}`);
     (estate.partyIntents ?? []).forEach((intent) => {
@@ -248,7 +248,7 @@ router.post(
 
     res.json({
       success: true,
-      marshal: council.margrave,
+      margrave: council.margrave,
       weightsUsed: customWeights,
       partyIntentsConsidered: estate.partyIntents ?? [],
       activePartiesCount: result.activePartiesCount,
