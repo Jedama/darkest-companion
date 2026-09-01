@@ -5,6 +5,7 @@
  */
 
 import { CharacterRecord, Character, StrategyContext } from '../../../../shared/types/types.js';
+import { VirtueType } from '../../../../shared/constants/conditions.js';
 import { Party, Composition } from '../expeditionPlanner.js';
 import { NEUTRAL_AFFINITY, MAX_AFFINITY } from '../../../../shared/constants/relationships.js';
 import { heroFitness } from '../fitness.js';
@@ -15,6 +16,46 @@ import {
   calculateCombinatorialSynergy,
   calculateStackingTagSynergy
 } from './strategyUtils.js';
+
+// ==================================
+// MAPS FOR SCORING
+// ==================================
+
+// --- Benefit Mapping ---
+// Not currently read by any registered strategy — virtues are cleared at
+// month end, before planning ever runs, so the planner itself has nothing
+// to apply this to. Kept for a future scorer that isn't limited to
+// month-start state (e.g. something that runs mid-expedition).
+/**
+ * How much a virtue benefits the party, 0-100.
+ *
+ * Scored on effect on the group, not on how pleasant the state is for the
+ * character. Several custom virtues are mechanically good and narratively
+ * terrible — see `eclipsed` and `exuvian`, both scored low for that reason.
+ */
+export const VIRTUE_BENEFIT: Record<VirtueType, number> = {
+  // Directive — actively organises or repairs the rest of the party
+  farseeing: 60,
+  medical: 60,
+  clarified: 55,
+  unbreakable: 55,
+  resilient: 55,
+  protectorateb: 55,
+
+  // Steadying — helps chiefly by example or by absorbing risk
+  stalwart: 50,
+  vengeful: 50,
+  courageous: 45,
+  epiphany: 45,
+  vigorous: 40,
+  focused: 40,
+  dynamic: 40,
+
+  // Self-contained — good for the character, little of it reaches anyone else
+  powerful: 30,
+  exuvian: 25,
+  eclipsed: 5,
+};
 
 // ==================================
 // GAMEPLAY SYNERGY SCORING
