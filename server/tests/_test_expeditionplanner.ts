@@ -1,6 +1,6 @@
 // server/tests/_test_expeditionPlanner.ts
 
-// OUTDATED: the "Expected" comments below (and the balanceCondition-driven
+// OUTDATED: the "Expected" comments below (and the minimizeMarchingUnfitness-driven
 // benching in TEST CASE 3) describe the old score-inferred benching behavior.
 // Benching is now decided by fitness.ts from hero condition alone, independent
 // of any weight here. Needs a pass once this file is updated for that.
@@ -80,7 +80,7 @@ async function runTests() {
     minimizeLevelHardship: 10,
     maximizeGameplaySynergy: 2,
     maximizeAffinity: 3,
-    balanceCondition: 10, // Give it some weight to see if it benches anyone
+    minimizeMarchingUnfitness: 10, // Give it some weight to see if it benches anyone
   };
  
   const balancedResult = await findOptimalArrangement(availableHeroIds, roster, balancedWeights);
@@ -109,7 +109,7 @@ async function runTests() {
     maximizeGameplaySynergy: 10.0, 
     minimizeLevelHardship: 5.0,
     maximizeAffinity: 2.0,
-    balanceCondition: 1,
+    minimizeMarchingUnfitness: 1,
   };
  
   const synergyResult = await findOptimalArrangement(availableHeroIds, roster, synergyFocusedWeights);
@@ -124,7 +124,7 @@ async function runTests() {
     minimizeLevelHardship: 0.0,
     maximizeGameplaySynergy: 0.0,
     maximizeAffinity: 0.0,
-    balanceCondition: 0.0, 
+    minimizeMarchingUnfitness: 0.0, 
     maximizeDedicatedProtector_snor_rasp: 10,
   };
  

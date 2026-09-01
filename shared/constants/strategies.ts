@@ -33,7 +33,7 @@ export const STRATEGY_IDS = [
 
   // --- Generic composition strategies ---
   'balanceAuthority',
-  'balanceCondition',
+  'minimizeMarchingUnfitness',
 
   // --- Character-specific party strategies ---
   'maximizeCommandClarity_heiress',

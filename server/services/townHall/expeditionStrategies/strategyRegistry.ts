@@ -180,13 +180,13 @@ export const STRATEGY_REGISTRY = [
     scorer: generic.scoreCompositionByAuthorityBalance,
   },
   {
-    identifier: 'balanceCondition',
-    name: 'Condition Distribution',
-    description: 'Balances the distribution of afflictions and virtues across parties to ensure no single party is overly burdened or empowered.',
+    identifier: 'minimizeMarchingUnfitness',
+    name: 'Marching Unfitness',
+    description: "Keeps the unfit off the roster that marches. The estate's first duty: a hero who should be resting does not go, and someone healthier goes instead.",
     direction: 'minimize',
     scope: 'composition',
-    scorer: generic.scoreCompositionByConditionBalance,
-    defaultWeight: 3,
+    scorer: generic.scoreCompositionByMarchingUnfitness,
+    defaultWeight: 15,
   },
   
   // --- Character-Specific Strategies ---
