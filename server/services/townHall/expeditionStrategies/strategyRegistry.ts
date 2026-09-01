@@ -161,6 +161,14 @@ export const STRATEGY_REGISTRY = [
     scope: 'party',
     scorer: generic.scorePartyByFactionRisk,
   },
+  {
+    identifier: 'minimizeChildVulnerability',
+    name: 'Child Vulnerability',
+    description: 'A child in a dungeon is a failure. Enough escort answers for it; nothing else does.',
+    direction: 'minimize',
+    scope: 'party',
+    scorer: generic.scorePartyByChildVulnerability,
+  },
 
   // --- Generic Composition Strategies ---
   {
@@ -172,13 +180,13 @@ export const STRATEGY_REGISTRY = [
     scorer: generic.scoreCompositionByAuthorityBalance,
   },
   {
-    identifier: 'balanceCondition',
-    name: 'Condition Distribution',
-    description: 'Balances the distribution of afflictions and virtues across parties to ensure no single party is overly burdened or empowered.',
+    identifier: 'minimizeMarchingUnfitness',
+    name: 'Marching Unfitness',
+    description: "Keeps the unfit off the roster that marches. The estate's first duty: a hero who should be resting does not go, and someone healthier goes instead.",
     direction: 'minimize',
     scope: 'composition',
-    scorer: generic.scoreCompositionByConditionBalance,
-    defaultWeight: 3,
+    scorer: generic.scoreCompositionByMarchingUnfitness,
+    defaultWeight: 15,
   },
   
   // --- Character-Specific Strategies ---
@@ -189,14 +197,6 @@ export const STRATEGY_REGISTRY = [
     direction: 'maximize',
     scope: 'party',
     scorer: character.scorePartyByCommandClarity_Heiress,
-  },
-  {
-    identifier: 'maximizeChildGuardianship_cook',
-    name: 'Children Guardianship',
-    description: 'Ensures children are protected by capable guardians.',
-    direction: 'maximize',
-    scope: 'party',
-    scorer: character.scorePartyByChildGuardianship_Cook,
   },
   {
     identifier: 'maximizeSocialVitality_zenith',
@@ -254,6 +254,14 @@ export const STRATEGY_REGISTRY = [
     direction: 'minimize',
     scope: 'party',
     scorer: character.scorePartyByFactionRisk_hqclaimants,
+  },
+  {
+    identifier: 'minimizeChildVulnerability_arsonist',
+    name: 'Child Vulnerability (Arsonist)',
+    description: 'No child marches beside him, and no escort anywhere is ever quite enough.',
+    direction: 'minimize',
+    scope: 'party',
+    scorer: character.scorePartyByChildVulnerability_arsonist,
   },
 
   // --- Character-Specific Composition Strategies ---

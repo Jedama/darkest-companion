@@ -5,10 +5,10 @@
  */
 
 import { CharacterRecord, Character, StrategyContext } from '../../../../shared/types/types.js';
-import { VirtueType, isAffliction, isVirtue, AFFLICTION_SEVERITY } from '../../../../shared/constants/conditions.js';
-import { isDisease, DISEASE_SEVERITY } from '../../../../shared/constants/diseases.js';
+import { VirtueType } from '../../../../shared/constants/conditions.js';
 import { Party, Composition } from '../expeditionPlanner.js';
 import { NEUTRAL_AFFINITY, MAX_AFFINITY } from '../../../../shared/constants/relationships.js';
+import { heroFitness } from '../fitness.js';
 import {
   countTag,
   calculateStackingPairSynergy,
@@ -22,8 +22,10 @@ import {
 // ==================================
 
 // --- Benefit Mapping ---
-// Translates a named virtue into a numerical score. AFFLICTION_SEVERITY lives in
-// shared/constants/conditions.ts — hero fitness (townHall/fitness.ts) reads it too.
+// Not currently read by any registered strategy — virtues are cleared at
+// month end, before planning ever runs, so the planner itself has nothing
+// to apply this to. Kept for a future scorer that isn't limited to
+// month-start state (e.g. something that runs mid-expedition).
 /**
  * How much a virtue benefits the party, 0-100.
  *
@@ -39,7 +41,7 @@ export const VIRTUE_BENEFIT: Record<VirtueType, number> = {
   unbreakable: 55,
   resilient: 55,
   protectorateb: 55,
- 
+
   // Steadying — helps chiefly by example or by absorbing risk
   stalwart: 50,
   vengeful: 50,
@@ -48,7 +50,7 @@ export const VIRTUE_BENEFIT: Record<VirtueType, number> = {
   vigorous: 40,
   focused: 40,
   dynamic: 40,
- 
+
   // Self-contained — good for the character, little of it reaches anyone else
   powerful: 30,
   exuvian: 25,
@@ -479,125 +481,41 @@ export function scorePartyByDedicatedProtector(party: Party, roster: CharacterRe
 // ==================================
 
 /**
- * [HELPER] Calculates a detailed breakdown of a hero's condition liability.
- */
-function getDetailedLiability(hero: CharacterRecord[string] | undefined): { stress: number, other: number, total: number } {
-  if (!hero) return { stress: 0, other: 0, total: 0 };
-
-  let stressLiability = 0;
-  let otherLiability = 0;
-
-  // --- Stress Penalty (Exponential) ---
-  const stress = 100 - hero.status.mental;
-  stressLiability += Math.pow(stress / 10, 2.5);
-
-  // --- Health Penalty (Linear) ---
-  const missingHealth = 100 - hero.status.physical;
-  otherLiability += missingHealth * 0.25;
-
-  // --- Affliction/Virtue Modifier ---
-  const condition = hero.status.affliction;
-  if (condition) {
-    if (isAffliction(condition)) {
-      // Falls back to 0 rather than NaN-poisoning the whole composition score
-      // if a condition type is ever added here before its severity is tuned.
-      otherLiability += AFFLICTION_SEVERITY[condition] ?? 0;
-    } else if (isVirtue(condition)) {
-      // A virtue reduces non-stress liability (it makes you more resilient)
-      otherLiability -= (VIRTUE_BENEFIT[condition] ?? 0) * 1.5;
-    }
-  }
-
-  // --- Disease Modifier ---
-  // A hero can carry several at once (status.diseases is an array, unlike the
-  // single affliction slot), so this sums rather than picking the worst.
-  for (const diseaseId of hero.status.diseases) {
-    if (isDisease(diseaseId)) {
-      otherLiability += DISEASE_SEVERITY[diseaseId] ?? 0;
-    }
-  }
-
-  const totalLiability = stressLiability + otherLiability;
-  return {
-      stress: Math.max(0, stressLiability),
-      other: Math.max(0, otherLiability),
-      total: Math.max(0, totalLiability)
-  };
-}
-
-/**
- * [REVISED] Calculates a holistic "Total Liability" score for a composition.
- * This score's primary purpose is to heavily penalize the inclusion of any high-risk
- * heroes (high stress, afflicted, diseased, low health) anywhere in the composition.
- * The balancing of risk between parties is now a secondary, but still present, concern.
+ * [GENERIC] The estate's first duty: keep the unfit off the roster that
+ * marches. `composition` here is the ACTIVE parties only — the annealer
+ * calls composition-scoped scorers with the active subset
+ * (`expeditionPlanner.ts`'s `strategy.scorer(activeParties, roster, ctx)`),
+ * so this is already, structurally, a sum over marchers and nothing else.
+ * The only way to lower it is to bench someone unfit in favour of someone
+ * fitter — that's the entire gradient, and it's deliberate.
  *
- * It works by:
- * 1. Calculating an individual, non-linear "liability" score for each hero.
- * 2. Summing these scores to get a total liability for the entire composition (primary component).
- * 3. Adding a penalty based on the standard deviation of liability between parties (secondary component).
+ * Shares `heroFitness` with `computeActivePartyCount` (fitness.ts) on
+ * purpose: that function decides how many parties the hamlet can field,
+ * this one decides who fills them, and the two halves of one decision
+ * should never be able to disagree about what "fit" means.
  *
- * The goal is to minimize this score. A higher score means more overall liability and/or imbalance.
+ * Flat under rearrangement of a fixed marching set — reshuffling who's in
+ * which party changes nothing, only who's benched does. Do not add a term
+ * that reads per-party grouping (inter-party balance, stress-healer
+ * discounts, etc.); that's a different decision and belongs in a
+ * party-scoped strategy of its own.
  */
-export function scoreCompositionByConditionBalance(composition: Composition, roster: CharacterRecord): number {
+export function scoreCompositionByMarchingUnfitness(composition: Composition, roster: CharacterRecord): number {
   if (composition.length === 0) return 0;
 
-  const STRESS_HEALER_FACTOR = 0.9; // Stress healers reduce stress liability by 10%
-
-  const partyLiabilityScores = composition.map(party => {
-    if (party.length === 0) return 0;
-
-    // 1. Identify if a stress healer is present in this specific party.
-    const partyHasStressHealer = party.some(id => {
-      const hero = roster[id];
-      return hero && (hero.tags.includes('StressHealer'));
-    });
-
-    // 2. Calculate the total stress liability and other liability for the party.
-    let totalPartyStressLiability = 0;
-    let totalPartyOtherLiability = 0;
-
+  let totalUnfitness = 0;
+  for (const party of composition) {
     for (const id of party) {
-        const detailedLiability = getDetailedLiability(roster[id]);
-        totalPartyStressLiability += detailedLiability.stress;
-        totalPartyOtherLiability += detailedLiability.other;
+      const hero = roster[id];
+      if (!hero) continue;
+      totalUnfitness += 1 - heroFitness(hero);
     }
-
-    // 3. If a healer is present, apply the multiplicative bonus ONLY to the stress part.
-    if (partyHasStressHealer) {
-        totalPartyStressLiability *= STRESS_HEALER_FACTOR;
-    }
-    
-    // 4. The final liability for this party is the sum of the (potentially reduced) stress
-    //    and the unchanged other liabilities.
-    return totalPartyStressLiability + totalPartyOtherLiability;
-  });
-
-  // 1. Calculate the TOTAL liability.
-  const totalCompositionLiability = partyLiabilityScores.reduce((sum, score) => sum + score, 0);
-
-  // 2. The PRIMARY component of the score is the AVERAGE liability per party.
-  // This is what we will return. It's clean, simple, and size-independent.
-  const averagePartyLiability = totalCompositionLiability / composition.length;
-
-  // --- Handling the Imbalance Penalty ---
-  // The imbalance should be a small nudge, not a core part of the score that gets normalized.
-  // We can add it as a small percentage of the main score.
-  if (partyLiabilityScores.length > 1) {
-    const meanLiability = averagePartyLiability; // Same value
-    const variance = partyLiabilityScores
-      .map(score => Math.pow(score - meanLiability, 2))
-      .reduce((sum, squaredDiff) => sum + squaredDiff, 0) / partyLiabilityScores.length;
-    const imbalancePenalty = Math.sqrt(variance);
-
-    // Add a small, fixed fraction of the inter-party liability std-dev as a nudge toward
-    // balance, without letting imbalance dominate the (primary) average-liability metric.
-    // IMBALANCE_WEIGHT is 0.1 = 10% of the std-dev (the old comment mis-stated this as 0.1%).
-    const IMBALANCE_WEIGHT = 0.1;
-    return averagePartyLiability + (imbalancePenalty * IMBALANCE_WEIGHT);
   }
 
-  // If only one party, just return the average liability.
-  return averagePartyLiability;
+  // Per party rather than per hero, so the figure is comparable across
+  // different values of k. Divisor is constant within a scoring pass either
+  // way; this only keeps the raw number legible in the debug table.
+  return totalUnfitness / composition.length;
 }
 
 
@@ -822,4 +740,86 @@ export function detectBlocs(party: Party, roster: CharacterRecord): DetectedBloc
  */
 export function scorePartyByFactionRisk(party: Party, roster: CharacterRecord): number {
   return detectBlocs(party, roster).reduce((sum, bloc) => sum + bloc.danger, 0);
+}
+
+// ==================================
+// CHILD VULNERABILITY
+// ==================================
+
+/** Base exposure of a single child before their personal multiplier is applied. */
+export const BASE_CHILD_EXPOSURE = 10;
+
+/** How much of the party's raw protective capacity actually reaches a child. */
+const ESCORT_SCALE = 0.75;
+
+/**
+ * A per-child multiplier on BASE_CHILD_EXPOSURE, from tags and raw Strength only.
+ *
+ * Deliberately reads no `level` — level parity is minimizeLevelHardship's job,
+ * and restating it here would just be a second vote for the same thing.
+ */
+export function childVulnerability(child: Character): number {
+  const tags = child.tags;
+  const raw = 1
+    + (tags.includes('Frail') ? 0.10 : 0)
+    + (tags.includes('Weak') ? 0.07 : 0)
+    + (tags.includes('Hider') ? 0.07 : 0)
+    - (tags.includes('Tank') ? 0.10 : 0)
+    - (tags.includes('Guarder') ? 0.10 : 0)
+    - (tags.includes('SelfSufficient') ? 0.06 : 0)
+    - (tags.includes('Warrior') ? 0.04 : 0)
+    - 0.02 * (child.stats.strength - 4);
+
+  return Math.max(0.60, Math.min(1.30, raw));
+}
+
+/**
+ * Pooled protective capacity of a party's non-children.
+ *
+ * Children are excluded from both sums: a child never protects another child,
+ * and never protects themselves (including one who is a Tank and a Guarder —
+ * this is what keeps a case like the Martyr from zeroing out her own exposure,
+ * without special-casing her by identifier). Strength modifies only the
+ * interposing half (Guarder/Tank) — physicality helps you body-block, it
+ * doesn't help you set a bone. ESCORT_SCALE multiplies gross only; drain is
+ * meant to weigh relatively heavier than a raw scaling would make it.
+ */
+export function escortSupply(party: Party, roster: CharacterRecord): number {
+  const escorts = party.map(id => roster[id]).filter((h): h is Character => !!h && !h.tags.includes('Child'));
+
+  let gross = 0;
+  let drain = 0;
+  for (const hero of escorts) {
+    const shield = (5 * (hero.tags.includes('Guarder') ? 1 : 0) + 3 * (hero.tags.includes('Tank') ? 1 : 0))
+      * (0.7 + hero.stats.strength / 16);
+    const care = 2 * (hero.tags.includes('Healer') ? 1 : 0)
+      + 1.5 * (hero.tags.includes('Cleanser') ? 1 : 0)
+      + 1.5 * (hero.tags.includes('StressHealer') ? 1 : 0)
+      + 1 * (hero.tags.includes('Physician') ? 1 : 0)
+      + 1 * (hero.tags.includes('Vigilant') ? 1 : 0);
+    gross += shield + care;
+
+    drain += 2 * (hero.tags.includes('Hider') ? 1 : 0) + 1 * (hero.tags.includes('Frail') ? 1 : 0);
+  }
+
+  return Math.max(0, ESCORT_SCALE * gross - drain);
+}
+
+/**
+ * [GENERIC] The Hamlet's institutional position on a child in a dungeon: it is
+ * a failure, and enough escort answers for it — nothing else does. Returns 0
+ * for a childless party (there is nothing to reach zero from), and a
+ * deliberately reachable zero for an escorted one: this is the demand side of
+ * a threshold, not an asymptote.
+ *
+ * Demand and supply both pool across the whole party, so two children need
+ * twice the escort — the scattering pressure between parties is emergent from
+ * that pooling, not a term that names it.
+ */
+export function scorePartyByChildVulnerability(party: Party, roster: CharacterRecord): number {
+  const children = party.map(id => roster[id]).filter((h): h is Character => !!h && h.tags.includes('Child'));
+  if (children.length === 0) return 0;
+
+  const demand = children.reduce((sum, child) => sum + BASE_CHILD_EXPOSURE * childVulnerability(child), 0);
+  return Math.max(0, demand - escortSupply(party, roster));
 }

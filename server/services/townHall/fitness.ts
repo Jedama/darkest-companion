@@ -17,15 +17,15 @@
  * the annealer in expeditionPlanner.ts is simply told that number and never
  * votes on it.
  *
- * Deliberately not shared with getDetailedLiability (genericStrategies.ts),
- * despite reading the same status fields. That asks "how much trouble is
- * this hero for their party" — unbounded, party-relative. This asks "should
- * they go at all" — bounded to at most one hero's worth of absence, and
- * absolute. Health is included only lightly: it resets to full on return
- * from an expedition, so it should read on a wounded hero, not decide
- * whether they march. Virtues aren't read at all — they're cleared at month
- * end, and planning is the first thing each month, so status.affliction can
- * never hold a virtue key when this runs.
+ * Deliberately shared with scoreCompositionByMarchingUnfitness
+ * (expeditionStrategies/genericStrategies.ts): that decides who fills the
+ * parties this module says the hamlet can field, and the two halves of one
+ * decision should never be able to disagree about what "fit" means. Health
+ * is included only lightly: it resets to full on return from an expedition,
+ * so it should read on a wounded hero, not decide whether they march.
+ * Virtues aren't read at all — they're cleared at month end, and planning is
+ * the first thing each month, so status.affliction can never hold a virtue
+ * key when this runs.
  */
 
 import { CharacterRecord, Character } from '../../../shared/types/types.js';
