@@ -29,7 +29,7 @@
  */
 
 import { CharacterRecord, Character } from '../../../shared/types/types.js';
-import { AFFLICTION_SEVERITY, isAffliction } from '../../../shared/constants/conditions.js';
+import { AFFLICTION_SEVERITY, GENERAL_AFFLICTIONS, isAffliction } from '../../../shared/constants/conditions.js';
 import { DISEASE_SEVERITY, isDisease } from '../../../shared/constants/diseases.js';
 
 // A hero's month-end condition, translated into an absolute 0-1 "fit to march"
@@ -73,6 +73,59 @@ export function heroFitness(hero: Character): number {
   }
 
   return clamp01(1 - stressCost - woundCost - afflictionCost - diseaseCost);
+}
+
+// ===================================================================
+// A TYPICAL MONTH
+// ===================================================================
+
+/**
+ * What hero condition looks like in an ordinary month. Not this month's --
+ * the planner uses it to learn how much each strategy's score USUALLY varies,
+ * so that a difference this month is judged against a normal month rather
+ * than against itself (see generateNormalizationStatistics in
+ * expeditionPlanner.ts). Stress here is 100 - status.mental.
+ */
+const TYPICAL_MONTH = {
+  CALM_SHARE: 0.65,       // stress 0-40
+  STRAINED_SHARE: 0.25,   // stress 40-99; the remaining 10% hit 100 and are afflicted
+  CALM_MAX_STRESS: 40,
+  STRAINED_MAX_STRESS: 99,
+  MIN_PHYSICAL: 40,       // physical is re-rolled between this and 100
+};
+
+function randomBetween(min: number, max: number): number {
+  return min + Math.random() * (max - min);
+}
+
+/**
+ * A hero as they might be in some other, ordinary month: same person, re-rolled
+ * condition. Only general afflictions are used -- character-specific ones
+ * would put the Thrall's `ferocious` on anyone. Diseases are left out.
+ */
+export function imagineTypicalCondition(hero: Character): Character {
+  const roll = Math.random();
+  let stress: number;
+  let affliction = '';
+  if (roll < TYPICAL_MONTH.CALM_SHARE) {
+    stress = randomBetween(0, TYPICAL_MONTH.CALM_MAX_STRESS);
+  } else if (roll < TYPICAL_MONTH.CALM_SHARE + TYPICAL_MONTH.STRAINED_SHARE) {
+    stress = randomBetween(TYPICAL_MONTH.CALM_MAX_STRESS, TYPICAL_MONTH.STRAINED_MAX_STRESS);
+  } else {
+    stress = 100;
+    affliction = GENERAL_AFFLICTIONS[Math.floor(Math.random() * GENERAL_AFFLICTIONS.length)];
+  }
+
+  return {
+    ...hero,
+    status: {
+      ...hero.status,
+      mental: 100 - stress,
+      physical: randomBetween(TYPICAL_MONTH.MIN_PHYSICAL, 100),
+      affliction,
+      diseases: [],
+    },
+  };
 }
 
 export interface PartyCountResult {

@@ -205,6 +205,20 @@ export type VirtueType = keyof typeof VIRTUES;
 export type ConditionType = AfflictionType | VirtueType;
 
 /**
+ * The afflictions any hero can suffer — the "General" group of AFFLICTIONS,
+ * without the location- and character-specific ones.
+ */
+export const GENERAL_AFFLICTIONS: readonly AfflictionType[] = [
+  'abusive',
+  'paranoid',
+  'fearful',
+  'masochistic',
+  'irrational',
+  'selfish',
+  'hopeless',
+];
+
+/**
  * How severe each affliction is, 0-100. Read by both the party-liability
  * scorer (how much trouble this hero is for whoever they're with) and hero
  * fitness (whether they should be marching at all) — the two ask different

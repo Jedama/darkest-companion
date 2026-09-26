@@ -14,7 +14,7 @@ import {
 } from './expeditionStrategies/index.js';
 import { isStrategyId } from '../../../shared/constants/strategies.js';
 import type { StrategyContext } from '../../../shared/types/types.js';
-import { computeActivePartyCount } from './fitness.js';
+import { computeActivePartyCount, imagineTypicalCondition } from './fitness.js';
 
 // --- DEBUG INFORMATION TYPES ---
 // These types structure the detailed breakdown of the scoring.
@@ -290,7 +290,8 @@ export function generateScoringStatistics(
   partySize: number,
   sampleSize: number,
   numPartiesToSample?: number,
-  ctx?: StrategyContext
+  ctx?: StrategyContext,
+  imagineOtherMonths: boolean = false
 ): PartyScoringStatistics {
   const rawScores: { [id: string]: number[] } = {};
   ALL_STRATEGIES.forEach(s => rawScores[s.identifier] = []);  
@@ -302,13 +303,24 @@ export function generateScoringStatistics(
   for (let i = 0; i < sampleSize; i++) {
     // We only need one shuffle per outer loop iteration.
     const shuffled = shuffleInPlace([...availableHeroes]);
-    
+
+    // Each sample gets its own imagined month; only the heroes this sample
+    // actually uses need re-rolling.
+    let sampleRoster = roster;
+    if (imagineOtherMonths) {
+      sampleRoster = { ...roster };
+      for (const id of shuffled.slice(0, Math.max(partySize, numHeroesToUse))) {
+        const hero = roster[id];
+        if (hero) sampleRoster[id] = imagineTypicalCondition(hero);
+      }
+    }
+
     for (const strategy of ALL_STRATEGIES) {
         
       if (strategy.scope === 'party') {
         // Party-scope sampling is unaffected and can use any heroes.
         const randomParty = shuffled.slice(0, partySize);
-        rawScores[strategy.identifier].push(strategy.scorer(randomParty, roster, ctx));
+        rawScores[strategy.identifier].push(strategy.scorer(randomParty, sampleRoster, ctx));
       } else { // scope === 'composition'
         // Take a subset of heroes corresponding to the desired number of parties.
         const heroSubset = shuffled.slice(0, numHeroesToUse);  
@@ -322,7 +334,7 @@ export function generateScoringStatistics(
         
         // Only score if we actually formed a composition of the correct size.
         if (randomComposition.length === partiesToCreate) {
-          rawScores[strategy.identifier].push(strategy.scorer(randomComposition, roster, ctx));
+          rawScores[strategy.identifier].push(strategy.scorer(randomComposition, sampleRoster, ctx));
         }
       }
     }
@@ -332,6 +344,44 @@ export function generateScoringStatistics(
   const statistics = {} as PartyScoringStatistics;
   for (const strategy of ALL_STRATEGIES) {
     statistics[strategy.identifier] = calculateStats(rawScores[strategy.identifier]);
+  }
+  return statistics;
+}
+
+/**
+ * The stats a strategy's raw score is normalized with: this month's MEAN, but
+ * the SPREAD of the same roster across imagined ordinary months.
+ *
+ * Normalizing by this month's own spread grades every strategy on a curve: a
+ * strategy whose score barely varies this month (the fitness-based ones on a
+ * healthy month) has its tiny differences stretched to full size, so it
+ * pushes as hard over nothing as it does over a real crisis. Measuring the
+ * spread across typical months instead keeps a small difference small and
+ * lets a bad month be louder than usual.
+ *
+ * Only strategies that read hero condition are affected in practice. For
+ * everything else (relationships, tags, levels) the imagined months are the
+ * same as this one, so both spreads come out the same up to sampling noise.
+ * The mean never affects which arrangement wins -- it shifts every candidate
+ * equally -- so it is simply taken from this month.
+ */
+export function generateNormalizationStatistics(
+  availableHeroes: string[],
+  roster: CharacterRecord,
+  partySize: number,
+  sampleSize: number,
+  numPartiesToSample?: number,
+  ctx?: StrategyContext
+): PartyScoringStatistics {
+  const thisMonth = generateScoringStatistics(availableHeroes, roster, partySize, sampleSize, numPartiesToSample, ctx);
+  const otherMonths = generateScoringStatistics(availableHeroes, roster, partySize, sampleSize, numPartiesToSample, ctx, true);
+
+  const statistics = {} as PartyScoringStatistics;
+  for (const strategy of ALL_STRATEGIES) {
+    statistics[strategy.identifier] = {
+      mean: thisMonth[strategy.identifier].mean,
+      stdDev: otherMonths[strategy.identifier].stdDev,
+    };
   }
   return statistics;
 }
@@ -539,7 +589,7 @@ export function findBestComposition(
     }
 
     // We still need to generate stats and analyze the composition once for a valid return object.
-    const scoringStats = generateScoringStatistics(availableHeroes, roster, partySize, 500, undefined, ctx); // Small sample size is fine
+    const scoringStats = generateNormalizationStatistics(availableHeroes, roster, partySize, 500, undefined, ctx); // Small sample size is fine
     const debugInfo = analyzeComposition(defaultComposition, roster, weights, scoringStats, consistencyWeight, partiesToScore, ctx);
 
     // Return immediately, skipping the optimization loop
@@ -549,7 +599,7 @@ export function findBestComposition(
   if (numHeroes <= partySize) {
     const singleParty = availableHeroes.slice(0, partySize);
     const composition = singleParty.length > 0 ? [singleParty] : [];
-    const scoringStats = generateScoringStatistics(availableHeroes, roster, partySize, 500, undefined, ctx);
+    const scoringStats = generateNormalizationStatistics(availableHeroes, roster, partySize, 500, undefined, ctx);
     const debugInfo = analyzeComposition(composition, roster, weights, scoringStats, consistencyWeight, undefined, ctx);
     return { composition, debugInfo, scoringStats };
   }  
@@ -564,7 +614,7 @@ export function findBestComposition(
   //  scored, so composition-scope strategies were normalized against the wrong shape.)
   const completeParties = Math.floor(numHeroes / partySize);
   const partiesToSample = partiesToScore ?? completeParties;
-  const scoringStats = generateScoringStatistics(availableHeroes, roster, partySize, sampleSize, partiesToSample, ctx);
+  const scoringStats = generateNormalizationStatistics(availableHeroes, roster, partySize, sampleSize, partiesToSample, ctx);
 
   // --- Build the initial composition (level-sorted seed) ---
   const sortedHeroes = [...availableHeroes].sort((a, b) => (roster[b]?.level ?? 0) - (roster[a]?.level ?? 0));
