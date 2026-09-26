@@ -24,6 +24,50 @@ const MASTER_PARTY_WEIGHT = 1.0; // Master weight for party scores
 const MASTER_COMPOSITION_WEIGHT = 0.85;
 
 /**
+ * Sum of every strategy's weight, across both scopes, that's actually
+ * switched on (weight > 0). The denominator for "what share of the room's
+ * attention" a lifting strategy commands.
+ */
+function totalActiveWeight(weights: Required<StrategyWeights>): number {
+  let total = 0;
+  for (const strategy of ALL_STRATEGIES) {
+    const weight = weights[strategy.identifier] ?? 0;
+    if (weight > 0) total += weight;
+  }
+  return total;
+}
+
+/**
+ * How much CONSISTENCY_WEIGHT is relaxed -- or sharpened -- by doctrines that
+ * hold an opinion via a strategy's `consistencyLift`. See that field's doc
+ * comment (strategyRegistry.ts) for the reasoning; this is just the sum.
+ *
+ * Invariant per lifting strategy: (consistencyLift / 100) * share, summed
+ * and clamped to [-1, 1]. Because every active strategy's share sums to 1 by
+ * construction, that clamp only ever bites a `consistencyLift` set outside
+ * its -100..100 convention -- it's a safety net, not a normal ceiling.
+ *
+ * Called once per optimization run (weights don't change between annealing
+ * iterations), not inside analyzeComposition itself.
+ */
+function computeEffectiveConsistencyWeight(weights: Required<StrategyWeights>): number {
+  const total = totalActiveWeight(weights);
+  if (total <= 0) return CONSISTENCY_WEIGHT;
+
+  let totalLift = 0;
+  for (const strategy of ALL_STRATEGIES) {
+    if (!strategy.consistencyLift) continue;
+    const weight = weights[strategy.identifier] ?? 0;
+    if (weight <= 0) continue;
+    const share = weight / total;
+    totalLift += (strategy.consistencyLift / 100) * share;
+  }
+  totalLift = Math.max(-1, Math.min(1, totalLift));
+
+  return CONSISTENCY_WEIGHT * (1 - totalLift);
+}
+
+/**
  * Breakdown of a single strategy's contribution to a score.
  */
 export interface StrategyScoreBreakdown {
@@ -295,6 +339,7 @@ function analyzeComposition(
   roster: CharacterRecord,
   weights: Required<StrategyWeights>,
   stats: PartyScoringStatistics,
+  consistencyWeight: number,
   partiesToScore?: number,
   ctx?: StrategyContext
 ): CompositionDebugInfo {
@@ -412,8 +457,10 @@ function analyzeComposition(
   const scoreStdDev = scoreStats.stdDev;
   
   // The final score is the mean, penalized by its standard deviation.
-  // The `0.5` is a tunable "consistency weight". Higher values penalize inconsistency more.
-  const consistencyPenalty = scoreStdDev * CONSISTENCY_WEIGHT; 
+  // `consistencyWeight` is CONSISTENCY_WEIGHT as relaxed (or sharpened) by any
+  // doctrine holding a `consistencyLift` opinion -- see
+  // computeEffectiveConsistencyWeight, computed once per optimization run.
+  const consistencyPenalty = scoreStdDev * consistencyWeight;
   // 4. Apply the penalty to BOTH components
   const partyComponent = scoreMean; // Start with the pure average
   const compositionComponent = totalCompositionScopeScore; // Start with the pure comp score
@@ -463,7 +510,10 @@ export function findBestComposition(
   ctx?: StrategyContext
 ): BestCompositionResult {
   const numHeroes = availableHeroes.length;
-  const weights = defineWeights(customWeights); 
+  const weights = defineWeights(customWeights);
+  // Invariant for the whole run (weights don't change between iterations),
+  // so this is computed once here rather than inside analyzeComposition.
+  const consistencyWeight = computeEffectiveConsistencyWeight(weights);
 
   if (areAllWeightsZero(weights)) {
     console.warn(
@@ -485,7 +535,7 @@ export function findBestComposition(
 
     // We still need to generate stats and analyze the composition once for a valid return object.
     const scoringStats = generateScoringStatistics(availableHeroes, roster, partySize, 500, undefined, ctx); // Small sample size is fine
-    const debugInfo = analyzeComposition(defaultComposition, roster, weights, scoringStats, partiesToScore, ctx);
+    const debugInfo = analyzeComposition(defaultComposition, roster, weights, scoringStats, consistencyWeight, partiesToScore, ctx);
 
     // Return immediately, skipping the optimization loop
     return { composition: defaultComposition, debugInfo, scoringStats };
@@ -495,7 +545,7 @@ export function findBestComposition(
     const singleParty = availableHeroes.slice(0, partySize);
     const composition = singleParty.length > 0 ? [singleParty] : [];
     const scoringStats = generateScoringStatistics(availableHeroes, roster, partySize, 500, undefined, ctx);
-    const debugInfo = analyzeComposition(composition, roster, weights, scoringStats, undefined, ctx);
+    const debugInfo = analyzeComposition(composition, roster, weights, scoringStats, consistencyWeight, undefined, ctx);
     return { composition, debugInfo, scoringStats };
   }  
   // --- Adaptive iteration & sampling budgets (heuristics unchanged) ---
@@ -527,12 +577,12 @@ export function findBestComposition(
   }
 
   // `current` is the wandering incumbent; `best` is the best composition seen so far.
-  let currentScore = analyzeComposition(current, roster, weights, scoringStats, partiesToScore, ctx).finalScore;
+  let currentScore = analyzeComposition(current, roster, weights, scoringStats, consistencyWeight, partiesToScore, ctx).finalScore;
   let best: Composition = current.map(party => [...party]);
   let bestScore = currentScore;
   let bestViolations = currentViolations;
 
-  let bestDebugInfo = analyzeComposition(best, roster, weights, scoringStats, partiesToScore, ctx);
+  let bestDebugInfo = analyzeComposition(best, roster, weights, scoringStats, consistencyWeight, partiesToScore, ctx);
 
   // With fewer than two parties there are no swaps to make.
   if (current.length < 2) {
@@ -551,7 +601,7 @@ export function findBestComposition(
   let deltaSum = 0, deltaCount = 0;
   for (let b = 0; b < BURN_IN; b++) {
     const undo = applyRandomMove(current);
-    const probeScore = analyzeComposition(current, roster, weights, scoringStats, partiesToScore, ctx).finalScore;
+    const probeScore = analyzeComposition(current, roster, weights, scoringStats, consistencyWeight, partiesToScore, ctx).finalScore;
     const d = Math.abs(probeScore - currentScore);
     if (d > 0) { deltaSum += d; deltaCount++; }
     undo(); // a probe must not move the incumbent
@@ -573,7 +623,7 @@ export function findBestComposition(
       continue;
     }
 
-    const candidateInfo = analyzeComposition(current, roster, weights, scoringStats, partiesToScore, ctx);
+    const candidateInfo = analyzeComposition(current, roster, weights, scoringStats, consistencyWeight, partiesToScore, ctx);
     const candidateScore = candidateInfo.finalScore;
     const delta = candidateScore - currentScore;
 
@@ -589,7 +639,7 @@ export function findBestComposition(
         bestScore = candidateScore;
         bestViolations = candidateViolations;
         best = current.map(party => [...party]);
-        bestDebugInfo = analyzeComposition(best, roster, weights, scoringStats, partiesToScore, ctx);
+        bestDebugInfo = analyzeComposition(best, roster, weights, scoringStats, consistencyWeight, partiesToScore, ctx);
       }
     } else {
       undo();

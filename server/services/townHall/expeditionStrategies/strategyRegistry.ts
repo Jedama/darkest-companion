@@ -33,6 +33,18 @@ interface BaseStrategyDefinition {
   description: string;
   direction: StrategyDirection;
   defaultWeight?: number;
+  /**
+   * How much this strategy relaxes -- or, if negative, sharpens -- the
+   * composition's consistency penalty (0.5 x stdDev of active party scores).
+   * A percentage: 100 means "if this strategy were the doctrine's entire
+   * weight budget, the penalty would vanish"; -100 is the mirror image,
+   * doubling it. Its actual pull is that ceiling scaled by its SHARE of the
+   * room's total active weight (see computeEffectiveConsistencyWeight in
+   * expeditionPlanner.ts), not by its raw weight alone -- the same weight
+   * means less in a crowded doctrine and more in a sparse one.
+   * Absent = 0 = no opinion, same as every strategy today.
+   */
+  consistencyLift?: number;
 }
 
 interface PartyStrategyDefinition extends BaseStrategyDefinition {
