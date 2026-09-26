@@ -47,6 +47,11 @@ function totalActiveWeight(weights: Required<StrategyWeights>): number {
  * construction, that clamp only ever bites a `consistencyLift` set outside
  * its -100..100 convention -- it's a safety net, not a normal ceiling.
  *
+ * Because blendDoctrine SUMS every attendee's vector (defaults included),
+ * the numerator and the denominator both scale with attendance, so a lifting
+ * strategy's share of the room is roughly invariant to council size and a
+ * `consistencyLift` value can be tuned once rather than per-scenario.
+ *
  * Called once per optimization run (weights don't change between annealing
  * iterations), not inside analyzeComposition itself.
  */
@@ -334,7 +339,7 @@ export function generateScoringStatistics(
 /**
  * Calculates a unified score AND generates a detailed analysis object.
  */
-function analyzeComposition(
+export function analyzeComposition(
   composition: Composition,
   roster: CharacterRecord,
   weights: Required<StrategyWeights>,

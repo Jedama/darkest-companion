@@ -1,6 +1,6 @@
 // server/tests/_test_council.ts
 //
-// Self-executing, print-and-eyeball script (no assertions) against
+// Self-executing, mostly print-and-eyeball script against
 // `assemblePlanningCouncil` and `blendDoctrine` (council.ts). Rewritten from
 // scratch -- the previous version targeted `electNewCouncil`, a succession
 // function that no longer exists. The current module doesn't do succession
@@ -8,11 +8,15 @@
 // never overwritten here. What this computes fresh every call is who's
 // actually IN THE ROOM this month -- the de facto leader if the de jure one
 // can't attend, which seated councillors showed up, and who gets called in
-// as an advisor.
+// as an advisor. The doctrine-blending cases (TEST 7, and the scale check
+// in TEST 8) print PASS/FAIL checks.
 
 import { assemblePlanningCouncil, blendDoctrine, PlanningCouncil } from '../services/townHall/council.js';
 import { Character, CharacterRecord, EstateLeadership, Estate, StrategyWeights } from '../../shared/types/types.js';
 import { loadEstate } from '../fileOps.js';
+import { analyzeComposition, generateScoringStatistics } from '../services/townHall/expeditionPlanner.js';
+import { generateDefaultWeights } from '../services/townHall/expeditionStrategies/strategyRegistry.js';
+import type { StrategyId } from '../../shared/constants/strategies.js';
 
 const TEST_ESTATE_NAME = '_test_estate';
 
@@ -117,6 +121,31 @@ function displayDoctrine(title: string, weights: StrategyWeights) {
     console.table(rows);
   }
   console.groupEnd();
+}
+
+// Checks print PASS/FAIL rather than throwing, so one miss doesn't hide the rest.
+function approx(a: number, b: number, eps = 1e-6): boolean {
+  return Math.abs(a - b) < eps * Math.max(1, Math.abs(b));
+}
+
+function check(label: string, ok: boolean) {
+  console.log(`  ${ok ? 'PASS' : 'FAIL'}  ${label}`);
+}
+
+function expectWeights(label: string, actual: StrategyWeights, expected: StrategyWeights) {
+  const keys = new Set([...Object.keys(actual), ...Object.keys(expected)]);
+  const wrong = [...keys].filter(k => !approx(actual[k as StrategyId] ?? NaN, expected[k as StrategyId] ?? NaN));
+  check(`${label}: matches the expected table${wrong.length ? ` (mismatched: ${wrong.join(', ')})` : ''}`,
+    wrong.length === 0);
+}
+
+function sumOf(weights: StrategyWeights, keys: string[]): number {
+  return keys.reduce((sum, k) => sum + (weights[k as StrategyId] ?? 0), 0);
+}
+
+/** A hand-built room, bypassing assemblePlanningCouncil's advisor selection. */
+function room(margrave: string, bursar: string, council: string[] = [], advisors: string[] = []): PlanningCouncil {
+  return { margrave, bursar, council, advisors, margraveIsActing: false, bursarIsActing: false, absent: [] };
 }
 
 // ==================================
@@ -252,25 +281,104 @@ async function runTests() {
   }
 
   // --- TEST CASE 7: Blending the Room's Doctrine ---
-  // Expected: 'maximizeCommandClarity_heiress' is the Heiress's alone (nobody
-  // else names it) and should arrive close to her own 10, not diluted by table
-  // size. 'minimizeLevelHardship' is named by both Heiress (clout 1.25) and
-  // Kheir (clout 1.1) at different weights, so it should land at their
-  // clout-weighted average: (20*1.25 + 10*1.1) / (1.25+1.1) ~= 15.32.
+  // blendDoctrine SUMS each attendee's personal complete vector (registry
+  // defaults overlaid with their own doctrine), with clout as the coefficient.
+  // Councils are built by hand so the chairs are exactly what each case says;
+  // assemblePlanningCouncil would call in advisors of its own.
+  // Clout: Margrave 1.25, Bursar 1.1, Councillor 1.0, Advisor 0.85.
   {
+    const heiressDoctrine: StrategyWeights = {
+      maximizeCommandClarity_heiress: 10,
+      minimizeLiabilityExposure: 6.5,
+      minimizeTacticalNonsense: 3,
+      minimizeDiscord: 3,
+    };
+    // Hypothetical -- used for this test only.
+    const arsonistDoctrine: StrategyWeights = {
+      minimizeChildVulnerability: 12,
+      minimizeChildVulnerability_arsonist: 9,
+      minimizeTacticalNonsense: 8,
+      minimizeLevelHardship: 5,
+    };
     const roster = createRoster([
-      createHero({ id: 'heiress', name: 'Heiress', level: 5, authority: 10, intelligence: 8,
-        strategyWeights: { maximizeCommandClarity_heiress: 10, minimizeLevelHardship: 20 } }),
-      createHero({ id: 'kheir', name: 'Kheir', level: 5, authority: 8, intelligence: 10,
-        strategyWeights: { minimizeLevelHardship: 10 } }),
-      createHero({ id: 'crusader', name: 'Crusader', level: 4, authority: 7, intelligence: 5,
-        strategyWeights: { maximizeAffinity: 5 } }),
+      createHero({ id: 'heiress', name: 'Heiress', strategyWeights: heiressDoctrine }),
+      createHero({ id: 'arsonist', name: 'Arsonist', strategyWeights: arsonistDoctrine }),
+      createHero({ id: 'blank_bursar', name: 'Blank Bursar' }),
+      createHero({ id: 'blank_c1', name: 'Blank Councillor 1' }),
+      createHero({ id: 'blank_c2', name: 'Blank Councillor 2' }),
+      createHero({ id: 'zero_margrave', name: 'Zero Margrave',
+        strategyWeights: { minimizeLevelHardship: 0 } }),
     ]);
-    const deJure = leadership('heiress', 'kheir', ['crusader']);
-    const council = assemblePlanningCouncil(deJure, roster);
-    const blended = blendDoctrine(council, roster);
-    displayCouncil('TEST 7: Blending the Room\'s Doctrine -- attendees', deJure, council, roster);
-    displayDoctrine('TEST 7: Blended weights', blended);
+
+    // --- 7A: Heiress as Margrave, one profile-less Bursar. Total clout 2.35.
+    const caseA = blendDoctrine(room('heiress', 'blank_bursar'), roster);
+    displayDoctrine('TEST 7A: Heiress + profile-less Bursar', caseA);
+    expectWeights('7A', caseA, {
+      minimizeLevelHardship: 35.25,
+      minimizeMarchingUnfitness: 35.25,
+      honorPartyIntents: 18.8,
+      maximizeCommandClarity_heiress: 12.5,
+      minimizeLiabilityExposure: 8.125,
+      maximizeAffinity: 7.05,
+      minimizeTacticalNonsense: 3.75,
+      minimizeDiscord: 3.75,
+      maximizeGameplaySynergy: 2.35,
+    });
+    check('7A: every value strictly positive', Object.values(caseA).every(w => (w ?? 0) > 0));
+
+    // --- 7B: as A, plus two profile-less Councillors. Total clout 4.35.
+    // Silent attendees vote for the institution and nothing else: the
+    // defaulted strategies grow by exactly 2 x default, personal ones don't move.
+    const caseB = blendDoctrine(room('heiress', 'blank_bursar', ['blank_c1', 'blank_c2']), roster);
+    displayDoctrine('TEST 7B: as 7A plus two profile-less Councillors', caseB);
+    const defaults = generateDefaultWeights();
+    const silentOnlyAddDefaults = Object.keys({ ...caseA, ...caseB }).every(key => {
+      const id = key as StrategyId;
+      const delta = (caseB[id] ?? 0) - (caseA[id] ?? 0);
+      return approx(delta, 2 * (defaults[id] ?? 0));
+    });
+    check('7B: silent Councillors add exactly 2x the defaults, nothing else', silentOnlyAddDefaults);
+    const floorB = sumOf(caseB, Object.keys(defaults).filter(k => defaults[k as StrategyId] > 0));
+    check(`7B: institutional floor = 182.7 (got ${floorB.toFixed(3)})`, approx(floorB, 182.7));
+
+    // --- 7C: Heiress as Margrave, the hypothetical Arsonist as Bursar.
+    const caseC = blendDoctrine(room('heiress', 'arsonist'), roster);
+    displayDoctrine('TEST 7C: Heiress + Arsonist', caseC);
+    expectWeights('7C', caseC, {
+      minimizeMarchingUnfitness: 35.25,
+      // The dissenter drags the floor down by his standing and no further:
+      // 15*1.25 + 5*1.1. Not 5, and not 35.25.
+      minimizeLevelHardship: 24.25,
+      honorPartyIntents: 18.8,
+      minimizeChildVulnerability: 13.2,
+      // Two holders compound: 3*1.25 + 8*1.1. The old average gave ~5.7.
+      minimizeTacticalNonsense: 12.55,
+      maximizeCommandClarity_heiress: 12.5,
+      minimizeChildVulnerability_arsonist: 9.9,
+      minimizeLiabilityExposure: 8.125,
+      maximizeAffinity: 7.05,
+      minimizeDiscord: 3.75,
+      maximizeGameplaySynergy: 2.35,
+    });
+
+    // --- 7D: An empty council returns {} so defineWeights supplies bare defaults.
+    const empty = blendDoctrine(room('', ''), roster);
+    check('7D: empty council returns {}', Object.keys(empty).length === 0);
+
+    // --- 7E: Someone holding two chairs contributes one copy, at the higher clout.
+    const doubled = blendDoctrine(room('heiress', 'blank_bursar', ['blank_bursar']), roster);
+    check('7E: two-chair holder counted once, at Bursar clout',
+      approx(doubled.minimizeLevelHardship ?? 0, 35.25));
+
+    // --- 7F: Zero is a real vote. A lone Margrave who zeroes a defaulted
+    // strategy must come out at 0 -- not missing, or defineWeights would
+    // quietly refill it with the default 15.
+    const zeroed = blendDoctrine(room('zero_margrave', ''), roster);
+    check('7F: lone zero vote survives as an explicit 0',
+      'minimizeLevelHardship' in zeroed && zeroed.minimizeLevelHardship === 0);
+    const zeroOutvoted = blendDoctrine(room('zero_margrave', 'blank_bursar'), roster);
+    check('7F: zero vote only removes its own copy (15 * 1.1 = 16.5)',
+      approx(zeroOutvoted.minimizeLevelHardship ?? 0, 16.5));
   }
 
   // --- TEST CASE 8: Live Roster from `_test_estate.json` ---
@@ -284,6 +392,26 @@ async function runTests() {
     displayCouncil('TEST 8: Live Roster', liveEstate.leadership, council, liveEstate.characters);
     const blended = blendDoctrine(council, liveEstate.characters);
     displayDoctrine('TEST 8: Live Roster -- blended doctrine', blended);
+
+    // Scale invariance. Summing inflates the absolute weights with attendance;
+    // that must not matter to the planner. Score a fixed composition against
+    // fixed stats with the blend at x1 and x3: every score should scale by
+    // exactly 3, so no comparison between compositions can flip. (Asserting
+    // on findOptimalArrangement's pick instead would be flaky -- the annealer
+    // is unseeded.)
+    const heroes = Object.keys(liveEstate.characters).slice(0, 8);
+    if (heroes.length === 8) {
+      const composition = [heroes.slice(0, 4), heroes.slice(4, 8)];
+      const stats = generateScoringStatistics(heroes, liveEstate.characters, 4, 500);
+      const scaled: StrategyWeights = {};
+      for (const [id, w] of Object.entries(blended)) scaled[id as StrategyId] = (w ?? 0) * 3;
+      const base = { ...generateDefaultWeights(), ...blended };
+      const triple = { ...generateDefaultWeights(), ...scaled };
+      const s1 = analyzeComposition(composition, liveEstate.characters, base, stats, 0.5);
+      const s3 = analyzeComposition(composition, liveEstate.characters, triple, stats, 0.5);
+      check(`8: tripling every weight triples the score (${s1.finalScore.toFixed(3)} -> ${s3.finalScore.toFixed(3)})`,
+        approx(s3.finalScore, 3 * s1.finalScore));
+    }
   }
 }
 
