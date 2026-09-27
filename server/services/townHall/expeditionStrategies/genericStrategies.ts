@@ -384,6 +384,82 @@ export function scorePartyByTacticalNonsense(party: Party, roster: CharacterReco
 }
 
 /**
+ * The four jobs in a party, one hero each. A hero can fill a role if they
+ * carry any tag in its bucket. The buckets are a design decision, not derived
+ * from anything; tags not listed here (Frontline, Scout, Stealther, Setup,
+ * Brink, personality and origin tags, ...) play no part.
+ */
+const ROLE_BUCKETS: readonly (readonly string[])[] = [
+  ['Tank', 'Guarder', 'Riposter'],                                        // DEF
+  ['Healer', 'StressHealer', 'Cleanser', 'Buffer', 'Physician'],          // SUP
+  ['HeavyHitter', 'Sweeper', 'Executor', 'ArmorPiercer', 'Reach', 'Crit',
+   'Bleeder', 'Blighter', 'Burner'],                                      // DMG
+  ['Debuffer', 'Disruptor', 'Stunner', 'Marker'],                         // CTL
+];
+const UNFILLED_PENALTY = 3.5;
+
+/** Every ordering of 0..n-1. Only ever called with n = 4 (24 orderings). */
+function permutations(n: number): number[][] {
+  if (n === 0) return [[]];
+  const result: number[][] = [];
+  for (const rest of permutations(n - 1)) {
+    for (let i = 0; i <= rest.length; i++) {
+      result.push([...rest.slice(0, i), n - 1, ...rest.slice(i)]);
+    }
+  }
+  return result;
+}
+const ROLE_ORDERINGS = permutations(ROLE_BUCKETS.length);
+
+/**
+ * [GENERIC] minimizeRoleAmbiguity -- does this team admit exactly one sensible
+ * reading of who does what?
+ *
+ * Not a property of heroes but of the party. A Plague Doctor with no other
+ * healer beside her is plainly the healer; the same Plague Doctor beside a
+ * Vestal and an Occultist is a question mark. So: count the complete ways to
+ * give each hero a different role (the permanent of the 4x4 can-fill matrix).
+ * One means the team is determined before it leaves the gate; many means it
+ * gets sorted out under pressure; zero means some role has nobody for it.
+ *
+ * - Brute force over the 24 orderings: party size is fixed at 4, and anything
+ *   cleverer is harder to read for no gain.
+ * - log2, not the raw count: one reading versus two is categorical, ten
+ *   versus twelve is nothing. 0 = determined, 1 = two readings, 2.58 = the
+ *   typical six, 4.58 = total mush.
+ * - UNFILLED_PENALTY (3.5) sits between eight and twelve readings: a party
+ *   with a hole in it is bad, but not worse than one with no idea what it is
+ *   doing. A real score on the same scale, not a sentinel.
+ * - One hero per role is load-bearing. Letting two heroes share a role would
+ *   let nearly every party admit many readings and the score would stop
+ *   discriminating. It also means "unfilled role" and "redundant hero" are the
+ *   same condition (two pure damage dealers can't both have a job), so there
+ *   is no separate redundancy term.
+ * - A hero with no role-bearing tags makes the whole party unfilled. None
+ *   exist today; if one does, that is correct -- they genuinely have no job.
+ *
+ * Measures whether roles are ASSIGNABLE, not whether the assignment is GOOD:
+ * a party whose only reading puts its best damage dealer on support scores
+ * as perfectly determined. That is intended -- maximizeGameplaySynergy judges
+ * whether a plan is any good; this judges whether it has a branch in it.
+ */
+export function scorePartyByRoleAmbiguity(party: Party, roster: CharacterRecord): number {
+  if (party.length !== ROLE_BUCKETS.length) return 0;
+
+  const canFill = party.map(id => {
+    const tags = roster[id]?.tags ?? [];
+    return ROLE_BUCKETS.map(bucket => bucket.some(tag => tags.includes(tag)));
+  });
+
+  let assignments = 0;
+  for (const ordering of ROLE_ORDERINGS) {
+    if (ordering.every((role, heroIndex) => canFill[heroIndex][role])) assignments++;
+  }
+
+  return assignments === 0 ? UNFILLED_PENALTY : Math.log2(assignments);
+}
+
+/**
  * [GENERIC] Maximizes the effectiveness of a "dedicated protector" party structure.
  *
  * This strategy is based on the philosophy that a party's defensive strength is

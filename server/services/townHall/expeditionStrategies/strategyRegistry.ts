@@ -181,6 +181,16 @@ export const STRATEGY_REGISTRY = [
     scope: 'party',
     scorer: generic.scorePartyByChildVulnerability,
   },
+  {
+    // No defaultWeight: opt-in. "Every hero has one job and no two share it"
+    // is a strong tactical opinion, not an institutional baseline.
+    identifier: 'minimizeRoleAmbiguity',
+    name: 'Role Ambiguity',
+    description: 'Prefers parties where every hero has one obvious job. Versatility is not the problem; versatility nobody has resolved before the gate closes is.',
+    direction: 'minimize',
+    scope: 'party',
+    scorer: generic.scorePartyByRoleAmbiguity,
+  },
 
   // --- Generic Composition Strategies ---
   {

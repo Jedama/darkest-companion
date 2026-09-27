@@ -30,6 +30,7 @@ export const STRATEGY_IDS = [
   'minimizeFactionRisk',
   'honorPartyIntents',
   'minimizeChildVulnerability',
+  'minimizeRoleAmbiguity',
 
   // --- Generic composition strategies ---
   'balanceAuthority',
