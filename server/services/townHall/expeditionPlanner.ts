@@ -14,7 +14,7 @@ import {
 } from './expeditionStrategies/index.js';
 import { isStrategyId } from '../../../shared/constants/strategies.js';
 import type { StrategyContext } from '../../../shared/types/types.js';
-import { computeActivePartyCount, imagineTypicalCondition } from './fitness.js';
+import { computeActivePartyCount, imagineRoughCondition } from './fitness.js';
 
 // --- DEBUG INFORMATION TYPES ---
 // These types structure the detailed breakdown of the scoring.
@@ -291,7 +291,7 @@ export function generateScoringStatistics(
   sampleSize: number,
   numPartiesToSample?: number,
   ctx?: StrategyContext,
-  imagineOtherMonths: boolean = false
+  imagineRoughMonths: boolean = false
 ): PartyScoringStatistics {
   const rawScores: { [id: string]: number[] } = {};
   ALL_STRATEGIES.forEach(s => rawScores[s.identifier] = []);  
@@ -307,11 +307,11 @@ export function generateScoringStatistics(
     // Each sample gets its own imagined month; only the heroes this sample
     // actually uses need re-rolling.
     let sampleRoster = roster;
-    if (imagineOtherMonths) {
+    if (imagineRoughMonths) {
       sampleRoster = { ...roster };
       for (const id of shuffled.slice(0, Math.max(partySize, numHeroesToUse))) {
         const hero = roster[id];
-        if (hero) sampleRoster[id] = imagineTypicalCondition(hero);
+        if (hero) sampleRoster[id] = imagineRoughCondition(hero);
       }
     }
 
@@ -350,20 +350,25 @@ export function generateScoringStatistics(
 
 /**
  * The stats a strategy's raw score is normalized with: this month's MEAN, but
- * the SPREAD of the same roster across imagined ordinary months.
+ * the SPREAD of the same roster across imagined rough months.
  *
  * Normalizing by this month's own spread grades every strategy on a curve: a
  * strategy whose score barely varies this month (the fitness-based ones on a
  * healthy month) has its tiny differences stretched to full size, so it
  * pushes as hard over nothing as it does over a real crisis. Measuring the
- * spread across typical months instead keeps a small difference small and
- * lets a bad month be louder than usual.
+ * spread across deliberately rough months instead (see imagineRoughCondition
+ * in fitness.ts) gives a fixed point of contrast: a healthy month's small
+ * differences stay small, and a month as bad as the rough one speaks at full
+ * weight.
  *
  * Only strategies that read hero condition are affected in practice. For
  * everything else (relationships, tags, levels) the imagined months are the
  * same as this one, so both spreads come out the same up to sampling noise.
  * The mean never affects which arrangement wins -- it shifts every candidate
  * equally -- so it is simply taken from this month.
+ *
+ * The contrast pass only needs a spread, not a precise one, so it runs on a
+ * quarter of the samples.
  */
 export function generateNormalizationStatistics(
   availableHeroes: string[],
@@ -373,14 +378,16 @@ export function generateNormalizationStatistics(
   numPartiesToSample?: number,
   ctx?: StrategyContext
 ): PartyScoringStatistics {
+  const MIN_CONTRAST_SAMPLES = 500;
+  const contrastSampleSize = Math.max(MIN_CONTRAST_SAMPLES, Math.round(sampleSize / 4));
   const thisMonth = generateScoringStatistics(availableHeroes, roster, partySize, sampleSize, numPartiesToSample, ctx);
-  const otherMonths = generateScoringStatistics(availableHeroes, roster, partySize, sampleSize, numPartiesToSample, ctx, true);
+  const roughMonths = generateScoringStatistics(availableHeroes, roster, partySize, contrastSampleSize, numPartiesToSample, ctx, true);
 
   const statistics = {} as PartyScoringStatistics;
   for (const strategy of ALL_STRATEGIES) {
     statistics[strategy.identifier] = {
       mean: thisMonth[strategy.identifier].mean,
-      stdDev: otherMonths[strategy.identifier].stdDev,
+      stdDev: roughMonths[strategy.identifier].stdDev,
     };
   }
   return statistics;
