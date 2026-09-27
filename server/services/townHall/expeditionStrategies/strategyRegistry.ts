@@ -200,6 +200,17 @@ export const STRATEGY_REGISTRY = [
     scorer: generic.scoreCompositionByMarchingUnfitness,
     defaultWeight: 15,
   },
+  {
+    // No defaultWeight: opt-in only. This is a view some characters hold,
+    // not the hamlet's institutional position -- half the roster would find
+    // it monstrous.
+    identifier: 'maximizeTriageOdds',
+    name: 'Triage Odds',
+    description: 'When the hamlet cannot field sound teams, concentrate the damage rather than spread it: better three parties that come home and one that does not than four that are all a coin toss.',
+    direction: 'maximize',
+    scope: 'composition',
+    scorer: generic.scoreCompositionByTriageOdds,
+  },
   
   // --- Character-Specific Strategies ---
   {
@@ -284,6 +295,14 @@ export const STRATEGY_REGISTRY = [
     direction: 'maximize',
     scope: 'composition',
     scorer: character.scoreCompositionByQuarantinedHorrors_Heir,
+  },
+  {
+    identifier: 'maximizeTriageOdds_arsonist',
+    name: 'Triage Odds (Arsonist)',
+    description: 'If someone must be spent, let it be the ones who had it coming -- and never a child.',
+    direction: 'maximize',
+    scope: 'composition',
+    scorer: character.scoreCompositionByTriageOdds_arsonist,
   }
 
 ] as const satisfies readonly StrategyDefinition[];

@@ -34,6 +34,7 @@ export const STRATEGY_IDS = [
   // --- Generic composition strategies ---
   'balanceAuthority',
   'minimizeMarchingUnfitness',
+  'maximizeTriageOdds',
 
   // --- Character-specific party strategies ---
   'maximizeCommandClarity_heiress',
@@ -48,6 +49,7 @@ export const STRATEGY_IDS = [
 
   // --- Character-specific composition strategies ---
   'maximizeQuarantinedHorrors_kheir',
+  'maximizeTriageOdds_arsonist',
 ] as const;
 
 /** The union of every legal strategy identifier. */

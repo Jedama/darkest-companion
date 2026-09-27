@@ -519,6 +519,84 @@ export function scoreCompositionByMarchingUnfitness(composition: Composition, ro
 }
 
 
+// --- Triage ---
+// Shared with maximizeTriageOdds_arsonist (characterStrategies.ts).
+
+const HERO_MIDPOINT = 0.5;   // fitness at which a hero is even odds to come home
+const HERO_STEEP = 8;
+const PARTY_MIDPOINT = 0.5;  // odds at which a party is worth protecting
+const PARTY_STEEP = 8;
+
+function sigmoid(x: number, midpoint: number, steepness: number): number {
+  return 1 / (1 + Math.exp(-steepness * (x - midpoint)));
+}
+
+/**
+ * The odds one hero comes home, from `heroFitness` -- the same measure
+ * computeActivePartyCount uses to decide how many parties march. Do not build
+ * a second fitness measure for triage.
+ */
+export function heroSurvival(hero: Character): number {
+  return sigmoid(heroFitness(hero), HERO_MIDPOINT, HERO_STEEP);
+}
+
+/**
+ * The odds EVERYONE in the party comes home: the product of heroSurvival.
+ *
+ * The product is load-bearing. A sum or mean hides weak links: four heroes at
+ * 0.825 and three at 1.0 plus one at 0.3 total the same, but only one of those
+ * teams has a casualty waiting. With a sum, six healthy heroes plus two wrecked
+ * ones score identically across every arrangement -- the one case most
+ * obviously calling for triage.
+ */
+export function partyOdds(party: Party, roster: CharacterRecord): number {
+  let odds = 1;
+  for (const id of party) {
+    const hero = roster[id];
+    if (!hero) continue;
+    odds *= heroSurvival(hero);
+  }
+  return odds;
+}
+
+/**
+ * What a party's odds are worth. The second sigmoid is what makes triage
+ * CONDITIONAL. A sigmoid is concave above its midpoint and convex below it;
+ * summing a concave function rewards balance, summing a convex one rewards
+ * concentration. So with no branch or threshold, triage prefers balanced
+ * teams while every party is above even odds, and flips to writing one off
+ * once parties fall below. The midpoint is absolute -- "is this team more
+ * likely than not to all come home?" -- so it needs no calibration against
+ * typical rosters.
+ */
+export function triageGate(odds: number): number {
+  return sigmoid(odds, PARTY_MIDPOINT, PARTY_STEEP);
+}
+
+/**
+ * maximizeTriageOdds -- when the hamlet cannot field sound teams, concentrate
+ * the damage rather than spread it. Better three parties that come home and
+ * one that doesn't than four that are all a coin toss.
+ *
+ * Does not pick the scapegoats; the annealer does. This only says which
+ * arrangements are good. Where minimizeMarchingUnfitness decides WHO marches,
+ * this decides how those who march anyway are grouped.
+ *
+ * The `< 2` guard is not a null check. With one party there is nothing to
+ * distribute across, and the score would collapse into "maximize this
+ * party's odds" -- a second, weaker vote for benching the unfit, which
+ * minimizeMarchingUnfitness already casts. Silent instead.
+ */
+export function scoreCompositionByTriageOdds(composition: Composition, roster: CharacterRecord): number {
+  if (composition.length < 2) return 0;
+
+  let total = 0;
+  for (const party of composition) {
+    total += triageGate(partyOdds(party, roster));
+  }
+  return total;
+}
+
 export function scoreCompositionByAuthorityBalance(composition: Composition, roster: CharacterRecord): number {
   if (composition.length < 2) return 0;
 

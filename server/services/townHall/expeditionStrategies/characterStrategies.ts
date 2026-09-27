@@ -10,7 +10,7 @@ import { NEUTRAL_AFFINITY, MAX_AFFINITY } from '../../../../shared/constants/rel
 import { PARTY_SIZE } from '../../../../shared/constants/expedition.js';
 import { Party, Composition } from '../expeditionPlanner.js';
 import { countTag } from './strategyUtils.js';
-import { calculateHaulValue, detectBlocs, BASE_CHILD_EXPOSURE, escortSupply } from './genericStrategies.js';
+import { calculateHaulValue, detectBlocs, BASE_CHILD_EXPOSURE, escortSupply, partyOdds, triageGate } from './genericStrategies.js';
 
 // ===================================================================
 // HEIRESS (PERSEPHONE) - STRATEGIES
@@ -663,4 +663,60 @@ export function scorePartyByChildVulnerability_arsonist(party: Party, roster: Ch
 
   const floor = IRREDUCIBLE_SHARE * demand;
   return floor + Math.max(0, (demand - floor) - escortSupply(party, roster));
+}
+
+/**
+ * [CHARACTER-SPECIFIC] The Arsonist's triage: if someone must be spent, let it
+ * be the ones who had it coming -- and never a child.
+ *
+ * The generic triage score per party is its gate, i.e. 1 - doom. Here doom is
+ * scaled by how little the party deserves it (`desert`); with desert 1 this is
+ * exactly the generic. Because doom is near zero for every party on a healthy
+ * month, the moral term is inert unless a party is actually being written off:
+ * he only becomes a judge once someone is being sacrificed anyway.
+ *
+ *  - He never judges himself. He carries Criminal and Immoral; counting them
+ *    would sort him into the write-off team, and his team is by definition
+ *    the competent one. Same rule as the Claimants' scorer.
+ *  - Criminal and Immoral stack. Criminal is the closer fit to what he
+ *    punishes (preying on the living), Immoral the broader wash.
+ *  - Just is soft on purpose: the upright are obstacles, not enemies. He would
+ *    feel bad about it and do it anyway. Keep it well below Criminal.
+ *  - DESERT_FLOOR stops a party of the damned from dying for free, which would
+ *    have him manufacturing sacrifices. He accepts the price; he does not
+ *    enjoy it.
+ *  - The child clause is not minimizeChildVulnerability_arsonist again. That
+ *    one objects to children marching at all; this one says only: not in the
+ *    sacrifice. Gated by doom, a child in a safe party triggers nothing here.
+ */
+export function scoreCompositionByTriageOdds_arsonist(composition: Composition, roster: CharacterRecord): number {
+  const CRIMINAL_RELIEF = 0.12;
+  const IMMORAL_RELIEF = 0.07;
+  const JUST_RELIEF = 0.04;
+  const CHILD_PENALTY = 1.20;
+  const DESERT_FLOOR = 0.40;
+  const DESERT_CEILING = 3.00;
+
+  // Same guard, same reason as the generic scoreCompositionByTriageOdds.
+  if (composition.length < 2) return 0;
+
+  let total = 0;
+  for (const party of composition) {
+    const doom = 1 - triageGate(partyOdds(party, roster));
+
+    let desert = 1;
+    for (const id of party) {
+      if (id === ARSONIST_ID) continue;
+      const hero = roster[id];
+      if (!hero) continue;
+      if (hero.tags.includes('Criminal')) desert -= CRIMINAL_RELIEF;
+      if (hero.tags.includes('Immoral')) desert -= IMMORAL_RELIEF;
+      if (hero.tags.includes('Just')) desert -= JUST_RELIEF;
+      if (hero.tags.includes('Child')) desert += CHILD_PENALTY;
+    }
+    desert = Math.max(DESERT_FLOOR, Math.min(DESERT_CEILING, desert));
+
+    total += 1 - doom * desert;
+  }
+  return total;
 }
