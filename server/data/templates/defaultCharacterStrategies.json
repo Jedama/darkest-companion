@@ -4,5 +4,14 @@
     "minimizeLiabilityExposure": 6.5,
     "minimizeTacticalNonsense": 3,
     "minimizeDiscord": 3
+  },
+  "arsonist": {
+    "minimizeChildVulnerability_arsonist": 10,
+    "minimizeRoleAmbiguity": 8,
+    "maximizeTriageOdds_arsonist": 8,
+    "minimizeTacticalNonsense": 2.5,
+    "minimizeMarchingUnfitness": 9,
+    "honorPartyIntents": 4,
+    "maximizeAffinity": 0
   }
 }

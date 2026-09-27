@@ -17,6 +17,7 @@ import { loadEstate } from '../fileOps.js';
 import StaticGameDataManager from '../staticGameDataManager.js';
 import { analyzeComposition, generateScoringStatistics } from '../services/townHall/expeditionPlanner.js';
 import { generateDefaultWeights } from '../services/townHall/expeditionStrategies/strategyRegistry.js';
+import { isStrategyId } from '../../shared/constants/strategies.js';
 import type { StrategyId } from '../../shared/constants/strategies.js';
 
 const TEST_ESTATE_NAME = '_test_estate';
@@ -381,6 +382,51 @@ async function runTests() {
     const zeroOutvoted = blendDoctrine(room('zero_margrave', 'blank_bursar'), doctrineOf);
     check('7F: zero vote only removes its own copy (15 * 1.1 = 16.5)',
       approx(zeroOutvoted.minimizeLevelHardship ?? 0, 16.5));
+  }
+
+  // --- TEST CASE 9: The real doctrines (defaultCharacterStrategies.json) ---
+  // Read the same way the planning route reads them.
+  {
+    console.log('\n--- TEST 9: The real doctrines ---');
+    const realDoctrineOf = (id: string) => gameData.getCharacterDoctrine(id);
+    const defaults = generateDefaultWeights();
+
+    // Every id in every doctrine must be a real strategy, or defineWeights
+    // warns and silently drops the weight.
+    const unknown = Object.keys(gameData.getCharacterTemplates()).flatMap(id =>
+      Object.keys(realDoctrineOf(id)).filter(key => !isStrategyId(key)).map(key => `${id}.${key}`));
+    check(`9: no unknown strategy ids in any doctrine (${unknown.join(', ') || 'none'})`, unknown.length === 0);
+
+    // Personal mass: the new opinions only (strategies with no default).
+    const personalMass = (id: string) => Object.entries(realDoctrineOf(id))
+      .filter(([key]) => (defaults[key as StrategyId] ?? 0) === 0)
+      .reduce((sum, [, w]) => sum + (w ?? 0), 0);
+    check(`9: personal mass -- Arsonist ${personalMass('arsonist')} (spec 28.5), Heiress ${personalMass('heiress')} (spec 22.5)`,
+      personalMass('arsonist') === 28.5 && personalMass('heiress') === 22.5);
+
+    // The Arsonist alone, as Margrave (clout 1.25): his seven entries plus the
+    // defaults, all at his clout. Affinity is an explicit 0, not missing.
+    const alone = blendDoctrine(room('arsonist', ''), realDoctrineOf);
+    displayDoctrine('TEST 9: Arsonist alone, as Margrave', alone);
+    expectWeights('9: Arsonist alone', alone, {
+      minimizeChildVulnerability_arsonist: 12.5,
+      minimizeRoleAmbiguity: 10,
+      maximizeTriageOdds_arsonist: 10,
+      minimizeTacticalNonsense: 3.125,
+      minimizeMarchingUnfitness: 11.25,   // 9 x 1.25, not 15 x 1.25
+      honorPartyIntents: 5,
+      maximizeAffinity: 0,
+      minimizeLevelHardship: 18.75,
+      maximizeGameplaySynergy: 1.25,
+    });
+    check('9: maximizeAffinity is present at exactly 0', 'maximizeAffinity' in alone && alone.maximizeAffinity === 0);
+
+    // Heiress as Margrave, Arsonist as Bursar: tactical nonsense compounds,
+    // 3 x 1.25 + 2.5 x 1.1 = 6.5, rather than averaging to 2.75.
+    const both = blendDoctrine(room('heiress', 'arsonist'), realDoctrineOf);
+    displayDoctrine('TEST 9: Heiress (Margrave) + Arsonist (Bursar)', both);
+    check(`9: minimizeTacticalNonsense compounds to 6.5 (got ${both.minimizeTacticalNonsense})`,
+      approx(both.minimizeTacticalNonsense ?? 0, 6.5));
   }
 
   // --- TEST CASE 8: Live Roster from `_test_estate.json` ---
