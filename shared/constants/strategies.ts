@@ -3,9 +3,9 @@
  * @file The single source of truth for strategy IDENTIFIERS.
  *
  * The scorer implementations live server-side in
- * `server/services/townHall/expeditionStrategies/`, but `shared/types/types.ts`
- * needs to type `Character.strategyWeights` and cannot import from `server/`.
- * So the names live here and the registry is checked against them.
+ * `server/services/townHall/expeditionStrategies/`. The names live here so
+ * code outside `server/` can type strategy weights, and the registry is
+ * checked against them.
  *
  * ADDING A STRATEGY — two steps, and the compiler enforces the second:
  *   1. Add the identifier to STRATEGY_IDS below.

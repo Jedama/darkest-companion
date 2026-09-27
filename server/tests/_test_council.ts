@@ -14,6 +14,7 @@
 import { assemblePlanningCouncil, blendDoctrine, PlanningCouncil } from '../services/townHall/council.js';
 import { Character, CharacterRecord, EstateLeadership, Estate, StrategyWeights } from '../../shared/types/types.js';
 import { loadEstate } from '../fileOps.js';
+import StaticGameDataManager from '../staticGameDataManager.js';
 import { analyzeComposition, generateScoringStatistics } from '../services/townHall/expeditionPlanner.js';
 import { generateDefaultWeights } from '../services/townHall/expeditionStrategies/strategyRegistry.js';
 import type { StrategyId } from '../../shared/constants/strategies.js';
@@ -36,7 +37,6 @@ interface HeroSpec {
   affliction?: string;
   physical?: number;
   mental?: number;
-  strategyWeights?: StrategyWeights;
 }
 
 /** Fills in the minimum a Character needs to be meaningful to council.ts. */
@@ -79,7 +79,6 @@ function createHero(spec: HeroSpec): Character {
     },
     relationships: {},
     locations: { residence: [], workplaces: [], frequents: [] },
-    strategyWeights: spec.strategyWeights ?? {},
   };
 }
 
@@ -153,6 +152,10 @@ function room(margrave: string, bursar: string, council: string[] = [], advisors
 // ==================================
 
 async function runTests() {
+  // Doctrines are static game data, read the same way the planning route does.
+  const gameData = StaticGameDataManager.getInstance();
+  await gameData.initialize();
+
   console.log("\n========================================");
   console.log("==   RUNNING COUNCIL ASSEMBLY TESTS   ==");
   console.log("========================================\n");
@@ -300,18 +303,17 @@ async function runTests() {
       minimizeTacticalNonsense: 8,
       minimizeLevelHardship: 5,
     };
-    const roster = createRoster([
-      createHero({ id: 'heiress', name: 'Heiress', strategyWeights: heiressDoctrine }),
-      createHero({ id: 'arsonist', name: 'Arsonist', strategyWeights: arsonistDoctrine }),
-      createHero({ id: 'blank_bursar', name: 'Blank Bursar' }),
-      createHero({ id: 'blank_c1', name: 'Blank Councillor 1' }),
-      createHero({ id: 'blank_c2', name: 'Blank Councillor 2' }),
-      createHero({ id: 'zero_margrave', name: 'Zero Margrave',
-        strategyWeights: { minimizeLevelHardship: 0 } }),
-    ]);
+    // blendDoctrine only needs a doctrine lookup, not heroes. Anyone absent
+    // from this map (blank_bursar, blank_c1, blank_c2) has no doctrine.
+    const doctrines: Record<string, StrategyWeights> = {
+      heiress: heiressDoctrine,
+      arsonist: arsonistDoctrine,
+      zero_margrave: { minimizeLevelHardship: 0 },
+    };
+    const doctrineOf = (id: string) => doctrines[id];
 
     // --- 7A: Heiress as Margrave, one profile-less Bursar. Total clout 2.35.
-    const caseA = blendDoctrine(room('heiress', 'blank_bursar'), roster);
+    const caseA = blendDoctrine(room('heiress', 'blank_bursar'), doctrineOf);
     displayDoctrine('TEST 7A: Heiress + profile-less Bursar', caseA);
     expectWeights('7A', caseA, {
       minimizeLevelHardship: 35.25,
@@ -329,7 +331,7 @@ async function runTests() {
     // --- 7B: as A, plus two profile-less Councillors. Total clout 4.35.
     // Silent attendees vote for the institution and nothing else: the
     // defaulted strategies grow by exactly 2 x default, personal ones don't move.
-    const caseB = blendDoctrine(room('heiress', 'blank_bursar', ['blank_c1', 'blank_c2']), roster);
+    const caseB = blendDoctrine(room('heiress', 'blank_bursar', ['blank_c1', 'blank_c2']), doctrineOf);
     displayDoctrine('TEST 7B: as 7A plus two profile-less Councillors', caseB);
     const defaults = generateDefaultWeights();
     const silentOnlyAddDefaults = Object.keys({ ...caseA, ...caseB }).every(key => {
@@ -342,7 +344,7 @@ async function runTests() {
     check(`7B: institutional floor = 182.7 (got ${floorB.toFixed(3)})`, approx(floorB, 182.7));
 
     // --- 7C: Heiress as Margrave, the hypothetical Arsonist as Bursar.
-    const caseC = blendDoctrine(room('heiress', 'arsonist'), roster);
+    const caseC = blendDoctrine(room('heiress', 'arsonist'), doctrineOf);
     displayDoctrine('TEST 7C: Heiress + Arsonist', caseC);
     expectWeights('7C', caseC, {
       minimizeMarchingUnfitness: 35.25,
@@ -362,21 +364,21 @@ async function runTests() {
     });
 
     // --- 7D: An empty council returns {} so defineWeights supplies bare defaults.
-    const empty = blendDoctrine(room('', ''), roster);
+    const empty = blendDoctrine(room('', ''), doctrineOf);
     check('7D: empty council returns {}', Object.keys(empty).length === 0);
 
     // --- 7E: Someone holding two chairs contributes one copy, at the higher clout.
-    const doubled = blendDoctrine(room('heiress', 'blank_bursar', ['blank_bursar']), roster);
+    const doubled = blendDoctrine(room('heiress', 'blank_bursar', ['blank_bursar']), doctrineOf);
     check('7E: two-chair holder counted once, at Bursar clout',
       approx(doubled.minimizeLevelHardship ?? 0, 35.25));
 
     // --- 7F: Zero is a real vote. A lone Margrave who zeroes a defaulted
     // strategy must come out at 0 -- not missing, or defineWeights would
     // quietly refill it with the default 15.
-    const zeroed = blendDoctrine(room('zero_margrave', ''), roster);
+    const zeroed = blendDoctrine(room('zero_margrave', ''), doctrineOf);
     check('7F: lone zero vote survives as an explicit 0',
       'minimizeLevelHardship' in zeroed && zeroed.minimizeLevelHardship === 0);
-    const zeroOutvoted = blendDoctrine(room('zero_margrave', 'blank_bursar'), roster);
+    const zeroOutvoted = blendDoctrine(room('zero_margrave', 'blank_bursar'), doctrineOf);
     check('7F: zero vote only removes its own copy (15 * 1.1 = 16.5)',
       approx(zeroOutvoted.minimizeLevelHardship ?? 0, 16.5));
   }
@@ -390,7 +392,7 @@ async function runTests() {
     console.log(`  Loaded ${Object.keys(liveEstate.characters).length} heroes for the live smoke test.`);
     const council = assemblePlanningCouncil(liveEstate.leadership, liveEstate.characters);
     displayCouncil('TEST 8: Live Roster', liveEstate.leadership, council, liveEstate.characters);
-    const blended = blendDoctrine(council, liveEstate.characters);
+    const blended = blendDoctrine(council, (id) => gameData.getCharacterDoctrine(id));
     displayDoctrine('TEST 8: Live Roster -- blended doctrine', blended);
 
     // Scale invariance. Summing inflates the absolute weights with attendance;

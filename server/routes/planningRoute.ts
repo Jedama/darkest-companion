@@ -20,6 +20,7 @@ import {
   type ConsequencesResult,
 } from '../services/llm/llmResponseProcessor.js';
 import { assemblePlanningCouncil, blendDoctrine } from '../services/townHall/council.js';
+import StaticGameDataManager from '../staticGameDataManager.js';
 import { findOptimalArrangement, formatDebugInfoForConsole } from '../services/townHall/expeditionPlanner.js';
 import { PARTY_SIZE } from '../../shared/constants/expedition.js';
 import type { StrategyContext } from '../../shared/types/types.js';
@@ -213,7 +214,8 @@ router.post(
 
     const council = assemblePlanningCouncil(estate.leadership, estate.characters);
     const margrave = estate.characters[council.margrave];
-    const customWeights = blendDoctrine(council, estate.characters);
+    const gameData = StaticGameDataManager.getInstance();
+    const customWeights = blendDoctrine(council, (id) => gameData.getCharacterDoctrine(id));
 
     const ctx: StrategyContext = {
       margrave: council.margrave,

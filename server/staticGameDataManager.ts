@@ -39,7 +39,6 @@ import { loadPromptsFromIndex } from './promptRegistry.js';
 
 // Import from the strategy registry. The registry is the ultimate source of truth
 // for all available strategies and their default values.
-import { generateDefaultWeights } from './services/townHall/expeditionStrategies/strategyRegistry.js';
 
 import { loadJsonFile, loadTextFile } from './fileOps.js';
 import { PROMPTS_DIR } from './paths.js';
@@ -115,12 +114,6 @@ class StaticGameDataManager {
   /* -------------------------------------------------------------------
    *  Character meta (non-template)
    * ------------------------------------------------------------------- */
-
-  /**
-   * Holds the complete set of default weights for ALL strategies.
-   * Generated directly from the `strategyRegistry` at startup.
-   */
-  private baseDefaultWeights: Record<string, number> = {};
 
   /**
    * Character-specific weight OVERRIDES loaded from JSON.
@@ -239,7 +232,6 @@ class StaticGameDataManager {
       this.characterWeightOverrides = characterWeightOverrides;
       this.characterPoses = characterPoses;
 
-      this.baseDefaultWeights = generateDefaultWeights() as Record<string, number>;
 
       // World
       this.locations = locations;
@@ -345,18 +337,20 @@ class StaticGameDataManager {
   }
 
   /* -------------------------------------------------------------------
-   *  Character meta (strategy weights)
+   *  Character meta (doctrine)
    * ------------------------------------------------------------------- */
 
-  public getStrategiesForCharacter(characterId: string): StrategyWeights {
+  /**
+   * A character's doctrine: only the strategy weights they personally hold,
+   * with no defaults mixed in. Read fresh at every planning meeting rather
+   * than copied onto the saved Character, so edits to
+   * defaultCharacterStrategies.json and to registry defaults reach existing
+   * estates. Defaults are layered underneath by blendDoctrine (council.ts).
+   * Unknown ids are passed through so defineWeights can warn about them.
+   */
+  public getCharacterDoctrine(characterId: string): StrategyWeights {
     this.ensureInitialized();
-
-    const finalWeights = { ...this.baseDefaultWeights };
-    const overrides = this.characterWeightOverrides[characterId];
-
-    if (overrides) Object.assign(finalWeights, overrides);
-
-    return finalWeights;
+    return { ...(this.characterWeightOverrides[characterId] ?? {}) } as StrategyWeights;
   }
 
   /**

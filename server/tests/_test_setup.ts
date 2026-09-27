@@ -92,7 +92,6 @@ function createCharacterFromTemplate(
       workplaces: [],
       frequents: [],
     },
-    strategyWeights: gameData.getStrategiesForCharacter(template.identifier),
   };
 }
 

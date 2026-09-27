@@ -74,7 +74,7 @@ export function addCharacterToEstate(
   }
 
   // 1. Instantiate the new character
-  const newChar = createCharacterFromTemplate(template, gameData);
+  const newChar = createCharacterFromTemplate(template);
   
   // 2. Filter new character's relationships to ONLY targets currently in the estate
   const filteredNewCharRelationships: Record<string, CharacterRelationship> = {};
@@ -162,7 +162,7 @@ export async function createNewEstateAndSave(
       .map((id) => {
         const template = characterTemplates[id];
         if (!template) return null;
-        return [id, createCharacterFromTemplate(template, gameData)];
+        return [id, createCharacterFromTemplate(template)];
       })
       .filter((entry): entry is [string, Character] => entry !== null)
   );

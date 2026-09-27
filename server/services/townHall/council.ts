@@ -493,6 +493,11 @@ const INSTITUTIONAL_DEFAULTS: StrategyWeights = Object.fromEntries(
  * expedition planner takes. Replaces "whatever the Margrave thinks", which is
  * what ran before this existed.
  *
+ * Doctrines are design content, not save data: `doctrineOf` looks each
+ * attendee's up fresh (the planning route passes
+ * StaticGameDataManager.getCharacterDoctrine), so edits to the doctrine file
+ * and to registry defaults reach existing estates.
+ *
  * Every attendee holds the institutional position by default: their doctrine is
  * laid over the registry defaults to form a PERSONAL COMPLETE VECTOR, and those
  * vectors are SUMMED with clout as the coefficient. An attendee with no doctrine
@@ -534,7 +539,7 @@ const INSTITUTIONAL_DEFAULTS: StrategyWeights = Object.fromEntries(
  */
 export function blendDoctrine(
   council: PlanningCouncil,
-  roster: CharacterRecord
+  doctrineOf: (characterId: string) => StrategyWeights | undefined
 ): StrategyWeights {
   const table: { ids: string[]; clout: number }[] = [
     { ids: [council.margrave], clout: DOCTRINE_CLOUT.MARGRAVE },
@@ -545,7 +550,7 @@ export function blendDoctrine(
 
   // Keyed by raw string, not StrategyId: an unknown identifier is passed
   // through so defineWeights can warn about it by name. Silently dropping it
-  // here would lose the only diagnostic a typo'd save file ever gets.
+  // here would lose the only diagnostic a typo'd doctrine file ever gets.
   const tally: Record<string, number> = {};
   const counted = new Set<string>();
 
@@ -559,7 +564,7 @@ export function blendDoctrine(
 
       const personal: Record<string, unknown> = {
         ...INSTITUTIONAL_DEFAULTS,
-        ...(roster[id]?.strategyWeights ?? {}),
+        ...(doctrineOf(id) ?? {}),
       };
 
       for (const [strategy, weight] of Object.entries(personal)) {

@@ -65,7 +65,6 @@ function createHero(id: string, fitness: number, tags: Tag[] = []): Character {
     },
     relationships: {},
     locations: { residence: [], workplaces: [], frequents: [] },
-    strategyWeights: {},
   };
 }
 
