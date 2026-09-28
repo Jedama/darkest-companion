@@ -33,6 +33,18 @@ interface BaseStrategyDefinition {
   description: string;
   direction: StrategyDirection;
   defaultWeight?: number;
+  /**
+   * How much this strategy relaxes -- or, if negative, sharpens -- the
+   * composition's consistency penalty (0.5 x stdDev of active party scores).
+   * A percentage: 100 means "if this strategy were the doctrine's entire
+   * weight budget, the penalty would vanish"; -100 is the mirror image,
+   * doubling it. Its actual pull is that ceiling scaled by its SHARE of the
+   * room's total active weight (see computeEffectiveConsistencyWeight in
+   * expeditionPlanner.ts), not by its raw weight alone -- the same weight
+   * means less in a crowded doctrine and more in a sparse one.
+   * Absent = 0 = no opinion, same as every strategy today.
+   */
+  consistencyLift?: number;
 }
 
 interface PartyStrategyDefinition extends BaseStrategyDefinition {
@@ -161,6 +173,24 @@ export const STRATEGY_REGISTRY = [
     scope: 'party',
     scorer: generic.scorePartyByFactionRisk,
   },
+  {
+    identifier: 'minimizeChildVulnerability',
+    name: 'Child Vulnerability',
+    description: 'A child in a dungeon is a failure. Enough escort answers for it; nothing else does.',
+    direction: 'minimize',
+    scope: 'party',
+    scorer: generic.scorePartyByChildVulnerability,
+  },
+  {
+    // No defaultWeight: opt-in. "Every hero has one job and no two share it"
+    // is a strong tactical opinion, not an institutional baseline.
+    identifier: 'minimizeRoleAmbiguity',
+    name: 'Role Ambiguity',
+    description: 'Prefers parties where every hero has one obvious job. Versatility is not the problem; versatility nobody has resolved before the gate closes is.',
+    direction: 'minimize',
+    scope: 'party',
+    scorer: generic.scorePartyByRoleAmbiguity,
+  },
 
   // --- Generic Composition Strategies ---
   {
@@ -172,13 +202,24 @@ export const STRATEGY_REGISTRY = [
     scorer: generic.scoreCompositionByAuthorityBalance,
   },
   {
-    identifier: 'balanceCondition',
-    name: 'Condition Distribution',
-    description: 'Balances the distribution of afflictions and virtues across parties to ensure no single party is overly burdened or empowered.',
+    identifier: 'minimizeMarchingUnfitness',
+    name: 'Marching Unfitness',
+    description: "Keeps the unfit off the roster that marches. The estate's first duty: a hero who should be resting does not go, and someone healthier goes instead.",
     direction: 'minimize',
     scope: 'composition',
-    scorer: generic.scoreCompositionByConditionBalance,
-    defaultWeight: 3,
+    scorer: generic.scoreCompositionByMarchingUnfitness,
+    defaultWeight: 15,
+  },
+  {
+    // No defaultWeight: opt-in only. This is a view some characters hold,
+    // not the hamlet's institutional position -- half the roster would find
+    // it monstrous.
+    identifier: 'maximizeTriageOdds',
+    name: 'Triage Odds',
+    description: 'When the hamlet cannot field sound teams, concentrate the damage rather than spread it: better three parties that come home and one that does not than four that are all a coin toss.',
+    direction: 'maximize',
+    scope: 'composition',
+    scorer: generic.scoreCompositionByTriageOdds,
   },
   
   // --- Character-Specific Strategies ---
@@ -189,14 +230,6 @@ export const STRATEGY_REGISTRY = [
     direction: 'maximize',
     scope: 'party',
     scorer: character.scorePartyByCommandClarity_Heiress,
-  },
-  {
-    identifier: 'maximizeChildGuardianship_cook',
-    name: 'Children Guardianship',
-    description: 'Ensures children are protected by capable guardians.',
-    direction: 'maximize',
-    scope: 'party',
-    scorer: character.scorePartyByChildGuardianship_Cook,
   },
   {
     identifier: 'maximizeSocialVitality_zenith',
@@ -255,6 +288,14 @@ export const STRATEGY_REGISTRY = [
     scope: 'party',
     scorer: character.scorePartyByFactionRisk_hqclaimants,
   },
+  {
+    identifier: 'minimizeChildVulnerability_arsonist',
+    name: 'Child Vulnerability (Arsonist)',
+    description: 'No child marches beside him, and no escort anywhere is ever quite enough.',
+    direction: 'minimize',
+    scope: 'party',
+    scorer: character.scorePartyByChildVulnerability_arsonist,
+  },
 
   // --- Character-Specific Composition Strategies ---
   {
@@ -264,6 +305,14 @@ export const STRATEGY_REGISTRY = [
     direction: 'maximize',
     scope: 'composition',
     scorer: character.scoreCompositionByQuarantinedHorrors_Heir,
+  },
+  {
+    identifier: 'maximizeTriageOdds_arsonist',
+    name: 'Triage Odds (Arsonist)',
+    description: 'If someone must be spent, let it be the ones who had it coming -- and never a child.',
+    direction: 'maximize',
+    scope: 'composition',
+    scorer: character.scoreCompositionByTriageOdds_arsonist,
   }
 
 ] as const satisfies readonly StrategyDefinition[];

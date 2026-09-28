@@ -227,7 +227,6 @@ export interface CharacterLocations {
 // Strategy identifiers live in shared/constants/strategies.ts so that both this
 // file and the server-side registry can depend on the same list without shared/
 // having to import from server/. Re-exported here for existing import sites.
-import type { StrategyWeights } from '../constants/strategies.js';
 export type { StrategyId, StrategyWeights } from '../constants/strategies.js';
 
 /* -------------------------------------------------------------------
@@ -272,7 +271,6 @@ export interface Character extends CharacterTemplate {
   status: CharacterStatus;
   relationships: Record<string, CharacterRelationship>;
   locations: CharacterLocations;
-  strategyWeights: StrategyWeights;
 }
 
 /* -------------------------------------------------------------------

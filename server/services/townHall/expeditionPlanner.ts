@@ -14,7 +14,7 @@ import {
 } from './expeditionStrategies/index.js';
 import { isStrategyId } from '../../../shared/constants/strategies.js';
 import type { StrategyContext } from '../../../shared/types/types.js';
-import { computeActivePartyCount } from './fitness.js';
+import { computeActivePartyCount, imagineRoughCondition } from './fitness.js';
 
 // --- DEBUG INFORMATION TYPES ---
 // These types structure the detailed breakdown of the scoring.
@@ -22,6 +22,55 @@ import { computeActivePartyCount } from './fitness.js';
 const CONSISTENCY_WEIGHT = 0.5; // Tunable constant for consistency penalty in scoring
 const MASTER_PARTY_WEIGHT = 1.0; // Master weight for party scores
 const MASTER_COMPOSITION_WEIGHT = 0.85;
+
+/**
+ * Sum of every strategy's weight, across both scopes, that's actually
+ * switched on (weight > 0). The denominator for "what share of the room's
+ * attention" a lifting strategy commands.
+ */
+function totalActiveWeight(weights: Required<StrategyWeights>): number {
+  let total = 0;
+  for (const strategy of ALL_STRATEGIES) {
+    const weight = weights[strategy.identifier] ?? 0;
+    if (weight > 0) total += weight;
+  }
+  return total;
+}
+
+/**
+ * How much CONSISTENCY_WEIGHT is relaxed -- or sharpened -- by doctrines that
+ * hold an opinion via a strategy's `consistencyLift`. See that field's doc
+ * comment (strategyRegistry.ts) for the reasoning; this is just the sum.
+ *
+ * Invariant per lifting strategy: (consistencyLift / 100) * share, summed
+ * and clamped to [-1, 1]. Because every active strategy's share sums to 1 by
+ * construction, that clamp only ever bites a `consistencyLift` set outside
+ * its -100..100 convention -- it's a safety net, not a normal ceiling.
+ *
+ * Because blendDoctrine SUMS every attendee's vector (defaults included),
+ * the numerator and the denominator both scale with attendance, so a lifting
+ * strategy's share of the room is roughly invariant to council size and a
+ * `consistencyLift` value can be tuned once rather than per-scenario.
+ *
+ * Called once per optimization run (weights don't change between annealing
+ * iterations), not inside analyzeComposition itself.
+ */
+function computeEffectiveConsistencyWeight(weights: Required<StrategyWeights>): number {
+  const total = totalActiveWeight(weights);
+  if (total <= 0) return CONSISTENCY_WEIGHT;
+
+  let totalLift = 0;
+  for (const strategy of ALL_STRATEGIES) {
+    if (!strategy.consistencyLift) continue;
+    const weight = weights[strategy.identifier] ?? 0;
+    if (weight <= 0) continue;
+    const share = weight / total;
+    totalLift += (strategy.consistencyLift / 100) * share;
+  }
+  totalLift = Math.max(-1, Math.min(1, totalLift));
+
+  return CONSISTENCY_WEIGHT * (1 - totalLift);
+}
 
 /**
  * Breakdown of a single strategy's contribution to a score.
@@ -241,7 +290,8 @@ export function generateScoringStatistics(
   partySize: number,
   sampleSize: number,
   numPartiesToSample?: number,
-  ctx?: StrategyContext
+  ctx?: StrategyContext,
+  imagineRoughMonths: boolean = false
 ): PartyScoringStatistics {
   const rawScores: { [id: string]: number[] } = {};
   ALL_STRATEGIES.forEach(s => rawScores[s.identifier] = []);  
@@ -253,13 +303,24 @@ export function generateScoringStatistics(
   for (let i = 0; i < sampleSize; i++) {
     // We only need one shuffle per outer loop iteration.
     const shuffled = shuffleInPlace([...availableHeroes]);
-    
+
+    // Each sample gets its own imagined month; only the heroes this sample
+    // actually uses need re-rolling.
+    let sampleRoster = roster;
+    if (imagineRoughMonths) {
+      sampleRoster = { ...roster };
+      for (const id of shuffled.slice(0, Math.max(partySize, numHeroesToUse))) {
+        const hero = roster[id];
+        if (hero) sampleRoster[id] = imagineRoughCondition(hero);
+      }
+    }
+
     for (const strategy of ALL_STRATEGIES) {
         
       if (strategy.scope === 'party') {
         // Party-scope sampling is unaffected and can use any heroes.
         const randomParty = shuffled.slice(0, partySize);
-        rawScores[strategy.identifier].push(strategy.scorer(randomParty, roster, ctx));
+        rawScores[strategy.identifier].push(strategy.scorer(randomParty, sampleRoster, ctx));
       } else { // scope === 'composition'
         // Take a subset of heroes corresponding to the desired number of parties.
         const heroSubset = shuffled.slice(0, numHeroesToUse);  
@@ -273,7 +334,7 @@ export function generateScoringStatistics(
         
         // Only score if we actually formed a composition of the correct size.
         if (randomComposition.length === partiesToCreate) {
-          rawScores[strategy.identifier].push(strategy.scorer(randomComposition, roster, ctx));
+          rawScores[strategy.identifier].push(strategy.scorer(randomComposition, sampleRoster, ctx));
         }
       }
     }
@@ -288,13 +349,59 @@ export function generateScoringStatistics(
 }
 
 /**
+ * The stats a strategy's raw score is normalized with: this month's MEAN, but
+ * the SPREAD of the same roster across imagined rough months.
+ *
+ * Normalizing by this month's own spread grades every strategy on a curve: a
+ * strategy whose score barely varies this month (the fitness-based ones on a
+ * healthy month) has its tiny differences stretched to full size, so it
+ * pushes as hard over nothing as it does over a real crisis. Measuring the
+ * spread across deliberately rough months instead (see imagineRoughCondition
+ * in fitness.ts) gives a fixed point of contrast: a healthy month's small
+ * differences stay small, and a month as bad as the rough one speaks at full
+ * weight.
+ *
+ * Only strategies that read hero condition are affected in practice. For
+ * everything else (relationships, tags, levels) the imagined months are the
+ * same as this one, so both spreads come out the same up to sampling noise.
+ * The mean never affects which arrangement wins -- it shifts every candidate
+ * equally -- so it is simply taken from this month.
+ *
+ * The contrast pass only needs a spread, not a precise one, so it runs on a
+ * quarter of the samples.
+ */
+export function generateNormalizationStatistics(
+  availableHeroes: string[],
+  roster: CharacterRecord,
+  partySize: number,
+  sampleSize: number,
+  numPartiesToSample?: number,
+  ctx?: StrategyContext
+): PartyScoringStatistics {
+  const MIN_CONTRAST_SAMPLES = 500;
+  const contrastSampleSize = Math.max(MIN_CONTRAST_SAMPLES, Math.round(sampleSize / 4));
+  const thisMonth = generateScoringStatistics(availableHeroes, roster, partySize, sampleSize, numPartiesToSample, ctx);
+  const roughMonths = generateScoringStatistics(availableHeroes, roster, partySize, contrastSampleSize, numPartiesToSample, ctx, true);
+
+  const statistics = {} as PartyScoringStatistics;
+  for (const strategy of ALL_STRATEGIES) {
+    statistics[strategy.identifier] = {
+      mean: thisMonth[strategy.identifier].mean,
+      stdDev: roughMonths[strategy.identifier].stdDev,
+    };
+  }
+  return statistics;
+}
+
+/**
  * Calculates a unified score AND generates a detailed analysis object.
  */
-function analyzeComposition(
+export function analyzeComposition(
   composition: Composition,
   roster: CharacterRecord,
   weights: Required<StrategyWeights>,
   stats: PartyScoringStatistics,
+  consistencyWeight: number,
   partiesToScore?: number,
   ctx?: StrategyContext
 ): CompositionDebugInfo {
@@ -412,8 +519,10 @@ function analyzeComposition(
   const scoreStdDev = scoreStats.stdDev;
   
   // The final score is the mean, penalized by its standard deviation.
-  // The `0.5` is a tunable "consistency weight". Higher values penalize inconsistency more.
-  const consistencyPenalty = scoreStdDev * CONSISTENCY_WEIGHT; 
+  // `consistencyWeight` is CONSISTENCY_WEIGHT as relaxed (or sharpened) by any
+  // doctrine holding a `consistencyLift` opinion -- see
+  // computeEffectiveConsistencyWeight, computed once per optimization run.
+  const consistencyPenalty = scoreStdDev * consistencyWeight;
   // 4. Apply the penalty to BOTH components
   const partyComponent = scoreMean; // Start with the pure average
   const compositionComponent = totalCompositionScopeScore; // Start with the pure comp score
@@ -463,7 +572,10 @@ export function findBestComposition(
   ctx?: StrategyContext
 ): BestCompositionResult {
   const numHeroes = availableHeroes.length;
-  const weights = defineWeights(customWeights); 
+  const weights = defineWeights(customWeights);
+  // Invariant for the whole run (weights don't change between iterations),
+  // so this is computed once here rather than inside analyzeComposition.
+  const consistencyWeight = computeEffectiveConsistencyWeight(weights);
 
   if (areAllWeightsZero(weights)) {
     console.warn(
@@ -484,8 +596,11 @@ export function findBestComposition(
     }
 
     // We still need to generate stats and analyze the composition once for a valid return object.
+    // Plain generateScoringStatistics, not generateNormalizationStatistics: this
+    // composition is a level-sorted fallback, not an optimizer output, so the
+    // rough-month contrast pass buys nothing here and would double the cost.
     const scoringStats = generateScoringStatistics(availableHeroes, roster, partySize, 500, undefined, ctx); // Small sample size is fine
-    const debugInfo = analyzeComposition(defaultComposition, roster, weights, scoringStats, partiesToScore, ctx);
+    const debugInfo = analyzeComposition(defaultComposition, roster, weights, scoringStats, consistencyWeight, partiesToScore, ctx);
 
     // Return immediately, skipping the optimization loop
     return { composition: defaultComposition, debugInfo, scoringStats };
@@ -494,8 +609,10 @@ export function findBestComposition(
   if (numHeroes <= partySize) {
     const singleParty = availableHeroes.slice(0, partySize);
     const composition = singleParty.length > 0 ? [singleParty] : [];
+    // Same reasoning as above: no annealing happens on this path, so the
+    // cheaper single-pass stats are enough.
     const scoringStats = generateScoringStatistics(availableHeroes, roster, partySize, 500, undefined, ctx);
-    const debugInfo = analyzeComposition(composition, roster, weights, scoringStats, undefined, ctx);
+    const debugInfo = analyzeComposition(composition, roster, weights, scoringStats, consistencyWeight, undefined, ctx);
     return { composition, debugInfo, scoringStats };
   }  
   // --- Adaptive iteration & sampling budgets (heuristics unchanged) ---
@@ -509,7 +626,7 @@ export function findBestComposition(
   //  scored, so composition-scope strategies were normalized against the wrong shape.)
   const completeParties = Math.floor(numHeroes / partySize);
   const partiesToSample = partiesToScore ?? completeParties;
-  const scoringStats = generateScoringStatistics(availableHeroes, roster, partySize, sampleSize, partiesToSample, ctx);
+  const scoringStats = generateNormalizationStatistics(availableHeroes, roster, partySize, sampleSize, partiesToSample, ctx);
 
   // --- Build the initial composition (level-sorted seed) ---
   const sortedHeroes = [...availableHeroes].sort((a, b) => (roster[b]?.level ?? 0) - (roster[a]?.level ?? 0));
@@ -527,12 +644,12 @@ export function findBestComposition(
   }
 
   // `current` is the wandering incumbent; `best` is the best composition seen so far.
-  let currentScore = analyzeComposition(current, roster, weights, scoringStats, partiesToScore, ctx).finalScore;
+  let currentScore = analyzeComposition(current, roster, weights, scoringStats, consistencyWeight, partiesToScore, ctx).finalScore;
   let best: Composition = current.map(party => [...party]);
   let bestScore = currentScore;
   let bestViolations = currentViolations;
 
-  let bestDebugInfo = analyzeComposition(best, roster, weights, scoringStats, partiesToScore, ctx);
+  let bestDebugInfo = analyzeComposition(best, roster, weights, scoringStats, consistencyWeight, partiesToScore, ctx);
 
   // With fewer than two parties there are no swaps to make.
   if (current.length < 2) {
@@ -551,7 +668,7 @@ export function findBestComposition(
   let deltaSum = 0, deltaCount = 0;
   for (let b = 0; b < BURN_IN; b++) {
     const undo = applyRandomMove(current);
-    const probeScore = analyzeComposition(current, roster, weights, scoringStats, partiesToScore, ctx).finalScore;
+    const probeScore = analyzeComposition(current, roster, weights, scoringStats, consistencyWeight, partiesToScore, ctx).finalScore;
     const d = Math.abs(probeScore - currentScore);
     if (d > 0) { deltaSum += d; deltaCount++; }
     undo(); // a probe must not move the incumbent
@@ -573,7 +690,7 @@ export function findBestComposition(
       continue;
     }
 
-    const candidateInfo = analyzeComposition(current, roster, weights, scoringStats, partiesToScore, ctx);
+    const candidateInfo = analyzeComposition(current, roster, weights, scoringStats, consistencyWeight, partiesToScore, ctx);
     const candidateScore = candidateInfo.finalScore;
     const delta = candidateScore - currentScore;
 
@@ -589,7 +706,7 @@ export function findBestComposition(
         bestScore = candidateScore;
         bestViolations = candidateViolations;
         best = current.map(party => [...party]);
-        bestDebugInfo = analyzeComposition(best, roster, weights, scoringStats, partiesToScore, ctx);
+        bestDebugInfo = analyzeComposition(best, roster, weights, scoringStats, consistencyWeight, partiesToScore, ctx);
       }
     } else {
       undo();

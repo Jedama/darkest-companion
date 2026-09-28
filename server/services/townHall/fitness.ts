@@ -17,20 +17,20 @@
  * the annealer in expeditionPlanner.ts is simply told that number and never
  * votes on it.
  *
- * Deliberately not shared with getDetailedLiability (genericStrategies.ts),
- * despite reading the same status fields. That asks "how much trouble is
- * this hero for their party" — unbounded, party-relative. This asks "should
- * they go at all" — bounded to at most one hero's worth of absence, and
- * absolute. Health is included only lightly: it resets to full on return
- * from an expedition, so it should read on a wounded hero, not decide
- * whether they march. Virtues aren't read at all — they're cleared at month
- * end, and planning is the first thing each month, so status.affliction can
- * never hold a virtue key when this runs.
+ * Deliberately shared with scoreCompositionByMarchingUnfitness
+ * (expeditionStrategies/genericStrategies.ts): that decides who fills the
+ * parties this module says the hamlet can field, and the two halves of one
+ * decision should never be able to disagree about what "fit" means. Health
+ * is included only lightly: it resets to full on return from an expedition,
+ * so it should read on a wounded hero, not decide whether they march.
+ * Virtues aren't read at all — they're cleared at month end, and planning is
+ * the first thing each month, so status.affliction can never hold a virtue
+ * key when this runs.
  */
 
 import { CharacterRecord, Character } from '../../../shared/types/types.js';
-import { AFFLICTION_SEVERITY, isAffliction } from '../../../shared/constants/conditions.js';
-import { DISEASE_SEVERITY, isDisease } from '../../../shared/constants/diseases.js';
+import { AFFLICTION_SEVERITY, GENERAL_AFFLICTIONS, isAffliction } from '../../../shared/constants/conditions.js';
+import { DISEASE_SEVERITY, DiseaseType, isDisease } from '../../../shared/constants/diseases.js';
 
 // A hero's month-end condition, translated into an absolute 0-1 "fit to march"
 // score. Tuned against a hypothetical roster (see PR discussion); recalibrate
@@ -73,6 +73,68 @@ export function heroFitness(hero: Character): number {
   }
 
   return clamp01(1 - stressCost - woundCost - afflictionCost - diseaseCost);
+}
+
+// ===================================================================
+// A ROUGH MONTH
+// ===================================================================
+
+/**
+ * Hero condition in a deliberately rough month -- a good deal worse than most
+ * months, which are fine. Not this month's: the planner uses it as a point of
+ * contrast, to learn how much each strategy's score varies when the hamlet is
+ * genuinely struggling, and judges this month's differences against that
+ * (see generateNormalizationStatistics in expeditionPlanner.ts). On a healthy
+ * month the fitness-based strategies then barely register; on a month as bad
+ * as this one they speak at full weight. Stress here is 100 - status.mental.
+ */
+const ROUGH_MONTH = {
+  CALM_SHARE: 0.65,       // stress 0-40
+  STRAINED_SHARE: 0.25,   // stress 40-99; the remaining 10% hit 100 and are afflicted
+  CALM_MAX_STRESS: 40,
+  STRAINED_MAX_STRESS: 99,
+  MIN_PHYSICAL: 40,       // physical is re-rolled between this and 100
+  DISEASE_CHANCE: 0.10,   // one random disease, from the whole list
+};
+
+const ALL_DISEASES = Object.keys(DISEASE_SEVERITY) as DiseaseType[];
+
+function randomBetween(min: number, max: number): number {
+  return min + Math.random() * (max - min);
+}
+
+function pickRandom<T>(items: readonly T[]): T {
+  return items[Math.floor(Math.random() * items.length)];
+}
+
+/**
+ * A hero as they might be in a rough month: same person, re-rolled condition.
+ * Only general afflictions are used -- character-specific ones would put the
+ * Thrall's `ferocious` on anyone. Diseases are drawn from the whole list.
+ */
+export function imagineRoughCondition(hero: Character): Character {
+  const roll = Math.random();
+  let stress: number;
+  let affliction = '';
+  if (roll < ROUGH_MONTH.CALM_SHARE) {
+    stress = randomBetween(0, ROUGH_MONTH.CALM_MAX_STRESS);
+  } else if (roll < ROUGH_MONTH.CALM_SHARE + ROUGH_MONTH.STRAINED_SHARE) {
+    stress = randomBetween(ROUGH_MONTH.CALM_MAX_STRESS, ROUGH_MONTH.STRAINED_MAX_STRESS);
+  } else {
+    stress = 100;
+    affliction = pickRandom(GENERAL_AFFLICTIONS);
+  }
+
+  return {
+    ...hero,
+    status: {
+      ...hero.status,
+      mental: 100 - stress,
+      physical: randomBetween(ROUGH_MONTH.MIN_PHYSICAL, 100),
+      affliction,
+      diseases: Math.random() < ROUGH_MONTH.DISEASE_CHANCE ? [pickRandom(ALL_DISEASES)] : [],
+    },
+  };
 }
 
 export interface PartyCountResult {
