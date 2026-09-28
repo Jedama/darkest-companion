@@ -596,7 +596,10 @@ export function findBestComposition(
     }
 
     // We still need to generate stats and analyze the composition once for a valid return object.
-    const scoringStats = generateNormalizationStatistics(availableHeroes, roster, partySize, 500, undefined, ctx); // Small sample size is fine
+    // Plain generateScoringStatistics, not generateNormalizationStatistics: this
+    // composition is a level-sorted fallback, not an optimizer output, so the
+    // rough-month contrast pass buys nothing here and would double the cost.
+    const scoringStats = generateScoringStatistics(availableHeroes, roster, partySize, 500, undefined, ctx); // Small sample size is fine
     const debugInfo = analyzeComposition(defaultComposition, roster, weights, scoringStats, consistencyWeight, partiesToScore, ctx);
 
     // Return immediately, skipping the optimization loop
@@ -606,7 +609,9 @@ export function findBestComposition(
   if (numHeroes <= partySize) {
     const singleParty = availableHeroes.slice(0, partySize);
     const composition = singleParty.length > 0 ? [singleParty] : [];
-    const scoringStats = generateNormalizationStatistics(availableHeroes, roster, partySize, 500, undefined, ctx);
+    // Same reasoning as above: no annealing happens on this path, so the
+    // cheaper single-pass stats are enough.
+    const scoringStats = generateScoringStatistics(availableHeroes, roster, partySize, 500, undefined, ctx);
     const debugInfo = analyzeComposition(composition, roster, weights, scoringStats, consistencyWeight, undefined, ctx);
     return { composition, debugInfo, scoringStats };
   }  
