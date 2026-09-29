@@ -528,14 +528,12 @@ const INSTITUTIONAL_DEFAULTS: StrategyWeights = Object.fromEntries(
  * That is intended. A council is a place where one voice among many carries
  * less than a voice alone.
  *
- * Known to be too simple in one way, deferred until there are enough doctrines
- * to see it misbehave:
- *
- *  - DOUBLE-COUNTING. A character-specific scorer that reuses its generic
- *    twin's terms will be weighted alongside that twin and charge for the
- *    same thing twice — minimizeFactionRisk_hqclaimants opens with the same
- *    bloc sum as minimizeFactionRisk. New variants should be written as
- *    replacements rather than wrappers; the existing one wants revisiting.
+ *  - WRAPPED VARIANTS. A character-specific scorer may build on its generic
+ *    twin's terms (minimizeFactionRisk_hqclaimants opens with the full bloc
+ *    sum) when the character genuinely holds both opinions. The internal
+ *    ratio survives normalization. The one thing to avoid is a doctrine
+ *    naming BOTH the generic and a variant that wraps it: that is one seat
+ *    voting twice for the same terms.
  */
 export function blendDoctrine(
   council: PlanningCouncil,

@@ -12,7 +12,7 @@
   "traits": [
     "Organized",
     "Cowardly",
-    "Scholarly",
+    "Scholar",
     "Anxious",
     "Resourceful",
     "Clumsy"
@@ -61,7 +61,7 @@
   ],
   "tags": [
     "Flexible", "Weak", "Frail", "Healer", "StressHealer", "Blighter",
-    "Debuffer", "Noble", "Scholarly", "Strategist", "Drunkard", "SelfStress",
+    "Debuffer", "Noble", "Scholar", "Strategist", "Drunkard", "SelfStress",
     "Scavenger"
   ]
 }

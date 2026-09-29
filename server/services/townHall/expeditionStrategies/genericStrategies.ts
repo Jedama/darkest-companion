@@ -703,7 +703,7 @@ export function scoreCompositionByAuthorityBalance(composition: Composition, ros
  *
  * Deliberately narrow. Survivability, cohesion and tactical soundness are the
  * business of other strategies; this one only asks how much wealth walks back
- * through the gate. The tags it reads (Scavenger, Scout, Scholar/Scholarly)
+ * through the gate. The tags it reads (Scavenger, Scout, Scholar)
  * are otherwise untouched by the registry, so it carves out its own territory
  * rather than restating scorePartyByGameplaySynergy in a different currency.
  *
@@ -733,7 +733,7 @@ export function calculateHaulValue(party: Party, roster: CharacterRecord): numbe
 
   // --- APPRAISE ---
   const scholars = heroes.filter(h =>
-    h.tags.includes('Scholar') || h.tags.includes('Scholarly')
+    h.tags.includes('Scholar')
   ).length;
   const appraiseModifier = 1 + (scholars * 0.10);
 

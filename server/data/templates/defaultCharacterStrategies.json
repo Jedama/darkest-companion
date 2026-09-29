@@ -2,6 +2,7 @@
   "heiress": {
     "maximizeCommandClarity_heiress": 10,
     "minimizeLiabilityExposure": 6.5,
+    "minimizeFactionRisk_heiress": 5,
     "minimizeTacticalNonsense": 3,
     "minimizeDiscord": 3
   },

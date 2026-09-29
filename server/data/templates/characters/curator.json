@@ -10,7 +10,7 @@
   "religion": "None",
   "zodiac": "Virgo",
   "traits": [
-    "Scholarly",
+    "Scholar",
     "Curious",
     "Frail",
     "Snobbish",
@@ -65,7 +65,7 @@
   "tags": [
     "Backline", "Immobile", "Weak", "Frail", "Healer", "Cleanser",
     "Buffer", "Marker", "Crit", "Executor",  "Debuffer", "Scavenger",
-    "Disruptor", "Stealther", "Scholarly", "Strategist", "SelfStress", 
+    "Disruptor", "Stealther", "Scholar", "Strategist", "SelfStress", 
     "Vigilant"
   ]
 }

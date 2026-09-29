@@ -37,7 +37,7 @@
     { "tag": "Eldritch",        "description": "Draws power from or is touched by unknowable, cosmic forces." },
     { "tag": "Noble",           "description": "Comes from a background of nobility or aristocracy." },
     { "tag": "Criminal",        "description": "Has a history of operating outside the law." },
-    { "tag": "Scholarly",       "description": "Has an academic, intellectual, or research-oriented background." },
+    { "tag": "Scholar",       "description": "Has an academic, intellectual, or research-oriented background." },
     { "tag": "Drunkard",        "description": "Regularly drinks alcohol, often as a mechanic." },
     { "tag": "Animal",          "description": "Is a non-human, beast-like creature." },
     { "tag": "Companion",       "description": "Is accompanied by a persistent partner (animal or otherwise)." },
