@@ -522,9 +522,23 @@ export function scorePartyByFactionRisk_hqclaimants(
 
   if (!ctx || party.includes(CLAIMANTS_ID)) return risk;
 
+  // Sabotage and blocs share one score, so these numbers only mean something
+  // next to bloc danger. The starting relationships make only 9 of ~3300 pairs
+  // mutual blocs, worth roughly 13 to 102 (most 50-70), and hamlet warmth barely
+  // varies between playthroughs, so fixed numbers are fine here: no scaling by
+  // roster size or warmth is needed. If late-game saves turn out to fill up with
+  // blocs, the debug table is where that would show.
+  //
+  // Tuned so sabotage is a real motive rather than a tie-breaker, and still loses
+  // to a strong bloc. An ordinary hero adds ~0.8 vulnerability; a frail child ~8:
+  //   ordinary escort (~2.4)    -> ~6   (a tie-breaker)
+  //   one frail child (~9)      -> ~18  (outweighs the weakest blocs)
+  //   very feeble escort (~20)  -> ~29  (outweighs a modest bloc, not a strong one)
+  //   ceiling                   ->  40
   const MARGRAVE_PRIORITY = 1.0;
   const BURSAR_PRIORITY = 0.8;  // he holds the purse; she gives the orders
-  const SATURATION = 25;        // vulnerability points at which extra frailty stops paying
+  const SABOTAGE_CAP = 40;      // most a hobbled escort can ever be worth
+  const FRAILTY_SCALE = 15;     // vulnerability at which ~63% of the cap is reached
 
   const claimantsAreMargrave = ctx.margrave === CLAIMANTS_ID;
   const claimantsAreBursar = ctx.bursar === CLAIMANTS_ID;
@@ -554,8 +568,8 @@ export function scorePartyByFactionRisk_hqclaimants(
       vulnerability += Math.max(0, 6 - hero.stats.strength) * 0.4;
     }
 
-    // Saturating: approaches SATURATION but never exceeds it.
-    const effect = SATURATION * (1 - Math.exp(-vulnerability / SATURATION));
+    // Saturating: approaches SABOTAGE_CAP but never exceeds it.
+    const effect = SABOTAGE_CAP * (1 - Math.exp(-vulnerability / FRAILTY_SCALE));
     risk -= effect * target.priority;
   }
 
