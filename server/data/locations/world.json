@@ -311,6 +311,14 @@
     ]
   },
   {
+    "identifier": "loess__gilneas",
+    "title": "Gilneas",
+    "description": "The ruins of a small kingdom on the Loess plain, its walls built wide enough to enclose fields and orchards as well as the town, so that it could feed itself through a long siege. Inside them stand the shells of foundries and gunsmiths' works, cold now, with the river docks silted up and the fields gone back to grass. The walls were breached in the end, and the people who outlived the siege carry a wolf-curse, the last desperate resort of their former king. A few of them still live among the ruins.",
+    "summary": "The walled ruins of a gunsmith kingdom on the Loess plain, whose surviving people carry their king's wolf-curse.",
+    "parent": "loess",
+    "children": []
+  },
+  {
     "identifier": "great_forks",
     "title": "Great Forks",
     "description": "A city-state where three rivers meet, holding the trade between the Kingdom and the Vizierate and taxing all of it. Its fields and orchards run for a day's ride in every direction and feed a population far larger than they should, the difference made up by barge. Great Forks has no state faith and suppresses none, which has made it a refuge for creeds beaten out of everywhere else, and a byword elsewhere for laxity.",
