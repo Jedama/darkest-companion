@@ -94,7 +94,7 @@ Common is the shared tongue of the Kingdom and the trade roads, and is written a
 - Wildlander (Scythian-inspired): Matriarchal half-giant tribes scattered across half the world, worshipping silent animal gods and sending their young to the Northern Forest to be scarred into warriors. Language: Wildlander.
 - Alltud (Celtic-inspired): A distant southern branch of the Wildlanders, red-haired like them but without the giant blood, the rite or the helms, and with male warriors. Language: Alltud.
 - Pelagian (Greek-inspired): Feuding marble city-states and fearful coasts, where the old gods' temples stand quiet, witch-panics end in drownings, and the crowds are fed on games. Language: Pelagian.
-- Hizurian (Japanese-inspired): The courts of samurai houses and daimyo of the Sunward Isles, whose people name yokai and oni confidently and know that spirits bargain. Language: Hizurian.
+- Hizurian (Japanese-inspired): The descendants of a court driven from the largest island long ago, now loosely ruled by a shōgun in the name of a drowned emperor. Their fleet still commands the sea, and they live alongside yokai, many of them their own vengeful dead, and know them by name. Language: Hizurian.
 - Haenaran (Korean-inspired): An emperor reigns and the warlords rule. Its craftsmen are famed abroad for clockwork, gunpowder, medicine and star-charts. Language: Haenaran.
 
 GENERAL WORLD NOTES:

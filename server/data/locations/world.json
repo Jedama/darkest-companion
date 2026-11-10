@@ -123,6 +123,14 @@
     "children": []
   },
   {
+    "identifier": "sunward_isles",
+    "title": "The Sunward Isles",
+    "description": "An archipelago east across the sea, scattered around Haenara's coasts, home to the Hizurian people. Daimyo hold the islands under a shōgun, and their red-sealed ships carry the eastern trade as far as the Hamlet. Yokai are common in the rivers, the shrines and the shallows, and umibōzu rise in the deep water beyond the reefs. Ships without a Hizurian pilot aboard seldom arrive.",
+    "summary": "An archipelago of daimyo courts around Haenara, whose haunted waters only its own ships cross safely.",
+    "parent": "world",
+    "children": ["sunward_isles__asaumi"]
+  },
+  {
     "identifier": "great_forks",
     "title": "Great Forks",
     "description": "A city-state where three rivers meet, holding the trade between the Kingdom and the Vizierate and taxing all of it. Its fields and orchards run for a day's ride in every direction and feed a population far larger than they should, the difference made up by barge. Great Forks has no state faith and suppresses none, which has made it a refuge for creeds beaten out of everywhere else, and a byword elsewhere for laxity.",
