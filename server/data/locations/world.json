@@ -131,6 +131,14 @@
     "children": ["sunward_isles__asaumi"]
   },
   {
+    "identifier": "sunward_isles__asaumi",
+    "title": "Asaumi",
+    "description": "The great port of the Isles, warehouses and tiled roofs around a deep harbour on the westernmost island. The red-sealed ships sail from here, and every foreign ship that reaches the Isles is met here and given a pilot. Foreign crews trade on the long stone pier and go no further without a daimyo's leave.",
+    "summary": "The Isles' great port, home of the red-sealed ships, where foreign crews take on Hizurian pilots and wait for leave to go further.",
+    "parent": "sunward_isles",
+    "children": []
+  },
+  {
     "identifier": "great_forks",
     "title": "Great Forks",
     "description": "A city-state where three rivers meet, holding the trade between the Kingdom and the Vizierate and taxing all of it. Its fields and orchards run for a day's ride in every direction and feed a population far larger than they should, the difference made up by barge. Great Forks has no state faith and suppresses none, which has made it a refuge for creeds beaten out of everywhere else, and a byword elsewhere for laxity.",
