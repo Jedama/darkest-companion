@@ -29,7 +29,7 @@ The Ancestor's actions unleashed various horrors across the Estate:
 - The Hag formed a coven, corrupting the Weald and its nearby lands with a fungal Miasma (That claimed the apple yard)
 - Sea creatures took over the Cove with the transformed Siren
 - Cultists bearing the Iron Crown symbol spread throughout all regions, worshipping the entity and acting as its emissaries
-- The previously hired Brigands, including the fearsome Talon Brigands (the 'Flock'), begun roaming the Estate's lands, eager to rob all who congregate here
+- The previously hired Brigands, including the fearsome Talon Brigands (the 'Flock'), have begun roaming the Estate's lands, eager to rob all who congregate here
 
 The hamlet fought for survival as these horrors emerged:
 - The Guard Captain coordinated defense from the watchtower, until his death
@@ -94,11 +94,11 @@ Common is the shared tongue of the Kingdom and the trade roads, and is written a
 - Wildlander (Scythian-inspired): Matriarchal half-giant tribes scattered across half the world, worshipping silent animal gods and sending their young to the Northern Forest to be scarred into warriors. Language: Wildlander.
 - Alltud (Celtic-inspired): A distant southern branch of the Wildlanders, red-haired like them but without the giant blood, the rite or the helms, and with male warriors. Language: Alltud.
 - Pelagian (Greek-inspired): Feuding marble city-states and fearful coasts, where the old gods' temples stand quiet, witch-panics end in drownings, and the crowds are fed on games. Language: Pelagian.
-- Hizurian (Japanese-inspired): The courts of samurai houses and daimyo of the Sunward Isles, whose people name yokai and oni confidently and know that spirits bargain. Language: Hizurian.    
+- Hizurian (Japanese-inspired): The courts of samurai houses and daimyo of the Sunward Isles, whose people name yokai and oni confidently and know that spirits bargain. Language: Hizurian.
 - Haenaran (Korean-inspired): An emperor reigns and the warlords rule. Its craftsmen are famed abroad for clockwork, gunpowder, medicine and star-charts. Language: Haenaran.
 
 GENERAL WORLD NOTES:
-The Light is the dominant faith in these lands nowadays (used to be Sol Invictus), though a multitude faiths exist. The Flame is a more inquisitorial branch of the Light that judgement and burning. Characters who list no religious affiliation typically still acknowledge the Light's existence—they simply don't attend services or follow doctrine strictly.
+The Light is the dominant faith in these lands nowadays (used to be Sol Invictus), though a multitude of faiths exist. The Flame is a more inquisitorial branch of the Light that judgement and burning. Characters who list no religious affiliation typically still acknowledge the Light's existence—they simply don't attend services or follow doctrine strictly.
 Magic and fantastical elements exist but are rare. Witnessing genuine magic, eldritch phenomena, or supernatural abilities would shock most ordinary people.
 The primary currency are gold coins.
 Coinciding with the Ancestor's death, Ostvengr — the strongest nation in the world, north beyond the Kingdom's border — destroyed itself in a single day, known as the Fall, when the eldritch technology it had built its power on turned on its makers. The Kingdom and Ostvengr's other neighbours hold the frontier against what is left.

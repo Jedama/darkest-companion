@@ -23,8 +23,8 @@
   {
     "identifier": "pelagia",
     "title": "Pelagia",
-    "description": "A scattering of sun-bleached peninsulas and islands far across the sea, where marble city-states feud over the remnants of an older, greater civilization. Its decline was not conquest but fear: for generations, whispers of witch-cults in the hills and creatures in the waters—and worse, of both walking unmarked among common men—have set Pelagians against one another. The temples of the old gods stand quiet, and paranoia fills the silence.",
-    "summary": "A fading archipelago of feuding marble city-states, brought low not by war but by generations of paranoia over hill-witches and sea-creatures said to walk among men.",
+    "description": "A sun-bleached peninsula and its scattered isles bordering the Kingdom to the south, where marble city-states feud over the remnants of an older, greater civilization. Its decline was not conquest but fear: for generations, whispers of witch-cults in the hills and creatures in the waters—and worse, of both walking unmarked among common men—have set Pelagians against one another. The temples of the old gods stand quiet, and paranoia fills the silence.",
+    "summary": "A fading peninsula and isles of feuding marble city-states, brought low not by war but by generations of paranoia over hill-witches and sea-creatures said to walk among men.",
     "parent": "world",
     "children": [
       "pelagia__stheneia",
@@ -211,7 +211,7 @@
   {
     "identifier": "chernozem__far_north",
     "title": "The Far North",
-    "description": "Podzola past the last of its forts, where the farms end and the country stops pretending to be governed. A few settlements sit on the rivers and the rest of the people follow the reindeer, paying their tribute in furs to a capital none of them has seen and otherwise going years without meeting anyone who could name them. No church ever came this far, so the old animist faiths were never converted, only left alone. The garrisons collect what they are owed and do not ask what is further north.",
+    "description": "Podzola past the last of its forts, where the farms end and the country stops pretending to be governed. A few settlements sit on the rivers and the rest of the people follow the reindeer, paying their tribute in furs to a capital none of them has seen and otherwise going years without meeting anyone who could name them. The church reached this far only thinly, too weak to root out the old animist faiths or the sects that hide among them. The garrisons collect what they are owed and do not ask what is further north.",
     "summary": "The frontier beyond Podzola's forts, where herders pay tribute in furs and the old animist faiths were never converted.",
     "parent": "chernozem__podzola",
     "children": []
