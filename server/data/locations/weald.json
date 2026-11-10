@@ -41,25 +41,6 @@
     ]
   },
   {
-    "identifier": "prologue__stagecoach",
-    "title": "Stagecoach Interior",
-    "description": "A heavy carriage that smells of old leather and anxious sweat, lurching violently over the rutted track. Through the front partition, the Caretaker can be heard whipping the two panicked horses, his manic muttering competing with the groan of straining axles. The interior lanterns sway wildly, casting erratic shadows that offer no comfort against the encroaching dark.",
-    "summary": "The cramping interior of a heavy carriage where the Caretaker drives two panicked horses down the rutted track.",
-    "parent": "old_road",
-    "children": [],
-    "npcs": [
-      "caretaker"
-    ]
-  },
-  {
-    "identifier": "prologue__crash_site",
-    "title": "Crash Site",
-    "description": "A muddy depression in the road where the carriage's axle finally gave way to the rough terrain. The vehicle lies crippled on its side, spilling trunks and provisions into the mire while the horses have torn free of their traces and vanished. The driver is nowhere to be seen, leaving the survivors alone beneath the looming, hostile boughs.",
-    "summary": "A muddy depression where the carriage lies crippled, spilling provisions into the mire after the horses tore free.",
-    "parent": "old_road",
-    "children": []
-  },
-  {
     "identifier": "weald__chapel_yard",
     "title": "The Chapel Yard",
     "description": "A small roofless chapel and its leaning grave markers under a red dusk, a stone cross toppled against the path. A horn-like fungal growth has burst through the wall of the nave, and skulls lie gathered at the roots of the boundary tree.",

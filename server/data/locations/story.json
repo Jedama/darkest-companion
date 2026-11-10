@@ -1,33 +1,22 @@
 [
   {
     "identifier": "prologue__stagecoach",
-    "title": "Prologue Stagecoach",
-    "description": "A cramped, lantern-swayed interior where the stagecoach's black wood and brass fittings enclose the party like a traveling coffin. Wheels grind over ruts and stones as the Old Road threads between grizzled trees, their bare branches scraping the roof with a sound like distant claws. Dust and old leather hang in the air, and every jolt reminds the passengers how far they are from safety. Beyond the small window, the forest presses close—too close—offering only brief glimpses of the pale road before swallowing the view again.",
-    "summary": "Inside the stagecoach on the Old Road: cramped lanternlight, grinding wheels, and a forest that leans in too close.",
+    "title": "Stagecoach Interior",
+    "description": "A heavy carriage that smells of old leather and anxious sweat, lurching violently over the rutted track. Through the front partition, the Caretaker can be heard whipping the two panicked horses, his manic muttering competing with the groan of straining axles. The interior lanterns sway wildly, casting erratic shadows that offer no comfort against the encroaching dark.",
+    "summary": "The cramping interior of a heavy carriage where the Caretaker drives two panicked horses down the rutted track.",
     "parent": "old_road",
     "children": [],
     "npcs": [
       "caretaker"
-    ],
-    "features": [
-      "interior",
-      "travel",
-      "lanternlight"
     ]
   },
   {
     "identifier": "prologue__crash_site",
-    "title": "Prologue Crash Site",
-    "description": "A torn clearing where the Old Road has chewed the stagecoach to splinters and iron. A wheel lies half-buried in mud, spokes snapped like bones, while spilled provisions sink into black earth under steady drizzle. Harness straps twitch in the wind; the horses are gone, leaving only deep gouges in the road where they bolted. The trees crowd the wreckage in a crooked ring, their trunks scarred with fresh impacts and their branches swaying as if in quiet approval of the ruin. Whatever led the coach to this end, it left no clear tracks—only the sudden, wrong absence of the one who held the reins.",
-    "summary": "A wrecked clearing on the Old Road: splintered coach, scattered supplies, and the unsettling absence of the driver.",
+    "title": "Crash Site",
+    "description": "A muddy depression in the road where the carriage's axle finally gave way to the rough terrain. The vehicle lies crippled on its side, spilling trunks and provisions into the mire while the horses have torn free of their traces and vanished. The driver is nowhere to be seen, leaving the survivors alone beneath the looming, hostile boughs.",
+    "summary": "A muddy depression where the carriage lies crippled, spilling provisions into the mire after the horses tore free.",
     "parent": "old_road",
-    "children": [],
-    "features": [
-      "wreckage",
-      "scattered_supplies",
-      "mud",
-      "unsettling_absence"
-    ]
+    "children": []
   },
   {
     "identifier": "prologue__old_road",
