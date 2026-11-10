@@ -2,7 +2,7 @@
   {
     "identifier": "world",
     "title": "Known World",
-    "description": "A vast and varied land of distinct nations and uneasy alliances, from the terraced island empire of Haenara in the far east to the ruins of Ostvengr in the west. Civilization asserts itself through commerce and conquest: the Levantine Vizierate holds the trade of the east, Great Forks taxes what passes between, and a kingdom stands at the centre of it all. On that kingdom's rugged coastline, a neglected Ancestral Estate sits apart from these machinations, harboring secrets that will soon draw eyes away from the concerns of the wider world.",
+    "description": "A vast and varied land of distinct nations and uneasy alliances, from the terraced island empire of Haenara in the far east to the ruins of Ostvengr in the northwest. Civilization asserts itself through commerce and conquest: the Levantine Vizierate holds the trade of the east, Great Forks taxes what passes between, and a kingdom stands at the centre of it all. On that kingdom's rugged coastline, a neglected Ancestral Estate sits apart from these machinations, harboring secrets that will soon draw eyes away from the concerns of the wider world.",
     "summary": "A vast land of nations from Haenara to fallen Ostvengr, functioning through trade and war while ancient secrets linger in the margins.",
     "parent": null,
     "children": [
@@ -17,109 +17,35 @@
       "northern_forest",
       "chernozem",
       "craie",
+      "loess",
       "winterhome"
     ]
   },
   {
-    "identifier": "pelagia",
-    "title": "Pelagia",
-    "description": "A scattering of sun-bleached peninsulas and islands far across the sea, where marble city-states feud over the remnants of an older, greater civilization. Its decline was not conquest but fear: for generations, whispers of witch-cults in the hills and creatures in the waters—and worse, of both walking unmarked among common men—have set Pelagians against one another. The temples of the old gods stand quiet, and paranoia fills the silence.",
-    "summary": "A fading archipelago of feuding marble city-states, brought low not by war but by generations of paranoia over hill-witches and sea-creatures said to walk among men.",
+    "identifier": "loess",
+    "title": "Loess",
+    "description": "A broad plain of windblown yellow soil southwest of the Kingdom, fertile and easy to farm, and crowded with small kingdoms, duchies and city-states. The Kingdom conquered it long ago and lost it piece by piece over centuries as the crown weakened. Its courts speak Common and keep much of the Kingdom's ways, but none will kneel to it again, and they fight the Kingdom and one another for supremacy.",
+    "summary": "A fertile western plain of small rival kingdoms, once the Kingdom's conquest and now its splinters.",
     "parent": "world",
     "children": [
-      "pelagia__stheneia",
-      "pelagia__weeping_shores"
+      "loess__gilneas",
+      "loess__amurgia"
     ]
   },
   {
-    "identifier": "pelagia__stheneia",
-    "title": "Stheneia",
-    "description": "The greatest of the Pelagian cities, terraced in white stone above a wide harbor. A royal seat once, until rumor and envy put its last dynasty to the torch; magistrates now rule in the palace's shadow and keep the people fed on games. Stheneia is passionate, its love is loud and its hatred louder.",
-    "summary": "The greatest Pelagian city, a former royal seat that burned its own dynasty on rumor, now ruled by magistrates and pacified with games.",
-    "parent": "pelagia",
-    "children": [
-      "pelagia__grand_arena",
-      "pelagia__ashen_square"
-    ]
-  },
-  {
-    "identifier": "pelagia__grand_arena",
-    "title": "The Grand Arena",
-    "description": "A tiered marble bowl seating thousands, its sands raked fresh over stains that never fully leave. Here legends were made into gods between noon and dusk—until the Champion, last and most beloved of them all, died on the sands and the games lost their savor. The crowds still come, but they cheer as mourners do, for something already gone.",
-    "summary": "Stheneia's vast marble arena, hollow since the death of the Champion, last and most beloved of its idols.",
-    "parent": "pelagia__stheneia",
-    "children": [
-      "pelagia__arena_maze"
-    ]
-  },
-  {
-    "identifier": "pelagia__arena_maze",
-    "title": "The Maze",
-    "description": "The lightless warren of pens and chain-galleries beneath the arena sands, where beasts and condemned men wait between matches. Beastmasters navigate its turns by lamplight and memory. At its deepest turn stands the largest cell, its door torn from the hinges and never repaired.",
-    "summary": "The lightless warren of holding pens beneath the Grand Arena, its largest cell empty and doorless.",
-    "parent": "pelagia__grand_arena",
+    "identifier": "loess__gilneas",
+    "title": "Gilneas",
+    "description": "The ruins of a small kingdom on the Loess plain, its walls built wide enough to enclose fields and orchards as well as the town, so that it could feed itself through a long siege. Inside them stand the shells of foundries and gunsmiths' works, cold now, with the river docks silted up and the fields gone back to grass. The walls were breached in the end, and the people who outlived the siege carry a wolf-curse, the last desperate resort of their former king. A few of them still live among the ruins.",
+    "summary": "The walled ruins of a gunsmith kingdom on the Loess plain, whose surviving people carry their king's wolf-curse.",
+    "parent": "loess",
     "children": []
   },
   {
-    "identifier": "pelagia__ashen_square",
-    "title": "The Ashen Square",
-    "description": "The old royal plaza before the shuttered palace, where Stheneia burns what it fears. Here, the most beloved and most hated of the royal daughters was burned alive. The flagstones remain scorched black.",
-    "summary": "The royal plaza where Stheneia burned its most beloved and envied princess, its flagstones still scorched.",
-    "parent": "pelagia__stheneia",
-    "children": []
-  },
-  {
-    "identifier": "pelagia__weeping_shores",
-    "title": "The Weeping Shores",
-    "description": "The rural coasts and outer isles beyond the cities' reach—fishing villages, salt marshes, and hillside shrines to gods no magistrate would recognize. Fear rules here the way weather does: every bad catch and drowned son births fresh accusations, and the accused are weighted and walked into the shallows. The sea keeps what it is given, the villagers insist. On some shores, they whisper, it gives things back.",
-    "summary": "Pelagia's rural coasts and hill-shrined outer isles, ruled by recurring witch-panics in which the accused are drowned as offerings.",
-    "parent": "pelagia",
-    "children": []
-  },
-  {
-    "identifier": "haenara",
-    "title": "Haenara",
-    "description": "A great island far to the east, mountainous and terraced, where an emperor reigns and warlords rule. The imperial court holds the mandate, the ceremonies, and the capital; the warlords hold the passes, the fields, and the men, and settle their disputes without troubling the throne. Haenara's craftsmen are its pride: clockwork, gunpowder, medicine, and star-charts pass west along the trade routes and fetch absurd prices from people who cannot make them. The Sunward Isles lie scattered off its coast.",
-    "summary": "A mountainous island empire in the far east, famed for its craftsmen, where the emperor reigns and the warlords rule.",
-    "parent": "world",
-    "children": [
-      "haenara__haeseong",
-      "haenara__cheolseong"
-    ]
-  },
-  {
-    "identifier": "haenara__haeseong",
-    "title": "Haeseong",
-    "description": "The imperial capital, a walled city of tiled roofs stacked up a mountainside, with the palace at the top and the workshops and markets spreading below. Raiders came up from the harbour some years ago and cut their way to the palace before anyone understood they were not merchants; the city buried its dead, replaced its guard, and went on trading. A warlord holds it now, and the emperor's ceremonies continue much as before.",
-    "summary": "The walled imperial capital of Haenara, sacked once and still standing, held now by a warlord.",
-    "parent": "haenara",
-    "children": [
-      "haenara__bitgung",
-      "haenara__byeoltap"
-    ]
-  },
-  {
-    "identifier": "haenara__bitgung",
-    "title": "Bitgung",
-    "description": "The palace at the height of the capital, a compound of painted halls and courtyards behind three gates, where the emperor's court kept its records, its treasures, and its guardian relic. Raiders reached the innermost hall and killed everyone in it, and the relic went out through the harbour that same night. The halls were scrubbed and repainted for the next emperor, and the empty stand where the relic sat has never been filled.",
-    "summary": "The imperial palace at the top of the capital, where the court was slaughtered and Haenara's guardian relic was stolen.",
-    "parent": "haenara__haeseong",
-    "children": []
-  },
-  {
-    "identifier": "haenara__byeoltap",
-    "title": "Byeoltap",
-    "description": "A tower of fitted stone on the ridge above the palace, half observatory and half workshop, where the court's technicians ground lenses, cast gears, mixed powders, and kept the almanacs that told the empire when to plant and when to fight. Its instruments are cleaned daily by men who no longer know what half of them measure. The apprentices' benches at the base of the tower are still marked with their owners' names.",
-    "summary": "The star-tower above the capital, observatory and workshop both, where Haenara's technicians kept the almanacs.",
-    "parent": "haenara__haeseong",
-    "children": []
-  },
-  {
-    "identifier": "haenara__cheolseong",
-    "title": "Cheolseong",
-    "description": "A warlord's fortress inland, black-walled and built into a pass, holding more soldiers than the capital and answering to the throne only in writing. Its lord takes in orphans from the villages he burns and raises them as his own officers, which has produced both the finest tacticians in Haenara and a great many quiet murders among them. The victory feasts here are famous, and are held in a hall with the doors barred from outside.",
-    "summary": "A warlord's black-walled fortress in the mountain passes, where captured orphans are raised into officers.",
-    "parent": "haenara",
+    "identifier": "loess__amurgia",
+    "title": "Amurgia",
+    "description": "A hill town of Loess beneath a sheer bluff, its face honeycombed with hollows where bats roost by the thousand. Halfway up the bluff sits a small walled hamlet, overlooked by a castle at the top. Across a deep ravine stands a tall tower on its own pillar of earth, once joined to the castle by a stone bridge, and on some nights a light burns in its window. The princely house that rules Amurgia now keeps its court in the town below, where the shutters close at dusk as the bats pour out of the bluff.",
+    "summary": "A Loess hill town beneath an old castle and a cut-off tower, where the shutters close at dusk as the bats come out.",
+    "parent": "loess",
     "children": []
   },
   {
@@ -154,7 +80,9 @@
     "description": "Until recently the strongest nation in the world, warmongering yet impenetrable behind their mountains, yet now a wasteland its neighbours are walling off rather than dividing. Ostvengr's advantage was never invention: its expeditions brought something back from underground, the Maw of Darkness, and its engineers spent generations building it into everything from field guns to kitchen appliances, over written warnings they overruled. It turned on them in a single day, an event known as the Fall. What is left is factory country full of machines that are still moving, a scatter of survivors who each blame a different part of it, and a border of river and mountain held by other people's armies. Nobody knows what became of the Kaiserin or her daughter.",
     "summary": "A fallen industrial empire, undone in a day by the eldritch machinery it built its supremacy on.",
     "parent": "world",
-    "children": ["ostvengr__the_maw"]
+    "children": [
+      "ostvengr__the_maw"
+    ]
   },
   {
     "identifier": "ostvengr__the_maw",
@@ -187,7 +115,8 @@
     "summary": "A cold northern war-state that fought Ostvengr for its whole recorded history, and is already looking for its next war.",
     "parent": "world",
     "children": [
-      "chernozem__black_earth", "chernozem__podzola"
+      "chernozem__black_earth",
+      "chernozem__podzola"
     ]
   },
   {
@@ -211,8 +140,8 @@
   {
     "identifier": "chernozem__far_north",
     "title": "The Far North",
-    "description": "Podzola past the last of its forts, where the farms end and the country stops pretending to be governed. A few settlements sit on the rivers and the rest of the people follow the reindeer, paying their tribute in furs to a capital none of them has seen and otherwise going years without meeting anyone who could name them. No church ever came this far, so the old animist faiths were never converted, only left alone. The garrisons collect what they are owed and do not ask what is further north.",
-    "summary": "The frontier beyond Podzola's forts, where herders pay tribute in furs and the old animist faiths were never converted.",
+    "description": "Podzola past the last of its forts, where the farms end and the country stops pretending to be governed. A few settlements sit on the rivers and the rest of the people follow the reindeer, paying their tribute in furs to a capital none of them has seen and otherwise going years without meeting anyone who could name them. The church reached this far only thinly, too weak to root out the old animist faiths or the sects that hide among them. The garrisons collect what they are owed and do not ask what is further north.",
+    "summary": "The frontier beyond Podzola's forts, where herders pay tribute in furs and the church holds too thinly to root out the old animist faiths.",
     "parent": "chernozem__podzola",
     "children": []
   },

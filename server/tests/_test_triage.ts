@@ -43,6 +43,7 @@ function createHero(id: string, fitness: number, tags: Tag[] = []): Character {
     race: 'Human',
     gender: 'Unknown',
     religion: 'None',
+    culture: 'Crownlander',
     zodiac: 'None',
     traits: [],
     stats: { strength: 5, agility: 5, intelligence: 5, authority: 5, sociability: 5 },

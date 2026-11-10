@@ -52,6 +52,7 @@ function createHero(spec: HeroSpec): Character {
     race: 'Human',
     gender: 'Unknown',
     religion: 'None',
+    culture: 'Crownlander',
     zodiac: spec.zodiac ?? 'None',
     traits: [],
     stats: {

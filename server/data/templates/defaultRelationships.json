@@ -590,6 +590,11 @@
     }
   },
   "voivode": {
+    "greymane": {
+      "affinity": 2,
+      "dynamic": "Another Stolen Crown",
+      "description": "The Voivode views every western crown as stolen goods, and these squabbling upstart kingdoms as the ruin of the Kingdom's golden age. When he learns the Cursed's story, sealed knowledge opened, the walls breached anyway, and his own court turned him out, he will find it very funny, without noticing the parallels."
+    },
     "heiress": {
       "affinity": 3,
       "dynamic": "His Friend's Heir",

@@ -3,11 +3,12 @@
   "title": "Voivode",
   "name": "Radu",
   "description": "The Voivode is an ancient lord in centuries-old finery, courteous to those he judges worthy and openly contemptuous of everyone else. He lost his lands long ago but has never stopped behaving as though he rules, gathering followers wherever he goes and offering them protection, communion, and freedom from the fear of death, at the cost of becoming one of his darkspawn. He treats his flock well, but a flock is livestock, and the Strigoi in him has to feed.",
-  "history": "Once a lord with a castle and a hamlet of his own, the Voivode was losing a siege when he turned to sealed-away knowledge, and struck a bargain with Belial, a king of the infernal court. He kept his walls, and gained an unending thirst and a monstrous second shape; his own people drove him out with torches and stakes soon after. Centuries later he came to the Estate, having heard that the Ancestor, whom he counted a friend, was dead.",
+  "history": "Born many centuries ago, the Voivode was of a line that held Amurgia for the Kingdom's crown, one of the southwestern lands it had conquered. When the crown weakened and the west rose against it, his own people besieged his castle, and he turned to sealed-away knowledge and struck a bargain with Belial, a king of the infernal court. He kept his walls, and gained an unending thirst and a monstrous second shape. His people drove him out with torches and stakes soon after, and Amurgia became one more independent court. He wandered for centuries before finding a friend and an equal in the Ancestor, and came to the Estate on hearing he was dead.",
   "summary": "An ancient and imperious Voivode, a fallen lord who bargained for immortality and gathers a flock wherever he goes.",
   "race": "Strigoi shapeshifter",
   "gender": "Male",
   "religion": "The Dark (Belial)",
+  "culture": "Loessian",
   "zodiac": "Leo",
   "traits": [
     "Imperious",
@@ -54,7 +55,7 @@
   },
   "magic": "Command of shadows, bats, and weak minds",
   "notes": [
-    "Speaks with formal, archaic courtesy, but addresses people as an inferior: peasants, sheep, mortals",
+    "Speaks with formal, archaic courtesy, addresses everyone as an inferior (peasants, sheep, mortals), and lapses into old Amurgian (Romanian) when roused",
     "Offers his own blood to those he has taken under his protection, and treats them as his flock",
     "Visited the Hamlet on several occasions as the Ancestor's guest; anyone from that circle (characters, NPCs, or bosses) who still survives may recognise him, and he them",
     "His courtly shape takes effort to hold, and hunger wears it thin; underneath is a screeching, barely controllable thing he would rather nobody saw",

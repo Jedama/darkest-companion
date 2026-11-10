@@ -10,7 +10,8 @@
       "kingdom__reformatory",
       "kingdom__burnt_cottage",
       "kingdom__harvest_house",
-      "kingdom__crossroads"
+      "kingdom__crossroads",
+      "kingdom__bottoms"
     ]
   },
   {
@@ -76,6 +77,24 @@
     "description": "The uppermost floor, once sleeping quarters for a large farming family, now converted into an unsettling nursery despite no announcement of an expected child. The central cradle, built from butcher's blocks joined together, dominates the room with its unusual size and sturdiness. Walls once whitewashed now display crude paintings of feasting scenes, while strings of preserved meats hang from ceiling hooks in place of traditional mobiles. The Lady is often found here, rocking in a chair beside the empty cradle, her swollen form suggesting either impending motherhood or simply the effects of endless consumption.",
     "summary": "The uppermost floor of Harvest House, converted into an unsettling nursery with a large cradle made of butcher's blocks and crude feasting paintings.",
     "parent": "kingdom__harvest_house",
+    "children": []
+  },
+  {
+    "identifier": "kingdom__bottoms",
+    "title": "The Bottoms",
+    "description": "The low country of the Kingdom's southeast coast, old marsh drained and held dry behind earth dykes, sluice gates and pumping mills. Its fields lie flat to the horizon below the level of the sea, with reedbeds and mudflats beyond the dykes, where a broad river splits into mouths on its way to the water. The Bottomers who dig, mend and man the dykes are a conquered people, keeping the sea off land they do not own. Fevers rise from the damp in the warm months.",
+    "summary": "The Kingdom's drained southeastern lowlands, held dry below sea level by the dykes its conquered people keep.",
+    "parent": "kingdom",
+    "children": [
+      "kingdom__lowhaven"
+    ]
+  },
+  {
+    "identifier": "kingdom__lowhaven",
+    "title": "Lowhaven",
+    "description": "The Kingdom's busiest port, where the river meets the sea. Cranes stand along its quays, and short railways run from the docks to the warehouses and out across the fields, lines the crown has long meant to carry up the coast and inland. The Crownlander quarter and its great church of the Light sit on the one ridge of high ground, an old dune line. Below it, in the low streets that flood first, the Bottomers who work the port leave small offerings to the Loa at the street corners.",
+    "summary": "The Kingdom's busiest port, its cranes and rail yards worked by Bottomers who live in the streets that flood first.",
+    "parent": "kingdom__bottoms",
     "children": []
   }
 ]
