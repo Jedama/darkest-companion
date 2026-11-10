@@ -253,6 +253,7 @@ export interface CharacterTemplate {
   race: string;
   gender: string;
   religion: string;
+  culture: string;
   zodiac: string;
   traits: string[];
   stats: CharacterStats;
