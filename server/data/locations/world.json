@@ -17,6 +17,7 @@
       "northern_forest",
       "chernozem",
       "craie",
+      "loess",
       "winterhome"
     ]
   },
@@ -297,6 +298,17 @@
     "summary": "The deck of a junk in heavy, windless seas between pillars of rock.",
     "parent": "drowned_isles",
     "children": []
+  },
+  {
+    "identifier": "loess",
+    "title": "Loess",
+    "description": "A broad plain of windblown yellow soil southwest of the Kingdom, fertile and easy to farm, and crowded with small kingdoms, duchies and city-states. The Kingdom conquered it long ago and lost it piece by piece over centuries as the crown weakened. Its courts speak Common and keep much of the Kingdom's ways, but none will kneel to it again, and they fight the Kingdom and one another for supremacy.",
+    "summary": "A fertile western plain of small rival kingdoms, once the Kingdom's conquest and now its splinters.",
+    "parent": "world",
+    "children": [
+      "loess__gilneas",
+      "loess__amurgia"
+    ]
   },
   {
     "identifier": "great_forks",
