@@ -37,7 +37,8 @@
     "parent": "weald",
     "children": [
       "prologue__stagecoach",
-      "prologue__crash_site"
+      "prologue__crash_site",
+      "prologue__old_road"
     ]
   },
   {

@@ -20,19 +20,10 @@
   },
   {
     "identifier": "prologue__old_road",
-    "title": "Prologue Old Road",
-    "description": "A narrow, rutted track cutting through ancient woodland, where the ground rises and falls in slow, indifferent waves. The road is bordered by leaning stones and half-swallowed marker posts, their carvings worn smooth by weather and neglect. Here the forest feels not merely wild but watchful: crows shift on high branches, and the undergrowth holds its breath when footsteps approach. Fog clings low to the ditches, and the air smells of wet bark, cold iron, and old rot. The Hamlet lies ahead somewhere beyond the trees, but the road offers no sign of it—only the sense that each step forward is another step deeper into a place that remembers.",
-    "summary": "A rutted woodland track of fog, old markers, and watchful silence, leading toward a Hamlet still out of sight.",
+    "title": "The Rutted Track",
+    "description": "A narrow stretch of the Old Road between leaning marker stones, their carvings worn blank by weather. The ruts are deep and full of water, fog lies low in the ditches, and crows shift in the branches overhead. The Hamlet is somewhere ahead, but nothing along the road says how far.",
+    "summary": "A narrow, fog-bound stretch of the Old Road, its markers worn blank and the Hamlet still out of sight.",
     "parent": "old_road",
-    "children": [
-      "prologue__stagecoach",
-      "prologue__crash_site"
-    ],
-    "features": [
-      "woodland",
-      "fog",
-      "marker_stones",
-      "ominous_silence"
-    ]
+    "children": []
   }
 ]
