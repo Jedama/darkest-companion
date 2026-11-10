@@ -128,13 +128,21 @@
     "description": "An archipelago east across the sea, scattered around Haenara's coasts, home to the Hizurian people. Daimyo hold the islands under a shōgun, and their red-sealed ships carry the eastern trade as far as the Hamlet. Yokai are common in the rivers, the shrines and the shallows, and umibōzu rise in the deep water beyond the reefs. Ships without a Hizurian pilot aboard seldom arrive.",
     "summary": "An archipelago of daimyo courts around Haenara, whose haunted waters only its own ships cross safely.",
     "parent": "world",
-    "children": ["sunward_isles__asaumi", "drowned_isles"]
+    "children": ["sunward_isles__asaumi", "sunward_isles__glass_house", "drowned_isles"]
   },
   {
     "identifier": "sunward_isles__asaumi",
     "title": "Asaumi",
     "description": "The great port of the Isles, warehouses and tiled roofs around a deep harbour on the westernmost island. The red-sealed ships sail from here, and every foreign ship that reaches the Isles is met here and given a pilot. Foreign crews trade on the long stone pier and go no further without a daimyo's leave.",
     "summary": "The Isles' great port, home of the red-sealed ships, where foreign crews take on Hizurian pilots and wait for leave to go further.",
+    "parent": "sunward_isles",
+    "children": []
+  },
+  {
+    "identifier": "sunward_isles__glass_house",
+    "title": "The Glass House",
+    "description": "A noble house on a hill above a harbour town, named for its windows: tall, many-paned and glazed, the only ones of their kind in the Isles. Inside, the rooms are hung with oil portraits and furnished with high-backed chairs and a long dining table. The few staff who remain keep it loosely, with dust on the frames and weeds between the paving stones. Its mistress has not been home in some time.",
+    "summary": "A noble house of glazed windows and foreign furniture, kept loosely in its mistress's long absence.",
     "parent": "sunward_isles",
     "children": []
   },
