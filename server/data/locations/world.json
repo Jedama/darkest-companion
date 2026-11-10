@@ -212,7 +212,7 @@
     "identifier": "chernozem__far_north",
     "title": "The Far North",
     "description": "Podzola past the last of its forts, where the farms end and the country stops pretending to be governed. A few settlements sit on the rivers and the rest of the people follow the reindeer, paying their tribute in furs to a capital none of them has seen and otherwise going years without meeting anyone who could name them. The church reached this far only thinly, too weak to root out the old animist faiths or the sects that hide among them. The garrisons collect what they are owed and do not ask what is further north.",
-    "summary": "The frontier beyond Podzola's forts, where herders pay tribute in furs and the old animist faiths were never converted.",
+    "summary": "The frontier beyond Podzola's forts, where herders pay tribute in furs and the church holds too thinly to root out the old animist faiths.",
     "parent": "chernozem__podzola",
     "children": []
   },
