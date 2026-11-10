@@ -64,9 +64,9 @@
       "description": "The Crusader has pledged to protect the Heir despite obvious doubts about his fitness for the trials ahead. He sees a frightened scholar where leadership is needed, but duty demands he try."
     },
     "seraph": {
-      "affinity": 7,
-      "dynamic": "Devoted Lieutenant",
-      "description": "The Crusader served under the Seraph after her miraculous transformation, awed by her divine presence and inspired by her holy purpose. Her burned visage and manifest powers were proof of the Light's grace, making his role in her crusade feel truly righteous."
+      "affinity": 5,
+      "dynamic": "Former Commander",
+      "description": "The Crusader served under the Seraph and believed her burned face and manifest powers were proof of the Light's grace. He followed her into wars without question. He has not seen her since he left her crusade."
     }
   },
   "dragon_watcher": {
@@ -290,6 +290,11 @@
       "dynamic": "Haunted Infatuation",
       "description": "As a young man, the Heir was captivated by the Duchess's elegance and fencing prowess at court, back when she was human. Their interactions were brief and unreciprocated, but her image lingered in his mind for years. He worried for her when she, along with the others who attended the Ancestor's final debauch, vanished from society."
     },
+    "grave_robber": {
+      "affinity": 1,
+      "dynamic": "An appalling tale",
+      "description": "The Heir knows the Grave Robber's husband from the ledgers of local nobility, and remembers his death as a sad one: a man in his prime, taken by sudden illness, leaving a young widow and a ruined estate. Her brazen flaunting of her mariticide will appal him."
+    },
     "greymane": {
       "affinity": 4,
       "dynamic": "Secondhand Accounts",
@@ -363,8 +368,8 @@
   "man_at_arms": {
     "eagle": {
       "affinity": 7,
-      "dynamic": "The First Step",
-      "description": "Bird-folk all look alike to the Man-at-Arms, but he remembers the Arbiter. Years into wandering with nothing but his own regret, he came upon a squad of deserters being gunned down by their own kind and pulled two of them out. It was his first step towards redemption."
+      "dynamic": "Pulled Clear",
+      "description": "Bird-folk all look alike to the Man-at-Arms, but he remembers the Arbiter. Years into fighting wars as a common soldier, he came upon a squad of deserters being gunned down by their own kind and pulled two of them out."
     }
   },
   "meister": {
@@ -454,9 +459,9 @@
   },
   "seraph": {
     "crusader": {
-      "affinity": 4,
+      "affinity": 3,
       "dynamic": "Fallen Servant",
-      "description": "The Seraph valued the Crusader as a capable commander whose devotion to the Light seemed unquestioned. His mercy toward the Warlord and subsequent departure from the crusade marked him as another soul too weak to uphold righteous judgment."
+      "description": "The Seraph valued the Crusader as a capable commander whose devotion to the Light seemed unquestioned. When he walked away from her crusade, she marked him as another soul too weak to uphold righteous judgment."
     },
     "sibyl_ms": {
       "affinity": 2,

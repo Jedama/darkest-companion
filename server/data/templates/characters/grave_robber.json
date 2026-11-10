@@ -2,26 +2,26 @@
   "identifier": "grave_robber",
   "title": "Grave Robber",
   "name": "Audrey",
-  "description": "Once a noblewoman, the Grave Robber turned to grave robbing after murdering her abusive husband. She's a skilled assassin, specializing in quick, precise attacks and evading danger. Her past has left her with a cynical outlook, but she's found a new purpose in her dangerous profession.",
-  "history": "Born into wealth and married for status, the Grave Robber endured years of abuse from her drunken, lustful husband. She eventually poisoned him, then robbed his grave to maintain her lifestyle. When faced with eviction due to debt, she fully embraced her new identity as a grave robber and fled her former life.",
-  "summary": "A murderess turned aristocratic thief, precise and cynical, who traded a gilded cage for the freedom of the dead.",
+  "description": "The Grave Robber is a fallen lady turned thief of the dead, who robs tombs for the gold and, more than that, for the thrill. She has kept the manners and tastes of her old life, if not the means, and still holds herself above the rabble she now works among. She is flirtatious, sharp-tongued and unrepentant, and quick to laugh at her own fall from grace.",
+  "history": "The Grave Robber was a wealthy noblewoman married off to a wealthier man, who drank, lusted and raged. She endured him with a smile and waited for him to die, until her patience ran out and she poisoned him herself. His decadence had left them deep in debt, and when the creditors came, she dug up his tomb for the rings he was buried in. The robbery thrilled her far more than the gold did, and she left that life behind to keep doing it.",
+  "summary": "A fallen noblewoman who poisoned her husband, robbed his grave, and found she loved the thrill.",
   "race": "Human",
   "gender": "Female",
   "religion": "None",
   "zodiac": "Scorpio",
   "traits": [
-    "Agile",
-    "Precise",
     "Cynical",
     "Resourceful",
-    "Vengeful",
-    "Seductive"
+    "Seductive",
+    "Vain",
+    "Snobbish",
+    "Thrill-seeking"
   ],
   "stats": {
     "strength": 5,
     "agility": 9,
     "intelligence": 7,
-    "authority": 4,
+    "authority": 5,
     "sociability": 9
   },
   "equipment": [
@@ -38,31 +38,29 @@
     "features": "Mole on upper lip, pointy chin"
   },
   "clothing": {
-    "head": "Wide-brimmed hat",
-    "body": "Blue fitted jacket with puffy shoulders",
-    "legs": "Tight trousers",
-    "accessories": "Ascot"
+    "head": "Tall dark hat with a buckled band and a wide brim",
+    "body": "Long dark teal coat over a buttoned waistcoat and a white jabot",
+    "legs": "Brown trousers, patched and laced, and tall black boots",
+    "accessories": "Fingerless gloves, a belt with a pouch and a vial"
   },
   "combat": {
     "role": "Assassin",
     "strengths": [
-      "Lithe",
-      "Precise",
-      "Quick",
-      "Stealthy"
+      "Striking from shadow",
+      "Poisons",
+      "Slipping away"
     ],
     "weaknesses": [
-      "Frail",
-      "Vulnerable to direct attacks"
+      "Frail"
     ]
   },
   "magic": "None",
   "notes": [
-    "Maintains an aristocratic air, distinguishing between herself and 'the rabble'",
-    "Frequently critiques the 'cheapness' of items",
-    "Has a gallows sense of humor",
-    "Has a beautiful singing voice but very rarely sings",
-    "Used to do a lot of crocheting"
+    "Speaks with genteel endearments that often carry a sting (deary, love, darling) and old-fashioned exclamations (Lordy me, blazes, pshaw)",
+    "Vain about her looks and her finery, and a snob about wine and anything cheaply made",
+    "Flirts freely and playfully, more for the sport of it than out of any real interest",
+    "Has a gallows sense of humor and jokes unrepentantly about her past crimes",
+    "Crochets in idle moments, and carves tiny tombstones as mementos of the graves she has robbed"
   ],
   "tags": [
     "Dancer", "Frail", "Stealther", "ArmorPiercer", "Blighter", "BlightSynergy",

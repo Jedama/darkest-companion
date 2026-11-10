@@ -24,7 +24,7 @@ import { isVirtue, isAffliction } from '../../../shared/constants/conditions.js'
 import { NEUTRAL_AFFINITY } from '../../../shared/constants/relationships.js';
 
 import type { StrategyWeights } from '../../../shared/constants/strategies.js';
-import { ALL_STRATEGIES } from './expeditionStrategies/strategyRegistry.js';
+import { ALL_STRATEGIES, findDoctrineConflicts } from './expeditionStrategies/strategyRegistry.js';
 
 // ===================================================================
 // 0. CONFIGURATION
@@ -551,6 +551,21 @@ export function blendDoctrine(
   // here would lose the only diagnostic a typo'd doctrine file ever gets.
   const tally: Record<string, number> = {};
   const counted = new Set<string>();
+
+  // Validation: catch generic/variant conflicts before blending.
+  const toValidate: Record<string, StrategyWeights> = {};
+  for (const { ids } of table) {
+    for (const id of ids) {
+      if (id && !toValidate[id]) {
+        const d = doctrineOf(id);
+        if (d) toValidate[id] = d;
+      }
+    }
+  }
+  const conflicts = findDoctrineConflicts(toValidate);
+  if (conflicts.length > 0) {
+    console.warn(`blendDoctrine: Found ${conflicts.length} doctrine conflicts:`, conflicts);
+  }
 
   for (const { ids, clout } of table) {
     for (const id of ids) {

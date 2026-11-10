@@ -2,69 +2,67 @@
   "identifier": "crusader",
   "title": "Crusader",
   "name": "Reynauld",
-  "description": "Once a simple farmer who joined the war to save his family from famine, Reynauld rose unexpectedly through martial prowess to become a legendary commander. The horrors he witnessed and his own transformation into a hardened warrior left him unable to return to his former life. His peculiar habit of collecting trinkets from fallen enemies and his distinctive whistling became well-known among his men. Now drawn to the Estate, he seeks not holy war but a deeper purpose in combating forces that threaten the very fabric of humanity.",
-  "history": "Born to till the soil, Reynauld lived a peaceful life with his wife and young son until famine threatened their survival. He joined the army as a conscript, leaving behind promises of return. His natural leadership and battlefield courage saw him rise from farmer to feared commander. In a pivotal moment, he spared The Warlord, recognizing the futility of endless conflict. This act, coupled with his growing disillusionment, led him to abandon both the war and thoughts of returning home, knowing he could no longer fit into that simple life.",
-  "summary": "A stalwart and inspiring former farmer turned legendary Crusader, haunted by war, who struggles with kleptomanic tendencies and a conflicted past.",
+  "description": "The Crusader is a soldier of the Light who went to war to feed his family, and found in it the purpose he had always lacked. He is a commander by long habit, steady under pressure and slow to admit doubt. He has taken a contract to guard the Heirs to the Estate, seeking redemption not only for what he did in the crusade, but for how he loved it.",
+  "history": "The Crusader was a farmer's son, raised on the Verses under his father's whip. Married and with a son of his own, he joined a holy army when famine came, so that his pay could keep his family fed. In the crusade he found a purpose he had never known, and rose to command men who whispered his name. After sparing an enemy warlord, he briefly went home. He watched his wife and son from a distance, left his earnings beneath his banner, and went back to the war. He later marched against covens of a pagan goddess with the same appetite, until the killing reached their children.",
+  "summary": "A devout and disciplined crusader who went to war for his family's sake, came to love it, and now seeks redemption for both.",
   "race": "Human",
   "gender": "Male",
   "religion": "The Light",
   "zodiac": "Leo",
   "traits": [
     "Devoted",
-    "Stalwart",
+    "Disciplined",
     "Inspiring",
-    "Kleptomanic"
+    "Rigid",
+    "Guarded",
+    "Kleptomaniac"
   ],
   "stats": {
     "strength": 8,
     "agility": 3,
     "intelligence": 5,
-    "authority": 7,
+    "authority": 8,
     "sociability": 4
   },
   "equipment": [
-    "Holy Sword (family heirloom)",
-    "Crusader Armor",
-    "Holy Banners",
-    "Sacred Scrolls"
+    "Longsword"
   ],
   "appearance": {
     "height": "Tall",
     "build": "Muscular",
     "skinTone": "Fair",
-    "hairColor": "Black",
-    "hairStyle": "Short",
-    "features": "Full beard"
+    "hairColor": "Dark (hidden by helm)",
+    "hairStyle": "Short (hidden by helm)",
+    "features": "Full, thick beard and heavy brows (hidden by helm)"
   },
   "clothing": {
-    "head": "Steel helm",
-    "body": "Chainmail hauberk",
-    "legs": "Mail chausses",
-    "accessories": "Purple tunic with a white cross"
+    "head": "Closed great helm with breathing holes",
+    "body": "Plate armour under a dark tabard with an orange cross",
+    "legs": "Plate and mail beneath the tabard's skirts",
+    "accessories": "Leather belt"
   },
   "combat": {
     "role": "Warrior",
     "strengths": [
-      "Leadership",
-      "Endurance",
-      "Martial prowess"
+      "Holding the line",
+      "Smiting the unholy",
+      "Rallying allies"
     ],
     "weaknesses": [
-      "Ranged combat",
-      "Speed",
-      "Evasion"
+      "Slow"
     ]
   },
-  "magic": "The light, a divine power that lets him smite foes and heal allies",
+  "magic": "Holy Light",
   "notes": [
     "Has kleptomanic tendencies that he tries to hide",
     "Does a characteristic whistle when pleased with himself",
     "Speaks with archaic pronouns such as 'ye,' 'thou,' and 'thee' in speech",
-    "Used to carve wood toys for his son"
+    "Gentle with children, and though he never means to see his son again, he still carves wooden toys",
+    "Keeps a soldier's bearing even at rest, and steadies others by asking the same of them"
   ],
   "tags": [
     "Dancer", "Tank", "Leader", "Healer", "UnholyHunter", "HeavyHitter",
     "Religious", "StressHealer", "Stunner", "Torchlit", "Warrior", "Vigilant",
-    "Lowborn", "Burner"
+    "Lowborn", "Burner", "Penitent"
   ]
 }

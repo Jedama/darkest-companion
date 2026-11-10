@@ -2,14 +2,20 @@
   "identifier": "highwayman",
   "title": "Highwayman",
   "name": "Dismas",
-  "description": "The Highwayman is a repentant brigand and cutpurse who left the road after a job went badly wrong. He fights the way he robbed: close, fast, and first, a dirk in one hand and a pistol at point-blank range. Looking for better work, he was hired as a bodyguard by two Heirs looking to reclaim their ancestral estate.",
-  "history": "The Highwayman was once an apprentice candlemaker who abandoned the trade for the quick coin and violence of the high road, eventually cutting his way out of an iron gaol by butchering his keepers. Hunted by the garrison, he lived like vermin in the flooded canals and sewers until starvation drove him to take a broker's coin for one final coach robbery. He killed the escorts and fired blindly through the carriage window. When he forced the door open he found only an innocent mother and her young child dead by his hand. Stricken by what he'd done, he took the woman's locket from the floorboards and walked away from the haul, leaving his old life behind.",
-  "summary": "A lethal and guilt-ridden Highwayman, an escaped convict and crack shot seeking redemption for an innocent life taken on a dark road.",
+  "description": "The Highwayman is an escaped convict and a robber by trade, who takes work wherever it pays and trusts few of the people he works beside. Prison and life on the run have taught him to expect the worst, and he jokes freely about the noose still waiting for him. He has taken a contract to guard the Heirs to the Estate, and means to make more of it than a job: a chance to become a better man than the robber he was.",
+  "history": "The Highwayman escaped prison during a riot, and with a garrison on his heels went to ground in the city's canals. Freedom there meant filth and hunger, and a diet that came to include the rats he lived among. Sick and starving, he took an advance of gold from an unscrupulous employer for one final heist: a stagecoach robbery. When the shooting stopped, he found a woman and her child dead inside, killed by stray gunfire.",
+  "summary": "A distrustful escaped convict and robber, running from the gallows and the guilt of a heist that killed a mother and child.",
   "race": "Human",
   "gender": "Male",
   "religion": "None",
   "zodiac": "Sagittarius",
-  "traits": [ "Pragmatic", "Remorseful", "Cynical", "Fatalistic", "Alert" ],
+  "traits": [
+    "Rugged",
+    "Remorseful",
+    "Cynical",
+    "Distrustful",
+    "Pessimistic"
+  ],
   "stats": {
     "strength": 6,
     "agility": 8,
@@ -19,43 +25,41 @@
   },
   "equipment": [
     "Flintlock pistol",
-    "Dirk"
+    "Dagger"
   ],
   "appearance": {
     "height": "Average",
-    "build": "Lean and wiry",
+    "build": "Athletic",
     "skinTone": "Weathered",
-    "hairColor": "Dark brown",
-    "hairStyle": "Short and unkempt",
-    "features": "Gaunt cheeks, dark stubble, sharp hooded eyes"
+    "hairColor": "Black",
+    "hairStyle": "Short and shaved at the sides",
+    "features": "Narrow, stubbled face (lower half hidden by scarf)"
   },
   "clothing": {
-    "head": "Red neckerchief worn over the mouth",
-    "body": "Worn coat with a fur-lined collar, over a leather vest",
-    "legs": "Dark trousers and boots",
-    "accessories": "Belt with pouches and dirk sheath"
+    "head": "Red scarf over the lower face",
+    "body": "Dark grey greatcoat with a fur collar, over a brown waistcoat and red neckerchief",
+    "legs": "Dark trousers and black boots",
+    "accessories": "Red gloves, double-buckled belt"
   },
   "combat": {
     "role": "Skirmisher",
     "strengths": [
-      "Meele and ranged options",
-      "High damage",
-      "Fast footwork"
+      "Quick reflexes",
+      "Stealth",
+      "Marksmanship"
     ],
-    "weaknesses": [
-      "No defensive options"
-    ]
+    "weaknesses": []
   },
   "magic": "None",
   "notes": [
-    "Frequently punctuates statements with 'eh' and drops the 'g' on -ing words",
-    "Uses dry sarcasm and gallows humor to deflect from danger or serious conversation",
-    "Quietly mumbles rhymes and tries to piece together verses to himself",
-    "Carries a dead woman's locket tucked into his coat, and fidgets with it when feeling uneasy",
-    "Cheats at cards and dice, and lies easily and well whenever it suits him"
+    "Known to cheat at cards",
+    "Has a gallows sense of humor",
+    "Carries a locket taken from a victim and fidgets with it during moments of guilt",
+    "Frequently punctuates statements with 'eh' and drops the g's on -ing words",
+    "Writes poetry in secret, and labours over the rhymes"
   ],
   "tags": [
-    "Dancer", "Riposter", "Bleeder", "Criminal", "MarkSynergy",
+    "Dancer", "Riposter", "Bleeder", "Criminal", "MarkSynergy", "Vigilant",
     "Setup", "Outcast", "HeavyHitter", "Penitent", "Lowborn", "Reach"
   ]
 }

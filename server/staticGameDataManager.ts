@@ -4,7 +4,7 @@
 // Domain inside the class:
 // Characters → Relationships → Character meta (locations/weights) → World (Locations/NPCs/Enemies) → Events → Keywords → Prompts
 
-import type {
+import {
   CharacterLocations,
   CharacterRelationship,
   CharacterTemplate,
@@ -39,6 +39,7 @@ import { loadPromptsFromIndex } from './promptRegistry.js';
 
 // Import from the strategy registry. The registry is the ultimate source of truth
 // for all available strategies and their default values.
+import { findDoctrineConflicts } from './services/townHall/expeditionStrategies/strategyRegistry.js';
 
 import { loadJsonFile, loadTextFile } from './fileOps.js';
 import { PROMPTS_DIR } from './paths.js';
@@ -231,6 +232,15 @@ class StaticGameDataManager {
       this.enemyRelationships = enemyRelationships;
       this.characterWeightOverrides = characterWeightOverrides;
       this.characterPoses = characterPoses;
+
+      // Validate doctrines for conflicts
+      const conflicts = findDoctrineConflicts(this.characterWeightOverrides as Record<string, StrategyWeights>);
+      if (conflicts.length > 0) {
+        console.warn(`StaticGameDataManager: Found ${conflicts.length} doctrine conflicts:`);
+        for (const c of conflicts) {
+          console.warn(`  - Character "${c.characterId}": "${c.variant}" conflicts with its generic "${c.generic}" (both are non-zero)`);
+        }
+      }
 
 
       // World

@@ -2,61 +2,64 @@
   "identifier": "vestal",
   "title": "Vestal",
   "name": "Junia",
-  "description": "A warrior-nun who delivers divine healing and holy violence in equal measure. The Vestal is a study in contradictions: compassionate healer and unrelenting crusader, sheltered innocent harboring forbidden desires, gentle caretaker capable of righteous fury. She wields mace and tome with equal conviction, channeling the Light into both restorative blessings and dazzling condemnations.",
-  "history": "Raised within the walls of an Abbey she was forced into, Junia tended the eternal flame alongside her sisters. When forbidden daydreams distracted her from duty, the flame sputtered out. Her punishment was brutal: imprisonment, torture, and her sisters entombed alive. In that darkness, divine light revealed the truth: her captors were the true heretics. Haunted by trauma she rarely speaks of, she has arrived at the Hamlet seeking both redemption and the freedom to explore desires her Order forbade.",
-  "summary": "A warrior-nun of the Light, healer and smiter alike, carrying the trauma of her Order's cruelty and the forbidden desires it forbade her.",
+  "description": "The Vestal is a sister of the Light, who calls on it to mend the wounded and burn the unholy. Having spent nearly her whole life behind abbey walls, she finds the world outside as tempting as it is alarming, but covers her inexperience with assurance. Her unjust torture renewed her faith in the Light and broke her trust in the church that serves it, and she keeps its clergy at a wary distance.",
+  "history": "The Vestal tended her Order's sacred flame alongside her sisters, in a sheltered life of discipline behind the Abbey's walls, smothering her true desires. One day, lost in reverie at the sight of a couple in the grounds, she let the flame go out. The Abbot denounced her as faithless and had her thrown into the oubliette, to be tortured as an example to the congregation. There, a ray of golden light showed her that it was her captors, not she, who had strayed from the Light. She broke free, but when she ran to share the revelation with her sisters, she found their dormitory walled up, and them entombed alive for her sin.",
+  "summary": "A devout and sheltered sister of the Light, faithful to her god but wary of the church that serves it.",
   "race": "Human",
   "gender": "Female",
   "religion": "The Light",
   "zodiac": "Libra",
   "traits": [
     "Devoted",
-    "Righteous",
     "Compassionate",
-    "Salacious"
+    "Salacious",
+    "Sheltered",
+    "Proud",
+    "Private"
   ],
   "stats": {
     "strength": 4,
     "agility": 3,
     "intelligence": 6,
     "authority": 6,
-    "sociability": 3
+    "sociability": 4
   },
   "equipment": [
-    "Sacred Mace",
-    "Divine Tome"
+    "Mace",
+    "Versebook"
   ],
   "appearance": {
-    "height": "Average",
+    "height": "Short",
     "build": "Sturdy",
-    "skinTone": "Pale",
-    "hairColor": "Blonde",
-    "hairStyle": "Tied down",
-    "features": "Deep-set eyes, pronounced chin"
+    "skinTone": "Fair",
+    "hairColor": "Blonde (hidden by wimple)",
+    "hairStyle": "Tied back (hidden by wimple)",
+    "features": "Round, gentle face"
   },
   "clothing": {
-    "head": "Hooded robe and wimple",
-    "body": "Chestplate emphasizing breasts",
-    "legs": "Sacred robe",
-    "accessories": "Pauldrons, gloves"
+    "head": "Brown hood over a white wimple",
+    "body": "Steel breastplate shaped to the chest, over a tunic, with spiked pauldrons",
+    "legs": "Long brown habit with a faded yellow hem",
+    "accessories": "Faded yellow sash"
   },
   "combat": {
-    "role": "Healer",
+    "role": "Warrior-priest",
     "strengths": [
-      "Healing abilities",
-      "Divine magic"
+      "Healing",
+      "Blinding light",
+      "Smiting the unholy"
     ],
     "weaknesses": [
-      "Lacking Utility",
-      "Low Damage"
+      "Low damage"
     ]
   },
-  "magic": "Healing and Holy Smites",
+  "magic": "Holy Light",
   "notes": [
     "Keeps a diary of her forbidden, salacious fantasies",
     "Quotes passages from the Verses: 'Verse LXI: ...'",
-    "Uses 'Tis, Lo, and similar expressions often",
-    "Uncomfortable with physical contact"
+    "Unworldly after a life behind the Abbey's walls; ordinary pleasures intrigue her, and intimacy makes her bashful",
+    "Warm and welcoming, but grows curt under pressure or when conversation turns too personal",
+    "Has a strong, willful speaking voice, but an unexpectedly melodic singing voice"
   ],
   "tags": [
     "Backline", "Healer", "Stunner", "Debuffer", "SelfSufficient", "Torchlit",

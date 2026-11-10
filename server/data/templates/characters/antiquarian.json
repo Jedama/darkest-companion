@@ -2,69 +2,67 @@
   "identifier": "antiquarian",
   "title": "Antiquarian",
   "name": "Josephine",
-  "description": "The Antiquarian is a cunning and morally ambiguous character driven by an insatiable greed for valuable artifacts and occult knowledge. Her pursuit of power and wealth leads her to dark places, both literally and figuratively. She has arrived at the estate to pilfer the Ancestor's relics, and in search of the final piece of a mysterious puzzle box.",
-  "history": "Originally from the deserts around the Levantine Vizierate, the Antiquarian has traveled the world trading in supernatural relics. She became a disciple to a sorcerer to advance her knowledge of the arcane, only to betray and imprison him in a censer during a ritual. Her past is marked by self-serving decisions and a willingness to sacrifice others for her goals.",
-  "summary": "A greedy, silver-tongued relic hunter chasing occult knowledge, who has already betrayed one master and would sacrifice anyone else for her prize.",
+  "description": "The Antiquarian is a relic dealer and scholar from the deserts of the east, with an appraiser's eye for anything old, rare or valuable. She is no fighter and makes no pretence of being one: she is here to find what the Estate has buried, turn it into coin for the expeditions, and lend her knowledge where it pays. Beneath the merchant is a woman who has already killed once for power, and is hunting the last piece of a box that promises far more of it.",
+  "history": "The Antiquarian learned her trade in the bazaars of the Levantine, buying and selling antiques until she could tell a true relic from a forgery by touch. Wanting more than trade could give her, she apprenticed herself to a sorcerer, and for years assisted in his rites and human sacrifices, until she stabbed him in the back and bound his essence into her censer. From him, she stole the second of three pieces of a puzzle box containing great power. She has come to the Estate for the third.",
+  "summary": "A greedy relic hunter who killed her master for his power, and has come to the Estate for the last piece of a prize she will have at any cost.",
   "race": "Human",
   "gender": "Female",
   "religion": "None",
   "zodiac": "Gemini",
   "traits": [
     "Ambitious",
-    "Knowledgeable",
     "Greedy",
     "Cunning",
-    "Immoral"
+    "Pragmatic",
+    "Secretive"
   ],
   "stats": {
     "strength": 2,
     "agility": 6,
     "intelligence": 8,
     "authority": 5,
-    "sociability": 7
+    "sociability": 5
   },
   "equipment": [
-    "Censer (containing her former master's soul)",
+    "Censer",
     "Kukri",
     "Flash powder"
   ],
   "appearance": {
     "height": "Average",
     "build": "Slender",
-    "skinTone": "Tanned",
+    "skinTone": "Brown",
     "hairColor": "Dark",
-    "hairStyle": "Short",
-    "features": "Long fingers"
+    "hairStyle": "Tied back under her headscarf",
+    "features": "Dark, heavy-lidded eyes (lower face hidden by scarf)"
   },
   "clothing": {
-    "head": "Blue bandana",
-    "body": "Light-colored robe",
-    "legs": "Light pants",
-    "accessories": "Red scarf covering lower face, multiple necklaces"
+    "head": "Blue-grey headscarf, red scarf over the lower face",
+    "body": "Sand-coloured robe with wide sleeves, cinched with a dark belt",
+    "legs": "Long robe skirts under a tasselled red sash",
+    "accessories": "Strings of heavy beads, brass bangles, a satchel and pouches"
   },
   "combat": {
-    "role": "Scavenger",
+    "role": "Relic hunter",
     "strengths": [
-      "Finding valuables",
-      "Healing and invigorating vapors",
-      "Dodging and hiding"
+      "Spotting valuables",
+      "Versatility",
+      "Bolstering allies"
     ],
     "weaknesses": [
-      "Weak",
-      "Frail",
-      "Selfish"
+      "Not a fighter",
+      "Frail"
     ]
   },
-  "magic": "None",
+  "magic": "Her master's power, bound in her censer",
   "notes": [
-    "Speaks multiple languages fluently, including Levantine and the language of the Eastern isles",
-    "Whispers to her censer during moments of stress; the trapped sorcerer within responds with venomous, hateful mutterings",
-    "Instinctively touches objects, or their closest representative, while speaking about them",
-    "Surrounds herself with fragrant vapours from the censer, to protect her sensitive nose",
-    "Meticulously maintains her hair's cleanliness"
+    "Knows many of the world's languages, and slips foreign phrases into her speech",
+    "Sleeps poorly, haunted by the fear that the master bound in her censer will one day break free",
+    "An expert appraiser, who will hold forth on any old relic's age, origin and craftsmanship if given half a chance",
+    "Greedy, but shrewd about it: never risks a good arrangement for a quick gain, and always settles her share up front"
   ],
   "tags": [
     "Backline", "Weak", "Frail", "Hider", "Buffer", "Debuffer",
-    "Scavenger", "Mercenary", "Scholar", "Blighter", "Immoral", "Abrasive"
+    "Scavenger", "Mercenary", "Scholarly", "Blighter", "Immoral", "Abrasive"
   ]
 }

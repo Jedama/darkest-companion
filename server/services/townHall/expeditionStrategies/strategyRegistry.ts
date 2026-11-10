@@ -11,6 +11,7 @@ import { CharacterRecord } from '../../../../shared/types/types.js';
 import type { StrategyId, StrategyWeights } from '../../../../shared/constants/strategies.js';
 import type { StrategyContext } from '../../../../shared/types/types.js';
 import { Party, Composition } from '../expeditionPlanner.js';
+import { isStrategyId } from '../../../../shared/constants/strategies.js';
 
 // Re-exported so existing importers (`from './expeditionStrategies/.js'`) keep working.
 export type { StrategyId, StrategyWeights, StrategyContext };
@@ -377,6 +378,61 @@ export interface NormalizationStats {
 }
 
 export type PartyScoringStatistics = Record<StrategyId, NormalizationStats>;
+
+// ==================================
+// 6. DOCTRINE VALIDATION
+// ==================================
+
+/**
+ * The generic strategy a character variant specializes, or undefined if `id`
+ * is itself generic or has no generic twin (e.g. maximizeQuarantinedHorrors_kheir).
+ *
+ * Variants are named `<genericId>_<characterId>`. Generic ids are camelCase and
+ * never contain an underscore, so the split is on the FIRST one: character ids
+ * like `snor_rasp` carry their own.
+ */
+export function genericTwinOf(id: StrategyId): StrategyId | undefined {
+  const cut = id.indexOf('_');
+  if (cut === -1) return undefined;
+  const base = id.slice(0, cut);
+  return isStrategyId(base) ? base : undefined;
+}
+
+export interface DoctrineConflict {
+  characterId: string;
+  generic: StrategyId;
+  variant: StrategyId;
+}
+
+/**
+ * A character holds either the Hamlet's opinion or their own reading of it,
+ * never both. Returns every doctrine that breaks this; empty means valid.
+ *
+ * Checked against EFFECTIVE weights (registry defaults laid under the doctrine,
+ * exactly as blendDoctrine builds them), so a variant of a defaulted generic
+ * must zero that generic explicitly. Not naming it is not enough: the default
+ * would still be there.
+ */
+export function findDoctrineConflicts(doctrines: Record<string, StrategyWeights>): DoctrineConflict[] {
+  const defaults = generateDefaultWeights();
+  const conflicts: DoctrineConflict[] = [];
+
+  for (const [characterId, doctrine] of Object.entries(doctrines)) {
+    const effective: StrategyWeights = { ...defaults, ...doctrine };
+
+    for (const key of Object.keys(effective)) {
+      if (!isStrategyId(key)) continue; // unknown ids are defineWeights' problem
+      const generic = genericTwinOf(key);
+      if (!generic) continue;
+
+      if ((effective[key] ?? 0) !== 0 && (effective[generic] ?? 0) !== 0) {
+        conflicts.push({ characterId, generic, variant: key });
+      }
+    }
+  }
+
+  return conflicts;
+}
 
 /**
  * Dynamically generates the default weights object from the STRATEGY_REGISTRY.

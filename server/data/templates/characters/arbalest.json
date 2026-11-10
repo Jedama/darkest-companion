@@ -2,63 +2,63 @@
   "identifier": "arbalest",
   "title": "Arbalest",
   "name": "Missandei",
-  "description": "A skilled crossbowwoman with a tragic past, the Arbalest is a survivor who has honed her skills with the arbalest through years of hardship and adventure. Her quest for wealth is driven by a deeper search for a home she may never find.",
-  "history": "After a violent attack on her home that killed her father, the Arbalest was forced to flee with only a crossbow for protection. She has since traveled widely, serving as a mercenary, and has developed exceptional skills with her weapon and knowledge of herbal medicine.",
-  "summary": "A hardened mercenary marksman and healer, homeless since childhood, whose flawless aim masks a quiet longing to be seen as more than a weapon.",
+  "description": "The Arbalest is a former brigand turned soldier of fortune, with a crossbow nearly as tall as she is and no doubt at all about how good she is with it. She goes wherever the fighting promises glory, and stays only until wanderlust takes her again. Beneath the swagger is a child who walked away from her burning home, and has never stopped believing she should have stayed.",
+  "history": "The Arbalest grew up with her father in a house in the woods. When she was a child, he came home mortally wounded with a mob at his heels, pressed his crossbow into her hands and sent her out the back, and she walked into the woods as the house burned behind her. She survived alone in the forest at first, then as a mercenary, and for a time rode with brigands, robbing and raiding along the roads. That night still returns to her unbidden, and she has come to remember it as the night she ran away and left him to die.",
+  "summary": "A cocky, wandering markswoman, quick with a crossbow and a joke, who still blames herself for the night she fled her burning home.",
   "race": "Human",
   "gender": "Female",
   "religion": "None",
   "zodiac": "Cancer",
   "traits": [
-    "Survivor",
-    "Skilled",
-    "Determined",
+    "Cocky",
+    "Playful",
+    "Restless",
+    "Glory-seeking",
     "Resourceful",
-    "Independent"
+    "Guilt-ridden"
   ],
   "stats": {
     "strength": 5,
     "agility": 6,
     "intelligence": 6,
     "authority": 5,
-    "sociability": 4
+    "sociability": 7
   },
   "equipment": [
-    "Crossbow",
-    "Armor"
+    "Crossbow"
   ],
   "appearance": {
     "height": "Average",
-    "build": "Athletic",
+    "build": "Sturdy",
     "skinTone": "Dark",
     "hairColor": "Black",
-    "hairStyle": "Dreads tied up in a short upright ponytail",
-    "features": "Deep lines below fierce eyes"
+    "hairStyle": "Tied up in a short upright tuft",
+    "features": "Round face"
   },
   "clothing": {
     "head": "White headband",
-    "body": "Metal armor emphasizing modest chest",
-    "legs": "Baggy pants and greaves",
-    "accessories": "Gauntlet on one hand and glove on the other"
+    "body": "Steel breastplate with a riveted gorget",
+    "legs": "Baggy green trousers, steel knee guards and greaves",
+    "accessories": "One steel gauntlet, a quiver at the hip"
   },
   "combat": {
-    "role": "Sharpshooter",
+    "role": "Marksman",
     "strengths": [
-      "Exceptional accuracy",
-      "Healing knowledge",
-      "Survival skills"
+      "Long-range shooting",
+      "Marking targets",
+      "Field medicine"
     ],
     "weaknesses": [
-      "Close combat",
-      "Unversatile"
+      "Helpless up close"
     ]
   },
   "magic": "None",
   "notes": [
-    "Carries her 'Childhood tresure', an old stuffed bunny",
-    "Her Crossbow's name is 'Millicent'",
-    "Shows a rare, confident smirk when she's certain of success",
-    "Secretly yearns to be seen as a woman, not just a reliable marksman and medic"
+    "Brags freely about her aim, calls her shots, and flashes a smug smirk when she knows one will land",
+    "Thinks of every fight in terms of the songs that will be sung about it, and is always up for a wager or a trick shot",
+    "Treats wounds with remedies collected on her travels, along with some folk superstition about when and how to use them",
+    "Carries a stuffed rabbit from her childhood, and calls her crossbow 'Millicent'",
+    "Talks about her brigand days without shame, as what it took to survive, but never speaks of her childhood"
   ],
   "tags": [
     "Backline", "Healer", "Cleanser", "Debuffer", "Mercenary", "Warrior",

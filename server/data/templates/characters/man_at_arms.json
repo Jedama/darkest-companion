@@ -2,63 +2,65 @@
   "identifier": "man_at_arms",
   "title": "Man-at-Arms",
   "name": "Barristan",
-  "description": "A seasoned veteran whose expertise in warfare stems from countless campaigns. Though his raw strength has diminished with age, his tactical acumen and defensive prowess make him an invaluable protector. His past is marked by both military achievements and a devastating failure of command that haunts him still. He excels at protecting allies and training others in combat techniques.",
-  "history": "Once an ambitious officer who rose through the ranks through political maneuvering rather than battlefield merit, the Man-at-Arms's pride led to a catastrophic military failure that resulted in the deaths of many under his command. Haunted by the ghosts of his fallen soldiers, he tore his eye out during one of his traumatic episodes. He now seeks atonement through continued military service, having accepted that he will likely meet his end alone on some forgotten battlefield.",
-  "summary": "An aging veteran and peerless defender, haunted by the soldiers his pride killed, seeking atonement by shielding others and a death on the field.",
+  "description": "The Man-at-Arms is an old soldier who lost his rank in disgrace and has fought as a common one ever since. He wants no command, but in battle his voice still carries like an officer's, bellowing encouragement to his allies and threats at the enemy. Beneath the gruffness he is one of the kindest men on any field, and the first to shoulder another's burden.",
+  "history": "The Man-at-Arms was an ambitious young officer who climbed by politics rather than battle, and won a command before he had ever seen a fight. He led his regiment to its death. In the field hospital, their ghosts came for him every night, until he clawed out an eye to be rid of them. Stripped of his rank, he went back to war as a common soldier, and has fought in other men's trenches ever since, expecting to die in one.",
+  "summary": "A gruff, kind-hearted old soldier, once a disgraced officer, seeking atonement on one battlefield after another.",
   "race": "Human",
   "gender": "Male",
   "religion": "None",
   "zodiac": "Capricorn",
   "traits": [
     "Protective",
-    "Experienced",
-    "Haunted",
-    "Disciplined",
-    "Commanding",
-    "Remorseful"
+    "Kindly",
+    "Gruff",
+    "Shrewd",
+    "Remorseful",
+    "Haunted"
   ],
   "stats": {
     "strength": 7,
     "agility": 3,
     "intelligence": 7,
-    "authority": 9,
-    "sociability": 5
+    "authority": 7,
+    "sociability": 6
   },
   "equipment": [
-    "Heavy mace",
-    "Tower shield"
+    "Spiked mace",
+    "Heater shield"
   ],
   "appearance": {
     "height": "Tall",
-    "build": "Sturdy",
+    "build": "Broad and stocky",
     "skinTone": "Weathered",
     "hairColor": "Grey",
-    "hairStyle": "Short military cut with full beard",
-    "features": "Eye patch over right eye"
+    "hairStyle": "Close-cropped",
+    "features": "Grey beard and moustache, a scar across the brow"
   },
   "clothing": {
     "head": "None",
-    "body": "Heavy plate armor with red sash",
-    "legs": "Plated greaves",
-    "accessories": "Military medals"
+    "body": "Steel breastplate and pauldrons over a red-and-gold tunic",
+    "legs": "Red breeches and brown boots",
+    "accessories": "Eyepatch over the right eye, a medal pinned at the chest"
   },
   "combat": {
-    "role": "Defender",
+    "role": "Guardian",
     "strengths": [
-      "Defensive tactics",
-      "Command presence",
-      "Battle experience"
+      "Guarding allies",
+      "Holding the line",
+      "Battlefield tactics"
     ],
     "weaknesses": [
       "Aging body",
-      "Limited vision"
+      "Half-blind"
     ]
   },
   "magic": "None",
   "notes": [
-    "Haunted by ghosts of fallen soldiers",
-    "Seeks death in battle as atonement",
-    "Excellent military instructor"
+    "Still speaks in a tactician's vocabulary from his training (stratagems, manoeuvres), mixed with barracks familiarity (lad, greenhorn)",
+    "Still has the quick tongue of a man who once rose by wit, though these days he mostly turns it on his own age and waistline",
+    "Tells war stories freely, but privately broods over every decision he made in them",
+    "Swears in old soldier's curses (sod off, bollocking) and drops his h's",
+    "Disapproves of other people's dice, pipeweed and drink, and advises against them, but never orders anyone to stop"
   ],
   "tags": [
     "Flexible", "Tank", "Guarder", "Buffer", "Debuffer", "Riposter",

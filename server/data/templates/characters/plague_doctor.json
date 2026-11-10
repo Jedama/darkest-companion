@@ -2,65 +2,69 @@
   "identifier": "plague_doctor",
   "title": "Plague Doctor",
   "name": "Paracelsus",
-  "description": "The Plague Doctor, is primarily driven by her fervor to practice medicine and unlock the secrets of life and death. Ostracized for her radical methods, she now makes use of the Heirs' resources, offering her medical expertise on missions in return for the freedom to conduct her experiments at the hamlet.",
-  "history": "Once a top student embroiled in scandal due to her unconventional theories, the Plague Doctor's intense curiosity pushed her beyond academic boundaries. Her breakthrough came when she revived the cadaver of her deceased professor during an unauthorized experiment. Haunted by the consequences of her actions, she was compelled to leave her former life behind, seeking refuge and opportunity in the shadows of the hamlet's resources.",
-  "summary": "An ostracized physician whose obsessive pursuit of life and death makes her a master of poisons and medicine alike, and a poor judge of ethical limits.",
+  "description": "The Plague Doctor is a physician of radical theories, expelled from her university and still bitter towards the scholars who mocked her. An expert in disease, she distils her own toxins and remedies, and having seen in her professor what lies past death, will use either to keep her companions on this side of it. The sickness interests her at least as much as the sick, and here she can study it freely, on patients no one else will touch.",
+  "history": "The Plague Doctor was a brilliant student of medicine whose unconventional theories caused a scandal at her university. The mockery of her peers and professors only drove her deeper into her own experiments. One evening she found her hated professor slumped dead at his podium, and took his body for her experiments. She revived him, but could not stabilise what she had brought back, and had to kill him herself to end his screaming. She was expelled soon after.",
+  "summary": "A brilliant physician whose unconventional theories led her to reanimate her professor, and got her expelled.",
   "race": "Human",
   "gender": "Female",
-  "religion": "Agnostic",
+  "religion": "None",
   "zodiac": "Aquarius",
   "traits": [
     "Innovative",
-    "Obsessive",
-    "Paranoid",
-    "Isolated"
+    "Curious",
+    "Proud",
+    "Ambitious",
+    "Brusque",
+    "Haunted"
   ],
   "stats": {
     "strength": 3,
-    "agility": 2,
+    "agility": 4,
     "intelligence": 9,
-    "authority": 3,
-    "sociability": 2
+    "authority": 4,
+    "sociability": 3
   },
   "equipment": [
-    "Incicion knife",
-    "Toxic flasks"
+    "Incision knife",
+    "Plague grenades"
   ],
   "appearance": {
     "height": "Average",
     "build": "Slim",
-    "skinTone": "Pale",
+    "skinTone": "Fair",
     "hairColor": "Brown",
-    "hairStyle": "Short bob with slight flip at ends",
-    "features": "angular face with soft features, large chest"
+    "hairStyle": "Short, tousled bob",
+    "features": "None"
   },
   "clothing": {
-    "head": "Plague Doctor mask",
-    "body": "Green coat with spiked leather pauldrons",
-    "legs": "Bandages",
-    "accessories": "Sachets"
+    "head": "Dark hood over a beaked plague mask with round lenses",
+    "body": "Long dark coat with studded skirts and spiked leather pauldrons",
+    "legs": "Dark breeches and buckled leather boots",
+    "accessories": "Round spectacles (hidden by mask), satchel strap, belt with vial holsters"
   },
   "combat": {
     "role": "Poisoner",
     "strengths": [
-      "Chemical warfare",
-      "Medical knowledge",
-      "Blinding"
+      "Blighting groups",
+      "Blinding gas",
+      "Field medicine"
     ],
     "weaknesses": [
-      "Physical combat",
-      "Communication",
-      "Agility",
-      "Dodging"
+      "Fragile",
+      "Weak in melee"
     ]
   },
-  "magic": "None.",
+  "magic": "None",
   "notes": [
-    "Struggles with ethical boundaries in her pursuit of knowledge"
+    "Speaks in medical vocabulary that mixes humoral theory with modern technique",
+    "Notices the medical use or significance of an object or situation before anything else",
+    "Has almost no tolerance for alcohol; a single drink leaves her tipsy",
+    "Is fond of leeches, identifies them by species, and talks about them eagerly when given the chance",
+    "Never shows her trauma, and keeps it veiled beneath pride in her accomplishments"
   ],
   "tags": [
     "Backline", "Blighter", "Stunner", "Cleanser", "Debuffer", "Bleeder",
-    "Disruptor", "Buffer", "SelfSufficient", "Scholar", "Physician", "Reach",
+    "Disruptor", "Buffer", "SelfSufficient", "Scholarly", "Physician", "Reach",
     "Sweeper"
   ]
 }
