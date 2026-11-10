@@ -128,7 +128,7 @@
     "description": "An archipelago east across the sea, scattered around Haenara's coasts, home to the Hizurian people. Daimyo hold the islands under a shōgun, and their red-sealed ships carry the eastern trade as far as the Hamlet. Yokai are common in the rivers, the shrines and the shallows, and umibōzu rise in the deep water beyond the reefs. Ships without a Hizurian pilot aboard seldom arrive.",
     "summary": "An archipelago of daimyo courts around Haenara, whose haunted waters only its own ships cross safely.",
     "parent": "world",
-    "children": ["sunward_isles__asaumi", "sunward_isles__glass_house", "drowned_isles"]
+    "children": ["sunward_isles__asaumi", "sunward_isles__glass_house", "sunward_isles__kakezuki", "drowned_isles"]
   },
   {
     "identifier": "sunward_isles__asaumi",
@@ -144,6 +144,24 @@
     "description": "A noble house on a hill above a harbour town, named for its windows: tall, many-paned and glazed, the only ones of their kind in the Isles. Inside, the rooms are hung with oil portraits and furnished with high-backed chairs and a long dining table. The few staff who remain keep it loosely, with dust on the frames and weeds between the paving stones. Its mistress has not been home in some time.",
     "summary": "A noble house of glazed windows and foreign furniture, kept loosely in its mistress's long absence.",
     "parent": "sunward_isles",
+    "children": []
+  },
+  {
+    "identifier": "sunward_isles__kakezuki",
+    "title": "Kakezuki",
+    "description": "A coastal rice province of the Sunward Isles, its terraced fields running down to a sheltered shore. A neighbouring clan took it a few years ago in a short war that burned half its villages and broke its ruling house. The fields are worked again under new lords, and the villages are half rebuilt.",
+    "summary": "A coastal rice province of the Isles, burned and taken in a short war, now worked under new lords.",
+    "parent": "sunward_isles",
+    "children": [
+      "sunward_isles__issen_dojo"
+    ]
+  },
+  {
+    "identifier": "sunward_isles__issen_dojo",
+    "title": "The Issen-ryū Dojo",
+    "description": "The hall of the Issen-ryū, an ancient iaijutsu school built on a single decisive cut, on a hill above the province's main town. It burned in the war and its master died in it, and its practice floor now lies open to the weather under the fallen roof. The school had one student when it fell, and nobody has taught there since.",
+    "summary": "The burned hall of an ancient iaijutsu school, roofless and untaught since the war.",
+    "parent": "sunward_isles__kakezuki",
     "children": []
   },
   {
