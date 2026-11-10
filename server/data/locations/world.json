@@ -319,6 +319,14 @@
     "children": []
   },
   {
+    "identifier": "loess__amurgia",
+    "title": "Amurgia",
+    "description": "A hill town of Loess beneath a sheer bluff, its face honeycombed with hollows where bats roost by the thousand. Halfway up the bluff sits a small walled hamlet, overlooked by a castle at the top. Across a deep ravine stands a tall tower on its own pillar of earth, once joined to the castle by a stone bridge, and on some nights a light burns in its window. The princely house that rules Amurgia now keeps its court in the town below, where the shutters close at dusk as the bats pour out of the bluff.",
+    "summary": "A Loess hill town beneath an old castle and a cut-off tower, where the shutters close at dusk as the bats come out.",
+    "parent": "loess",
+    "children": []
+  },
+  {
     "identifier": "great_forks",
     "title": "Great Forks",
     "description": "A city-state where three rivers meet, holding the trade between the Kingdom and the Vizierate and taxing all of it. Its fields and orchards run for a day's ride in every direction and feed a population far larger than they should, the difference made up by barge. Great Forks has no state faith and suppresses none, which has made it a refuge for creeds beaten out of everywhere else, and a byword elsewhere for laxity.",
