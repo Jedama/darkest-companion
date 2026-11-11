@@ -159,6 +159,16 @@
     "description": "A country of pale downland and chalk hills west of Ostvengr's mountains, wealthy in wine and wheat and nothing else, which has spent two generations being the ground its neighbour's wars are fought across. Its nobility once prided themselves on the finest fencing academies and dueling salons in the world, traditions rendered utterly useless by weeks of industrialized artillery shelling and trench disease. Its army is large, conscripted, and mostly made of farmers who learned to live in cellars rather than parry on dueling pistes. Now that Ostvengr has destroyed itself, Craie is left with an intact army, no enemy, and a generation of displaced fencing masters whose elegant art had nowhere left to go but abroad.",
     "summary": "A chalk-hilled downland country west of Ostvengr, whose proud dueling traditions were rendered obsolete by two generations of grinding trench warfare.",
     "parent": "world",
+    "children": [
+      "craie__elurmendi"
+    ]
+  },
+  {
+    "identifier": "craie__elurmendi",
+    "title": "Elurmendi",
+    "description": "High mountains along Craie's frontier with Ostvengr, snowbound half the year and crossed by a few high passes where avalanches close the roads without warning. Its herders live under Craie's crown but are not of its people, keeping their own tongue and an old local faith whose monastic orders shelter travellers on the passes and keep to silence higher up. Since Ostvengr's fall, the passes lead only to a closed border, and masterless soldiers have come up from the lowlands looking for plunder.",
+    "summary": "Snowbound frontier mountains under Craie's crown, home to a herding people with their own tongue and faith.",
+    "parent": "craie",
     "children": []
   }
 ]
