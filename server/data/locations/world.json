@@ -169,6 +169,16 @@
     "description": "High mountains along Craie's frontier with Ostvengr, snowbound half the year and crossed by a few high passes where avalanches close the roads without warning. Its herders live under Craie's crown but are not of its people, keeping their own tongue and an old local faith whose monastic orders shelter travellers on the passes and keep to silence higher up. Since Ostvengr's fall, the passes lead only to a closed border, and masterless soldiers have come up from the lowlands looking for plunder.",
     "summary": "Snowbound frontier mountains under Craie's crown, home to a herding people with their own tongue and faith.",
     "parent": "craie",
+    "children": [
+      "elurmendi__aterpe"
+    ]
+  },
+  {
+    "identifier": "elurmendi__aterpe",
+    "title": "The Aterpe",
+    "description": "A stone hospice at the top of a high pass, kept by a brotherhood that shelters travellers and digs the lost out of the snow with great shaggy mountain dogs. Its infirmary treats frostbite and fever with herbs, minerals and the old remedies of the mountain shepherds. Masterless soldiers burned it after Ostvengr's fall, and the brothers are rebuilding it with their own hands, new timber rising on the blackened walls.",
+    "summary": "A hospice on a high pass whose brothers and great dogs dig travellers out of the snow, rebuilding since soldiers burned it.",
+    "parent": "craie__elurmendi",
     "children": []
   }
 ]
