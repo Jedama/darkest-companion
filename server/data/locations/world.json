@@ -161,7 +161,8 @@
     "parent": "world",
     "children": [
       "craie__elurmendi",
-      "craie__juste_mesure"
+      "craie__juste_mesure",
+      "craie__salubrite"
     ]
   },
   {
@@ -196,6 +197,14 @@
     "title": "Juste Mesure",
     "description": "L'Académie de la Juste Mesure, one of Craie's old schools of the sword, its long hall marked out in chalked pistes and hung with the colours of its masters. The war thinned its patrons and students, but several dozen still train under a handful of masters, each of whom chooses an heir to carry their forms. The master called the Dragon was killed on its floor in a sanctioned bout, and with his chosen heir sent away, the rival who killed him, now known as le Pourfendeur, is unquestionably the school's finest blade.",
     "summary": "One of Craie's last great fencing academies, a long hall of chalked pistes hung with the colours of its masters.",
+    "parent": "craie",
+    "children": []
+  },
+  {
+    "identifier": "craie__salubrite",
+    "title": "La Compagnie de Salubrité",
+    "description": "The guildhouse of the Compagnie de Salubrité, which has fought disease and infestation for generations, standing on the quays of a Craien river port. Its offices sort the letters that bring it contracts from across the world, and its archive holds generations of outbreaks charted street by street. Its men go out in yellow coats, and in Craie a town knows what their arrival means. On an island in the river stands the Company's lazaretto, where the sick and the suspected wait out their quarantine.",
+    "summary": "The riverside guildhouse of Craie's yellow-coated sanitation company, with its own quarantine island in the river.",
     "parent": "craie",
     "children": []
   }
