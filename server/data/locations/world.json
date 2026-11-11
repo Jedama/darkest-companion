@@ -170,7 +170,8 @@
     "summary": "Snowbound frontier mountains under Craie's crown, home to a herding people with their own tongue and faith.",
     "parent": "craie",
     "children": [
-      "elurmendi__aterpe"
+      "elurmendi__aterpe",
+      "elurmendi__goiko_santutegia"
     ]
   },
   {
@@ -178,6 +179,14 @@
     "title": "The Aterpe",
     "description": "A stone hospice at the top of a high pass, kept by a brotherhood that shelters travellers and digs the lost out of the snow with great shaggy mountain dogs. Its infirmary treats frostbite and fever with herbs, minerals and the old remedies of the mountain shepherds. Masterless soldiers burned it after Ostvengr's fall, and the brothers are rebuilding it with their own hands, new timber rising on the blackened walls.",
     "summary": "A hospice on a high pass whose brothers and great dogs dig travellers out of the snow, rebuilding since soldiers burned it.",
+    "parent": "craie__elurmendi",
+    "children": []
+  },
+  {
+    "identifier": "elurmendi__goiko_santutegia",
+    "title": "Goiko Santutegia",
+    "description": "A monastery of dark stone high above the passes, where an order of ascetics lives in near-silence and has little to do with the world below. Its brothers keep a hard rule of fixed hours: up before dawn, prostrations through the day, no food after dark. They hunt the peaks' wolves for their pelts, and mark themselves in blue ink as their years of discipline accumulate. Most who climb to it come to answer for something, and few come down again.",
+    "summary": "A silent monastery high in the peaks, whose wolf-pelted, tattooed brothers keep a hard rule, and where men go to answer for something.",
     "parent": "craie__elurmendi",
     "children": []
   }
