@@ -156,11 +156,12 @@
   {
     "identifier": "craie",
     "title": "Craie",
-    "description": "A country of pale downland and chalk hills west of Ostvengr's mountains, wealthy in wine and wheat and nothing else, which has spent two generations being the ground its neighbour's wars are fought across. Its nobility once prided themselves on the finest fencing academies and dueling salons in the world, traditions rendered utterly useless by weeks of industrialized artillery shelling and trench disease. Its army is large, conscripted, and mostly made of farmers who learned to live in cellars rather than parry on dueling pistes. Now that Ostvengr has destroyed itself, Craie is left with an intact army, no enemy, and a generation of displaced fencing masters whose elegant art had nowhere left to go but abroad.",
-    "summary": "A chalk-hilled downland country west of Ostvengr, whose proud dueling traditions were rendered obsolete by two generations of grinding trench warfare.",
+    "description": "A country of pale downland and chalk hills west of Ostvengr's mountains, wealthy in wine and wheat and nothing else, which spent two generations as the ground its neighbour's wars were fought across. Its nobility still prides itself on the finest fencing academies and duelling salons in the world, though the trenches taught its army to fight with artillery and spades rather than blades, and the academies have been slowly losing patrons and students since. Its army is large, conscripted, and mostly made of farmers who learned to live in cellars. Now that Ostvengr has destroyed itself, Craie is left with an intact army, no enemy, and fencing masters who have begun looking abroad for students and patrons.",
+    "summary": "A chalk-hilled downland country west of Ostvengr, whose proud duelling traditions have been slowly losing ground to two generations of trench warfare.",
     "parent": "world",
     "children": [
-      "craie__elurmendi"
+      "craie__elurmendi",
+      "craie__juste_mesure"
     ]
   },
   {
@@ -188,6 +189,14 @@
     "description": "A monastery of dark stone high above the passes, where an order of ascetics lives in near-silence and has little to do with the world below. Its brothers keep a hard rule of fixed hours: up before dawn, prostrations through the day, no food after dark. They hunt the peaks' wolves for their pelts, and mark themselves in blue ink as their years of discipline accumulate. Most who climb to it come to answer for something, and few come down again.",
     "summary": "A silent monastery high in the peaks, whose wolf-pelted, tattooed brothers keep a hard rule, and where men go to answer for something.",
     "parent": "craie__elurmendi",
+    "children": []
+  },
+  {
+    "identifier": "craie__juste_mesure",
+    "title": "Juste Mesure",
+    "description": "L'Académie de la Juste Mesure, one of Craie's old schools of the sword, its long hall marked out in chalked pistes and hung with the colours of its masters. The war thinned its patrons and students, but several dozen still train under a handful of masters, each of whom chooses an heir to carry their forms. The master called the Dragon was killed on its floor in a sanctioned bout, and with his chosen heir sent away, the rival who killed him, now known as le Pourfendeur, is unquestionably the school's finest blade.",
+    "summary": "One of Craie's last great fencing academies, a long hall of chalked pistes hung with the colours of its masters.",
+    "parent": "craie",
     "children": []
   }
 ]
