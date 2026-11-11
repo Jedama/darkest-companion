@@ -27,14 +27,16 @@
     "title": "St. Martha's Reformatory",
     "description": "A grim stone structure perched on a desolate hillside. Its gray walls bear the weathering of harsh seasons, while inside, dormitories lined with iron-framed beds house troubled girls under the stern watch of the Sisters. The branding chamber remains most disturbing, its implements for 'marking the impure' surrounded by stains no amount of scrubbing can remove. Daily routines of prayer, labor, and harsh correction continue in this isolated place where the outside world's judgments cannot reach.",
     "summary": "A grim stone structure on a desolate hillside, serving as an isolated institution for troubled girls, known for its strict routines and branding chamber.",
-    "parent": "kingdom"
+    "parent": "kingdom",
+    "children": []
   },
   {
     "identifier": "kingdom__burnt_cottage",
     "title": "Woodsman's Cottage",
     "description": "A blackened foundation ringed by scorched trees, all that remains of the humble home where the Woodsman and his wife briefly gave shelter to the Runaway. The stone hearth stands amid the devastation, reaching skyward like an accusing finger. Despite years passing, no vegetation reclaims this scarred earth.",
     "summary": "A blackened foundation and scorched trees, all that remains of the humble home where the Woodsman and his wife once lived.",
-    "parent": "kingdom"
+    "parent": "kingdom",
+    "children": []
   },
   {
     "identifier": "kingdom__harvest_house",

@@ -32,7 +32,7 @@
     "slayer": {
       "affinity": 4,
       "dynamic": "The Enemy Elite",
-      "description": "The Commandant's forces fought Ostvengr's well-trained Slayer corps for generations on the battlefield. Taking one down was a monumental achievement. This one seems far worse than the rest, and the Commandant is glad to stand alongside one for once."
+      "description": "The Commandant's forces fought Ostvengr's well-trained Slayer corps for generations on the battlefield. Taking one down was a monumental achievement. This one seems far more monstrous than the rest, and the Commandant is glad to stand alongside one for once."
     },
     "snor_rasp": {
       "affinity": 3,
@@ -88,7 +88,7 @@
     "kheir": {
       "affinity": 4,
       "dynamic": "Played for a fool",
-      "description": "The Watcher has seen the Heir' future, and his inevitable encounter with the Ancestor everyone believes dead. Thereafter, he shall 'come unto his maker'."
+      "description": "The Watcher has seen the Heir's future, and his inevitable encounter with the Ancestor everyone believes dead. Thereafter, he shall 'come unto his maker'."
     }
   },
   "dragons_duelist": {

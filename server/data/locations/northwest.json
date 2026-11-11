@@ -231,7 +231,7 @@
   {
     "identifier": "library__librarians_quarters",
     "title": "Head Librarian's Quarters",
-    "description": "The apartment above the library's entrance. Through the tall, symmetrical windows the abbey's bell tower rises above the Dower House. Religious texts replace what the previous librarian's kept in the built-in bookshelves, and a small shrine occupies the desk. Candles crowd every surface, their wax pooling on the broad windowsill. The bed's linens lie twisted, and several cups of valerian tea rest on the stearin-caked bedside table.",
+    "description": "The apartment above the library's entrance. Through the tall, symmetrical windows the abbey's bell tower rises above the Dower House. Religious texts replace what the previous librarian kept in the built-in bookshelves, and a small shrine occupies the desk. Candles crowd every surface, their wax pooling on the broad windowsill. The bed's linens lie twisted, and several cups of valerian tea rest on the stearin-caked bedside table.",
     "summary": "The apartment above the library's entrance, now occupied by the Archivist, filled with religious texts and excessive candles.",
     "parent": "library",
     "children": []

@@ -432,8 +432,8 @@
   {
     "identifier": "tavern__cook_quarter",
     "title": "Cook's Quarter",
-    "description": "A small chamber across from the barkeep's room, its door hanging open since the last cook's abrupt departure. Shelves still hold carefully labeled spice jars and recipe books, while a hook-lined rack awaits the return of copper pots. The bed remains made, as if its former occupant merely stepped out for air rather than fled into the night.",
-    "summary": "A small chamber in the tavern, once the cook's private quarters, still holding spice jars, recipe books, and waiting for its occupant's return.",
+    "description": "A small chamber across from the barkeep's room, its door hanging open since the last cook died defending the hamlet. Shelves still hold carefully labeled spice jars and recipe books, while a hook-lined rack awaits the return of copper pots. The bed remains made, as if its former occupant merely stepped out for air.",
+    "summary": "A small chamber in the tavern, once the late cook's private quarters, still holding spice jars and recipe books.",
     "parent": "tavern",
     "children": [],
     "capacity": 1
@@ -466,7 +466,7 @@
   {
     "identifier": "butchers_circus__twins_post",
     "title": "Twins' Post",
-    "description": "The circus's primary entrance, marked by towering metal standards wrapped in chains. Jack and Jacques maintain their eternal vigil here, their mirrored positions and synchronized movements creating an unsettling gateway ritual. Trophy masks of defeated fighters hang from the chains above, their empty eyes watching new challengers pass below.",
+    "description": "The circus's primary entrance, marked by towering metal standards wrapped in chains. Barry and Leon maintain their eternal vigil here, their mirrored positions and synchronized movements creating an unsettling gateway ritual. Trophy masks of defeated fighters hang from the chains above, their empty eyes watching new challengers pass below.",
     "summary": "The primary entrance to the Butcher's Circus, marked by towering metal standards and trophy masks, guarded by the twins.",
     "parent": "butchers_circus",
     "children": []

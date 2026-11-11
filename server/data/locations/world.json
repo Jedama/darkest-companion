@@ -2,7 +2,7 @@
   {
     "identifier": "world",
     "title": "Known World",
-    "description": "A vast and varied land of distinct nations and uneasy alliances, from the terraced island empire of Haenara in the far east to the ruins of Ostvengr in the northwest. Civilization asserts itself through commerce and conquest: the Levantine Vizierate holds the trade of the east, Great Forks taxes what passes between, and a kingdom stands at the centre of it all. On that kingdom's rugged coastline, a neglected Ancestral Estate sits apart from these machinations, harboring secrets that will soon draw eyes away from the concerns of the wider world.",
+    "description": "A vast and varied land of distinct nations and uneasy alliances, from the terraced island empire of Haenara in the far east to the ruins of Ostvengr in the north. Civilization asserts itself through commerce and conquest: the Levantine Vizierate holds the trade of the east, Great Forks taxes what passes between, and a kingdom stands at the centre of it all. On that kingdom's rugged coastline, a neglected Ancestral Estate sits apart from these machinations, harboring secrets that will soon draw eyes away from the concerns of the wider world.",
     "summary": "A vast land of nations from Haenara to fallen Ostvengr, functioning through trade and war while ancient secrets linger in the margins.",
     "parent": null,
     "children": [
@@ -130,7 +130,7 @@
   {
     "identifier": "chernozem__podzola",
     "title": "Podzola",
-    "description": "Chernozem's northern half, named for its pale ash-grey soil. Winters are long and harsh, it grows little worth taking and, far from Chernozem's eternal war, it has been mostly ignored. The old songs are still sung here and the old rites still observed, and sects the Light's churches believes stamped out meet in cellars.",
+    "description": "Chernozem's northern half, named for its pale ash-grey soil. Winters are long and harsh, it grows little worth taking and, far from Chernozem's eternal war, it has been mostly ignored. The old songs are still sung here and the old rites still observed, and sects the Light's churches believe stamped out meet in cellars.",
     "summary": "Chernozem's poor-soiled northern half, too worthless to fight over, where old songs and older heresies survived the war years intact.",
     "parent": "chernozem",
     "children": [

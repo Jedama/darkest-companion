@@ -49,8 +49,8 @@ The Estate occupies isolated, treacherous terrain:
 - The Manor and its underground Ruins contain the remnants of the ancestral home
 - The Warrens are ancient tunnels beneath the manor, now home to pigmen abominations
 - The Cove lies to the northeast, reached by a cliff path beneath the manor's hill
-- The Eastern Sea borders the estate to the east, with distant Eastern Isles visible
-- The Courtyard lies at the end of path leading northwest from the Dower House
+- The Eastern Sea borders the estate to the east, with the Sunward Isles a few days' sail beyond it
+- The Courtyard lies at the end of a path leading north from the Dower House
 - The corrupted Farmstead lies to the south, encircled by the Ancestor's ward stones
 
 A makeshift palisade wall surrounds the hamlet, providing minimal protection from the horrors beyond. The Caretaker's stagecoach remains the primary connection to the outside world, traveling the Old Road to bring supplies and new recruits.
@@ -62,15 +62,15 @@ The Hamlet itself is divided into districts:
 - Northeast: Scientific buildings from the Ancestor's excavation efforts
 - East: Harbor district with docks and shadier establishments
 - Southeast: Guild hall, blacksmith, and apothecary
-- South: Granary, town well, and paths to the farmstead
+- South: Granary, mill grounds, and paths to the farmstead
 - Southwest: Inn, tavern, and brothel
-- West: Provisionist and sanitarium
+- West: Provisioner's store and sanitarium
 
 Beyond the estate, the World is laid out roughly as follows:
-(Directions are given loosely, from the Estate's point of view, and only as a rough guide)
+(Directions are given loosely, from the Kingdom's point of view, and only as a rough guide)
 - Center: The Kingdom, the Bottoms, the Estate
-- North: Great Forks, the Valley, the Northern Forest, the Far North
-- Northwest: Ostvengr, Chernozem, Podzola, Winterhome
+- North: Ostvengr, Great Forks, the Valley, the Northern Forest, the Far North
+- Northwest: Chernozem, Podzola, Winterhome
 - West: Craie, Elurmendi
 - Southwest: Loess
 - South: Pelagia
