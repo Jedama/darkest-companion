@@ -184,7 +184,7 @@
     "title": "Honorable Shrine",
     "description": "A wind-scoured promontory on the coastal cliffs, choked with weeds and the tumbled stones of a forgotten estate outbuilding.",
     "restored": "A serene cedar shrine erected on the cliff edge by Sunward emissaries, positioned to look eastward across the sea toward their homeland. Featuring a stone tōrō lantern, a carved scholar-statue, and sacred shimenawa ropes, the shrine is tended by priests who burn fragrant incense and craft protective omamori talismans.",
-    "summary": "A serene coastal cedar shrine erected on the cliffs by Sunward allies, where sacred incense and protective omamori talismans are prepared.",
+    "summary": "A coastal cedar shrine on the cliffs, facing east toward the Sunward Isles, where incense and protective omamori talismans are prepared.",
     "parent": "north_east_district",
     "children": []
   }
