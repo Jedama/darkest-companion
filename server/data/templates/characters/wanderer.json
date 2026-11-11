@@ -3,7 +3,7 @@
   "title": "Wanderer",
   "name": "Musashi",
   "description": "The Wanderer is a masterless swordsman from across the sea, sole student of a school that no longer exists. He wields a cursed blade, earned by his own greed, that refuses sheathing until it has drawn blood and denies him the seppuku his disgrace demands. Yet he fights patiently, gathering himself until a single cut can end his foes. He has come to the Estate to find something strong enough to end him.",
-  "history": "The Wanderer was born to a samurai house of the Sunward Isles and became the sole student of an ancient iaijutsu school. He sailed for a distant shrine, leaving a rival swordsman trusted to keep the peace between their schools. An umibōzu broke the ship, and he lost his sword to the water. A spirit surfaced and asked whether the golden blade she carried was the one he had dropped. He lied, and said that it was. He came home to a burning province. The rival's clan had gone to war while he was at sea, and his master lay dead in the ruins of the dojo. His uncle found him on the coast. The rival came down to the water, and the Wanderer drew. The blade would not sheathe unsated, and he killed the rival, his uncle, and the children with him.",
+  "history": "The Wanderer was born to a samurai house of the Sunward Isles and became the sole student of an ancient iaijutsu school. He sailed for a distant shrine, leaving a rival swordsman trusted to keep the peace between their schools. The Ōnamazu broke the ship, and he lost his sword to the water. A spirit surfaced and asked whether the golden blade she carried was the one he had dropped. He lied, and said that it was. He came home to a burning province. The rival's clan had gone to war while he was at sea, and his master lay dead in the ruins of the dojo. His uncle found him on the coast. The rival came down to the water, and the Wanderer drew. The blade would not sheathe unsated, and he killed the rival, his uncle, and the children with him.",
   "summary": "A disciplined and remorseful Wanderer, a masterless swordsman carrying the cursed blade that killed his own family.",
   "race": "Human",
   "gender": "Male",
@@ -67,6 +67,6 @@
     "Dancer", "HeavyHitter", "Crit", "ArmorPiercer", "Executor",
     "Marker", "MarkSynergy", "Disruptor", "GuardBreaker", "Riposter",
     "Setup", "SelfSufficient", "SelfStress", "Brink", "Unstable",
-    "Warrior", "Noble", "Exile", "Eldritch", "Drunkard"
+    "Warrior", "Noble", "Exile", "Eldritch"
   ]
 }

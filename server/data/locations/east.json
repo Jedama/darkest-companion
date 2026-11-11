@@ -40,7 +40,7 @@
     "title": "Red Seal Ship",
     "description": "A shattered deep-water berth at the harbor's edge, reduced to waterlogged pilings and broken chains that prevent large foreign vessels from mooring safely in the shallows.",
     "restored": "A reinforced harbor quay where an imposing foreign merchant junk from the Sunward Isles now rests at anchor. Sporting ribbed crimson batten-sails and the Emperor's vermilion trade seal upon its rigging, the ship's crew trades exotic goods, rare teas, and foreign coinage in gratitude for the hamlet's aid across the sea.",
-    "summary": "A grand foreign merchant vessel from the Sunward Isles moored at a rebuilt harbor berth, establishing regular trade for exotic goods and Red Seals.",
+    "summary": "The harbor's deep-water berth, where the Sunward Isles' red-sealed merchant ships moor to trade exotic goods and Red Seals.",
     "parent": "harbor",
     "children": []
   },

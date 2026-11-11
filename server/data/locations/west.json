@@ -2,7 +2,7 @@
   {
     "identifier": "west_district",
     "title": "Western District",
-    "description": "Centuries past, this was the hamlet's noble quarter, now a hollow echo of former grandeur. The noble house's tower now holds the sanitarium, and with the Weald's miasma it mark this district as a place to avoid. The Caretaker still maintains his provisions, and the Survivalist alone finds comfort beneath the twisted trees.",
+    "description": "Centuries past, this was the hamlet's noble quarter, now a hollow echo of former grandeur. The noble house's tower now holds the sanitarium, and with the Weald's miasma it marks this district as a place to avoid. The Caretaker still maintains his provisions, and the Survivalist alone finds comfort beneath the twisted trees.",
     "summary": "The hamlet's former noble quarter, now characterized by the sanitarium and proximity to the Weald's unsettling influence.",
     "parent": "hamlet",
     "children": [

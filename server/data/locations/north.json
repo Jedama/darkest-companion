@@ -191,8 +191,8 @@
   {
     "identifier": "abbey__pyre",
     "title": "Pyre",
-    "description": "A grim fixture behind the abbey, partially hidden by the building's shadow. The stake rises from a platform of blackened stones, the ground around it perpetually scattered with ash despite frequent rains. Head Abbot Bertram maintains this space with disturbing diligence, the wood always dry and ready. Few venture near after dark, when the abbey's torchlight makes the stake's shadow seem to writhe of its own accord.",
-    "summary": "A grim fixture behind the abbey, a platform with a stake used for burning, meticulously maintained.",
+    "description": "A grim fixture behind the abbey, partially hidden by the building's shadow. The stake rises from a platform of blackened stones, the ground around it perpetually scattered with ash despite frequent rains. The former Head Abbot, Bertram, kept this space with disturbing diligence, and the wood is still dry and ready. Few venture near after dark, when the abbey's torchlight makes the stake's shadow seem to writhe of its own accord.",
+    "summary": "A grim fixture behind the abbey, a platform with a stake used for burning, still kept ready.",
     "parent": "abbey__grounds",
     "children": []
   },

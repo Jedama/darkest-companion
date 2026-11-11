@@ -49,8 +49,8 @@ The Estate occupies isolated, treacherous terrain:
 - The Manor and its underground Ruins contain the remnants of the ancestral home
 - The Warrens are ancient tunnels beneath the manor, now home to pigmen abominations
 - The Cove lies to the northeast, reached by a cliff path beneath the manor's hill
-- The Eastern Sea borders the estate to the east, with distant Eastern Isles visible
-- The Courtyard lies at the end of path leading northwest from the Dower House
+- The Eastern Sea borders the estate to the east, with the Sunward Isles a few days' sail beyond it
+- The Courtyard lies at the end of a path leading north from the Dower House
 - The corrupted Farmstead lies to the south, encircled by the Ancestor's ward stones
 
 A makeshift palisade wall surrounds the hamlet, providing minimal protection from the horrors beyond. The Caretaker's stagecoach remains the primary connection to the outside world, traveling the Old Road to bring supplies and new recruits.
@@ -62,15 +62,15 @@ The Hamlet itself is divided into districts:
 - Northeast: Scientific buildings from the Ancestor's excavation efforts
 - East: Harbor district with docks and shadier establishments
 - Southeast: Guild hall, blacksmith, and apothecary
-- South: Granary, town well, and paths to the farmstead
+- South: Granary, mill grounds, and paths to the farmstead
 - Southwest: Inn, tavern, and brothel
-- West: Provisionist and sanitarium
+- West: Provisioner's store and sanitarium
 
 Beyond the estate, the World is laid out roughly as follows:
-(Directions are given loosely, from the Estate's point of view, and only as a rough guide)
+(Directions are given loosely, from the Kingdom's point of view, and only as a rough guide)
 - Center: The Kingdom, the Bottoms, the Estate
-- North: Great Forks, the Valley, the Northern Forest, the Far North
-- Northwest: Ostvengr, Chernozem, Podzola, Winterhome
+- North: Ostvengr, Great Forks, the Valley, the Northern Forest, the Far North
+- Northwest: Chernozem, Podzola, Winterhome
 - West: Craie, Elurmendi
 - Southwest: Loess
 - South: Pelagia
@@ -98,7 +98,8 @@ Common is the shared tongue of the Kingdom and the trade roads, and is written a
 - Haenaran (Korean-inspired): An emperor reigns and the warlords rule. Its craftsmen are famed abroad for clockwork, gunpowder, medicine and star-charts. Language: Haenaran.
 
 GENERAL WORLD NOTES:
-The Light is the dominant faith in these lands nowadays (used to be Sol Invictus), though a multitude of faiths exist. The Flame is a more inquisitorial branch of the Light that favours judgement and burning. Characters who list no religious affiliation typically still acknowledge the Light's existence—they simply don't attend services or follow doctrine strictly.
+The Light is the dominant faith in these lands nowadays, though a multitude of faiths exist. It is one of many branches grown from an older root known as the Flame, alongside others such as Sol Invictus and the Radiance. Sol Invictus was once the greatest of them, until the Light overtook it and beat its rivals down. At the present time, the original root is mostly forgotten, and 'the Flame' also serves as the name of the Light's inquisitorial branch, which favours judgement and burning.
+Humans share these lands with bird-folk, crocodile-folk and dragon-folk, who live among them. They are often treated as lesser, though seldom with outright hostility. Characters who list no religious affiliation typically still acknowledge the Light's existence—they simply don't attend services or follow doctrine strictly.
 Magic and fantastical elements exist but are rare. Witnessing genuine magic, eldritch phenomena, or supernatural abilities would shock most ordinary people.
 The primary currency are gold coins.
 Coinciding with the Ancestor's death, Ostvengr — the strongest nation in the world, north beyond the Kingdom's border — destroyed itself in a single day, known as the Fall, when the eldritch technology it had built its power on turned on its makers. The Kingdom and Ostvengr's other neighbours hold the frontier against what is left.

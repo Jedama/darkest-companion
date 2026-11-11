@@ -27,7 +27,7 @@
     "title": "Sanguine Vintners",
     "description": "A collapsed winery whose ruined vats still bear the sickly-sweet smell of fermented harvests past. Broken glass and splintered oak barrels litter the loading dock, while the pressing room's rusted machinery sits frozen in decay. In the cellar, shattered bottles tell tales of desperate looters who found only vinegar and regret.",
     "restored": "An unsettling yet vital facility risen from the old winery's bones. Dark timbers and fresh stonework frame a building that resembles a proper vintner's operation, though its true purpose is betrayed by the corpses of the Courtyard's bloodsuckers visible through leaded windows. Inside, modern distillation apparatus and cooling systems ensure a steady supply of processed blood for the hamlet's cursed residents, while the cellar holds rows of carefully labeled vials rather than wine bottles.",
-    "summary": "A collapsed winery reeking of fermentation and decay, now serving darker needs with its ruined vats and shattered bottles.",
+    "summary": "The hamlet's old winery, where the blood of the Courtyard's dead bloodsuckers is distilled and bottled for the hamlet's cursed residents.",
     "parent": "south_district",
     "children": []
   },
@@ -69,7 +69,7 @@
     "title": "Tainted Well",
     "description": "A shattered masonry well where wild, runaway crystal growths have burst through the stonework, leaving the canopy crushed under fallen timbers. Glowing cyan brine spills across the cracked base and pools into the mud, poisoning the soil and rendering the flooded shaft completely unusable.",
     "restored": "A braced masonry well dominated by a colossal, glowing cyan crystal that juts straight through the center of its shingled roof. While the waters below are permanently infused with the comet's luminescence, the reinforced stone base and winch allow workers to safely draw the mineral-charged brine for specialized settlement use.",
-    "summary": "A farmstead stone well pierced by a towering, luminescent comet crystal, utilized for drawing crystal-infused water.",
+    "summary": "A farmstead stone well pierced by a towering, luminescent comet crystal, its water infused with the comet's glow.",
     "parent": "mill_grounds",
     "children": []
   },
@@ -78,7 +78,7 @@
     "title": "Miasmal Orchard",
     "description": "A blighted thicket of blackened, twisted trees choked with jagged, uncontrolled crystal formations. Corrupted mists drift across the untamed soil, where the fractured wood bleeds a pale glow into the barren ground, far too dangerous and volatile for any worker to approach.",
     "restored": "A gnarled, blackened tree enclosed within a sturdy circular wooden fence, preserved as a contained cosmic anomaly. Massive clusters of cyan crystals burst from its boughs and roots, wreathed in a faint luminescent mist that workers harvest for crystalline growth and esoteric extracts.",
-    "summary": "A fenced agricultural enclosure on the farmstead surrounding an ancient tree fused with glowing cosmic crystals.",
+    "summary": "An ancient farmstead tree fused with glowing cosmic crystals and wreathed in luminous mist.",
     "parent": "mill_grounds",
     "children": []
   },
@@ -150,7 +150,7 @@
   {
     "identifier": "apple_yard__mass_grave",
     "title": "Mass Grave",
-    "description": "A suspiciously regular mound beyond the orchard's edge, where three bodies were said to be buried after the miasma took them. The Conscript's sword sticks out of the earth at an odd angle, alongside gifts left by others who pretended to mourn them.",
+    "description": "A suspiciously regular mound beyond the orchard's edge, where bodies were said to be buried after the miasma took them. The Conscript's sword sticks out of the earth at an odd angle, alongside gifts left by others who pretended to mourn them.",
     "summary": "A suspiciously regular mound marked by a conscript's sword, burying the bodies taken by the miasma.",
     "parent": "apple_yard",
     "children": []
