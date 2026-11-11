@@ -600,6 +600,11 @@
     }
   },
   "voivode": {
+    "duchess": {
+      "affinity": 4,
+      "dynamic": "His Lesson, Well Learned",
+      "description": "It was the Voivode who taught the Ancestor that a curse can be shared through drinking blood, and he is delighted with how the Courtyard turned out: this 'Duchess' here, part of his friend's own little flock."
+    },
     "greymane": {
       "affinity": 2,
       "dynamic": "Another Stolen Crown",
