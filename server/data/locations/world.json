@@ -162,7 +162,8 @@
     "children": [
       "craie__elurmendi",
       "craie__juste_mesure",
-      "craie__salubrite"
+      "craie__salubrite",
+      "craie__universite"
     ]
   },
   {
@@ -205,6 +206,14 @@
     "title": "La Compagnie de Salubrité",
     "description": "The guildhouse of the Compagnie de Salubrité, which has fought disease and infestation for generations, standing on the quays of a Craien river port. Its offices sort the letters that bring it contracts from across the world, and its archive holds generations of outbreaks charted street by street. Its men go out in yellow coats, and in Craie a town knows what their arrival means. On an island in the river stands the Company's lazaretto, where the sick and the suspected wait out their quarantine.",
     "summary": "The riverside guildhouse of Craie's yellow-coated sanitation company, with its own quarantine island in the river.",
+    "parent": "craie",
+    "children": []
+  },
+  {
+    "identifier": "craie__universite",
+    "title": "Université de Craie",
+    "description": "Craie's great university, whose faculty of medicine is the most renowned in the world and draws students from every country that can afford to send them. It keeps anatomy theatres, a physic garden of medicinal plants and chairs in pharmacology, and is one of the few universities anywhere to let bird-folk hold them. Craie's army was never the strongest in the war, but the university's surgeons and physicians kept more of it alive than any other.",
+    "summary": "Craie's great university, the world's leading school of medicine, and one of the few where bird-folk hold chairs.",
     "parent": "craie",
     "children": []
   }
