@@ -411,6 +411,11 @@
     }
   },
   "prefect": {
+    "rescuer": {
+      "affinity": 6,
+      "dynamic": "His Promising Student",
+      "description": "The Prefect remembers a mountain boy who came to his lectures carrying shepherd's remedies, and was impressed by how many of them held up under testing, enough to make him one of the few students whose medical advice the Prefect would entertain. The Prefect has not heard of him since he joined the army."
+    },
     "occultist": {
       "affinity": 7,
       "dynamic": "A Long Correspondence",
@@ -437,6 +442,11 @@
     }
   },
   "rescuer": {
+    "prefect": {
+      "affinity": 5,
+      "dynamic": "The Old Professor",
+      "description": "The Rescuer was taught pharmacology by the Prefect, strictly and well, but never accepted his blunt honesty about a patient's odds. He does not know the Prefect gave up his chair, and will be puzzled to find his old professor here, more interested in mathematics than in medicine."
+    },
     "succubus": {
       "affinity": 3,
       "dynamic": "Warned by the hounds",
