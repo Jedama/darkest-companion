@@ -1,0 +1,29 @@
+[
+  {
+    "identifier": "loess",
+    "title": "Loess",
+    "description": "A broad plain of windblown yellow soil southwest of the Kingdom, fertile and easy to farm, and crowded with small kingdoms, duchies and city-states. The Kingdom conquered it long ago and lost it piece by piece over centuries as the crown weakened. Its courts speak Common and keep much of the Kingdom's ways, but none will kneel to it again, and they fight the Kingdom and one another for supremacy.",
+    "summary": "A fertile western plain of small rival kingdoms, once the Kingdom's conquest and now its splinters.",
+    "parent": "world",
+    "children": [
+      "loess__gilneas",
+      "loess__amurgia"
+    ]
+  },
+  {
+    "identifier": "loess__gilneas",
+    "title": "Gilneas",
+    "description": "The ruins of a small kingdom on the Loess plain, its walls built wide enough to enclose fields and orchards as well as the town, so that it could feed itself through a long siege. Inside them stand the shells of foundries and gunsmiths' works, cold now, with the river docks silted up and the fields gone back to grass. The walls were breached in the end, and the people who outlived the siege carry a wolf-curse, the last desperate resort of their former king. A few of them still live among the ruins.",
+    "summary": "The walled ruins of a gunsmith kingdom on the Loess plain, whose surviving people carry their king's wolf-curse.",
+    "parent": "loess",
+    "children": []
+  },
+  {
+    "identifier": "loess__amurgia",
+    "title": "Amurgia",
+    "description": "A hill town of Loess beneath a sheer bluff, its face honeycombed with hollows where bats roost by the thousand. Halfway up the bluff sits a small walled hamlet, overlooked by a castle at the top. Across a deep ravine stands a tall tower on its own pillar of earth, once joined to the castle by a stone bridge, and on some nights a light burns in its window. The princely house that rules Amurgia now keeps its court in the town below, where the shutters close at dusk as the bats pour out of the bluff.",
+    "summary": "A Loess hill town beneath an old castle and a cut-off tower, where the shutters close at dusk as the bats come out.",
+    "parent": "loess",
+    "children": []
+  }
+]
