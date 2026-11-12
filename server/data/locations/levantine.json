@@ -25,7 +25,8 @@
     "summary": "A small, devout river kingdom on the Levantine's western edge, known for its lamps and hospices.",
     "parent": "levantine",
     "children": [
-      "kafarel__lazar_house"
+      "kafarel__lazar_house",
+      "kafarel__divan"
     ]
   },
   {
@@ -33,6 +34,14 @@
     "title": "The Lazar House",
     "description": "A stone house on an islet in the river, inside the walls and reached by a narrow footbridge, where the kingdom's lepers are kept and cared for. A small barred window looks back toward the town. The royal banner hangs over its heavy door, but since the crown stopped paying for its keep the plaster has cracked and the beams have begun to rot.",
     "summary": "A leper house on a river islet inside Kafarel's walls, reached by a narrow footbridge.",
+    "parent": "levantine__kafarel",
+    "children": []
+  },
+  {
+    "identifier": "kafarel__divan",
+    "title": "The Divan",
+    "description": "Kafarel's royal council hall, where its court sits on low benches lining the walls. Tall blue curtains frame a balcony over the river, from which Kafarel's kings have addressed the town for generations. Behind the throne hangs an empty rack, made for a greatsword taller than a man. The purple cushions still carry faint bloodstains from the former ruler's advisors.",
+    "summary": "Kafarel's royal council hall, lined with low benches and opening onto a curtained balcony over the river.",
     "parent": "levantine__kafarel",
     "children": []
   }
