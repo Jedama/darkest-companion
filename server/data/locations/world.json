@@ -73,7 +73,8 @@
     "summary": "The rich and orderly Vizierate of the east, ruled for centuries by an unaging usurper who took the throne by murder.",
     "parent": "world",
     "children": [
-      "levantine__firuzkent"
+      "levantine__firuzkent",
+      "levantine__kafarel"
     ]
   },
   {
@@ -81,6 +82,14 @@
     "title": "Firuzkent",
     "description": "The Vizierate's capital, a great harbour city on the southern coast. Its domes and roofs are sheathed in copper, bright red when new and weathering to teal, so that from the sea the city looks blue-green. Iron from the hills goes into its gates, railings, window lattices and the awning poles of its bazaars. The wealthy compete in displays of abundance, and their terraced gardens, fountains and cypress walks, watered by aqueducts from the hills, keep the coast greener than it would naturally be. Further inland, the gardens give way to dry red earth.",
     "summary": "The Vizierate's capital, a harbour city of copper roofs and terraced gardens on the southern coast.",
+    "parent": "levantine",
+    "children": []
+  },
+  {
+    "identifier": "levantine__kafarel",
+    "title": "Kafarel",
+    "description": "A small walled kingdom on the Levantine's western edge, built on a slow river in dry country, a long way from anywhere. Waterwheels lift the river into channels that water its palm groves and fields, its houses are of pale mud brick with a faint red cast, and lamps burn through the night in niches over its doors and shrines. It is more devout than its neighbours, and its hospices and almshouses accept the sick and poor with open arms. From its walls hang banners bearing the Vigil: the Aureole beneath a dark night.",
+    "summary": "A small, devout river kingdom on the Levantine's western edge, known for its lamps and hospices.",
     "parent": "levantine",
     "children": []
   },
