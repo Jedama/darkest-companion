@@ -1,0 +1,39 @@
+[
+  {
+    "identifier": "chernozem",
+    "title": "Chernozem",
+    "description": "A cold northern country organised entirely around a war it has been fighting since before it had records of anything else. It has good soil and a great many people, and no other industry worth the name. The army takes what it needs of both, and nobody argues. Now that the enemy has destroyed itself the country is quieter than it has been in living memory, and its officers are looking for the next war rather than waiting for one.",
+    "summary": "A cold northern war-state that fought Ostvengr for its whole recorded history, and is already looking for its next war.",
+    "parent": "world",
+    "children": [
+      "chernozem__black_earth",
+      "chernozem__podzola"
+    ]
+  },
+  {
+    "identifier": "chernozem__black_earth",
+    "title": "The Black Earth",
+    "description": "The strip of ground between Chernozem and Ostvengr's mountains, and the only ground the two could ever fight over, since everything east of it is impassable. Generations of offensives have crossed it in both directions and neither side has held it for long. The soil is dark and enormously fertile, and nobody farms it. Chernozem took its name from this place rather than the other way round.",
+    "summary": "The dark fertile frontier between Chernozem and Ostvengr, fought over for generations and farmed by nobody.",
+    "parent": "chernozem",
+    "children": []
+  },
+  {
+    "identifier": "chernozem__podzola",
+    "title": "Podzola",
+    "description": "Chernozem's northern half, named for its pale ash-grey soil. Winters are long and harsh, it grows little worth taking and, far from Chernozem's eternal war, it has been mostly ignored. The old songs are still sung here and the old rites still observed, and sects the Light's churches believe stamped out meet in cellars.",
+    "summary": "Chernozem's poor-soiled northern half, too worthless to fight over, where old songs and older heresies survived the war years intact.",
+    "parent": "chernozem",
+    "children": [
+      "chernozem__far_north"
+    ]
+  },
+  {
+    "identifier": "chernozem__far_north",
+    "title": "The Far North",
+    "description": "Podzola past the last of its forts, where the farms end and the country stops pretending to be governed. A few settlements sit on the rivers and the rest of the people follow the reindeer, paying their tribute in furs to a capital none of them has seen and otherwise going years without meeting anyone who could name them. The church reached this far only thinly, too weak to root out the old animist faiths or the sects that hide among them. The garrisons collect what they are owed and do not ask what is further north.",
+    "summary": "The frontier beyond Podzola's forts, where herders pay tribute in furs and the church holds too thinly to root out the old animist faiths.",
+    "parent": "chernozem__podzola",
+    "children": []
+  }
+]
