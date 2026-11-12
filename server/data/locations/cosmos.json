@@ -18,6 +18,16 @@
     "description": "The sky above the world, from the treetops to the edge of the void: wind, cloud and weather, storms rolling in from the seas, and the crows and carrion birds that follow every army. By day the sun shines down through it, and by night the moon and stars.",
     "summary": "The sky above the world, from the treetops to the edge of the void, full of wind, weather and carrion birds.",
     "parent": "cosmos",
+    "children": [
+      "heavens__nimbus"
+    ]
+  },
+  {
+    "identifier": "heavens__nimbus",
+    "title": "The Nimbus",
+    "description": "The seat of the Pantheon, carved into a vast and ancient bank of cloud high in the heavens. Its halls, stairways and terraces are cut into the cloud itself, ornate and colourless, their carvings worn soft by ages of drifting like old sandstone. Here live gods dressed in robes of malleable cloud, who love and bestow boons on their faithful. Their ruthless politics move as slowly as the cloud, and petitions and debates routinely outlive the events and the people that raised them.",
+    "summary": "The Pantheon's seat, carved into an ancient bank of cloud, where gods who love their faithful debate matters long since over below.",
+    "parent": "heavens",
     "children": []
   },
   {
