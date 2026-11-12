@@ -7,7 +7,8 @@
     "parent": "world",
     "children": [
       "levantine__firuzkent",
-      "levantine__kafarel"
+      "levantine__kafarel",
+      "levantine__charmers_tent"
     ]
   },
   {
@@ -43,6 +44,14 @@
     "description": "The royal council hall, where the court sits on low benches lining the walls. Tall blue curtains frame a balcony over the river, from which Kafarel's kings address the town. Behind the throne hangs an empty rack, made for a greatsword taller than a man. The purple cushions still carry faint bloodstains from the former ruler's advisors.",
     "summary": "Kafarel's royal council hall, lined with low benches and opening onto a curtained balcony over the river.",
     "parent": "levantine__kafarel",
+    "children": []
+  },
+  {
+    "identifier": "levantine__charmers_tent",
+    "title": "The Charmer's Tent",
+    "description": "An old tent of patched and mismatched canvas, pitched alone among the dunes at the Vizierate's far eastern end. It was made to travel, but has not moved in years. Snakes come and go as they please, knowing it as a place of shelter and food, and the sand around it is crossed with their tracks. Every dawn, a flute plays inside.",
+    "summary": "A patched tent alone in the eastern dunes, home to an old snake charmer and the snakes he feeds.",
+    "parent": "levantine",
     "children": []
   }
 ]
