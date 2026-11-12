@@ -40,7 +40,7 @@
   {
     "identifier": "kafarel__divan",
     "title": "The Divan",
-    "description": "Kafarel's royal council hall, where its court sits on low benches lining the walls. Tall blue curtains frame a balcony over the river, from which Kafarel's kings have addressed the town for generations. Behind the throne hangs an empty rack, made for a greatsword taller than a man. The purple cushions still carry faint bloodstains from the former ruler's advisors.",
+    "description": "The royal council hall, where the court sits on low benches lining the walls. Tall blue curtains frame a balcony over the river, from which Kafarel's kings address the town. Behind the throne hangs an empty rack, made for a greatsword taller than a man. The purple cushions still carry faint bloodstains from the former ruler's advisors.",
     "summary": "Kafarel's royal council hall, lined with low benches and opening onto a curtained balcony over the river.",
     "parent": "levantine__kafarel",
     "children": []
