@@ -7,9 +7,18 @@
     "parent": null,
     "children": [
       "world",
+      "heavens",
       "outer_spheres",
       "void"
     ]
+  },
+  {
+    "identifier": "heavens",
+    "title": "The Heavens",
+    "description": "The sky above the world, from the treetops to the edge of the void: wind, cloud and weather, storms rolling in from the seas, and the crows and carrion birds that follow every army. By day the sun shines down through it, and by night the moon and stars.",
+    "summary": "The sky above the world, from the treetops to the edge of the void, full of wind, weather and carrion birds.",
+    "parent": "cosmos",
+    "children": []
   },
   {
     "identifier": "void",
