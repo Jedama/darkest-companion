@@ -2,9 +2,9 @@
   "identifier": "bounty_hunter",
   "title": "Bounty Hunter",
   "name": "Tardif",
-  "description": "A ruthless and professional bounty hunter who takes pride in his work. The Bounty Hunter is a skilled fighter, motivated primarily by profit and self-interest. His cynical worldview and loner tendencies stem from a dark past that he refuses to talk about.",
-  "history": "While his past is a well-guarded secret, The Bounty Hunter has lived a life of violence and danger. He's honed his skills as a bounty hunter, becoming a calculated and efficient killer who specializes in identifying weak points and executing targets.",
-  "summary": "A masked and laconic killer for hire who buries his past behind terse fragments and professional efficiency, loyal to the contract and nothing else.",
+  "description": "A masked killer for hire, better known for his snort than for anything he has ever said. The Bounty Hunter hunts men and monsters for coin and treats every expedition as a contract like any other, with the odds weighed and his share agreed before he sets out. He keeps no company he isn't paid to keep, and speaks only when there is something worth saying.",
+  "history": "The Bounty Hunter has worked contracts for most of his life: bandits, witches by the dozen, and more than one noble who had once been his client. Whatever trophy will sell, he knows a buyer for. Where he learned the trade and who he was before it, he does not say; he does not discuss old jobs. The Heirs offered steady work at a good rate, and that was reason enough to come to the Hamlet.",
+  "summary": "A masked, laconic killer for hire who speaks in snorts and odds, works for his twenty-five percent, and calls every horror just another job.",
   "race": "Human",
   "gender": "Male",
   "religion": "None",
@@ -12,59 +12,55 @@
   "zodiac": "Capricorn",
   "traits": [
     "Professional",
-    "Ruthless",
     "Laconic",
-    "Loner",
-    "Taciturn"
+    "Mercenary",
+    "Ruthless",
+    "Guarded"
   ],
   "stats": {
     "strength": 8,
-    "agility": 7,
+    "agility": 6,
     "intelligence": 7,
     "authority": 4,
-    "sociability": 1
+    "sociability": 2
   },
   "equipment": [
     "War axe",
-    "Grappling hook",
-    "Flash grenades",
+    "Chained hook",
+    "Flashpowder",
     "Caltrops"
   ],
   "appearance": {
     "height": "Average",
     "build": "Athletic",
     "skinTone": "Tanned",
-    "hairColor": "Dark",
-    "hairStyle": "Short",
-    "features": "Stubble, strong jawline"
+    "hairColor": "Unknown (never removes his hood)",
+    "hairStyle": "Unknown (never removes his hood)",
+    "features": "Stubble and a hard jaw beneath the mask's veil, seen only when he lowers it"
   },
   "clothing": {
-    "head": "Metallic mask with cloth covering face",
+    "head": "Dark cowl over an iron mask, with a cloth veil across the lower face",
     "body": "Dark armor with shoulder pads",
     "legs": "Dark armored leggings",
-    "accessories": "Belt of hunting tools"
+    "accessories": "Belt of hunting tools and flashpowder pouches"
   },
   "combat": {
-    "role": "Fighter",
+    "role": "Hunter",
     "strengths": [
+      "Marking prey",
       "Targeting weak points",
-      "Single combat",
-      "Adaptability",
-      "Follows orders",
-      "Excellent strategist",
-      "Tracking"
+      "Stuns and disruption",
+      "Hunting men and giants"
     ],
-    "weaknesses": [
-      "Demands high pay"
-    ]
+    "weaknesses": []
   },
   "magic": "None",
   "notes": [
-    "Responds with dismissive snorts instead of verbal answers",
-    "Refuses to remove his mask in any circumstance",
-    "Speaks in terse fragments, often just '...' or single words",
-    "Frequently gambles with cards and dice between jobs",
-    "Spits to show contempt or dismissal"
+    "Answers most things with a snort, a spit, or silence, and speaks rarely. He flatly refuses to sing",
+    "When he does speak, it is rough and plain ('aye', 'ain't', 'mate') and full of gambling talk: odds, bluffs, settling up. Always up for cards or dice",
+    "Treats everything as a job, is always prepared, and keeps a strict regimen, but his professionalism also serves as a shield against his past",
+    "Demands 25% of every expedition's haul and knows his cut to the penny. Being shorted or left behind, he takes personally",
+    "The mask stays on. He lowers the veil only in rare, private moments"
   ],
   "tags": [
     "Flexible", "Mercenary", "Warrior", "Marker", "HumanHunter", "GiantHunter",

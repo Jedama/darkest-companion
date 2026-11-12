@@ -60,7 +60,7 @@
     "identifier": "graveyard__ossuary",
     "title": "Ossuary",
     "description": "Deep beneath the graveyard lies this catacomb, its winding passages lined with centuries of carefully arranged bones. Once a masterwork of geometric patterns formed from skulls and femurs, now many niches stand empty, their contents stolen. Heavy chains and multiple locks secure the entrance - installed after the tragedy of Martha, the late cemetery keeper's daughter.",
-    "summary": "A deep catacomb beneath the graveyard, lined with centuries of carefully arranged bones, and now associated with a reanimated 'Bonetaker'.",
+    "summary": "A deep catacomb beneath the graveyard, lined with centuries of carefully arranged bones.",
     "parent": "graveyard",
     "children": []
   },

@@ -16,7 +16,7 @@ croc: So I'm the final kill...but there is no glory. There never was...
 crusader: Unholy foulness! I will take you with me!
 curator: So we were all doomed from the beginning...
 dragon_watcher: Let us beat them back until the end of time.
-dredge: We dug ours up too... (MISSING)
+dredge: We dug ours up, too. (MISSING)
 duchess: I expected this. I trusted you not to go through with it.
 eagle: The heart of the world. Everything the Coven wanted. But it'll die with me.
 entrenched: No more cowardice... see you there, Pa.
@@ -47,7 +47,7 @@ maid: Will there ever be a place for the broken in the light?
 mambo: The Loa lead me here to fight evil. If this be their will, so be it.
 man_at_arms: I go with a clear conscience. I've given my all.
 meister: W-were the sages wrong? What if...?
-monitor: No! Ostvengr! (MISSING)
+monitor: No! I must see Ostvengr through! (MISSING)
 monk: Then let it pass through me. (MISSING)
 musketeer: All for one, and one for all!
 occultist: Finally, the face of my tormentor. Come, then.

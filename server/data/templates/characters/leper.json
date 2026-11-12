@@ -2,27 +2,27 @@
   "identifier": "leper",
   "title": "Leper",
   "name": "Baldwin",
-  "description": "The Leper is a former king undone by disease and duty. Leprosy has ravaged his body, stealing his sight, his grace, and the face beneath his bronze mask\u2014but not his strength. He swings his massive blade with the weight of his lost kingdom behind it, each strike devastating when it lands, though precision has long since abandoned him. His condition is advanced and visible, yet he neither hides nor apologizes\u2014his mask a courtesy to others. Shunned by fear of contagion, he fills his isolation with poetry and quiet observation of the world's beauty.",
-  "history": "The Leper was a compassionate king who contracted leprosy while visiting the sick. When symptoms began to show, his advisors sought to exploit his vulnerability, plotting to usurp the throne. He uncovered their treachery, took up his ceremonial sword, slaughtered them all, and exiled himself before the disease could spread. Aware his time grows short, he has come to the Estate to spend his remaining strength in service\u2014not of his lost kingdom, but of all humankind.",
-  "summary": "A half-blind, self-exiled king rotting from leprosy, who swings a ruined greatsword with devastating force and fills his isolation with poetry.",
+  "description": "The Leper is a king who gave up his throne as leprosy took his body, and has never once regretted it. He is compassionate, unhurried and serene, and would rather spend his last years on poetry than battle. But he believes his greatsword is where he does the most good, and swings it with crushing force, though his failing eyes mean it often misses.",
+  "history": "The Leper was the compassionate king of a small coastal realm on the Levantine's western edge, near Great Forks, one of the local kingdoms that answer loosely to the Vizier. Against his advisors' wishes he visited the sick and the dying, and in time caught leprosy from them. As the disease took hold, his greedy advisors, sponsored by the Vizier, plotted to seize his throne, so he purged them with his own sword. He then left his kingdom before the disease could reach his people, and means to spend what strength he has left doing good in the world before it claims him.",
+  "summary": "A serene leper king in self-exile, spending the last of his strength doing good in the world.",
   "race": "Human",
   "gender": "Male",
   "religion": "The Light",
   "culture": "Levantine",
   "zodiac": "Capricorn",
   "traits": [
+    "Compassionate",
     "Humble",
     "Resolute",
-    "Stoic",
-    "Compassionate",
-    "Unbreakable"
+    "Serene",
+    "Generous"
   ],
   "stats": {
     "strength": 7,
     "agility": 2,
-    "intelligence": 6,
-    "authority": 6,
-    "sociability": 3
+    "intelligence": 7,
+    "authority": 8,
+    "sociability": 5
   },
   "equipment": [
     "Broken ceremonial greatsword"
@@ -30,36 +30,35 @@
   "appearance": {
     "height": "Tall",
     "build": "Broad",
-    "skinTone": "Dark",
-    "hairColor": "Black",
+    "skinTone": "Brown, ravaged by leprosy",
+    "hairColor": "None",
     "hairStyle": "Lost to disease",
-    "features": "Scarred and disfigured skin"
+    "features": "Ruined face (hidden by mask)"
   },
   "clothing": {
-    "head": "Bronze mask with narrow eye slits and a tattered hood",
-    "body": "Heavy robes and a golden breastplate, torn and weathered",
-    "legs": "Simple pants and boots",
-    "accessories": "Gloves and bandaged arms"
+    "head": "Bronze mask, under a pale hood",
+    "body": "Golden breastplate shaped like a muscled torso",
+    "legs": "Red-brown spiked tassets, plated greaves over bandaged shins",
+    "accessories": "Bandaged arms, a leather belt"
   },
   "combat": {
-    "role": "Frontliner",
+    "role": "Warrior",
     "strengths": [
-      "High damage output",
-      "High durability",
-      "Calm under pressure"
+      "Crushing blows",
+      "Steadfast"
     ],
     "weaknesses": [
       "Inaccurate",
-      "Slow",
-      "Short range"
+      "Slow"
     ]
   },
   "magic": "None",
   "notes": [
-    "Speaks in brief, contemplative observations drawn from nature\u2014snow, rain, petals, the changing seasons",
-    "Openly acknowledges his leprosy without shame or apology",
-    "Expects fear and revulsion from others and accepts it without bitterness",
-    "Leprosy has damaged his vision; the mask's narrow slits help him focus"
+    "Speaks in brief, contemplative observations drawn from nature—snow, rain, petals, the changing seasons",
+    "Keeps the mask on for others' comfort and is courteous about his illness, though he dislikes being questioned on it",
+    "Treats each day as a gift, gives thanks openly for the small things others overlook, and genuinely enjoys the comforts his royal upbringing denied him",
+    "Extends care and kindness to everyone, however diseased, disfigured or cursed beyond recognition",
+    "Despite his failing eyes, enjoys watching the stars, which remind him of the desert skies of home"
   ],
   "tags": [
     "Frontline", "Immobile", "ShortReach", "Tank", "SelfSufficient", "Debuffer",

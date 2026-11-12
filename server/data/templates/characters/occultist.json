@@ -2,67 +2,70 @@
   "identifier": "occultist",
   "title": "Occultist",
   "name": "Alhazred",
-  "description": "A powerful occultist who has delved deep into forbidden knowledge and eldritch powers. Alhazred has performed rituals that have left him forever changed, serving as a conduit to unknown regions and constantly assailed by blasphemous forces. His pursuit of arcane wisdom and impossible power has come at a great cost, both to himself and those around him.",
-  "history": "Alhazred conducted rituals to explore the Outer Sphere, found a mysterious pyramid in a desert that changed everything, sacrificed parts of himself for power, and ultimately became a beacon for eldritch entities. His apotheosis was achieved through dangerous rituals and communion with forces beyond mortal comprehension.",
-  "summary": "A powerful summoner remade by the rituals he performed, wielding immense but unreliable eldritch aid while whispering entities crowd his mind.",
+  "description": "The Occultist is a scholar of the psyche whose own mind carries a passenger: the black-beast, a thing from the Outer Spheres that lends him its power and at times borrows his voice. Through it he hexes, binds and heals, though his powers are not always reliable. He has gone further into the unknown than anyone should, and despite his remorse, has not lost his appetite for it.",
+  "history": "The Occultist was a respected scholar and, in private, the teacher of a small circle of followers who gathered on astrologically favoured nights to send their spirits out beyond the world. In the Outer Spheres he came upon a pyramid, and something in its halls called to him. To make room, he carved out parts of his mind, but in a séance to welcome it, he realised what he had invited. At the cost of his students' lives, he kept most of it out, but when he left home, he didn't do so alone.",
+  "summary": "A courteous scholar of the psyche who shares his mind with an eldritch passenger, and still hungers for what lies beyond.",
   "race": "Human",
   "gender": "Male",
-  "religion": "Occultism",
+  "religion": "None",
   "culture": "Levantine",
   "zodiac": "Scorpio",
   "traits": [
-    "Knowledgeable",
-    "Ambitious",
-    "Fearless",
-    "Haunted",
-    "Powerful",
-    "Enigmatic"
+    "Erudite",
+    "Condescending",
+    "Curious",
+    "Lonely",
+    "Remorseful",
+    "Haunted"
   ],
   "stats": {
     "strength": 3,
-    "agility": 3,
-    "intelligence": 8,
-    "authority": 8,
-    "sociability": 5
+    "agility": 4,
+    "intelligence": 9,
+    "authority": 5,
+    "sociability": 4
   },
   "equipment": [
     "Ritual dagger",
-    "Skull with candle"
+    "Skull with a candle"
   ],
   "appearance": {
     "height": "Average",
     "build": "Lean",
-    "skinTone": "Tanned",
-    "hairColor": "Black",
-    "hairStyle": "Long, partially hidden by turban",
-    "features": "Goatee and styled curled mustache"
+    "skinTone": "Brown",
+    "hairColor": "Black, without a trace of grey",
+    "hairStyle": "Long and straight (hidden by turban)",
+    "features": "Lined face, short black goatee, and a waxed moustache curled at the tips"
   },
   "clothing": {
-    "head": "White turban",
-    "body": "White tunic with red embroidery",
-    "legs": "Loose-fitting pants",
-    "accessories": "Necklace"
+    "head": "Cream turban, wound close",
+    "body": "Long brown robe with wide, flared sleeves, trimmed in a red-and-black lattice pattern, over a dark tunic",
+    "legs": "Covered by the robe, which falls to the ankles",
+    "accessories": "Gold medallion necklace, yellow sash with his dagger thrust through it, scrolls tucked at the hip"
   },
   "combat": {
-    "role": "Healer & Controller",
+    "role": "Hexer",
     "strengths": [
-      "Powerful spells",
-      "Knowledge",
-      "Debuffs"
+      "Curses and debuffs",
+      "Healing",
+      "Dragging enemies out of position"
     ],
     "weaknesses": [
-      "Weak",
-      "Unreliable"
+      "Frail",
+      "Unreliable powers"
     ]
   },
-  "magic": "Eldritch tenacle summoning and curses",
+  "magic": "Eldritch power from the Outer Spheres, lent by the black-beast: hexes, grasping tentacles, and healing",
   "notes": [
-    "Constantly hears whispers from eldritch entities",
-    "Has sacrificed parts of himself for power"
+    "A scholar of the mind, and he speaks like one: of psyches, auras and mental states, of fear as something to be reasoned away, and of magic as what a disciplined mind can reach",
+    "No armchair scholar: he has crossed deserts by caravan, lived among the peoples he studied, and knows distant lands and customs from his travels",
+    "Lonely despite his passenger, though his lecturing and his corrections, especially of the unlearned, tend to push people away",
+    "At times the black-beast speaks through him, always in capitals and often in its own guttural tongue (\"AS'KARAKH NOMARAGH\"), and refers to the Occultist in the third person, as \"CH'TROG\"",
+    "Despite his age, his hair is still fully black, and he waxes and curls his moustache daily"
   ],
   "tags": [
     "Flexible", "Healer", "Debuffer", "Stunner", "Marker", "Disruptor",
     "EldritchHunter", "Unstable", "Frail", "Unlit", "Eldritch", "Scholar",
-    "Vigilant", "Reach", "Sweeper"
+    "Vigilant", "Reach", "Sweeper", "Exile"
   ]
 }
