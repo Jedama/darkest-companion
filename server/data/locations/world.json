@@ -4,7 +4,7 @@
     "title": "Known World",
     "description": "A vast and varied land of distinct nations and uneasy alliances, from the terraced island empire of Haenara in the far east to the ruins of Ostvengr in the north. Civilization asserts itself through commerce and conquest: the Levantine Vizierate holds the trade of the east, Great Forks taxes what passes between, and a kingdom stands at the centre of it all. On that kingdom's rugged coastline, a neglected Ancestral Estate sits apart from these machinations, harboring secrets that will soon draw eyes away from the concerns of the wider world.",
     "summary": "A vast land of nations from Haenara to fallen Ostvengr, functioning through trade and war while ancient secrets linger in the margins.",
-    "parent": null,
+    "parent": "cosmos",
     "children": [
       "kingdom",
       "sunward_isles",
@@ -69,7 +69,7 @@
   {
     "identifier": "levantine",
     "title": "The Levantine Vizierate",
-    "description": "The great power of the east, a belt of desert and river-cities that a single conqueror welded together from sultanates, republics and free cities centuries ago. It is rich and orderly: its schools and physicians are the best in the world, its sorcery is careful and licensed, and its soldiery is drilled rather than raised. The Vizier has ruled it since he took the throne from the foreign king who held it, and has not aged since; his made bodyguards do not age either, and no one has tested him twice. Life under him is prosperous and precarious in equal measure, since he has an appetite for ruining people who have something to lose.",
+    "description": "The great power of the east, a belt of desert and river-cities that an unknown conqueror welded together from sultanates, republics and free cities centuries ago, promising autonomy to those who joined and destruction to those who resisted. Its people are prosperous and well educated, its careful, licensed sorcery has advanced both its medicine and its warfare, and its soldiery, in teal and silver, is drilled rather than raised. Mountain passes guard it from the west, where it has fought Ostvengr and others for generations. The Vizier has ruled it since he took the throne from the foreign king who held it, and has not aged since; his made Janissaries do not age either, and no one has tested him twice. Those who stay beneath his notice live well.",
     "summary": "The rich and orderly Vizierate of the east, ruled for centuries by an unaging usurper who took the throne by murder.",
     "parent": "world",
     "children": []
@@ -156,9 +156,65 @@
   {
     "identifier": "craie",
     "title": "Craie",
-    "description": "A country of pale downland and chalk hills west of Ostvengr's mountains, wealthy in wine and wheat and nothing else, which has spent two generations being the ground its neighbour's wars are fought across. Its nobility once prided themselves on the finest fencing academies and dueling salons in the world, traditions rendered utterly useless by weeks of industrialized artillery shelling and trench disease. Its army is large, conscripted, and mostly made of farmers who learned to live in cellars rather than parry on dueling pistes. Now that Ostvengr has destroyed itself, Craie is left with an intact army, no enemy, and a generation of displaced fencing masters whose elegant art had nowhere left to go but abroad.",
-    "summary": "A chalk-hilled downland country west of Ostvengr, whose proud dueling traditions were rendered obsolete by two generations of grinding trench warfare.",
+    "description": "A country of pale downland and chalk hills west of Ostvengr's mountains, wealthy in wine and wheat and nothing else, which spent two generations as the ground its neighbour's wars were fought across. Its nobility still prides itself on the finest fencing academies and duelling salons in the world, though the trenches taught its army to fight with artillery and spades rather than blades, and the academies have been slowly losing patrons and students since. Its army is large, conscripted, and mostly made of farmers who learned to live in cellars. Now that Ostvengr has destroyed itself, Craie is left with an intact army, no enemy, and fencing masters who have begun looking abroad for students and patrons.",
+    "summary": "A chalk-hilled downland country west of Ostvengr, whose proud duelling traditions have been slowly losing ground to two generations of trench warfare.",
     "parent": "world",
+    "children": [
+      "craie__elurmendi",
+      "craie__juste_mesure",
+      "craie__salubrite",
+      "craie__universite"
+    ]
+  },
+  {
+    "identifier": "craie__elurmendi",
+    "title": "Elurmendi",
+    "description": "High mountains along Craie's frontier with Ostvengr, snowbound half the year and crossed by a few high passes where avalanches close the roads without warning. Its herders live under Craie's crown but are not of its people, keeping their own tongue and an old local faith whose monastic orders shelter travellers on the passes and keep to silence higher up. Since Ostvengr's fall, the passes lead only to a closed border, and masterless soldiers have come up from the lowlands looking for plunder.",
+    "summary": "Snowbound frontier mountains under Craie's crown, home to a herding people with their own tongue and faith.",
+    "parent": "craie",
+    "children": [
+      "elurmendi__aterpe",
+      "elurmendi__goiko_santutegia"
+    ]
+  },
+  {
+    "identifier": "elurmendi__aterpe",
+    "title": "The Aterpe",
+    "description": "A stone hospice at the top of a high pass, kept by a brotherhood that shelters travellers and digs the lost out of the snow with great shaggy mountain dogs. Its infirmary treats frostbite and fever with herbs, minerals and the old remedies of the mountain shepherds. Masterless soldiers burned it after Ostvengr's fall, and the brothers are rebuilding it with their own hands, new timber rising on the blackened walls.",
+    "summary": "A hospice on a high pass whose brothers and great dogs dig travellers out of the snow, rebuilding since soldiers burned it.",
+    "parent": "craie__elurmendi",
+    "children": []
+  },
+  {
+    "identifier": "elurmendi__goiko_santutegia",
+    "title": "Goiko Santutegia",
+    "description": "A monastery of dark stone high above the passes, where an order of ascetics lives in near-silence and has little to do with the world below. Its brothers keep a hard rule of fixed hours: up before dawn, prostrations through the day, no food after dark. They hunt the peaks' wolves for their pelts, and mark themselves in blue ink as their years of discipline accumulate. Most who climb to it come to answer for something, and few come down again.",
+    "summary": "A silent monastery high in the peaks, whose wolf-pelted, tattooed brothers keep a hard rule, and where men go to answer for something.",
+    "parent": "craie__elurmendi",
+    "children": []
+  },
+  {
+    "identifier": "craie__juste_mesure",
+    "title": "Juste Mesure",
+    "description": "L'Académie de la Juste Mesure, one of Craie's old schools of the sword, its long hall marked out in chalked pistes and hung with the colours of its masters. The war thinned its patrons and students, but several dozen still train under a handful of masters, each of whom chooses an heir to carry their forms. The master called the Dragon was killed on its floor in a sanctioned bout, and with his chosen heir sent away, the rival who killed him, now known as le Pourfendeur, is unquestionably the school's finest blade.",
+    "summary": "One of Craie's last great fencing academies, a long hall of chalked pistes hung with the colours of its masters.",
+    "parent": "craie",
+    "children": []
+  },
+  {
+    "identifier": "craie__salubrite",
+    "title": "La Compagnie de Salubrité",
+    "description": "The guildhouse of the Compagnie de Salubrité, which has fought disease and infestation for generations, standing on the quays of a Craien river port. Its offices sort the letters that bring it contracts from across the world, and its archive holds generations of outbreaks charted street by street. Its men go out in yellow coats, and in Craie a town knows what their arrival means. On an island in the river stands the Company's lazaretto, where the sick and the suspected wait out their quarantine.",
+    "summary": "The riverside guildhouse of Craie's yellow-coated sanitation company, with its own quarantine island in the river.",
+    "parent": "craie",
+    "children": []
+  },
+  {
+    "identifier": "craie__universite",
+    "title": "Université de Craie",
+    "description": "Craie's great university, whose faculty of medicine is the most renowned in the world and draws students from every country that can afford to send them. It keeps anatomy theatres, a physic garden of medicinal plants and chairs in pharmacology, and is one of the few universities anywhere to let bird-folk hold them. Craie's army was never the strongest in the war, but the university's surgeons and physicians kept more of it alive than any other.",
+    "summary": "Craie's great university, the world's leading school of medicine, and one of the few where bird-folk hold chairs.",
+    "parent": "craie",
     "children": []
   }
 ]

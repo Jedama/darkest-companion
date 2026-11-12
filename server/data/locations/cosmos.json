@@ -1,0 +1,68 @@
+[
+  {
+    "identifier": "cosmos",
+    "title": "Cosmos",
+    "description": "Everything that is: the world, the heavens above it and the endless void of stars enveloping both, as well as the astral spaces that lie parallel to them.",
+    "summary": "Everything that is: the world, the heavens, the void of stars, and the astral spaces beside them.",
+    "parent": null,
+    "children": [
+      "world",
+      "heavens",
+      "outer_spheres",
+      "void"
+    ]
+  },
+  {
+    "identifier": "heavens",
+    "title": "The Heavens",
+    "description": "The sky above the world, from the treetops to the edge of the void: wind, cloud and weather, storms rolling in from the seas, and the crows and carrion birds that follow every army. By day the sun shines down through it, and by night the moon and stars.",
+    "summary": "The sky above the world, from the treetops to the edge of the void, full of wind, weather and carrion birds.",
+    "parent": "cosmos",
+    "children": [
+      "heavens__nimbus"
+    ]
+  },
+  {
+    "identifier": "heavens__nimbus",
+    "title": "The Nimbus",
+    "description": "The seat of the Pantheon, carved into a vast and ancient bank of cloud high in the heavens. Its halls, stairways and terraces are cut into the cloud itself, ornate and colourless, their carvings worn soft by ages of drifting like old sandstone. Here live gods dressed in robes of malleable cloud, who love and bestow boons on their faithful. Their ruthless politics move as slowly as the cloud, and petitions and debates routinely outlive the events and the people that raised them.",
+    "summary": "The Pantheon's seat, carved into an ancient bank of cloud, where gods who love their faithful debate matters long since over below.",
+    "parent": "heavens",
+    "children": []
+  },
+  {
+    "identifier": "void",
+    "title": "The Void",
+    "description": "The cold dark far beyond the heavens. Time runs unevenly here, and the stars themselves slip in and out of it, which is why they seem to flicker when seen from the ground. Drifts of crystal float in the dark, and strange eldritch things live among them.",
+    "summary": "The cold dark beyond the heavens, where time runs unevenly and eldritch things drift among the crystal.",
+    "parent": "cosmos",
+    "children": []
+  },
+  {
+    "identifier": "outer_spheres",
+    "title": "The Outer Spheres",
+    "description": "A layered astral plane beyond the waking world, reached by projecting the mind out of the body. It has no ground, gravity or physics, only endless distance filled with swirling stars and drifting lights, and it grows stranger and less ordered the further out one goes. Here and there, vast structures of no earthly making float in the void.",
+    "summary": "A layered astral plane reached by projecting the mind, growing stranger and less ordered the further out one goes.",
+    "parent": "cosmos",
+    "children": [
+      "outer_spheres__pyramid",
+      "outer_spheres__starfield"
+    ]
+  },
+  {
+    "identifier": "outer_spheres__pyramid",
+    "title": "The Pyramid",
+    "description": "A pyramidal temple of stone standing in a near layer of the Outer Spheres, its spires drawing jagged lightning down from a churning sky into a central altar laid for burnt offerings. The temple is always the same, but the minds of visitors tend to paint a landscape around it, to shape the space into something more comprehensible. It was built here as a door, and the currents that run through its stone are infernal in character.",
+    "summary": "A lightning-wreathed temple in the shallow Outer Spheres, built as a door.",
+    "parent": "outer_spheres",
+    "children": []
+  },
+  {
+    "identifier": "outer_spheres__starfield",
+    "title": "The Starfield",
+    "description": "The open expanse of the Outer Spheres, a black void where stars turn in a vast violet spiral around a burning core, and sparks of cold blue light drift past without ever arriving anywhere. Up and down mean nothing here. Shamblers hunt these spaces, and the living do well to fear the dark, for those they drag in here rarely return.",
+    "summary": "The open void of the Outer Spheres, where stars spiral around a burning core and nothing lies underfoot.",
+    "parent": "outer_spheres",
+    "children": []
+  }
+]

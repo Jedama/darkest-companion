@@ -411,6 +411,11 @@
     }
   },
   "prefect": {
+    "rescuer": {
+      "affinity": 6,
+      "dynamic": "His Promising Student",
+      "description": "The Prefect remembers a mountain boy who came to his lectures carrying shepherd's remedies, and was impressed by how many of them held up under testing, enough to make him one of the few students whose medical advice the Prefect would entertain. The Prefect has not heard of him since he joined the army."
+    },
     "occultist": {
       "affinity": 7,
       "dynamic": "A Long Correspondence",
@@ -437,6 +442,11 @@
     }
   },
   "rescuer": {
+    "prefect": {
+      "affinity": 5,
+      "dynamic": "The Old Professor",
+      "description": "The Rescuer was taught pharmacology by the Prefect, strictly and well, but never accepted his blunt honesty about a patient's odds. He does not know the Prefect gave up his chair, and will be puzzled to find his old professor here, more interested in mathematics than in medicine."
+    },
     "succubus": {
       "affinity": 3,
       "dynamic": "Warned by the hounds",
@@ -444,6 +454,11 @@
     }
   },
   "resonant": {
+    "occultist": {
+      "affinity": 4,
+      "dynamic": "Shallow Waters",
+      "description": "The Resonant will recognise that the Occultist has roamed the same Outer Spheres she has. She will envy the shallowness of his waters, and warn him not to wade any further."
+    },
     "entrenched": {
       "affinity": 4,
       "dynamic": "An endearing anomaly",
@@ -538,7 +553,7 @@
     "resonant": {
       "affinity": 3,
       "dynamic": "A Sensation She Knows",
-      "description": "When she was a god, the Tempest sometimes felt what the Resonant now claims to see, and dismissed it. She will dismiss it again. If the world is a design, then her pantheon were pieces in it too, and her fall was nobody's betrayal."
+      "description": "When she was a god, the Tempest sometimes felt what the Resonant now claims to see, and dismissed it. She will dismiss it again. If the world is a design, then the Pantheon were pieces in it too, and her fall was nobody's betrayal."
     }
   },
   "thorn": {
@@ -590,6 +605,11 @@
     }
   },
   "voivode": {
+    "duchess": {
+      "affinity": 4,
+      "dynamic": "His Lesson, Well Learned",
+      "description": "It was the Voivode who taught the Ancestor that a curse can be shared through drinking blood, and he is delighted with how the Courtyard turned out: this 'Duchess' here, part of his friend's own little flock."
+    },
     "greymane": {
       "affinity": 2,
       "dynamic": "Another Stolen Crown",
