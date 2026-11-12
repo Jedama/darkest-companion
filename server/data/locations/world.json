@@ -1,10 +1,20 @@
 [
   {
+    "identifier": "cosmos",
+    "title": "Cosmos",
+    "description": "Everything that is: the world, the heavens above it and the endless void of stars enveloping both, as well as the astral spaces that lie parallel to them.",
+    "summary": "Everything that is: the world, the heavens, the void of stars, and the astral spaces beside them.",
+    "parent": null,
+    "children": [
+      "world"
+    ]
+  },
+  {
     "identifier": "world",
     "title": "Known World",
     "description": "A vast and varied land of distinct nations and uneasy alliances, from the terraced island empire of Haenara in the far east to the ruins of Ostvengr in the north. Civilization asserts itself through commerce and conquest: the Levantine Vizierate holds the trade of the east, Great Forks taxes what passes between, and a kingdom stands at the centre of it all. On that kingdom's rugged coastline, a neglected Ancestral Estate sits apart from these machinations, harboring secrets that will soon draw eyes away from the concerns of the wider world.",
     "summary": "A vast land of nations from Haenara to fallen Ostvengr, functioning through trade and war while ancient secrets linger in the margins.",
-    "parent": null,
+    "parent": "cosmos",
     "children": [
       "kingdom",
       "sunward_isles",

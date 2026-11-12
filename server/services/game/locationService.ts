@@ -3,7 +3,7 @@ import StaticGameDataManager from '../../staticGameDataManager.js';
 import { AppError } from '../../errors.js';
 
 const TOWN_SCOPE_ROOT = "hamlet";
-const STOP_ROOTS = new Set(["hamlet", "estate", "kingdom"]);
+const STOP_ROOTS = new Set(["hamlet", "estate", "kingdom", "world"]);
 
 type LocationKind = 'residence' | 'workplaces' | 'frequents';
 
