@@ -103,8 +103,8 @@ export function scorePartyByGameplaySynergy(party: Party, roster: CharacterRecor
   score += calculateStackingPairSynergy(party, roster, 'Blighter', 'BlightSynergy', 25, 5, 10);
   score += calculateStackingPairSynergy(party, roster, 'Bleeder', 'BleedSynergy', 25, 5, 10);
   score += calculateStackingPairSynergy(party, roster, 'Stunner', 'StunSynergy', 25, 5, 10);
-  // Stunners buy time for Setup heroes to do their thing.
-  score += calculateStackingPairSynergy(party, roster, 'Stunner', 'Setup', 20, 10, 5);
+  // Stunners buy time for Backloaded heroes to do their thing.
+  score += calculateStackingPairSynergy(party, roster, 'Stunner', 'Backloaded', 20, 10, 5);
 
   // --- SIMPLE PAIR SYNERGIES (One-to-One relationships) ---
   score += calculateSimplePairSynergy(party, roster, 'Guarder', 'Frail', 30);
@@ -373,7 +373,7 @@ export function scorePartyByTacticalNonsense(party: Party, roster: CharacterReco
   nonsenseScore += countTag(party, roster, 'Brink') * 50; // Being on low health is not a strategy, it's a liability
 
   // 2. Penalize inefficient or slow setups
-  nonsenseScore += calculateStackingTagSynergy(party, roster, 'Setup', -5, 25, 1); // Too many setup heroes is exploitable
+  nonsenseScore += calculateStackingTagSynergy(party, roster, 'Backloaded', -5, 25, 1); // Too many backloaded heroes is exploitable
   nonsenseScore += calculateStackingTagSynergy(party, roster, 'Stealther', -5, 20, 1); // Half the party can't be hiding
 
   // 3. Penalize chaotic movement
@@ -386,7 +386,7 @@ export function scorePartyByTacticalNonsense(party: Party, roster: CharacterReco
 /**
  * The four jobs in a party, one hero each. A hero can fill a role if they
  * carry any tag in its bucket. The buckets are a design decision, not derived
- * from anything; tags not listed here (Frontline, Scout, Stealther, Setup,
+ * from anything; tags not listed here (Frontline, Scout, Stealther, Backloaded,
  * Brink, personality and origin tags, ...) play no part.
  */
 const ROLE_BUCKETS: readonly (readonly string[])[] = [
