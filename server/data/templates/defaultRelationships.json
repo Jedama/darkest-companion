@@ -454,6 +454,11 @@
     }
   },
   "resonant": {
+    "occultist": {
+      "affinity": 4,
+      "dynamic": "Shallow Waters",
+      "description": "The Resonant will recognise that the Occultist has roamed the same Outer Spheres she has. She will envy the shallowness of his waters, and warn him not to wade any further."
+    },
     "entrenched": {
       "affinity": 4,
       "dynamic": "An endearing anomaly",
