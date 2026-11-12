@@ -17,7 +17,8 @@
     "summary": "A layered astral plane reached by projecting the mind, growing stranger and less ordered the further out one goes.",
     "parent": "cosmos",
     "children": [
-      "outer_spheres__pyramid"
+      "outer_spheres__pyramid",
+      "outer_spheres__starfield"
     ]
   },
   {
@@ -25,6 +26,14 @@
     "title": "The Pyramid",
     "description": "A pyramidal temple of stone standing in a near layer of the Outer Spheres, its spires drawing jagged lightning down from a churning sky into a central altar laid for burnt offerings. The temple is always the same, but the minds of visitors tend to paint a landscape around it, to shape the space into something more comprehensible. It was built here as a door, and the currents that run through its stone are infernal in character.",
     "summary": "A lightning-wreathed temple in the shallow Outer Spheres, built as a door.",
+    "parent": "outer_spheres",
+    "children": []
+  },
+  {
+    "identifier": "outer_spheres__starfield",
+    "title": "The Starfield",
+    "description": "The open expanse of the Outer Spheres, a black void where stars turn in a vast violet spiral around a burning core, and sparks of cold blue light drift past without ever arriving anywhere. Up and down mean nothing here. Shamblers hunt these spaces, and the living do well to fear the dark, for those they drag in here rarely return.",
+    "summary": "The open void of the Outer Spheres, where stars spiral around a burning core and nothing lies underfoot.",
     "parent": "outer_spheres",
     "children": []
   }
