@@ -7,8 +7,17 @@
     "parent": null,
     "children": [
       "world",
-      "outer_spheres"
+      "outer_spheres",
+      "void"
     ]
+  },
+  {
+    "identifier": "void",
+    "title": "The Void",
+    "description": "The cold dark far beyond the heavens. Time runs unevenly here, and the stars themselves slip in and out of it, which is why they seem to flicker when seen from the ground. Drifts of crystal float in the dark, and strange eldritch things live among them.",
+    "summary": "The cold dark beyond the heavens, where time runs unevenly and eldritch things drift among the crystal.",
+    "parent": "cosmos",
+    "children": []
   },
   {
     "identifier": "outer_spheres",
