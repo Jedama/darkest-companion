@@ -72,6 +72,16 @@
     "description": "The great power of the east, a belt of desert and river-cities that an unknown conqueror welded together from sultanates, republics and free cities centuries ago, promising autonomy to those who joined and destruction to those who resisted. Its people are prosperous and well educated, its careful, licensed sorcery has advanced both its medicine and its warfare, and its soldiery, in teal and silver, is drilled rather than raised. Mountain passes guard it from the west, where it has fought Ostvengr and others for generations. The Vizier has ruled it since he took the throne from the foreign king who held it, and has not aged since; his made Janissaries do not age either, and no one has tested him twice. Those who stay beneath his notice live well.",
     "summary": "The rich and orderly Vizierate of the east, ruled for centuries by an unaging usurper who took the throne by murder.",
     "parent": "world",
+    "children": [
+      "levantine__firuzkent"
+    ]
+  },
+  {
+    "identifier": "levantine__firuzkent",
+    "title": "Firuzkent",
+    "description": "The Vizierate's capital, a great harbour city on the southern coast. Its domes and roofs are sheathed in copper, bright red when new and weathering to teal, so that from the sea the city looks blue-green. Iron from the hills goes into its gates, railings, window lattices and the awning poles of its bazaars. The wealthy compete in displays of abundance, and their terraced gardens, fountains and cypress walks, watered by aqueducts from the hills, keep the coast greener than it would naturally be. Further inland, the gardens give way to dry red earth.",
+    "summary": "The Vizierate's capital, a harbour city of copper roofs and terraced gardens on the southern coast.",
+    "parent": "levantine",
     "children": []
   },
   {
