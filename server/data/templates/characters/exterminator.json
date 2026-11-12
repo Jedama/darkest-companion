@@ -66,7 +66,7 @@
   "tags": [
     "Flexible", "Weak", "Sweeper", "Reach", "Marker", "MarkSynergy",
     "Bleeder", "Blighter", "BlightSynergy", "Stunner", "Riposter",
-    "Disruptor", "GuardBreaker", "Debuffer", "Buffer", "Setup",
+    "Disruptor", "GuardBreaker", "Debuffer", "Buffer", "Backloaded", "Frontloaded",
     "BeastHunter", "Physician", "Scholar", "Strategist", "Mercenary"
   ]
 }
