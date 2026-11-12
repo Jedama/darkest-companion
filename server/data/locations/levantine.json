@@ -1,0 +1,57 @@
+[
+  {
+    "identifier": "levantine",
+    "title": "The Levantine Vizierate",
+    "description": "The great power of the east, a belt of desert and river-cities that an unknown conqueror welded together from sultanates, republics and free cities centuries ago, promising autonomy to those who joined and destruction to those who resisted. Its people are prosperous and well educated, its careful, licensed sorcery has advanced both its medicine and its warfare, and its soldiery, in teal and silver, is drilled rather than raised. Mountain passes guard it from the west, where it has fought Ostvengr and others for generations. The Vizier has ruled it since he took the throne from the foreign king who held it, and has not aged since; his made Janissaries do not age either, and no one has tested him twice. Those who stay beneath his notice live well.",
+    "summary": "The rich and orderly Vizierate of the east, ruled for centuries by an unaging usurper who took the throne by murder.",
+    "parent": "world",
+    "children": [
+      "levantine__firuzkent",
+      "levantine__kafarel",
+      "levantine__charmers_tent"
+    ]
+  },
+  {
+    "identifier": "levantine__firuzkent",
+    "title": "Firuzkent",
+    "description": "The Vizierate's capital, a great harbour city on the southern coast. Its domes and roofs are sheathed in copper, bright red when new and weathering to teal, so that from the sea the city looks blue-green. Iron from the hills goes into its gates, railings, window lattices and the awning poles of its bazaars. The wealthy compete in displays of abundance, and their terraced gardens, fountains and cypress walks, watered by aqueducts from the hills, keep the coast greener than it would naturally be. Further inland, the gardens give way to dry red earth.",
+    "summary": "The Vizierate's capital, a harbour city of copper roofs and terraced gardens on the southern coast.",
+    "parent": "levantine",
+    "children": []
+  },
+  {
+    "identifier": "levantine__kafarel",
+    "title": "Kafarel",
+    "description": "A small walled kingdom on the Levantine's western edge, built on a slow river in dry country, a long way from anywhere. Waterwheels lift the river into channels that water its palm groves and fields, its houses are of pale mud brick with a faint red cast, and lamps burn through the night in niches over its doors and shrines. It is more devout than its neighbours, and its hospices and almshouses accept the sick and poor with open arms. From its walls hang banners bearing the Vigil: the Aureole beneath a dark night.",
+    "summary": "A small, devout river kingdom on the Levantine's western edge, known for its lamps and hospices.",
+    "parent": "levantine",
+    "children": [
+      "kafarel__lazar_house",
+      "kafarel__divan"
+    ]
+  },
+  {
+    "identifier": "kafarel__lazar_house",
+    "title": "The Lazar House",
+    "description": "A stone house on an islet in the river, inside the walls and reached by a narrow footbridge, where the kingdom's lepers are kept and cared for. A small barred window looks back toward the town. The royal banner hangs over its heavy door, but since the crown stopped paying for its keep the plaster has cracked and the beams have begun to rot.",
+    "summary": "A leper house on a river islet inside Kafarel's walls, reached by a narrow footbridge.",
+    "parent": "levantine__kafarel",
+    "children": []
+  },
+  {
+    "identifier": "kafarel__divan",
+    "title": "The Divan",
+    "description": "The royal council hall, where the court sits on low benches lining the walls. Tall blue curtains frame a balcony over the river, from which Kafarel's kings address the town. Behind the throne hangs an empty rack, made for a greatsword taller than a man. The purple cushions still carry faint bloodstains from the former ruler's advisors.",
+    "summary": "Kafarel's royal council hall, lined with low benches and opening onto a curtained balcony over the river.",
+    "parent": "levantine__kafarel",
+    "children": []
+  },
+  {
+    "identifier": "levantine__charmers_tent",
+    "title": "The Charmer's Tent",
+    "description": "An old tent of patched and mismatched canvas, pitched alone among the dunes at the Vizierate's far eastern end. It was made to travel, but has not moved in years. Snakes come and go as they please, knowing it as a place of shelter and food, and the sand around it is crossed with their tracks. Every dawn, a flute plays inside.",
+    "summary": "A patched tent alone in the eastern dunes, home to an old snake charmer and the snakes he feeds.",
+    "parent": "levantine",
+    "children": []
+  }
+]
