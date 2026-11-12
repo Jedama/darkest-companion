@@ -1,0 +1,21 @@
+[
+  {
+    "identifier": "cosmos",
+    "title": "Cosmos",
+    "description": "Everything that is: the world, the heavens above it and the endless void of stars enveloping both, as well as the astral spaces that lie parallel to them.",
+    "summary": "Everything that is: the world, the heavens, the void of stars, and the astral spaces beside them.",
+    "parent": null,
+    "children": [
+      "world",
+      "outer_spheres"
+    ]
+  },
+  {
+    "identifier": "outer_spheres",
+    "title": "The Outer Spheres",
+    "description": "A layered astral plane beyond the waking world, reached by projecting the mind out of the body. It has no ground, gravity or physics, only endless distance filled with swirling stars and drifting lights, and it grows stranger and less ordered the further out one goes. Here and there, vast structures of no earthly making float in the void.",
+    "summary": "A layered astral plane reached by projecting the mind, growing stranger and less ordered the further out one goes.",
+    "parent": "cosmos",
+    "children": []
+  }
+]
