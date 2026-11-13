@@ -123,6 +123,10 @@ export function sanitizeUserInput(input: string): string {
  *  Section builders (pure-ish)
  * ------------------------------------------------------------------- */
 
+// Fallback while not every character template has a disclosure field yet
+export const MISSING_DISCLOSURE =
+  "This character lacks a disclosure field for now; infer what they will and won't share from their history and description.";
+
 export function buildCharactersSection(involvedCharacters: Character[]): string {
   const lines: string[] = [];
   lines.push(`[Characters]\n`);
@@ -131,6 +135,7 @@ export function buildCharactersSection(involvedCharacters: Character[]): string 
     lines.push(`- ${char.name} (${char.title}):\n`);
     lines.push(`  - Description: ${char.description}\n`);
     lines.push(`  - History: ${char.history}\n`);
+    lines.push(`  - Disclosure: ${char.disclosure ?? MISSING_DISCLOSURE}\n`);
     lines.push(
       `  - Stats: Strength: ${char.stats.strength}, Agility: ${char.stats.agility}, Intelligence: ${char.stats.intelligence}, Authority: ${char.stats.authority}, Sociability: ${char.stats.sociability}\n`
     );

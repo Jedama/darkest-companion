@@ -23,7 +23,8 @@ import {
     buildRelationshipSection,
     buildUserGuidanceSection,
     buildUserInputSection,
-    compileRecruitContext
+    compileRecruitContext,
+    MISSING_DISCLOSURE
 } from '../llm/buildPromptService.js';
 import { filterLogs } from '../game/logService.js';
 import StaticGameDataManager from '../../staticGameDataManager.js';
@@ -120,6 +121,7 @@ const recruitedCharacter: Character = remainingCharacters[0];
   charactersSection += `  - [${recruitedCharacter.identifier}] ${recruitedCharacter.name} (${recruitedCharacter.title}):\n`;
   charactersSection += `  - Description: ${recruitedCharacter.description}\n`;
   charactersSection += `  - History: ${recruitedCharacter.history}\n`
+  charactersSection += `  - Disclosure: ${recruitedCharacter.disclosure ?? MISSING_DISCLOSURE}\n`;
   charactersSection += `  - Stats: strength: ${recruitedCharacter.stats.strength}, agility: ${recruitedCharacter.stats.agility}, intelligence: ${recruitedCharacter.stats.intelligence}, authority: ${recruitedCharacter.stats.authority}, sociability: ${recruitedCharacter.stats.sociability}\n`;
   charactersSection += `  - Traits: ${recruitedCharacter.traits.join(', ')}\n`;
   charactersSection += `  - Status: Physical: ${recruitedCharacter.status.physical}, Mental: ${recruitedCharacter.status.mental}, Description: ${recruitedCharacter.status.description}\n`;
