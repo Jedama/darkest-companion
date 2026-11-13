@@ -2,68 +2,72 @@
   "identifier": "jester",
   "title": "Jester",
   "name": "Sarmenti",
-  "description": "Once a wandering street musician who fell prey to an otherworldly melody, the Jester now combines deadly precision with musical talent. Though appearing as a mere entertainer, he harbors dark experiences from his past that fuel both his performances and his combat prowess. Mildly unhinged, people often find his mask and theatrical demeanor unsettling, but the music his lute plays is genuinely inspiring and calming.",
-  "history": "Originally a directionless street performer, Sarmenti discovered a mysterious melody in a cemetery that awakened his ambition. His newfound talent led him to perform at the royal court, where he faced cruel mockery and humiliation. In revenge, he performed the demonic melody, resulting in death and dismemberment of the whole court. Regretting his mistakes, he severed his own finger to rid himself of ability to ever again play the cursed melody. He now wanders, hoping to do better for the world, haunted by fragments of that forgotten tune.",
-  "summary": "A masked, manic performer whose lute lifts spirits, hiding a maimed hand and the memory of the melody with which he butchered a royal court.",
+  "description": "The Jester is a musician who was made a fool of once, and has worn the motley ever since. He treats everything as a joke, his own life included, and laughs as readily in a fight as over a drink, but he cannot stand being the one laughed at. The only great song he ever played ended in a slaughter, and bloodshed has been his muse since. He is poor yet kind and generous to the destitute, and arrives at the Estate because it pays and he does not much care whether he lives.",
+  "history": "The Jester was a street musician in a city of Loess, busking without ambition until a violinist in a cemetery taught him a melody that woke it. He won a place at the king's court, where for a few years he played at its lesser occasions. When he was finally called to a great feast, it was as the fool: dressed in motley and humiliated while the nobles dined. He played the violinist's song, and under it he butchered the king and the whole court with dirk and sickle. With the hall empty, he cut off his own index finger so he could never play it again.",
+  "summary": "A sardonic, masked Jester, a court musician turned fool who butchered a king's court under a song he can no longer play.",
   "race": "Human",
   "gender": "Male",
   "religion": "None",
-  "culture": "Crownlander",
+  "culture": "Loessian",
   "zodiac": "Pisces",
   "traits": [
-    "Maniacal",
-    "Unserious",
-    "Theatrical",
-    "Quipster"
+    "Sardonic",
+    "Morbid",
+    "Touchy",
+    "Bloodthirsty",
+    "Restless",
+    "Charitable"
   ],
   "stats": {
     "strength": 4,
-    "agility": 7,
-    "intelligence": 5,
-    "authority": 3,
-    "sociability": 10
+    "agility": 8,
+    "intelligence": 6,
+    "authority": 2,
+    "sociability": 6
   },
   "equipment": [
     "Sickle",
-    "Lute",
-    "Bells",
-    "Dagger"
+    "Dirk",
+    "Lute"
   ],
   "appearance": {
     "height": "Tall",
-    "build": "Lean",
-    "skinTone": "Pale",
-    "hairColor": "Black",
-    "hairStyle": "Long and unkempt",
-    "features": "Gaunt face, prominent cheekbones, dark circles under eyes"
+    "build": "Lean and underfed",
+    "skinTone": "Olive",
+    "hairColor": "Dark (hidden by hood)",
+    "hairStyle": "Long and loose (hidden by hood)",
+    "features": "Missing the index finger of his left hand; face hidden by his mask"
   },
   "clothing": {
-    "head": "White theatrical mask",
-    "body": "Red and black jester's attire with bells",
-    "legs": "Dark fitted pants",
-    "accessories": "Shoes with bells"
+    "head": "Patched red hood, and a mouthless white mask with black diamonds at the eyes",
+    "body": "Red motley cowl with gold zigzag trim hung with bells, over a dark tunic",
+    "legs": "Dark patched hose, and pointed shoes with a bell at each toe",
+    "accessories": "Red gloves, wide buckled belt, lute slung on his back"
   },
   "combat": {
-    "role": "Support",
+    "role": "Skirmisher",
     "strengths": [
-      "Musical inspiration",
-      "Precision",
-      "Keeps morale up"
+      "Bleeding cuts",
+      "Rallying songs",
+      "Darting between ranks",
+      "A killing finale"
     ],
     "weaknesses": [
-      "Weak",
       "Frail"
     ]
   },
   "magic": "None",
   "notes": [
-    "Never removes his mask, and his presence is accompanied by the jingling bells on his attire",
-    "Treats even dire situations theatrically, always talking in rhymes or jokes",
-    "Laughs loudly when overtaken by emotion, good or bad",
-    "Carries and plays his lute around the hamlet"
+    "Speaks like a busker who spent years at court: street talk and dropped g's ('ain't', 'lemme', 'you lot') mixed with courtly words ('twould', 'louche', 'volte-face')",
+    "Speaks in terms of music and the stage (tempo, tuning, solos, adagio, crescendo)",
+    "Chuckles a low 'heh heh' at small things and laughs out loud in high moments. Under strain it becomes shrill, unhinged laughter that can turn to weeping",
+    "Composes aloud, trying half-finished verses about recent events on whoever is near to see how they land",
+    "Reacts badly to being mocked or laughed at: he goes cold, turns spiteful, and holds the grudge",
+    "Glad to play for anyone, common folk most of all, but sighs and sours when asked to caper or cheer someone up on demand",
+    "Talks freely and sourly about his years at court. Asked how he left it, he tells the truth as a joke, with a chuckle, in a way that is hard to take seriously"
   ],
   "tags": [
-    "Dancer", "StressHealer", "Frail", "Bleeder", "Buffer", "Executor",
-    "Backloaded", "Crit", "Unstable", "Entertainer", "Penitent", "Lowborn"
+    "Dancer", "StressHealer", "Frail", "Bleeder", "Buffer", "Setup",
+    "Crit", "Unstable", "Entertainer", "Lowborn"
   ]
 }

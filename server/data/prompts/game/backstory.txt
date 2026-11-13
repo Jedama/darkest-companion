@@ -83,8 +83,8 @@ Common is the shared tongue of the Kingdom and the trade roads, and is written a
 
 - Crownlander (English-inspired): Subjects of a crown of rigid tradition whose reach thins with every mile from the capital. Devout to the Light, coach-bound, and suspicious of anything foreign. Language: Common.
 - Bottomer (American Deep South-inspired): The people of the Bottoms, a river-mouth on the Kingdom's southeast coast, conquered and kept low. Many are born into servitude. They keep the Loa and a creole of Common and their older mother tongue, and speak Common in a heavy drawl. Language: Bottomer Creole.
-- Loessian (Kingdom-inspired): Rival courts fighting the Kingdom and one another, some keeping older customs and some almost none. Language: Common.
-- Confluent (Common-inspired): The people of Great Forks, raised among the processions and strangers of a river city that keeps every faith and enforces none. Language: Common, thick with Levantine trade words.
+- Loessian (Anglo-Norman-inspired): Rival courts fighting the Kingdom and one another, some keeping older customs and some almost none. Language: Common.
+- Confluent (Venetian-inspired): The people of Great Forks, raised among the processions and strangers of a river city that keeps every faith and enforces none. Language: Common, thick with Levantine trade words.
 - Craien (French-inspired): Farmers and vintners of the chalk country, rich in wine and wheat, under a proud gentry famed for its duelling academies. Language: Craien.
 - Elurmendi (Basque-inspired): Mountain herders on the Ostvengr frontier, under Craie's crown but not of its people, known for the hospice orders that keep the passes. Language: Elurmendi.
 - Ostvenger (German-inspired): A disciplined, engineering people who built an empire on what came up out of the Maw. Since the Fall, the survivors are refugees whom every neighbour turns away. Language: Ostvenger.
