@@ -250,6 +250,7 @@ export interface CharacterTemplate {
   description: string;
   summary: string;
   history: string;
+  disclosure?: string; // what they will and won't reveal about themselves, and when
   race: string;
   gender: string;
   religion: string;

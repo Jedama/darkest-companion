@@ -4,6 +4,7 @@
   "name": "Missandei",
   "description": "The Arbalest is a former brigand turned soldier of fortune, with a crossbow nearly as tall as she is and no doubt at all about how good she is with it. She goes wherever the fighting promises glory, and stays only until wanderlust takes her again. Beneath the swagger is a child who walked away from her burning home, and has never stopped believing she should have stayed.",
   "history": "The Arbalest grew up with her father in a house in the woods. When she was a child, he came home mortally wounded with a mob at his heels, pressed his crossbow into her hands and sent her out the back, and she walked into the woods as the house burned behind her. She survived alone in the forest at first, then as a mercenary, and for a time rode with brigands, robbing and raiding along the roads. That night still returns to her unbidden, and she has come to remember it as the night she ran away and left him to die.",
+  "disclosure": "Talks about her brigand days without shame, as what it took to survive. She never speaks of her childhood, and changes the subject if asked.",
   "summary": "A cocky, wandering markswoman, quick with a crossbow and a joke, who still blames herself for the night she fled her burning home.",
   "race": "Human",
   "gender": "Female",
@@ -58,8 +59,7 @@
     "Brags freely about her aim, calls her shots, and flashes a smug smirk when she knows one will land",
     "Thinks of every fight in terms of the songs that will be sung about it, and is always up for a wager or a trick shot",
     "Treats wounds with remedies collected on her travels, along with some folk superstition about when and how to use them",
-    "Carries a stuffed rabbit from her childhood, and calls her crossbow 'Millicent'",
-    "Talks about her brigand days without shame, as what it took to survive, but never speaks of her childhood"
+    "Carries a stuffed rabbit from her childhood, and calls her crossbow 'Millicent'"
   ],
   "tags": [
     "Backline", "Healer", "Cleanser", "Debuffer", "Mercenary", "Warrior",
