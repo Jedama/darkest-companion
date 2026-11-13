@@ -18,7 +18,7 @@
     "parent": "pelagia",
     "children": [
       "pelagia__grand_arena",
-      "pelagia__ashen_square"
+      "stheneia__ashen_square"
     ]
   },
   {
@@ -40,7 +40,7 @@
     "children": []
   },
   {
-    "identifier": "pelagia__ashen_square",
+    "identifier": "stheneia__ashen_square",
     "title": "The Ashen Square",
     "description": "The old royal plaza before the shuttered palace, where Stheneia burns what it fears. Here, the most beloved and most hated of the royal daughters was burned alive. The flagstones remain scorched black.",
     "summary": "The royal plaza where Stheneia burned its most beloved and envied princess, its flagstones still scorched.",

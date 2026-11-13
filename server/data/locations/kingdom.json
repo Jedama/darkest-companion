@@ -46,13 +46,13 @@
     "summary": "A three-story farmhouse among fertile fields, expanded by its newly-titled owners, known for grand feasts and disappearing travelers.",
     "parent": "kingdom",
     "children": [
-      "kingdom__harvest_house_servants",
-      "kingdom__harvest_house_dining",
-      "kingdom__harvest_house_nursery"
+      "harvest_house__servants",
+      "harvest_house__dining",
+      "harvest_house__nursery"
     ]
   },
   {
-    "identifier": "kingdom__harvest_house_servants",
+    "identifier": "harvest_house__servants",
     "title": "Servants' Quarter",
     "description": "The farmhouse's ground floor, hastily converted from family living space to servants' quarters and food preparation areas. Livestock pens adjoin the kitchen, allowing the Carver immediate access to fresh meat. A sturdy cart with iron wheels stands near the back door, its bed stained dark despite frequent scrubbing. Servants hired from neighboring farms whisper about the master's insistence that all visitors be announced before being allowed upstairs, and the strange sounds that echo through the floorboards during late-night feasts.",
     "summary": "The ground floor of Harvest House, converted into servants' quarters and food preparation areas, with adjoining livestock pens and unusual practices.",
@@ -63,7 +63,7 @@
     ]
   },
   {
-    "identifier": "kingdom__harvest_house_dining",
+    "identifier": "harvest_house__dining",
     "title": "Dining Hall",
     "description": "Once the farmhouse's modest common room, now expanded by knocking down walls to create space for a long table surrounded by mismatched chairs acquired from across the region. Candles in tarnished holders provide inadequate light, casting most of the room in shadow while illuminating the heaping platters that never seem to empty. The newly-installed sideboard sags under silver serving dishes that gleam with recent polishing, a stark contrast to the rough-hewn beams overhead where hooks meant for curing meats now hold tapestries awkwardly cut to fit the space.",
     "summary": "An expanded dining hall in Harvest House, featuring a long table for feasts, mismatched chairs, and heaping, never-ending platters.",
@@ -75,7 +75,7 @@
     ]
   },
   {
-    "identifier": "kingdom__harvest_house_nursery",
+    "identifier": "harvest_house__nursery",
     "title": "Nursery",
     "description": "The uppermost floor, once sleeping quarters for a large farming family, now converted into an unsettling nursery despite no announcement of an expected child. The central cradle, built from butcher's blocks joined together, dominates the room with its unusual size and sturdiness. Walls once whitewashed now display crude paintings of feasting scenes, while strings of preserved meats hang from ceiling hooks in place of traditional mobiles. The Lady is often found here, rocking in a chair beside the empty cradle, her swollen form suggesting either impending motherhood or simply the effects of endless consumption.",
     "summary": "The uppermost floor of Harvest House, converted into an unsettling nursery with a large cradle made of butcher's blocks and crude feasting paintings.",
@@ -89,11 +89,11 @@
     "summary": "The Kingdom's drained southeastern lowlands, held dry below sea level by the dykes its conquered people keep.",
     "parent": "kingdom",
     "children": [
-      "kingdom__lowhaven"
+      "bottoms__lowhaven"
     ]
   },
   {
-    "identifier": "kingdom__lowhaven",
+    "identifier": "bottoms__lowhaven",
     "title": "Lowhaven",
     "description": "The Kingdom's busiest port, where the river meets the sea. Cranes stand along its quays, and short railways run from the docks to the warehouses and out across the fields, lines the crown has long meant to carry up the coast and inland. The Crownlander quarter and its great church of the Light sit on the one ridge of high ground, an old dune line. Below it, in the low streets that flood first, the Bottomers who work the port leave small offerings to the Loa at the street corners.",
     "summary": "The Kingdom's busiest port, its cranes and rail yards worked by Bottomers who live in the streets that flood first.",
@@ -106,6 +106,16 @@
     "description": "A great winged house of pale stone in the Kingdom's north, perfectly symmetrical, with a columned portico beneath a broad pediment and formal gardens stepping down to the river. Inside, its marble floors are polished bright, and the spotless rooms show little trace of life, save the family's portraits, hung in symmetrical rows along every wall, many of them painted very young.",
     "summary": "A pale, symmetrical winged house in the Kingdom's north, its gardens stepping down to the river.",
     "parent": "kingdom",
+    "children": [
+      "ellory__hedge_maze"
+    ]
+  },
+  {
+    "identifier": "ellory__hedge_maze",
+    "title": "The Hedge Maze",
+    "description": "A hedge maze in the Ellory gardens, entered beneath an ornate stone arch, with dragons trimmed from the hedge standing guard at its turns. Flowers brought from abroad bloom along its walls. Only its outer paths are still open; the inner hedges have been left to grow together into a solid mass, sealing off its centre.",
+    "summary": "A hedge maze of topiary dragons and exotic flowers, its centre sealed off by overgrown hedges.",
+    "parent": "kingdom__ellory",
     "children": []
   }
 ]
