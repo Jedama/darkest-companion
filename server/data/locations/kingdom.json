@@ -11,7 +11,8 @@
       "kingdom__burnt_cottage",
       "kingdom__harvest_house",
       "kingdom__crossroads",
-      "kingdom__bottoms"
+      "kingdom__bottoms",
+      "kingdom__ellory"
     ]
   },
   {
@@ -97,6 +98,14 @@
     "description": "The Kingdom's busiest port, where the river meets the sea. Cranes stand along its quays, and short railways run from the docks to the warehouses and out across the fields, lines the crown has long meant to carry up the coast and inland. The Crownlander quarter and its great church of the Light sit on the one ridge of high ground, an old dune line. Below it, in the low streets that flood first, the Bottomers who work the port leave small offerings to the Loa at the street corners.",
     "summary": "The Kingdom's busiest port, its cranes and rail yards worked by Bottomers who live in the streets that flood first.",
     "parent": "kingdom__bottoms",
+    "children": []
+  },
+  {
+    "identifier": "kingdom__ellory",
+    "title": "Ellory House",
+    "description": "A great winged house of pale stone in the Kingdom's north, perfectly symmetrical, with a columned portico beneath a broad pediment and formal gardens stepping down to the river. Inside, its marble floors are polished bright, and the spotless rooms show little trace of life, save the family's portraits, hung in symmetrical rows along every wall, many of them painted very young.",
+    "summary": "A pale, symmetrical winged house in the Kingdom's north, its gardens stepping down to the river.",
+    "parent": "kingdom",
     "children": []
   }
 ]
