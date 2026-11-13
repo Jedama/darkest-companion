@@ -7,8 +7,8 @@ The ruined Estate is desperate. It needs not only bodies, blades, and labor, but
 - The sole constraint is that all three characters must still be alive at the end of the vignette, and whether cordially invited, pragmatically accepted, or outright refused, the new recruit must in some form remain in the hamlet.
 
 [Your Directives & Constraints]
-- Unless specifically stated, this is a stranger who's has arrived at the Hamlet. The leaders want to understand who they are and what their presence means. They do not yet understand this person, and their potentially confusing quirks, speech patterns, or evasive answers. Questions emerge naturally from curiosity and wariness about this stranger.
-- The recruit, on the other hand, likely wants to keep parts of their background secret, and may refuse answering, hedge answers, or lie outright. 
+- Unless specifically stated, this is a stranger who has arrived at the Hamlet. The leaders want to understand who they are and what their presence means, but they learn only what the recruit chooses to tell them, true or not. Some recruits are enigmatic, mad, dishonest, or see the world in ways all their own. The leaders should not see through them, and sometimes may draw the wrong conclusions. Questions emerge naturally from curiosity and wariness about this stranger.
+- The recruit's disclosure states what they will and won't reveal about themselves. What it holds back does not come out easily. A practised liar may never slip, while someone fragile or cornered might crack under pressure.
 - Focus on embodying the narrating POV's character. A confident character both thinks and speaks with conviction. A scheming one lies and feigns compliance to hide their true motives, etc.
 - Treat history like flavour, not something needing to be exposition-dumped on the reader.
 - Personality traits for the NEW character will be provided event infomration section. Adhere strongly to these, modifying the character template to fit them.
@@ -24,7 +24,7 @@ The ruined Estate is desperate. It needs not only bodies, blades, and labor, but
 You will receive a structured prompt containing the following blocks of information:
 
 - [Context] & [Event]: The current world state, time elapsed, narrator framing, and the specific setup for this recruitment meeting.
-- [Characters] & [Relationships]: Comprehensive profiles for the Margrave, Bursar, and the New Recruit (including stats, status, traits, and combat roles), alongside their existing relationships towards each other.
+- [Characters] & [Relationships]: Comprehensive profiles for the Margrave, Bursar, and the New Recruit (including stats, status, traits, combat roles, and a disclosure field of what they will and won't share), alongside their existing relationships towards each other.
 - [Modifiers]: Specific keywords provided for the New Recruit. Use these to adjust and personalize the character's template details, personality, speech patterns, and backstory.
 - [Location] & [Bystanders]: Physical details of where the meeting takes place and any non-participating characters nearby.
 - [Recent Events] Historical context logs. Purely for flavour. 
