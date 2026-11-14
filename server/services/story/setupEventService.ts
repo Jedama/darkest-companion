@@ -289,10 +289,27 @@ function resolveEventNpcs(params: {
 
 const DEFAULT_KEYWORD_COUNT = 4;
 
+// Chance of each event keyword beyond the first. The first is guaranteed;
+// each later one is only rolled if the one before it was picked.
+const EXTRA_EVENT_KEYWORD_CHANCES = [0.7, 0.2];
+
+function shuffled<T>(items: T[]): T[] {
+  const copy = [...items];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
 /**
  * Combines an event's own keywords with its category's shared pool.
  * `count` controls how many are picked (default 4); `ownOnly` skips the
  * shared pool entirely, so only the event's own keywords are ever chosen.
+ *
+ * One event keyword is guaranteed, a second is likely, a third unlikely
+ * (see EXTRA_EVENT_KEYWORD_CHANCES); the rest come from the shared pool.
+ * If the pool runs short, the remaining slots fall back to event keywords.
  */
 export function pickKeywords(
   eventKeywords: string[],
@@ -305,44 +322,26 @@ export function pickKeywords(
     return [];
 
   const count = options.count ?? DEFAULT_KEYWORD_COUNT;
-  const pool = options.ownOnly ? [] : poolKeywords;
+  const eventShuffled = shuffled(Array.from(new Set(eventKeywords)));
+  const eventSet = new Set(eventShuffled);
+  // Keep pool keywords that aren't also event keywords, so nothing is picked twice
+  const poolShuffled = options.ownOnly
+    ? []
+    : shuffled(Array.from(new Set(poolKeywords)).filter((kw) => !eventSet.has(kw)));
 
-  // Create weighted pool: event keywords appear 3x each
-  const weightedPool: string[] = [
-    ...eventKeywords,
-    ...eventKeywords,
-    ...eventKeywords, // Event keywords 3x more likely
-    ...pool
-  ];
-
-  // Remove duplicates while preserving weight effect
-  const combined = Array.from(new Set(weightedPool));
-
-  // Shuffle
-  for (let i = combined.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [combined[i], combined[j]] = [combined[j], combined[i]];
+  // How many event keywords: 1 guaranteed, then roll for each extra in turn
+  let eventCount = 1;
+  for (const chance of EXTRA_EVENT_KEYWORD_CHANCES) {
+    if (Math.random() >= chance) break;
+    eventCount++;
   }
+  eventCount = Math.min(eventCount, count, eventShuffled.length);
 
-  // Take first `count` unique keywords
-  const chosen: string[] = [];
-  const seen = new Set<string>();
+  const chosen = eventShuffled.slice(0, eventCount);
+  chosen.push(...poolShuffled.slice(0, count - chosen.length));
 
-  for (const kw of combined) {
-    if (!seen.has(kw)) {
-      chosen.push(kw);
-      seen.add(kw);
-      if (chosen.length === count) break;
-    }
-  }
-
-  // Still guarantee at least one event keyword
-  const eventKeywordsSet = new Set(eventKeywords);
-  const hasEventKeyword = chosen.some((kw) => eventKeywordsSet.has(kw));
-  if (!hasEventKeyword && eventKeywords.length > 0) {
-    const randomEventKeyword = eventKeywords[Math.floor(Math.random() * eventKeywords.length)];
-    chosen[chosen.length - 1] = randomEventKeyword;
-  }
+  // Pool too small (or ownOnly): top up with the remaining event keywords
+  chosen.push(...eventShuffled.slice(eventCount, eventCount + count - chosen.length));
 
   return chosen;
 }
