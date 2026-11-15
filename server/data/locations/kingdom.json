@@ -12,7 +12,8 @@
       "kingdom__harvest_house",
       "kingdom__crossroads",
       "kingdom__bottoms",
-      "kingdom__stillbourne"
+      "kingdom__stillbourne",
+      "kingdom__capital"
     ]
   },
   {
@@ -116,6 +117,14 @@
     "description": "A hedge maze in the gardens of Stillbourne House, entered beneath an ornate stone arch, with dragons trimmed from the hedge standing guard at its turns. Flowers brought from abroad bloom along its walls. Only its outer paths are still open; the inner hedges have been left to grow together into a solid mass, sealing off its centre.",
     "summary": "A hedge maze of topiary dragons and exotic flowers, its centre sealed off by overgrown hedges.",
     "parent": "kingdom__stillbourne",
+    "children": []
+  },
+  {
+    "identifier": "kingdom__capital",
+    "title": "The Capital",
+    "description": "The Kingdom's capital, an old walled city of stone above a river, reached across a long bridge lined with statues of saints and scholars. Inside, crooked cobbled lanes run between tall houses of stone and dark timber, steep-roofed and packed so close they lean toward one another, their narrow pointed windows lit late into the night. Over it all rise the spire of its cathedral and the palace, from which the Regency now governs.",
+    "summary": "The Kingdom's old, crowded walled capital above a river, seat of the Regency.",
+    "parent": "kingdom",
     "children": []
   }
 ]
