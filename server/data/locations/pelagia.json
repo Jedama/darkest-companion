@@ -17,26 +17,26 @@
     "summary": "The greatest Pelagian city, a former royal seat that burned its own dynasty on rumor, now ruled by magistrates and pacified with games.",
     "parent": "pelagia",
     "children": [
-      "pelagia__grand_arena",
+      "stheneia__agon",
       "stheneia__ashen_square"
     ]
   },
   {
-    "identifier": "pelagia__grand_arena",
-    "title": "The Grand Arena",
+    "identifier": "stheneia__agon",
+    "title": "The Agon",
     "description": "A tiered marble bowl seating thousands, its sands raked fresh over stains that never fully leave. Here legends were made into gods between noon and dusk—until the Champion, last and most beloved of them all, died on the sands and the games lost their savor. The crowds still come, but they cheer as mourners do, for something already gone.",
     "summary": "Stheneia's vast marble arena, hollow since the death of the Champion, last and most beloved of its idols.",
     "parent": "pelagia__stheneia",
     "children": [
-      "pelagia__arena_maze"
+      "stheneia__arena_maze"
     ]
   },
   {
-    "identifier": "pelagia__arena_maze",
+    "identifier": "stheneia__arena_maze",
     "title": "The Maze",
     "description": "The lightless warren of pens and chain-galleries beneath the arena sands, where beasts and condemned men wait between matches. Beastmasters navigate its turns by lamplight and memory. At its deepest turn stands the largest cell, its door torn from the hinges and never repaired.",
-    "summary": "The lightless warren of holding pens beneath the Grand Arena, its largest cell empty and doorless.",
-    "parent": "pelagia__grand_arena",
+    "summary": "The lightless warren of holding pens beneath the Agon, its largest cell empty and doorless.",
+    "parent": "stheneia__agon",
     "children": []
   },
   {
