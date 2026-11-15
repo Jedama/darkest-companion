@@ -135,6 +135,16 @@
     "description": "The Kingdom's ancient university, a cluster of old stone colleges around cloistered courtyards, approached up a broad flight of steps. Its learning is handed down rather than questioned. In steep wooden lecture theatres, aged professors read from their lecterns while rows of students copy down what they are told, and anyone who argues back is laughed out of the hall.",
     "summary": "The Kingdom's ancient, tradition-bound university, a cluster of stone colleges where professors lecture and students are taught not to question.",
     "parent": "kingdom__capital",
+    "children": [
+      "capital__university_library"
+    ]
+  },
+  {
+    "identifier": "capital__university_library",
+    "title": "The University Library",
+    "description": "A tall Gothic hall standing among the University's colleges, entered beneath a square tower, its long wings lit by rows of pointed windows. Inside, shelves climb to the vaulted ceiling, reached by wheeled ladders. The oldest books are chained to their shelves, and its occult texts are kept in a locked room below, open only to senior scholars.",
+    "summary": "The University's great Gothic library, its oldest books chained to the shelves and its occult texts locked away below.",
+    "parent": "capital__university",
     "children": []
   }
 ]
