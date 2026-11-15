@@ -104,8 +104,8 @@
   {
     "identifier": "kingdom__stillbourne",
     "title": "Stillbourne House",
-    "description": "A great winged house of pale stone in one of the Kingdom's northern cantrevs, perfectly symmetrical, with a columned portico beneath a broad pediment and formal gardens stepping down to the river. Inside, its marble floors are polished bright, and the spotless rooms show little trace of life, save the family's portraits, hung in symmetrical rows along every wall, many of them painted very young.",
-    "summary": "A pale, symmetrical winged house in the Kingdom's north, its gardens stepping down to the river.",
+    "description": "A great winged house of pale stone in one of the Kingdom's northern cantrevs, perfectly symmetrical, with a columned portico beneath a broad pediment and formal gardens stepping down to a river. Inside, its marble floors are polished bright, and the spotless rooms show little trace of life, save the family's portraits, hung in symmetrical rows along every wall, many of them painted very young.",
+    "summary": "A pale, symmetrical winged house in the Kingdom's north, its gardens stepping down to a river.",
     "parent": "kingdom",
     "children": [
       "stillbourne__hedge_maze"
@@ -125,6 +125,16 @@
     "description": "The Kingdom's capital, an old walled city of stone above a river, reached across a long bridge lined with statues of saints and scholars. Inside, crooked cobbled lanes run between tall houses of stone and dark timber, steep-roofed and packed so close they lean toward one another, their narrow pointed windows lit late into the night. Over it all rise the spire of its cathedral and the palace, from which the Regency now governs.",
     "summary": "The Kingdom's old, crowded walled capital above a river, seat of the Regency.",
     "parent": "kingdom",
+    "children": [
+      "capital__university"
+    ]
+  },
+  {
+    "identifier": "capital__university",
+    "title": "The University",
+    "description": "The Kingdom's ancient university, a cluster of old stone colleges around cloistered courtyards, approached up a broad flight of steps. Its learning is handed down rather than questioned. In steep wooden lecture theatres, aged professors read from their lecterns while rows of students copy down what they are told, and anyone who argues back is laughed out of the hall.",
+    "summary": "The Kingdom's ancient, tradition-bound university, a cluster of stone colleges where professors lecture and students are taught not to question.",
+    "parent": "kingdom__capital",
     "children": []
   }
 ]
