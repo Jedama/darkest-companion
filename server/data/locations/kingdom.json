@@ -126,7 +126,8 @@
     "summary": "The Kingdom's old, crowded walled capital above a river, seat of the Regency.",
     "parent": "kingdom",
     "children": [
-      "capital__university"
+      "capital__university",
+      "capital__museum"
     ]
   },
   {
@@ -145,6 +146,14 @@
     "description": "A tall Gothic hall standing among the University's colleges, entered beneath a square tower, its long wings lit by rows of pointed windows. Inside, shelves climb to the vaulted ceiling, reached by wheeled ladders. The oldest books are chained to their shelves, and its occult texts are kept in a locked room below, open only to senior scholars.",
     "summary": "The University's great Gothic library, its oldest books chained to the shelves and its occult texts locked away below.",
     "parent": "capital__university",
+    "children": []
+  },
+  {
+    "identifier": "capital__museum",
+    "title": "The Museum",
+    "description": "A great domed hall of pale stone, holding the collected curiosities of centuries: antiquities, relics and oddities from every corner of the world, many of them bought from explorers who carried them home. Fossil skeletons tower over its central rotunda, and its galleries open onto wings of statuary, old armour and cases of pinned specimens. Lamps often burn late in its offices, where its curators work through the night.",
+    "summary": "The Kingdom's great museum, a domed hall of antiquities, fossils and curiosities gathered from across the world.",
+    "parent": "kingdom__capital",
     "children": []
   }
 ]
