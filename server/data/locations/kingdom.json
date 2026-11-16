@@ -229,6 +229,16 @@
     "description": "A small, quiet valley in the Kingdom's south, near the Pelagian border, with a brook running down its length. Great old oaks and beeches stand along its slopes, and every autumn they cover the ground in leaves. Where the road leaves the valley, it crosses the brook by a small stone bridge, and on the far side the wind blows harsher.",
     "summary": "A small, quiet valley in the Kingdom's south, its brook crossed by a stone bridge on the road out.",
     "parent": "kingdom",
+    "children": [
+      "valley__house_on_the_borderlands"
+    ]
+  },
+  {
+    "identifier": "valley__house_on_the_borderlands",
+    "title": "The House on the Borderlands",
+    "description": "A rambling old house of dark stone and timber by the bridge at the Valley's end, all steep gables and tall chimneys. Most of its windows are boarded, but lamps burn behind the rest at every hour, and above its door, the tracery of a pointed window forms a circle of five spokes. Inside, the walls are covered in the calculations of an unfinished Body of Work, and a cellar door is kept bolted.",
+    "summary": "A rambling, half-boarded house by the Valley's bridge, its lamps lit at every hour and its walls covered in calculations.",
+    "parent": "kingdom__valley",
     "children": []
   }
 ]
