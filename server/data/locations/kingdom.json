@@ -177,7 +177,8 @@
     "parent": "capital__sprawl",
     "children": [
       "capital__brownstone_parlour",
-      "capital__brownstone_study"
+      "capital__brownstone_study",
+      "capital__brownstone_attic"
     ],
     "npcs": [
       "academic"
@@ -196,6 +197,14 @@
     "title": "The Study",
     "description": "The Brownstone's first-floor study, where a tall writing desk overflows with scrolls, letters and maps, among them a sheet of calculations smeared with dried blood. Shelves of rare and forbidden volumes line the walls, a worn high-backed chair with strange markings scratched into its arms faces the hearth, and on the mantel ticks a clock with twelve spokes in place of numerals. A potted plant on the windowsill is kept carefully watered.",
     "summary": "The Brownstone's cluttered first-floor study of scrolls, forbidden books and a spoke-faced clock.",
+    "parent": "capital__brownstone",
+    "children": []
+  },
+  {
+    "identifier": "capital__brownstone_attic",
+    "title": "The Attic",
+    "description": "The attic beneath the Brownstone's steep roof, lit by a single dormer, where a former student of the University lived while he worked here. An easel holds an unfinished painting of black shapes in a red blaze. In the corner stands a jointed training mannequin, run through with a dozen blades though the wood around them is unmarked. A veil embroidered with a single eye is drawn over its face. His narrow bed and scattered clothes are still where he left them.",
+    "summary": "The Brownstone's attic, left as its last lodger left it, with an unfinished painting and a blade-pierced mannequin.",
     "parent": "capital__brownstone",
     "children": []
   },
