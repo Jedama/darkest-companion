@@ -127,7 +127,8 @@
     "parent": "kingdom",
     "children": [
       "capital__university",
-      "capital__museum"
+      "capital__museum",
+      "capital__conveyance_guild"
     ]
   },
   {
@@ -153,6 +154,14 @@
     "title": "The Museum",
     "description": "A great domed hall of pale stone, holding the collected curiosities of centuries: antiquities, relics and oddities from every corner of the world, many of them bought from explorers who carried them home. Fossil skeletons tower over its central rotunda, and its galleries open onto wings of statuary, old armour and cases of pinned specimens. Lamps often burn late in its offices, where its curators work through the night.",
     "summary": "The Kingdom's great museum, a domed hall of antiquities, fossils and curiosities gathered from across the world.",
+    "parent": "kingdom__capital",
+    "children": []
+  },
+  {
+    "identifier": "capital__conveyance_guild",
+    "title": "The Conveyance Guild Hall",
+    "description": "The Conveyance Guild's hall in the Capital, a great covered yard of coach sheds, stables and storehouses. Spare wheels are stacked along every wall, smiths fit coaches with iron plating and shutters, and crates of freight wait by the gates for every road in the Kingdom. Above the gate is painted its motto, 'Fair prices, in good times and bad', and the fares chalked on the board beneath it change far more often.",
+    "summary": "The Conveyance Guild's great coaching yard in the Capital, full of wheels, armoured coaches and waiting freight.",
     "parent": "kingdom__capital",
     "children": []
   }
