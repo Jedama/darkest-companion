@@ -69,7 +69,7 @@ The Hamlet itself is divided into districts:
 Beyond the estate, the World is laid out roughly as follows:
 (Directions are given loosely, from the Kingdom's point of view, and only as a rough guide)
 - Center: The Kingdom, the Bottoms, the Estate
-- North: Ostvengr, Great Forks, the Valley, the Northern Forest, the Far North
+- North: Ostvengr, Great Forks, the Kvarotz Valley, the Northern Forest, the Far North
 - Northwest: Chernozem, Podzola, Winterhome
 - West: Craie, Elurmendi
 - Southwest: Loess
@@ -90,7 +90,7 @@ Common is the shared tongue of the Kingdom and the trade roads, and is written a
 - Ostvenger (German-inspired): A disciplined, engineering people who built an empire on what came up out of the Maw. Since the Fall, the survivors are refugees whom every neighbour turns away. Language: Ostvenger.
 - Chernozemian (Russian-inspired): A nation organised around a war with Ostvengr, its officers now looking for the next one. In Podzola the old rites and witch covens survive; in the Far North, animist herders pay their tribute in furs. Language: Chernozemian.
 - Levantine (Ottoman-inspired): The Vizierate's city-dwellers, scholars, physicians, licensed sorcerers and Janissaries, prosperous and careful never to draw the Vizier's eye. Language: Levantine.
-Yolcu (Romani-inspired): Nomad performers, horse-dealers and fortune-tellers found throughout the Vizierate’s interior, who call themselves the Patrin. Their old homeland lies at the Vizierate’s far eastern end, where some still remain and keep orders such as the snake charmers. Language: Yolcu.
+- Yolcu (Romani-inspired): Nomad performers, horse-dealers and fortune-tellers found throughout the Vizierate’s interior, who call themselves the Patrin. Their old homeland lies at the Vizierate’s far eastern end, where some still remain and keep orders such as the snake charmers. Language: Yolcu.
 - Wildlander (Scythian-inspired): Matriarchal half-giant tribes scattered across half the world, worshipping silent animal gods and sending their young to the Northern Forest to be scarred into warriors. Language: Wildlander.
 - Alltud (Celtic-inspired): A distant southern branch of the Wildlanders, red-haired like them but without the giant blood, the rite or the helms, and with male warriors. Language: Alltud.
 - Pelagian (Greek-inspired): Feuding marble city-states and fearful coasts, where the old gods' temples stand quiet, witch-panics end in drownings, and the crowds are fed on games. Language: Pelagian.
@@ -98,10 +98,12 @@ Yolcu (Romani-inspired): Nomad performers, horse-dealers and fortune-tellers fou
 - Haenaran (Korean-inspired): An emperor reigns and the warlords rule. Its craftsmen are famed abroad for clockwork, gunpowder, medicine and star-charts. Language: Haenaran.
 
 SYMBOLS:
-The Iron Crown: A black semicircle, open at the bottom and radiating five points, hidden in the oldest iconography of nearly every empire. It stands for dread, madness and the horrors beyond the world. It is the mark of a cult as old as the symbol itself, who, following the Ancestor's unearthing of the thing below the Manor, have gathered at the Estate.
+The Iron Crown: A black ring, open at the bottom, with five spokes passing through it and jutting out past its edge, hidden in the oldest iconography of nearly every empire. It stands for dread, madness and the horrors beyond the world. It is the mark of a cult as old as the symbol itself, who, following the Ancestor's unearthing of the thing below the Manor, have gathered at the Estate.
 The Inverted Crown: The swinefolk’s version of the Iron Crown, 6-pointed and turned upside down, with its points curved into tusks. Raised as effigies and carried on staffs throughout the Warrens, it stands for their king.
-The Noble Raven: The Estate’s crest, borne by its family for centuries. A red-eyed raven grips a shield quartered in yellow and red, bearing a white tower with a heavy gate shuting out four tentacles, all beneath a black, three-pointed Iron Crown.
+The Noble Raven: The Estate’s crest, borne by its family for centuries. A red-eyed raven grips a shield quartered in yellow and red, bearing a white tower with a heavy gate shutting out four tentacles, all beneath a black, three-pointed Iron Crown.
+The Crimson Seal: The crest of the Ancestor's revels, pressed into the wax of every invitation to his balls in the Courtyard: a dark fleur-de-lis beneath a single drop of wine, on a field of red. It stood for nobility and good vintage. Since the night his guests drank the Countess's blood in that wine, it has become the mark of the Crimson Court and its curse, and the lily, looked at closely, resembles nothing so much as the head of a mosquito, its proboscis lowered to feed.
 The Aureole: A ring of light, open at the bottom and radiating outward, taken from the glow around a candle or torch flame. It appears throughout the Light’s liturgy and art as a halo, and is popularly known as the Hallowed Circlet. It stands for hope, mercy, and standing against the dark.
+The Bastion: The standard of the Kingdom’s army, known among soldiers as the Warded Ring. A full ring encircled by four arcs, each joined to it by a short bar. It is the Aureole closed and walled in on every side, and stands for the light of the faith, held safe by force of arms.
 
 GENERAL WORLD NOTES:
 The Light is the dominant faith in these lands nowadays, though a multitude of faiths exist. It is one of many branches grown from an older root known as the Flame, alongside others such as Sol Invictus and the Radiance. Sol Invictus was once the greatest of them, until the Light overtook it and beat its rivals down. At the present time, the original root is mostly forgotten, and 'the Flame' also serves as the name of the Light's inquisitorial branch, which favours judgement and burning.

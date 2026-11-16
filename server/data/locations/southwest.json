@@ -54,10 +54,7 @@
     "description": "The scent of fresh sawdust and pitch mingles with older, mustier notes from the timber stacked against rain-stained walls. Unfinished chairs and tables crowd the workshop floor, their joints awaiting pegs that the carpenter tests with suspicious care - too many local trees have begun growing wrong. A curtained alcove holds his other works, their box-like shapes needed more frequently since the invasion.",
     "summary": "A workshop filled with the scent of sawdust, where the carpenter crafts and tests wooden furniture and other works.",
     "parent": "southwest_district",
-    "children": [],
-    "npcs": [
-      "builder"
-    ]
+    "children": []
   },
   {
     "identifier": "wainwright",
