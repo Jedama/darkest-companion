@@ -128,7 +128,8 @@
     "children": [
       "capital__university",
       "capital__museum",
-      "capital__conveyance_guild"
+      "capital__conveyance_guild",
+      "capital__crossed_swords"
     ]
   },
   {
@@ -162,6 +163,14 @@
     "title": "The Conveyance Guild Hall",
     "description": "The Conveyance Guild's hall in the Capital, a great covered yard of coach sheds, stables and storehouses. Spare wheels are stacked along every wall, smiths fit coaches with iron plating and shutters, and crates of freight wait by the gates for every road in the Kingdom. Above the gate is painted its motto, 'Fair prices, in good times and bad', and the fares chalked on the board beneath it change far more often.",
     "summary": "The Conveyance Guild's great coaching yard in the Capital, full of wheels, armoured coaches and waiting freight.",
+    "parent": "kingdom__capital",
+    "children": []
+  },
+  {
+    "identifier": "capital__crossed_swords",
+    "title": "The Crossed Swords",
+    "description": "A tavern beside the Conveyance Guild's yard, under a sign of two crossed swords. Old coach lanterns, harness and wheel-rims hang on its walls, and it keeps the best whiskey on the coach roads. The drivers drink at the front, and the Guild's real business is done at the back, in the curtained booth where the Wagon-Master holds court.",
+    "summary": "The drivers' tavern by the Capital's coaching yards, where the Conveyance Guild does its real business over whiskey.",
     "parent": "kingdom__capital",
     "children": []
   }
