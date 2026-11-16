@@ -16,7 +16,8 @@
       "kingdom__capital",
       "kingdom__tangle",
       "kingdom__tundra",
-      "kingdom__valley"
+      "kingdom__valley",
+      "kingdom__shroud"
     ]
   },
   {
@@ -255,5 +256,23 @@
     "npcs": [
       "protege"
     ]
+  },
+  {
+    "identifier": "kingdom__shroud",
+    "title": "The Shroud",
+    "description": "The Kingdom's northeastern coast, a stretch of fishing villages built out over the water on piers, jetties and stilts. Sea fog rolls in most mornings, which is how the locals came to call it the Shroud, and the air always smells of salt and fish. Its people live by the boats and the nets, and they are as superstitious about the sea as fishing folk anywhere.",
+    "summary": "The Kingdom's foggy northeastern coast, a stretch of fishing villages on piers and stilts.",
+    "parent": "kingdom",
+    "children": [
+      "shroud__sacred_pier"
+    ]
+  },
+  {
+    "identifier": "shroud__sacred_pier",
+    "title": "The Sacred Pier",
+    "description": "The oldest pier on the Shroud, reaching far out over deep water, where the fishing villages bless their boats before each season. Its posts are hung with charms, old nets and the figureheads of lost ships, and fishermen drop a coin from its end before every voyage.",
+    "summary": "The Shroud's oldest pier, where fishing villages bless their boats and leave offerings to the sea.",
+    "parent": "kingdom__shroud",
+    "children": []
   }
 ]
