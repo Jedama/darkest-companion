@@ -69,7 +69,7 @@ The Hamlet itself is divided into districts:
 Beyond the estate, the World is laid out roughly as follows:
 (Directions are given loosely, from the Kingdom's point of view, and only as a rough guide)
 - Center: The Kingdom, the Bottoms, the Estate
-- North: Ostvengr, Great Forks, the Valley, the Northern Forest, the Far North
+- North: Ostvengr, Great Forks, the Kvarotz Valley, the Northern Forest, the Far North
 - Northwest: Chernozem, Podzola, Winterhome
 - West: Craie, Elurmendi
 - Southwest: Loess

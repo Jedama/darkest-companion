@@ -13,7 +13,7 @@
       "ostvengr",
       "pelagia",
       "haenara",
-      "valley",
+      "kvarotz_valley",
       "northern_forest",
       "chernozem",
       "craie",
@@ -58,8 +58,8 @@
     "children": []
   },
   {
-    "identifier": "valley",
-    "title": "The Valley",
+    "identifier": "kvarotz_valley",
+    "title": "The Kvarotz Valley",
     "description": "A hot, sunken expanse of dunes and buried ruin at the northern edge of the Vizierate's reach, held by nobody and claimed by several. The Kvarotz built an empire here and vanished from it without explanation, leaving necropolises under the sand, vaults nobody has emptied, and machines that still run on something worse than fuel. Three tribes of Wildlanders hold the surface in confederation, the Vizier's expeditionary force is dug into the tombs and has not advanced in a long while, and everything the Kvarotz made of their slaves is still down in the mines. What draws all of them is amber: raw it sickens and ruins, refined it makes weapons and gear nothing else can match.",
     "summary": "A contested desert frontier of Kvarotz ruins and amber, fought over by Wildlander tribes and a stalled Levantine expedition.",
     "parent": "world",

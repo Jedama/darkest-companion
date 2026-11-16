@@ -15,7 +15,8 @@
       "kingdom__stillbourne",
       "kingdom__capital",
       "kingdom__tangle",
-      "kingdom__tundra"
+      "kingdom__tundra",
+      "kingdom__valley"
     ]
   },
   {
@@ -220,6 +221,14 @@
     "description": "A deep cave high on the Mountain, which the cultists who worship there call the Caliginous Cathedral. Crude effigies of the Iron Crown, built from piled stone, bone and rope, stand among columns of ice, and the floor is scrawled with chalk circles and crusted with black wax. On the far wall they have carved a great ziggurat, which they say will rise here in truth when the Crown finds its king.",
     "summary": "A cave high on the Mountain where Iron Crown cultists worship among crude effigies, calling it a cathedral.",
     "parent": "tundra__mountain",
+    "children": []
+  },
+  {
+    "identifier": "kingdom__valley",
+    "title": "The Valley",
+    "description": "A small, quiet valley in the Kingdom's south, near the Pelagian border, with a brook running down its length. Great old oaks and beeches stand along its slopes, and every autumn they cover the ground in leaves. Where the road leaves the valley, it crosses the brook by a small stone bridge, and on the far side the wind blows harsher.",
+    "summary": "A small, quiet valley in the Kingdom's south, its brook crossed by a stone bridge on the road out.",
+    "parent": "kingdom",
     "children": []
   }
 ]
