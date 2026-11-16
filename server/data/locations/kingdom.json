@@ -175,10 +175,20 @@
     "description": "A tall, narrow house of soot-greyed brownstone and dark timber wedged among the leaning houses of the Sprawl, home and study to a scholar of the University. A tower rises at one corner under a steep spire, set with a round window whose leading forms a ring open at the bottom, with five spokes through it, and stone steps climb to an arched door. Its red roof tiles have begun to slip, and small barred windows at the foot of its walls look out from the cellar onto the street.",
     "summary": "A tall, narrow scholar's house with a spired tower, wedged among the houses of the Sprawl.",
     "parent": "capital__sprawl",
-    "children": [],
+    "children": [
+      "capital__brownstone_parlour"
+    ],
     "npcs": [
       "academic"
     ]
+  },
+  {
+    "identifier": "capital__brownstone_parlour",
+    "title": "The Parlour",
+    "description": "The Brownstone's ground-floor parlour, warm and well appointed, with deep chairs drawn up to the hearth. Over the mantel hangs a handsome portrait of the Ancestor, and in the corner stands a mechanical music machine of black wood and brass, its great horn rising from the figure of a mermaid. A tall cabinet beside it holds whiskey and a deep red wine, its bottles stamped with the Crimson Seal.",
+    "summary": "The Brownstone's comfortable ground-floor parlour, with the Ancestor's portrait over the hearth and a brass music machine.",
+    "parent": "capital__brownstone",
+    "children": []
   },
   {
     "identifier": "capital__university",
