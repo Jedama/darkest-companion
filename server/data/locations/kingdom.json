@@ -51,7 +51,8 @@
     "summary": "The Kingdom's rolling central farmland, cheerfully nicknamed by its own farmers for the muck on its fields.",
     "parent": "kingdom",
     "children": [
-      "foetor__harvest_house"
+      "foetor__harvest_house",
+      "foetor__duck_pond"
     ]
   },
   {
@@ -98,6 +99,14 @@
     "npcs": [
       "lady"
     ]
+  },
+  {
+    "identifier": "foetor__duck_pond",
+    "title": "The Duck Pond",
+    "description": "A small farm pond ringed with reeds and shaded by a leaning willow, its bank trampled to mud where the sheep and goats come down to drink. A flock of ducks lives on it, and a boy from the farm sits on a flat stone at the water's edge to feed them. Beside the pond, a weathered soldier's banner still stands on its pole, bearing the Bastion.",
+    "summary": "A small reed-ringed farm pond full of ducks, with an old soldier's banner standing beside it.",
+    "parent": "kingdom__foetor",
+    "children": []
   },
   {
     "identifier": "kingdom__bottoms",
