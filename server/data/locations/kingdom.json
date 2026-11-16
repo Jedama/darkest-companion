@@ -179,7 +179,8 @@
       "capital__brownstone_parlour",
       "capital__brownstone_study",
       "capital__brownstone_attic",
-      "capital__brownstone_tower_room"
+      "capital__brownstone_tower_room",
+      "capital__brownstone_cellar"
     ],
     "npcs": [
       "academic"
@@ -214,6 +215,14 @@
     "title": "The Tower Room",
     "description": "The small round room at the top of the Brownstone's tower, lit through its five-spoked window. Its shelves hold a clay figure of a human torso twisted into ribbed and curling shapes, cold to the touch, and a many-sided stone that floats a finger's width above its base, glowing a colour no one has a name for. The room is arranged around a low stone altar, carved with the words: 'The sacrifice of fire is the gate to ruin.'",
     "summary": "The Brownstone's round tower room of strange relics, arranged around an inscribed stone altar.",
+    "parent": "capital__brownstone",
+    "children": []
+  },
+  {
+    "identifier": "capital__brownstone_cellar",
+    "title": "The Cellar",
+    "description": "The Brownstone's cellar, reached through a bolted hatch pasted over with papers and occult signs. Its shelves are stacked with tinned food. An iron cage holds a mass of flesh that heals as fast as it is cut, and in a chair bolted to the floor sits a man whose opened skull is driven full of iron nails, his body showing no sign of decay. In the corner, a starved, long-fingered thing is chained to the wall, a heart-shaped padlock on its collar.",
+    "summary": "The Brownstone's bolted cellar, where its scholars keep their crudest and cruellest experiments.",
     "parent": "capital__brownstone",
     "children": []
   },
