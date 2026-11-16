@@ -239,6 +239,9 @@
     "description": "A rambling old house of dark stone and timber by the bridge at the Valley's end, all steep gables and tall chimneys. Most of its windows are boarded, but lamps burn behind the rest at every hour, and above its door, the tracery of a pointed window forms a circle of five spokes. Inside, the walls are covered in the calculations of an unfinished Body of Work, and a cellar door is kept bolted.",
     "summary": "A rambling, half-boarded house by the Valley's bridge, its lamps lit at every hour and its walls covered in calculations.",
     "parent": "kingdom__valley",
-    "children": []
+    "children": [],
+    "npcs": [
+      "protege"
+    ]
   }
 ]
