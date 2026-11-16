@@ -4,6 +4,7 @@
   "name": "Paracelsus",
   "description": "The Plague Doctor is a physician of radical theories, expelled from her university and still bitter towards the scholars who mocked her. An expert in disease, she distils her own toxins and remedies, and having seen in her professor what lies past death, will use either to keep her companions on this side of it. The sickness interests her at least as much as the sick, and here she can study it freely, on patients no one else will touch.",
   "history": "The Plague Doctor was a brilliant student of medicine whose unconventional theories caused a scandal at her university. The mockery of her peers and professors only drove her deeper into her own experiments. One evening she found her hated professor slumped dead at his podium, and took his body for her experiments. She revived him, but could not stabilise what she had brought back, and had to kill him herself to end his screaming. She was expelled soon after.",
+  "disclosure": "Bitter and open about her expulsion and the scholars who mocked her theories. What she did with her professor’s body she keeps to herself, and talks about her accomplishments instead.",
   "summary": "A brilliant physician whose unconventional theories led her to reanimate her professor, and got her expelled.",
   "race": "Human",
   "gender": "Female",
@@ -60,8 +61,7 @@
     "Speaks in medical vocabulary that mixes humoral theory with modern technique",
     "Notices the medical use or significance of an object or situation before anything else",
     "Has almost no tolerance for alcohol; a single drink leaves her tipsy",
-    "Is fond of leeches, identifies them by species, and talks about them eagerly when given the chance",
-    "Never shows her trauma, and keeps it veiled beneath pride in her accomplishments"
+    "Is fond of leeches, identifies them by species, and talks about them eagerly when given the chance"
   ],
   "tags": [
     "Backline", "Blighter", "Stunner", "Cleanser", "Debuffer", "Bleeder",
