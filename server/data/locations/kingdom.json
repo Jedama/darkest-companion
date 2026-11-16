@@ -123,7 +123,7 @@
   {
     "identifier": "kingdom__capital",
     "title": "The Capital",
-    "description": "The Kingdom's capital, an old walled city of stone above a river, reached across a long bridge lined with statues of saints and scholars. Inside, crooked cobbled lanes run between tall houses of stone and dark timber, steep-roofed and packed so close they lean toward one another, their narrow pointed windows lit late into the night. Over it all rise the spire of its cathedral and the palace, from which the Regency now governs.",
+    "description": "The Kingdom's capital, an old walled city of stone above a river, reached across a long bridge lined with statues of saints and scholars. Inside, crooked cobbled lanes run between tall houses of stone and dark timber, steep-roofed and narrow-windowed, packed so close they lean toward one another over the lanes. Over it all rise the spire of its cathedral and the palace, from which the Regency now governs.",
     "summary": "The Kingdom's old, crowded walled capital above a river, seat of the Regency.",
     "parent": "kingdom",
     "children": [
@@ -181,6 +181,16 @@
     "description": "A primeval forest across the Kingdom's north, below the high tundra, its trees so old and close that their roots knot together over the ground and little light reaches the forest floor. It rains often, and the paths are deep in mud. The army is garrisoned here to turn back the refugees coming south from Ostvengr, and its keeps stand among the trees, linked by trenches and barricades of sharpened stakes. Spiders den in the hollows of the deep wood, some grown large enough to take a man.",
     "summary": "A primeval northern forest of knotted roots and mud, where the army's keeps and trenches hold the border against Ostvengr's refugees.",
     "parent": "kingdom",
+    "children": [
+      "tangle__generals_keep"
+    ]
+  },
+  {
+    "identifier": "tangle__generals_keep",
+    "title": "The General's Keep",
+    "description": "The largest of the army's keeps in the Tangle, a squat fortress of grey stone in a clearing cut from the forest, ringed by ditches and stake palisades. Banners of the Bastion hang from its walls, and soldiers drill to the beat of drums in the yard while chaplains hold services in its chapel. From here the General commands the northern front, and the lamp in his window seldom goes out before dawn.",
+    "summary": "The army's command keep in the Tangle, where the General directs the northern front.",
+    "parent": "kingdom__tangle",
     "children": []
   }
 ]
