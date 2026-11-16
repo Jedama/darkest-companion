@@ -17,12 +17,12 @@
     "summary": "The walled imperial capital of Haenara, sacked once and still standing, held now by a warlord.",
     "parent": "haenara",
     "children": [
-      "haenara__bitgung",
-      "haenara__byeoltap"
+      "haeseong__bitgung",
+      "haeseong__byeoltap"
     ]
   },
   {
-    "identifier": "haenara__bitgung",
+    "identifier": "haeseong__bitgung",
     "title": "Bitgung",
     "description": "The palace at the height of the capital, a compound of painted halls and courtyards behind three gates, where the emperor's court kept its records, its treasures, and its guardian relic. Raiders reached the innermost hall and killed everyone in it, and the relic went out through the harbour that same night. The halls were scrubbed and repainted for the next emperor, and the empty stand where the relic sat has never been filled.",
     "summary": "The imperial palace at the top of the capital, where the court was slaughtered and Haenara's guardian relic was stolen.",
@@ -30,7 +30,7 @@
     "children": []
   },
   {
-    "identifier": "haenara__byeoltap",
+    "identifier": "haeseong__byeoltap",
     "title": "Byeoltap",
     "description": "A tower of fitted stone on the ridge above the palace, half observatory and half workshop, where the court's technicians ground lenses, cast gears, mixed powders, and kept the almanacs that told the empire when to plant and when to fight. Its instruments are cleaned daily by men who no longer know what half of them measure. The apprentices' benches at the base of the tower are still marked with their owners' names.",
     "summary": "The star-tower above the capital, observatory and workshop both, where Haenara's technicians kept the almanacs.",

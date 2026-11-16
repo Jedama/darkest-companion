@@ -36,11 +36,11 @@
     "summary": "A coastal rice province of the Isles, burned and taken in a short war, now worked under new lords.",
     "parent": "sunward_isles",
     "children": [
-      "sunward_isles__issen_dojo"
+      "kakezuki__issen_dojo"
     ]
   },
   {
-    "identifier": "sunward_isles__issen_dojo",
+    "identifier": "kakezuki__issen_dojo",
     "title": "The Issen-ryū Dojo",
     "description": "The hall of the Issen-ryū, an ancient iaijutsu school built on a single decisive cut, on a hill above the province's main town. It burned in the war and its master died in it, and its practice floor now lies open to the weather under the fallen roof. The school had one student when it fell, and nobody has taught there since.",
     "summary": "The burned hall of an ancient iaijutsu school, roofless and untaught since the war.",
