@@ -13,7 +13,8 @@
       "kingdom__crossroads",
       "kingdom__bottoms",
       "kingdom__stillbourne",
-      "kingdom__capital"
+      "kingdom__capital",
+      "kingdom__tangle"
     ]
   },
   {
@@ -172,6 +173,14 @@
     "description": "A tavern beside the Conveyance Guild's yard, under a sign of two crossed swords. Old coach lanterns, harness and wheel-rims hang on its walls, and it keeps the best whiskey on the coach roads. The drivers drink at the front, and the Guild's real business is done at the back, in the curtained booth where the Wagon-Master holds court.",
     "summary": "The drivers' tavern by the Capital's coaching yards, where the Conveyance Guild does its real business over whiskey.",
     "parent": "kingdom__capital",
+    "children": []
+  },
+  {
+    "identifier": "kingdom__tangle",
+    "title": "The Tangle",
+    "description": "A primeval forest across the Kingdom's north, below the high tundra, its trees so old and close that their roots knot together over the ground and little light reaches the forest floor. It rains often, and the paths are deep in mud. The army is garrisoned here to turn back the refugees coming south from Ostvengr, and its keeps stand among the trees, linked by trenches and barricades of sharpened stakes. Spiders den in the hollows of the deep wood, some grown large enough to take a man.",
+    "summary": "A primeval northern forest of knotted roots and mud, where the army's keeps and trenches hold the border against Ostvengr's refugees.",
+    "parent": "kingdom",
     "children": []
   }
 ]
