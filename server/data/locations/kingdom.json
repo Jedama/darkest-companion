@@ -106,7 +106,8 @@
     "summary": "The Kingdom's drained southeastern lowlands, held dry below sea level by the dykes its conquered people keep.",
     "parent": "kingdom",
     "children": [
-      "bottoms__lowhaven"
+      "bottoms__lowhaven",
+      "bottoms__sluice"
     ]
   },
   {
@@ -114,6 +115,14 @@
     "title": "Lowhaven",
     "description": "The Kingdom's busiest port, where the river meets the sea. Cranes stand along its quays, and short railways run from the docks to the warehouses and out across the fields, lines the crown has long meant to carry up the coast and inland. The Crownlander quarter and its great church of the Light sit on the one ridge of high ground, an old dune line. Below it, in the low streets that flood first, the Bottomers who work the port leave small offerings to the Loa at the street corners.",
     "summary": "The Kingdom's busiest port, its cranes and rail yards worked by Bottomers who live in the streets that flood first.",
+    "parent": "kingdom__bottoms",
+    "children": []
+  },
+  {
+    "identifier": "bottoms__sluice",
+    "title": "The Sluice",
+    "description": "An ancient network of brick culverts, cisterns and drainage tunnels beneath the Bottoms, far older than the dykes above and long since obsolete. Only its entrances have been mapped, and only roughly, and it runs inland further than anyone has followed it. Diggers raising new dykes break into it so often that most just curse, brick the hole back up and dig around it. Lately, a few swear they have heard squealing on the other side.",
+    "summary": "Forgotten ancient waterworks beneath the Bottoms, unmapped beyond their entrances.",
     "parent": "kingdom__bottoms",
     "children": []
   },
