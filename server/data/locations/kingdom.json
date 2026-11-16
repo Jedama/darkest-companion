@@ -147,16 +147,25 @@
   {
     "identifier": "kingdom__capital",
     "title": "The Capital",
-    "description": "The Kingdom's capital, an old walled city of stone above a river, reached across a long bridge lined with statues of saints and scholars. Inside, crooked cobbled lanes run between tall houses of stone and dark timber, steep-roofed and narrow-windowed, packed so close they lean toward one another over the lanes. Over it all rise the spire of its cathedral and the palace, from which the Regency now governs.",
-    "summary": "The Kingdom's old, crowded walled capital above a river, seat of the Regency.",
+    "description": "The Kingdom's capital, an old walled city of grey stone above a river, reached across a long bridge lined with statues of saints and scholars. Behind its walls rise the spire of its cathedral, the towers of old colleges and the dome of a great hall, and on the highest ground stands the palace, from which the Regency now governs.",
+    "summary": "The Kingdom's old walled capital above a river, seat of the Regency.",
     "parent": "kingdom",
     "children": [
+      "capital__sprawl",
       "capital__university",
       "capital__museum",
       "capital__conveyance_guild",
       "capital__crossed_swords",
       "capital__catacombs"
     ]
+  },
+  {
+    "identifier": "capital__sprawl",
+    "title": "The Sprawl",
+    "description": "The crowded districts where most of the Capital's people live, packed inside the old walls and spilling out far beyond them. Crooked cobbled lanes wind between tall, narrow-windowed houses of stone and dark timber, built so close that their upper floors lean toward one another across the street.",
+    "summary": "The Capital's crowded residential districts of crooked lanes and leaning houses, long since spilled past the walls.",
+    "parent": "kingdom__capital",
+    "children": []
   },
   {
     "identifier": "capital__university",
