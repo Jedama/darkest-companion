@@ -165,7 +165,20 @@
     "description": "The crowded districts where most of the Capital's people live, packed inside the old walls and spilling out far beyond them. Crooked cobbled lanes wind between tall, narrow-windowed houses of stone and dark timber, built so close that their upper floors lean toward one another across the street.",
     "summary": "The Capital's crowded residential districts of crooked lanes and leaning houses, long since spilled past the walls.",
     "parent": "kingdom__capital",
-    "children": []
+    "children": [
+      "capital__brownstone"
+    ]
+  },
+  {
+    "identifier": "capital__brownstone",
+    "title": "The Brownstone",
+    "description": "A tall, narrow house of soot-greyed brownstone and dark timber wedged among the leaning houses of the Sprawl, home and study to a scholar of the University. A tower rises at one corner under a steep spire, set with a round window whose leading forms a ring open at the bottom, with five spokes through it, and stone steps climb to an arched door. Its red roof tiles have begun to slip, and small barred windows at the foot of its walls look out from the cellar onto the street.",
+    "summary": "A tall, narrow scholar's house with a spired tower, wedged among the houses of the Sprawl.",
+    "parent": "capital__sprawl",
+    "children": [],
+    "npcs": [
+      "academic"
+    ]
   },
   {
     "identifier": "capital__university",
