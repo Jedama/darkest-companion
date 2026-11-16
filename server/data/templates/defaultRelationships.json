@@ -89,6 +89,11 @@
       "affinity": 4,
       "dynamic": "Played for a fool",
       "description": "The Watcher has seen the Heir's future, and his inevitable encounter with the Ancestor everyone believes dead. Thereafter, he shall 'come unto his maker'."
+    },
+    "seraph": {
+      "affinity": 3,
+      "dynamic": "A Future in Ashes",
+      "description": "The Watcher has seen the future Sprawl: fanatics believing themselves enlightened by the ashes of burnt books, putting the Capital to the torch. The Seraph's immolation is the origin of this crude misreading of the Flame, and it is her duty to lead her followers better."
     }
   },
   "dragons_duelist": {
@@ -208,6 +213,11 @@
       "affinity": 8,
       "dynamic": "Familial",
       "description": "The Heiress maintains a sharp-tongued rapport with her brother, quick to criticize his anxieties in private but equally quick to defend him from others. Beneath the cutting remarks lies fierce protectiveness."
+    },
+    "omenseeker": {
+      "affinity": 5,
+      "dynamic": "Huge Tracts of Land",
+      "description": "The Heiress will not be able to help staring at the Omen Seeker, and when caught, will cover with a flustered remark about the Estate's 'huge tracts of land'."
     },
     "snake_charmer": {
       "affinity": 3,
