@@ -154,7 +154,8 @@
       "capital__university",
       "capital__museum",
       "capital__conveyance_guild",
-      "capital__crossed_swords"
+      "capital__crossed_swords",
+      "capital__catacombs"
     ]
   },
   {
@@ -196,6 +197,14 @@
     "title": "The Crossed Swords",
     "description": "A tavern beside the Conveyance Guild's yard, under a sign of two crossed swords. Old coach lanterns, harness and wheel-rims hang on its walls, and it keeps the best whiskey on the coach roads. The drivers drink at the front, and the Guild's real business is done at the back, in the curtained booth where the Wagon-Master holds court.",
     "summary": "The drivers' tavern by the Capital's coaching yards, where the Conveyance Guild does its real business over whiskey.",
+    "parent": "kingdom__capital",
+    "children": []
+  },
+  {
+    "identifier": "capital__catacombs",
+    "title": "The Catacombs",
+    "description": "A maze of tombs and burial niches cut into the rock beneath the Capital, where the Kingdom lays to rest those it wants remembered: generals, poets and old families, generation upon generation, many sealed in with their arms and heirlooms. The deepest galleries were cut before the city was founded, and the names on their tombs have worn past reading. By old custom, mourners leave a pinch of salt at the threshold of every tomb, to keep the dead at rest.",
+    "summary": "The tombs beneath the Capital, where the Kingdom buries its honoured dead and mourners leave salt to keep them at rest.",
     "parent": "kingdom__capital",
     "children": []
   },
