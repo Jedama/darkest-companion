@@ -2,8 +2,8 @@
   {
     "identifier": "kingdom",
     "title": "Kingdom",
-    "description": "A sprawling monarchy of crumbling stone and rigid tradition, stretching from fertile inland plains to the storm-battered coast. It is a land of vast, lonely roads connecting isolated settlements, where the crown's influence wanes with every mile traveled from the capital. While trade and agriculture persist, a sense of stagnation hangs over the cantrevs, the old provinces the Kingdom is divided into, allowing stern religious orders and ambitious upstarts to carve out their own domains. The Kingdom functions through inertia, largely ignoring the rot taking hold in its forgotten corners—most notably the notorious Estate on its edge.",
-    "summary": "A sprawling monarchy of rigid tradition and decaying infrastructure, encompassing the Reformatory, the Harvest House, and the coastal Estate.",
+    "description": "A sprawling kingdom of crumbling stone and rigid tradition at the centre of the known world, divided into cantrevs and stretching from the snowbound north to the storm-battered east. It is a land of vast, lonely coach roads between isolated settlements, where the Capital's reach thins with every mile. Its throne has stood empty since the royal court was killed, and a Regency governs in the crown's name while stern religious orders and ambitious upstarts carve out domains of their own. The Kingdom runs on inertia and largely ignores the rot taking hold in its forgotten corners, the Estate on its eastern coast foremost among them.",
+    "summary": "The old kingdom at the centre of the world, held in regency since its court was killed, a land of lonely coach roads and provincial stagnation.",
     "parent": "world",
     "children": [
       "estate",
