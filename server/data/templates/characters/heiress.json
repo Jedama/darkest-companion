@@ -4,6 +4,7 @@
   "name": "Persephone",
   "description": "The Heiress to the accursed Estate, excels at taking command in even the most daunting situations. With her sharp intellect and strategic prowess, she fearlessly leads the charge to reclaim her ancestral home while deftly managing the nearby hamlet. Her natural authority and decisive leadership serve as a beacon of strength for a community besieged by supernatural horrors. Though grateful for allies brave enough to join her cause, the Heiress' unwavering confidence in her own judgment can manifest as stubborn resistance when her authority is challenged.",
   "history": "Upon receiving a chilling letter from her late ancestor, the Heiress left her academic pursuits with her brother in tow to take up her role as the Heiress of the Estate. She found herself thrust into a nightmarish reality where her ancestral home was not only physically deteriorated but also infested with the horrors summoned by her ancestor's dark rituals.",
+  "disclosure": "Speaks freely of the Ancestor’s letter and her claim to the Estate. She does not admit to doubt, or to how much she leans on wine and the brothel.",
   "summary": "The decisive Heiress, a strategic and authoritative leader who struggles with stubbornness and anxiety about losing control, often resorting to wine.",
   "race": "Human",
   "gender": "Female",
@@ -59,7 +60,7 @@
   "notes": [
     "Turns to wine when overwhelmed by stress",
     "Scared of losing her authority, meeting those challenging it by becoming commanding and inflexible",
-    "Depends on the brothel and its physical intimacy for stress relief more than she's willing to admit"
+    "Depends on the brothel and its physical intimacy for stress relief"
   ],
   "tags": [
     "Backline", "Healer", "StressHealer", "Blighter", "Marker", "MarkSynergy",
