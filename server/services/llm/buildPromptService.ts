@@ -812,7 +812,7 @@ export function compileNarrativeContext(estate: Estate, gameData: StaticGameData
   const timeFrame = estate.time.beat === 0 ? 'Since yesterday, ' : 'Since the last story, ';
   const dayOpener = estate.time.beat === 0 ? 'This is the first event of the day, set the stage with the season, weather, and location.' : '';
 
-  const backstory = gameData.getPrompt('game.backstory').replaceAll('${estateName}', estate.name);
+  const setting = gameData.getPrompt('game.setting').replaceAll('${estateName}', estate.name);
 
   // Use a simple template literal with placeholders
   return `
@@ -820,7 +820,7 @@ export function compileNarrativeContext(estate: Estate, gameData: StaticGameData
 ${gameData.getPrompt('story.instructions')}
 
     [Context]
-${backstory}
+${setting}
 
 NARRATOR'S ROLE:
 You are the malevolent ghost of Pandoros ${estate.name}, the Ancestor, now bound to the Heart of Darkness. You narrate the Descendants' seemingly hopeless quest to cleanse the Estate, knowing that their efforts may unwittingly serve your own dark purpose.
@@ -839,7 +839,7 @@ ${formatTimeSinceEvent(estate.time.month + 1)} have passed since the Ancestor's 
 export function compileRecruitContext(estate: Estate, gameData: StaticGameDataManager, recruitTitle?: string): string {
   
   const zodiac = getZodiacForMonth(estate.time.month);
-  const backstory = gameData.getPrompt('game.backstory').replaceAll('${estateName}', estate.name);
+  const setting = gameData.getPrompt('game.setting').replaceAll('${estateName}', estate.name);
   const title = recruitTitle || '${characterTitle}';
 
   // Use a simple template literal with placeholders
@@ -848,7 +848,7 @@ export function compileRecruitContext(estate: Estate, gameData: StaticGameDataMa
 ${gameData.getPrompt('recruit.instructions')}
 
     [Context]
-${backstory}
+${setting}
 
 NARRATOR'S ROLE:
 You are the ${title}. Narrate this scene from your first-person, present-time perspective, revealing your internal thoughts, impressions, and judgments as the event unfolds. Speak and think as ${title} would.
@@ -864,7 +864,7 @@ ${formatTimeSinceEvent(estate.time.month)} have passed since the Heir and Heires
 
 /**
  * Context header for the planning meeting. Mirrors compileNarrativeContext, but
- * pulls the planning instructions and backstory, and frames the passage of time
+ * pulls the planning instructions and setting, and frames the passage of time
  * around the meeting itself rather than a story beat.
  */
 export function compilePlanningContext(estate: Estate, gameData: StaticGameDataManager): string {
@@ -873,7 +873,7 @@ export function compilePlanningContext(estate: Estate, gameData: StaticGameDataM
   const weatherDesc = generateWeatherDescription(estate.weather.current);
   const weatherChange = generateWeatherChangeDescription(estate.weather.previous, estate.weather.current);
  
-  const backstory = gameData.getPrompt('game.backstory').replaceAll('${estateName}', estate.name);
+  const setting = gameData.getPrompt('game.setting').replaceAll('${estateName}', estate.name);
 
   const availableHeroes = Object.keys(estate.characters);
   const { k } = computeActivePartyCount(availableHeroes, estate.characters, PARTY_SIZE);
@@ -888,7 +888,7 @@ export function compilePlanningContext(estate: Estate, gameData: StaticGameDataM
 ${gameData.getPrompt('planning.instructions')}
  
     [Context]
-${backstory}
+${setting}
 
 NARRATOR'S ROLE:
 You are writing a scene of pure dialogue. There is no narrator and no prose. Everything the reader learns comes from what these people say to one another.
