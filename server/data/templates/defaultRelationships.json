@@ -153,6 +153,11 @@
       "dynamic": "Allied Officer",
       "description": "The Entrenched has been waiting for someone with rank to arrive. Craie and Chernozem fought the same enemy, which as far as she is concerned makes him her commanding officer. She will salute, report, and obey without question or hesitation."
     },
+    "comradewitch": {
+      "affinity": 7,
+      "dynamic": "Allied... Sergeant?",
+      "description": "The Entrenched will find a fellow soldier in the Gunwitch and an allied sergeant in her cat. She will salute it and do her best to interpret and execute its orders."
+    },
     "dredge": {
       "affinity": 2,
       "dynamic": "No Exceptions",

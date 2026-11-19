@@ -198,7 +198,7 @@
   {
     "identifier": "library",
     "title": "Library",
-    "description": "A stern stone building with arched windows, housing the Estate's centuries of accumulated knowledge. Though dust gathers in the quieter corners since budget constraints left the librarian to serve as both curator and steward, the institution maintains its essential functions with stubborn dignity.",
+    "description": "A stern stone building with arched windows, housing the Estate's centuries of accumulated knowledge. Though dust gathers in the quieter corners since budget constraints left the Archivist to serve as both curator and steward, the institution maintains its essential functions with stubborn dignity.",
     "summary": "A stern stone building with arched windows, housing the Estate's centuries of accumulated knowledge and records.",
     "parent": "north_west_district",
     "children": [

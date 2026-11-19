@@ -10,7 +10,8 @@
       "mill_grounds",
       "apple_yard",
       "sanguine_vintners",
-      "root_cellar"
+      "root_cellar",
+      "brood_house"
     ]
   },
   {
@@ -161,6 +162,14 @@
     "description": "A channel blasted through the farmstead's southern slope, graded wide enough for a single rail line that was never laid. Sleepers are stacked in bundles along the spoil heaps, beside barrows, spike hammers and a powder store left standing open. The surveyors' tents are still pitched at the far end, canvas stiff with ash. Crystal has come up through the rubble in patches, and the former crew roam around the farmstead as empty, lifeless husks.",
     "summary": "A blasted railway channel on the farmstead's slope, its tools, tents and unlaid sleepers left where the crew dropped them.",
     "parent": "mill_grounds",
+    "children": []
+  },
+  {
+    "identifier": "brood_house",
+    "title": "The Brood House",
+    "description": "A crowded family house in the Hamlet's south, of plastered timber under a patched roof, its yard full of washing lines and hens. The biggest room inside is given over to cradles, though fewer sons sit at the table than before the dead began to rise. Under the eaves is a narrow room whose loose floorboard once hid a girl's books, and by the back fence a small stone marks where the family dog is buried.",
+    "summary": "A crowded family house in the Hamlet's south, its biggest room given over to cradles.",
+    "parent": "south_district",
     "children": []
   }
 ]
