@@ -293,10 +293,13 @@
   {
     "identifier": "capital__barracks",
     "title": "The Barracks",
-    "description": "The army's barracks against the Capital's northern wall, a walled compound of long stone halls, storehouses and stables around a packed-earth drill yard. Recruits train there from dawn among rows of battered wooden training dummies, and wagons of supplies leave its gate each week for the keeps in the north. The Bastion hangs over the entrance, and the yard is kept swept and squared to an old sergeant's standard.",
+    "description": "The army's barracks against the Capital's northern wall, a walled compound of long stone halls, storehouses and stables around a packed-earth drill yard. Recruits train there from dawn among rows of battered wooden training dummies, and wagons of supplies leave its gate each week for the keeps in the north. The Bastion hangs over the entrance, and the yard is kept swept and squared to the Drillmaster's standard.",
     "summary": "The army's walled barracks in the Capital, where recruits are trained and supplies sent north.",
     "parent": "kingdom__capital",
-    "children": []
+    "children": [],
+    "npcs": [
+      "drillmaster"
+    ]
   },
   {
     "identifier": "capital__palace",

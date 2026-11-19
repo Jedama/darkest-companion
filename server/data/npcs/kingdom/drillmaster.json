@@ -1,0 +1,38 @@
+{
+  "identifier": "drillmaster",
+  "title": "Drillmaster",
+  "name": "Sigurd",
+  "description": "The Drillmaster is a decorated old soldier who has never once cared what anyone thought of him, and has the career to prove it. He thinks in drill, supplies and bodies rather than politics, says exactly what he means, and has no patience for anyone who needs it softened. He was put out to pasture training recruits and has never accepted it, waiting for the day the Kingdom needs him again.",
+  "history": "The Drillmaster commanded in the field through the wars against Ostvengr, earned a row of medals, and took a burn down the side of his face from one of its fire weapons. He was very good at war and very bad at everything around it: he insulted his superiors, refused to soften his reports and made enemies at court, until the complaints grew too many. Reluctantly, the General sent him back to the Capital to train recruits.",
+  "summary": "A blunt, decorated Drillmaster, a fine commander sidelined for his tongue, who trains recruits in the Capital until he is needed again.",
+  "race": "Human",
+  "gender": "Male",
+  "culture": "Crownlander",
+  "traits": [
+    "Blunt",
+    "Abrasive",
+    "Practical",
+    "Proud",
+    "Uncompromising"
+  ],
+  "appearance": {
+    "height": "Tall",
+    "build": "Broad and hard",
+    "skinTone": "Weathered",
+    "hairColor": "Grey",
+    "hairStyle": "Cropped close",
+    "features": "Heavy brow, set mouth, an old burn scar down the side of his face"
+  },
+  "clothing": {
+    "head": "None",
+    "body": "High-collared uniform coat",
+    "legs": "Uniform trousers and boots",
+    "accessories": "A row of medals on ribbons"
+  },
+  "notes": [
+    "Meets criticism with a challenge, never an apology, and invites any critic to try doing the job themselves",
+    "Tells his recruits they are hopeless to their faces, and is gruffly proud of them when they prove otherwise",
+    "Sees what is needed and takes it, be it lumber, rations or boots, and argues about permission afterwards",
+    "Will not flatter nobles or bow to fine words, and tolerates the devout among his men only within reason"
+  ]
+}
