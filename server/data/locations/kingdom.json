@@ -15,8 +15,8 @@
       "kingdom__stillbourne",
       "kingdom__living_city",
       "kingdom__timeless_wood",
-      "kingdom__tundra",
-      "kingdom__valley",
+      "kingdom__frostlit_heights",
+      "kingdom__tranquil_vale",
       "kingdom__intrepid_coast"
     ]
   },
@@ -378,49 +378,49 @@
     "children": []
   },
   {
-    "identifier": "kingdom__tundra",
-    "title": "The Tundra",
-    "description": "The high country at the foot of the Mountain, which keeps much of it in shadow through the afternoons. Snow lies on it most of the year, its dark pines thin out as the ground climbs toward bare rock, and the wind wails through its canyons. It is thought to be empty, and few have reason to go and see.",
-    "summary": "Snowbound high country of pines and canyons in the Mountain's shadow, believed empty.",
+    "identifier": "kingdom__frostlit_heights",
+    "title": "The Frostlit Heights",
+    "description": "The Tundra, as most call it, is the high country at the foot of the Mountain, which keeps much of it in shadow through the afternoons. Snow lies on it most of the year, its dark pines thin out as the ground climbs toward bare rock, and the wind wails through its canyons. It is thought to be empty, and few have reason to go and see.",
+    "summary": "The Tundra, snowbound high country of pines and canyons in the Mountain's shadow, believed empty.",
     "parent": "kingdom",
     "children": [
-      "tundra__mountain"
+      "frostlit_heights__mountain"
     ]
   },
   {
-    "identifier": "tundra__mountain",
+    "identifier": "frostlit_heights__mountain",
     "title": "The Mountain",
     "description": "A lone peak rising from the tundra at the Kingdom's northern edge, far taller than any mountain of the range beyond the river. Its upper slopes are locked in ice and its summit is lost in cloud. Storms come down off it without warning, and the wind and cold turn back nearly everyone who tries to climb it.",
     "summary": "A lone, ice-locked peak rising from the tundra, far taller than any mountain beyond the river.",
-    "parent": "kingdom__tundra",
+    "parent": "kingdom__frostlit_heights",
     "children": [
-      "tundra__caliginous_cathedral"
+      "frostlit_heights__caliginous_cathedral"
     ]
   },
   {
-    "identifier": "tundra__caliginous_cathedral",
+    "identifier": "frostlit_heights__caliginous_cathedral",
     "title": "The Caliginous Cathedral",
     "description": "A deep cave high on the Mountain, which the cultists who worship there call the Caliginous Cathedral. Crude effigies of the Iron Crown, built from piled stone, bone and rope, stand among columns of ice, and the floor is scrawled with chalk circles and crusted with black wax. On the far wall they have carved a great ziggurat, which they say will rise here in truth when the Crown finds its king.",
     "summary": "A cave high on the Mountain where Iron Crown cultists worship among crude effigies, calling it a cathedral.",
-    "parent": "tundra__mountain",
+    "parent": "frostlit_heights__mountain",
     "children": []
   },
   {
-    "identifier": "kingdom__valley",
-    "title": "The Valley",
-    "description": "A small, quiet valley in the Kingdom's south, near the Pelagian border, with a brook running down its length. Great old oaks and beeches stand along its slopes, and every autumn they cover the ground in leaves. Where the road leaves the valley, it crosses the brook by a small stone bridge, and on the far side the wind blows harsher.",
-    "summary": "A small, quiet valley in the Kingdom's south, its brook crossed by a stone bridge on the road out.",
+    "identifier": "kingdom__tranquil_vale",
+    "title": "The Tranquil Vale",
+    "description": "The Valley, as most call it, is small and quiet, lying in the Kingdom's south near the Pelagian border, with a brook running down its length. Great old oaks and beeches stand along its slopes, and every autumn they cover the ground in leaves. Where the road leaves the valley, it crosses the brook by a small stone bridge, and on the far side the wind blows harsher.",
+    "summary": "The Valley, small and quiet in the Kingdom's south, its brook crossed by a stone bridge on the road out.",
     "parent": "kingdom",
     "children": [
-      "valley__house_on_the_borderlands"
+      "tranquil_vale__house_on_the_borderlands"
     ]
   },
   {
-    "identifier": "valley__house_on_the_borderlands",
+    "identifier": "tranquil_vale__house_on_the_borderlands",
     "title": "The House on the Borderlands",
     "description": "A rambling old house of dark stone and timber by the bridge at the Valley's end, all steep gables and tall chimneys. Most of its windows are boarded, but lamps burn behind the rest at every hour, and above its door, the tracery of a pointed window forms a circle of five spokes. Inside, the walls are covered in the calculations of an unfinished Body of Work, and a cellar door is kept bolted.",
     "summary": "A rambling, half-boarded house by the Valley's bridge, its lamps lit at every hour and its walls covered in calculations.",
-    "parent": "kingdom__valley",
+    "parent": "kingdom__tranquil_vale",
     "children": [],
     "npcs": [
       "protege"

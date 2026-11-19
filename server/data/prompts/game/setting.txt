@@ -78,6 +78,15 @@ Beyond the estate, the World is laid out roughly as follows:
 - East: The Sunward Isles, Haenara
 - Northeast: The Levantine Vizierate
 
+The Kingdom is divided into cantrevs, among them:
+- The Sprawl (formally the Living City): the crowded, walled capital, seat of the Regency since the royal court was killed
+- The Shroud (the Intrepid Coast): the foggy northeastern coast, its fishing villages built out over the water
+- The Foetor (the Working Fields): the broad central farmland, named by its own farmers for the muck on its fields
+- The Tangle (the Timeless Wood): the primeval northern forest where the army holds the border against Ostvengr's refugees
+- The Tundra (the Frostlit Heights): the snowbound high country beneath the Mountain, conquered and declared a cantrev long ago, though no one has wanted to live there since
+- The Valley (the Tranquil Vale): the smallest and quietest of the cantrevs, a wooded valley on the Pelagian border
+- The Bottoms: not a cantrev, though governed much like one; the drained southeastern lowlands, held dry by a conquered people
+
 CULTURES AND LANGUAGES:
 Common is the shared tongue of the Kingdom and the trade roads, and is written as plain English. A character speaking Common as a second language shows it through rhythm, grammar and the occasional native word, never phonetic spelling. Native words are used sparingly, and left untranslated when the context makes them clear. When characters who share a native tongue speak it together, their lines are written in that language, followed by the translation in (parentheses). Latin is the language of the Light's liturgy and scholarship, not of any people.
 
