@@ -329,7 +329,10 @@
     "description": "The Regency's working office, set up in a plain wing once kept for the palace stewards rather than in any of the state rooms. At long tables, clerks copy out proclamations, curfews and bounties for riders to carry to every inn in the Kingdom, and a great map of the cantrevs covers one wall, stuck thick with pins. Behind the Regent's own desk stands a locked cabinet of things the Regency has seen fit to confiscate.",
     "summary": "The Regency's working office in a plain wing of the palace, where proclamations go out to every inn in the Kingdom.",
     "parent": "capital__palace",
-    "children": []
+    "children": [],
+    "npcs": [
+      "regent"
+    ]
   },
   {
     "identifier": "kingdom__tangle",
