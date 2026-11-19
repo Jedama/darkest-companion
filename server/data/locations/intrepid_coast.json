@@ -1,0 +1,35 @@
+[
+  {
+    "identifier": "kingdom__intrepid_coast",
+    "title": "The Intrepid Coast",
+    "description": "The Shroud, as its locals call it for the sea fog that rolls in most mornings, is the Kingdom's northeastern coast, a stretch of fishing villages built out over the water on piers, jetties and stilts. The air always smells of salt and fish. Its people live by the boats and the nets, and they are as superstitious about the sea as fishing folk anywhere.",
+    "summary": "The Shroud, the Kingdom's foggy northeastern coast of fishing villages on piers and stilts.",
+    "parent": "kingdom",
+    "children": [
+      "intrepid_coast__sacred_pier",
+      "intrepid_coast__hulks"
+    ],
+    "npcs": [
+      "admiral"
+    ]
+  },
+  {
+    "identifier": "intrepid_coast__sacred_pier",
+    "title": "The Sacred Pier",
+    "description": "The oldest pier on the Shroud, reaching far out over deep water, where the fishing villages bless their boats before each season. Its posts are hung with charms, old nets and the figureheads of lost ships, and fishermen drop a coin from its end before every voyage.",
+    "summary": "The Shroud's oldest pier, where fishing villages bless their boats and leave offerings to the sea.",
+    "parent": "kingdom__intrepid_coast",
+    "children": []
+  },
+  {
+    "identifier": "intrepid_coast__hulks",
+    "title": "The Hulks",
+    "description": "A row of old warships laid up in a sheltered anchorage, their masts cut down to stumps and their hulls roped together, with gangways and planks run between their decks. The navy uses them as storehouses, their holds packed with rope, sailcloth, salt meat and powder for the ships that put in along the coast. Though none of them will sail again, they are kept patched, tarred and sound, and each night a lamp burns in a different stern cabin.",
+    "summary": "A row of decommissioned warships moored together in an anchorage, kept as a navy storehouse.",
+    "parent": "kingdom__intrepid_coast",
+    "children": [],
+    "npcs": [
+      "hull_keeper"
+    ]
+  }
+]

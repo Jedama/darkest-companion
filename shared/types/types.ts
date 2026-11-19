@@ -301,6 +301,9 @@ export interface NPC {
   description: string;
   history: string;
   summary: string;
+  race: string;
+  gender: string;
+  culture: string;
   traits: string[];
   appearance: CharacterAppearance;
   clothing: CharacterClothing;

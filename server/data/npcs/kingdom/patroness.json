@@ -1,0 +1,38 @@
+{
+  "identifier": "patroness",
+  "title": "Patroness",
+  "name": "Rosamund",
+  "description": "The Patroness is a quiet, private woman whose devotion is entirely genuine. She wants no churches named for her and no thanks for what she gives. What she wants is one church under one simple image, with no schisms and no politics, and she counts the followers of the so-called Anointed as heretics. The clergy who know her find her an inspiration.",
+  "history": "The Patroness was always devout, but when her husband, a wealthy lord of the Living City, died, her whole life came to revolve around her faith. She has given much of her fortune to the Seraph's branch of the Light, through the schism and since its victory, and was once granted an audience when the Seraph herself came to the capital.",
+  "summary": "A devout and generous widow, Patroness of the Seraph's church, who wants the Light united and its heretics gone.",
+  "race": "Human",
+  "gender": "Female",
+  "culture": "Crownlander",
+  "traits": [
+    "Devout",
+    "Grieving",
+    "Generous",
+    "Uncompromising",
+    "Prejudiced"
+  ],
+  "appearance": {
+    "height": "Tall",
+    "build": "Slender, growing frail",
+    "skinTone": "Pale",
+    "hairColor": "Silver",
+    "hairStyle": "Worn up beneath a veil",
+    "features": "A still, composed face, lined by grief"
+  },
+  "clothing": {
+    "head": "A tiara bearing a single lit candle",
+    "body": "Widow's white, a high-necked gown and veil",
+    "legs": "Long white skirts",
+    "accessories": "Mourning ring"
+  },
+  "notes": [
+    "Has earned the clergy's respect so thoroughly that they, like everyone else, call her Her Ladyship",
+    "Visits her husband's tomb in the Catacombs every morning, leaving salt at its threshold and talking to him a while before her day begins",
+    "Will not have bird-folk in her house or her church, and speaks of them with cold distaste",
+    "Still keeps the horse she rode with her husband, and rides it a handful of times each summer, though she grows frailer every year"
+  ]
+}

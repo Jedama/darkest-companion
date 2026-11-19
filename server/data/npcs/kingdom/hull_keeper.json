@@ -1,0 +1,37 @@
+{
+  "identifier": "hull_keeper",
+  "title": "Hull Keeper",
+  "name": "Jory",
+  "description": "The Hull Keeper is a former pirate who would rather spend his days among ships than people. He outlived his whole crew by doing whatever it took, and has never once apologised for it. He was sentenced to keep the navy's old hulks, and somewhere over the years he came to love them, and keeps them whole now for their own sake.",
+  "history": "The Hull Keeper was bosun of a pirate crew until the Admiral's squadron took their ship and gave no quarter. He hid aboard the ship, slipped off when it made port and was caught, ashore, where the law demanded a trial. He bought his life by naming rival crews and their hiding places, and was sentenced to keep the navy's laid-up hulks in the Shroud, which he has done ever since.",
+  "summary": "A gruff, solitary Hull Keeper, a pirate who sold out his rivals to live and now keeps the navy's old hulks whole.",
+  "race": "Human",
+  "gender": "Male",
+  "culture": "Crownlander",
+  "traits": [
+    "Solitary",
+    "Wily",
+    "Gruff",
+    "Unrepentant",
+    "Diligent"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Lean and wiry",
+    "skinTone": "Deeply sun-weathered",
+    "hairColor": "Dark, greying",
+    "hairStyle": "Tied back under his hat",
+    "features": "A hard, watchful face and old, faded tattoos"
+  },
+  "clothing": {
+    "head": "Battered tricorne with a feather, kept from his pirate days",
+    "body": "Waistcoat over a loose shirt, with rope coiled over his shoulders",
+    "legs": "Rolled breeches, bare feet",
+    "accessories": "None"
+  },
+  "notes": [
+    "Speaks in a gruff, clipped bosun's voice full of deck orders and old pirate cant, and keeps time to his work with a muttered 'heave-ho' and scraps of shanties",
+    "Sleeps in a different hulk each night, since an empty ship rots from the inside, and has not slept ashore once since his trial",
+    "Lets no one aboard uninvited, and is waiting at the top of the gangway with his boathook before a visitor's foot touches the plank"
+  ]
+}

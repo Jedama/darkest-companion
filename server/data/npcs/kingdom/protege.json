@@ -2,19 +2,24 @@
   "identifier": "protege",
   "title": "Protégé",
   "name": "Evander",
-  "description": "Once the brightest student at the University, the Protege now dwells alone in the House on the Borderlands in the Valley, consumed by obsessive study of the Iron Crown. His isolated home emanates manic muttering and strange lights through boarded windows at all hours. Within, walls covered in calculations and diagrams form what he calls his 'Body of Work' - the mathematical framework for remaking reality itself. His brilliant mind burns too brightly to recognize the darkness he's summoning.",
-  "history": "Distinguished even among the University's elite scholars, the Protege quickly became the Academic's favored student, assisting with research that revealed the recurring symbol of the Iron Crown throughout ancient civilizations. Their academic pursuit turned to horrified fascination when an invitation from the Ancestor brought them to witness a failed ritual in a remote manor. Where Mortimer recoiled from the sight of murdered cultists arranged along the points of the Iron Crown, Evander glimpsed potential. After a mysterious fire destroyed their research at the University, the Protege abandoned formal education entirely, withdrawing to his Valley.",
-  "summary": "A brilliant and obsessive former student consumed by the Iron Crown, now isolated and attempting to remake reality through his 'Body of Work'.",
+  "description": "The Protégé is a brilliant young scholar burning himself out on a single idea. He has stopped eating properly, stopped sleeping properly and stopped answering most letters, and the walls of his home are covered in the calculations he calls his Body of Work, a framework for remaking reality itself. Somewhere beneath the obsession is the bright, eager student his mentor remembers, and he is getting harder to find.",
+  "history": "The Protégé was the brightest student the University had seen in years, and it was he who first found the Iron Crown. He chafed at his mentor's insistence on secrecy, and when the library burned with their research inside, he was furious where the Academic was relieved. The failed ritual at the Ancestor's manor only proved to him that the Crown could be made to work. He left the University and carried on his experiments in his mentor's study, until even the Academic's reluctance became too much, and went home to his childhood house in the Valley to finish his Body of Work alone.",
+  "summary": "A brilliant and obsessive Protégé, alone in his childhood home, working to remake reality through his Body of Work.",
+  "race": "Human",
+  "gender": "Male",
+  "culture": "Crownlander",
   "traits": [
     "Brilliant",
     "Obsessive",
-    "Ambitious"
+    "Ambitious",
+    "Resentful",
+    "Reclusive"
   ],
   "appearance": {
-    "height": "Average, though often hunched over works",
+    "height": "Average, though often hunched over his work",
     "build": "Once fit, now gaunt from self-neglect",
     "skinTone": "Sallow",
-    "hairColor": "Dark, with premature streaks of gray",
+    "hairColor": "Dark, with premature streaks of grey",
     "hairStyle": "Wild and uncombed",
     "features": "Piercing eyes with dark circles beneath, ink-stained fingers, occasional tremors"
   },
@@ -25,7 +30,8 @@
     "accessories": "Multiple journals strapped to belt"
   },
   "notes": [
-    "Speaks in fragmented, racing sentences that blend technical jargon with mystical references, occasionally shifting between multiple languages mid-thought",
-    "Maintains a wall of calculations he calls 'The Body of Work' - an evolving mathematical system of his own devising"
+    "Has no patience for anyone slower than himself and bristles at being told to wait, which cost him every friend he had at the University",
+    "Is courteous but absent in company, answering a beat late as if called back from somewhere else, and comes alive only when his work is discussed",
+    "Talks quickly and in fragments when thinking aloud, hardly at all with most people, and eagerly and well with anyone he considers an equal"
   ]
 }
