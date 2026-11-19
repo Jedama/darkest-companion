@@ -129,7 +129,9 @@ export function buildCharactersSection(involvedCharacters: Character[]): string 
 
   for (const char of involvedCharacters) {
     lines.push(`- ${char.name} (${char.title}):\n`);
-    lines.push(`  - Race/Gender/Culture: ${char.race}, ${char.gender}, ${char.culture}\n`);
+    lines.push(
+      `  - Race/Gender/Culture/Religion: ${char.race}, ${char.gender}, ${char.culture}, ${char.religion}\n`
+    );
     lines.push(`  - Description: ${char.description}\n`);
     lines.push(`  - History: ${char.history}\n`);
     lines.push(
@@ -178,6 +180,9 @@ export function buildCharactersSectionPlanning(
   for (const char of attendees) {
     const seat = roles[char.identifier] ? ` — ${roles[char.identifier]}` : '';
     lines.push(`\n- [${char.identifier}] ${char.name}, the ${char.title}${seat}\n`);
+    lines.push(
+      `  - Race/Gender/Culture/Religion: ${char.race}, ${char.gender}, ${char.culture}, ${char.religion}\n`
+    );
     lines.push(`  - Summary: ${char.summary}\n`);
     lines.push(`  - Traits: ${char.traits.join(', ')}\n`);
     lines.push(`  - Authority: ${char.stats.authority}, Sociability: ${char.stats.sociability}\n`);
