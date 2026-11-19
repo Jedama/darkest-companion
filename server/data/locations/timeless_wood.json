@@ -1,0 +1,46 @@
+[
+  {
+    "identifier": "kingdom__timeless_wood",
+    "title": "The Timeless Wood",
+    "description": "The Tangle, as most call it, is a primeval forest across the Kingdom's north, below the high tundra, its trees so old and close that their roots knot together over the ground and little light reaches the forest floor. It rains often, and the paths are deep in mud. The army is garrisoned here to turn back the refugees coming south from Ostvengr, and its keeps stand among the trees, linked by trenches and barricades of sharpened stakes. Spiders den in the hollows of the deep wood, some grown large enough to take a man.",
+    "summary": "The Tangle, a primeval northern forest of knotted roots and mud, where the army's keeps and trenches hold the border against Ostvengr's refugees.",
+    "parent": "kingdom",
+    "children": [
+      "timeless_wood__generals_keep",
+      "timeless_wood__outriders_lodge",
+      "timeless_wood__cold_spring_glen"
+    ]
+  },
+  {
+    "identifier": "timeless_wood__generals_keep",
+    "title": "The General's Keep",
+    "description": "The largest of the army's keeps scattered throughout the north, a squat fortress of grey stone in a clearing cut from the trees, ringed by ditches and stake palisades. It was raised generations ago against Ostvengr, the Kingdom's most dangerous neighbour, and most of the army is still garrisoned along the border, though since the Fall its soldiers mostly turn back refugees. Banners of the Bastion hang from its walls, chaplains hold services in its chapel, and the lamp in the General's window seldom goes out before dawn.",
+    "summary": "The army's main keep in the Tangle, raised against Ostvengr and now turning back its refugees.",
+    "parent": "kingdom__timeless_wood",
+    "children": [],
+    "npcs": [
+      "general",
+      "bullseye",
+      "fallen_templar"
+    ]
+  },
+  {
+    "identifier": "timeless_wood__outriders_lodge",
+    "title": "The Outriders' Lodge",
+    "description": "The Outriders' Union's lodge, a long hall of dark timber and fieldstone deep in the woods, reached by no road at all. Its roof is green with moss, cloaks and bedrolls hang drying along its porch, and smoke rises from the cookfires in the yard, where stables and rows of canvas tents spill out among the trees. Inside, a map room charts the Union's secret trails beside every coach road in the Kingdom, routes the Conveyance Guild would dearly like to find.",
+    "summary": "The Outriders' Union's timber lodge deep in the woods, reached only by its own trails.",
+    "parent": "kingdom__timeless_wood",
+    "children": [],
+    "npcs": [
+      "forerunner"
+    ]
+  },
+  {
+    "identifier": "timeless_wood__cold_spring_glen",
+    "title": "Cold Spring Glen",
+    "description": "A narrow wooded valley climbing toward the high country, where a spring rises from the rock at its head, cold enough to ache the teeth. A small village of woodcutters and trappers lines the stream below it, the last settlement on the road north, and its single inn does a steady trade with the soldiers garrisoned further down. On a platform above the village hang great war horns, kept through the long wars with Ostvengr to warn the keeps below should an army ever come over the Mountain's shoulder.",
+    "summary": "A narrow wooded valley below the high country, home to the last village on the road north and its war horns.",
+    "parent": "kingdom__timeless_wood",
+    "children": []
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "identifier": "kingdom__tranquil_vale",
+    "title": "The Tranquil Vale",
+    "description": "The Valley, as most call it, is small and quiet, lying in the Kingdom's south near the Pelagian border, with a brook running down its length. Great old oaks and beeches stand along its slopes, and every autumn they cover the ground in leaves. Where the road leaves the valley, it crosses the brook by a small stone bridge, and on the far side the wind blows harsher.",
+    "summary": "The Valley, small and quiet in the Kingdom's south, its brook crossed by a stone bridge on the road out.",
+    "parent": "kingdom",
+    "children": [
+      "tranquil_vale__house_on_the_borderlands"
+    ]
+  },
+  {
+    "identifier": "tranquil_vale__house_on_the_borderlands",
+    "title": "The House on the Borderlands",
+    "description": "A rambling old house of dark stone and timber by the bridge at the Valley's end, all steep gables and tall chimneys. Most of its windows are boarded, but lamps burn behind the rest at every hour, and above its door, the tracery of a pointed window forms a circle of five spokes. Inside, the walls are covered in the calculations of an unfinished Body of Work, and a cellar door is kept bolted.",
+    "summary": "A rambling, half-boarded house by the Valley's bridge, its lamps lit at every hour and its walls covered in calculations.",
+    "parent": "kingdom__tranquil_vale",
+    "children": [],
+    "npcs": [
+      "protege"
+    ]
+  }
+]

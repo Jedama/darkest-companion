@@ -1,0 +1,30 @@
+[
+  {
+    "identifier": "kingdom__frostlit_heights",
+    "title": "The Frostlit Heights",
+    "description": "The Tundra, as most call it, is the high country at the foot of the Mountain, which keeps much of it in shadow through the afternoons. Snow lies on it most of the year, its dark pines thin out as the ground climbs toward bare rock, and the wind wails through its canyons. It is thought to be empty, and few have reason to go and see.",
+    "summary": "The Tundra, snowbound high country of pines and canyons in the Mountain's shadow, believed empty.",
+    "parent": "kingdom",
+    "children": [
+      "frostlit_heights__mountain"
+    ]
+  },
+  {
+    "identifier": "frostlit_heights__mountain",
+    "title": "The Mountain",
+    "description": "A lone peak rising from the tundra at the Kingdom's northern edge, far taller than any mountain of the range beyond the river. Its upper slopes are locked in ice and its summit is lost in cloud. Storms come down off it without warning, and the wind and cold turn back nearly everyone who tries to climb it.",
+    "summary": "A lone, ice-locked peak rising from the tundra, far taller than any mountain beyond the river.",
+    "parent": "kingdom__frostlit_heights",
+    "children": [
+      "frostlit_heights__caliginous_cathedral"
+    ]
+  },
+  {
+    "identifier": "frostlit_heights__caliginous_cathedral",
+    "title": "The Caliginous Cathedral",
+    "description": "A deep cave high on the Mountain, which the cultists who worship there call the Caliginous Cathedral. Crude effigies of the Iron Crown, built from piled stone, bone and rope, stand among columns of ice, and the floor is scrawled with chalk circles and crusted with black wax. On the far wall they have carved a great ziggurat, which they say will rise here in truth when the Crown finds its king.",
+    "summary": "A cave high on the Mountain where Iron Crown cultists worship among crude effigies, calling it a cathedral.",
+    "parent": "frostlit_heights__mountain",
+    "children": []
+  }
+]
