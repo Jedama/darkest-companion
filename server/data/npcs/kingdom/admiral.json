@@ -1,0 +1,37 @@
+{
+  "identifier": "admiral",
+  "title": "Admiral",
+  "name": "Marsh",
+  "description": "The Admiral is a weathered old sailor who has never stopped being proud of how far a fisherman's boy can rise. He is the Shroud's favourite son, as at home on its quays as on his own quarterdeck, and the noble-born officers he outranks have never quite forgiven him for it. Beneath the braid he is still the boy who listened to his grandmother's stories about what lives in the sea, and believed them.",
+  "history": "The Admiral went to sea at ten, as a ship's boy from a fishing village on the Shroud, and spent the rest of his life rising through the navy with no birth or patron to help him, until he became an admiral, the first in living memory of common birth. Now old, he commands the squadron that patrols the Kingdom's northeastern coast, and puts in at the Shroud's harbours for supplies whenever he can.",
+  "summary": "A weathered, superstitious Admiral, a fisherman's boy who rose to command and still half believes his grandmother's tales of the sea.",
+  "race": "Human",
+  "gender": "Male",
+  "culture": "Crownlander",
+  "traits": [
+    "Seasoned",
+    "Proud",
+    "Superstitious",
+    "Genial",
+    "Steadfast"
+  ],
+  "appearance": {
+    "height": "Short",
+    "build": "Barrel-chested",
+    "skinTone": "Deeply weathered",
+    "hairColor": "White",
+    "hairStyle": "Thinning, with white side-whiskers",
+    "features": "Eyes creased from a lifetime of squinting at the sea"
+  },
+  "clothing": {
+    "head": "Bicorne trimmed with gold braid",
+    "body": "Long naval coat with brass buttons and red lining",
+    "legs": "Breeches and boots",
+    "accessories": "None"
+  },
+  "notes": [
+    "Speaks like the old sailor he is, salty and full of nautical terms, with weather and tide in every other sentence",
+    "Keeps his grandmother's sea-superstitions without apology, and never sails without dropping a coin from the Sacred Pier, however the noble-born officers mock him for it",
+    "Takes the Shroud boys in his crews under his wing, and knows each of their families"
+  ]
+}

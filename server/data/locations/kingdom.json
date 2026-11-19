@@ -442,6 +442,9 @@
     "parent": "kingdom",
     "children": [
       "shroud__sacred_pier"
+    ],
+    "npcs": [
+      "admiral"
     ]
   },
   {
