@@ -156,7 +156,7 @@
   {
     "identifier": "kingdom__capital",
     "title": "The Capital",
-    "description": "The Kingdom's capital, an old walled city of grey stone above a river, reached across a long bridge lined with statues of saints and scholars. Behind its walls rise the spire of its cathedral, the towers of old colleges and the dome of a great hall, and on the highest ground stands the palace, from which the Regency now governs.",
+    "description": "The Kingdom's capital, an old walled city of grey stone above a river, reached across a long bridge lined with statues of saints and scholars. Behind its walls rise the spire of its cathedral, the towers of old colleges and the dome of the Museum, and on the highest ground stands the palace, from which the Regency now governs.",
     "summary": "The Kingdom's old walled capital above a river, seat of the Regency.",
     "parent": "kingdom",
     "children": [
@@ -302,7 +302,9 @@
     "summary": "The royal palace on the Capital's highest ground, half shuttered, now the seat of the Regency.",
     "parent": "kingdom__capital",
     "children": [
-      "capital__palace_throne_room"
+      "capital__palace_throne_room",
+      "capital__palace_feasting_hall",
+      "capital__palace_regents_office"
     ]
   },
   {
@@ -310,6 +312,22 @@
     "title": "The Throne Room",
     "description": "The palace's throne room, a long hall whose walls are hung with the banners of the Kingdom's cantrevs. At its far end, on a raised dais, stands an old oak throne built over a rough, plain block of stone, on which every monarch of the Kingdom has been crowned. The throne sits empty, and the Regent holds his audiences standing beside it.",
     "summary": "The palace's banner-hung throne room, its empty throne built over an ancient coronation stone.",
+    "parent": "capital__palace",
+    "children": []
+  },
+  {
+    "identifier": "capital__palace_feasting_hall",
+    "title": "The Feasting Hall",
+    "description": "The palace's great feasting hall, long and high-roofed, with a minstrels' gallery at one end and tables enough to seat the whole court. The court was killed here at a feast, and though the floor has been scrubbed and the tables stripped, the hall has not been used since. Rumour blames the shadowy Uncrowned Order, so extra sconces and candelabra have been brought in, and each nightfall a servant who does not linger lights every one of them, until no shadow is left anywhere in the hall.",
+    "summary": "The palace's disused feasting hall where the court was killed, lit against every shadow each night.",
+    "parent": "capital__palace",
+    "children": []
+  },
+  {
+    "identifier": "capital__palace_regents_office",
+    "title": "The Regent's Office",
+    "description": "The Regency's working office, set up in a plain wing once kept for the palace stewards rather than in any of the state rooms. At long tables, clerks copy out proclamations, curfews and bounties for riders to carry to every inn in the Kingdom, and a great map of the cantrevs covers one wall, stuck thick with pins. Behind the Regent's own desk stands a locked cabinet of things the Regency has seen fit to confiscate.",
+    "summary": "The Regency's working office in a plain wing of the palace, where proclamations go out to every inn in the Kingdom.",
     "parent": "capital__palace",
     "children": []
   },
