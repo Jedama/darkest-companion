@@ -2,34 +2,37 @@
   "identifier": "academic",
   "title": "Academic",
   "name": "Mortimer",
-  "description": "A respected professor from the University in the Capital whose scholarly pursuits led him into the dangerous study of occult symbology. Though he maintains his teaching duties with admirable dedication, his nights are consumed by research into the Iron Crown - driven not by ambition, but by fear of what his former student might unleash. Behind his methodical demeanor and precise lectures lies a man haunted by memories of a ritual gone wrong and the growing certainty that catastrophe approaches.",
-  "history": "Once content with theoretical archaeology and ancient religion, the Academic's life changed when he took a brilliant student under his wing. Their shared fascination with esoteric knowledge led them to discover the recurring symbol of the Iron Crown across disparate cultures. When a mysterious invitation brought them to the Ancestor's remote manor, they witnessed a failed ritual that left several dead. While the Academic was horrified, the Protege became obsessed. Now he divides his life between maintaining academic appearances during daylight hours and desperately researching countermeasures by candlelight, haunted by guilt over having introduced his student to knowledge that may doom them all.",
-  "summary": "A scholarly and cautious professor, burdened by a ritual gone wrong, who researches occult symbology and fears his former student's dangerous ambitions.",
+  "description": "The Academic is a respected professor of the University, precise and eloquent at his lectern and guarded everywhere else. He is kind, patient and cautious to a fault, a man who would rather keep a dangerous secret than confront it. Beneath the composure is guilt, and a fascination with what he fears, which he has never quite managed to give up.",
+  "history": "The Academic was content with archaeology and ancient religion until he took a brilliant student under his wing, and the two of them began, in secret, to study the Iron Crown. When the library burned with their research inside, he was almost relieved, thinking it was over. Then an invitation from the Ancestor ended in a failed ritual and a dead cabal, and where he was horrified, his student was inspired. For a time he went on helping with the experiments, ever more reluctantly, until the two drifted apart and his protégé went home. Now he teaches by day, and by night searches for a way to undo what they began.",
+  "summary": "A scholarly and guilt-ridden Academic, who led his brightest student to the Iron Crown and now works by night to undo it.",
   "race": "Human",
   "gender": "Male",
   "culture": "Crownlander",
   "traits": [
-    "Scholar",
+    "Erudite",
     "Cautious",
     "Paternal",
-    "Burdened"
+    "Secretive",
+    "Guilt-ridden"
   ],
   "appearance": {
     "height": "Tall and increasingly stooped",
     "build": "Thin, growing gaunt",
     "skinTone": "Pale from countless hours indoors",
     "hairColor": "Salt and pepper",
-    "hairStyle": "Well-groomed but increasingly disheveled",
-    "features": "Rectangular spectacles, neatly trimmed beard, hands that tremble slightly when discussing certain topics"
+    "hairStyle": "Well-groomed but increasingly dishevelled",
+    "features": "Square spectacles, neatly trimmed beard, hands that tremble slightly when discussing certain topics"
   },
   "clothing": {
     "head": "None",
-    "body": "Tweed jacket with leather elbow patches over waistcoat",
-    "legs": "Pressed woolen trousers",
+    "body": "Shirtsleeves and a striped waistcoat, with a loosened tie",
+    "legs": "Pressed woollen trousers",
     "accessories": "Pocket watch, leather satchel filled with notes, chalk-dusted fingers"
   },
   "notes": [
-    "Maintains voluminous correspondence with scholars across the known world",
-    "Speaks with eloquent precision, using academic terminology and poetic metaphors that often leave simpler listeners bewildered"
+    "Speaks with eloquent precision, in ornate, alliterative sentences full of rare words that often leave simpler listeners bewildered",
+    "Keeps his research under strict secrecy, and grows sharp with anyone who pries",
+    "Never accepts that a student is too far gone, whether truant, failing or worse, and always believes one more conversation might bring them back",
+    "Maintains voluminous correspondence with scholars across the known world"
   ]
 }
