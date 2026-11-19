@@ -1,0 +1,38 @@
+{
+  "identifier": "general",
+  "title": "General",
+  "name": "Leofric",
+  "description": "The General is a giant of a man, gentle and slow to anger, and loved by his soldiers as few commanders are. He is devout and honourable, and never truly off duty, working long into every night so that nothing fails on his watch. What he cannot bring himself to do is be hard on the men he loves.",
+  "history": "The General is a younger son of a good house, noble enough that his first commission came easily, though he earned every rank after it. He commands the northern front from his Keep, and when the Fall ended the generations-long war with Ostvengr, his army was left with little to do. He long defended the future Drillmaster against his many critics, valuing the bluntness he often needed, until he could defend him no longer and had to send him to the Capital. Without him and the threat of war, the army has grown lax, and the General has let it.",
+  "summary": "A gentle, devout and tireless General, beloved by his soldiers, who commands a quiet frontier and has let his army grow comfortable.",
+  "race": "Human",
+  "gender": "Male",
+  "culture": "Crownlander",
+  "traits": [
+    "Gentle",
+    "Devout",
+    "Honourable",
+    "Diligent",
+    "Weary"
+  ],
+  "appearance": {
+    "height": "Towering",
+    "build": "Massive",
+    "skinTone": "Fair",
+    "hairColor": "Greying brown",
+    "hairStyle": "Short, with a close-trimmed beard",
+    "features": "Broad, kindly face and heavy-lidded, tired eyes"
+  },
+  "clothing": {
+    "head": "None",
+    "body": "Heavy plate armour over a surcoat bearing the Bastion",
+    "legs": "Plate greaves over riding boots",
+    "accessories": "Greatsword"
+  },
+  "notes": [
+    "Speaks softly and slowly, pausing to think before he answers, and phrases his orders as requests",
+    "Is always tired: yawns behind his hand, blinks heavily, and dozes in his chair after long nights over reports",
+    "Keeps a chaplain at his side, prays before every decision, and attends services with his men",
+    "Writes a fine, careful hand, a gentleman's accomplishment he still practises, and uses it to write to the family of every soldier lost under his command"
+  ]
+}

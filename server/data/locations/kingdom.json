@@ -358,7 +358,10 @@
     "description": "The largest of the army's keeps scattered throughout the north, a squat fortress of grey stone in a clearing cut from the trees, ringed by ditches and stake palisades. It was raised generations ago against Ostvengr, the Kingdom's most dangerous neighbour, and most of the army is still garrisoned along the border, though since the Fall its soldiers mostly turn back refugees. Banners of the Bastion hang from its walls, chaplains hold services in its chapel, and the lamp in the General's window seldom goes out before dawn.",
     "summary": "The army's main keep in the Tangle, raised against Ostvengr and now turning back its refugees.",
     "parent": "kingdom__tangle",
-    "children": []
+    "children": [],
+    "npcs": [
+      "general"
+    ]
   },
   {
     "identifier": "tangle__outriders_lodge",
