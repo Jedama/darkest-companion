@@ -3,7 +3,7 @@
     "identifier": "lore_siren",
     "title": "Echoes of House Tritonis",
     "type": "story",
-    "description": "Garston guides [Characters] through the long-abandoned Tritonis House, from the Daughter's Chamber through the house, and finally to the far end of the pier. Garston recounts the grim history of the Tritonis family, and wonders became of their daughter. This is a lore event, and its primary purpose is to explain this backstory to the user.",
+    "description": "Garston guides [Characters] through the long-abandoned Tritonis House, from the Daughter's Chamber through the house, and finally to the far end of the pier. Garston recounts the grim history of the Tritonis family, and wonders what became of their daughter. This is a lore event, and its primary purpose is to explain this backstory to the user.",
     "characterCount": [1, 4],
     "keywords": [],
     "location": {
