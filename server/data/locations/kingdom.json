@@ -2,7 +2,7 @@
   {
     "identifier": "kingdom",
     "title": "Kingdom",
-    "description": "A sprawling kingdom of crumbling stone and rigid tradition at the centre of the known world, divided into cantrevs and stretching from the snowbound north to the storm-battered east. It is a land of vast, lonely coach roads between isolated settlements, where the Capital's reach thins with every mile. Its throne has stood empty since the royal court was killed, and a Regency governs in the crown's name while stern religious orders and ambitious upstarts carve out domains of their own. The Kingdom runs on inertia and largely ignores the rot taking hold in its forgotten corners, the Estate on its eastern coast foremost among them.",
+    "description": "A sprawling kingdom of crumbling stone and rigid tradition at the centre of the known world, divided into cantrevs and stretching from the snowbound north to the storm-battered east. It is a land of vast, lonely coach roads between isolated settlements, where the capital's reach thins with every mile. Its throne has stood empty since the royal court was killed, and a Regency governs in the crown's name while stern religious orders and ambitious upstarts carve out domains of their own. The Kingdom runs on inertia and largely ignores the rot taking hold in its forgotten corners, the Estate on its eastern coast foremost among them.",
     "summary": "The old kingdom at the centre of the world, held in regency since its court was killed, a land of lonely coach roads and provincial stagnation.",
     "parent": "world",
     "children": [
@@ -259,8 +259,8 @@
   {
     "identifier": "living_city__conveyance_guild",
     "title": "The Conveyance Guild Hall",
-    "description": "The Conveyance Guild's hall in the Capital, a great covered yard of coach sheds, stables and storehouses. Spare wheels are stacked along every wall, smiths fit coaches with iron plating and shutters, and crates of freight wait by the gates for every road in the Kingdom. Above the gate is painted its motto, 'Fair prices, in good times and bad', and the fares chalked on the board beneath it change far more often.",
-    "summary": "The Conveyance Guild's great coaching yard in the Capital, full of wheels, armoured coaches and waiting freight.",
+    "description": "The Conveyance Guild's hall in the Sprawl, a great covered yard of coach sheds, stables and storehouses. Spare wheels are stacked along every wall, smiths fit coaches with iron plating and shutters, and crates of freight wait by the gates for every road in the Kingdom. Above the gate is painted its motto, 'Fair prices, in good times and bad', and the fares chalked on the board beneath it change far more often.",
+    "summary": "The Conveyance Guild's great coaching yard in the Sprawl, full of wheels, armoured coaches and waiting freight.",
     "parent": "kingdom__living_city",
     "children": []
   },
@@ -268,7 +268,7 @@
     "identifier": "living_city__crossed_swords",
     "title": "The Crossed Swords",
     "description": "A tavern beside the Conveyance Guild's yard, under a sign of two crossed swords. Old coach lanterns, harness and wheel-rims hang on its walls, and it keeps the best whiskey on the coach roads. The drivers drink at the front, and the Guild's real business is done at the back, in the curtained booth where the Wagon-Master holds court.",
-    "summary": "The drivers' tavern by the Capital's coaching yards, where the Conveyance Guild does its real business over whiskey.",
+    "summary": "The drivers' tavern by the Sprawl's coaching yards, where the Conveyance Guild does its real business over whiskey.",
     "parent": "kingdom__living_city",
     "children": [],
     "npcs": [
@@ -278,16 +278,16 @@
   {
     "identifier": "living_city__catacombs",
     "title": "The Catacombs",
-    "description": "A maze of tombs and burial niches cut into the rock beneath the Capital, where the Kingdom lays to rest those it wants remembered: generals, poets and old families, generation upon generation, many sealed in with their arms and heirlooms. The deepest galleries were cut before the city was founded, and the names on their tombs have worn past reading. By old custom, mourners leave a pinch of salt at the threshold of every tomb, to keep the dead at rest.",
-    "summary": "The tombs beneath the Capital, where the Kingdom buries its honoured dead and mourners leave salt to keep them at rest.",
+    "description": "A maze of tombs and burial niches cut into the rock beneath the Living City, where the Kingdom lays to rest those it wants remembered: generals, poets and old families, generation upon generation, many sealed in with their arms and heirlooms. The deepest galleries were cut before the city was founded, and the names on their tombs have worn past reading. By old custom, mourners leave a pinch of salt at the threshold of every tomb, to keep the dead at rest.",
+    "summary": "The tombs beneath the Living City, where the Kingdom buries its honoured dead and mourners leave salt to keep them at rest.",
     "parent": "kingdom__living_city",
     "children": []
   },
   {
     "identifier": "living_city__barracks",
     "title": "The Barracks",
-    "description": "The army's barracks against the Capital's northern wall, a walled compound of long stone halls, storehouses and stables around a packed-earth drill yard. Recruits train there from dawn among rows of battered wooden training dummies, and wagons of supplies leave its gate each week for the keeps in the north. The Bastion hangs over the entrance, and the yard is kept swept and squared to the Drillmaster's standard.",
-    "summary": "The army's walled barracks in the Capital, where recruits are trained and supplies sent north.",
+    "description": "The army's barracks against the city's northern wall, a walled compound of long stone halls, storehouses and stables around a packed-earth drill yard. Recruits train there from dawn among rows of battered wooden training dummies, and wagons of supplies leave its gate each week for the keeps in the north. The Bastion hangs over the entrance, and the yard is kept swept and squared to the Drillmaster's standard.",
+    "summary": "The army's walled barracks in the Sprawl, where recruits are trained and supplies sent north.",
     "parent": "kingdom__living_city",
     "children": [],
     "npcs": [
@@ -297,8 +297,8 @@
   {
     "identifier": "living_city__palace",
     "title": "The Palace",
-    "description": "The royal palace on the Capital's highest ground, a rambling mass of grey stone towers, spires and courtyards built up over centuries around the oldest walls in the city. Its long galleries and state rooms were made for a court of hundreds, and there are no longer servants enough to keep them, so whole wings stand shuttered with their furniture under dust sheets. The clerks and messengers of the Regency hurry through halls built for courtiers.",
-    "summary": "The royal palace on the Capital's highest ground, half shuttered, now the seat of the Regency.",
+    "description": "The royal palace on the Living City's highest ground, a rambling mass of grey stone towers, spires and courtyards built up over centuries around the oldest walls in the city. Its long galleries and state rooms were made for a court of hundreds, and there are no longer servants enough to keep them, so whole wings stand shuttered with their furniture under dust sheets. The clerks and messengers of the Regency hurry through halls built for courtiers.",
+    "summary": "The royal palace on the Living City's highest ground, half shuttered, now the seat of the Regency.",
     "parent": "kingdom__living_city",
     "children": [
       "living_city__palace_throne_room",
