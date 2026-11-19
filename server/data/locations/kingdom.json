@@ -166,7 +166,8 @@
       "capital__conveyance_guild",
       "capital__crossed_swords",
       "capital__catacombs",
-      "capital__barracks"
+      "capital__barracks",
+      "capital__palace"
     ]
   },
   {
@@ -292,6 +293,24 @@
     "description": "The army's barracks against the Capital's northern wall, a walled compound of long stone halls, storehouses and stables around a packed-earth drill yard. Recruits train there from dawn among rows of battered wooden training dummies, and wagons of supplies leave its gate each week for the keeps in the north. The Bastion hangs over the entrance, and the yard is kept swept and squared to an old sergeant's standard.",
     "summary": "The army's walled barracks in the Capital, where recruits are trained and supplies sent north.",
     "parent": "kingdom__capital",
+    "children": []
+  },
+  {
+    "identifier": "capital__palace",
+    "title": "The Palace",
+    "description": "The royal palace on the Capital's highest ground, a rambling mass of grey stone towers, spires and courtyards built up over centuries around the oldest walls in the city. Its long galleries and state rooms were made for a court of hundreds, and there are no longer servants enough to keep them, so whole wings stand shuttered with their furniture under dust sheets. The clerks and messengers of the Regency hurry through halls built for courtiers.",
+    "summary": "The royal palace on the Capital's highest ground, half shuttered, now the seat of the Regency.",
+    "parent": "kingdom__capital",
+    "children": [
+      "capital__palace_throne_room"
+    ]
+  },
+  {
+    "identifier": "capital__palace_throne_room",
+    "title": "The Throne Room",
+    "description": "The palace's throne room, a long hall whose walls are hung with the banners of the Kingdom's cantrevs. At its far end, on a raised dais, stands an old oak throne built over a rough, plain block of stone, on which every monarch of the Kingdom has been crowned. The throne sits empty, and the Regent holds his audiences standing beside it.",
+    "summary": "The palace's banner-hung throne room, its empty throne built over an ancient coronation stone.",
+    "parent": "capital__palace",
     "children": []
   },
   {
