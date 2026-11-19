@@ -7,11 +7,11 @@
     "summary": "bird_coven (The Coven) -- A disciplined, well-armed militia of bird-folk of unknown origin and unknown purpose, encountered anywhere in the Estate's lands.",
     "territory": ["ruins", "warrens", "weald", "cove"],
     "members": [
-      "coven_primarch",
-      "coven_arbiter",
-      "coven_invigilator",
-      "coven_naturopath",
-      "coven_rogue"
+      "p_crow",
+      "eagle",
+      "owlman",
+      "healer",
+      "vultman"
     ]
   }
 ]
