@@ -441,7 +441,8 @@
     "summary": "The Kingdom's foggy northeastern coast, a stretch of fishing villages on piers and stilts.",
     "parent": "kingdom",
     "children": [
-      "shroud__sacred_pier"
+      "shroud__sacred_pier",
+      "shroud__hulks"
     ],
     "npcs": [
       "admiral"
@@ -454,5 +455,16 @@
     "summary": "The Shroud's oldest pier, where fishing villages bless their boats and leave offerings to the sea.",
     "parent": "kingdom__shroud",
     "children": []
+  },
+  {
+    "identifier": "shroud__hulks",
+    "title": "The Hulks",
+    "description": "A row of old warships laid up in a sheltered anchorage, their masts cut down to stumps and their hulls roped together, with gangways and planks run between their decks. The navy uses them as storehouses, their holds packed with rope, sailcloth, salt meat and powder for the ships that put in along the coast. Though none of them will sail again, they are kept patched, tarred and sound, and each night a lamp burns in a different stern cabin.",
+    "summary": "A row of decommissioned warships moored together in an anchorage, kept as a navy storehouse.",
+    "parent": "kingdom__shroud",
+    "children": [],
+    "npcs": [
+      "hull_keeper"
+    ]
   }
 ]
