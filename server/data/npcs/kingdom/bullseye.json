@@ -1,0 +1,38 @@
+{
+  "identifier": "bullseye",
+  "title": "Bullseye",
+  "name": "Barrett",
+  "description": "The Bullseye is the most patient man alive, able to lie hidden in the undergrowth for hours to make one perfect shot. He is silent by habit and by trade, and if he is not found, he can take several men before any of them knows where he is. Whether his target is an enemy soldier or a refugee who would not turn back makes no difference to him. Only the shot matters.",
+  "history": "The Bullseye is a younger son of a minor noble house, and was the finest shot on the competition circuit, where in its greatest final he beat the Musketeer, a young noblewoman of a rival house, who had been expected to give him more of a contest. He took a commission through his family, came to the General's notice, and was posted to the northern front as its marksman. Since the Fall, the Regency's orders have been plain: refugees who will not turn back are shot.",
+  "summary": "A patient, silent and cold Bullseye, the army's finest marksman, who shoots whatever crosses the border uninvited.",
+  "race": "Human",
+  "gender": "Male",
+  "culture": "Crownlander",
+  "traits": [
+    "Patient",
+    "Silent",
+    "Precise",
+    "Proud",
+    "Cold"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Lean and narrow",
+    "skinTone": "Fair",
+    "hairColor": "Brown",
+    "hairStyle": "Cropped short",
+    "features": "A forgettable, unremarkable face"
+  },
+  "clothing": {
+    "head": "Closed iron helm in the field, under his hood",
+    "body": "Hooded cloak sewn with leaves and moss, over dark leathers, with a pauldron and arm guard on his shooting side",
+    "legs": "Leather breeches, bare feet",
+    "accessories": "His crossbow, and a belt buckle shaped like a ring with four small points"
+  },
+  "notes": [
+    "Speaks rarely, but has a bone-dry sense of humour, and when he does speak it is often a one-word punchline, so well timed it sounds as though he has been saving it for years",
+    "Moves without a sound even indoors, and is often in a room some while before anyone notices him",
+    "Knows every bird of the forest by its call, and can imitate most of them",
+    "Talks warmly and at length if anyone genuinely asks about firearms, and about crossbows above all"
+  ]
+}

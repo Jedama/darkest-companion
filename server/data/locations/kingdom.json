@@ -363,7 +363,8 @@
     "parent": "kingdom__tangle",
     "children": [],
     "npcs": [
-      "general"
+      "general",
+      "bullseye"
     ]
   },
   {
