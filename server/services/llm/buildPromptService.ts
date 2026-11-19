@@ -129,6 +129,7 @@ export function buildCharactersSection(involvedCharacters: Character[]): string 
 
   for (const char of involvedCharacters) {
     lines.push(`- ${char.name} (${char.title}):\n`);
+    lines.push(`  - Race/Gender/Culture: ${char.race}, ${char.gender}, ${char.culture}\n`);
     lines.push(`  - Description: ${char.description}\n`);
     lines.push(`  - History: ${char.history}\n`);
     lines.push(
@@ -432,6 +433,7 @@ export function buildNPCSection(npcs: NPC[]): string {
 
   for (const npc of npcs) {
     lines.push(`- ${npc.title} ${npc.name}\n`);
+    lines.push(`  Race/Gender/Culture: ${npc.race}, ${npc.gender}, ${npc.culture}\n`);
     lines.push(`  ${npc.description}\n`);
     lines.push(`  ${npc.history}\n`);
 
