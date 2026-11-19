@@ -47,8 +47,8 @@
   {
     "identifier": "kingdom__working_fields",
     "title": "The Working Fields",
-    "description": "The broad farmland at the heart of the Kingdom, rolling fields of wheat and barley, orchards, and green hillsides dotted with sheep and goats. Its people named it the Foetor themselves, after the muck they spread on the fields every spring, and say it with a grin. The villages are small and close-knit, the whole region turns out together to bring in each harvest, and a traveller is rarely turned away from a farmhouse table.",
-    "summary": "The Kingdom's rolling central farmland, cheerfully nicknamed by its own farmers for the muck on its fields.",
+    "description": "The Foetor, as its own people call it after the muck they spread on the fields every spring, is the broad farmland at the heart of the Kingdom: rolling fields of wheat and barley, orchards, and green hillsides dotted with sheep and goats. They say the name with a grin. The villages are small and close-knit, the whole cantrev turns out together to bring in each harvest, and a traveller is rarely turned away from a farmhouse table.",
+    "summary": "The Foetor, the Kingdom's rolling central farmland, cheerfully nicknamed by its own farmers for the muck on its fields.",
     "parent": "kingdom",
     "children": [
       "working_fields__harvest_house",
@@ -156,11 +156,11 @@
   {
     "identifier": "kingdom__living_city",
     "title": "The Living City",
-    "description": "The Kingdom's capital, an old walled city of grey stone above a river, reached across a long bridge lined with statues of saints and scholars. Behind its walls rise the spire of its cathedral, the towers of old colleges and the dome of the Museum, and on the highest ground stands the palace, from which the Regency now governs. Most simply call it the Capital.",
-    "summary": "The Kingdom's old walled capital above a river, seat of the Regency.",
+    "description": "The Sprawl, as most call it, is the Kingdom's capital, an old walled city of grey stone above a river, reached across a long bridge lined with statues of saints and scholars. Behind its walls rise the spire of its cathedral, the towers of old colleges and the dome of the Museum, and on the highest ground stands the palace, from which the Regency now governs. Most of its people live in the crowded districts packed inside the old walls and spilling out far beyond them, where crooked cobbled lanes wind between tall, narrow-windowed houses of stone and dark timber, built so close that their upper floors lean toward one another across the street.",
+    "summary": "The Sprawl, the Kingdom's crowded walled capital above a river and seat of the Regency.",
     "parent": "kingdom",
     "children": [
-      "living_city__sprawl",
+      "living_city__brownstone",
       "living_city__university",
       "living_city__museum",
       "living_city__conveyance_guild",
@@ -171,21 +171,11 @@
     ]
   },
   {
-    "identifier": "living_city__sprawl",
-    "title": "The Sprawl",
-    "description": "The crowded districts where most of the Capital's people live, packed inside the old walls and spilling out far beyond them. Crooked cobbled lanes wind between tall, narrow-windowed houses of stone and dark timber, built so close that their upper floors lean toward one another across the street.",
-    "summary": "The Capital's crowded residential districts of crooked lanes and leaning houses, long since spilled past the walls.",
-    "parent": "kingdom__living_city",
-    "children": [
-      "living_city__brownstone"
-    ]
-  },
-  {
     "identifier": "living_city__brownstone",
     "title": "The Brownstone",
     "description": "A tall, narrow house of soot-greyed brownstone and dark timber wedged among the leaning houses of the Sprawl, home and study to a scholar of the University. A tower rises at one corner under a steep spire, set with a round window whose leading forms a ring open at the bottom, with five spokes through it, and stone steps climb to an arched door. Its red roof tiles have begun to slip, and small barred windows at the foot of its walls look out from the cellar onto the street.",
     "summary": "A tall, narrow scholar's house with a spired tower, wedged among the houses of the Sprawl.",
-    "parent": "living_city__sprawl",
+    "parent": "kingdom__living_city",
     "children": [
       "living_city__brownstone_parlour",
       "living_city__brownstone_study",
@@ -346,8 +336,8 @@
   {
     "identifier": "kingdom__timeless_wood",
     "title": "The Timeless Wood",
-    "description": "A primeval forest across the Kingdom's north, below the high tundra, its trees so old and close that their roots knot together over the ground and little light reaches the forest floor. Most simply call it the Tangle. It rains often, and the paths are deep in mud. The army is garrisoned here to turn back the refugees coming south from Ostvengr, and its keeps stand among the trees, linked by trenches and barricades of sharpened stakes. Spiders den in the hollows of the deep wood, some grown large enough to take a man.",
-    "summary": "A primeval northern forest of knotted roots and mud, where the army's keeps and trenches hold the border against Ostvengr's refugees.",
+    "description": "The Tangle, as most call it, is a primeval forest across the Kingdom's north, below the high tundra, its trees so old and close that their roots knot together over the ground and little light reaches the forest floor. It rains often, and the paths are deep in mud. The army is garrisoned here to turn back the refugees coming south from Ostvengr, and its keeps stand among the trees, linked by trenches and barricades of sharpened stakes. Spiders den in the hollows of the deep wood, some grown large enough to take a man.",
+    "summary": "The Tangle, a primeval northern forest of knotted roots and mud, where the army's keeps and trenches hold the border against Ostvengr's refugees.",
     "parent": "kingdom",
     "children": [
       "timeless_wood__generals_keep",
@@ -439,8 +429,8 @@
   {
     "identifier": "kingdom__intrepid_coast",
     "title": "The Intrepid Coast",
-    "description": "The Kingdom's northeastern coast, a stretch of fishing villages built out over the water on piers, jetties and stilts. Sea fog rolls in most mornings, which is how the locals came to call it the Shroud, and the air always smells of salt and fish. Its people live by the boats and the nets, and they are as superstitious about the sea as fishing folk anywhere.",
-    "summary": "The Kingdom's foggy northeastern coast, a stretch of fishing villages on piers and stilts.",
+    "description": "The Shroud, as its locals call it for the sea fog that rolls in most mornings, is the Kingdom's northeastern coast, a stretch of fishing villages built out over the water on piers, jetties and stilts. The air always smells of salt and fish. Its people live by the boats and the nets, and they are as superstitious about the sea as fishing folk anywhere.",
+    "summary": "The Shroud, the Kingdom's foggy northeastern coast of fishing villages on piers and stilts.",
     "parent": "kingdom",
     "children": [
       "intrepid_coast__sacred_pier",
