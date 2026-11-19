@@ -1,0 +1,39 @@
+{
+  "identifier": "cataloguer",
+  "title": "Cataloguer",
+  "name": "Jantry",
+  "description": "The Cataloguer is a dreamer who writes far better than he lives, grand and adventurous on the page and timid everywhere else. He is a little pompous about his almanacs and entirely harmless, and most people end up liking him despite themselves. One day, he promises, he will see every road he has written about, by which he means every road in the Kingdom, since the world beyond it is too much even for his dreams.",
+  "history": "The Cataloguer has spent his whole career at the Museum, cataloguing things from places he has never been. On the side he writes almanacs of the Kingdom's roads, inns and curiosities, built from the accounts of people who have travelled them, and they sell modestly. His florid prose and dreamy manner sit poorly with his superiors, and he has been passed over more than once because of them.",
+  "summary": "An amiable, florid Cataloguer at the Museum, who writes almanacs of a Kingdom he has barely seen.",
+  "race": "Human",
+  "gender": "Male",
+  "culture": "Crownlander",
+  "traits": [
+    "Imaginative",
+    "Pompous",
+    "Amiable",
+    "Bookish",
+    "Sheltered"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Slight, soft from sitting",
+    "skinTone": "Pale",
+    "hairColor": "Brown",
+    "hairStyle": "Neatly parted",
+    "features": "A neat moustache he is rather proud of, and a sprinkling of freckles"
+  },
+  "clothing": {
+    "head": "None",
+    "body": "Clerk's dark coat and waistcoat, with a cravat a touch too fine for his station",
+    "legs": "Dark trousers",
+    "accessories": "A notebook and pencil, always to hand"
+  },
+  "notes": [
+    "Speaks the way he writes, floridly, narrating ordinary things as if for a reader",
+    "Knows every road and inn of the Kingdom by reputation, but has visited few of them",
+    "Struggles to piece the wider world together from travellers' tales, which contradict each other endlessly, and cannot read the foreign sources, for he only speaks Common",
+    "Loves to sit and listen to anyone who gets to travel, jotting the best parts in his notebook",
+    "Is a touch self-important about his almanacs, easily punctured, and never offended for long"
+  ]
+}

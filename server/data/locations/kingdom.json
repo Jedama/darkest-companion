@@ -261,7 +261,10 @@
     "description": "A great domed hall of pale stone, holding the collected curiosities of centuries: antiquities, relics and oddities from every corner of the world, many of them bought from explorers who carried them home. Fossil skeletons tower over its central rotunda, and its galleries open onto wings of statuary, old armour and cases of pinned specimens. Lamps often burn late in its offices, where its curators work through the night.",
     "summary": "The Kingdom's great museum, a domed hall of antiquities, fossils and curiosities gathered from across the world.",
     "parent": "kingdom__capital",
-    "children": []
+    "children": [],
+    "npcs": [
+      "cataloguer"
+    ]
   },
   {
     "identifier": "capital__conveyance_guild",
