@@ -14,7 +14,7 @@
       "pelagia",
       "haenara",
       "kvarotz_valley",
-      "northern_forest",
+      "wildwood",
       "chernozem",
       "craie",
       "loess",
@@ -66,9 +66,9 @@
     "children": []
   },
   {
-    "identifier": "northern_forest",
-    "title": "The Northern Forest",
-    "description": "An old forest in the cold north, beyond any border worth defending, where the beasts run larger than they have any business being. The Wildlanders send their young there to be marked: find the animal your god wears, survive it, and come home with the scar to prove it. Most of the pilgrims are girls, and most of the ones who do not return were boys. Nobody lives there. The tribes that use it are scattered across half the world and have not shared a homeland in generations, so the forest is the only ground all of them still hold in common.",
+    "identifier": "wildwood",
+    "title": "The Wildwood",
+    "description": "An old forest in the cold north, known to the Wildlanders as Styrqad, beyond any border worth defending, where the beasts run larger than they have any business being. The Wildlanders send their young there to be marked: find the animal your god wears, survive it, and come home with the scar to prove it. Most of the pilgrims are girls, and most of the ones who do not return were boys. Nobody lives there. The tribes that use it are scattered across half the world and have not shared a homeland in generations, so the forest is the only ground all of them still hold in common.",
     "summary": "A cold northern forest of oversized beasts, where Wildlanders go to be scarred by their gods' animals and come back warriors.",
     "parent": "world",
     "children": []
