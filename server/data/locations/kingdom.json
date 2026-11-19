@@ -167,7 +167,8 @@
       "living_city__crossed_swords",
       "living_city__catacombs",
       "living_city__barracks",
-      "living_city__palace"
+      "living_city__palace",
+      "living_city__cathedral"
     ]
   },
   {
@@ -331,6 +332,17 @@
     "children": [],
     "npcs": [
       "regent"
+    ]
+  },
+  {
+    "identifier": "living_city__cathedral",
+    "title": "The Cathedral",
+    "description": "The great cathedral of the Light, its spire the tallest point in the Living City. Its west front is crowded with carved saints, and above its doors a great rose window holds the Aureole in coloured glass. Since her branch of the faith won the schism, the Seraph has joined the saints inside: a new statue of a woman wreathed in flame stands in the nave, and in a side chapel a charred length of timber from her stake is kept as a relic.",
+    "summary": "The Living City's great cathedral of the Light, where the Seraph's statue and the relic of her stake now stand among the saints.",
+    "parent": "kingdom__living_city",
+    "children": [],
+    "npcs": [
+      "patroness"
     ]
   },
   {
