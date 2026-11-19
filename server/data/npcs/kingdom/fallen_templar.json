@@ -1,0 +1,38 @@
+{
+  "identifier": "fallen_templar",
+  "title": "Fallen Templar",
+  "name": "Hugh",
+  "description": "The Fallen Templar is a huge, cheerful knight with no patience for rules he cannot see the point of, which is how he came to paint his armour black and gold, and how he came to lose his order for a wife. He is still devout, having lost his order and not his faith, and he has never once regretted the trade. He may well be the happiest man in the army.",
+  "history": "The Fallen Templar was a knight of one of the church's crusading orders, sworn to celibacy, and rode in its crusades in armour he had painted black and gold against all custom. He was caught with a woman and cast out in disgrace, and the General, devout but no zealot, gladly took him into his guard. He married her, and goes home to her at every chance he gets.",
+  "summary": "A huge, cheerful Fallen Templar, cast out of his crusading order for love, who serves in the General's guard and has never regretted it.",
+  "race": "Human",
+  "gender": "Male",
+  "culture": "Crownlander",
+  "traits": [
+    "Cheerful",
+    "Devout",
+    "Loyal",
+    "Headstrong",
+    "Content"
+  ],
+  "appearance": {
+    "height": "Towering",
+    "build": "Huge",
+    "skinTone": "Fair",
+    "hairColor": "Fair, almost white",
+    "hairStyle": "Cropped short",
+    "features": "A broad, cheerful face"
+  },
+  "clothing": {
+    "head": "Great helm crowned with spikes",
+    "body": "Plate painted black and gold, under a surcoat with his old order's device unpicked",
+    "legs": "Plate greaves",
+    "accessories": "A wavy-bladed flamberge"
+  },
+  "notes": [
+    "Introduces himself as the Fallen Templar, the soldiers' name for him, and wears it with good humour",
+    "Goes home to his wife in the glen at every opportunity, and talks about her whenever he is not with her",
+    "Still keeps his old order's prayers and fasts, though the order no longer wants him",
+    "Keeps bees, a craft from his order's cloister, and returns to the Keep with jars of honey for the men"
+  ]
+}

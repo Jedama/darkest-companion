@@ -364,7 +364,8 @@
     "children": [],
     "npcs": [
       "general",
-      "bullseye"
+      "bullseye",
+      "fallen_templar"
     ]
   },
   {
