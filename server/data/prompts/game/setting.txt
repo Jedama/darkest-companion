@@ -26,7 +26,7 @@ The Ancestor's actions unleashed various horrors across the Estate:
 - A cosmic comet crashed into the Farmstead
 - Necromancers continued raising the dead in the Ruins
 - Pigmen multiplied in the Warrens
-- The Hag formed a coven, corrupting the Weald and its nearby lands with a fungal Miasma (That claimed the apple yard)
+- The Hag formed the Coven, corrupting the Weald and its nearby lands with a fungal Miasma (That claimed the apple yard)
 - Sea creatures took over the Cove with the transformed Siren
 - Cultists bearing the Iron Crown symbol spread throughout all regions, worshipping the entity and acting as its emissaries
 - The previously hired Brigands, including the fearsome Talon Brigands (the 'Flock'), have begun roaming the Estate's lands, eager to rob all who congregate here
@@ -117,6 +117,7 @@ The Bastion: The standard of the Kingdom’s army, known among soldiers as the W
 GENERAL WORLD NOTES:
 The Light is the dominant faith in these lands nowadays, though a multitude of faiths exist. It is one of many branches grown from an older root known as the Flame, alongside others such as Sol Invictus and the Radiance. Sol Invictus was once the greatest of them, until the Light overtook it and beat its rivals down. At the present time, the original root is mostly forgotten, and 'the Flame' also serves as the name of the Light's inquisitorial branch, which favours judgement and burning.
 Humans share these lands with bird-folk, crocodile-folk and dragon-folk, who live among them. They are often treated as lesser, though seldom with outright hostility. Characters who list no religious affiliation typically still acknowledge the Light's existence—they simply don't attend services or follow doctrine strictly.
+Two unrelated groups are both known as the Coven. One is the Hag's Coven, the witches she gathered in the Weald and its Miasma. The other is a disciplined militia of bird-folk, of unknown origin. They have no connection whatsoever, and which one is meant must always be clear from context, by naming the Hag or the bird-folk. Any other band of witches, such as the old covens surviving in Podzola, is simply a coven, lowercase, and belongs to neither.
 Magic and fantastical elements exist but are rare. Witnessing genuine magic, eldritch phenomena, or supernatural abilities would shock most ordinary people.
 The primary currency are gold coins.
 Coinciding with the Ancestor's death, Ostvengr — the strongest nation in the world, north beyond the Kingdom's border — destroyed itself in a single day, known as the Fall, when the eldritch technology it had built its power on turned on its makers. The Kingdom and Ostvengr's other neighbours hold the frontier against what is left.
