@@ -165,7 +165,8 @@
       "capital__museum",
       "capital__conveyance_guild",
       "capital__crossed_swords",
-      "capital__catacombs"
+      "capital__catacombs",
+      "capital__barracks"
     ]
   },
   {
@@ -286,6 +287,14 @@
     "children": []
   },
   {
+    "identifier": "capital__barracks",
+    "title": "The Barracks",
+    "description": "The army's barracks against the Capital's northern wall, a walled compound of long stone halls, storehouses and stables around a packed-earth drill yard. Recruits train there from dawn among rows of battered wooden training dummies, and wagons of supplies leave its gate each week for the keeps in the north. The Bastion hangs over the entrance, and the yard is kept swept and squared to an old sergeant's standard.",
+    "summary": "The army's walled barracks in the Capital, where recruits are trained and supplies sent north.",
+    "parent": "kingdom__capital",
+    "children": []
+  },
+  {
     "identifier": "kingdom__tangle",
     "title": "The Tangle",
     "description": "A primeval forest across the Kingdom's north, below the high tundra, its trees so old and close that their roots knot together over the ground and little light reaches the forest floor. It rains often, and the paths are deep in mud. The army is garrisoned here to turn back the refugees coming south from Ostvengr, and its keeps stand among the trees, linked by trenches and barricades of sharpened stakes. Spiders den in the hollows of the deep wood, some grown large enough to take a man.",
@@ -300,8 +309,8 @@
   {
     "identifier": "tangle__generals_keep",
     "title": "The General's Keep",
-    "description": "The largest of the army's keeps in the Tangle, a squat fortress of grey stone in a clearing cut from the forest, ringed by ditches and stake palisades. Banners of the Bastion hang from its walls, and soldiers drill to the beat of drums in the yard while chaplains hold services in its chapel. From here the General commands the northern front, and the lamp in his window seldom goes out before dawn.",
-    "summary": "The army's command keep in the Tangle, where the General directs the northern front.",
+    "description": "The largest of the army's keeps scattered throughout the north, a squat fortress of grey stone in a clearing cut from the trees, ringed by ditches and stake palisades. It was raised generations ago against Ostvengr, the Kingdom's most dangerous neighbour, and most of the army is still garrisoned along the border, though since the Fall its soldiers mostly turn back refugees. Banners of the Bastion hang from its walls, chaplains hold services in its chapel, and the lamp in the General's window seldom goes out before dawn.",
+    "summary": "The army's main keep in the Tangle, raised against Ostvengr and now turning back its refugees.",
     "parent": "kingdom__tangle",
     "children": []
   },
