@@ -363,7 +363,10 @@
     "description": "The Outriders' Union's lodge, a long hall of dark timber and fieldstone deep in the woods, reached by no road at all. Its roof is green with moss, cloaks and bedrolls hang drying along its porch, and smoke rises from the cookfires in the yard, where stables and rows of canvas tents spill out among the trees. Inside, a map room charts the Union's secret trails beside every coach road in the Kingdom, routes the Conveyance Guild would dearly like to find.",
     "summary": "The Outriders' Union's timber lodge deep in the woods, reached only by its own trails.",
     "parent": "kingdom__tangle",
-    "children": []
+    "children": [],
+    "npcs": [
+      "forerunner"
+    ]
   },
   {
     "identifier": "tangle__cold_spring_glen",

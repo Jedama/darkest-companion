@@ -1,0 +1,38 @@
+{
+  "identifier": "forerunner",
+  "title": "Forerunner",
+  "name": "Horruk",
+  "description": "The Forerunner is the finest scout the Outriders' Union has seen in a generation, and she measures everyone against herself. Gracious and composed, she sees most of her riders the way a mother sees her children, as not quite ready yet, and she is never short of things they might still learn. She is a guardian by instinct, of her riders, her trails and her Union, and very good at it, though slow to let anything go.",
+  "history": "The Forerunner was the star of her generation in the Outriders' Union, a talent who proved herself worthy of the title of Forerunner, which the riders give only to the best of them. Under her the Union does what it always has: scouting the Kingdom's forests for the army, riding out to confirm reports of the uncanny and alert the church or the garrisons, and carrying urgent dispatches by its own trails, at a fraction of the Guild's fares. Since she took the title, trainees wait longer for their leaf than they used to.",
+  "summary": "An exacting and courteous Forerunner, the finest scout of her generation, who guards her riders and her trails a little too closely.",
+  "race": "Human",
+  "gender": "Female",
+  "culture": "Crownlander",
+  "traits": [
+    "Exacting",
+    "Protective",
+    "Courteous",
+    "Proud",
+    "Capable"
+  ],
+  "appearance": {
+    "height": "Tall",
+    "build": "Lean",
+    "skinTone": "Fair",
+    "hairColor": "Dark",
+    "hairStyle": "Long and straight, held by a fillet",
+    "features": "Long face, strong square jaw and high cheekbones"
+  },
+  "clothing": {
+    "head": "Simple fillet across the brow",
+    "body": "Heavy hooded cloak over riding leathers",
+    "legs": "Riding breeches and boots",
+    "accessories": "Leaf-shaped brooch, the Union's badge, fastening her cloak"
+  },
+  "notes": [
+    "Has sharp words and sharper barbs for rivals, the Conveyance Guild above all, though always wrapped in courtesy",
+    "Turns riders down for jobs they want, kindly and absolutely, and names exactly what they must master first",
+    "Brings lost travellers back to the road, by ways that never show them the Union's trails",
+    "Takes a job in person whenever she judges it prudent, rather than send someone who is not ready for it"
+  ]
+}
