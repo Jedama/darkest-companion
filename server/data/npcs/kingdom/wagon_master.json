@@ -1,0 +1,38 @@
+{
+  "identifier": "wagon_master",
+  "title": "Wagon-Master",
+  "name": "Alred",
+  "description": "The Wagon-Master is a coarse, greedy monopolist to anyone who has had to pay his fares, and a hero to the drivers he has made rich. His bargains are honest in their way: pay his price, and he will get you where you are going, in an armoured coach if need be. But when something goes wrong on his roads it is quietly hushed up, and sometimes the cargo goes with it.",
+  "history": "The Wagon-Master drove coaches for the Conveyance Guild for more than twenty years, and rose through it on goodwill: generous to other drivers, hospitable on the road and the best of company over a drink. As its head he has made his drivers wealthy, pressing every client for the highest fare a route will bear, and when the Estate's road turned deadly he forbade them the Old Road outright, whatever anyone offered.",
+  "summary": "A coarse, greedy and beloved Wagon-Master, who has made his drivers rich and keeps the Kingdom's roads at a price.",
+  "race": "Human",
+  "gender": "Male",
+  "culture": "Crownlander",
+  "traits": [
+    "Gregarious",
+    "Greedy",
+    "Loyal",
+    "Shrewd",
+    "Evasive"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Thickset",
+    "skinTone": "Weathered and ruddy",
+    "hairColor": "Dark, greying",
+    "hairStyle": "Cropped short",
+    "features": "Rough beard, broken nose, heavy brows and a crooked smile"
+  },
+  "clothing": {
+    "head": "None",
+    "body": "Heavy driver's coat of better cloth than it looks",
+    "legs": "Riding breeches and boots",
+    "accessories": "Knotted neckerchief"
+  },
+  "notes": [
+    "Speaks in a thick rural dialect ('ye', 'yer', 'th' road'), with a colourful line in insults for anyone he takes for a fool",
+    "Knows every washout, bad stretch and ambush point on the Kingdom's roads, warns people off them bluntly, and has nothing but scorn for anyone who leaves the road",
+    "Is never at fault: whatever went wrong was the road's doing, the weather's or someone else's, and missing cargo is simply never mentioned",
+    "Looks after his drivers like family, and stands rounds at the Crossed Swords, where he holds court in a curtained booth with the drinking companions he calls his advisors"
+  ]
+}
