@@ -15,6 +15,9 @@
       "living_city__barracks",
       "living_city__palace",
       "living_city__cathedral"
+    ],
+    "npcs": [
+      "masterful"
     ]
   },
   {
