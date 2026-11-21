@@ -37,7 +37,10 @@
     "description": "The heart of the city, where every faith that ever came upriver built a house and few have been pulled down since. Shrines stand shoulder to shoulder along the water, grand ones with priesthoods and painted domes beside single rooms with one attendant and a locked door. The festival calendar runs past three hundred days a year and several fall together, so the noise rarely stops; children of the quarter learn early which processions pay best to join.",
     "summary": "The temple quarter of Great Forks, packed with shrines of every faith and in festival most days of the year.",
     "parent": "great_forks",
-    "children": []
+    "children": [],
+    "characters": [
+      "zenith"
+    ]
   },
   {
     "identifier": "ostvengr",
@@ -55,7 +58,12 @@
     "description": "A shaft in the mountains that Ostvengr found and did not stop descending. Material and knowledge came up out of it, barely comprehensible and enormously useful, and the empire built everything it had on what it took from the shaft. The first expeditions went down unprotected, and the men who came back from those were not entirely the men who went down; every expedition after that went in sealed machines. Nobody has gone in since the Fall, and nobody can say whether the corruption that took the country came up the shaft or was already in what had been carried out of it.",
     "summary": "The shaft beneath Ostvengr's mountains that its expeditions descended, and the source of everything the empire became.",
     "parent": "ostvengr",
-    "children": []
+    "children": [],
+    "characters": [
+      "slayer",
+      "rampart",
+      "dredge"
+    ]
   },
   {
     "identifier": "kvarotz_valley",
@@ -79,6 +87,9 @@
     "description": "The land past the last of the reindeer herders, where the winter does not break and never has. Nothing is farmed here and nobody lives here except hardened wildlife, winter demons, and the sorcerer Koschei. What is known of it comes from the old epics, which are songs about heroes who went north and are not reliable about anything else.",
     "summary": "The land beyond the reindeer herders, where the winter never breaks and nothing lives but the winter demons and Koschei.",
     "parent": "world",
-    "children": []
+    "children": [],
+    "characters": [
+      "bogatyr"
+    ]
   }
 ]

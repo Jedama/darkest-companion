@@ -17,7 +17,10 @@
     "description": "The strip of ground between Chernozem and Ostvengr's mountains, and the only ground the two could ever fight over, since everything east of it is impassable. Generations of offensives have crossed it in both directions and neither side has held it for long. The soil is dark and enormously fertile, and nobody farms it. Chernozem took its name from this place rather than the other way round.",
     "summary": "The dark fertile frontier between Chernozem and Ostvengr, fought over for generations and farmed by nobody.",
     "parent": "chernozem",
-    "children": []
+    "children": [],
+    "characters": [
+      "commandant"
+    ]
   },
   {
     "identifier": "chernozem__podzola",
@@ -25,7 +28,10 @@
     "description": "Chernozem's northern half, named for its pale ash-grey soil. Winters are long and harsh, it grows little worth taking and, far from Chernozem's eternal war, it has been mostly ignored. The old songs are still sung here and the old rites still observed, and sects the Light's churches believe stamped out meet in cellars.",
     "summary": "Chernozem's poor-soiled northern half, too worthless to fight over, where old songs and older heresies survived the war years intact.",
     "parent": "chernozem",
-    "children": []
+    "children": [],
+    "characters": [
+      "comradewitch"
+    ]
   },
   {
     "identifier": "chernozem__far_north",
@@ -33,6 +39,9 @@
     "description": "Chernozem past the last of its forts, where the farms end and the country stops pretending to be governed. A few settlements sit on the rivers and the rest of the people follow the reindeer, paying their tribute in furs to a capital none of them has seen and otherwise going years without meeting anyone who could name them. The church reached this far only thinly, too weak to root out the old animist faiths or the sects that hide among them. The garrisons collect what they are owed and do not ask what is further north.",
     "summary": "The frontier beyond Chernozem's forts, where herders pay tribute in furs and the church holds too thinly to root out the old animist faiths.",
     "parent": "chernozem",
-    "children": []
+    "children": [],
+    "characters": [
+      "snor_rasp"
+    ]
   }
 ]

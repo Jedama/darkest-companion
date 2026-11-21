@@ -82,6 +82,9 @@
     "parent": "kingdom__living_city",
     "children": [
       "living_city__university_library"
+    ],
+    "characters": [
+      "plague_doctor"
     ]
   },
   {
@@ -101,6 +104,9 @@
     "children": [],
     "npcs": [
       "cataloguer"
+    ],
+    "characters": [
+      "curator"
     ]
   },
   {
@@ -167,7 +173,10 @@
     "description": "The palace's great feasting hall, long and high-roofed, with a minstrels' gallery at one end and tables enough to seat the whole court. The court was killed here at a feast, and though the floor has been scrubbed and the tables stripped, the hall has not been used since. Rumour blames the shadowy Uncrowned Order, so extra sconces and candelabra have been brought in, and each nightfall a servant who does not linger lights every one of them, until no shadow is left anywhere in the hall.",
     "summary": "The palace's disused feasting hall where the court was killed, lit against every shadow each night.",
     "parent": "living_city__palace",
-    "children": []
+    "children": [],
+    "characters": [
+      "jester"
+    ]
   },
   {
     "identifier": "living_city__palace_regents_office",
@@ -189,6 +198,9 @@
     "children": [],
     "npcs": [
       "patroness"
+    ],
+    "characters": [
+      "seraph"
     ]
   }
 ]

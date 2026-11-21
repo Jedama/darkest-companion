@@ -61,6 +61,9 @@
     "description": "A small farm pond ringed with reeds and shaded by a leaning willow, its bank trampled to mud where the sheep and goats come down to drink. A flock of ducks lives on it, and a boy from the farm sits on a flat stone at the water's edge to feed them. Beside the pond, a weathered soldier's banner still stands on its pole, bearing the Bastion.",
     "summary": "A small reed-ringed farm pond full of ducks, with an old soldier's banner standing beside it.",
     "parent": "kingdom__working_fields",
-    "children": []
+    "children": [],
+    "characters": [
+      "crusader"
+    ]
   }
 ]

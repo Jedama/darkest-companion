@@ -26,7 +26,10 @@
     "description": "A meeting of five roads on open ground, a day's ride from the Estate. Hired coachmen will not take the Old Road, so passengers are set down here to wait for the Caretaker. Cold fire-pits, a broken bench and abandoned luggage mark the waiting. The signpost at the centre carries five boards, one for each road, reading Guilt, Loathing, Failure, Regret and Disgrace. Travellers leave coins and small offerings at its base, as people still do at crossroads everywhere.",
     "summary": "A meeting of five roads where the Caretaker's coach collects those bound for the Estate; a place between places.",
     "parent": "kingdom",
-    "children": []
+    "children": [],
+    "characters": [
+      "bluesman_bet"
+    ]
   },
   {
     "identifier": "kingdom__reformatory",
@@ -60,6 +63,9 @@
     "description": "A hedge maze in the gardens of Stillbourne House, entered beneath an ornate stone arch, with dragons trimmed from the hedge standing guard at its turns. Flowers brought from abroad bloom along its walls. Only its outer paths are still open; the inner hedges have been left to grow together into a solid mass, sealing off its centre.",
     "summary": "A hedge maze of topiary dragons and exotic flowers, its centre sealed off by overgrown hedges.",
     "parent": "kingdom__stillbourne",
-    "children": []
+    "children": [],
+    "characters": [
+      "innoc"
+    ]
   }
 ]

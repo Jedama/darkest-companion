@@ -19,6 +19,9 @@
     "children": [
       "haeseong__bitgung",
       "haeseong__byeoltap"
+    ],
+    "characters": [
+      "meister"
     ]
   },
   {
@@ -43,6 +46,9 @@
     "description": "A warlord's fortress inland, black-walled and built into a pass, holding more soldiers than the capital and answering to the throne only in writing. Its lord takes in orphans from the villages he burns and raises them as his own officers, which has produced both the finest tacticians in Haenara and a great many quiet murders among them. The victory feasts here are famous, and are held in a hall with the doors barred from outside.",
     "summary": "A warlord's black-walled fortress in the mountain passes, where captured orphans are raised into officers.",
     "parent": "haenara",
-    "children": []
+    "children": [],
+    "characters": [
+      "sisters"
+    ]
   }
 ]
