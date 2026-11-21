@@ -134,9 +134,19 @@
   {
     "identifier": "living_city__catacombs",
     "title": "The Catacombs",
-    "description": "A maze of tombs and burial niches cut into the rock beneath the Living City, where the Kingdom lays to rest those it wants remembered: generals, poets and old families, generation upon generation, many sealed in with their arms and heirlooms. The deepest galleries were cut before the city was founded, and the names on their tombs have worn past reading. By old custom, mourners leave a pinch of salt at the threshold of every tomb, to keep the dead at rest.",
-    "summary": "The tombs beneath the Living City, where the Kingdom buries its honoured dead and mourners leave salt to keep them at rest.",
+    "description": "The passages beneath the city were cut through the rock long before anything stood above them, and they run further than anyone has walked. The city took the nearest of them for its dead. It faced their walls with dressed stone, lined the galleries with niches and tomb chests carved with sleeping effigies, and divided them with iron gates, all locked, their keys held by a single office. Mourners leave a pinch of salt at each tomb's threshold, to keep the dead at rest. Hooded stone guardians stand at the great arches. Beyond the last gates the passages are bricked up, and on the city's plans the catacombs end there.",
+    "summary": "The city's ancient burial galleries, walled, gated and locked off from the endless tunnels they were carved from.",
     "parent": "kingdom__living_city",
+    "children": [
+      "living_city__stoics_grave"
+    ]
+  },
+  {
+    "identifier": "living_city__stoics_grave",
+    "title": "The Stoic's Grave",
+    "description": "A small stone sepulchre rises in one of the city's deepest galleries, its pointed gable lit by a single shaft of light from somewhere far above. It has no door. Where the entrance should be, the statue of a hooded old warrior stands, bearded and grave-faced, holding a great broadsword upright against his chest. The Stoic was a devout fighter of great renown, declared a saint after his death. Generations of the faithful asked to be buried as near him as they could, and headstones and spired grave-posts crowd an iron railing around the sepulchre.",
+    "summary": "The sealed sepulchre of a warrior saint, its doorway filled by his statue, where the faithful once asked to be buried near him.",
+    "parent": "living_city__catacombs",
     "children": []
   },
   {
