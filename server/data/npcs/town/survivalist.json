@@ -1,19 +1,20 @@
 {
   "identifier": "survivalist",
   "title": "Survivalist",
-  "name": "Raven",
-  "description": "Dwelling in a makeshift camp at the Weald's edge, the Survivalist offers her hard-won knowledge to those who would venture beyond the hamlet's walls. Her understanding of both wilderness survival and the Estate's particular dangers makes her teachings invaluable, though her methods often seem as harsh as the land itself.",
-  "history": "When the horrors first emerged from the manor, the Survivalist did not flee but instead watched, learned, and adapted. She discovered which plants remained safe to eat when others turned poisonous, how to read the new patterns of corrupted wildlife, and where the land itself had become treacherous.",
-  "summary": "An observant and hardened Survivalist, dwelling reclusively at the Weald's edge, who offers invaluable, harsh knowledge of wilderness survival and the Estate's dangers.",
+  "name": "Tamsin",
+  "description": "The Survivalist is a quiet, weathered woman who keeps to her camp at the Weald's edge and teaches the heroes what she can of living out there. She would rather go with them, but she is the Estate's way out: if the Caretaker falls, she alone can lead survivors down the Old Road or carry word beyond it. So she stays behind while the parties go in, and it pains her. When one doesn't come back, she goes into the Weald to look for them.",
+  "history": "The Survivalist was born on a farm, long after her brothers. With no one to play with she spent her days in the woods, among fairies she imagined into the trees. At seven she wandered too far and was lost for five days, starving, while everyone she knew searched for her. When an Outrider at last found her, she found her calling. She joined the Union as soon as it would take her, and has spent her life on its trails. When the reports from the Estate grew too many to ignore, and even the coachmen refused to drive there, the Union stationed her at the Hamlet.",
+  "summary": "A quiet Survivalist stationed at the Weald's edge, who teaches the heroes to survive out there and would rather go with them.",
   "race": "Human",
   "gender": "Female",
   "culture": "Crownlander",
   "traits": [
     "Observant",
     "Hardened",
-    "Territorial",
     "Pragmatic",
-    "Reclusive"
+    "Dutiful",
+    "Solitary",
+    "Dreamy"
   ],
   "appearance": {
     "height": "Average",
@@ -26,11 +27,11 @@
   "clothing": {
     "head": "Tattered hood",
     "body": "Layered leathers",
-    "legs": "Reinforced traveling clothes",
-    "accessories": "Trophy necklace of monster teeth"
+    "legs": "Reinforced travelling clothes",
+    "accessories": "The Union's leaf brooch, pinned inside her hood"
   },
   "notes": [
-    "Maintains careful maps of safe paths through the Weald",
-    "Often shadows expedition parties, observing their fates"
+    "Sometimes loses her train of thought mid-sentence and simply leaves it unfinished",
+    "Can make a decent stew out of anything"
   ]
 }

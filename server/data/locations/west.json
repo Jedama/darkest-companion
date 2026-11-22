@@ -134,7 +134,10 @@
     "summary": "A sturdy leather pavilion at the settlement's western edge, used for strategic planning with monster-bone weighted maps.",
     "parent": "west_district",
     "children": [],
-    "capacity": 3
+    "capacity": 3,
+    "npcs": [
+      "survivalist"
+    ]
   },
   {
     "identifier": "weald_edge",
