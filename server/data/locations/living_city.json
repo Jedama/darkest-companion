@@ -139,6 +139,9 @@
     "parent": "kingdom__living_city",
     "children": [
       "living_city__stoics_grave"
+    ],
+    "npcs": [
+      "bagman"
     ]
   },
   {
