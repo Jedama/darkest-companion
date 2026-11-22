@@ -1,0 +1,37 @@
+{
+  "identifier": "pourfendeur",
+  "title": "Pourfendeur",
+  "name": "Gaspard",
+  "description": "The Pourfendeur is proud and entirely unrepentant. He respected the Dragon, and believes only that the old man's judgement had failed him at the end, which a fair, sanctioned bout proved. Many of the academy's masters have not forgiven him, though his own could not be prouder of him, and none of them can deny that he is the best blade in the hall.",
+  "history": "The Pourfendeur was the finest student at the Juste Mesure, and expected the master called the Dragon to choose him as heir. When the Dragon chose a weaker student instead, the deuxième, its second master, took him, and has favoured him ever since. When the Dragon's heir faltered at a tournament, he challenged her for the honour. The Dragon refused on her behalf and took the challenge himself, and the Pourfendeur killed him on the academy floor in a sanctioned bout. The Dragon's heir fled, and he has been the school's finest blade since. The academy named him for what he did, and he wears the name with immense pride.",
+  "summary": "A proud and unrepentant Pourfendeur, the academy's finest blade, named for killing its greatest master in a sanctioned bout.",
+  "race": "Human",
+  "gender": "Male",
+  "culture": "Craien",
+  "traits": [
+    "Proud",
+    "Self-assured",
+    "Eloquent",
+    "Ruthless",
+    "Devoted"
+  ],
+  "appearance": {
+    "height": "Tall",
+    "build": "Lean",
+    "skinTone": "Fair",
+    "hairColor": "Dark",
+    "hairStyle": "Tied back",
+    "features": "A fine-boned, composed face, and a thin scar on one cheek"
+  },
+  "clothing": {
+    "head": "None",
+    "body": "Fitted academy jacket in his master's colours",
+    "legs": "Fencing breeches and tall boots",
+    "accessories": "A plain, well-worn épée at his hip, gloves"
+  },
+  "notes": [
+    "Eloquent about the sword, and better than most masters at putting his own technique and thinking into words for his students",
+    "Writes poetry, quietly and well, the way other men keep a journal",
+    "Writes to his mother every week, and hers is the only opinion of him he has ever worried about"
+  ]
+}

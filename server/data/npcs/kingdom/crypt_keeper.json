@@ -1,0 +1,37 @@
+{
+  "identifier": "crypt_keeper",
+  "title": "Crypt Keeper",
+  "name": "Piers",
+  "description": "The Crypt Keeper is a gentle, odd man who keeps to himself below the city, coming up only now and then for food and lamp oil. He is faithful to whatever is left in his care, the dead and his one friend alike. Money means little to him, and his share of the smuggling is more than he needs. So he spends it on the daughters of the Bagman, a gambler who seldom goes home. The girls have never met him, and know him only by the gifts he sends, each with a letter from a friend of their father's who thinks of them.",
+  "history": "The Crypt Keeper was born an albino, and all his life daylight burned him and people kept their distance. He took the keeper's post for the dark, which was a relief, and for the dead, who did not stare. With little else to fill his days, he took to exploring the tunnels beyond the catacombs' last gates, simply for the pleasure of it. When the Bagman, a carrier of the dead, became the first person in years to treat him as a friend, he gladly showed him where he had been. The smuggling grew from there. He knows the ways, and his friend sees to everything else.",
+  "summary": "A gentle, reclusive Crypt Keeper, an albino who keeps the catacombs' keys and knows the tunnels beyond them better than anyone alive.",
+  "race": "Human",
+  "gender": "Male",
+  "culture": "Crownlander",
+  "traits": [
+    "Gentle",
+    "Reclusive",
+    "Loyal",
+    "Generous",
+    "Naive"
+  ],
+  "appearance": {
+    "height": "Tall",
+    "build": "Gaunt",
+    "skinTone": "Albino-white",
+    "hairColor": "White",
+    "hairStyle": "Lank, collar-length",
+    "features": "Pale, pink-rimmed eyes that squint in any strong light"
+  },
+  "clothing": {
+    "head": "None",
+    "body": "Long black coat over a striped waistcoat",
+    "legs": "Dark trousers and boots",
+    "accessories": "Gloves, a heavy ring of old keys at his belt, a lantern on a long chain"
+  },
+  "notes": [
+    "His everyday speech is full of epitaph phrasing, picked up from a lifetime of reading gravestones",
+    "Keeps a pale cave salamander as a pet",
+    "Knows the dead in his care by name, and tends the graves nobody visits"
+  ]
+}

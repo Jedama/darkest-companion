@@ -46,7 +46,10 @@
     "summary": "A peculiar, high-wheeled carriage used by a fortune-teller, known for its dark cloth, painted eye, and occasional blinding radiance.",
     "parent": "clearing",
     "children": [],
-    "capacity": 1
+    "capacity": 1,
+    "characters": [
+      "omenseeker"
+    ]
   },
   {
     "identifier": "carpenter",
@@ -450,6 +453,9 @@
     ],
     "npcs": [
       "circus_twins"
+    ],
+    "characters": [
+      "ringmaster"
     ]
   },
   {

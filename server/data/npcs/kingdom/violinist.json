@@ -1,0 +1,37 @@
+{
+  "identifier": "violinist",
+  "title": "Violinist",
+  "name": "Abel",
+  "description": "The Violinist is a threadbare old fiddler who wanders without aim, and someone you would rather not stumble across. He can't bear other people's music, because it drowns out the song that plays in his head without end. Most who meet him see only a harmless old man with a fiddle. Those who play too loud near him seldom get to finish.",
+  "history": "The Violinist was a failing street musician, travelling on foot with a small band, when they made camp at the Crossroads with nothing to leave there. That night he dreamed a devilish creature took his violin and played a tune no living hand was meant to play. He woke and played it to the band. When it was over they lay dead with their throats cut and his bow was wet with their blood, and all he felt was the bliss of the silence, and the song swelling in it. It has never left his head since. Few who hear it live. Once, he played it to silence the Jester, a fool playing loudly among the graves, who, to his astonishment, played along.",
+  "summary": "A threadbare, wandering Violinist with a devil's tune in his head, who cannot bear anyone else's music.",
+  "race": "Human",
+  "gender": "Male",
+  "culture": "Crownlander",
+  "traits": [
+    "Aimless",
+    "Obsessive",
+    "Detached",
+    "Murderous",
+    "Uncanny"
+  ],
+  "appearance": {
+    "height": "Average",
+    "build": "Gaunt",
+    "skinTone": "Grey-pale",
+    "hairColor": "Grey",
+    "hairStyle": "Wispy, under his hat",
+    "features": "Ragged grey beard, round spectacles that hide his eyes"
+  },
+  "clothing": {
+    "head": "Battered hat with a wilted flower in its band",
+    "body": "Ragged coat over a waistcoat",
+    "legs": "Worn trousers and old boots",
+    "accessories": "Neckerchief, a small drum at his hip, his violin and bow"
+  },
+  "notes": [
+    "Turns up where no one saw him arrive",
+    "Wherever he stops, the birds fall silent",
+    "The flower in his hat is always wilted, and never quite dead"
+  ]
+}

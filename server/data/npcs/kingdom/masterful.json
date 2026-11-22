@@ -1,0 +1,38 @@
+{
+  "identifier": "masterful",
+  "title": "Masterful",
+  "name": "Kinred",
+  "description": "The Masterful has not let go of his ruler since the whip was taken from him, and the boys in his front rows sit within its reach. Every stroke, he tells himself, brings them closer to the Light, as the scourge brought him. But he sees them scream and cry and turn further from it, and he can no longer tell whether he strikes out of faith or for the pleasure of it. Some days he regrets it. The next, he enjoys it more than ever.",
+  "history": "The Masterful grew up in a devout household where the scourge hung by the hearth, and he learned early that pain brought him nearer the Light. A scholarship took him to a renowned school in the capital, a poor boy among richer ones, and the masters' whips taught him the same lesson there, so he excelled. He never wanted to leave. He rose from pupil to master, and at last to the Masterful, the head of its discipline, to give other boys what had been given to him. When the school forbade the whip, it felt like being forbidden to teach.",
+  "summary": "A devout, timid and cruel Masterful, his school's head disciplinarian, who can no longer tell his faith from his pleasure in striking.",
+  "race": "Human",
+  "gender": "Male",
+  "culture": "Crownlander",
+  "traits": [
+    "Devout",
+    "Cruel",
+    "Timid",
+    "Exacting",
+    "Dedicated",
+    "Self-deceiving"
+  ],
+  "appearance": {
+    "height": "Tall",
+    "build": "Lean and long-armed, slightly stooped",
+    "skinTone": "Pale",
+    "hairColor": "Greying black",
+    "hairStyle": "Close-cropped",
+    "features": "Scourge scars across his back"
+  },
+  "clothing": {
+    "head": "None",
+    "body": "Black master's gown over a plain shirt",
+    "legs": "Brown trousers and polished shoes",
+    "accessories": "A ruler, always in his right hand"
+  },
+  "notes": [
+    "Unhurried and commanding before a class, but halting, overly polite and stammering with adults, and eager to get away from them",
+    "Sings tenor in his ward church choir and is its finest voice",
+    "Has been writing a grammar of Liturgic for years"
+  ]
+}

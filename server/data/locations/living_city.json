@@ -15,6 +15,9 @@
       "living_city__barracks",
       "living_city__palace",
       "living_city__cathedral"
+    ],
+    "npcs": [
+      "masterful"
     ]
   },
   {
@@ -82,6 +85,9 @@
     "parent": "kingdom__living_city",
     "children": [
       "living_city__university_library"
+    ],
+    "characters": [
+      "plague_doctor"
     ]
   },
   {
@@ -101,6 +107,9 @@
     "children": [],
     "npcs": [
       "cataloguer"
+    ],
+    "characters": [
+      "curator"
     ]
   },
   {
@@ -125,9 +134,23 @@
   {
     "identifier": "living_city__catacombs",
     "title": "The Catacombs",
-    "description": "A maze of tombs and burial niches cut into the rock beneath the Living City, where the Kingdom lays to rest those it wants remembered: generals, poets and old families, generation upon generation, many sealed in with their arms and heirlooms. The deepest galleries were cut before the city was founded, and the names on their tombs have worn past reading. By old custom, mourners leave a pinch of salt at the threshold of every tomb, to keep the dead at rest.",
-    "summary": "The tombs beneath the Living City, where the Kingdom buries its honoured dead and mourners leave salt to keep them at rest.",
+    "description": "The passages beneath the city were cut through the rock long before anything stood above them, and they run further than anyone has walked. The Living City took the nearest of them for its dead. It faced their walls with dressed stone, lined the galleries with niches and tomb chests carved with sleeping effigies, and divided them with iron gates. Mourners leave a pinch of salt at each tomb's threshold, to keep the dead at rest. Hooded stone guardians stand at the great arches. Beyond the last gates the passages are bricked up, and on the city's plans the catacombs end there.",
+    "summary": "The city's ancient burial galleries, walled, gated and locked off from the endless tunnels they were carved from.",
     "parent": "kingdom__living_city",
+    "children": [
+      "living_city__stoics_grave"
+    ],
+    "npcs": [
+      "bagman",
+      "crypt_keeper"
+    ]
+  },
+  {
+    "identifier": "living_city__stoics_grave",
+    "title": "The Stoic's Grave",
+    "description": "A small stone sepulchre rises in one of the city's deepest galleries, its pointed gable lit by a single shaft of light from somewhere far above. It has no door. Where the entrance should be stands the statue of the Stoic, a hooded saint, bearded and grave-faced, holding a great broadsword upright against his chest. Generations of the faithful asked to be buried as near him as they could, and headstones and spired grave-posts crowd an iron railing around the sepulchre.",
+    "summary": "The sealed sepulchre of a warrior saint, its doorway filled by his statue, where the faithful once asked to be buried near him.",
+    "parent": "living_city__catacombs",
     "children": []
   },
   {
@@ -167,7 +190,10 @@
     "description": "The palace's great feasting hall, long and high-roofed, with a minstrels' gallery at one end and tables enough to seat the whole court. The court was killed here at a feast, and though the floor has been scrubbed and the tables stripped, the hall has not been used since. Rumour blames the shadowy Uncrowned Order, so extra sconces and candelabra have been brought in, and each nightfall a servant who does not linger lights every one of them, until no shadow is left anywhere in the hall.",
     "summary": "The palace's disused feasting hall where the court was killed, lit against every shadow each night.",
     "parent": "living_city__palace",
-    "children": []
+    "children": [],
+    "characters": [
+      "jester"
+    ]
   },
   {
     "identifier": "living_city__palace_regents_office",
@@ -183,12 +209,15 @@
   {
     "identifier": "living_city__cathedral",
     "title": "The Cathedral",
-    "description": "The great cathedral of the Light, its spire the tallest point in the Living City. Its west front is crowded with carved saints, and above its doors a great rose window holds the Aureole in coloured glass. Since her branch of the faith won the schism, the Seraph has joined the saints inside: a new statue of a woman wreathed in flame stands in the nave, and in a side chapel a charred length of timber from her stake is kept as a relic.",
+    "description": "The great cathedral of the Light, its spire the tallest point in the Living City. Its west front is crowded with carved saints, and above its doors a great rose window holds the Aureole in coloured glass. Since her branch of the faith won the schism, the Seraph has joined the saints inside: a new statue of a woman wreathed in flame stands in the nave beside St. Martha, patron of penitents, and in a side chapel a charred length of timber from her stake is kept as a relic.",
     "summary": "The Living City's great cathedral of the Light, where the Seraph's statue and the relic of her stake now stand among the saints.",
     "parent": "kingdom__living_city",
     "children": [],
     "npcs": [
       "patroness"
+    ],
+    "characters": [
+      "seraph"
     ]
   }
 ]

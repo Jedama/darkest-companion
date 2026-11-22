@@ -286,6 +286,7 @@ export interface LocationData {
   restored?: string; // description when location is restored
   capacity?: number; // max number of characters that can reside here
   npcs?: string[]; // array of NPC identifiers connected to this location
+  characters?: string[]; // hero identifiers whose own story is set here (one location per story, at the level where it lives)
   parent: string; // parent location identifier
   children: string[]; // child location identifiers
 }

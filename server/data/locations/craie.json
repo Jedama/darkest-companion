@@ -29,7 +29,10 @@
     "description": "A stone hospice at the top of a high pass, kept by a brotherhood that shelters travellers and digs the lost out of the snow with great shaggy mountain dogs. Its infirmary treats frostbite and fever with herbs, minerals and the old remedies of the mountain shepherds. Masterless soldiers burned it after Ostvengr's fall, and the brothers are rebuilding it with their own hands, new timber rising on the blackened walls.",
     "summary": "A hospice on a high pass whose brothers and great dogs dig travellers out of the snow, rebuilding since soldiers burned it.",
     "parent": "craie__elurmendi",
-    "children": []
+    "children": [],
+    "characters": [
+      "rescuer"
+    ]
   },
   {
     "identifier": "elurmendi__goiko_santutegia",
@@ -37,7 +40,10 @@
     "description": "A monastery of dark stone high above the passes, where an order of ascetics lives in near-silence and has little to do with the world below. Its brothers keep a hard rule of fixed hours: up before dawn, prostrations through the day, no food after dark. They hunt the peaks' wolves for their pelts, and mark themselves in blue ink as their years of discipline accumulate. Most who climb to it come to answer for something, and few come down again.",
     "summary": "A silent monastery high in the peaks, whose wolf-pelted, tattooed brothers keep a hard rule, and where men go to answer for something.",
     "parent": "craie__elurmendi",
-    "children": []
+    "children": [],
+    "characters": [
+      "monk"
+    ]
   },
   {
     "identifier": "craie__juste_mesure",
@@ -45,7 +51,13 @@
     "description": "L'Académie de la Juste Mesure, one of Craie's old schools of the sword, its long hall marked out in chalked pistes and hung with the colours of its masters. The war thinned its patrons and students, but several dozen still train under a handful of masters, each of whom chooses an heir to carry their forms. The master called the Dragon was killed on its floor in a sanctioned bout, and with his chosen heir sent away, the rival who killed him, now known as le Pourfendeur, is unquestionably the school's finest blade.",
     "summary": "One of Craie's last great fencing academies, a long hall of chalked pistes hung with the colours of its masters.",
     "parent": "craie",
-    "children": []
+    "children": [],
+    "npcs": [
+      "pourfendeur"
+    ],
+    "characters": [
+      "dragons_duelist"
+    ]
   },
   {
     "identifier": "craie__salubrite",
@@ -53,7 +65,10 @@
     "description": "The guildhouse of the Compagnie de Salubrité, which has fought disease and infestation for generations, standing on the quays of a Craien river port. Its offices sort the letters that bring it contracts from across the world, and its archive holds generations of outbreaks charted street by street. Its men go out in yellow coats, and in Craie a town knows what their arrival means. On an island in the river stands the Company's lazaretto, where the sick and the suspected wait out their quarantine.",
     "summary": "The riverside guildhouse of Craie's yellow-coated sanitation company, with its own quarantine island in the river.",
     "parent": "craie",
-    "children": []
+    "children": [],
+    "characters": [
+      "exterminator"
+    ]
   },
   {
     "identifier": "craie__universite",
@@ -61,6 +76,10 @@
     "description": "Craie's great university, whose faculty of medicine is the most renowned in the world and draws students from every country that can afford to send them. It keeps anatomy theatres, a physic garden of medicinal plants and chairs in pharmacology, and is one of the few universities anywhere to let bird-folk hold them. Craie's army was never the strongest in the war, but the university's surgeons and physicians kept more of it alive than any other.",
     "summary": "Craie's great university, the world's leading school of medicine, and one of the few where bird-folk hold chairs.",
     "parent": "craie",
-    "children": []
+    "children": [],
+    "characters": [
+      "prefect",
+      "rescuer"
+    ]
   }
 ]

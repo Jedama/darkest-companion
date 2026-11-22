@@ -28,6 +28,9 @@
     "children": [
       "kafarel__lazar_house",
       "kafarel__divan"
+    ],
+    "characters": [
+      "leper"
     ]
   },
   {
@@ -52,6 +55,9 @@
     "description": "An old tent of patched and mismatched canvas, pitched alone among the dunes at the Vizierate's far eastern end. It was made to travel, but has not moved in years. Snakes come and go as they please, knowing it as a place of shelter and food, and the sand around it is crossed with their tracks. Every dawn, a flute plays inside.",
     "summary": "A patched tent alone in the eastern dunes, home to an old snake charmer and the snakes he feeds.",
     "parent": "levantine",
-    "children": []
+    "children": [],
+    "characters": [
+      "snake_charmer"
+    ]
   }
 ]

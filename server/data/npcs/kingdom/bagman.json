@@ -1,0 +1,37 @@
+{
+  "identifier": "bagman",
+  "title": "Bagman",
+  "name": "Hob",
+  "description": "The Bagman comes up out of the catacombs each night and goes straight to the gambling dens, sleeping at home only if it lies on the way. He is a true friend to the Crypt Keeper, and calls their split an even one, though he keeps nine parts in ten and robs graves when his friend isn't looking. It troubles him no more than his losses do. The tunnels always give him more.",
+  "history": "The Bagman was a merchant's son with a sound head for trade, and he might have done well at it had he not gambled away the business and everything else he owned. Carrying the dead down into the catacombs was the only work left that would have him. There he befriended the Crypt Keeper, keeper of the catacombs' gates, an odd man most people avoided, who was glad of anyone to show his tunnels to. When the Bagman saw how far they ran, past the walls and beneath the bridge with its tolls and inspectors, he saw what they were worth. He is now well known in the city's underworld as the man who can move anything, or anyone, out unseen.",
+  "summary": "A big, genial Bagman, who carries the dead into the catacombs and anything else out of them, and gambles away every coin.",
+  "race": "Human",
+  "gender": "Male",
+  "culture": "Crownlander",
+  "traits": [
+    "Affable",
+    "Shrewd",
+    "Reckless",
+    "Deceitful",
+    "Self-indulgent"
+  ],
+  "appearance": {
+    "height": "Tall",
+    "build": "Broad and heavily muscled",
+    "skinTone": "Ruddy",
+    "hairColor": "Brown",
+    "hairStyle": "Shaggy, under his hood",
+    "features": "Thick beard, heavy brow"
+  },
+  "clothing": {
+    "head": "Rough brown hood",
+    "body": "Belted, patched tunic",
+    "legs": "Dark hose and worn boots",
+    "accessories": "Wrist wraps, a broad strap across the chest, a large corpse-sack"
+  },
+  "notes": [
+    "Smells of the crypt under cheap scent, though nobody complains, since he buys the rounds",
+    "Brags constantly about his daughters, though he rarely sees them",
+    "A ruthless bargainer who squeezes clients to the last coin, then wastes it senselessly"
+  ]
+}

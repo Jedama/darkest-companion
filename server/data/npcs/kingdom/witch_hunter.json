@@ -1,0 +1,37 @@
+{
+  "identifier": "witch_hunter",
+  "title": "Witch Hunter",
+  "name": "Mathis",
+  "description": "The Witch Hunter is still good at his trade, though his name is ruined and he doesn't speak of the past. He cannot decide what happened at the stake. Either he tried to burn a saint and heaven itself stopped him, or he and his beloved were right all along, and the Seraph serves something other than the Light. He desperately wants it to be the second, but cannot quite convince himself of it.",
+  "history": "The Witch Hunter was devout and sure of his work when he fell hopelessly in love with a timid pilgrim, who saw witchcraft everywhere and lived in terror of it. For her sake he hunted the Seraph, a peasant girl at the centre of a schism in the church, caught her and put her to the stake. As she burned, a light came down and raised her out of the fire, and the crowd fell to its knees. The pilgrim left him soon after, without a word. The girl's followers won the schism, and the Light has wanted nothing to do with him since. He has given up the pyre for silver spikes, and works for whoever will hire him, following every contract in the hope that it leads to her.",
+  "summary": "A disgraced Witch Hunter who once burned the Seraph, hunting for hire now and searching for the pilgrim who left him.",
+  "race": "Human",
+  "gender": "Male",
+  "culture": "Crownlander",
+  "traits": [
+    "Devout",
+    "Relentless",
+    "Doubting",
+    "Lovesick",
+    "Guarded"
+  ],
+  "appearance": {
+    "height": "Tall",
+    "build": "Heavy-set",
+    "skinTone": "Weathered fair",
+    "hairColor": "Dark",
+    "hairStyle": "Unkempt, under his hat",
+    "features": "Heavy dark beard, deep-set eyes in the shadow of his hat brim"
+  },
+  "clothing": {
+    "head": "Broad-brimmed black hat",
+    "body": "Long dark coat",
+    "legs": "Dark breeches and riding boots",
+    "accessories": "Silver spikes at his belt, a satchel of drawings"
+  },
+  "notes": [
+    "Talks in the jargon of the hunt, and falls back on Liturgic, in which he is fluent, whenever he wants to sound more like a man of the church",
+    "Draws a likeness of everyone he hunts, and draws it well",
+    "Draws the pilgrim from memory, and each drawing looks less like her; he has begun to wonder whether she was sickly, or why else he keeps giving her greenish skin"
+  ]
+}
