@@ -52,6 +52,9 @@
     "summary": "One of Craie's last great fencing academies, a long hall of chalked pistes hung with the colours of its masters.",
     "parent": "craie",
     "children": [],
+    "npcs": [
+      "pourfendeur"
+    ],
     "characters": [
       "dragons_duelist"
     ]
