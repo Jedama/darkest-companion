@@ -141,7 +141,8 @@
       "living_city__stoics_grave"
     ],
     "npcs": [
-      "bagman"
+      "bagman",
+      "crypt_keeper"
     ]
   },
   {
