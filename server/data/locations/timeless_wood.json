@@ -8,7 +8,9 @@
     "children": [
       "timeless_wood__generals_keep",
       "timeless_wood__outriders_lodge",
-      "timeless_wood__cold_spring_glen"
+      "timeless_wood__cold_spring_glen",
+      "timeless_wood__doomed_town",
+      "timeless_wood__asylum"
     ]
   },
   {
@@ -40,6 +42,22 @@
     "title": "Cold Spring Glen",
     "description": "A narrow wooded valley climbing toward the high country, where a spring rises from the rock at its head, cold enough to ache the teeth. A small village of woodcutters and trappers lines the stream below it, the last settlement on the road north, and its single inn does a steady trade with the soldiers garrisoned further down. On a platform above the village hang great war horns, kept through the long wars with Ostvengr to warn the keeps below should an army ever come over the Mountain's shoulder.",
     "summary": "A narrow wooded valley below the high country, home to the last village on the road north and its war horns.",
+    "parent": "kingdom__timeless_wood",
+    "children": []
+  },
+  {
+    "identifier": "timeless_wood__doomed_town",
+    "title": "The Doomed Town",
+    "description": "A market town at the forest's edge, at the foot of the asylum hill, that lived by sending up its bread, linen and attendants. In a single day every soul in it lost their mind, and was carried up the hill to the asylum. Its doors stand open, its meals still sit on the tables and its washing hangs on the lines, and nobody has come back to it.",
+    "summary": "An emptied market town below the asylum hill, whose every soul went mad in a single day.",
+    "parent": "kingdom__timeless_wood",
+    "children": []
+  },
+  {
+    "identifier": "timeless_wood__asylum",
+    "title": "The Asylum",
+    "description": "A great old asylum stands alone on a bare hill rising out of the forest, with a single road winding up to its gate. A spired tower rises over the gatehouse, and long wings run out on either side, arcaded along the ground floor and pierced above by rows of small barred windows, one to each cell. When the cells ran out, the town below was laid on cots along the corridors. The handful of remaining attendants sent to the Living City for help, but it did not arrive before the inmates broke loose. Now the gate stands open, the cots are empty, and the corridors are silent.",
+    "summary": "A great old asylum on a bare hill in the forest, overrun and then abandoned when its inmates broke out.",
     "parent": "kingdom__timeless_wood",
     "children": []
   }
